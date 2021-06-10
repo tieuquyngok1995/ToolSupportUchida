@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>computer.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,11 +55,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Theme\ThemeColor.cs" />
-    <Compile Include="View\FormConvert.cs">
+    <Compile Include="View\FormCheckDataModel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormConvert.Designer.cs">
-      <DependentUpon>FormConvert.cs</DependentUpon>
+    <Compile Include="View\FormCheckDataModel.Designer.cs">
+      <DependentUpon>FormCheckDataModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormConvertDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConvertDatabase.Designer.cs">
+      <DependentUpon>FormConvertDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormConvertModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConvertModel.Designer.cs">
+      <DependentUpon>FormConvertModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCreateAdapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCreateAdapter.Designer.cs">
+      <DependentUpon>FormCreateAdapter.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
@@ -71,8 +92,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormConvert.resx">
-      <DependentUpon>FormConvert.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormConvertDatabase.resx">
+      <DependentUpon>FormConvertDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -95,8 +116,14 @@
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cancel.png" />
-    <Content Include="Resources\file.png" />
+    <Content Include="Resources\check-data-model.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\computer.ico" />
+    <None Include="Resources\logo-tool.png" />
+    <None Include="Resources\convert-adapter.png" />
+    <Content Include="Resources\convert-model.png" />
+    <Content Include="computer.ico" />
+    <None Include="Resources\convert-database.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

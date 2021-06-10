@@ -11,9 +11,9 @@ using ToolSupportUchida.Theme;
 
 namespace ToolSupportUchida.View
 {
-    public partial class FormConvert : Form
+    public partial class FormConvertDatabase : Form
     {
-        public FormConvert()
+        public FormConvertDatabase()
         {
             InitializeComponent();
         }

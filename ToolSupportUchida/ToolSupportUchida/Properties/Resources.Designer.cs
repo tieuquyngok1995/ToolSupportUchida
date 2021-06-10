@@ -63,9 +63,9 @@ namespace ToolSupportUchida.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cancel {
+        internal static System.Drawing.Bitmap check_data_model {
             get {
-                object obj = ResourceManager.GetObject("cancel", resourceCulture);
+                object obj = ResourceManager.GetObject("check-data-model", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,49 @@ namespace ToolSupportUchida.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap file {
+        internal static System.Drawing.Bitmap close {
             get {
-                object obj = ResourceManager.GetObject("file", resourceCulture);
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap convert_adapter {
+            get {
+                object obj = ResourceManager.GetObject("convert-adapter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap convert_database {
+            get {
+                object obj = ResourceManager.GetObject("convert-database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap convert_model {
+            get {
+                object obj = ResourceManager.GetObject("convert-model", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_tool {
+            get {
+                object obj = ResourceManager.GetObject("logo-tool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

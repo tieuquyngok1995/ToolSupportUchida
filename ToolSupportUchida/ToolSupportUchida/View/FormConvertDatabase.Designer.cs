@@ -1,7 +1,7 @@
 ﻿
 namespace ToolSupportUchida.View
 {
-    partial class FormConvert
+    partial class FormConvertDatabase
     {
         /// <summary>
         /// Required designer variable.
