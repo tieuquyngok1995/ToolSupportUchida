@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\BinarySerialization.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +96,9 @@
     <EmbeddedResource Include="View\FormConvertDatabase.resx">
       <DependentUpon>FormConvertDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCreateAdapter.resx">
+      <DependentUpon>FormCreateAdapter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,7 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
