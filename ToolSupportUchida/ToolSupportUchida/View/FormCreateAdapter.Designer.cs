@@ -30,99 +30,365 @@ namespace ToolSupportUchida.View
         private void InitializeComponent()
         {
             this.panelTextJapan = new System.Windows.Forms.Panel();
-            this.panelTextEng = new System.Windows.Forms.Panel();
-            this.panelEvent = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblNumType = new System.Windows.Forms.Label();
+            this.txtType = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblNumPhy = new System.Windows.Forms.Label();
+            this.txtPhysi = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumLogic = new System.Windows.Forms.Label();
+            this.txtLogic = new System.Windows.Forms.RichTextBox();
+            this.panelTextEng = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbRow = new System.Windows.Forms.ComboBox();
+            this.panelSetting = new System.Windows.Forms.Panel();
+            this.groupBoxSetting = new System.Windows.Forms.GroupBox();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnCreateOut = new System.Windows.Forms.Button();
+            this.btnCreateIn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbSubColumn = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbSubRow = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbColumn = new System.Windows.Forms.ComboBox();
             this.panelTextJapan.SuspendLayout();
-            this.panelTextEng.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panelTextEng.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panelSetting.SuspendLayout();
+            this.groupBoxSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTextJapan
             // 
+            this.panelTextJapan.Controls.Add(this.groupBox4);
+            this.panelTextJapan.Controls.Add(this.groupBox3);
             this.panelTextJapan.Controls.Add(this.groupBox1);
             this.panelTextJapan.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTextJapan.Location = new System.Drawing.Point(0, 0);
             this.panelTextJapan.Name = "panelTextJapan";
-            this.panelTextJapan.Size = new System.Drawing.Size(250, 420);
+            this.panelTextJapan.Size = new System.Drawing.Size(414, 405);
             this.panelTextJapan.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblNumType);
+            this.groupBox4.Controls.Add(this.txtType);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(281, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(130, 394);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Type";
+            // 
+            // lblNumType
+            // 
+            this.lblNumType.AutoSize = true;
+            this.lblNumType.Location = new System.Drawing.Point(3, 364);
+            this.lblNumType.Name = "lblNumType";
+            this.lblNumType.Size = new System.Drawing.Size(91, 17);
+            this.lblNumType.TabIndex = 2;
+            this.lblNumType.Text = "Line number:";
+            this.lblNumType.Visible = false;
+            // 
+            // txtType
+            // 
+            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtType.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtType.Location = new System.Drawing.Point(3, 19);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(124, 341);
+            this.txtType.TabIndex = 0;
+            this.txtType.Text = "";
+            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblNumPhy);
+            this.groupBox3.Controls.Add(this.txtPhysi);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(145, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(130, 394);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Physical Name";
+            // 
+            // lblNumPhy
+            // 
+            this.lblNumPhy.AutoSize = true;
+            this.lblNumPhy.Location = new System.Drawing.Point(4, 364);
+            this.lblNumPhy.Name = "lblNumPhy";
+            this.lblNumPhy.Size = new System.Drawing.Size(91, 17);
+            this.lblNumPhy.TabIndex = 2;
+            this.lblNumPhy.Text = "Line number:";
+            this.lblNumPhy.Visible = false;
+            // 
+            // txtPhysi
+            // 
+            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPhysi.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysi.Name = "txtPhysi";
+            this.txtPhysi.Size = new System.Drawing.Size(124, 341);
+            this.txtPhysi.TabIndex = 0;
+            this.txtPhysi.Text = "";
+            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblNumLogic);
+            this.groupBox1.Controls.Add(this.txtLogic);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(9, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(130, 394);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Logical Name";
+            // 
+            // lblNumLogic
+            // 
+            this.lblNumLogic.AutoSize = true;
+            this.lblNumLogic.Location = new System.Drawing.Point(6, 363);
+            this.lblNumLogic.Name = "lblNumLogic";
+            this.lblNumLogic.Size = new System.Drawing.Size(91, 17);
+            this.lblNumLogic.TabIndex = 1;
+            this.lblNumLogic.Text = "Line number:";
+            this.lblNumLogic.Visible = false;
+            // 
+            // txtLogic
+            // 
+            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLogic.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtLogic.Name = "txtLogic";
+            this.txtLogic.Size = new System.Drawing.Size(124, 341);
+            this.txtLogic.TabIndex = 0;
+            this.txtLogic.Text = "";
+            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
             // 
             // panelTextEng
             // 
             this.panelTextEng.Controls.Add(this.groupBox2);
             this.panelTextEng.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelTextEng.Location = new System.Drawing.Point(314, 0);
+            this.panelTextEng.Location = new System.Drawing.Point(532, 0);
             this.panelTextEng.Name = "panelTextEng";
-            this.panelTextEng.Size = new System.Drawing.Size(250, 420);
+            this.panelTextEng.Size = new System.Drawing.Size(172, 405);
             this.panelTextEng.TabIndex = 1;
-            // 
-            // panelEvent
-            // 
-            this.panelEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEvent.Location = new System.Drawing.Point(250, 0);
-            this.panelEvent.Name = "panelEvent";
-            this.panelEvent.Size = new System.Drawing.Size(64, 420);
-            this.panelEvent.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(241, 405);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Input Japan";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.richTextBox2);
+            this.groupBox2.Controls.Add(this.lblResult);
+            this.groupBox2.Controls.Add(this.txtResult);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 3);
+            this.groupBox2.Location = new System.Drawing.Point(3, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(241, 405);
+            this.groupBox2.Size = new System.Drawing.Size(160, 393);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Result";
             // 
-            // richTextBox1
+            // txtResult
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 27);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(229, 372);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(154, 338);
+            this.txtResult.TabIndex = 1;
+            this.txtResult.Text = "";
             // 
-            // richTextBox2
+            // label4
             // 
-            this.richTextBox2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(6, 27);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(229, 372);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Rows";
+            // 
+            // cbRow
+            // 
+            this.cbRow.FormattingEnabled = true;
+            this.cbRow.Location = new System.Drawing.Point(6, 47);
+            this.cbRow.Name = "cbRow";
+            this.cbRow.Size = new System.Drawing.Size(102, 24);
+            this.cbRow.TabIndex = 3;
+            // 
+            // panelSetting
+            // 
+            this.panelSetting.Controls.Add(this.groupBoxSetting);
+            this.panelSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSetting.Location = new System.Drawing.Point(414, 0);
+            this.panelSetting.Name = "panelSetting";
+            this.panelSetting.Size = new System.Drawing.Size(118, 405);
+            this.panelSetting.TabIndex = 4;
+            // 
+            // groupBoxSetting
+            // 
+            this.groupBoxSetting.Controls.Add(this.btnCopy);
+            this.groupBoxSetting.Controls.Add(this.btnCreateOut);
+            this.groupBoxSetting.Controls.Add(this.btnCreateIn);
+            this.groupBoxSetting.Controls.Add(this.label6);
+            this.groupBoxSetting.Controls.Add(this.cbSubColumn);
+            this.groupBoxSetting.Controls.Add(this.label7);
+            this.groupBoxSetting.Controls.Add(this.cbSubRow);
+            this.groupBoxSetting.Controls.Add(this.label5);
+            this.groupBoxSetting.Controls.Add(this.cbColumn);
+            this.groupBoxSetting.Controls.Add(this.label4);
+            this.groupBoxSetting.Controls.Add(this.cbRow);
+            this.groupBoxSetting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxSetting.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxSetting.Name = "groupBoxSetting";
+            this.groupBoxSetting.Size = new System.Drawing.Size(118, 393);
+            this.groupBoxSetting.TabIndex = 4;
+            this.groupBoxSetting.TabStop = false;
+            this.groupBoxSetting.Text = "Setting";
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.Color.Red;
+            this.lblResult.Location = new System.Drawing.Point(4, 367);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(149, 15);
+            this.lblResult.TabIndex = 13;
+            this.lblResult.Text = "Copy to Clipboard is done!";
+            this.lblResult.Visible = false;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.FlatAppearance.BorderSize = 0;
+            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopy.Location = new System.Drawing.Point(6, 293);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(102, 28);
+            this.btnCopy.TabIndex = 12;
+            this.btnCopy.Text = "Copy";
+            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopy.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateOut
+            // 
+            this.btnCreateOut.FlatAppearance.BorderSize = 0;
+            this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
+            this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateOut.Location = new System.Drawing.Point(6, 259);
+            this.btnCreateOut.Name = "btnCreateOut";
+            this.btnCreateOut.Size = new System.Drawing.Size(102, 28);
+            this.btnCreateOut.TabIndex = 11;
+            this.btnCreateOut.Text = "Create Out";
+            this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateOut.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateIn
+            // 
+            this.btnCreateIn.FlatAppearance.BorderSize = 0;
+            this.btnCreateIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateIn.Image = global::ToolSupportUchida.Properties.Resources.button_create_in;
+            this.btnCreateIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateIn.Location = new System.Drawing.Point(6, 224);
+            this.btnCreateIn.Name = "btnCreateIn";
+            this.btnCreateIn.Size = new System.Drawing.Size(102, 28);
+            this.btnCreateIn.TabIndex = 10;
+            this.btnCreateIn.Text = "Create In";
+            this.btnCreateIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateIn.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Sub Columns";
+            // 
+            // cbSubColumn
+            // 
+            this.cbSubColumn.FormattingEnabled = true;
+            this.cbSubColumn.Location = new System.Drawing.Point(6, 194);
+            this.cbSubColumn.Name = "cbSubColumn";
+            this.cbSubColumn.Size = new System.Drawing.Size(102, 24);
+            this.cbSubColumn.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Sub Rows";
+            // 
+            // cbSubRow
+            // 
+            this.cbSubRow.FormattingEnabled = true;
+            this.cbSubRow.Location = new System.Drawing.Point(6, 145);
+            this.cbSubRow.Name = "cbSubRow";
+            this.cbSubRow.Size = new System.Drawing.Size(102, 24);
+            this.cbSubRow.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Columns";
+            // 
+            // cbColumn
+            // 
+            this.cbColumn.FormattingEnabled = true;
+            this.cbColumn.Location = new System.Drawing.Point(6, 96);
+            this.cbColumn.Name = "cbColumn";
+            this.cbColumn.Size = new System.Drawing.Size(102, 24);
+            this.cbColumn.TabIndex = 5;
             // 
             // FormCreateAdapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 420);
-            this.Controls.Add(this.panelEvent);
+            this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.panelSetting);
             this.Controls.Add(this.panelTextEng);
             this.Controls.Add(this.panelTextJapan);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCreateAdapter";
             this.Text = "FormCreateAdapter";
+            this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
             this.panelTextJapan.ResumeLayout(false);
-            this.panelTextEng.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panelTextEng.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panelSetting.ResumeLayout(false);
+            this.groupBoxSetting.ResumeLayout(false);
+            this.groupBoxSetting.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -131,10 +397,30 @@ namespace ToolSupportUchida.View
 
         private System.Windows.Forms.Panel panelTextJapan;
         private System.Windows.Forms.Panel panelTextEng;
-        private System.Windows.Forms.Panel panelEvent;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox txtLogic;
+        private System.Windows.Forms.RichTextBox txtResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox txtPhysi;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RichTextBox txtType;
+        private System.Windows.Forms.Label lblNumType;
+        private System.Windows.Forms.Label lblNumPhy;
+        private System.Windows.Forms.Label lblNumLogic;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbRow;
+        private System.Windows.Forms.Panel panelSetting;
+        private System.Windows.Forms.GroupBox groupBoxSetting;
+        private System.Windows.Forms.Button btnCreateIn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbSubColumn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbSubRow;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbColumn;
+        private System.Windows.Forms.Button btnCreateOut;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

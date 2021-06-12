@@ -51,14 +51,15 @@ namespace ToolSupportUchida.View
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
-            // FormConvert
+            // FormConvertDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(564, 397);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormConvert";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FormConvertDatabase";
             this.Text = "Convert";
             this.Load += new System.EventHandler(this.FormConvert_Load);
             this.ResumeLayout(false);

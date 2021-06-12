@@ -50,12 +50,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BinarySerialization.cs" />
+    <Compile Include="Model\SekkeiModel.cs" />
+    <Compile Include="Model\ToolSupportModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Theme\ThemeColor.cs" />
+    <Compile Include="Utils\CONST.cs" />
+    <Compile Include="View\FormConvertSekkei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConvertSekkei.Designer.cs">
+      <DependentUpon>FormConvertSekkei.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormCheckDataModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +102,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCheckDataModel.resx">
+      <DependentUpon>FormCheckDataModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormConvertDatabase.resx">
       <DependentUpon>FormConvertDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormConvertModel.resx">
+      <DependentUpon>FormConvertModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormConvertSekkei.resx">
+      <DependentUpon>FormConvertSekkei.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormCreateAdapter.resx">
       <DependentUpon>FormCreateAdapter.cs</DependentUpon>
@@ -115,13 +133,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\button-add.png" />
+    <None Include="Resources\button-search.png" />
+    <None Include="Resources\button-delete.png" />
+    <None Include="Resources\button-edit.png" />
+    <None Include="Resources\button-left.png" />
+    <None Include="Resources\button-right.png" />
+    <Content Include="Resources\button-clear.png" />
+    <None Include="Resources\button-create-in.png" />
+    <None Include="Resources\button-create-out.png" />
+    <None Include="Resources\button-copy-clipboar.png" />
     <Content Include="Resources\check-data-model.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\computer.ico" />
+    <None Include="Resources\convert-sekkeei.png" />
     <None Include="Resources\logo-tool.png" />
     <None Include="Resources\convert-adapter.png" />
     <Content Include="Resources\convert-model.png" />
