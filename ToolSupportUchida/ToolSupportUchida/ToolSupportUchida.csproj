@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Theme\ThemeColor.cs" />
     <Compile Include="Utils\CONST.cs" />
+    <Compile Include="Utils\CUtils.cs" />
     <Compile Include="View\FormConvertSekkei.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +146,7 @@
     <None Include="Resources\button-create-in.png" />
     <None Include="Resources\button-create-out.png" />
     <None Include="Resources\button-copy-clipboar.png" />
+    <None Include="Resources\button-convert.png" />
     <Content Include="Resources\check-data-model.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\computer.ico" />

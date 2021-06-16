@@ -40,8 +40,6 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Event
-        #endregion
-
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
             if (txtLogic.Text.Length == 0)
@@ -86,5 +84,9 @@ namespace ToolSupportUchida.View
                 lblNumType.Visible = true;
             }
         }
+        #endregion
+
+        #region Method
+        #endregion
     }
 }

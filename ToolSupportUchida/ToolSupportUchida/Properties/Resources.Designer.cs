@@ -83,6 +83,16 @@ namespace ToolSupportUchida.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_convert {
+            get {
+                object obj = ResourceManager.GetObject("button-convert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_copy_clipboar {
             get {
                 object obj = ResourceManager.GetObject("button-copy-clipboar", resourceCulture);

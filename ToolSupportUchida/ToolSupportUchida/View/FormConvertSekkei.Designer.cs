@@ -61,6 +61,7 @@ namespace ToolSupportUchida.View
             this.txtLogicName.Size = new System.Drawing.Size(258, 362);
             this.txtLogicName.TabIndex = 0;
             this.txtLogicName.Text = "";
+            this.txtLogicName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLogicName_KeyDown);
             // 
             // groupBox2
             // 
@@ -81,6 +82,7 @@ namespace ToolSupportUchida.View
             this.txtPhysiName.Size = new System.Drawing.Size(258, 362);
             this.txtPhysiName.TabIndex = 1;
             this.txtPhysiName.Text = "";
+            this.txtPhysiName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhysiName_KeyDown);
             // 
             // lblResult
             // 

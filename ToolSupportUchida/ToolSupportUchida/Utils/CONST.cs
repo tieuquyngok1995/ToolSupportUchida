@@ -1,14 +1,52 @@
-﻿namespace ToolSupportUchida.Utils
+﻿using System;
+
+namespace ToolSupportUchida.Utils
 {
    public static class CONST
     {
+        public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
+        public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
+
         #region Char
         public const char CHAR_NEW_LINE = '\n';
+        public const char CHAR_TAB = '\t';
+        public const char CHAR_SPACE = ' ';
+        public const char CHAR_AMPERSAND = '&';
+        public const char CHAR_QUOTATION = '"';
+        public const char CHAR_COMMA = ',';
+        public const char CHAR_O_BRACKETS = '(';
+        public const char CHAR_C_BRACKETS = ')';
         #endregion
 
         #region String
         public const string STRING_NEW_LINE = "\n";
         public const string STRING_DOUBLE_LINE = "\n\n";
+
+        public const string STRING_SPACE = " ";
+        public const string STRING_DOUBLE_APOSTROPHE = "''";
+        public const string STRING_TAB = "\t";
+        public const string STRING_COMMA = ",";
+
+        public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
+        public const string STRING_AND = "And";
+        public const string STRING_AND_ALSO = "AndAlso";
+        public const string STRING_OR = "Or";
+        public const string STRING_OR_ELSE = "OrElse";
+        public const string STRING_UPPER_AND = "AND";
+        public const string STRING_UPPER_AND_ALSO = "ANDALSO";
+        public const string STRING_UPPER_OR = "OR";
+        public const string STRING_UPPER_OR_ELSE = "ORELSE";
+        public const string STRING_KEY_LIST_DIC = "Key_{0}: ";
+        public const string STRING_FALSE = "False";
+        public const string STRING_TRUE = "True";
+        public const string STRING_WHERE = "WHERE";
+        public const string STRING_EQUAL = "=";
+        public const string STRING_IS = "IS";
+        public const string STRING_NULL = "NULL";
+        public const string STRING_LIKE = "LIKE";
+        public const string STRING_VBCRLF = "& vbCrLf";
+
+        public const string STRING_EMPTY = "String.Empty";
         #endregion
 
         #region Text
@@ -24,6 +62,8 @@
         public const string MESS_ADD_NEW_EXIST = "A new add has caused an error. \nNew added value already exists.";
         public const string MESS_DELETE_ROW = "Do you want to continue deleting this row.";
         public const string MESS_NO_RESULT = "No results found.";
+
+        public const string MESS_HAND_FORMAT_ERROR = "An abnormal error occurs in the function: HandFormatStringInput\nError content: ";
         #endregion
 
         #region Grid View
@@ -31,6 +71,77 @@
         public const string NAME_COL_PHYSI  = "colPhysi";
         public const string NAME_COL_EDIT   = "colEdit";
         public const string NAME_COL_DELETE = "colDelete";
+        public const string NAME_COL_PARAM  = "colParam";
+        public const string NAME_COL_VALUE  = "colValue";
+        #endregion
+
+        #region String Check
+        public const string STRING_CHECK_APOSTROPHE = " '";
+        public const string STRING_CHECK_COMMENT = "'//";
+        public const string STRING_CHECK_ADD_END = "ADD END";
+        public const string STRING_CHECK_HYPHEN = "---";
+        public const string STRING_CHECK_HASH = "#";
+        public const string STRING_CHECK_REP_START = "REP-START";
+        public const string STRING_CHECK_REP_END = "REP-END";
+        public const string STRING_CHECK_APOSTROPHE_VALUE = "'' {0}";
+        public const string STRING_CHECK_SPLIT = " = Split(";
+
+        public const string STRING_CHECK_EMPTY = "\"\"";
+        public const string STRING_CHECK_IF = "If";
+        public const string STRING_CHECK_ELSE_IF = "ElseIf";
+        public const string STRING_CHECK_THEN = "Then";
+        public const string STRING_CHECK_ELSE = "Else";
+        public const string STRING_CHECK_END = "End";
+        public const string STRING_CHECK_END_IF = "End If";
+        public const string STRING_CHECK_CASE = "Case";
+        public const string STRING_CHECK_AND = "&";
+        public const string STRING_CHECK_OPEN_BRACKETS = " (";
+        public const string STRING_CHECK_CLOSE_BRACKETS = ") ";
+        public const string STRING_CHECK_DIFFERENCE = "<>";
+        public const string STRING_CHECK_SUBSTRING = ".Substring";
+        public const string STRING_CHECK_AS = "AS";
+        public const string STRING_CHECK_PARAM_OPEN = "\" & ";
+        public const string STRING_CHECK_PARAM_CLOSE = "& \"";
+        public const string STRING_CHECK_STRING_EMPTY = "'String.Empty'";
+
+        public const string STRING_CHECK_CONTAINS_01 = "{0} = \"";
+        public const string STRING_CHECK_CONTAINS_02 = "{0} = {0} & \"";
+        public const string STRING_CHECK_CONTAINS_03 = "{0} &= \"";
+        public const string STRING_CHECK_CONTAINS_04 = ", ";
+        #endregion
+
+        #region String Format
+        public const string STRING_FORMAT_01 = "{0}=";
+        public const string STRING_FORMAT_02 = "=\"";
+        public const string STRING_FORMAT_03 = "'\"&";
+        public const string STRING_FORMAT_04 = "&[a-zA-Z0-9\"]";
+        public const string STRING_FORMAT_05 = @"\s+";
+        public const string STRING_FORMAT_06 = "&";
+        public const string STRING_FORMAT_07 = "'\n";
+        public const string STRING_FORMAT_08 = ".";
+        public const string STRING_FORMAT_09 = "='";
+        public const string STRING_FORMAT_10 = "= '";
+        public const string STRING_FORMAT_11 = " ({0} ";
+        public const string STRING_FORMAT_12 = " {0}) ";
+        public const string STRING_FORMAT_13 = "\'\" & ";
+        public const string STRING_FORMAT_14 = " & \"\'";
+        public const string STRING_FORMAT_15 = "\" & ";
+        public const string STRING_FORMAT_16 = " & \"";
+        public const string STRING_FORMAT_17 = " {0} ";
+        public const string STRING_FORMAT_18 = "\'\" & \"";
+
+        public const string STRING_REPLACE_01 = "{0} =";
+        public const string STRING_REPLACE_02 = "= \"";
+        public const string STRING_REPLACE_03 = "'\" & ";
+        public const string STRING_REPLACE_04 = " & \"";
+        public const string STRING_REPLACE_05 = " ";
+        public const string STRING_REPLACE_06 = "\'";
+        #endregion
+
+        #region String Regex
+        public const string REGEX_WORD_CHARACTER = "'[a-zA-Z0-9]";
+        public const string REGEX_CASE_ELSE_ERROR = @"Case Else[a-zA-Z0-9\s_=]+ERROR";
+        public const string REGEX_KEY_LIST_DIC = "Key_[0-9]+:\\s";
         #endregion
     }
 }

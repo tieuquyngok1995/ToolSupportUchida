@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ToolSupportUchida.Model;
 using ToolSupportUchida.Theme;
@@ -43,6 +44,34 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Event
+        private void txtLogicName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.V)
+            {
+                e.Handled = true;
+                string st = Clipboard.GetText();
+
+                const string reduceMultiSpace = @"[ ]{2,}";
+                var line = Regex.Replace(st.Replace(CONST.CHAR_TAB, CONST.CHAR_SPACE), reduceMultiSpace, " ");
+
+                txtLogicName.Text = line.Replace("\r", "");
+            }
+        }
+
+        private void txtPhysiName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.V)
+            {
+                e.Handled = true;
+                string st = Clipboard.GetText();
+
+                const string reduceMultiSpace = @"[ ]{2,}";
+                var line = Regex.Replace(st.Replace(CONST.CHAR_TAB, CONST.CHAR_SPACE), reduceMultiSpace, " ");
+
+                txtPhysiName.Text = line.Replace("\r", "");
+            }
+        }
+
         private void btnConvertPhysi_Click(object sender, EventArgs e)
         {
             txtPhysiName.Text = string.Empty;
@@ -55,7 +84,7 @@ namespace ToolSupportUchida.View
                 foreach (string item in arrLogicName)
                 {
                     result = findSekkeiLogicName(item.Trim());
-                    txtPhysiName.Text = txtPhysiName.Text + result + CONST.CHAR_NEW_LINE;
+                    txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.CHAR_NEW_LINE;
                 }
 
                 clearEmptyLine();
@@ -89,7 +118,7 @@ namespace ToolSupportUchida.View
                 foreach (string item in arrPhysiName)
                 {
                     result = findSekkeiPhysiName(item.Trim());
-                    txtLogicName.Text = txtLogicName.Text + result + CONST.CHAR_NEW_LINE;
+                    txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.CHAR_NEW_LINE;
                 }
 
                 clearEmptyLine();
