@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using ToolSupportUchida.Model;
+using ToolSupportUchida.Utils;
 
 namespace ToolSupportUchida.Common
 {
@@ -30,6 +33,24 @@ namespace ToolSupportUchida.Common
         /// <returns>Returns a new instance of the object read from the binary file.</returns>
         public static T ReadFromBinaryFile<T>()
         {
+            if (!File.Exists(CONST.FILE_PATH))
+            {
+                string[] data = { };
+                List<SekkeiModel> lstSekkei = new List<SekkeiModel>();
+
+                if (File.Exists(CONST.FILE_PATH_IMPORT))
+                {
+                    data = File.ReadAllLines(CONST.FILE_PATH_IMPORT);
+                }
+
+                foreach (string line in data)
+                {
+                    string[] arrLine = line.Split('=');
+                    lstSekkei.Add(new SekkeiModel(arrLine[0], arrLine[1]));
+                }
+                WriteToBinaryFile<List<SekkeiModel>>(lstSekkei);
+            }
+
             using (Stream stream = File.Open(filePath, FileMode.Open))
             {
                 var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
