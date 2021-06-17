@@ -14,6 +14,8 @@ namespace ToolSupportUchida.View
         private bool isCopyPhysi;
         private List<SekkeiModel> lstSekkei;
 
+        private const string reduceMultiSpace = @"[ ]{2,}";
+
         #region Load Form
         public FormConvertSekkei(List<SekkeiModel> lstSekkei)
         {
@@ -50,11 +52,7 @@ namespace ToolSupportUchida.View
             {
                 e.Handled = true;
                 string st = Clipboard.GetText();
-
-                const string reduceMultiSpace = @"[ ]{2,}";
-                var line = Regex.Replace(st.Replace(CONST.CHAR_TAB, CONST.CHAR_SPACE), reduceMultiSpace, " ");
-
-                txtLogicName.Text = line.Replace("\r", "");
+                txtLogicName.Text = st;
             }
         }
 
@@ -64,18 +62,13 @@ namespace ToolSupportUchida.View
             {
                 e.Handled = true;
                 string st = Clipboard.GetText();
-
-                const string reduceMultiSpace = @"[ ]{2,}";
-                var line = Regex.Replace(st.Replace(CONST.CHAR_TAB, CONST.CHAR_SPACE), reduceMultiSpace, " ");
-
-                txtPhysiName.Text = line.Replace("\r", "");
+                txtPhysiName.Text = st;
             }
         }
 
         private void btnConvertPhysi_Click(object sender, EventArgs e)
         {
             txtPhysiName.Text = string.Empty;
-            Clipboard.Clear();
 
             if (txtLogicName.Text.Length != 0)
              {
@@ -84,8 +77,11 @@ namespace ToolSupportUchida.View
                 foreach (string item in arrLogicName)
                 {
                     result = findSekkeiLogicName(item.Trim());
-                    txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.CHAR_NEW_LINE;
+                    txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
                 }
+
+                txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+                txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
 
                 clearEmptyLine();
 
@@ -109,7 +105,6 @@ namespace ToolSupportUchida.View
         private void btnConvertLogic_Click(object sender, EventArgs e)
         {
             txtLogicName.Text = string.Empty;
-            Clipboard.Clear();
 
             if (txtPhysiName.Text.Length != 0)
             {
@@ -118,8 +113,11 @@ namespace ToolSupportUchida.View
                 foreach (string item in arrPhysiName)
                 {
                     result = findSekkeiPhysiName(item.Trim());
-                    txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.CHAR_NEW_LINE;
+                    txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
                 }
+
+                txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+                txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
 
                 clearEmptyLine();
 

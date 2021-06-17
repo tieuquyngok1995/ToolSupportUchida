@@ -30,14 +30,14 @@ namespace ToolSupportUchida.View
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtLogicName = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtPhysiName = new System.Windows.Forms.RichTextBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnConvertLogic = new System.Windows.Forms.Button();
             this.btnConvertPhysi = new System.Windows.Forms.Button();
+            this.txtLogicName = new System.Windows.Forms.TextBox();
+            this.txtPhysiName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,16 +53,6 @@ namespace ToolSupportUchida.View
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Logical Name";
             // 
-            // txtLogicName
-            // 
-            this.txtLogicName.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogicName.Location = new System.Drawing.Point(6, 22);
-            this.txtLogicName.Name = "txtLogicName";
-            this.txtLogicName.Size = new System.Drawing.Size(258, 362);
-            this.txtLogicName.TabIndex = 0;
-            this.txtLogicName.Text = "";
-            this.txtLogicName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLogicName_KeyDown);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtPhysiName);
@@ -73,16 +63,6 @@ namespace ToolSupportUchida.View
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Physical Name";
-            // 
-            // txtPhysiName
-            // 
-            this.txtPhysiName.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhysiName.Location = new System.Drawing.Point(6, 22);
-            this.txtPhysiName.Name = "txtPhysiName";
-            this.txtPhysiName.Size = new System.Drawing.Size(258, 362);
-            this.txtPhysiName.TabIndex = 1;
-            this.txtPhysiName.Text = "";
-            this.txtPhysiName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhysiName_KeyDown);
             // 
             // lblResult
             // 
@@ -157,6 +137,28 @@ namespace ToolSupportUchida.View
             this.btnConvertPhysi.UseVisualStyleBackColor = true;
             this.btnConvertPhysi.Click += new System.EventHandler(this.btnConvertPhysi_Click);
             // 
+            // txtLogicName
+            // 
+            this.txtLogicName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLogicName.Location = new System.Drawing.Point(3, 19);
+            this.txtLogicName.Multiline = true;
+            this.txtLogicName.Name = "txtLogicName";
+            this.txtLogicName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLogicName.Size = new System.Drawing.Size(264, 368);
+            this.txtLogicName.TabIndex = 0;
+            this.txtLogicName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLogicName_KeyDown);
+            // 
+            // txtPhysiName
+            // 
+            this.txtPhysiName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhysiName.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysiName.Multiline = true;
+            this.txtPhysiName.Name = "txtPhysiName";
+            this.txtPhysiName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtPhysiName.Size = new System.Drawing.Size(264, 368);
+            this.txtPhysiName.TabIndex = 0;
+            this.txtPhysiName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhysiName_KeyDown);
+            // 
             // FormConvertSekkei
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +176,9 @@ namespace ToolSupportUchida.View
             this.Text = "ConvertSekkei";
             this.Load += new System.EventHandler(this.FormConvertSekkei_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,12 +188,12 @@ namespace ToolSupportUchida.View
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox txtLogicName;
-        private System.Windows.Forms.RichTextBox txtPhysiName;
         private System.Windows.Forms.Button btnConvertPhysi;
         private System.Windows.Forms.Button btnConvertLogic;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtLogicName;
+        private System.Windows.Forms.TextBox txtPhysiName;
     }
 }

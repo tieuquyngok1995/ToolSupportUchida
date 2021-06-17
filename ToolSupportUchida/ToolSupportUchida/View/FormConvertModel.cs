@@ -114,7 +114,7 @@ namespace ToolSupportUchida.View
             if (lstPhysi.Count > 0)
             {
                 lblNumPhysi.Visible = true;
-                lblNumPhysi.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Count, " row");
+                lblNumPhysi.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Count, " row");
             }
             else
             {
@@ -132,7 +132,7 @@ namespace ToolSupportUchida.View
             if (lstType.Count > 0)
             {
                 lblNumType.Visible = true;
-                lblNumType.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Count, " row");
+                lblNumType.Text = string.Concat(CONST.TEXT_LINE_NUM, lstType.Count, " row");
             }
             else
             {
@@ -147,7 +147,7 @@ namespace ToolSupportUchida.View
             if (rdbC.Checked)
             {
                 this.panelComment.Visible = true;
-                this.panelFormat.Visible = true;
+                this.panelFormat.Visible = false;
                 this.panelType.Visible = false;
                 this.isCsharp = true;
                 this.isJs = false;
@@ -159,7 +159,7 @@ namespace ToolSupportUchida.View
 
         private void rdbJS_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdbTypeScript.Checked)
+            if (rdbJS.Checked)
             {
                 this.panelComment.Visible = true;
                 this.panelFormat.Visible = true;
@@ -251,6 +251,16 @@ namespace ToolSupportUchida.View
             }
         }
 
+        private void txtAddLogic_TextChanged(object sender, EventArgs e)
+        {
+            convert();
+        }
+
+        private void txtAddPhysi_TextChanged(object sender, EventArgs e)
+        {
+            convert();
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             this.lstLogic.Clear();
@@ -261,6 +271,9 @@ namespace ToolSupportUchida.View
             txtPhysi.Text = string.Empty;
             txtType.Text = string.Empty;
             txtResult.Text = string.Empty;
+            txtAddLogic.Text = string.Empty;
+            txtAddPhysi.Text = string.Empty;
+            txtAddType.Text = string.Empty;
 
             lblNumLogic.Visible = false;
             lblNumPhysi.Visible = false;
@@ -314,21 +327,53 @@ namespace ToolSupportUchida.View
             if (rdbLine.Checked)
             {
                 stringBuilder.Append("/// <summary>\r\n");
-                stringBuilder.Append("/// {0}\r\n");
+
+                if (string.IsNullOrEmpty(txtAddLogic.Text))
+                {
+                    stringBuilder.Append("/// {0}\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append("/// {0}" + txtAddLogic.Text + "\r\n");
+                }
+
                 stringBuilder.Append("/// </summary>\r\n");
             }
             else if (rdbBlock.Checked)
             {
                 stringBuilder.Append("/**\r\n");
-                stringBuilder.Append(" * {0}\r\n");
+
+                if (string.IsNullOrEmpty(txtAddLogic.Text))
+                {
+                    stringBuilder.Append(" * {0}\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append(" * {0}" + txtAddLogic.Text + "\r\n");
+                }
+
                 stringBuilder.Append(" */\r\n");
             }
             else if (rdbLineBlock.Checked)
             {
-                stringBuilder.Append("/** {0} */\r\n");
+                if (string.IsNullOrEmpty(txtAddLogic.Text))
+                {
+                    stringBuilder.Append("/** {0} */\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append("/** {0}" + txtAddLogic.Text + " */\r\n");
+                }
             }
 
-            stringBuilder.Append("public {1} {2} {{ get; set; }}\r\n");
+            if (string.IsNullOrEmpty(txtAddPhysi.Text))
+            {
+                stringBuilder.Append("public {1} {2} {{ get; set; }}\r\n");
+            }
+            else
+            {
+                stringBuilder.Append("public {1} {2}" + txtAddPhysi.Text + " {{ get; set; }}\r\n");
+            }
 
             string template = stringBuilder.ToString();
 
@@ -428,11 +473,11 @@ namespace ToolSupportUchida.View
 
                 if (rdbLowerCase.Checked)
                 {
-                    namePhy = lstLogic[i].Trim().Substring(0, 1).ToLower() + lstLogic[i].Trim().Substring(1);
+                    namePhy = lstPhysi[i].Trim().Substring(0, 1).ToLower() + lstPhysi[i].Trim().Substring(1);
                 }
                 else if (rdbUpperCase.Checked)
                 {
-                    namePhy = lstLogic[i].Trim().Substring(0, 1).ToUpper() + lstLogic[i].Trim().Substring(1);
+                    namePhy = lstPhysi[i].Trim().Substring(0, 1).ToUpper() + lstPhysi[i].Trim().Substring(1);
                 }
 
                 nameLog = lstLogic[i].Trim();
@@ -450,7 +495,7 @@ namespace ToolSupportUchida.View
                 {
                     if (txtType.Text.Contains(";"))
                     {
-                        type = " = " + type + ";";
+                        type = " = " + type;
                     }
                     else if (txtType.Text.Contains(","))
                     {
@@ -494,7 +539,7 @@ namespace ToolSupportUchida.View
                     switch (value)
                     {
                         case "button":
-                            stringbuilder.Append("<button type=\"button\" class=\"col btn btn - sm btn - light btn - block btn - outline - secondary\" data-bind=\"{0}\">\r\n{1}\r\n</button>\r\n");
+                            stringbuilder.Append("<button type=\"button\" class=\"col btn btn-light border-secondary\" data-bind=\"{0}\">\r\n{1}\r\n</button>\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("button", lstType[i].Trim()), lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty));
                             break;
                         case "label":
@@ -502,7 +547,7 @@ namespace ToolSupportUchida.View
                             element = string.Format(stringbuilder.ToString(), lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty), createDataBind("label", lstType[i].Trim()));
                             break;
                         case "text":
-                            stringbuilder.Append("<input type=\"text\" class=\"form - control\" data-bind=\"{0}\"/>\r\n");
+                            stringbuilder.Append("<input type=\"text\" class=\"form-control\" data-bind=\"{0}\"/>\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("text", lstType[i].Trim()));
                             break;
                         case "checkbox":
@@ -514,7 +559,7 @@ namespace ToolSupportUchida.View
                             element = string.Format(stringbuilder.ToString(), createDataBind("spread", lstType[i].Trim()), lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty));
                             break;
                         case "selectbox":
-                            stringbuilder.Append("<select class=\"form - control\" data-bind=\"{0}\"></ select >\r\n");
+                            stringbuilder.Append("<select class=\"form-control\" data-bind=\"{0}\"></ select >\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("selectbox", lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty)));
                             break;
                     }
@@ -615,6 +660,7 @@ namespace ToolSupportUchida.View
 
             return result;
         }
+
         #endregion
 
         //private void txtSearch_KeyUp(object sender, KeyEventArgs e)

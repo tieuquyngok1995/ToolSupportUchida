@@ -21,7 +21,7 @@ namespace ToolSupportUchida.Utils
         #region String
         public const string STRING_NEW_LINE = "\n";
         public const string STRING_DOUBLE_LINE = "\n\n";
-
+        public const string STRING_ADD_LINE = "\r\n";
         public const string STRING_SPACE = " ";
         public const string STRING_DOUBLE_APOSTROPHE = "''";
         public const string STRING_TAB = "\t";
@@ -142,6 +142,7 @@ namespace ToolSupportUchida.Utils
         public const string REGEX_WORD_CHARACTER = "'[a-zA-Z0-9]";
         public const string REGEX_CASE_ELSE_ERROR = @"Case Else[a-zA-Z0-9\s_=]+ERROR";
         public const string REGEX_KEY_LIST_DIC = "Key_[0-9]+:\\s";
+        public const string REGEX_REMOVE_LINE = @"^\s*$(\n|\r|\r\n)";
         #endregion
     }
 }
