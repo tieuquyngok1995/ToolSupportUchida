@@ -7,6 +7,11 @@ namespace ToolSupportUchida.Utils
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
 
+        public static string ITEM_ROWS = "Rows";
+        public static string ITEM_COLUMNS = "Columns";
+        public static string ITEM_SUB_ROWS = "SubRows";
+        public static string ITEM_SUB_COLUMNS = "SubColumns";
+
         #region Char
         public const char CHAR_NEW_LINE = '\n';
         public const char CHAR_TAB = '\t';
@@ -64,13 +69,20 @@ namespace ToolSupportUchida.Utils
         public const string MESS_NO_RESULT = "No results found.";
 
         public const string MESS_HAND_FORMAT_ERROR = "An abnormal error occurs in the function: HandFormatStringInput\nError content: ";
+
+        public const string MESS_ADD_NEW_JOIN_KEY_BLANK = "A new add has caused an error. \nItem Join key value is blank.";
+        public const string MESS_ADD_NEW_JOIN_VALUE_BLANK = "A new add has caused an error. \nItem Join value value is blank.";
         #endregion
 
         #region Grid View
         public const string NAME_COL_LOGIC  = "colLogic";
         public const string NAME_COL_PHYSI  = "colPhysi";
-        public const string NAME_COL_EDIT   = "colEdit";
-        public const string NAME_COL_DELETE = "colDelete";
+
+        public const string NAME_COL_SEKKEI_EDIT = "colSekkeiEdit";
+        public const string NAME_COL_SEKKEI_DELETE = "colSekkeiDelete";
+        public const string NAME_COL_ADAPTER_EDIT = "colAdapterEdit";
+        public const string NAME_COL_ADAPTER_DELETE = "colAdapterDelete";
+
         public const string NAME_COL_PARAM  = "colParam";
         public const string NAME_COL_VALUE  = "colValue";
         #endregion

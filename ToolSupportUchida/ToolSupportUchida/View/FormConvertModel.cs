@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToolSupportUchida.Theme;
 using ToolSupportUchida.Utils;
@@ -96,7 +93,7 @@ namespace ToolSupportUchida.View
             if (lstLogic.Count > 0)
             {
                 lblNumLogic.Visible = true;
-                lblNumLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Count, " row");
+                lblNumLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Count);
             }
             else
             {
@@ -114,7 +111,7 @@ namespace ToolSupportUchida.View
             if (lstPhysi.Count > 0)
             {
                 lblNumPhysi.Visible = true;
-                lblNumPhysi.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Count, " row");
+                lblNumPhysi.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Count);
             }
             else
             {
@@ -132,7 +129,7 @@ namespace ToolSupportUchida.View
             if (lstType.Count > 0)
             {
                 lblNumType.Visible = true;
-                lblNumType.Text = string.Concat(CONST.TEXT_LINE_NUM, lstType.Count, " row");
+                lblNumType.Text = string.Concat(CONST.TEXT_LINE_NUM, lstType.Count);
             }
             else
             {

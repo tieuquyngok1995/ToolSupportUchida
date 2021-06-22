@@ -32,6 +32,9 @@ namespace ToolSupportUchida
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCheckData = new System.Windows.Forms.Button();
@@ -49,14 +52,31 @@ namespace ToolSupportUchida
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panelSettingRight = new System.Windows.Forms.Panel();
+            this.gridAdapter = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdapterEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAdapterDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelSettingLeft = new System.Windows.Forms.Panel();
             this.gridSekkei = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLogic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhysi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colSekkeiEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colSekkeiDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelSettingTop = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnClearAdaper = new System.Windows.Forms.Button();
+            this.btnSearchAdapter = new System.Windows.Forms.Button();
+            this.btnAddAdapter = new System.Windows.Forms.Button();
+            this.txtJoinValue = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtJoinKey = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearchSekkei = new System.Windows.Forms.Button();
@@ -76,9 +96,12 @@ namespace ToolSupportUchida
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
+            this.panelSettingRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAdapter)).BeginInit();
             this.panelSettingLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSekkei)).BeginInit();
             this.panelSettingTop.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -321,11 +344,106 @@ namespace ToolSupportUchida
             // 
             // panelSettingRight
             // 
-            this.panelSettingRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSettingRight.Controls.Add(this.gridAdapter);
+            this.panelSettingRight.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSettingRight.Location = new System.Drawing.Point(305, 80);
             this.panelSettingRight.Name = "panelSettingRight";
-            this.panelSettingRight.Size = new System.Drawing.Size(395, 320);
+            this.panelSettingRight.Size = new System.Drawing.Size(388, 320);
             this.panelSettingRight.TabIndex = 3;
+            // 
+            // gridAdapter
+            // 
+            this.gridAdapter.AllowUserToAddRows = false;
+            this.gridAdapter.AllowUserToDeleteRows = false;
+            this.gridAdapter.AllowUserToResizeColumns = false;
+            this.gridAdapter.AllowUserToResizeRows = false;
+            this.gridAdapter.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridAdapter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridAdapter.CausesValidation = false;
+            this.gridAdapter.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.gridAdapter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridAdapter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.DataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.colAdapterEdit,
+            this.colAdapterDelete});
+            this.gridAdapter.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAdapter.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridAdapter.EnableHeadersVisualStyles = false;
+            this.gridAdapter.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gridAdapter.Location = new System.Drawing.Point(6, 6);
+            this.gridAdapter.MultiSelect = false;
+            this.gridAdapter.Name = "gridAdapter";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAdapter.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridAdapter.RowHeadersVisible = false;
+            this.gridAdapter.RowHeadersWidth = 25;
+            this.gridAdapter.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridAdapter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridAdapter.Size = new System.Drawing.Size(377, 309);
+            this.gridAdapter.TabIndex = 1;
+            this.gridAdapter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAdapter_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 35;
+            // 
+            // DataGridViewTextBoxColumn
+            // 
+            this.DataGridViewTextBoxColumn.HeaderText = "Item Join Type";
+            this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
+            this.DataGridViewTextBoxColumn.Width = 86;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item Join Key";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 95;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Item Join Value";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 95;
+            // 
+            // colAdapterEdit
+            // 
+            this.colAdapterEdit.HeaderText = "";
+            this.colAdapterEdit.Image = global::ToolSupportUchida.Properties.Resources.button_edit;
+            this.colAdapterEdit.Name = "colAdapterEdit";
+            this.colAdapterEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterEdit.Width = 24;
+            // 
+            // colAdapterDelete
+            // 
+            this.colAdapterDelete.HeaderText = "";
+            this.colAdapterDelete.Image = global::ToolSupportUchida.Properties.Resources.button_delete;
+            this.colAdapterDelete.Name = "colAdapterDelete";
+            this.colAdapterDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterDelete.Width = 24;
             // 
             // panelSettingLeft
             // 
@@ -351,30 +469,30 @@ namespace ToolSupportUchida
             this.Column5,
             this.colLogic,
             this.colPhysi,
-            this.colEdit,
-            this.colDelete});
+            this.colSekkeiEdit,
+            this.colSekkeiDelete});
             this.gridSekkei.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSekkei.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSekkei.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridSekkei.EnableHeadersVisualStyles = false;
             this.gridSekkei.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gridSekkei.Location = new System.Drawing.Point(6, 6);
             this.gridSekkei.MultiSelect = false;
             this.gridSekkei.Name = "gridSekkei";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSekkei.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSekkei.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridSekkei.RowHeadersVisible = false;
             this.gridSekkei.RowHeadersWidth = 25;
             this.gridSekkei.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -385,52 +503,163 @@ namespace ToolSupportUchida
             // 
             // Column5
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column5.HeaderText = "No.";
             this.Column5.Name = "Column5";
             this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column5.Width = 25;
+            this.Column5.Width = 35;
             // 
             // colLogic
             // 
             this.colLogic.HeaderText = "Logical Name";
             this.colLogic.Name = "colLogic";
             this.colLogic.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colLogic.Width = 95;
             // 
             // colPhysi
             // 
             this.colPhysi.HeaderText = "Physical Name";
             this.colPhysi.Name = "colPhysi";
             this.colPhysi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colPhysi.Width = 95;
             // 
-            // colEdit
+            // colSekkeiEdit
             // 
-            this.colEdit.FillWeight = 24F;
-            this.colEdit.HeaderText = "";
-            this.colEdit.Image = global::ToolSupportUchida.Properties.Resources.button_edit;
-            this.colEdit.Name = "colEdit";
-            this.colEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colEdit.Width = 24;
+            this.colSekkeiEdit.FillWeight = 24F;
+            this.colSekkeiEdit.HeaderText = "";
+            this.colSekkeiEdit.Image = global::ToolSupportUchida.Properties.Resources.button_edit;
+            this.colSekkeiEdit.Name = "colSekkeiEdit";
+            this.colSekkeiEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSekkeiEdit.Width = 24;
             // 
-            // colDelete
+            // colSekkeiDelete
             // 
-            this.colDelete.FillWeight = 24F;
-            this.colDelete.HeaderText = "";
-            this.colDelete.Image = global::ToolSupportUchida.Properties.Resources.button_delete;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colDelete.Width = 24;
+            this.colSekkeiDelete.FillWeight = 24F;
+            this.colSekkeiDelete.HeaderText = "";
+            this.colSekkeiDelete.Image = global::ToolSupportUchida.Properties.Resources.button_delete;
+            this.colSekkeiDelete.Name = "colSekkeiDelete";
+            this.colSekkeiDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSekkeiDelete.Width = 24;
             // 
             // panelSettingTop
             // 
+            this.panelSettingTop.Controls.Add(this.groupBox2);
             this.panelSettingTop.Controls.Add(this.groupBox1);
             this.panelSettingTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettingTop.Location = new System.Drawing.Point(0, 0);
             this.panelSettingTop.Name = "panelSettingTop";
             this.panelSettingTop.Size = new System.Drawing.Size(700, 80);
             this.panelSettingTop.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbType);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.btnClearAdaper);
+            this.groupBox2.Controls.Add(this.btnSearchAdapter);
+            this.groupBox2.Controls.Add(this.btnAddAdapter);
+            this.groupBox2.Controls.Add(this.txtJoinValue);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtJoinKey);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(311, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(382, 71);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Setting Adapter";
+            // 
+            // cbType
+            // 
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Location = new System.Drawing.Point(32, 37);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(92, 23);
+            this.cbType.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(28, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 15);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Item Join Type";
+            // 
+            // btnClearAdaper
+            // 
+            this.btnClearAdaper.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearAdaper.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnClearAdaper.Location = new System.Drawing.Point(354, 37);
+            this.btnClearAdaper.Name = "btnClearAdaper";
+            this.btnClearAdaper.Size = new System.Drawing.Size(24, 24);
+            this.btnClearAdaper.TabIndex = 5;
+            this.btnClearAdaper.UseVisualStyleBackColor = true;
+            this.btnClearAdaper.Click += new System.EventHandler(this.btnClearAdaper_Click);
+            // 
+            // btnSearchAdapter
+            // 
+            this.btnSearchAdapter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchAdapter.Image = global::ToolSupportUchida.Properties.Resources.button_search;
+            this.btnSearchAdapter.Location = new System.Drawing.Point(4, 37);
+            this.btnSearchAdapter.Name = "btnSearchAdapter";
+            this.btnSearchAdapter.Size = new System.Drawing.Size(24, 24);
+            this.btnSearchAdapter.TabIndex = 1;
+            this.btnSearchAdapter.UseVisualStyleBackColor = true;
+            this.btnSearchAdapter.Click += new System.EventHandler(this.btnSearchAdapter_Click);
+            // 
+            // btnAddAdapter
+            // 
+            this.btnAddAdapter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAdapter.Image = global::ToolSupportUchida.Properties.Resources.button_add;
+            this.btnAddAdapter.Location = new System.Drawing.Point(328, 37);
+            this.btnAddAdapter.Name = "btnAddAdapter";
+            this.btnAddAdapter.Size = new System.Drawing.Size(24, 24);
+            this.btnAddAdapter.TabIndex = 4;
+            this.btnAddAdapter.UseVisualStyleBackColor = true;
+            this.btnAddAdapter.Click += new System.EventHandler(this.btnAddAdapter_Click);
+            // 
+            // txtJoinValue
+            // 
+            this.txtJoinValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJoinValue.Location = new System.Drawing.Point(229, 38);
+            this.txtJoinValue.Name = "txtJoinValue";
+            this.txtJoinValue.Size = new System.Drawing.Size(95, 22);
+            this.txtJoinValue.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(226, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 15);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Item Join Value";
+            // 
+            // txtJoinKey
+            // 
+            this.txtJoinKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJoinKey.Location = new System.Drawing.Point(130, 38);
+            this.txtJoinKey.Name = "txtJoinKey";
+            this.txtJoinKey.Size = new System.Drawing.Size(95, 22);
+            this.txtJoinKey.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(127, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 15);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Item Join Key";
             // 
             // groupBox1
             // 
@@ -494,7 +723,7 @@ namespace ToolSupportUchida
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(127, 21);
+            this.label6.Location = new System.Drawing.Point(127, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 15);
             this.label6.TabIndex = 2;
@@ -512,7 +741,7 @@ namespace ToolSupportUchida
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 21);
+            this.label3.Location = new System.Drawing.Point(27, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 15);
             this.label3.TabIndex = 0;
@@ -607,9 +836,13 @@ namespace ToolSupportUchida
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
+            this.panelSettingRight.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridAdapter)).EndInit();
             this.panelSettingLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSekkei)).EndInit();
             this.panelSettingTop.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panelFooter.ResumeLayout(false);
@@ -653,11 +886,28 @@ namespace ToolSupportUchida
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Panel panelSettingRight;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnClearAdaper;
+        private System.Windows.Forms.Button btnSearchAdapter;
+        private System.Windows.Forms.Button btnAddAdapter;
+        private System.Windows.Forms.TextBox txtJoinValue;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtJoinKey;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView gridAdapter;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewImageColumn colAdapterEdit;
+        private System.Windows.Forms.DataGridViewImageColumn colAdapterDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLogic;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhysi;
-        private System.Windows.Forms.DataGridViewImageColumn colEdit;
-        private System.Windows.Forms.DataGridViewImageColumn colDelete;
+        private System.Windows.Forms.DataGridViewImageColumn colSekkeiEdit;
+        private System.Windows.Forms.DataGridViewImageColumn colSekkeiDelete;
     }
 }
 

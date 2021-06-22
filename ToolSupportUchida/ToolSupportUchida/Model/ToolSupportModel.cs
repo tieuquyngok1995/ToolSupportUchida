@@ -4,6 +4,8 @@ namespace ToolSupportUchida.Model
 {
     public class ToolSupportModel
     {
-        public SekkeiModel sekei { get; set; }
+        public List<SekkeiModel> lstSekkei { get; set; }
+
+        public List<AdapterModel> lstAdapter { get; set; }
     }
 }

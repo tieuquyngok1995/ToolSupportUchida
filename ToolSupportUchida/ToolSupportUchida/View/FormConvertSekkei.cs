@@ -76,7 +76,7 @@ namespace ToolSupportUchida.View
                 string result = string.Empty;
                 foreach (string item in arrLogicName)
                 {
-                    result = findSekkeiLogicName(item.Trim());
+                    result = findSekkeiLogicName(lstSekkei, item.Trim());
                     txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
                 }
 
@@ -87,6 +87,7 @@ namespace ToolSupportUchida.View
 
                 isCopyPhysi = true;
                 lblResult.Visible = false;
+                btnCopy.Enabled = true;
             }
             else
             {
@@ -100,6 +101,7 @@ namespace ToolSupportUchida.View
             txtPhysiName.Text = string.Empty;
 
             txtLogicName.Focus();
+            btnCopy.Enabled = false;
         }
 
         private void btnConvertLogic_Click(object sender, EventArgs e)
@@ -123,6 +125,7 @@ namespace ToolSupportUchida.View
 
                 isCopyPhysi = false;
                 lblResult.Visible = false;
+                btnCopy.Enabled = true;
             }
             else
             {
@@ -147,10 +150,12 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Method
-        private string findSekkeiLogicName(string nameLogic)
+        private string findSekkeiLogicName(List<SekkeiModel> lstSekkei, string nameLogic)
         {
             string result = nameLogic;
-            SekkeiModel objSekkei = lstSekkei.Find(item => nameLogic.Contains(item.logicName));
+
+            List<SekkeiModel> lstSekkeiTmp = lstSekkei;
+            SekkeiModel objSekkei = lstSekkeiTmp.Find(obj => nameLogic.Contains(obj.logicName));
 
             if (objSekkei == null)
             {
@@ -159,7 +164,8 @@ namespace ToolSupportUchida.View
             else
             {
                 result = result.Replace(objSekkei.logicName, objSekkei.physiName);
-                result = findSekkeiLogicName(result);
+                lstSekkeiTmp.RemoveAll(obj => obj.logicName.Equals(objSekkei.logicName) && obj.physiName.Equals(objSekkei.physiName));
+                result = findSekkeiLogicName(lstSekkeiTmp, result);
             }
 
             return result;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using ToolSupportUchida.Model;
 using ToolSupportUchida.Theme;
 using ToolSupportUchida.Utils;
 
@@ -9,14 +11,56 @@ namespace ToolSupportUchida.View
 {
     public partial class FormCreateAdapter : Form
     {
+
+        private List<AdapterModel> lstRows;
+        private List<AdapterModel> lstColumn;
+        private List<AdapterModel> lstSubRows;
+        private List<AdapterModel> lstSubColumn;
+
         private string[] lstLogic;
         private string[] lstPhysi;
         private string[] lsttype;
 
         #region Load Form
-        public FormCreateAdapter()
+        public FormCreateAdapter(List<AdapterModel> lstAdapter)
         {
             InitializeComponent();
+
+            lstRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_ROWS)).ToList();
+            if (lstRows.Count > 0)
+            {
+                cbRow.DataSource = new BindingSource(lstRows, null);
+                cbRow.DisplayMember = "key";
+                cbRow.ValueMember = "value";
+                cbRow.SelectedIndex = 0;
+            }
+
+            lstColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_COLUMNS)).ToList();
+            if (lstColumn.Count > 0)
+            {
+                cbColumn.DataSource = new BindingSource(lstColumn, null);
+                cbColumn.DisplayMember = "key";
+                cbColumn.ValueMember = "value";
+                cbColumn.SelectedIndex = 0;
+            }
+
+            lstSubRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_ROWS)).ToList();
+            if (lstSubRows.Count > 0)
+            {
+                cbSubRow.DataSource = new BindingSource(lstSubRows, null);
+                cbSubRow.DisplayMember = "key";
+                cbSubRow.ValueMember = "value";
+                cbSubRow.SelectedIndex = 0;
+            }
+
+            lstSubColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_COLUMNS)).ToList();
+            if (lstSubColumn.Count > 0)
+            {
+                cbSubColumn.DataSource = new BindingSource(lstSubColumn, null);
+                cbSubColumn.DisplayMember = "key";
+                cbSubColumn.ValueMember = "value";
+                cbSubColumn.SelectedIndex = 0;
+            }
         }
 
         private void FormCreateAdapter_Load(object sender, EventArgs e)

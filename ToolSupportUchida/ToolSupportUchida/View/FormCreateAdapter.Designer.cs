@@ -32,21 +32,18 @@ namespace ToolSupportUchida.View
             this.panelTextJapan = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblNumType = new System.Windows.Forms.Label();
-            this.txtType = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblNumPhy = new System.Windows.Forms.Label();
-            this.txtPhysi = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNumLogic = new System.Windows.Forms.Label();
-            this.txtLogic = new System.Windows.Forms.RichTextBox();
             this.panelTextEng = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblResult = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbRow = new System.Windows.Forms.ComboBox();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
-            this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnCreateOut = new System.Windows.Forms.Button();
             this.btnCreateIn = new System.Windows.Forms.Button();
@@ -56,6 +53,9 @@ namespace ToolSupportUchida.View
             this.cbSubRow = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbColumn = new System.Windows.Forms.ComboBox();
+            this.txtLogic = new System.Windows.Forms.TextBox();
+            this.txtPhysi = new System.Windows.Forms.TextBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.panelTextJapan.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,8 +79,8 @@ namespace ToolSupportUchida.View
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.lblNumType);
             this.groupBox4.Controls.Add(this.txtType);
+            this.groupBox4.Controls.Add(this.lblNumType);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(281, 0);
             this.groupBox4.Name = "groupBox4";
@@ -99,21 +99,10 @@ namespace ToolSupportUchida.View
             this.lblNumType.Text = "Line number:";
             this.lblNumType.Visible = false;
             // 
-            // txtType
-            // 
-            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtType.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtType.Location = new System.Drawing.Point(3, 19);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(124, 341);
-            this.txtType.TabIndex = 0;
-            this.txtType.Text = "";
-            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblNumPhy);
             this.groupBox3.Controls.Add(this.txtPhysi);
+            this.groupBox3.Controls.Add(this.lblNumPhy);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(145, 0);
             this.groupBox3.Name = "groupBox3";
@@ -132,21 +121,10 @@ namespace ToolSupportUchida.View
             this.lblNumPhy.Text = "Line number:";
             this.lblNumPhy.Visible = false;
             // 
-            // txtPhysi
-            // 
-            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPhysi.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysi.Name = "txtPhysi";
-            this.txtPhysi.Size = new System.Drawing.Size(124, 341);
-            this.txtPhysi.TabIndex = 0;
-            this.txtPhysi.Text = "";
-            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblNumLogic);
             this.groupBox1.Controls.Add(this.txtLogic);
+            this.groupBox1.Controls.Add(this.lblNumLogic);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 0);
             this.groupBox1.Name = "groupBox1";
@@ -164,17 +142,6 @@ namespace ToolSupportUchida.View
             this.lblNumLogic.TabIndex = 1;
             this.lblNumLogic.Text = "Line number:";
             this.lblNumLogic.Visible = false;
-            // 
-            // txtLogic
-            // 
-            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtLogic.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtLogic.Name = "txtLogic";
-            this.txtLogic.Size = new System.Drawing.Size(124, 341);
-            this.txtLogic.TabIndex = 0;
-            this.txtLogic.Text = "";
-            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
             // 
             // panelTextEng
             // 
@@ -197,12 +164,26 @@ namespace ToolSupportUchida.View
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Result";
             // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.Color.Red;
+            this.lblResult.Location = new System.Drawing.Point(4, 367);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(149, 15);
+            this.lblResult.TabIndex = 13;
+            this.lblResult.Text = "Copy to Clipboard is done!";
+            this.lblResult.Visible = false;
+            // 
             // txtResult
             // 
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Enabled = false;
             this.txtResult.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
             this.txtResult.Size = new System.Drawing.Size(154, 338);
             this.txtResult.TabIndex = 1;
             this.txtResult.Text = "";
@@ -255,18 +236,6 @@ namespace ToolSupportUchida.View
             this.groupBoxSetting.TabIndex = 4;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "Setting";
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(4, 367);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(149, 15);
-            this.lblResult.TabIndex = 13;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.Visible = false;
             // 
             // btnCopy
             // 
@@ -365,6 +334,39 @@ namespace ToolSupportUchida.View
             this.cbColumn.Size = new System.Drawing.Size(102, 24);
             this.cbColumn.TabIndex = 5;
             // 
+            // txtLogic
+            // 
+            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtLogic.Multiline = true;
+            this.txtLogic.Name = "txtLogic";
+            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLogic.Size = new System.Drawing.Size(124, 338);
+            this.txtLogic.TabIndex = 2;
+            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
+            // 
+            // txtPhysi
+            // 
+            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysi.Multiline = true;
+            this.txtPhysi.Name = "txtPhysi";
+            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtPhysi.Size = new System.Drawing.Size(124, 338);
+            this.txtPhysi.TabIndex = 3;
+            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
+            // 
+            // txtType
+            // 
+            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtType.Location = new System.Drawing.Point(3, 19);
+            this.txtType.Multiline = true;
+            this.txtType.Name = "txtType";
+            this.txtType.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtType.Size = new System.Drawing.Size(124, 338);
+            this.txtType.TabIndex = 3;
+            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            // 
             // FormCreateAdapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,12 +401,9 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.Panel panelTextEng;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox txtLogic;
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox txtPhysi;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox txtType;
         private System.Windows.Forms.Label lblNumType;
         private System.Windows.Forms.Label lblNumPhy;
         private System.Windows.Forms.Label lblNumLogic;
@@ -422,5 +421,8 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.Button btnCreateOut;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.TextBox txtType;
+        private System.Windows.Forms.TextBox txtPhysi;
+        private System.Windows.Forms.TextBox txtLogic;
     }
 }

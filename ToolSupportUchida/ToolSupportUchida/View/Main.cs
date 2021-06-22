@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -26,28 +27,40 @@ namespace ToolSupportUchida
 
         private Random random;
         private int tempIndex;
-        private int no;
+        private int noSekkei;
+        private int noAdapter;
         private int rowIndex;
 
-        private ToolSupportModel toolSupport;
+        private ToolSupportModel objToolSupport;
+
         private List<SekkeiModel> lstSekkei;
+        private List<AdapterModel> lstAdapter;
 
         //Constructor
         public Main()
         {
             InitializeComponent();
             random = new Random();
-            no = 1;
+            noSekkei = 1;
+            noAdapter = 1;
             rowIndex = -1;
 
-            toolSupport = new ToolSupportModel();
+            objToolSupport = new ToolSupportModel();
+
             lstSekkei = new List<SekkeiModel>();
+            lstAdapter = new List<AdapterModel>();
 
             btnCloseChildForm.Visible = false;
 
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            cbType.Items.Add(CONST.ITEM_ROWS);
+            cbType.Items.Add(CONST.ITEM_COLUMNS);
+            cbType.Items.Add(CONST.ITEM_SUB_ROWS);
+            cbType.Items.Add(CONST.ITEM_SUB_COLUMNS);
+            cbType.SelectedIndex = 0;
         }
 
         #region Theme
@@ -150,13 +163,31 @@ namespace ToolSupportUchida
         #region Event
         private void Main_Load(object sender, EventArgs e)
         {
-            lstSekkei = BinarySerialization.ReadFromBinaryFile<List<SekkeiModel>>();
-
-            foreach (SekkeiModel sekkei in lstSekkei)
+            if (File.Exists(CONST.FILE_PATH))
             {
-                gridSekkei.Rows.Add(no, sekkei.logicName, sekkei.physiName);
-                no++;
+                objToolSupport = BinarySerialization.ReadFromBinaryFile<ToolSupportModel>();
+
+                if (objToolSupport.lstSekkei != null)
+                {
+                    lstSekkei = objToolSupport.lstSekkei;
+                    foreach (SekkeiModel sekkei in objToolSupport.lstSekkei)
+                    {
+                        gridSekkei.Rows.Add(noSekkei, sekkei.logicName, sekkei.physiName);
+                        noSekkei++;
+                    }
+                }
+
+                if (objToolSupport.lstAdapter != null)
+                {
+                    lstAdapter = objToolSupport.lstAdapter;
+                    foreach (AdapterModel adapter in objToolSupport.lstAdapter)
+                    {
+                        gridAdapter.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
+                        noAdapter++;
+                    }
+                }
             }
+
         }
 
         private void btnAddSekkei_Click(object sender, EventArgs e)
@@ -191,19 +222,20 @@ namespace ToolSupportUchida
 
                 if (rowIndex != -1)
                 {
-                    this.gridSekkei.Rows[rowIndex].Cells[1].Value = txtLogicName.Text;
-                    this.gridSekkei.Rows[rowIndex].Cells[2].Value = txtPhysiName.Text;
-                    lstSekkei[rowIndex] = new SekkeiModel(txtLogicName.Text, txtPhysiName.Text);
+                    this.gridSekkei.Rows[rowIndex].Cells[1].Value = logicName;
+                    this.gridSekkei.Rows[rowIndex].Cells[2].Value = physiName;
+                    lstSekkei[rowIndex] = new SekkeiModel(logicName, physiName);
 
                     rowIndex = -1;
                 }
                 else
                 {
-                    this.gridSekkei.Rows.Add(no++, txtLogicName.Text, txtPhysiName.Text);
-                    lstSekkei.Add(new SekkeiModel(txtLogicName.Text, txtPhysiName.Text));
+                    this.gridSekkei.Rows.Add(noSekkei++, logicName, physiName);
+                    lstSekkei.Add(new SekkeiModel(logicName, physiName));
                 }
 
-                BinarySerialization.WriteToBinaryFile<List<SekkeiModel>>(lstSekkei);
+                objToolSupport.lstSekkei = lstSekkei;
+                BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
 
                 // Clear data
                 txtLogicName.Text = string.Empty;
@@ -218,14 +250,14 @@ namespace ToolSupportUchida
 
             gridSekkei.Rows.Clear();
             gridSekkei.Refresh();
-            no = 1;
+            noSekkei = 1;
 
             if (string.IsNullOrEmpty(logicName) && string.IsNullOrEmpty(physiName))
             {
                 foreach (SekkeiModel sekkei in lstSekkei)
                 {
-                    gridSekkei.Rows.Add(no, sekkei.logicName, sekkei.physiName);
-                    no++;
+                    gridSekkei.Rows.Add(noSekkei, sekkei.logicName, sekkei.physiName);
+                    noSekkei++;
                 }
             }
             else
@@ -247,7 +279,7 @@ namespace ToolSupportUchida
                 if (objSekkei != null)
                 {
                     this.gridSekkei.Rows.Add(1, objSekkei.logicName, objSekkei.physiName);
-                    no++;
+                    noSekkei++;
                 }
                 else
                 {
@@ -274,13 +306,13 @@ namespace ToolSupportUchida
             string colName = this.gridSekkei.Columns[e.ColumnIndex].Name;
             DataGridViewRow row = this.gridSekkei.Rows[e.RowIndex];
 
-            if (colName.Equals(CONST.NAME_COL_EDIT))
+            if (colName.Equals(CONST.NAME_COL_SEKKEI_EDIT))
             {
                 txtLogicName.Text = row.Cells[1].Value.ToString();
                 txtPhysiName.Text = row.Cells[2].Value.ToString();
                 rowIndex = e.RowIndex;
             }
-            else if (colName.Equals(CONST.NAME_COL_DELETE))
+            else if (colName.Equals(CONST.NAME_COL_SEKKEI_DELETE))
             {
 
                 DialogResult result = MessageBox.Show(CONST.MESS_DELETE_ROW, CONST.TEXT_CAPTION_WARNING,
@@ -289,15 +321,127 @@ namespace ToolSupportUchida
                 if (result == DialogResult.Yes)
                 {
                     this.gridSekkei.Rows.Remove(row);
-                    no--;
+                    noSekkei--;
 
-                    for (int i = 0; i < no - 1; i++)
+                    for (int i = 0; i < noSekkei - 1; i++)
                     {
                         this.gridSekkei.Rows[i].Cells[0].Value = i + 1;
                     }
 
                     lstSekkei.RemoveAt(e.RowIndex);
-                    BinarySerialization.WriteToBinaryFile<List<SekkeiModel>>(lstSekkei);
+                    objToolSupport.lstSekkei = lstSekkei;
+
+                    BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnSearchAdapter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddAdapter_Click(object sender, EventArgs e)
+        {
+            string joinType = this.cbType.GetItemText(cbType.SelectedItem);
+            string joinKey = txtJoinKey.Text.Trim();
+            string joinValue = txtJoinValue.Text.Trim();
+
+            if (string.IsNullOrEmpty(joinKey))
+            {
+                MessageBox.Show(CONST.MESS_ADD_NEW_JOIN_KEY_BLANK, CONST.TEXT_CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(joinValue))
+            {
+                MessageBox.Show(CONST.MESS_ADD_NEW_JOIN_VALUE_BLANK, CONST.TEXT_CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                bool containsItem = lstAdapter.Any(item => (item.key == joinKey));
+
+                if (containsItem && rowIndex == -1)
+                {
+                    MessageBox.Show(CONST.MESS_ADD_NEW_EXIST, CONST.TEXT_CAPTION_ERROR,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (containsItem && rowIndex == -1)
+                {
+                    return;
+                }
+
+                if (rowIndex != -1)
+                {
+                    this.gridAdapter.Rows[rowIndex].Cells[1].Value = joinType;
+                    this.gridAdapter.Rows[rowIndex].Cells[2].Value = joinKey;
+                    this.gridAdapter.Rows[rowIndex].Cells[3].Value = joinValue;
+                    lstAdapter[rowIndex] = new AdapterModel(joinType, joinKey, joinValue);
+
+                    rowIndex = -1;
+                }
+                else
+                {
+                    this.gridAdapter.Rows.Add(noAdapter++, joinType, joinKey, joinValue);
+                    lstAdapter.Add(new AdapterModel(joinType, joinKey, joinValue));
+                }
+
+                objToolSupport.lstAdapter = lstAdapter;
+                BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+
+                // Clear data
+                txtJoinKey.Text = string.Empty;
+                txtJoinValue.Text = string.Empty;
+            }
+        }
+
+        private void btnClearAdaper_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridAdapter_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
+            string colName = this.gridAdapter.Columns[e.ColumnIndex].Name;
+            DataGridViewRow row = this.gridAdapter.Rows[e.RowIndex];
+
+            if (colName.Equals(CONST.NAME_COL_ADAPTER_EDIT))
+            {
+                cbType.SelectedItem = row.Cells[1].Value.ToString();
+                txtJoinKey.Text = row.Cells[2].Value.ToString();
+                txtJoinValue.Text = row.Cells[3].Value.ToString();
+                rowIndex = e.RowIndex;
+            }
+            else if (colName.Equals(CONST.NAME_COL_ADAPTER_DELETE))
+            {
+
+                DialogResult result = MessageBox.Show(CONST.MESS_DELETE_ROW, CONST.TEXT_CAPTION_WARNING,
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.gridAdapter.Rows.Remove(row);
+                    noAdapter--;
+
+                    for (int i = 0; i < noAdapter - 1; i++)
+                    {
+                        this.gridAdapter.Rows[i].Cells[0].Value = i + 1;
+                    }
+
+                    lstAdapter.RemoveAt(e.RowIndex);
+                    objToolSupport.lstAdapter = lstAdapter;
+
+                    BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
                 }
             }
             else
@@ -323,7 +467,7 @@ namespace ToolSupportUchida
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateAdapter(), sender);
+            OpenChildForm(new FormCreateAdapter(lstAdapter), sender);
         }
 
         private void btnCheckData_Click(object sender, EventArgs e)
