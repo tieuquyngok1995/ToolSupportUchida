@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ToolSupportUchida.Utils
@@ -222,6 +223,63 @@ namespace ToolSupportUchida.Utils
                 case "<=": return left.CompareTo(right) <= 0;
                 default: throw new ArgumentException("Invalid comparison operator: {0}", operators);
             }
+        }
+
+        public static StringBuilder CreateAppenIn(bool isCreate)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (isCreate)
+            {
+                sb.Append("b.Append(inModel.{0}).Append({1})    // {2}");
+            }
+            else
+            {
+                sb.Append(" .Append(inModel.{0}).Append({1})    // {2}");
+            }
+
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateObject()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("List<{0}> {1} = new List<{0}>")
+              .Append(CONST.STRING_ADD_LINE);
+
+            return sb;
+        }
+
+        public static StringBuilder CreateForEach()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("List<{0}> {1} = new List<{0}>")
+              .Append(CONST.STRING_ADD_LINE);
+
+            return sb;
+        }
+
+        public static string CreateComment(string input)
+        {
+            return "// " + input + CONST.STRING_ADD_LINE;
+        }
+
+        public static string FirstCharToLowerCase(string str)
+        {
+            if (string.IsNullOrEmpty(str) || char.IsLower(str[0]))
+                return str;
+
+            return char.ToLower(str[0]) + str.Substring(1);
+        }
+
+        public static string FirstCharToUpperCase(string str)
+        {
+            if (string.IsNullOrEmpty(str) || char.IsUpper(str[0]))
+                return str;
+
+            return char.ToUpper(str[0]) + str.Substring(1);
         }
         #endregion
     }

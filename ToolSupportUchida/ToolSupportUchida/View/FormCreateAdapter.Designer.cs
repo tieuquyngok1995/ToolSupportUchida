@@ -31,10 +31,13 @@ namespace ToolSupportUchida.View
         {
             this.panelTextJapan = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.lblNumType = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtPhysi = new System.Windows.Forms.TextBox();
             this.lblNumPhy = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtLogic = new System.Windows.Forms.TextBox();
             this.lblNumLogic = new System.Windows.Forms.Label();
             this.panelTextEng = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,9 +56,6 @@ namespace ToolSupportUchida.View
             this.cbSubRow = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbColumn = new System.Windows.Forms.ComboBox();
-            this.txtLogic = new System.Windows.Forms.TextBox();
-            this.txtPhysi = new System.Windows.Forms.TextBox();
-            this.txtType = new System.Windows.Forms.TextBox();
             this.panelTextJapan.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,6 +89,17 @@ namespace ToolSupportUchida.View
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Type";
             // 
+            // txtType
+            // 
+            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtType.Location = new System.Drawing.Point(3, 19);
+            this.txtType.Multiline = true;
+            this.txtType.Name = "txtType";
+            this.txtType.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtType.Size = new System.Drawing.Size(124, 338);
+            this.txtType.TabIndex = 3;
+            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            // 
             // lblNumType
             // 
             this.lblNumType.AutoSize = true;
@@ -111,6 +122,17 @@ namespace ToolSupportUchida.View
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Physical Name";
             // 
+            // txtPhysi
+            // 
+            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysi.Multiline = true;
+            this.txtPhysi.Name = "txtPhysi";
+            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtPhysi.Size = new System.Drawing.Size(124, 338);
+            this.txtPhysi.TabIndex = 3;
+            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
+            // 
             // lblNumPhy
             // 
             this.lblNumPhy.AutoSize = true;
@@ -132,6 +154,17 @@ namespace ToolSupportUchida.View
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Logical Name";
+            // 
+            // txtLogic
+            // 
+            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtLogic.Multiline = true;
+            this.txtLogic.Name = "txtLogic";
+            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLogic.Size = new System.Drawing.Size(124, 338);
+            this.txtLogic.TabIndex = 2;
+            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
             // 
             // lblNumLogic
             // 
@@ -183,7 +216,6 @@ namespace ToolSupportUchida.View
             this.txtResult.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
             this.txtResult.Size = new System.Drawing.Size(154, 338);
             this.txtResult.TabIndex = 1;
             this.txtResult.Text = "";
@@ -205,6 +237,7 @@ namespace ToolSupportUchida.View
             this.cbRow.Name = "cbRow";
             this.cbRow.Size = new System.Drawing.Size(102, 24);
             this.cbRow.TabIndex = 3;
+            this.cbRow.SelectedIndexChanged += new System.EventHandler(this.cbRow_SelectedIndexChanged);
             // 
             // panelSetting
             // 
@@ -239,6 +272,7 @@ namespace ToolSupportUchida.View
             // 
             // btnCopy
             // 
+            this.btnCopy.Enabled = false;
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,9 +285,11 @@ namespace ToolSupportUchida.View
             this.btnCopy.Text = "Copy";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnCreateOut
             // 
+            this.btnCreateOut.Enabled = false;
             this.btnCreateOut.FlatAppearance.BorderSize = 0;
             this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
@@ -265,9 +301,11 @@ namespace ToolSupportUchida.View
             this.btnCreateOut.Text = "Create Out";
             this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateOut.UseVisualStyleBackColor = true;
+            this.btnCreateOut.Click += new System.EventHandler(this.btnCreateOut_Click);
             // 
             // btnCreateIn
             // 
+            this.btnCreateIn.Enabled = false;
             this.btnCreateIn.FlatAppearance.BorderSize = 0;
             this.btnCreateIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateIn.Image = global::ToolSupportUchida.Properties.Resources.button_create_in;
@@ -279,6 +317,7 @@ namespace ToolSupportUchida.View
             this.btnCreateIn.Text = "Create In";
             this.btnCreateIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateIn.UseVisualStyleBackColor = true;
+            this.btnCreateIn.Click += new System.EventHandler(this.btnCreateIn_Click);
             // 
             // label6
             // 
@@ -297,6 +336,7 @@ namespace ToolSupportUchida.View
             this.cbSubColumn.Name = "cbSubColumn";
             this.cbSubColumn.Size = new System.Drawing.Size(102, 24);
             this.cbSubColumn.TabIndex = 9;
+            this.cbSubColumn.SelectedIndexChanged += new System.EventHandler(this.cbSubColumn_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -315,6 +355,7 @@ namespace ToolSupportUchida.View
             this.cbSubRow.Name = "cbSubRow";
             this.cbSubRow.Size = new System.Drawing.Size(102, 24);
             this.cbSubRow.TabIndex = 7;
+            this.cbSubRow.SelectedIndexChanged += new System.EventHandler(this.cbSubRow_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -333,39 +374,7 @@ namespace ToolSupportUchida.View
             this.cbColumn.Name = "cbColumn";
             this.cbColumn.Size = new System.Drawing.Size(102, 24);
             this.cbColumn.TabIndex = 5;
-            // 
-            // txtLogic
-            // 
-            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtLogic.Multiline = true;
-            this.txtLogic.Name = "txtLogic";
-            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogic.Size = new System.Drawing.Size(124, 338);
-            this.txtLogic.TabIndex = 2;
-            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
-            // 
-            // txtPhysi
-            // 
-            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysi.Multiline = true;
-            this.txtPhysi.Name = "txtPhysi";
-            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPhysi.Size = new System.Drawing.Size(124, 338);
-            this.txtPhysi.TabIndex = 3;
-            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
-            // 
-            // txtType
-            // 
-            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtType.Location = new System.Drawing.Point(3, 19);
-            this.txtType.Multiline = true;
-            this.txtType.Name = "txtType";
-            this.txtType.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtType.Size = new System.Drawing.Size(124, 338);
-            this.txtType.TabIndex = 3;
-            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
             // 
             // FormCreateAdapter
             // 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToolSupportUchida.Model
 {
+    [Serializable]
     public class AdapterModel
     {
         public string type { get; set; }

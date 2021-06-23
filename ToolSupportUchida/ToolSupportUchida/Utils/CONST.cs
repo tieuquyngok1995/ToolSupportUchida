@@ -7,13 +7,19 @@ namespace ToolSupportUchida.Utils
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
 
+        #region Item
         public static string ITEM_ROWS = "Rows";
         public static string ITEM_COLUMNS = "Columns";
         public static string ITEM_SUB_ROWS = "SubRows";
         public static string ITEM_SUB_COLUMNS = "SubColumns";
 
+        public static string ITEM_KEY = "key";
+        public static string ITEM_VALUE = "value";
+        #endregion
+
         #region Char
         public const char CHAR_NEW_LINE = '\n';
+        public const char CHAR_CARRIAGE_RETUR = '\r';
         public const char CHAR_TAB = '\t';
         public const char CHAR_SPACE = ' ';
         public const char CHAR_AMPERSAND = '&';
@@ -25,6 +31,7 @@ namespace ToolSupportUchida.Utils
 
         #region String
         public const string STRING_NEW_LINE = "\n";
+        public const string STRING_CARRIAGE_RETUR = "\r";
         public const string STRING_DOUBLE_LINE = "\n\n";
         public const string STRING_ADD_LINE = "\r\n";
         public const string STRING_SPACE = " ";
@@ -52,6 +59,8 @@ namespace ToolSupportUchida.Utils
         public const string STRING_VBCRLF = "& vbCrLf";
 
         public const string STRING_EMPTY = "String.Empty";
+        public const string STRING_LIST_EN = "List";
+        public const string STRING_LIST_JP = "リスト";
         #endregion
 
         #region Text

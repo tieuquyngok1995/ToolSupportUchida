@@ -659,37 +659,5 @@ namespace ToolSupportUchida.View
         }
 
         #endregion
-
-        //private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
-        //    {
-        //        tbResult.Text = string.Empty;
-        //        int index = CommentList.LastIndexOf(txtSearch.Text.Trim());
-
-        //        if (index != -1)
-        //        {
-        //            tbResult.Text = PropertyList[index];
-        //        }
-        //    }
-        //}
-        //private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    bool ctrlV = e.Modifiers == Keys.Control && e.KeyCode == Keys.V;
-        //    if (ctrlV)
-        //    {
-        //        tbResult.Text = string.Empty;
-        //        int index = CommentList.LastIndexOf(txtSearch.Text.Trim());
-
-        //        if (index != -1)
-        //        {
-        //            tbResult.Text = PropertyList[index];
-        //        }
-        //    }
-
-        //}
-
-
-
     }
 }
