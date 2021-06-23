@@ -36,7 +36,11 @@ namespace ToolSupportUchida.Common
             if (!File.Exists(CONST.FILE_PATH))
             {
                 string[] data = { };
+
+                ToolSupportModel objTool = new ToolSupportModel();
+
                 List<SekkeiModel> lstSekkei = new List<SekkeiModel>();
+                List<AdapterModel> lstAdapter = new List<AdapterModel>();
 
                 if (File.Exists(CONST.FILE_PATH_IMPORT))
                 {
@@ -48,7 +52,11 @@ namespace ToolSupportUchida.Common
                     string[] arrLine = line.Split('=');
                     lstSekkei.Add(new SekkeiModel(arrLine[0], arrLine[1]));
                 }
-                WriteToBinaryFile<List<SekkeiModel>>(lstSekkei);
+
+                objTool.lstSekkei = lstSekkei;
+                objTool.lstAdapter = lstAdapter;
+
+                WriteToBinaryFile<ToolSupportModel>(objTool);
             }
 
             using (Stream stream = File.Open(filePath, FileMode.Open))
