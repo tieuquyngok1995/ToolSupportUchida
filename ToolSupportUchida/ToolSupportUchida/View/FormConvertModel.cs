@@ -146,6 +146,13 @@ namespace ToolSupportUchida.View
                 this.panelComment.Visible = true;
                 this.panelFormat.Visible = false;
                 this.panelType.Visible = false;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 this.isCsharp = true;
                 this.isJs = false;
                 this.isHtml = false;
@@ -161,6 +168,13 @@ namespace ToolSupportUchida.View
                 this.panelComment.Visible = true;
                 this.panelFormat.Visible = true;
                 this.panelType.Visible = true;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 this.isCsharp = false;
                 this.isJs = true;
                 this.isHtml = false;
@@ -176,6 +190,13 @@ namespace ToolSupportUchida.View
                 this.panelComment.Visible = false;
                 this.panelFormat.Visible = false;
                 this.panelType.Visible = false;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 this.isCsharp = false;
                 this.isJs = false;
                 this.isHtml = true;
@@ -188,6 +209,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbLineBlock.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -196,6 +222,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbBlock.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -204,6 +235,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbLine.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -212,6 +248,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbLowerCase.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -220,6 +261,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbUpperCase.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -228,6 +274,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbSetParam.Checked)
             {
+                this.txtAddLogic.Visible = true;
+                this.txtAddPhysi.Visible = true;
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
                 convert();
             }
         }
@@ -236,6 +287,11 @@ namespace ToolSupportUchida.View
         {
             if (rdbObservable.Checked)
             {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
                 convert();
             }
         }
@@ -243,6 +299,27 @@ namespace ToolSupportUchida.View
         private void rdbTypeScript_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbTypeScript.Checked)
+            {
+                this.txtAddLogic.Visible = false;
+                this.txtAddPhysi.Visible = false;
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
+                convert();
+            }
+        }
+
+        private void rdbFirst_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbFirst.Checked)
+            {
+                convert();
+            }
+        }
+
+        private void rdbLast_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbLast.Checked)
             {
                 convert();
             }
@@ -270,7 +347,6 @@ namespace ToolSupportUchida.View
             txtResult.Text = string.Empty;
             txtAddLogic.Text = string.Empty;
             txtAddPhysi.Text = string.Empty;
-            txtAddType.Text = string.Empty;
 
             lblNumLogic.Visible = false;
             lblNumPhysi.Visible = false;
@@ -485,19 +561,19 @@ namespace ToolSupportUchida.View
 
                 if (!String.IsNullOrEmpty(txtAddPhysi.Text.Trim()))
                 {
-                    namePhy = txtAddPhysi.Text.Trim() + namePhy;
+                    if (rdbFirst.Checked)
+                    {
+                        namePhy = txtAddPhysi.Text.Trim() + namePhy;
+                    }
+                    else
+                    {
+                        namePhy = namePhy + txtAddPhysi.Text.Trim();
+                    }
                 }
 
                 if (rdbSetParam.Checked)
                 {
-                    if (txtType.Text.Contains(";"))
-                    {
-                        type = " = " + type;
-                    }
-                    else if (txtType.Text.Contains(","))
-                    {
-                        type = ": " + type + ",";
-                    }
+                    type = " = " + type + ";";
                 }
 
                 string element = string.Format(template, nameLog, namePhy, dot, type);
@@ -536,18 +612,18 @@ namespace ToolSupportUchida.View
                     switch (value)
                     {
                         case "button":
-                            stringbuilder.Append("<button type=\"button\" class=\"col btn btn-light border-secondary\" data-bind=\"{0}\">\r\n{1}\r\n</button>\r\n");
+                            stringbuilder.Append("<button type=\"button\" class=\"btn btn-sm btn-light border-secondary\" data-bind=\"{0}</button>\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("button", lstType[i].Trim()), lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty));
                             break;
                         case "label":
-                            stringbuilder.Append("<label>\r\n{0}{1}\r\n</label>\r\n");
-                            element = string.Format(stringbuilder.ToString(), lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty), createDataBind("label", lstType[i].Trim()));
+                            stringbuilder.Append("<label class=\"label label-sm\">\r\n{0}\r\n</label>\r\n");
+                            element = string.Format(stringbuilder.ToString(), createDataBind("label", lstType[i].Trim()));
                             break;
                         case "text":
                             stringbuilder.Append("<input type=\"text\" class=\"form-control\" data-bind=\"{0}\"/>\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("text", lstType[i].Trim()));
                             break;
-                        case "checkbox":
+                        case "boolean":
                             stringbuilder.Append("<input type=\"checkbox\" data-bind=\"{0}\"/>\r\n");
                             element = string.Format(stringbuilder.ToString(), createDataBind("checkbox", lstType[i].Trim()));
                             break;
@@ -557,7 +633,7 @@ namespace ToolSupportUchida.View
                             break;
                         case "selectbox":
                             stringbuilder.Append("<select class=\"form-control\" data-bind=\"{0}\"></ select >\r\n");
-                            element = string.Format(stringbuilder.ToString(), createDataBind("selectbox", lstLogic[i].Trim().Replace(lstLogic[i].Trim(), string.Empty)));
+                            element = string.Format(stringbuilder.ToString(), createDataBind("selectbox", lstType[i].Trim()));
                             break;
                     }
                 }
@@ -591,26 +667,57 @@ namespace ToolSupportUchida.View
             switch (type)
             {
                 case "button":
-                    if (arrValue.Length == 2)
+                    if (arrValue.Length == 3)
                     {
-                        result = "click: " + arrValue[0] + ", disable: " + arrValue[1];
+                        result = "click: " + arrValue[0] +
+                            "\">\r\n    @Html.Raw(literalCtrl[\"" + arrValue[1] + "\"]).CreateHtml(\"" + arrValue[2] + "\"))\r\n";
                     }
-                    else if (arrValue.Length == 3)
+                    else if (arrValue.Length == 4)
                     {
-                        result = "click: " + arrValue[0] + ", visible: " + arrValue[1] + ", disable: " + arrValue[2];
+                        result = "click: " + arrValue[0] + ", disable: " + arrValue[1] +
+                            "\">\r\n    @Html.Raw(literalCtrl[\"" + arrValue[2] + "\"]).CreateHtml(\"" + arrValue[3] + "\"))\r\n";
                     }
+                    else if (arrValue.Length == 5)
+                    {
+                        result = "click: " + arrValue[0] + ", visible: " + arrValue[1] + ", disable: " + arrValue[2]
+                            + "\">\r\n    @Html.Raw(literalCtrl[\"" + arrValue[3] + "\"]).CreateHtml(\"" + arrValue[4] + "\"))\r\n";
+                    }
+                    else if (arrValue.Length == 6)
+                    {
+                        result = "click: " + arrValue[0] + ", visible: " + arrValue[1] + ", disable: " + arrValue[2] +
+                            "\">\r\n    <span class=\"fas " + arrValue[3] + "\"></span>"
+                            + "@Html.Raw(literalCtrl[\"" + arrValue[4] + "\"]).CreateHtml(\"" + arrValue[5] + "\"))\r\n";
+                    }
+
                     return result;
                 case "label":
                     if (arrValue.Length == 1)
                     {
-                        return "\r\n<span class=\"text - danger\">＊</span>";
+                        result = arrValue[0];
+
                     }
-                    else
+                    else if (arrValue.Length == 2)
                     {
-                        return result;
+                        if (string.IsNullOrEmpty(arrValue[1]))
+                        {
+                            result = "    " + arrValue[0] + " <span class=\"text-danger\">＊</span>";
+                        }
+                        else
+                        {
+                            result = "    @Html.Raw(literalCtrl[\"" + arrValue[1] + "\"]).CreateHtml(\"" + arrValue[0] + "\"))";
+                        }
                     }
+                    else if (arrValue.Length == 3)
+                    {
+                        result = "    @Html.Raw(literalCtrl[\"" + arrValue[1] + "\"]).CreateHtml(\"" + arrValue[0] + "\")) <span class=\"text-danger\">＊</span>";
+                    }
+                    return result;
                 case "text":
-                    if (arrValue.Length == 2)
+                    if (arrValue.Length == 1)
+                    {
+                        result = "value: " + arrValue[0];
+                    }
+                    else if (arrValue.Length == 2)
                     {
                         result = "value: " + arrValue[0] + ", disable: " + arrValue[1];
                     }
@@ -624,7 +731,11 @@ namespace ToolSupportUchida.View
                     }
                     return result;
                 case "checkbox":
-                    if (arrValue.Length == 2)
+                    if (arrValue.Length == 1)
+                    {
+                        result = "checked: " + arrValue[0];
+                    }
+                    else if (arrValue.Length == 2)
                     {
                         result = "checked: " + arrValue[0] + ", disable: " + arrValue[1];
                     }

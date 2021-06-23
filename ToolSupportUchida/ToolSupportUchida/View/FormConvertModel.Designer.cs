@@ -44,9 +44,13 @@ namespace ToolSupportUchida.View
             this.rdbUpperCase = new System.Windows.Forms.RadioButton();
             this.rdbLowerCase = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtLogic = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtPhysi = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtResult = new System.Windows.Forms.TextBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.lblNumLogic = new System.Windows.Forms.Label();
@@ -60,11 +64,8 @@ namespace ToolSupportUchida.View
             this.rdbObservable = new System.Windows.Forms.RadioButton();
             this.rdbSetParam = new System.Windows.Forms.RadioButton();
             this.btnClear = new System.Windows.Forms.Button();
-            this.txtLogic = new System.Windows.Forms.TextBox();
-            this.txtPhysi = new System.Windows.Forms.TextBox();
-            this.txtType = new System.Windows.Forms.TextBox();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.txtAddType = new System.Windows.Forms.TextBox();
+            this.rdbFirst = new System.Windows.Forms.RadioButton();
+            this.rdbLast = new System.Windows.Forms.RadioButton();
             this.panelLanguage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelComment.SuspendLayout();
@@ -85,7 +86,7 @@ namespace ToolSupportUchida.View
             this.panelLanguage.Location = new System.Drawing.Point(9, 3);
             this.panelLanguage.Name = "panelLanguage";
             this.panelLanguage.Size = new System.Drawing.Size(165, 50);
-            this.panelLanguage.TabIndex = 0;
+            this.panelLanguage.TabIndex = 10;
             // 
             // groupBox1
             // 
@@ -108,7 +109,7 @@ namespace ToolSupportUchida.View
             this.rdbJS.Location = new System.Drawing.Point(50, 22);
             this.rdbJS.Name = "rdbJS";
             this.rdbJS.Size = new System.Drawing.Size(39, 19);
-            this.rdbJS.TabIndex = 1;
+            this.rdbJS.TabIndex = 99;
             this.rdbJS.Text = "JS";
             this.rdbJS.UseVisualStyleBackColor = true;
             this.rdbJS.CheckedChanged += new System.EventHandler(this.rdbJS_CheckedChanged);
@@ -121,7 +122,7 @@ namespace ToolSupportUchida.View
             this.rdbC.Location = new System.Drawing.Point(6, 22);
             this.rdbC.Name = "rdbC";
             this.rdbC.Size = new System.Drawing.Size(40, 19);
-            this.rdbC.TabIndex = 0;
+            this.rdbC.TabIndex = 99;
             this.rdbC.Text = "C#";
             this.rdbC.UseVisualStyleBackColor = true;
             this.rdbC.CheckedChanged += new System.EventHandler(this.rdbC_CheckedChanged);
@@ -133,7 +134,7 @@ namespace ToolSupportUchida.View
             this.rdbHTML.Location = new System.Drawing.Point(95, 22);
             this.rdbHTML.Name = "rdbHTML";
             this.rdbHTML.Size = new System.Drawing.Size(59, 19);
-            this.rdbHTML.TabIndex = 2;
+            this.rdbHTML.TabIndex = 99;
             this.rdbHTML.Text = "HTML";
             this.rdbHTML.UseVisualStyleBackColor = true;
             this.rdbHTML.CheckedChanged += new System.EventHandler(this.rdbHTML_CheckedChanged);
@@ -144,7 +145,7 @@ namespace ToolSupportUchida.View
             this.panelComment.Location = new System.Drawing.Point(181, 3);
             this.panelComment.Name = "panelComment";
             this.panelComment.Size = new System.Drawing.Size(192, 50);
-            this.panelComment.TabIndex = 1;
+            this.panelComment.TabIndex = 11;
             // 
             // groupBox2
             // 
@@ -167,7 +168,7 @@ namespace ToolSupportUchida.View
             this.rdbBlock.Location = new System.Drawing.Point(87, 22);
             this.rdbBlock.Name = "rdbBlock";
             this.rdbBlock.Size = new System.Drawing.Size(55, 19);
-            this.rdbBlock.TabIndex = 1;
+            this.rdbBlock.TabIndex = 11;
             this.rdbBlock.Text = "Block";
             this.rdbBlock.UseVisualStyleBackColor = true;
             this.rdbBlock.CheckedChanged += new System.EventHandler(this.rdbBlock_CheckedChanged);
@@ -180,7 +181,7 @@ namespace ToolSupportUchida.View
             this.rdbLineBlock.Location = new System.Drawing.Point(6, 22);
             this.rdbLineBlock.Name = "rdbLineBlock";
             this.rdbLineBlock.Size = new System.Drawing.Size(82, 19);
-            this.rdbLineBlock.TabIndex = 3;
+            this.rdbLineBlock.TabIndex = 10;
             this.rdbLineBlock.Text = "Line Block";
             this.rdbLineBlock.UseVisualStyleBackColor = true;
             this.rdbLineBlock.CheckedChanged += new System.EventHandler(this.rdbLineBlock_CheckedChanged);
@@ -192,7 +193,7 @@ namespace ToolSupportUchida.View
             this.rdbLine.Location = new System.Drawing.Point(142, 22);
             this.rdbLine.Name = "rdbLine";
             this.rdbLine.Size = new System.Drawing.Size(49, 19);
-            this.rdbLine.TabIndex = 2;
+            this.rdbLine.TabIndex = 99;
             this.rdbLine.Text = "Line";
             this.rdbLine.UseVisualStyleBackColor = true;
             this.rdbLine.CheckedChanged += new System.EventHandler(this.rdbLine_CheckedChanged);
@@ -203,7 +204,7 @@ namespace ToolSupportUchida.View
             this.panelFormat.Location = new System.Drawing.Point(380, 3);
             this.panelFormat.Name = "panelFormat";
             this.panelFormat.Size = new System.Drawing.Size(136, 50);
-            this.panelFormat.TabIndex = 2;
+            this.panelFormat.TabIndex = 12;
             this.panelFormat.Visible = false;
             // 
             // groupBox3
@@ -226,7 +227,7 @@ namespace ToolSupportUchida.View
             this.rdbUpperCase.Location = new System.Drawing.Point(65, 22);
             this.rdbUpperCase.Name = "rdbUpperCase";
             this.rdbUpperCase.Size = new System.Drawing.Size(59, 19);
-            this.rdbUpperCase.TabIndex = 1;
+            this.rdbUpperCase.TabIndex = 99;
             this.rdbUpperCase.Text = "Upper";
             this.rdbUpperCase.UseVisualStyleBackColor = true;
             this.rdbUpperCase.CheckedChanged += new System.EventHandler(this.rdbUpperCase_CheckedChanged);
@@ -239,7 +240,7 @@ namespace ToolSupportUchida.View
             this.rdbLowerCase.Location = new System.Drawing.Point(6, 22);
             this.rdbLowerCase.Name = "rdbLowerCase";
             this.rdbLowerCase.Size = new System.Drawing.Size(59, 19);
-            this.rdbLowerCase.TabIndex = 0;
+            this.rdbLowerCase.TabIndex = 99;
             this.rdbLowerCase.Text = "Lower";
             this.rdbLowerCase.UseVisualStyleBackColor = true;
             this.rdbLowerCase.CheckedChanged += new System.EventHandler(this.rdbLowerCase_CheckedChanged);
@@ -255,6 +256,17 @@ namespace ToolSupportUchida.View
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Input Logical Name";
             // 
+            // txtLogic
+            // 
+            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtLogic.Multiline = true;
+            this.txtLogic.Name = "txtLogic";
+            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLogic.Size = new System.Drawing.Size(159, 283);
+            this.txtLogic.TabIndex = 1;
+            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txtPhysi);
@@ -265,6 +277,17 @@ namespace ToolSupportUchida.View
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input Physical Name";
+            // 
+            // txtPhysi
+            // 
+            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysi.Multiline = true;
+            this.txtPhysi.Name = "txtPhysi";
+            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtPhysi.Size = new System.Drawing.Size(159, 283);
+            this.txtPhysi.TabIndex = 2;
+            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
             // 
             // groupBox6
             // 
@@ -277,6 +300,17 @@ namespace ToolSupportUchida.View
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Input Type";
             // 
+            // txtType
+            // 
+            this.txtType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtType.Location = new System.Drawing.Point(3, 19);
+            this.txtType.Multiline = true;
+            this.txtType.Name = "txtType";
+            this.txtType.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtType.Size = new System.Drawing.Size(159, 283);
+            this.txtType.TabIndex = 3;
+            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.txtResult);
@@ -287,6 +321,18 @@ namespace ToolSupportUchida.View
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Result";
+            // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Enabled = false;
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResult.Size = new System.Drawing.Size(159, 283);
+            this.txtResult.TabIndex = 3;
+            this.txtResult.TabStop = false;
             // 
             // lblResult
             // 
@@ -310,7 +356,7 @@ namespace ToolSupportUchida.View
             this.btnCopy.Location = new System.Drawing.Point(529, 360);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(127, 24);
-            this.btnCopy.TabIndex = 7;
+            this.btnCopy.TabIndex = 8;
             this.btnCopy.Text = "Copy to Clipboard";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -351,18 +397,20 @@ namespace ToolSupportUchida.View
             // 
             // txtAddLogic
             // 
-            this.txtAddLogic.Location = new System.Drawing.Point(12, 363);
+            this.txtAddLogic.Location = new System.Drawing.Point(12, 361);
             this.txtAddLogic.Name = "txtAddLogic";
             this.txtAddLogic.Size = new System.Drawing.Size(159, 20);
             this.txtAddLogic.TabIndex = 4;
+            this.txtAddLogic.Visible = false;
             this.txtAddLogic.TextChanged += new System.EventHandler(this.txtAddLogic_TextChanged);
             // 
             // txtAddPhysi
             // 
-            this.txtAddPhysi.Location = new System.Drawing.Point(184, 363);
+            this.txtAddPhysi.Location = new System.Drawing.Point(184, 361);
             this.txtAddPhysi.Name = "txtAddPhysi";
             this.txtAddPhysi.Size = new System.Drawing.Size(159, 20);
             this.txtAddPhysi.TabIndex = 5;
+            this.txtAddPhysi.Visible = false;
             this.txtAddPhysi.TextChanged += new System.EventHandler(this.txtAddPhysi_TextChanged);
             // 
             // panelType
@@ -371,7 +419,7 @@ namespace ToolSupportUchida.View
             this.panelType.Location = new System.Drawing.Point(523, 3);
             this.panelType.Name = "panelType";
             this.panelType.Size = new System.Drawing.Size(167, 50);
-            this.panelType.TabIndex = 3;
+            this.panelType.TabIndex = 13;
             this.panelType.Visible = false;
             // 
             // groupBox8
@@ -396,7 +444,7 @@ namespace ToolSupportUchida.View
             this.rdbTypeScript.Location = new System.Drawing.Point(6, 22);
             this.rdbTypeScript.Name = "rdbTypeScript";
             this.rdbTypeScript.Size = new System.Drawing.Size(40, 19);
-            this.rdbTypeScript.TabIndex = 2;
+            this.rdbTypeScript.TabIndex = 99;
             this.rdbTypeScript.Text = "TS";
             this.rdbTypeScript.UseVisualStyleBackColor = true;
             this.rdbTypeScript.CheckedChanged += new System.EventHandler(this.rdbTypeScript_CheckedChanged);
@@ -408,7 +456,7 @@ namespace ToolSupportUchida.View
             this.rdbObservable.Location = new System.Drawing.Point(46, 22);
             this.rdbObservable.Name = "rdbObservable";
             this.rdbObservable.Size = new System.Drawing.Size(47, 19);
-            this.rdbObservable.TabIndex = 1;
+            this.rdbObservable.TabIndex = 99;
             this.rdbObservable.Text = "Obs";
             this.rdbObservable.UseVisualStyleBackColor = true;
             this.rdbObservable.CheckedChanged += new System.EventHandler(this.rdbObservable_CheckedChanged);
@@ -420,7 +468,7 @@ namespace ToolSupportUchida.View
             this.rdbSetParam.Location = new System.Drawing.Point(93, 22);
             this.rdbSetParam.Name = "rdbSetParam";
             this.rdbSetParam.Size = new System.Drawing.Size(72, 19);
-            this.rdbSetParam.TabIndex = 0;
+            this.rdbSetParam.TabIndex = 99;
             this.rdbSetParam.Text = "Set Para";
             this.rdbSetParam.UseVisualStyleBackColor = true;
             this.rdbSetParam.CheckedChanged += new System.EventHandler(this.rdbSetParam_CheckedChanged);
@@ -434,71 +482,46 @@ namespace ToolSupportUchida.View
             this.btnClear.Location = new System.Drawing.Point(662, 359);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(24, 24);
-            this.btnClear.TabIndex = 14;
+            this.btnClear.TabIndex = 9;
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // txtLogic
+            // rdbFirst
             // 
-            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtLogic.Multiline = true;
-            this.txtLogic.Name = "txtLogic";
-            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogic.Size = new System.Drawing.Size(159, 283);
-            this.txtLogic.TabIndex = 1;
-            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
+            this.rdbFirst.AutoSize = true;
+            this.rdbFirst.Checked = true;
+            this.rdbFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFirst.Location = new System.Drawing.Point(356, 362);
+            this.rdbFirst.Name = "rdbFirst";
+            this.rdbFirst.Size = new System.Drawing.Size(69, 19);
+            this.rdbFirst.TabIndex = 6;
+            this.rdbFirst.Text = "Set First";
+            this.rdbFirst.UseVisualStyleBackColor = true;
+            this.rdbFirst.Visible = false;
+            this.rdbFirst.CheckedChanged += new System.EventHandler(this.rdbFirst_CheckedChanged);
             // 
-            // txtPhysi
+            // rdbLast
             // 
-            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysi.Multiline = true;
-            this.txtPhysi.Name = "txtPhysi";
-            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPhysi.Size = new System.Drawing.Size(159, 283);
-            this.txtPhysi.TabIndex = 2;
-            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
-            // 
-            // txtType
-            // 
-            this.txtType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtType.Location = new System.Drawing.Point(3, 19);
-            this.txtType.Multiline = true;
-            this.txtType.Name = "txtType";
-            this.txtType.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtType.Size = new System.Drawing.Size(159, 283);
-            this.txtType.TabIndex = 3;
-            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
-            // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Enabled = false;
-            this.txtResult.Location = new System.Drawing.Point(3, 19);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(159, 283);
-            this.txtResult.TabIndex = 3;
-            this.txtResult.TabStop = false;
-            // 
-            // txtAddType
-            // 
-            this.txtAddType.Location = new System.Drawing.Point(353, 363);
-            this.txtAddType.Name = "txtAddType";
-            this.txtAddType.Size = new System.Drawing.Size(159, 20);
-            this.txtAddType.TabIndex = 6;
-            this.txtAddType.Visible = false;
+            this.rdbLast.AutoSize = true;
+            this.rdbLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLast.Location = new System.Drawing.Point(434, 362);
+            this.rdbLast.Name = "rdbLast";
+            this.rdbLast.Size = new System.Drawing.Size(69, 19);
+            this.rdbLast.TabIndex = 7;
+            this.rdbLast.Text = "Set Last";
+            this.rdbLast.UseVisualStyleBackColor = true;
+            this.rdbLast.Visible = false;
+            this.rdbLast.CheckedChanged += new System.EventHandler(this.rdbLast_CheckedChanged);
             // 
             // FormConvertModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 421);
-            this.Controls.Add(this.txtAddType);
+            this.Controls.Add(this.rdbLast);
+            this.Controls.Add(this.rdbFirst);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.panelType);
             this.Controls.Add(this.txtAddPhysi);
@@ -580,6 +603,7 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.TextBox txtPhysi;
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.TextBox txtAddType;
+        private System.Windows.Forms.RadioButton rdbFirst;
+        private System.Windows.Forms.RadioButton rdbLast;
     }
 }
