@@ -148,7 +148,9 @@ namespace ToolSupportUchida.View
                 this.panelType.Visible = false;
 
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -170,7 +172,9 @@ namespace ToolSupportUchida.View
                 this.panelType.Visible = true;
 
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -192,7 +196,9 @@ namespace ToolSupportUchida.View
                 this.panelType.Visible = false;
 
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -210,7 +216,10 @@ namespace ToolSupportUchida.View
             if (rdbLineBlock.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -223,7 +232,10 @@ namespace ToolSupportUchida.View
             if (rdbBlock.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -236,7 +248,10 @@ namespace ToolSupportUchida.View
             if (rdbLine.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -249,7 +264,10 @@ namespace ToolSupportUchida.View
             if (rdbLowerCase.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -262,7 +280,10 @@ namespace ToolSupportUchida.View
             if (rdbUpperCase.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -275,7 +296,10 @@ namespace ToolSupportUchida.View
             if (rdbSetParam.Checked)
             {
                 this.txtAddLogic.Visible = true;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = true;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
 
@@ -288,7 +312,10 @@ namespace ToolSupportUchida.View
             if (rdbObservable.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -301,7 +328,10 @@ namespace ToolSupportUchida.View
             if (rdbTypeScript.Checked)
             {
                 this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
@@ -518,6 +548,7 @@ namespace ToolSupportUchida.View
                 {
                     dot = string.Empty;
                 }
+
                 if (typeScriptKeyword.TryGetValue(type.ToLower(), out string value))
                 {
                     if (rdbTypeScript.Checked)
@@ -529,6 +560,10 @@ namespace ToolSupportUchida.View
                         if (type.Equals("object[]"))
                         {
                             type = "KnockoutObservableArray<" + value + ">";
+                        }
+                        if (type.Equals("void") || type.Equals("function"))
+                        {
+                            type = value;
                         }
                         else
                         {
@@ -704,12 +739,12 @@ namespace ToolSupportUchida.View
                         }
                         else
                         {
-                            result = "    @Html.Raw(literalCtrl[\"" + arrValue[1] + "\"]).CreateHtml(\"" + arrValue[0] + "\"))";
+                            result = "    @Html.Raw(literalCtrl[\"" + arrValue[0] + "\"]).CreateHtml(\"" + arrValue[1] + "\"))";
                         }
                     }
                     else if (arrValue.Length == 3)
                     {
-                        result = "    @Html.Raw(literalCtrl[\"" + arrValue[1] + "\"]).CreateHtml(\"" + arrValue[0] + "\")) <span class=\"text-danger\">＊</span>";
+                        result = "    @Html.Raw(literalCtrl[\"" + arrValue[0] + "\"]).CreateHtml(\"" + arrValue[1] + "\")) <span class=\"text-danger\">＊</span>";
                     }
                     return result;
                 case "text":

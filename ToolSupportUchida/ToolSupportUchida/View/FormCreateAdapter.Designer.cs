@@ -56,6 +56,7 @@ namespace ToolSupportUchida.View
             this.cbSubRow = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbColumn = new System.Windows.Forms.ComboBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panelTextJapan.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -250,6 +251,7 @@ namespace ToolSupportUchida.View
             // 
             // groupBoxSetting
             // 
+            this.groupBoxSetting.Controls.Add(this.btnClear);
             this.groupBoxSetting.Controls.Add(this.btnCopy);
             this.groupBoxSetting.Controls.Add(this.btnCreateOut);
             this.groupBoxSetting.Controls.Add(this.btnCreateIn);
@@ -376,6 +378,22 @@ namespace ToolSupportUchida.View
             this.cbColumn.TabIndex = 5;
             this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
             // 
+            // btnClear
+            // 
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(6, 327);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(102, 28);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // FormCreateAdapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,5 +451,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.TextBox txtPhysi;
         private System.Windows.Forms.TextBox txtLogic;
+        private System.Windows.Forms.Button btnClear;
     }
 }

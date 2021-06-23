@@ -30,6 +30,7 @@ namespace ToolSupportUchida.View
         private string valSubColumn;
 
         private int indexTab;
+        private int maxLengthRow;
 
         private bool isAppend;
 
@@ -47,6 +48,7 @@ namespace ToolSupportUchida.View
             stringSeparators = new string[] { CONST.STRING_ADD_LINE };
 
             indexTab = 0;
+            maxLengthRow = 0;
 
             isAppend = true;
         }
@@ -179,13 +181,40 @@ namespace ToolSupportUchida.View
             displayButtonInOut();
         }
 
+        private void cbRow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AdapterModel obj = (AdapterModel)cbRow.SelectedItem;
+            valRows = obj.value;
+        }
+
+        private void cbColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AdapterModel obj = (AdapterModel)cbColumn.SelectedItem;
+            valColumn = obj.value;
+        }
+
+        private void cbSubRow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AdapterModel obj = (AdapterModel)cbSubRow.SelectedItem;
+            valSubRows = obj.value;
+        }
+
+        private void cbSubColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AdapterModel obj = (AdapterModel)cbSubColumn.SelectedItem;
+            valSubColumn = obj.value;
+        }
+
         private void btnCreateIn_Click(object sender, EventArgs e)
         {
             lstLogic = txtLogic.Text.Split(stringSeparators, StringSplitOptions.None);
             lstLogic = lstLogic.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
             string result = string.Empty;
+            string tmpResult = string.Empty;
             StringBuilder template = new StringBuilder();
+
+            int lengthText = 0;
 
             for(int i = 0; i < lstLogic.Length; i++)
             {
@@ -208,13 +237,20 @@ namespace ToolSupportUchida.View
                         template = CUtils.CreateAppenIn(isAppend);
                     }
 
-                    result = result + string.Format(template.ToString(), CUtils.FirstCharToUpperCase(linePhysi), valColumn, lineLogic);
+                    tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(linePhysi), valColumn, lineLogic);
+                    lengthText = tmpResult.LastIndexOf("/");
 
+                    if (lengthText > maxLengthRow)
+                    {
+                        maxLengthRow = lengthText;
+                    }
+
+                    result = result + tmpResult;
                     result = result + CONST.STRING_ADD_LINE;
                 }
             }
 
-            txtResult.Text = result;
+            txtResult.Text = formatTextIn(result);
 
             if (result.Length > 0)
             {
@@ -249,17 +285,45 @@ namespace ToolSupportUchida.View
 
         #region Method
 
+        private string formatTextIn( string input)
+        {
+            string result = string.Empty;
+            string textAdd = string.Empty;
+            string[] lstInput = input.Split(stringSeparators, StringSplitOptions.None);
+            lstInput = lstInput.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+            int lengthText = 0;
+
+            foreach (string line in lstInput)
+            {
+                lengthText = line.LastIndexOf("/");
+                if (lengthText < maxLengthRow)
+                {
+                    textAdd = new string(CONST.CHAR_SPACE, maxLengthRow - lengthText);
+                    result = result + line.Substring(0, lengthText-1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
+                }
+                else
+                {
+                    result = result + line + CONST.STRING_ADD_LINE;
+                }
+            }
+
+            return result;
+        }
+
         private void displayButtonInOut()
         {
             if (lstLogic.Length == lstPhysi.Length && lstLogic.Length == lsttype.Length)
             {
                 btnCreateIn.Enabled = true;
                 btnCreateOut.Enabled = true;
+                btnClear.Enabled = true;
             }
             else
             {
                 btnCreateIn.Enabled = false;
                 btnCreateOut.Enabled = false;
+                btnClear.Enabled = false;
             }
         }
 
@@ -270,29 +334,5 @@ namespace ToolSupportUchida.View
         }
 
         #endregion
-
-        private void cbRow_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AdapterModel obj = (AdapterModel)cbRow.SelectedItem;
-            valRows = obj.value;
-        }
-
-        private void cbColumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AdapterModel obj = (AdapterModel)cbColumn.SelectedItem;
-            valColumn = obj.value;
-        }
-
-        private void cbSubRow_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AdapterModel obj = (AdapterModel)cbSubRow.SelectedItem;
-            valSubRows = obj.value;
-        }
-
-        private void cbSubColumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AdapterModel obj = (AdapterModel)cbSubColumn.SelectedItem;
-            valSubColumn = obj.value;
-        }
     }
 }

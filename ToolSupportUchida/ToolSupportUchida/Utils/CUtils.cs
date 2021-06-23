@@ -231,11 +231,11 @@ namespace ToolSupportUchida.Utils
 
             if (isCreate)
             {
-                sb.Append("b.Append(inModel.{0}).Append({1})    // {2}");
+                sb.Append("b.Append(inModel.{0}).Append({1}) // {2}");
             }
             else
             {
-                sb.Append(" .Append(inModel.{0}).Append({1})    // {2}");
+                sb.Append(" .Append(inModel.{0}).Append({1}) // {2}");
             }
 
             return sb;
