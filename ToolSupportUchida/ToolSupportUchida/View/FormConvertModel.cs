@@ -39,6 +39,7 @@ namespace ToolSupportUchida.View
         { "object[]", "object" },
         { "object", "object" },
         { "List<Record<string, any>>", "Record<string, any>[]" },
+        { "Record<string, any>", "Record<string, any>[]" },
 
         { "float", "number" },
         { "double", "number" },
@@ -151,6 +152,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -175,6 +177,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -199,6 +202,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -219,6 +223,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -235,6 +240,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -251,6 +257,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -267,6 +274,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -283,6 +291,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -299,6 +308,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = true;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
@@ -315,6 +325,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -331,6 +342,7 @@ namespace ToolSupportUchida.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;

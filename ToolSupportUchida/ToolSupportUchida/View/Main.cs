@@ -402,7 +402,11 @@ namespace ToolSupportUchida
 
         private void btnClearAdaper_Click(object sender, EventArgs e)
         {
+            cbType.SelectedIndex = 0;
+            txtJoinKey.Text = string.Empty;
+            txtJoinValue.Text = string.Empty;
 
+            txtJoinKey.Focus();
         }
 
         private void gridAdapter_CellContentClick(object sender, DataGridViewCellEventArgs e)
