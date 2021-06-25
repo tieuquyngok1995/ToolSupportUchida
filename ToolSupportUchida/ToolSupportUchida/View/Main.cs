@@ -476,7 +476,7 @@ namespace ToolSupportUchida
 
         private void btnCheckData_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCheckDataModel(), sender);
+            OpenChildForm(new FormCommon(), sender);
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)

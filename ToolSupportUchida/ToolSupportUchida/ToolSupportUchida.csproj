@@ -67,11 +67,11 @@
     <Compile Include="View\FormConvertSekkei.Designer.cs">
       <DependentUpon>FormConvertSekkei.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormCheckDataModel.cs">
+    <Compile Include="View\FormCommon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormCheckDataModel.Designer.cs">
-      <DependentUpon>FormCheckDataModel.cs</DependentUpon>
+    <Compile Include="View\FormCommon.Designer.cs">
+      <DependentUpon>FormCommon.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormConvertDatabase.cs">
       <SubType>Form</SubType>
@@ -104,8 +104,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormCheckDataModel.resx">
-      <DependentUpon>FormCheckDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormCommon.resx">
+      <DependentUpon>FormCommon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormConvertDatabase.resx">
       <DependentUpon>FormConvertDatabase.cs</DependentUpon>

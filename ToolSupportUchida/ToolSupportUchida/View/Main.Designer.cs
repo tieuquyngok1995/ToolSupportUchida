@@ -136,7 +136,7 @@ namespace ToolSupportUchida
             this.btnCheckData.Size = new System.Drawing.Size(220, 60);
             this.btnCheckData.TabIndex = 3;
             this.btnCheckData.TabStop = false;
-            this.btnCheckData.Text = "  Check Data Model";
+            this.btnCheckData.Text = "  Common";
             this.btnCheckData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCheckData.UseVisualStyleBackColor = true;
