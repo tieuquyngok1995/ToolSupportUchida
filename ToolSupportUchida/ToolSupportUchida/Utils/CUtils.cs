@@ -225,39 +225,66 @@ namespace ToolSupportUchida.Utils
             }
         }
 
-        public static StringBuilder CreateAppenIn(bool isCreate)
+        public static StringBuilder CreateAppenIn(string model, string tab)
         {
             StringBuilder sb = new StringBuilder();
 
-            if (isCreate)
+            if (model == "0")
             {
-                sb.Append("b.Append(inModel.{0}).Append({1}) // {2}");
+                sb.Append(tab + "b.Append(inModel.{0}).Append({1}) // {2}");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + " .Append(inModel.{0}).Append({1});// {2}");
+            }
+            else if (model == "2")
+            {
+                sb.Append(tab + " .Append(inModel.{0});            // {2}");
+            }
+            else if (model == "3")
+            {
+                sb.Append(tab + "b.Append(DataJoin({0}List, {1})).Append({2}) // {3}");
+            }
+            else if (model == "4")
+            {
+                sb.Append(tab + " .Append(DataJoin({0}List, {1})).Append({2}) // {3}");
+            }
+            else if (model == "5")
+            {
+                sb.Append(tab + "b.Append(DataJoin({0}List, {1}));// {2}");
+            }
+            else if (model == "6")
+            {
+                sb.Append(tab + "b.Append(DataJoin({0}List, {1})).Append({2});// {3}");
+            }
+            else if (model == "7")
+            {
+                sb.Append(tab + " .Append(DataJoin({0}List, {1})); // {2}");
             }
             else
             {
-                sb.Append(" .Append(inModel.{0}).Append({1}) // {2}");
+                sb.Append(tab + " .Append(inModel.{0}).Append({1}) // {2}");
             }
 
             return sb;
         }
 
-        public static StringBuilder CreateTemplateObject()
+        public static StringBuilder CreateTemplateForEachInOpen(string tab)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("List<{0}> {1} = new List<{0}>")
-              .Append(CONST.STRING_ADD_LINE);
-
+            sb.Append(CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE)
+              .Append(tab + "List<string> {0}List = new List<string>;\r\n")
+              .Append(tab + "foreach ({1} obj{1} in inModel.{1}List)\r\n");
             return sb;
         }
 
-        public static StringBuilder CreateForEach()
+        public static StringBuilder CreateTemplateForEachInClose(string tab)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("List<{0}> {1} = new List<{0}>")
-              .Append(CONST.STRING_ADD_LINE);
-
+            sb.Append(tab + "{0}List.Add(sb.ToString());").Append(CONST.STRING_ADD_LINE)
+              .Append(tab + "}");
             return sb;
         }
 

@@ -61,6 +61,16 @@ namespace ToolSupportUchida.Utils
         public const string STRING_EMPTY = "String.Empty";
         public const string STRING_LIST_EN = "List";
         public const string STRING_LIST_JP = "リスト";
+        public const string STRING_CREATE_BUILDER = "StringBuilder b = new StringBuilder();\r\n";
+
+        public const string STRING_CREATE = "0";
+        public const string STRING_END_LINE = "1";
+        public const string STRING_END = "2";
+        public const string STRING_CREATE_JOIN = "3";
+        public const string STRING_JOIN_LIST = "4";
+        public const string STRING_JOIN_END = "5";
+        public const string STRING_CREATE_JOIN_END = "6";
+        public const string STRING_JOIN_LIST_END = "7";
         #endregion
 
         #region Text
