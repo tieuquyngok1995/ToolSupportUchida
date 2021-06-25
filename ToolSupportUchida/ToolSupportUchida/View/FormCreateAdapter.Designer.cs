@@ -54,6 +54,7 @@ namespace ToolSupportUchida.View
             this.cbSubRow = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbColumn = new System.Windows.Forms.ComboBox();
+            this.ckbCreate = new System.Windows.Forms.CheckBox();
             this.panelTextJapan.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,6 +96,7 @@ namespace ToolSupportUchida.View
             this.txtPhysi.Size = new System.Drawing.Size(174, 338);
             this.txtPhysi.TabIndex = 3;
             this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
+            this.txtPhysi.Leave += new System.EventHandler(this.txtPhysi_Leave);
             // 
             // lblNumPhy
             // 
@@ -128,6 +130,7 @@ namespace ToolSupportUchida.View
             this.txtLogic.Size = new System.Drawing.Size(174, 338);
             this.txtLogic.TabIndex = 2;
             this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
+            this.txtLogic.Leave += new System.EventHandler(this.txtLogic_Leave);
             // 
             // lblNumLogic
             // 
@@ -187,7 +190,7 @@ namespace ToolSupportUchida.View
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 26);
+            this.label4.Location = new System.Drawing.Point(4, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 17);
             this.label4.TabIndex = 2;
@@ -195,10 +198,11 @@ namespace ToolSupportUchida.View
             // 
             // cbRow
             // 
-            this.cbRow.FormattingEnabled = true;
-            this.cbRow.Location = new System.Drawing.Point(6, 47);
+            this.cbRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRow.Location = new System.Drawing.Point(4, 47);
             this.cbRow.Name = "cbRow";
             this.cbRow.Size = new System.Drawing.Size(102, 24);
+            this.cbRow.Sorted = true;
             this.cbRow.TabIndex = 3;
             this.cbRow.SelectedIndexChanged += new System.EventHandler(this.cbRow_SelectedIndexChanged);
             // 
@@ -213,6 +217,7 @@ namespace ToolSupportUchida.View
             // 
             // groupBoxSetting
             // 
+            this.groupBoxSetting.Controls.Add(this.ckbCreate);
             this.groupBoxSetting.Controls.Add(this.btnClear);
             this.groupBoxSetting.Controls.Add(this.btnCopy);
             this.groupBoxSetting.Controls.Add(this.btnCreateOut);
@@ -241,7 +246,7 @@ namespace ToolSupportUchida.View
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(80, 296);
+            this.btnClear.Location = new System.Drawing.Point(78, 326);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(28, 28);
             this.btnClear.TabIndex = 13;
@@ -256,7 +261,7 @@ namespace ToolSupportUchida.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(6, 296);
+            this.btnCopy.Location = new System.Drawing.Point(4, 326);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(65, 28);
             this.btnCopy.TabIndex = 12;
@@ -272,7 +277,7 @@ namespace ToolSupportUchida.View
             this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
             this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateOut.Location = new System.Drawing.Point(6, 260);
+            this.btnCreateOut.Location = new System.Drawing.Point(4, 290);
             this.btnCreateOut.Name = "btnCreateOut";
             this.btnCreateOut.Size = new System.Drawing.Size(102, 28);
             this.btnCreateOut.TabIndex = 11;
@@ -288,7 +293,7 @@ namespace ToolSupportUchida.View
             this.btnCreateIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateIn.Image = global::ToolSupportUchida.Properties.Resources.button_create_in;
             this.btnCreateIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateIn.Location = new System.Drawing.Point(6, 224);
+            this.btnCreateIn.Location = new System.Drawing.Point(4, 224);
             this.btnCreateIn.Name = "btnCreateIn";
             this.btnCreateIn.Size = new System.Drawing.Size(102, 28);
             this.btnCreateIn.TabIndex = 10;
@@ -301,7 +306,7 @@ namespace ToolSupportUchida.View
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 173);
+            this.label6.Location = new System.Drawing.Point(4, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 8;
@@ -309,8 +314,9 @@ namespace ToolSupportUchida.View
             // 
             // cbSubColumn
             // 
+            this.cbSubColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubColumn.FormattingEnabled = true;
-            this.cbSubColumn.Location = new System.Drawing.Point(6, 194);
+            this.cbSubColumn.Location = new System.Drawing.Point(4, 194);
             this.cbSubColumn.Name = "cbSubColumn";
             this.cbSubColumn.Size = new System.Drawing.Size(102, 24);
             this.cbSubColumn.TabIndex = 9;
@@ -320,7 +326,7 @@ namespace ToolSupportUchida.View
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 124);
+            this.label7.Location = new System.Drawing.Point(4, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 17);
             this.label7.TabIndex = 6;
@@ -328,8 +334,9 @@ namespace ToolSupportUchida.View
             // 
             // cbSubRow
             // 
+            this.cbSubRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubRow.FormattingEnabled = true;
-            this.cbSubRow.Location = new System.Drawing.Point(6, 145);
+            this.cbSubRow.Location = new System.Drawing.Point(4, 145);
             this.cbSubRow.Name = "cbSubRow";
             this.cbSubRow.Size = new System.Drawing.Size(102, 24);
             this.cbSubRow.TabIndex = 7;
@@ -339,7 +346,7 @@ namespace ToolSupportUchida.View
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 75);
+            this.label5.Location = new System.Drawing.Point(4, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 4;
@@ -347,12 +354,23 @@ namespace ToolSupportUchida.View
             // 
             // cbColumn
             // 
+            this.cbColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColumn.FormattingEnabled = true;
-            this.cbColumn.Location = new System.Drawing.Point(6, 96);
+            this.cbColumn.Location = new System.Drawing.Point(4, 96);
             this.cbColumn.Name = "cbColumn";
             this.cbColumn.Size = new System.Drawing.Size(102, 24);
             this.cbColumn.TabIndex = 5;
             this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
+            // 
+            // ckbCreate
+            // 
+            this.ckbCreate.AutoSize = true;
+            this.ckbCreate.Location = new System.Drawing.Point(9, 261);
+            this.ckbCreate.Name = "ckbCreate";
+            this.ckbCreate.Size = new System.Drawing.Size(95, 21);
+            this.ckbCreate.TabIndex = 14;
+            this.ckbCreate.Text = "Create List";
+            this.ckbCreate.UseVisualStyleBackColor = true;
             // 
             // FormCreateAdapter
             // 
@@ -407,5 +425,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.TextBox txtPhysi;
         private System.Windows.Forms.TextBox txtLogic;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.CheckBox ckbCreate;
     }
 }

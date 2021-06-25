@@ -48,7 +48,7 @@ namespace ToolSupportUchida.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 390);
+            this.groupBox1.Size = new System.Drawing.Size(285, 390);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Logical Name";
@@ -60,7 +60,7 @@ namespace ToolSupportUchida.View
             this.txtLogicName.Multiline = true;
             this.txtLogicName.Name = "txtLogicName";
             this.txtLogicName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogicName.Size = new System.Drawing.Size(264, 368);
+            this.txtLogicName.Size = new System.Drawing.Size(279, 368);
             this.txtLogicName.TabIndex = 0;
             this.txtLogicName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLogicName_KeyDown);
             // 
@@ -68,9 +68,9 @@ namespace ToolSupportUchida.View
             // 
             this.groupBox2.Controls.Add(this.txtPhysiName);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(422, 3);
+            this.groupBox2.Location = new System.Drawing.Point(408, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 390);
+            this.groupBox2.Size = new System.Drawing.Size(285, 390);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Physical Name";
@@ -82,20 +82,20 @@ namespace ToolSupportUchida.View
             this.txtPhysiName.Multiline = true;
             this.txtPhysiName.Name = "txtPhysiName";
             this.txtPhysiName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPhysiName.Size = new System.Drawing.Size(264, 368);
+            this.txtPhysiName.Size = new System.Drawing.Size(279, 368);
             this.txtPhysiName.TabIndex = 0;
             this.txtPhysiName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhysiName_KeyDown);
             // 
             // lblResult
             // 
-            this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(288, 251);
+            this.lblResult.Location = new System.Drawing.Point(300, 247);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(130, 13);
+            this.lblResult.Size = new System.Drawing.Size(102, 33);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Copy to Clipboard is done!";
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResult.Visible = false;
             // 
             // btnClear
@@ -104,9 +104,9 @@ namespace ToolSupportUchida.View
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(334, 182);
+            this.btnClear.Location = new System.Drawing.Point(338, 182);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(32, 32);
+            this.btnClear.Size = new System.Drawing.Size(28, 28);
             this.btnClear.TabIndex = 6;
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -118,14 +118,14 @@ namespace ToolSupportUchida.View
             this.btnCopy.Enabled = false;
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(285, 220);
+            this.btnCopy.Location = new System.Drawing.Point(302, 216);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(131, 28);
+            this.btnCopy.Size = new System.Drawing.Size(100, 28);
             this.btnCopy.TabIndex = 4;
-            this.btnCopy.Text = "Copy to Clipboard";
+            this.btnCopy.Text = "  Copy";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
@@ -136,9 +136,9 @@ namespace ToolSupportUchida.View
             this.btnConvertLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertLogic.Image = global::ToolSupportUchida.Properties.Resources.button_left;
-            this.btnConvertLogic.Location = new System.Drawing.Point(285, 182);
+            this.btnConvertLogic.Location = new System.Drawing.Point(302, 182);
             this.btnConvertLogic.Name = "btnConvertLogic";
-            this.btnConvertLogic.Size = new System.Drawing.Size(32, 32);
+            this.btnConvertLogic.Size = new System.Drawing.Size(28, 28);
             this.btnConvertLogic.TabIndex = 2;
             this.btnConvertLogic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertLogic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,9 +151,9 @@ namespace ToolSupportUchida.View
             this.btnConvertPhysi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertPhysi.Image = global::ToolSupportUchida.Properties.Resources.button_right;
-            this.btnConvertPhysi.Location = new System.Drawing.Point(383, 182);
+            this.btnConvertPhysi.Location = new System.Drawing.Point(374, 182);
             this.btnConvertPhysi.Name = "btnConvertPhysi";
-            this.btnConvertPhysi.Size = new System.Drawing.Size(32, 32);
+            this.btnConvertPhysi.Size = new System.Drawing.Size(28, 28);
             this.btnConvertPhysi.TabIndex = 3;
             this.btnConvertPhysi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertPhysi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -181,7 +181,6 @@ namespace ToolSupportUchida.View
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

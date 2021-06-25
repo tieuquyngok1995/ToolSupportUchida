@@ -269,7 +269,7 @@ namespace ToolSupportUchida.Utils
             return sb;
         }
 
-        public static StringBuilder CreateTemplateForEachInOpen(string tab)
+        public static StringBuilder CreateTemplateForEachIn(string tab)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -279,12 +279,120 @@ namespace ToolSupportUchida.Utils
             return sb;
         }
 
-        public static StringBuilder CreateTemplateForEachInClose(string tab)
+        public static StringBuilder CreateTemplateForEachOut(string tab, int index, string model)
+        {
+            string dAry = index > 1 ? "dAry" + index : "dAry";
+            StringBuilder sb = new StringBuilder();
+
+            if (model == "0")
+            {
+                sb.Append(tab + "foreach (string row in DataSplit(pOut, {0}))\r\n");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + "foreach (string row in DataSplit(" + dAry + "[idx++], {0}))\r\n");
+            }
+
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateModelOut(string tab, string model)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(tab + "{0}List.Add(sb.ToString());").Append(CONST.STRING_ADD_LINE)
-              .Append(tab + "}");
+            if (model == "0")
+            {
+                sb.Append(tab + "{0} outputModel = new {0}();\r\n\r\n");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + "{0} {1} = new {0}();\r\n\r\n");
+            }
+            else if (model == "2")
+            {
+                sb.Append(tab + "List<{0}> outputModelList = new List<{0}>();\r\n");
+            }
+
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateListObjOut(string tab, int index, string model)
+        {
+            string dAry = index > 1 ? "dAry" + index : "dAry";
+            string idx = index > 1 ? "idx" + index : "idx";
+
+            StringBuilder sb = new StringBuilder();
+
+            if (model == "0")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "outputModel.{1}List = new List<{1}>();\r\n");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "outputModel.{1}List = DataSplit(" + dAry + "[" + idx + "++], {2}).ToList();\r\n");
+            }
+            if (model == "2")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "{1}.{2}List = new List<{2}>();\r\n");
+            }
+            else if (model == "3")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "{1}.{2}List = DataSplit(" + dAry + "[" + idx + "++], {3}).ToList();\r\n");
+            }
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateArrayOut(string tab, int index)
+        {
+            string dAry = index > 1 ? "dAry" + index : "dAry";
+            string idx = index > 1 ? "idx" + index : "idx";
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(tab + "int " + idx + " = 0;\r\n")
+              .Append(tab + "string[] " + dAry + " = DataSplit(row, {0});\r\n\r\n");
+
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateOut(string tab, int index, string model)
+        {
+            string dAry = index > 1 ? "dAry" + index : "dAry";
+            string idx = index > 1 ? "idx" + index : "idx";
+
+            StringBuilder sb = new StringBuilder();
+
+            if (model == "0")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "outputModel.{1} = " + dAry + "[" + idx + "++];\r\n");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + "// {0}\r\n")
+                  .Append(tab + "{1}.{2} = " + dAry + "[" + idx + "++];\r\n");
+            }
+
+            return sb;
+        }
+
+        public static StringBuilder CreateTemplateAddListOut(string tab, string model)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (model == "0")
+            {
+                sb.Append(tab + "outputModel.{0}.Add({1});\r\n");
+            }
+            else if (model == "1")
+            {
+                sb.Append(tab + "{0}.{1}.Add({2});\r\n");
+            }
+
             return sb;
         }
 

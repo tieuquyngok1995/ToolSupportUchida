@@ -116,21 +116,17 @@ namespace ToolSupportUchida.View
         #region Event
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
-            if (txtLogic.Text.Length == 0)
+
+            lstLogic = txtLogic.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            if (lstLogic.Length > 0)
             {
-                lblNumLogic.Visible = false;
+                lblNumLogic.Visible = true;
+                lblNumLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Length);
             }
             else
             {
-                txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
-                if (txtLogic.Text.LastIndexOf("\r\n") == txtLogic.Text.Length - 2)
-                {
-                    txtLogic.Text = txtLogic.Text.Substring(0, txtLogic.Text.Length - 2);
-                }
-                lstLogic = txtLogic.Text.Split(CONST.CHAR_NEW_LINE);
-
-                lblNumLogic.Text = CONST.TEXT_LINE_NUM + lstLogic.Length;
-                lblNumLogic.Visible = true;
+                lblNumLogic.Visible = false;
             }
 
             displayButtonInOut();
@@ -138,21 +134,16 @@ namespace ToolSupportUchida.View
 
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
-            if (txtPhysi.Text.Length == 0)
+            lstPhysi = txtPhysi.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+
+            if (lstPhysi.Length > 0)
             {
-                lblNumPhy.Visible = false;
+                lblNumPhy.Visible = true;
+                lblNumPhy.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Length);
             }
             else
             {
-                txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
-                if (txtPhysi.Text.LastIndexOf("\r\n") == txtPhysi.Text.Length - 2)
-                {
-                    txtPhysi.Text = txtPhysi.Text.Substring(0, txtPhysi.Text.Length - 2);
-                }
-                lstPhysi = txtPhysi.Text.Split(CONST.CHAR_NEW_LINE);
-
-                lblNumPhy.Text = CONST.TEXT_LINE_NUM + lstPhysi.Length;
-                lblNumPhy.Visible = true;
+                lblNumPhy.Visible = false;
             }
 
             displayButtonInOut();
@@ -200,7 +191,6 @@ namespace ToolSupportUchida.View
             string nextLine = string.Empty;
 
             StringBuilder template = new StringBuilder();
-            StringBuilder subTemplate = new StringBuilder();
 
             int lengthText = 0;
             int lengthListLogic = lstLogic.Length;
@@ -249,7 +239,7 @@ namespace ToolSupportUchida.View
                     else
                     {
                         lstName.Add(lineLogic, nameList);
-                        template = CUtils.CreateTemplateForEachInOpen(tab);
+                        template = CUtils.CreateTemplateForEachIn(tab);
                         result = result + string.Format(template.ToString(), CUtils.FirstCharToLowerCase(nameList), CUtils.FirstCharToUpperCase(nameList));
                         result = result + tab + "{" + CONST.STRING_ADD_LINE;
 
@@ -259,7 +249,8 @@ namespace ToolSupportUchida.View
                 }
                 else
                 {
-                    if (isAppend) {
+                    if (isAppend)
+                    {
                         template = CUtils.CreateAppenIn(CONST.STRING_CREATE, tab);
                         isAppend = false;
                     }
@@ -288,7 +279,8 @@ namespace ToolSupportUchida.View
                         nextLine = removeEndTab(lstLogic[i + 1]);
                         numTab = getNumTab(lstLogic[i + 1]);
                     }
-                    else if (i == lstLogic.Length -1) {
+                    else if (i == lstLogic.Length - 1)
+                    {
                         numTab = getNumTab(lstLogic[i]);
                         numTab = (indexTab - lstName.Count) >= 0 ? (indexTab - lstName.Count) : 0;
                     }
@@ -359,7 +351,185 @@ namespace ToolSupportUchida.View
 
         private void btnCreateOut_Click(object sender, EventArgs e)
         {
+            indexTab = 0;
+
             string result = string.Empty;
+            string tmpResult = string.Empty;
+            string tab = string.Empty;
+            string nextLine = string.Empty;
+
+            StringBuilder template = new StringBuilder();
+            Dictionary<string, string> lstName = new Dictionary<string, string>();
+
+            int lengthListLogic = lstLogic.Length;
+            int dAry = 1;
+            int numTab = 0;
+
+            for (int i = 0; i < lengthListLogic; i++)
+            {
+                string lineLogic = lstLogic[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
+                string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
+                if (i == 0)
+                {
+                    if (ckbCreate.Checked)
+                    {
+                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE_LIST);
+                        result = result + string.Format(template.ToString(), linePhysi);
+
+                        template = CUtils.CreateTemplateForEachOut(tab, dAry, CONST.STRING_CREATE);
+                        result = result + string.Format(template.ToString(), valRows);
+
+                        result = result + "{" + CONST.STRING_ADD_LINE;
+                        tab = createTab();
+
+                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE);
+                        result = result + string.Format(template.ToString(), linePhysi);
+                    }
+
+                    template = CUtils.CreateTemplateArrayOut(tab, dAry);
+                    result = result + string.Format(template.ToString(), valColumn);
+                }
+                else if (lineLogic.Contains(CONST.STRING_LIST_JP) && linePhysi.Contains(CONST.STRING_LIST_EN))
+                {
+                    string nameList = linePhysi.Replace(CONST.STRING_LIST_EN, String.Empty);
+                    int numTabCheck = 0;
+
+                    if (i <= lstLogic.Length - 2)
+                    {
+                        numTabCheck = getNumTab(lstLogic[i + 1]);
+                        if (ckbCreate.Checked)
+                        {
+                            numTabCheck++;
+                        }
+                    }
+                    else if (i == lstLogic.Length - 1)
+                    {
+                        numTabCheck = getNumTab(lstLogic[i]);
+                        if (ckbCreate.Checked)
+                        {
+                            numTabCheck++;
+                        }
+                    }
+
+                    if (numTabCheck == numTab)
+                    {
+                        if (numTabCheck > 1 && lstName.Count > 1)
+                        {
+                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_SPLIT_ADD_LIST);
+                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty),
+                                lstName.Last().Key, nameList, valSubRows);
+                        }
+                        else
+                        {
+                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_SPLIT_LIST);
+                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList, valSubRows);
+                        }
+                    }
+                    else
+                    {
+                        if (lstName.Count > 0)
+                        {
+                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_CREATE_LIST);
+                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty),
+                                lstName.Last().Key, nameList);
+                        }
+                        else
+                        {
+                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_CREATE);
+                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList);
+                        }
+                        lstName.Add(CUtils.FirstCharToLowerCase(nameList), linePhysi);
+
+                        template = CUtils.CreateTemplateForEachOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template.ToString(), valSubRows);
+
+                        result = result + tab + "{" + CONST.STRING_ADD_LINE;
+                        tab = createTab();
+                        dAry++;
+
+                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template.ToString(), nameList, CUtils.FirstCharToLowerCase(nameList));
+
+                        template = CUtils.CreateTemplateArrayOut(tab, dAry);
+                        result = result + string.Format(template.ToString(), valSubColumn);
+                    }
+
+
+                }
+                else
+                {
+                    if (lstName.Count > 0)
+                    {
+                        template = CUtils.CreateTemplateOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), lstName.Last().Key, linePhysi);
+                    }
+                    else
+                    {
+                        template = CUtils.CreateTemplateOut(tab, dAry, CONST.STRING_CREATE);
+                        result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), linePhysi);
+                    }
+
+                }
+
+                if (indexTab > 0)
+                {
+                    if (i <= lstLogic.Length - 2)
+                    {
+                        nextLine = removeEndTab(lstLogic[i + 1]);
+                        numTab = getNumTab(lstLogic[i + 1]);
+                        if (ckbCreate.Checked)
+                        {
+                            numTab++;
+                        }
+                    }
+                    else if (i == lstLogic.Length - 1)
+                    {
+                        numTab = getNumTab(lstLogic[i]);
+                        numTab = (indexTab - lstName.Count) >= 0 ? (indexTab - lstName.Count) : 0;
+                        if (ckbCreate.Checked)
+                        {
+                            numTab++;
+                        }
+                    }
+
+
+                    if (indexTab > numTab)
+                    {
+                        while (indexTab > numTab)
+                        {
+                            string keyListName = lstName.Last().Key;
+                            string valListName = lstName.Last().Value;
+                            if (lstName.Count > 1)
+                            {
+                                lstName.Remove(keyListName);
+                                dAry--;
+
+                                template = CUtils.CreateTemplateAddListOut(tab, CONST.STRING_ADD_LIST_SPLIT);
+                                result = result + CONST.STRING_ADD_LINE + string.Format(template.ToString(), lstName.Last().Key, valListName, keyListName);
+                            }
+                            else
+                            {
+                                lstName.Remove(keyListName);
+                                dAry--;
+
+                                template = CUtils.CreateTemplateAddListOut(tab, CONST.STRING_ADD_LIST);
+                                result = result + CONST.STRING_ADD_LINE + string.Format(template.ToString(), valListName, keyListName);
+                            }
+
+                            tab = removeTab();
+                            result = result + tab + "}" + CONST.STRING_ADD_LINE;
+                        }
+
+                    }
+                }
+
+                if (i == (lstLogic.Length - 1) && ckbCreate.Checked)
+                {
+                    tab = removeTab();
+                    result = result + tab + "outputModelList.Add(outputModel);" + CONST.STRING_ADD_LINE;
+                    result = result + "}";
+                }
+            }
 
             txtResult.Text = result;
 
@@ -408,7 +578,7 @@ namespace ToolSupportUchida.View
             }
         }
 
-        private string formatTextIn( string input)
+        private string formatTextIn(string input)
         {
             string result = string.Empty;
             string textAdd = string.Empty;
@@ -422,7 +592,7 @@ namespace ToolSupportUchida.View
                 if (lengthText != -1 && lengthText < maxLengthRow)
                 {
                     textAdd = new string(CONST.CHAR_SPACE, maxLengthRow - lengthText);
-                    result = result + line.Substring(0, lengthText-1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
+                    result = result + line.Substring(0, lengthText - 1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
                 }
                 else
                 {
@@ -435,7 +605,7 @@ namespace ToolSupportUchida.View
 
         private void displayButtonInOut()
         {
-            if (lstLogic.Length == lstPhysi.Length )
+            if (lstLogic.Length == lstPhysi.Length)
             {
                 btnCreateIn.Enabled = true;
                 btnCreateOut.Enabled = true;
@@ -472,7 +642,8 @@ namespace ToolSupportUchida.View
                 return input;
             }
 
-            while (input.Last().Equals(CONST.CHAR_TAB)) {
+            while (input.Last().Equals(CONST.CHAR_TAB))
+            {
                 input = input.Substring(0, input.Length - 1);
             }
 
@@ -490,12 +661,22 @@ namespace ToolSupportUchida.View
             while (input.First().Equals(CONST.CHAR_TAB))
             {
                 result++;
-                input = input.Substring(1, input.Length-1);
+                input = input.Substring(1, input.Length - 1);
             }
 
             return result;
         }
 
         #endregion
+
+        private void txtLogic_Leave(object sender, EventArgs e)
+        {
+            txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+        }
+
+        private void txtPhysi_Leave(object sender, EventArgs e)
+        {
+            txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+        }
     }
 }

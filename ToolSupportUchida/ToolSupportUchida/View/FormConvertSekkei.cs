@@ -102,6 +102,7 @@ namespace ToolSupportUchida.View
 
             txtLogicName.Focus();
             btnCopy.Enabled = false;
+            lblResult.Visible = false;
         }
 
         private void btnConvertLogic_Click(object sender, EventArgs e)

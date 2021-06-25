@@ -29,17 +29,14 @@ namespace ToolSupportUchida.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInputSQL = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtInputSQL = new System.Windows.Forms.RichTextBox();
             this.panelInputParam = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResult = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
@@ -50,6 +47,9 @@ namespace ToolSupportUchida.View
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnCreateParam = new System.Windows.Forms.Button();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInputSQL.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelInputParam.SuspendLayout();
@@ -65,7 +65,7 @@ namespace ToolSupportUchida.View
             this.panelInputSQL.Controls.Add(this.groupBox1);
             this.panelInputSQL.Location = new System.Drawing.Point(9, 3);
             this.panelInputSQL.Name = "panelInputSQL";
-            this.panelInputSQL.Size = new System.Drawing.Size(335, 190);
+            this.panelInputSQL.Size = new System.Drawing.Size(335, 186);
             this.panelInputSQL.TabIndex = 0;
             // 
             // groupBox1
@@ -75,7 +75,7 @@ namespace ToolSupportUchida.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 190);
+            this.groupBox1.Size = new System.Drawing.Size(335, 186);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input SQL";
@@ -85,16 +85,16 @@ namespace ToolSupportUchida.View
             this.txtInputSQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInputSQL.Location = new System.Drawing.Point(3, 19);
             this.txtInputSQL.Name = "txtInputSQL";
-            this.txtInputSQL.Size = new System.Drawing.Size(329, 168);
+            this.txtInputSQL.Size = new System.Drawing.Size(329, 164);
             this.txtInputSQL.TabIndex = 0;
             this.txtInputSQL.Text = "";
             // 
             // panelInputParam
             // 
             this.panelInputParam.Controls.Add(this.groupBox2);
-            this.panelInputParam.Location = new System.Drawing.Point(9, 195);
+            this.panelInputParam.Location = new System.Drawing.Point(9, 190);
             this.panelInputParam.Name = "panelInputParam";
-            this.panelInputParam.Size = new System.Drawing.Size(335, 200);
+            this.panelInputParam.Size = new System.Drawing.Size(477, 200);
             this.panelInputParam.TabIndex = 1;
             // 
             // groupBox2
@@ -104,7 +104,7 @@ namespace ToolSupportUchida.View
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 200);
+            this.groupBox2.Size = new System.Drawing.Size(477, 200);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Parameters";
@@ -123,14 +123,14 @@ namespace ToolSupportUchida.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -141,37 +141,8 @@ namespace ToolSupportUchida.View
             this.gridInputParam.RowHeadersWidth = 25;
             this.gridInputParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridInputParam.Size = new System.Drawing.Size(329, 178);
+            this.gridInputParam.Size = new System.Drawing.Size(471, 178);
             this.gridInputParam.TabIndex = 0;
-            this.gridInputParam.Visible = false;
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colNo.HeaderText = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 31;
-            // 
-            // colParam
-            // 
-            this.colParam.HeaderText = "Param";
-            this.colParam.Name = "colParam";
-            this.colParam.ReadOnly = true;
-            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colParam.Width = 140;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 140;
             // 
             // panelResult
             // 
@@ -227,9 +198,9 @@ namespace ToolSupportUchida.View
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(457, 61);
+            this.btnClear.Location = new System.Drawing.Point(452, 131);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 24);
+            this.btnClear.Size = new System.Drawing.Size(28, 28);
             this.btnClear.TabIndex = 5;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -239,11 +210,12 @@ namespace ToolSupportUchida.View
             this.btnConvert.Enabled = false;
             this.btnConvert.FlatAppearance.BorderSize = 0;
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.Image = global::ToolSupportUchida.Properties.Resources.button_convert;
             this.btnConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvert.Location = new System.Drawing.Point(354, 91);
+            this.btnConvert.Location = new System.Drawing.Point(354, 96);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(127, 23);
+            this.btnConvert.Size = new System.Drawing.Size(126, 28);
             this.btnConvert.TabIndex = 4;
             this.btnConvert.Text = "  Convert SQL";
             this.btnConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,7 +228,7 @@ namespace ToolSupportUchida.View
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(351, 154);
+            this.lblResult.Location = new System.Drawing.Point(351, 167);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(130, 13);
             this.lblResult.TabIndex = 7;
@@ -268,14 +240,14 @@ namespace ToolSupportUchida.View
             this.btnCopy.Enabled = false;
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(354, 120);
+            this.btnCopy.Location = new System.Drawing.Point(354, 131);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(127, 28);
+            this.btnCopy.Size = new System.Drawing.Size(92, 28);
             this.btnCopy.TabIndex = 6;
-            this.btnCopy.Text = "Copy to Clipboard";
+            this.btnCopy.Text = "  Copy";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
@@ -284,17 +256,46 @@ namespace ToolSupportUchida.View
             // 
             this.btnCreateParam.FlatAppearance.BorderSize = 0;
             this.btnCreateParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateParam.Image = global::ToolSupportUchida.Properties.Resources.button_add;
             this.btnCreateParam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateParam.Location = new System.Drawing.Point(354, 61);
             this.btnCreateParam.Name = "btnCreateParam";
-            this.btnCreateParam.Size = new System.Drawing.Size(92, 23);
+            this.btnCreateParam.Size = new System.Drawing.Size(126, 28);
             this.btnCreateParam.TabIndex = 8;
             this.btnCreateParam.Text = "  Add Param";
             this.btnCreateParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateParam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateParam.UseVisualStyleBackColor = true;
             this.btnCreateParam.Click += new System.EventHandler(this.btnCreateParam_Click);
+            // 
+            // colNo
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 40;
+            // 
+            // colParam
+            // 
+            this.colParam.HeaderText = "Param";
+            this.colParam.Name = "colParam";
+            this.colParam.ReadOnly = true;
+            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colParam.Width = 170;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 243;
             // 
             // FormConvertDatabase
             // 
@@ -308,8 +309,8 @@ namespace ToolSupportUchida.View
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panelResult);
-            this.Controls.Add(this.panelInputParam);
             this.Controls.Add(this.panelInputSQL);
+            this.Controls.Add(this.panelInputParam);
             this.Name = "FormConvertDatabase";
             this.Text = "Convert";
             this.Load += new System.EventHandler(this.FormConvert_Load);
@@ -337,9 +338,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txtInputSQL;
         private System.Windows.Forms.DataGridView gridInputParam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtSQLChar;
         private System.Windows.Forms.Button btnConvert;
@@ -348,5 +346,8 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.Button btnCreateParam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
     }
 }

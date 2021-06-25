@@ -579,7 +579,7 @@ namespace ToolSupportUchida
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(32, 37);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(92, 23);
+            this.cbType.Size = new System.Drawing.Size(97, 23);
             this.cbType.TabIndex = 2;
             // 
             // label9
@@ -628,16 +628,16 @@ namespace ToolSupportUchida
             // txtJoinValue
             // 
             this.txtJoinValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJoinValue.Location = new System.Drawing.Point(229, 38);
+            this.txtJoinValue.Location = new System.Drawing.Point(231, 38);
             this.txtJoinValue.Name = "txtJoinValue";
-            this.txtJoinValue.Size = new System.Drawing.Size(95, 22);
+            this.txtJoinValue.Size = new System.Drawing.Size(93, 22);
             this.txtJoinValue.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(226, 19);
+            this.label7.Location = new System.Drawing.Point(230, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 15);
             this.label7.TabIndex = 2;
@@ -646,16 +646,16 @@ namespace ToolSupportUchida
             // txtJoinKey
             // 
             this.txtJoinKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJoinKey.Location = new System.Drawing.Point(130, 38);
+            this.txtJoinKey.Location = new System.Drawing.Point(133, 38);
             this.txtJoinKey.Name = "txtJoinKey";
-            this.txtJoinKey.Size = new System.Drawing.Size(95, 22);
+            this.txtJoinKey.Size = new System.Drawing.Size(93, 22);
             this.txtJoinKey.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(127, 19);
+            this.label8.Location = new System.Drawing.Point(130, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 15);
             this.label8.TabIndex = 0;

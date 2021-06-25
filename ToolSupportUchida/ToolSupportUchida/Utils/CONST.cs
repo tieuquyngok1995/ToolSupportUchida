@@ -71,6 +71,12 @@ namespace ToolSupportUchida.Utils
         public const string STRING_JOIN_END = "5";
         public const string STRING_CREATE_JOIN_END = "6";
         public const string STRING_JOIN_LIST_END = "7";
+        public const string STRING_CREATE_SPLIT = "1";
+        public const string STRING_SPLIT_LIST = "1";
+        public const string STRING_CREATE_LIST = "2";
+        public const string STRING_SPLIT_ADD_LIST = "3";
+        public const string STRING_ADD_LIST = "0";
+        public const string STRING_ADD_LIST_SPLIT = "1";
         #endregion
 
         #region Text
