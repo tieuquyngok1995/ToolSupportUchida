@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToolSupportUchida.Theme;
 
@@ -13,6 +7,8 @@ namespace ToolSupportUchida.View
 {
     public partial class FormCommon : Form
     {
+
+        #region Load Form
         public FormCommon()
         {
             InitializeComponent();
@@ -21,6 +17,15 @@ namespace ToolSupportUchida.View
         private void FormCheckDataModel_Load(object sender, EventArgs e)
         {
             LoadTheme();
+
+            btnClear.Enabled = true;
+            btnCopy.Enabled = true;
+            lblResult.Visible = true;
+
+            for (int i = 0; i < 200; i++)
+            {
+                gridInputParam.Rows.Add(i, "Key" + i, "Value" + i);
+            }
         }
 
         private void LoadTheme()
@@ -47,13 +52,12 @@ namespace ToolSupportUchida.View
 
             // Get the real bounds for the tab rectangle.
             Rectangle _tabBounds = tabControlCommon.GetTabRect(e.Index);
-
             if (e.State == DrawItemState.Selected)
             {
                 Brush brush = new SolidBrush(ThemeColor.PrimaryColor);
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(Color.White);
-                g.FillRectangle(brush, e.Bounds);
+                g.FillRectangle(brush, e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 2, e.Bounds.Height);
             }
             else
             {
@@ -70,5 +74,12 @@ namespace ToolSupportUchida.View
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
+        #endregion
+
+        #region Event
+        #endregion
+
+        #region Method
+        #endregion
     }
 }
