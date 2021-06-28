@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -224,8 +225,10 @@ namespace ToolSupportUchida.Utils
                 default: throw new ArgumentException("Invalid comparison operator: {0}", operators);
             }
         }
+        #endregion
 
-        public static StringBuilder CreateAppenIn(string model, string tab)
+        #region Create Template
+        public static string CreateAppenIn(string model, string tab)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -266,20 +269,20 @@ namespace ToolSupportUchida.Utils
                 sb.Append(tab + " .Append(inModel.{0}).Append({1}) // {2}");
             }
 
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateForEachIn(string tab)
+        public static string CreTmlAdapForEachIn(string tab)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE)
               .Append(tab + "List<string> {0}List = new List<string>;\r\n")
               .Append(tab + "foreach ({1} obj{1} in inModel.{1}List)\r\n");
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateForEachOut(string tab, int index, string model)
+        public static string CreTmlAdapForEachOut(string tab, int index, string model)
         {
             string dAry = index > 1 ? "dAry" + index : "dAry";
             StringBuilder sb = new StringBuilder();
@@ -293,10 +296,10 @@ namespace ToolSupportUchida.Utils
                 sb.Append(tab + "foreach (string row in DataSplit(" + dAry + "[idx++], {0}))\r\n");
             }
 
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateModelOut(string tab, string model)
+        public static string CreTmlAdapModelOut(string tab, string model)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -313,10 +316,10 @@ namespace ToolSupportUchida.Utils
                 sb.Append(tab + "List<{0}> outputModelList = new List<{0}>();\r\n");
             }
 
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateListObjOut(string tab, int index, string model)
+        public static string CreTmlAdapListObjOut(string tab, int index, string model)
         {
             string dAry = index > 1 ? "dAry" + index : "dAry";
             string idx = index > 1 ? "idx" + index : "idx";
@@ -343,10 +346,10 @@ namespace ToolSupportUchida.Utils
                 sb.Append(tab + "// {0}\r\n")
                   .Append(tab + "{1}.{2}List = DataSplit(" + dAry + "[" + idx + "++], {3}).ToList();\r\n");
             }
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateArrayOut(string tab, int index)
+        public static string CreTmlAdapArrayOut(string tab, int index)
         {
             string dAry = index > 1 ? "dAry" + index : "dAry";
             string idx = index > 1 ? "idx" + index : "idx";
@@ -356,10 +359,10 @@ namespace ToolSupportUchida.Utils
             sb.Append(tab + "int " + idx + " = 0;\r\n")
               .Append(tab + "string[] " + dAry + " = DataSplit(row, {0});\r\n\r\n");
 
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateOut(string tab, int index, string model)
+        public static string CreTmlAdapOut(string tab, int index, string model)
         {
             string dAry = index > 1 ? "dAry" + index : "dAry";
             string idx = index > 1 ? "idx" + index : "idx";
@@ -377,10 +380,10 @@ namespace ToolSupportUchida.Utils
                   .Append(tab + "{1}.{2} = " + dAry + "[" + idx + "++];\r\n");
             }
 
-            return sb;
+            return sb.ToString();
         }
 
-        public static StringBuilder CreateTemplateAddListOut(string tab, string model)
+        public static string CreTmlAdapAddListOut(string tab, string model)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -393,12 +396,108 @@ namespace ToolSupportUchida.Utils
                 sb.Append(tab + "{0}.{1}.Add({2});\r\n");
             }
 
-            return sb;
+            return sb.ToString();
         }
 
         public static string CreateComment(string input)
         {
             return "// " + input + CONST.STRING_ADD_LINE;
+        }
+
+        public static string CreTmlCommonCaseOut(string tab)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(tab + "\"Case\": \"{0}\",").Append(CONST.STRING_ADD_LINE)
+              .Append(tab + "\"Outp\": \"{1}\",").Append(CONST.STRING_ADD_LINE)
+              .Append(tab + "\"Data\": ");
+            return sb.ToString(); ;
+        }
+
+        public static string CreTmlCommonAddData(string tab, bool isLast)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (isLast)
+            {
+                return sb.Append(tab + "\"{0}\": \"{1}\"").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+            else
+            {
+                return sb.Append(tab + "\"{0}\": \"{1}\",").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+
+        }
+
+        public static string CreTmlCommonAddArr(string tab, bool isLast)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (isLast)
+            {
+                return sb.Append(tab + "\"{0}\": [{1}]").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+            else
+            {
+                return sb.Append(tab + "\"{0}\": [{1}],").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+        }
+
+        public static string CreTmlCommonObj(string tab)
+        {
+            StringBuilder sb = new StringBuilder();
+            return sb.Append(tab + "\"{0}\": ").ToString();
+        }
+        #endregion
+
+        #region Method
+        public static string CreateTab(ref int indexTab)
+        {
+            indexTab++;
+            int length = indexTab * 4;
+            return new string(CONST.CHAR_SPACE, length);
+        }
+
+        public static string RemoveTab(ref int indexTab)
+        {
+            indexTab--;
+            if (indexTab < 0)
+            {
+                indexTab = 0;
+            }
+            int length = indexTab * 4;
+            return new string(CONST.CHAR_SPACE, length);
+        }
+
+        public static string RemoveEndTab(string input)
+        {
+            if (string.IsNullOrEmpty(input) || input == string.Empty)
+            {
+                return input;
+            }
+
+            while (input.Last().Equals(CONST.CHAR_TAB))
+            {
+                input = input.Substring(0, input.Length - 1);
+            }
+
+            return input;
+        }
+
+        public static int GetNumTab(string input)
+        {
+            int result = 0;
+            if (string.IsNullOrEmpty(input) || input == string.Empty)
+            {
+                return 0;
+            }
+
+            while (input.First().Equals(CONST.CHAR_TAB))
+            {
+                result++;
+                input = input.Substring(1, input.Length - 1);
+            }
+
+            return result;
         }
 
         public static string FirstCharToLowerCase(string str)
@@ -418,4 +517,5 @@ namespace ToolSupportUchida.Utils
         }
         #endregion
     }
+
 }

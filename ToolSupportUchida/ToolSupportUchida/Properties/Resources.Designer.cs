@@ -233,6 +233,16 @@ namespace ToolSupportUchida.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap create {
+            get {
+                object obj = ResourceManager.GetObject("create", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_tool {
             get {
                 object obj = ResourceManager.GetObject("logo-tool", resourceCulture);

@@ -132,6 +132,11 @@ namespace ToolSupportUchida.View
             displayButtonInOut();
         }
 
+        private void txtLogic_Leave(object sender, EventArgs e)
+        {
+            txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+        }
+
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
             lstPhysi = txtPhysi.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
@@ -147,6 +152,11 @@ namespace ToolSupportUchida.View
             }
 
             displayButtonInOut();
+        }
+
+        private void txtPhysi_Leave(object sender, EventArgs e)
+        {
+            txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
         }
 
         private void cbRow_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,9 +198,7 @@ namespace ToolSupportUchida.View
             string subResult = string.Empty;
             string tmpResult = string.Empty;
             string tab = string.Empty;
-            string nextLine = string.Empty;
-
-            StringBuilder template = new StringBuilder();
+            string template = string.Empty;
 
             int lengthText = 0;
             int lengthListLogic = lstLogic.Length;
@@ -198,8 +206,8 @@ namespace ToolSupportUchida.View
 
             for (int i = 0; i < lengthListLogic; i++)
             {
-                string lineLogic = lstLogic[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
-                string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
+                string lineLogic = lstLogic[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty).Trim();
+                string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty).Trim(); ;
 
                 if (lineLogic.Contains(CONST.STRING_LIST_JP) && linePhysi.Contains(CONST.STRING_LIST_EN))
                 {
@@ -207,8 +215,7 @@ namespace ToolSupportUchida.View
 
                     if (i <= lstLogic.Length - 2)
                     {
-                        nextLine = removeEndTab(lstLogic[i + 1]);
-                        numTab = getNumTab(lstLogic[i + 1]);
+                        numTab = CUtils.GetNumTab(lstLogic[i + 1]);
                     }
 
                     if (numTab == indexTab)
@@ -216,13 +223,13 @@ namespace ToolSupportUchida.View
                         if (i == lstLogic.Length - 1)
                         {
                             template = CUtils.CreateAppenIn(CONST.STRING_JOIN_LIST_END, tab);
-                            tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(nameList),
+                            tmpResult = string.Format(template, CUtils.FirstCharToUpperCase(nameList),
                                 valRows, lineLogic);
                         }
                         else
                         {
                             template = CUtils.CreateAppenIn(CONST.STRING_JOIN_LIST, tab);
-                            tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(nameList),
+                            tmpResult = string.Format(template, CUtils.FirstCharToUpperCase(nameList),
                                 valRows, valColumn, lineLogic);
                         }
 
@@ -238,12 +245,16 @@ namespace ToolSupportUchida.View
                     }
                     else
                     {
-                        lstName.Add(lineLogic, nameList);
-                        template = CUtils.CreateTemplateForEachIn(tab);
-                        result = result + string.Format(template.ToString(), CUtils.FirstCharToLowerCase(nameList), CUtils.FirstCharToUpperCase(nameList));
+                        if (!lstName.ContainsKey(lineLogic))
+                        {
+                            lstName.Add(lineLogic, nameList);
+                        }
+
+                        template = CUtils.CreTmlAdapForEachIn(tab);
+                        result = result + string.Format(template, CUtils.FirstCharToLowerCase(nameList), CUtils.FirstCharToUpperCase(nameList));
                         result = result + tab + "{" + CONST.STRING_ADD_LINE;
 
-                        tab = createTab();
+                        tab = CUtils.CreateTab(ref indexTab);
                         result = result + tab + CONST.STRING_CREATE_BUILDER;
                     }
                 }
@@ -259,7 +270,7 @@ namespace ToolSupportUchida.View
                         template = CUtils.CreateAppenIn(checkNextEndOfList(i, lengthListLogic), tab);
                     }
 
-                    tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(linePhysi),
+                    tmpResult = string.Format(template, CUtils.FirstCharToUpperCase(linePhysi),
                         valColumn, lineLogic.Replace(CONST.STRING_TAB, string.Empty));
                     lengthText = tmpResult.LastIndexOf("/");
 
@@ -276,12 +287,11 @@ namespace ToolSupportUchida.View
                 {
                     if (i <= lstLogic.Length - 2)
                     {
-                        nextLine = removeEndTab(lstLogic[i + 1]);
-                        numTab = getNumTab(lstLogic[i + 1]);
+                        numTab = CUtils.GetNumTab(lstLogic[i + 1]);
                     }
                     else if (i == lstLogic.Length - 1)
                     {
-                        numTab = getNumTab(lstLogic[i]);
+                        numTab = CUtils.GetNumTab(lstLogic[i]);
                         numTab = (indexTab - lstName.Count) >= 0 ? (indexTab - lstName.Count) : 0;
                     }
 
@@ -290,7 +300,7 @@ namespace ToolSupportUchida.View
                     {
                         while (indexTab > numTab)
                         {
-                            tab = removeTab();
+                            tab = CUtils.RemoveTab(ref indexTab);
 
                             result = result + CONST.STRING_ADD_LINE + tab + "}" + CONST.STRING_ADD_LINE;
 
@@ -313,12 +323,12 @@ namespace ToolSupportUchida.View
 
                             if (i == lstLogic.Length - 1 && indexTab == numTab)
                             {
-                                tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(lstName.Values.Last()),
+                                tmpResult = string.Format(template, CUtils.FirstCharToUpperCase(lstName.Values.Last()),
                                 valRows, lstName.Keys.Last());
                             }
                             else
                             {
-                                tmpResult = string.Format(template.ToString(), CUtils.FirstCharToUpperCase(lstName.Values.Last()),
+                                tmpResult = string.Format(template, CUtils.FirstCharToUpperCase(lstName.Values.Last()),
                                 valRows, valColumn, lstName.Keys.Last());
                             }
                             lengthText = tmpResult.LastIndexOf("/");
@@ -354,11 +364,9 @@ namespace ToolSupportUchida.View
             indexTab = 0;
 
             string result = string.Empty;
-            string tmpResult = string.Empty;
             string tab = string.Empty;
-            string nextLine = string.Empty;
+            string template = string.Empty;
 
-            StringBuilder template = new StringBuilder();
             Dictionary<string, string> lstName = new Dictionary<string, string>();
 
             int lengthListLogic = lstLogic.Length;
@@ -367,27 +375,27 @@ namespace ToolSupportUchida.View
 
             for (int i = 0; i < lengthListLogic; i++)
             {
-                string lineLogic = lstLogic[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
-                string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty);
+                string lineLogic = lstLogic[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty).Trim();
+                string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty).Trim();
                 if (i == 0)
                 {
                     if (ckbCreate.Checked)
                     {
-                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE_LIST);
-                        result = result + string.Format(template.ToString(), linePhysi);
+                        template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE_LIST);
+                        result = result + string.Format(template, linePhysi);
 
-                        template = CUtils.CreateTemplateForEachOut(tab, dAry, CONST.STRING_CREATE);
-                        result = result + string.Format(template.ToString(), valRows);
+                        template = CUtils.CreTmlAdapForEachOut(tab, dAry, CONST.STRING_CREATE);
+                        result = result + string.Format(template, valRows);
 
                         result = result + "{" + CONST.STRING_ADD_LINE;
-                        tab = createTab();
+                        tab = CUtils.CreateTab(ref indexTab);
 
-                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE);
-                        result = result + string.Format(template.ToString(), linePhysi);
+                        template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE);
+                        result = result + string.Format(template, linePhysi);
                     }
 
-                    template = CUtils.CreateTemplateArrayOut(tab, dAry);
-                    result = result + string.Format(template.ToString(), valColumn);
+                    template = CUtils.CreTmlAdapArrayOut(tab, dAry);
+                    result = result + string.Format(template, valColumn);
                 }
                 else if (lineLogic.Contains(CONST.STRING_LIST_JP) && linePhysi.Contains(CONST.STRING_LIST_EN))
                 {
@@ -396,7 +404,7 @@ namespace ToolSupportUchida.View
 
                     if (i <= lstLogic.Length - 2)
                     {
-                        numTabCheck = getNumTab(lstLogic[i + 1]);
+                        numTabCheck = CUtils.GetNumTab(lstLogic[i + 1]);
                         if (ckbCreate.Checked)
                         {
                             numTabCheck++;
@@ -404,7 +412,7 @@ namespace ToolSupportUchida.View
                     }
                     else if (i == lstLogic.Length - 1)
                     {
-                        numTabCheck = getNumTab(lstLogic[i]);
+                        numTabCheck = CUtils.GetNumTab(lstLogic[i]);
                         if (ckbCreate.Checked)
                         {
                             numTabCheck++;
@@ -415,43 +423,47 @@ namespace ToolSupportUchida.View
                     {
                         if (numTabCheck > 1 && lstName.Count > 1)
                         {
-                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_SPLIT_ADD_LIST);
-                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty),
+                            template = CUtils.CreTmlAdapListObjOut(tab, dAry, CONST.STRING_SPLIT_ADD_LIST);
+                            result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty),
                                 lstName.Last().Key, nameList, valSubRows);
                         }
                         else
                         {
-                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_SPLIT_LIST);
-                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList, valSubRows);
+                            template = CUtils.CreTmlAdapListObjOut(tab, dAry, CONST.STRING_SPLIT_LIST);
+                            result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList, valSubRows);
                         }
                     }
                     else
                     {
                         if (lstName.Count > 0)
                         {
-                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_CREATE_LIST);
-                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty),
+                            template = CUtils.CreTmlAdapListObjOut(tab, dAry, CONST.STRING_CREATE_LIST);
+                            result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty),
                                 lstName.Last().Key, nameList);
                         }
                         else
                         {
-                            template = CUtils.CreateTemplateListObjOut(tab, dAry, CONST.STRING_CREATE);
-                            result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList);
+                            template = CUtils.CreTmlAdapListObjOut(tab, dAry, CONST.STRING_CREATE);
+                            result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty), nameList);
                         }
-                        lstName.Add(CUtils.FirstCharToLowerCase(nameList), linePhysi);
 
-                        template = CUtils.CreateTemplateForEachOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
-                        result = result + string.Format(template.ToString(), valSubRows);
+                        if (!lstName.ContainsKey(CUtils.FirstCharToLowerCase(nameList)))
+                        {
+                            lstName.Add(CUtils.FirstCharToLowerCase(nameList), linePhysi);
+                        }
+
+                        template = CUtils.CreTmlAdapForEachOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template, valSubRows);
 
                         result = result + tab + "{" + CONST.STRING_ADD_LINE;
-                        tab = createTab();
+                        tab = CUtils.CreateTab(ref indexTab);
                         dAry++;
 
-                        template = CUtils.CreateTemplateModelOut(tab, CONST.STRING_CREATE_SPLIT);
-                        result = result + string.Format(template.ToString(), nameList, CUtils.FirstCharToLowerCase(nameList));
+                        template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template, nameList, CUtils.FirstCharToLowerCase(nameList));
 
-                        template = CUtils.CreateTemplateArrayOut(tab, dAry);
-                        result = result + string.Format(template.ToString(), valSubColumn);
+                        template = CUtils.CreTmlAdapArrayOut(tab, dAry);
+                        result = result + string.Format(template, valSubColumn);
                     }
 
 
@@ -460,13 +472,13 @@ namespace ToolSupportUchida.View
                 {
                     if (lstName.Count > 0)
                     {
-                        template = CUtils.CreateTemplateOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
-                        result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), lstName.Last().Key, linePhysi);
+                        template = CUtils.CreTmlAdapOut(tab, dAry, CONST.STRING_CREATE_SPLIT);
+                        result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty), lstName.Last().Key, linePhysi);
                     }
                     else
                     {
-                        template = CUtils.CreateTemplateOut(tab, dAry, CONST.STRING_CREATE);
-                        result = result + string.Format(template.ToString(), lineLogic.Replace(CONST.STRING_TAB, string.Empty), linePhysi);
+                        template = CUtils.CreTmlAdapOut(tab, dAry, CONST.STRING_CREATE);
+                        result = result + string.Format(template, lineLogic.Replace(CONST.STRING_TAB, string.Empty), linePhysi);
                     }
 
                 }
@@ -475,8 +487,7 @@ namespace ToolSupportUchida.View
                 {
                     if (i <= lstLogic.Length - 2)
                     {
-                        nextLine = removeEndTab(lstLogic[i + 1]);
-                        numTab = getNumTab(lstLogic[i + 1]);
+                        numTab = CUtils.GetNumTab(lstLogic[i + 1]);
                         if (ckbCreate.Checked)
                         {
                             numTab++;
@@ -484,7 +495,7 @@ namespace ToolSupportUchida.View
                     }
                     else if (i == lstLogic.Length - 1)
                     {
-                        numTab = getNumTab(lstLogic[i]);
+                        numTab = CUtils.GetNumTab(lstLogic[i]);
                         numTab = (indexTab - lstName.Count) >= 0 ? (indexTab - lstName.Count) : 0;
                         if (ckbCreate.Checked)
                         {
@@ -504,19 +515,19 @@ namespace ToolSupportUchida.View
                                 lstName.Remove(keyListName);
                                 dAry--;
 
-                                template = CUtils.CreateTemplateAddListOut(tab, CONST.STRING_ADD_LIST_SPLIT);
-                                result = result + CONST.STRING_ADD_LINE + string.Format(template.ToString(), lstName.Last().Key, valListName, keyListName);
+                                template = CUtils.CreTmlAdapAddListOut(tab, CONST.STRING_ADD_LIST_SPLIT);
+                                result = result + CONST.STRING_ADD_LINE + string.Format(template, lstName.Last().Key, valListName, keyListName);
                             }
                             else
                             {
                                 lstName.Remove(keyListName);
                                 dAry--;
 
-                                template = CUtils.CreateTemplateAddListOut(tab, CONST.STRING_ADD_LIST);
-                                result = result + CONST.STRING_ADD_LINE + string.Format(template.ToString(), valListName, keyListName);
+                                template = CUtils.CreTmlAdapAddListOut(tab, CONST.STRING_ADD_LIST);
+                                result = result + CONST.STRING_ADD_LINE + string.Format(template, valListName, keyListName);
                             }
 
-                            tab = removeTab();
+                            tab = CUtils.RemoveTab(ref indexTab);
                             result = result + tab + "}" + CONST.STRING_ADD_LINE;
                         }
 
@@ -525,7 +536,7 @@ namespace ToolSupportUchida.View
 
                 if (i == (lstLogic.Length - 1) && ckbCreate.Checked)
                 {
-                    tab = removeTab();
+                    tab = CUtils.RemoveTab(ref indexTab);
                     result = result + tab + "outputModelList.Add(outputModel);" + CONST.STRING_ADD_LINE;
                     result = result + "}";
                 }
@@ -617,66 +628,6 @@ namespace ToolSupportUchida.View
             }
         }
 
-        private string createTab()
-        {
-            indexTab++;
-            int length = indexTab * 4;
-            return new string(CONST.CHAR_SPACE, length);
-        }
-
-        private string removeTab()
-        {
-            indexTab--;
-            if (indexTab < 0)
-            {
-                indexTab = 0;
-            }
-            int length = indexTab * 4;
-            return new string(CONST.CHAR_SPACE, length);
-        }
-
-        private string removeEndTab(string input)
-        {
-            if (string.IsNullOrEmpty(input) || input == string.Empty)
-            {
-                return input;
-            }
-
-            while (input.Last().Equals(CONST.CHAR_TAB))
-            {
-                input = input.Substring(0, input.Length - 1);
-            }
-
-            return input;
-        }
-
-        private int getNumTab(string input)
-        {
-            int result = 0;
-            if (string.IsNullOrEmpty(input) || input == string.Empty)
-            {
-                return 0;
-            }
-
-            while (input.First().Equals(CONST.CHAR_TAB))
-            {
-                result++;
-                input = input.Substring(1, input.Length - 1);
-            }
-
-            return result;
-        }
-
         #endregion
-
-        private void txtLogic_Leave(object sender, EventArgs e)
-        {
-            txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
-        }
-
-        private void txtPhysi_Leave(object sender, EventArgs e)
-        {
-            txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
-        }
     }
 }
