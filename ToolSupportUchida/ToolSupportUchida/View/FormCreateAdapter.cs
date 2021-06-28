@@ -22,7 +22,6 @@ namespace ToolSupportUchida.View
 
         private string[] lstLogic;
         private string[] lstPhysi;
-        private string[] stringSeparators;
 
         private string valRows;
         private string valColumn;
@@ -43,8 +42,6 @@ namespace ToolSupportUchida.View
 
             lstLogic = new string[0];
             lstPhysi = new string[0];
-
-            stringSeparators = new string[] { CONST.STRING_ADD_LINE };
 
             indexTab = 0;
             maxLengthRow = 0;
@@ -117,7 +114,7 @@ namespace ToolSupportUchida.View
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
 
-            lstLogic = txtLogic.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+            lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
 
             if (lstLogic.Length > 0)
             {
@@ -139,7 +136,7 @@ namespace ToolSupportUchida.View
 
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
-            lstPhysi = txtPhysi.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+            lstPhysi = txtPhysi.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
 
             if (lstPhysi.Length > 0)
             {
@@ -191,7 +188,7 @@ namespace ToolSupportUchida.View
 
             Dictionary<string, string> lstName = new Dictionary<string, string>();
 
-            lstLogic = txtLogic.Text.Split(stringSeparators, StringSplitOptions.None);
+            lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
             lstLogic = lstLogic.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
             string result = string.Empty;
@@ -593,7 +590,7 @@ namespace ToolSupportUchida.View
         {
             string result = string.Empty;
             string textAdd = string.Empty;
-            string[] lstInput = input.Split(stringSeparators, StringSplitOptions.None);
+            string[] lstInput = input.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
 
             int lengthText = 0;
 

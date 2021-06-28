@@ -163,28 +163,25 @@ namespace ToolSupportUchida
         #region Event
         private void Main_Load(object sender, EventArgs e)
         {
-            if (File.Exists(CONST.FILE_PATH))
+            objToolSupport = BinarySerialization.ReadFromBinaryFile<ToolSupportModel>();
+
+            if (objToolSupport.lstSekkei != null)
             {
-                objToolSupport = BinarySerialization.ReadFromBinaryFile<ToolSupportModel>();
-
-                if (objToolSupport.lstSekkei != null)
+                lstSekkei = objToolSupport.lstSekkei;
+                foreach (SekkeiModel sekkei in objToolSupport.lstSekkei)
                 {
-                    lstSekkei = objToolSupport.lstSekkei;
-                    foreach (SekkeiModel sekkei in objToolSupport.lstSekkei)
-                    {
-                        gridSekkei.Rows.Add(noSekkei, sekkei.logicName, sekkei.physiName);
-                        noSekkei++;
-                    }
+                    gridSekkei.Rows.Add(noSekkei, sekkei.logicName, sekkei.physiName);
+                    noSekkei++;
                 }
+            }
 
-                if (objToolSupport.lstAdapter != null)
+            if (objToolSupport.lstAdapter != null)
+            {
+                lstAdapter = objToolSupport.lstAdapter;
+                foreach (AdapterModel adapter in objToolSupport.lstAdapter)
                 {
-                    lstAdapter = objToolSupport.lstAdapter;
-                    foreach (AdapterModel adapter in objToolSupport.lstAdapter)
-                    {
-                        gridAdapter.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
-                        noAdapter++;
-                    }
+                    gridAdapter.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
+                    noAdapter++;
                 }
             }
 
@@ -198,7 +195,7 @@ namespace ToolSupportUchida
             if (string.IsNullOrEmpty(logicName))
             {
                 MessageBox.Show(CONST.MESS_ADD_NEW_LOGIC_BLANK, CONST.TEXT_CAPTION_ERROR,
-                    MessageBoxButtons.OK , MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (string.IsNullOrEmpty(physiName))
             {

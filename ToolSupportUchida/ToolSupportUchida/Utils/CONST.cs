@@ -6,6 +6,7 @@ namespace ToolSupportUchida.Utils
     {
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
+        public static string[] STRING_SEPARATORS = new string[] { STRING_ADD_LINE };
 
         #region Item
         public static string ITEM_ROWS = "Rows";

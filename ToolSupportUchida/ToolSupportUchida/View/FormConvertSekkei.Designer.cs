@@ -62,7 +62,6 @@ namespace ToolSupportUchida.View
             this.txtLogicName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtLogicName.Size = new System.Drawing.Size(279, 368);
             this.txtLogicName.TabIndex = 0;
-            this.txtLogicName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLogicName_KeyDown);
             // 
             // groupBox2
             // 
@@ -84,7 +83,6 @@ namespace ToolSupportUchida.View
             this.txtPhysiName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtPhysiName.Size = new System.Drawing.Size(279, 368);
             this.txtPhysiName.TabIndex = 0;
-            this.txtPhysiName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPhysiName_KeyDown);
             // 
             // lblResult
             // 

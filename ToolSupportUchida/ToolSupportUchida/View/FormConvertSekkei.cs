@@ -46,25 +46,6 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Event
-        private void txtLogicName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control == true && e.KeyCode == Keys.V)
-            {
-                e.Handled = true;
-                string st = Clipboard.GetText();
-                txtLogicName.Text = st;
-            }
-        }
-
-        private void txtPhysiName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control == true && e.KeyCode == Keys.V)
-            {
-                e.Handled = true;
-                string st = Clipboard.GetText();
-                txtPhysiName.Text = st;
-            }
-        }
 
         private void btnConvertPhysi_Click(object sender, EventArgs e)
         {
@@ -72,7 +53,7 @@ namespace ToolSupportUchida.View
 
             if (txtLogicName.Text.Length != 0)
              {
-                string[] arrLogicName = txtLogicName.Text.Split(CONST.CHAR_NEW_LINE);
+                string[] arrLogicName = txtLogicName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
                 string result = string.Empty;
                 foreach (string item in arrLogicName)
                 {
@@ -111,7 +92,7 @@ namespace ToolSupportUchida.View
 
             if (txtPhysiName.Text.Length != 0)
             {
-                string[] arrPhysiName = txtPhysiName.Text.Split(CONST.CHAR_NEW_LINE);
+                string[] arrPhysiName = txtPhysiName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
                 string result = string.Empty;
                 foreach (string item in arrPhysiName)
                 {
@@ -155,7 +136,8 @@ namespace ToolSupportUchida.View
         {
             string result = nameLogic;
 
-            List<SekkeiModel> lstSekkeiTmp = lstSekkei;
+            List<SekkeiModel> lstSekkeiTmp = new List<SekkeiModel>();
+            lstSekkeiTmp.AddRange(lstSekkei);
             SekkeiModel objSekkei = lstSekkeiTmp.Find(obj => nameLogic.Contains(obj.logicName));
 
             if (objSekkei == null)
