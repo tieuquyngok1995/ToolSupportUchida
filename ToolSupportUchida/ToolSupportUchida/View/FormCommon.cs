@@ -15,6 +15,9 @@ namespace ToolSupportUchida.View
         private string[] lstKey;
         private string[] stringSeparators;
 
+        private string[] lstMessCode;
+        private string[] lstMessContent;
+
         #region Load Form
         public FormCommon()
         {
@@ -30,7 +33,7 @@ namespace ToolSupportUchida.View
 
         private void LoadTheme()
         {
-            foreach (Control tabControl in tabControlCommon.Controls)
+            foreach (Control tabControl in tabControlCreateMessage.Controls)
             {
                 TabPage tabPage = (TabPage)tabControl;
                 foreach (Control pageControl in tabPage.Controls)
@@ -53,10 +56,10 @@ namespace ToolSupportUchida.View
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = tabControlCommon.TabPages[e.Index];
+            TabPage _tabPage = tabControlCreateMessage.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = tabControlCommon.GetTabRect(e.Index);
+            Rectangle _tabBounds = tabControlCreateMessage.GetTabRect(e.Index);
             if (e.State == DrawItemState.Selected)
             {
                 Brush brush = new SolidBrush(ThemeColor.PrimaryColor);
@@ -81,7 +84,7 @@ namespace ToolSupportUchida.View
         }
         #endregion
 
-        #region Event
+        #region Tab Create Json
         private void txtInputKey_TextChanged(object sender, EventArgs e)
         {
             lstKey = txtInputKey.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
@@ -256,7 +259,108 @@ namespace ToolSupportUchida.View
             lblResult.Visible = false;
             displayItem(false);
         }
+        #endregion
 
+        #region Tab Create Message
+        private void txtMessCode_TextChanged(object sender, EventArgs e)
+        {
+            lstMessCode = txtMessCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstMessCode.Length > 0)
+            {
+                lblNumLMessCode.Visible = true;
+                lblNumLMessCode.Text = string.Concat(CONST.TEXT_LINE_NUM, lstMessCode.Length);
+            }
+            else
+            {
+                lblNumLMessCode.Visible = false;
+            }
+
+            if (lstMessCode != null && lstMessContent != null && lstMessCode.Length == lstMessContent.Length)
+            {
+                btnCreateMess.Enabled = true;
+            }
+            else
+            {
+                btnCreateMess.Enabled = false;
+            }
+        }
+
+        private void txtMessContent_TextChanged(object sender, EventArgs e)
+        {
+            lstMessContent = txtMessContent.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstMessContent.Length > 0)
+            {
+                lblNumMessContent.Visible = true;
+                lblNumMessContent.Text = string.Concat(CONST.TEXT_LINE_NUM, lstMessContent.Length);
+            }
+            else
+            {
+                lblNumMessContent.Visible = false;
+            }
+
+            if (lstMessCode != null && lstMessContent != null && lstMessCode.Length == lstMessContent.Length)
+            {
+                btnCreateMess.Enabled = true;
+            }
+            else
+            {
+                btnCreateMess.Enabled = false;
+            }
+        }
+
+        private void btnCreateMess_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty;
+            string template = string.Empty;
+
+            for (int i = 0; i < lstMessCode.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    if (string.IsNullOrEmpty(lstMessContent[i + 1]))
+                    {
+                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS);
+                        result += string.Format(template, lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                    }
+                    else
+                    {
+                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ);
+                        result += string.Format(template, lstMessCode[i],
+                            lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty),
+                            lstMessContent[i + 1].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                    }
+                }
+            }
+
+            txtMessResult.Text = result;
+
+            if (result.Length > 0)
+            {
+                btnMessCopy.Enabled = true;
+            }
+        }
+
+        private void btnMessCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMessResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtMessResult.Text);
+            lblMessResult.Visible = true;
+        }
+
+        private void btnMessClear_Click(object sender, EventArgs e)
+        {
+            txtMessCode.Text = string.Empty;
+            txtMessContent.Text = string.Empty;
+
+            lblMessResult.Visible = false;
+        }
         #endregion
 
         #region Method

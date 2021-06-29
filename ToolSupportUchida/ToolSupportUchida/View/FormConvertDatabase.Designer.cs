@@ -37,6 +37,9 @@ namespace ToolSupportUchida.View
             this.panelInputParam = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResult = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
@@ -47,9 +50,6 @@ namespace ToolSupportUchida.View
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnCreateParam = new System.Windows.Forms.Button();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInputSQL.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelInputParam.SuspendLayout();
@@ -143,6 +143,35 @@ namespace ToolSupportUchida.View
             this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gridInputParam.Size = new System.Drawing.Size(471, 178);
             this.gridInputParam.TabIndex = 0;
+            this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
+            // 
+            // colNo
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 40;
+            // 
+            // colParam
+            // 
+            this.colParam.HeaderText = "Param";
+            this.colParam.Name = "colParam";
+            this.colParam.ReadOnly = true;
+            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colParam.Width = 170;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 243;
             // 
             // panelResult
             // 
@@ -268,34 +297,6 @@ namespace ToolSupportUchida.View
             this.btnCreateParam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateParam.UseVisualStyleBackColor = true;
             this.btnCreateParam.Click += new System.EventHandler(this.btnCreateParam_Click);
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colNo.HeaderText = "No.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 40;
-            // 
-            // colParam
-            // 
-            this.colParam.HeaderText = "Param";
-            this.colParam.Name = "colParam";
-            this.colParam.ReadOnly = true;
-            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colParam.Width = 170;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 243;
             // 
             // FormConvertDatabase
             // 

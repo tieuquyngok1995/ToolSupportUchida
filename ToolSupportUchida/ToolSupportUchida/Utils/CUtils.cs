@@ -447,6 +447,19 @@ namespace ToolSupportUchida.Utils
             StringBuilder sb = new StringBuilder();
             return sb.Append(tab + "\"{0}\": ").ToString();
         }
+
+        public static string CreTmlMess(string mode)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (mode == "0")
+            {
+                return sb.Append("{0}={1}").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+            else
+            {
+                return sb.Append("{0}={1}[%EQ%]{2}").Append(CONST.STRING_ADD_LINE).ToString();
+            }
+        }
         #endregion
 
         #region Method

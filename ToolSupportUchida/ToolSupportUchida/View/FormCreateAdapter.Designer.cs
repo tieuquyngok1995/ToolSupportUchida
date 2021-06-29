@@ -44,6 +44,7 @@ namespace ToolSupportUchida.View
             this.cbRow = new System.Windows.Forms.ComboBox();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
+            this.ckbCreate = new System.Windows.Forms.CheckBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnCreateOut = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace ToolSupportUchida.View
             this.cbSubRow = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbColumn = new System.Windows.Forms.ComboBox();
-            this.ckbCreate = new System.Windows.Forms.CheckBox();
             this.panelTextJapan.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,7 +101,7 @@ namespace ToolSupportUchida.View
             // lblNumPhy
             // 
             this.lblNumPhy.AutoSize = true;
-            this.lblNumPhy.Location = new System.Drawing.Point(4, 364);
+            this.lblNumPhy.Location = new System.Drawing.Point(6, 364);
             this.lblNumPhy.Name = "lblNumPhy";
             this.lblNumPhy.Size = new System.Drawing.Size(91, 17);
             this.lblNumPhy.TabIndex = 2;
@@ -135,7 +135,7 @@ namespace ToolSupportUchida.View
             // lblNumLogic
             // 
             this.lblNumLogic.AutoSize = true;
-            this.lblNumLogic.Location = new System.Drawing.Point(6, 363);
+            this.lblNumLogic.Location = new System.Drawing.Point(6, 364);
             this.lblNumLogic.Name = "lblNumLogic";
             this.lblNumLogic.Size = new System.Drawing.Size(91, 17);
             this.lblNumLogic.TabIndex = 1;
@@ -238,6 +238,16 @@ namespace ToolSupportUchida.View
             this.groupBoxSetting.TabIndex = 4;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "Setting";
+            // 
+            // ckbCreate
+            // 
+            this.ckbCreate.AutoSize = true;
+            this.ckbCreate.Location = new System.Drawing.Point(9, 261);
+            this.ckbCreate.Name = "ckbCreate";
+            this.ckbCreate.Size = new System.Drawing.Size(95, 21);
+            this.ckbCreate.TabIndex = 14;
+            this.ckbCreate.Text = "Create List";
+            this.ckbCreate.UseVisualStyleBackColor = true;
             // 
             // btnClear
             // 
@@ -361,16 +371,6 @@ namespace ToolSupportUchida.View
             this.cbColumn.Size = new System.Drawing.Size(102, 24);
             this.cbColumn.TabIndex = 5;
             this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
-            // 
-            // ckbCreate
-            // 
-            this.ckbCreate.AutoSize = true;
-            this.ckbCreate.Location = new System.Drawing.Point(9, 261);
-            this.ckbCreate.Name = "ckbCreate";
-            this.ckbCreate.Size = new System.Drawing.Size(95, 21);
-            this.ckbCreate.TabIndex = 14;
-            this.ckbCreate.Text = "Create List";
-            this.ckbCreate.UseVisualStyleBackColor = true;
             // 
             // FormCreateAdapter
             // 

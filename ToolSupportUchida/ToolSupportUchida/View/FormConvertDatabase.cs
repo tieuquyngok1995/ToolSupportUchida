@@ -46,6 +46,14 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Event
+        private void gridInputParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (gridInputParam.IsCurrentCellDirty)
+            {
+                gridInputParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
         private void btnCreateParam_Click(object sender, EventArgs e)
         {
             strSQLChar = txtSQLChar.Text.Trim();

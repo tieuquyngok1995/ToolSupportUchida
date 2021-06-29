@@ -39,6 +39,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_DOUBLE_APOSTROPHE = "''";
         public const string STRING_TAB = "\t";
         public const string STRING_COMMA = ",";
+        public const string STRING_QUOTATION_MARKS = "\"";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";
@@ -78,6 +79,8 @@ namespace ToolSupportUchida.Utils
         public const string STRING_SPLIT_ADD_LIST = "3";
         public const string STRING_ADD_LIST = "0";
         public const string STRING_ADD_LIST_SPLIT = "1";
+        public const string STRING_CREATE_MESS = "0";
+        public const string STRING_CREATE_MESS_EQ = "1";
         #endregion
 
         #region Text
