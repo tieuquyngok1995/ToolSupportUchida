@@ -132,12 +132,20 @@ namespace ToolSupportUchida.View
             int numTab = 0;
             int index = 0;
 
-            result = "{" + CONST.STRING_ADD_LINE;
-            tab = CUtils.CreateTab(ref indexTab);
-
-            template = CUtils.CreTmlCommonCaseOut(tab);
-            result = result + string.Format(template, txtCase.Text.Trim(), txtOut.Text.Trim());
-            result = result + " {" + CONST.STRING_ADD_LINE;
+            if (rdbCreateJson.Checked)
+            {
+                result = "{" + CONST.STRING_ADD_LINE;
+                tab = CUtils.CreateTab(ref indexTab);
+                template = CUtils.CreTmlCommonCaseOut(tab);
+                result = result + string.Format(template, txtCase.Text.Trim(), txtOut.Text.Trim());
+                result = result + "{" + CONST.STRING_ADD_LINE;
+            }
+            else if (rdbCreateObj.Checked)
+            {
+                result = "[" + CONST.STRING_ADD_LINE;
+                tab = CUtils.CreateTab(ref indexTab);
+                result = result + tab + "{" + CONST.STRING_ADD_LINE;
+            }
 
             tab = CUtils.CreateTab(ref indexTab);
 
@@ -208,7 +216,13 @@ namespace ToolSupportUchida.View
             while (indexTab > 0)
             {
                 tab = CUtils.RemoveTab(ref indexTab);
-                result = result + tab + "}" + CONST.STRING_ADD_LINE;
+                if (indexTab == 0 && rdbCreateObj.Checked)
+                {
+                    result = result + tab + "]" + CONST.STRING_ADD_LINE;
+                }
+                else {
+                    result = result + tab + "}" + CONST.STRING_ADD_LINE;
+                }
             }
 
             txtResult.Text = result;

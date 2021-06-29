@@ -179,8 +179,11 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
+                this.rdbFirst.Text = "Set Public";
+                this.rdbLast.Text = "Set Private";
 
                 this.isCsharp = false;
                 this.isJs = true;
@@ -313,6 +316,9 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
 
+                this.rdbFirst.Text = "Set First";
+                this.rdbLast.Text = "Set Last";
+
                 convert();
             }
         }
@@ -327,8 +333,11 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
+                this.rdbFirst.Text = "Set Public";
+                this.rdbLast.Text = "Set Private";
 
                 convert();
             }
@@ -344,8 +353,11 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
+                this.rdbFirst.Text = "Set Public";
+                this.rdbLast.Text = "Set Private";
 
                 convert();
             }
@@ -510,6 +522,11 @@ namespace ToolSupportUchida.View
             {
                 txtResult.Text += value;
             }
+
+            if (txtResult.Text.Length > 0)
+            {
+                btnCopy.Enabled = true;
+            }
         }
 
         private void convertToTypeScripts()
@@ -548,7 +565,14 @@ namespace ToolSupportUchida.View
             }
             else
             {
-                stringBuilder.Append("public {1}{2}{3};\r\n");
+                if (rdbFirst.Checked)
+                {
+                    stringBuilder.Append("public {1}{2}{3};\r\n");
+                }
+                else if (rdbLast.Checked)
+                {
+                    stringBuilder.Append("private {1}{2}{3};\r\n");
+                }
             }
 
             string template = stringBuilder.ToString();
@@ -573,7 +597,7 @@ namespace ToolSupportUchida.View
                         {
                             type = "KnockoutObservableArray<" + value + ">";
                         }
-                        if (type.Equals("void") || type.Equals("function"))
+                        else if (type.Equals("void") || type.Equals("function"))
                         {
                             type = value;
                         }
@@ -639,6 +663,11 @@ namespace ToolSupportUchida.View
             {
                 txtResult.Text += value;
             }
+
+            if (txtResult.Text.Length > 0)
+            {
+                btnCopy.Enabled = true;
+            }
         }
 
         private void convertToHTML()
@@ -698,6 +727,11 @@ namespace ToolSupportUchida.View
             foreach (string value in lstResult)
             {
                 txtResult.Text += value;
+            }
+
+            if (txtResult.Text.Length > 0)
+            {
+                btnCopy.Enabled = true;
             }
         }
 

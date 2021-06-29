@@ -52,6 +52,8 @@ namespace ToolSupportUchida.View
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rdbCreateObj = new System.Windows.Forms.RadioButton();
+            this.rdbCreateJson = new System.Windows.Forms.RadioButton();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -277,6 +279,8 @@ namespace ToolSupportUchida.View
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdbCreateJson);
+            this.groupBox1.Controls.Add(this.rdbCreateObj);
             this.groupBox1.Controls.Add(this.txtOut);
             this.groupBox1.Controls.Add(this.txtCase);
             this.groupBox1.Controls.Add(this.label2);
@@ -291,7 +295,7 @@ namespace ToolSupportUchida.View
             // 
             // txtOut
             // 
-            this.txtOut.Location = new System.Drawing.Point(94, 62);
+            this.txtOut.Location = new System.Drawing.Point(83, 62);
             this.txtOut.Name = "txtOut";
             this.txtOut.Size = new System.Drawing.Size(120, 23);
             this.txtOut.TabIndex = 4;
@@ -299,7 +303,7 @@ namespace ToolSupportUchida.View
             // 
             // txtCase
             // 
-            this.txtCase.Location = new System.Drawing.Point(94, 28);
+            this.txtCase.Location = new System.Drawing.Point(83, 28);
             this.txtCase.Name = "txtCase";
             this.txtCase.Size = new System.Drawing.Size(120, 23);
             this.txtCase.TabIndex = 3;
@@ -332,6 +336,28 @@ namespace ToolSupportUchida.View
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Comming Soon";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rdbCreateObj
+            // 
+            this.rdbCreateObj.AutoSize = true;
+            this.rdbCreateObj.Location = new System.Drawing.Point(210, 63);
+            this.rdbCreateObj.Name = "rdbCreateObj";
+            this.rdbCreateObj.Size = new System.Drawing.Size(94, 21);
+            this.rdbCreateObj.TabIndex = 5;
+            this.rdbCreateObj.Text = "Create Obj";
+            this.rdbCreateObj.UseVisualStyleBackColor = true;
+            // 
+            // rdbCreateJson
+            // 
+            this.rdbCreateJson.AutoSize = true;
+            this.rdbCreateJson.Checked = true;
+            this.rdbCreateJson.Location = new System.Drawing.Point(210, 28);
+            this.rdbCreateJson.Name = "rdbCreateJson";
+            this.rdbCreateJson.Size = new System.Drawing.Size(102, 21);
+            this.rdbCreateJson.TabIndex = 6;
+            this.rdbCreateJson.TabStop = true;
+            this.rdbCreateJson.Text = "Create Json";
+            this.rdbCreateJson.UseVisualStyleBackColor = true;
             // 
             // FormCommon
             // 
@@ -379,5 +405,7 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
         private System.Windows.Forms.DataGridView gridInputParam;
+        private System.Windows.Forms.RadioButton rdbCreateJson;
+        private System.Windows.Forms.RadioButton rdbCreateObj;
     }
 }

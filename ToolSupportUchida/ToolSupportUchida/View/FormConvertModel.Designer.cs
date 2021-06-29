@@ -351,6 +351,7 @@ namespace ToolSupportUchida.View
             // 
             // btnCopy
             // 
+            this.btnCopy.Enabled = false;
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -511,7 +512,7 @@ namespace ToolSupportUchida.View
             // 
             this.rdbLast.AutoSize = true;
             this.rdbLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbLast.Location = new System.Drawing.Point(434, 358);
+            this.rdbLast.Location = new System.Drawing.Point(436, 358);
             this.rdbLast.Name = "rdbLast";
             this.rdbLast.Size = new System.Drawing.Size(69, 19);
             this.rdbLast.TabIndex = 7;
