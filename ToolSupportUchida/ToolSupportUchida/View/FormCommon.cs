@@ -368,7 +368,7 @@ namespace ToolSupportUchida.View
         #region Tab Format Code
         private void txtFormatCode_TextChanged(object sender, EventArgs e)
         {
-            lstFormatCode = txtMessCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+            lstFormatCode = txtFormatCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
 
             if (lstFormatCode.Length > 0)
             {
@@ -394,7 +394,7 @@ namespace ToolSupportUchida.View
                 }
             }
 
-            txtFormatResult.Text = CUtils.FormatCode(txtFormatResult.Text, maxLengthRow);
+            txtFormatResult.Text = CUtils.FormatCode(txtFormatCode.Text, maxLengthRow);
 
             if (txtFormatResult.Text.Length > 0)
             {
