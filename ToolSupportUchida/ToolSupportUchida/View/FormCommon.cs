@@ -18,6 +18,8 @@ namespace ToolSupportUchida.View
         private string[] lstMessCode;
         private string[] lstMessContent;
 
+        private string[] lstFormatCode;
+
         #region Load Form
         public FormCommon()
         {
@@ -33,7 +35,7 @@ namespace ToolSupportUchida.View
 
         private void LoadTheme()
         {
-            foreach (Control tabControl in tabControlCreateMessage.Controls)
+            foreach (Control tabControl in tabControlCommon.Controls)
             {
                 TabPage tabPage = (TabPage)tabControl;
                 foreach (Control pageControl in tabPage.Controls)
@@ -56,10 +58,10 @@ namespace ToolSupportUchida.View
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = tabControlCreateMessage.TabPages[e.Index];
+            TabPage _tabPage = tabControlCommon.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = tabControlCreateMessage.GetTabRect(e.Index);
+            Rectangle _tabBounds = tabControlCommon.GetTabRect(e.Index);
             if (e.State == DrawItemState.Selected)
             {
                 Brush brush = new SolidBrush(ThemeColor.PrimaryColor);
@@ -319,17 +321,17 @@ namespace ToolSupportUchida.View
             {
                 if (i % 2 == 0)
                 {
-                    if (string.IsNullOrEmpty(lstMessContent[i + 1]))
-                    {
-                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS);
-                        result += string.Format(template, lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
-                    }
-                    else
+                    if (i + 1 < lstMessContent.Length && !string.IsNullOrEmpty(lstMessContent[i + 1]))
                     {
                         template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ);
                         result += string.Format(template, lstMessCode[i],
                             lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty),
                             lstMessContent[i + 1].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                    }
+                    else
+                    {
+                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS);
+                        result += string.Format(template, lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
                     }
                 }
             }
@@ -363,8 +365,65 @@ namespace ToolSupportUchida.View
         }
         #endregion
 
-        #region Method
+        #region Tab Format Code
+        private void txtFormatCode_TextChanged(object sender, EventArgs e)
+        {
+            lstFormatCode = txtMessCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
 
+            if (lstFormatCode.Length > 0)
+            {
+                btnFormatCode.Enabled = true;
+            }
+            else
+            {
+                btnFormatCode.Enabled = false;
+            }
+        }
+
+        private void btnFormatCode_Click(object sender, EventArgs e)
+        {
+            int lengthText = 0;
+            int maxLengthRow = 0;
+
+            foreach (string line in lstFormatCode)
+            {
+                lengthText = line.LastIndexOf("/");
+                if (lengthText > maxLengthRow)
+                {
+                    maxLengthRow = lengthText;
+                }
+            }
+
+            txtFormatResult.Text = CUtils.FormatCode(txtFormatResult.Text, maxLengthRow);
+
+            if (txtFormatResult.Text.Length > 0)
+            {
+                btnFormatCopy.Enabled = true;
+            }
+        }
+
+        private void btnFormatCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFormatResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtFormatResult.Text);
+            lblFormatResult.Visible = true;
+        }
+
+        private void btnFormatClear_Click(object sender, EventArgs e)
+        {
+            txtFormatCode.Text = string.Empty;
+            txtFormatResult.Text = string.Empty;
+
+            lblFormatResult.Visible = false;
+        }
+        #endregion
+
+        #region Method
         private string addComman(string[] lst)
         {
             string result = string.Empty;
@@ -388,7 +447,6 @@ namespace ToolSupportUchida.View
             return result;
         }
 
-
         private void displayItem(bool val)
         {
             btnCreate.Enabled = val;
@@ -397,7 +455,6 @@ namespace ToolSupportUchida.View
 
             gridInputParam.Visible = val;
         }
-
         #endregion
     }
 }

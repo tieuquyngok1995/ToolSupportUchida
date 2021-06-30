@@ -348,7 +348,7 @@ namespace ToolSupportUchida.View
                 }
             }
 
-            txtResult.Text = formatTextIn(result);
+            txtResult.Text = CUtils.FormatCode(result, maxLengthRow);
 
             if (result.Length > 0)
             {
@@ -584,31 +584,6 @@ namespace ToolSupportUchida.View
             {
                 return string.Empty;
             }
-        }
-
-        private string formatTextIn(string input)
-        {
-            string result = string.Empty;
-            string textAdd = string.Empty;
-            string[] lstInput = input.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            int lengthText = 0;
-
-            foreach (string line in lstInput)
-            {
-                lengthText = line.LastIndexOf("/");
-                if (lengthText != -1 && lengthText < maxLengthRow)
-                {
-                    textAdd = new string(CONST.CHAR_SPACE, maxLengthRow - lengthText);
-                    result = result + line.Substring(0, lengthText - 1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
-                }
-                else
-                {
-                    result = result + line + CONST.STRING_ADD_LINE;
-                }
-            }
-
-            return result;
         }
 
         private void displayButtonInOut()

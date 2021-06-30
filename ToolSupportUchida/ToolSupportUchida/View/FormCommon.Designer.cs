@@ -29,9 +29,9 @@ namespace ToolSupportUchida.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControlCreateMessage = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
@@ -53,51 +53,64 @@ namespace ToolSupportUchida.View
             this.txtCase = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageCreateMessage = new System.Windows.Forms.TabPage();
             this.btnCreateMess = new System.Windows.Forms.Button();
             this.lblMessResult = new System.Windows.Forms.Label();
-            this.btnMessCopy = new System.Windows.Forms.Button();
-            this.btnMessClear = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtMessResult = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblNumMessContent = new System.Windows.Forms.Label();
             this.txtMessContent = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtMessCode = new System.Windows.Forms.TextBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblNumLMessCode = new System.Windows.Forms.Label();
-            this.lblNumMessContent = new System.Windows.Forms.Label();
-            this.tabControlCreateMessage.SuspendLayout();
+            this.txtMessCode = new System.Windows.Forms.TextBox();
+            this.btnMessCopy = new System.Windows.Forms.Button();
+            this.btnMessClear = new System.Windows.Forms.Button();
+            this.tabPageFormatCode = new System.Windows.Forms.TabPage();
+            this.btnFormatCode = new System.Windows.Forms.Button();
+            this.lblFormatResult = new System.Windows.Forms.Label();
+            this.btnFormatCopy = new System.Windows.Forms.Button();
+            this.btnFormatClear = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtFormatResult = new System.Windows.Forms.TextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.txtFormatCode = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageCreateMessage.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.tabPageFormatCode.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControlCreateMessage
+            // tabControlCommon
             // 
-            this.tabControlCreateMessage.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControlCreateMessage.Controls.Add(this.tabPageCreateJson);
-            this.tabControlCreateMessage.Controls.Add(this.tabPage2);
-            this.tabControlCreateMessage.Controls.Add(this.tabPage1);
-            this.tabControlCreateMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlCreateMessage.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControlCreateMessage.ItemSize = new System.Drawing.Size(28, 120);
-            this.tabControlCreateMessage.Location = new System.Drawing.Point(0, 0);
-            this.tabControlCreateMessage.Multiline = true;
-            this.tabControlCreateMessage.Name = "tabControlCreateMessage";
-            this.tabControlCreateMessage.Padding = new System.Drawing.Point(3, 3);
-            this.tabControlCreateMessage.SelectedIndex = 0;
-            this.tabControlCreateMessage.Size = new System.Drawing.Size(704, 405);
-            this.tabControlCreateMessage.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControlCreateMessage.TabIndex = 0;
-            this.tabControlCreateMessage.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlCommon_DrawItem);
+            this.tabControlCommon.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControlCommon.Controls.Add(this.tabPageCreateJson);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
+            this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
+            this.tabControlCommon.Controls.Add(this.tabPage3);
+            this.tabControlCommon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlCommon.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControlCommon.ItemSize = new System.Drawing.Size(28, 120);
+            this.tabControlCommon.Location = new System.Drawing.Point(0, 0);
+            this.tabControlCommon.Multiline = true;
+            this.tabControlCommon.Name = "tabControlCommon";
+            this.tabControlCommon.Padding = new System.Drawing.Point(3, 3);
+            this.tabControlCommon.SelectedIndex = 0;
+            this.tabControlCommon.Size = new System.Drawing.Size(704, 405);
+            this.tabControlCommon.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControlCommon.TabIndex = 0;
+            this.tabControlCommon.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlCommon_DrawItem);
             // 
             // tabPageCreateJson
             // 
@@ -245,14 +258,14 @@ namespace ToolSupportUchida.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle10;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -269,8 +282,8 @@ namespace ToolSupportUchida.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle9;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -367,22 +380,22 @@ namespace ToolSupportUchida.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Input Case";
             // 
-            // tabPage2
+            // tabPageCreateMessage
             // 
-            this.tabPage2.Controls.Add(this.btnCreateMess);
-            this.tabPage2.Controls.Add(this.lblMessResult);
-            this.tabPage2.Controls.Add(this.btnMessCopy);
-            this.tabPage2.Controls.Add(this.btnMessClear);
-            this.tabPage2.Controls.Add(this.groupBox7);
-            this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(124, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(576, 397);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Create Message";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageCreateMessage.Controls.Add(this.btnCreateMess);
+            this.tabPageCreateMessage.Controls.Add(this.lblMessResult);
+            this.tabPageCreateMessage.Controls.Add(this.groupBox7);
+            this.tabPageCreateMessage.Controls.Add(this.groupBox6);
+            this.tabPageCreateMessage.Controls.Add(this.groupBox5);
+            this.tabPageCreateMessage.Controls.Add(this.btnMessCopy);
+            this.tabPageCreateMessage.Controls.Add(this.btnMessClear);
+            this.tabPageCreateMessage.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateMessage.Name = "tabPageCreateMessage";
+            this.tabPageCreateMessage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateMessage.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateMessage.TabIndex = 1;
+            this.tabPageCreateMessage.Text = "Create Message";
+            this.tabPageCreateMessage.UseVisualStyleBackColor = true;
             // 
             // btnCreateMess
             // 
@@ -392,7 +405,7 @@ namespace ToolSupportUchida.View
             this.btnCreateMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateMess.Image = global::ToolSupportUchida.Properties.Resources.create;
             this.btnCreateMess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMess.Location = new System.Drawing.Point(385, 344);
+            this.btnCreateMess.Location = new System.Drawing.Point(385, 343);
             this.btnCreateMess.Name = "btnCreateMess";
             this.btnCreateMess.Size = new System.Drawing.Size(112, 28);
             this.btnCreateMess.TabIndex = 20;
@@ -412,34 +425,6 @@ namespace ToolSupportUchida.View
             this.lblMessResult.Text = "Copy to Clipboard is done!";
             this.lblMessResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblMessResult.Visible = false;
-            // 
-            // btnMessCopy
-            // 
-            this.btnMessCopy.Enabled = false;
-            this.btnMessCopy.FlatAppearance.BorderSize = 0;
-            this.btnMessCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMessCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnMessCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCopy.Location = new System.Drawing.Point(503, 343);
-            this.btnMessCopy.Name = "btnMessCopy";
-            this.btnMessCopy.Size = new System.Drawing.Size(28, 28);
-            this.btnMessCopy.TabIndex = 18;
-            this.btnMessCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMessCopy.UseVisualStyleBackColor = true;
-            this.btnMessCopy.Click += new System.EventHandler(this.btnMessCopy_Click);
-            // 
-            // btnMessClear
-            // 
-            this.btnMessClear.FlatAppearance.BorderSize = 0;
-            this.btnMessClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnMessClear.Location = new System.Drawing.Point(537, 343);
-            this.btnMessClear.Name = "btnMessClear";
-            this.btnMessClear.Size = new System.Drawing.Size(28, 28);
-            this.btnMessClear.TabIndex = 17;
-            this.btnMessClear.UseVisualStyleBackColor = true;
-            this.btnMessClear.Click += new System.EventHandler(this.btnMessClear_Click);
             // 
             // groupBox7
             // 
@@ -475,6 +460,16 @@ namespace ToolSupportUchida.View
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Message Content";
             // 
+            // lblNumMessContent
+            // 
+            this.lblNumMessContent.AutoSize = true;
+            this.lblNumMessContent.Location = new System.Drawing.Point(3, 365);
+            this.lblNumMessContent.Name = "lblNumMessContent";
+            this.lblNumMessContent.Size = new System.Drawing.Size(91, 17);
+            this.lblNumMessContent.TabIndex = 4;
+            this.lblNumMessContent.Text = "Line number:";
+            this.lblNumMessContent.Visible = false;
+            // 
             // txtMessContent
             // 
             this.txtMessContent.Dock = System.Windows.Forms.DockStyle.Top;
@@ -498,6 +493,16 @@ namespace ToolSupportUchida.View
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Message Code";
             // 
+            // lblNumLMessCode
+            // 
+            this.lblNumLMessCode.AutoSize = true;
+            this.lblNumLMessCode.Location = new System.Drawing.Point(3, 365);
+            this.lblNumLMessCode.Name = "lblNumLMessCode";
+            this.lblNumLMessCode.Size = new System.Drawing.Size(91, 17);
+            this.lblNumLMessCode.TabIndex = 3;
+            this.lblNumLMessCode.Text = "Line number:";
+            this.lblNumLMessCode.Visible = false;
+            // 
             // txtMessCode
             // 
             this.txtMessCode.Dock = System.Windows.Forms.DockStyle.Top;
@@ -509,46 +514,171 @@ namespace ToolSupportUchida.View
             this.txtMessCode.TabIndex = 2;
             this.txtMessCode.TextChanged += new System.EventHandler(this.txtMessCode_TextChanged);
             // 
-            // tabPage1
+            // btnMessCopy
             // 
-            this.tabPage1.Location = new System.Drawing.Point(124, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(576, 397);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Comming Soon";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.btnMessCopy.Enabled = false;
+            this.btnMessCopy.FlatAppearance.BorderSize = 0;
+            this.btnMessCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMessCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnMessCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMessCopy.Location = new System.Drawing.Point(503, 343);
+            this.btnMessCopy.Name = "btnMessCopy";
+            this.btnMessCopy.Size = new System.Drawing.Size(28, 28);
+            this.btnMessCopy.TabIndex = 18;
+            this.btnMessCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMessCopy.UseVisualStyleBackColor = true;
+            this.btnMessCopy.Click += new System.EventHandler(this.btnMessCopy_Click);
             // 
-            // lblNumLMessCode
+            // btnMessClear
             // 
-            this.lblNumLMessCode.AutoSize = true;
-            this.lblNumLMessCode.Location = new System.Drawing.Point(3, 365);
-            this.lblNumLMessCode.Name = "lblNumLMessCode";
-            this.lblNumLMessCode.Size = new System.Drawing.Size(91, 17);
-            this.lblNumLMessCode.TabIndex = 3;
-            this.lblNumLMessCode.Text = "Line number:";
-            this.lblNumLMessCode.Visible = false;
+            this.btnMessClear.FlatAppearance.BorderSize = 0;
+            this.btnMessClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMessClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnMessClear.Location = new System.Drawing.Point(537, 343);
+            this.btnMessClear.Name = "btnMessClear";
+            this.btnMessClear.Size = new System.Drawing.Size(28, 28);
+            this.btnMessClear.TabIndex = 17;
+            this.btnMessClear.UseVisualStyleBackColor = true;
+            this.btnMessClear.Click += new System.EventHandler(this.btnMessClear_Click);
             // 
-            // lblNumMessContent
+            // tabPageFormatCode
             // 
-            this.lblNumMessContent.AutoSize = true;
-            this.lblNumMessContent.Location = new System.Drawing.Point(3, 365);
-            this.lblNumMessContent.Name = "lblNumMessContent";
-            this.lblNumMessContent.Size = new System.Drawing.Size(91, 17);
-            this.lblNumMessContent.TabIndex = 4;
-            this.lblNumMessContent.Text = "Line number:";
-            this.lblNumMessContent.Visible = false;
+            this.tabPageFormatCode.Controls.Add(this.btnFormatCode);
+            this.tabPageFormatCode.Controls.Add(this.lblFormatResult);
+            this.tabPageFormatCode.Controls.Add(this.btnFormatCopy);
+            this.tabPageFormatCode.Controls.Add(this.btnFormatClear);
+            this.tabPageFormatCode.Controls.Add(this.groupBox9);
+            this.tabPageFormatCode.Controls.Add(this.groupBox8);
+            this.tabPageFormatCode.Location = new System.Drawing.Point(124, 4);
+            this.tabPageFormatCode.Name = "tabPageFormatCode";
+            this.tabPageFormatCode.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 397);
+            this.tabPageFormatCode.TabIndex = 2;
+            this.tabPageFormatCode.Text = "Format Coment";
+            this.tabPageFormatCode.UseVisualStyleBackColor = true;
+            // 
+            // btnFormatCode
+            // 
+            this.btnFormatCode.Enabled = false;
+            this.btnFormatCode.FlatAppearance.BorderSize = 0;
+            this.btnFormatCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormatCode.Image = global::ToolSupportUchida.Properties.Resources.format;
+            this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFormatCode.Location = new System.Drawing.Point(372, 343);
+            this.btnFormatCode.Name = "btnFormatCode";
+            this.btnFormatCode.Size = new System.Drawing.Size(123, 28);
+            this.btnFormatCode.TabIndex = 25;
+            this.btnFormatCode.Text = "Format Code";
+            this.btnFormatCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormatCode.UseVisualStyleBackColor = true;
+            this.btnFormatCode.Click += new System.EventHandler(this.btnFormatCode_Click);
+            // 
+            // lblFormatResult
+            // 
+            this.lblFormatResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormatResult.ForeColor = System.Drawing.Color.Red;
+            this.lblFormatResult.Location = new System.Drawing.Point(398, 374);
+            this.lblFormatResult.Name = "lblFormatResult";
+            this.lblFormatResult.Size = new System.Drawing.Size(165, 18);
+            this.lblFormatResult.TabIndex = 24;
+            this.lblFormatResult.Text = "Copy to Clipboard is done!";
+            this.lblFormatResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFormatResult.Visible = false;
+            // 
+            // btnFormatCopy
+            // 
+            this.btnFormatCopy.Enabled = false;
+            this.btnFormatCopy.FlatAppearance.BorderSize = 0;
+            this.btnFormatCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormatCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFormatCopy.Location = new System.Drawing.Point(501, 343);
+            this.btnFormatCopy.Name = "btnFormatCopy";
+            this.btnFormatCopy.Size = new System.Drawing.Size(28, 28);
+            this.btnFormatCopy.TabIndex = 23;
+            this.btnFormatCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormatCopy.UseVisualStyleBackColor = true;
+            this.btnFormatCopy.Click += new System.EventHandler(this.btnFormatCopy_Click);
+            // 
+            // btnFormatClear
+            // 
+            this.btnFormatClear.FlatAppearance.BorderSize = 0;
+            this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnFormatClear.Location = new System.Drawing.Point(535, 343);
+            this.btnFormatClear.Name = "btnFormatClear";
+            this.btnFormatClear.Size = new System.Drawing.Size(28, 28);
+            this.btnFormatClear.TabIndex = 22;
+            this.btnFormatClear.UseVisualStyleBackColor = true;
+            this.btnFormatClear.Click += new System.EventHandler(this.btnFormatClear_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtFormatResult);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(292, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(275, 338);
+            this.groupBox9.TabIndex = 21;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Result";
+            // 
+            // txtFormatResult
+            // 
+            this.txtFormatResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFormatResult.Enabled = false;
+            this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatResult.Multiline = true;
+            this.txtFormatResult.Name = "txtFormatResult";
+            this.txtFormatResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtFormatResult.Size = new System.Drawing.Size(269, 316);
+            this.txtFormatResult.TabIndex = 1;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.txtFormatCode);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(9, 0);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(275, 385);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Message Code";
+            // 
+            // txtFormatCode
+            // 
+            this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatCode.Multiline = true;
+            this.txtFormatCode.Name = "txtFormatCode";
+            this.txtFormatCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtFormatCode.Size = new System.Drawing.Size(269, 363);
+            this.txtFormatCode.TabIndex = 2;
+            this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(124, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(576, 397);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Comming Soon";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
-            this.Controls.Add(this.tabControlCreateMessage);
+            this.Controls.Add(this.tabControlCommon);
             this.Name = "FormCommon";
-            this.Text = "FormCheck";
+            this.Text = "Tool Common";
             this.Load += new System.EventHandler(this.FormCheckDataModel_Load);
-            this.tabControlCreateMessage.ResumeLayout(false);
+            this.tabControlCommon.ResumeLayout(false);
             this.tabPageCreateJson.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -558,22 +688,27 @@ namespace ToolSupportUchida.View
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPageCreateMessage.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tabPageFormatCode.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControlCreateMessage;
+        private System.Windows.Forms.TabControl tabControlCommon;
         private System.Windows.Forms.TabPage tabPageCreateJson;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageCreateMessage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -594,7 +729,7 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.DataGridView gridInputParam;
         private System.Windows.Forms.RadioButton rdbCreateJson;
         private System.Windows.Forms.RadioButton rdbCreateObj;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageFormatCode;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnCreateMess;
@@ -607,5 +742,14 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.TextBox txtMessCode;
         private System.Windows.Forms.Label lblNumMessContent;
         private System.Windows.Forms.Label lblNumLMessCode;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox txtFormatCode;
+        private System.Windows.Forms.Button btnFormatCode;
+        private System.Windows.Forms.Label lblFormatResult;
+        private System.Windows.Forms.Button btnFormatCopy;
+        private System.Windows.Forms.Button btnFormatClear;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox txtFormatResult;
     }
 }

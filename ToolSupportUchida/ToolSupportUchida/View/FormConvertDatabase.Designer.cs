@@ -313,7 +313,7 @@ namespace ToolSupportUchida.View
             this.Controls.Add(this.panelInputSQL);
             this.Controls.Add(this.panelInputParam);
             this.Name = "FormConvertDatabase";
-            this.Text = "Convert";
+            this.Text = "Convert Database";
             this.Load += new System.EventHandler(this.FormConvert_Load);
             this.panelInputSQL.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

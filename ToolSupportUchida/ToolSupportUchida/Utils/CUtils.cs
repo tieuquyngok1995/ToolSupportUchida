@@ -463,6 +463,31 @@ namespace ToolSupportUchida.Utils
         #endregion
 
         #region Method
+        public static string FormatCode(string input, int maxLengthRow)
+        {
+            string result = string.Empty;
+            string textAdd = string.Empty;
+            string[] lstInput = input.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            int lengthText = 0;
+
+            foreach (string line in lstInput)
+            {
+                lengthText = line.LastIndexOf("/");
+                if (lengthText != -1 && lengthText < maxLengthRow)
+                {
+                    textAdd = new string(CONST.CHAR_SPACE, maxLengthRow - lengthText);
+                    result = result + line.Substring(0, lengthText - 1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
+                }
+                else
+                {
+                    result = result + line + CONST.STRING_ADD_LINE;
+                }
+            }
+
+            return result;
+        }
+
         public static string CreateTab(ref int indexTab)
         {
             indexTab++;

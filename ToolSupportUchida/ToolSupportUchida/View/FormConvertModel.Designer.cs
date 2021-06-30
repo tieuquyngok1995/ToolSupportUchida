@@ -545,7 +545,7 @@ namespace ToolSupportUchida.View
             this.Controls.Add(this.panelLanguage);
             this.Controls.Add(this.lblResult);
             this.Name = "FormConvertModel";
-            this.Text = "FormConvertModel";
+            this.Text = "Convert Model";
             this.Load += new System.EventHandler(this.FormConvertModel_Load);
             this.panelLanguage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

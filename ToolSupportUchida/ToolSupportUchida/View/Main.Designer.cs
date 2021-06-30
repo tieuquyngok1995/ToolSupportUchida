@@ -324,11 +324,12 @@ namespace ToolSupportUchida
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(310, 25);
+            this.lblTitle.Location = new System.Drawing.Point(265, 25);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(80, 26);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Setting";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDesktopPane
             // 
@@ -794,7 +795,7 @@ namespace ToolSupportUchida
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Ver: 1.0";
+            this.label2.Text = "Ver: 1.1";
             // 
             // dataGridViewImageColumn1
             // 

@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\format.png" />
     <None Include="Resources\create.png" />
     <None Include="Resources\button-add.png" />
     <None Include="Resources\button-search.png" />
