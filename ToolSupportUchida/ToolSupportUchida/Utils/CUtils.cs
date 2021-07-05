@@ -495,6 +495,11 @@ namespace ToolSupportUchida.Utils
             return new string(CONST.CHAR_SPACE, length);
         }
 
+        public static string CreateSpace(int length)
+        {
+            return new string(CONST.CHAR_SPACE, length);
+        }
+
         public static string RemoveTab(ref int indexTab)
         {
             indexTab--;

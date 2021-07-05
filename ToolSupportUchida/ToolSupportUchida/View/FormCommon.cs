@@ -384,17 +384,38 @@ namespace ToolSupportUchida.View
         {
             int lengthText = 0;
             int maxLengthRow = 0;
+            int lengthAppend = -1;
+
+            string result = string.Empty;
+            string tmpLine = string.Empty;
+
 
             foreach (string line in lstFormatCode)
             {
+                if (line.Contains(CONST.STRING_APPEND))
+                {
+                    tmpLine = line.Trim();
+
+                    if (tmpLine.Substring(0, 1).Equals(CONST.STRING_DOT))
+                    {
+                        tmpLine = CUtils.CreateSpace(lengthAppend) + tmpLine;
+                    }
+                    else
+                    {
+                        lengthAppend = tmpLine.IndexOf(CONST.STRING_DOT);
+                    }
+                }
+
                 lengthText = line.LastIndexOf("/");
                 if (lengthText > maxLengthRow)
                 {
                     maxLengthRow = lengthText;
                 }
+
+                result += tmpLine + CONST.STRING_ADD_LINE;
             }
 
-            txtFormatResult.Text = CUtils.FormatCode(txtFormatCode.Text, maxLengthRow);
+            txtFormatResult.Text = CUtils.FormatCode(result, maxLengthRow);
 
             if (txtFormatResult.Text.Length > 0)
             {
