@@ -38,6 +38,8 @@ namespace ToolSupportUchida.View
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnConvertLogic = new System.Windows.Forms.Button();
             this.btnConvertPhysi = new System.Windows.Forms.Button();
+            this.rdbUpperCase = new System.Windows.Forms.RadioButton();
+            this.rdbLowerCase = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -158,11 +160,38 @@ namespace ToolSupportUchida.View
             this.btnConvertPhysi.UseVisualStyleBackColor = true;
             this.btnConvertPhysi.Click += new System.EventHandler(this.btnConvertPhysi_Click);
             // 
+            // rdbUpperCase
+            // 
+            this.rdbUpperCase.AutoSize = true;
+            this.rdbUpperCase.Checked = true;
+            this.rdbUpperCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbUpperCase.Location = new System.Drawing.Point(303, 118);
+            this.rdbUpperCase.Name = "rdbUpperCase";
+            this.rdbUpperCase.Size = new System.Drawing.Size(99, 20);
+            this.rdbUpperCase.TabIndex = 7;
+            this.rdbUpperCase.TabStop = true;
+            this.rdbUpperCase.Text = "Upper Case";
+            this.rdbUpperCase.UseVisualStyleBackColor = true;
+            // 
+            // rdbLowerCase
+            // 
+            this.rdbLowerCase.AutoSize = true;
+            this.rdbLowerCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLowerCase.Location = new System.Drawing.Point(303, 150);
+            this.rdbLowerCase.Name = "rdbLowerCase";
+            this.rdbLowerCase.Size = new System.Drawing.Size(97, 20);
+            this.rdbLowerCase.TabIndex = 8;
+            this.rdbLowerCase.TabStop = true;
+            this.rdbLowerCase.Text = "Lower Case";
+            this.rdbLowerCase.UseVisualStyleBackColor = true;
+            // 
             // FormConvertSekkei
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.rdbLowerCase);
+            this.Controls.Add(this.rdbUpperCase);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.btnCopy);
@@ -179,6 +208,7 @@ namespace ToolSupportUchida.View
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -193,5 +223,7 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox txtLogicName;
         private System.Windows.Forms.TextBox txtPhysiName;
+        private System.Windows.Forms.RadioButton rdbUpperCase;
+        private System.Windows.Forms.RadioButton rdbLowerCase;
     }
 }

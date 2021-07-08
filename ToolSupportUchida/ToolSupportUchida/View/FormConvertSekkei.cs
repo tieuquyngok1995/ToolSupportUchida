@@ -57,7 +57,9 @@ namespace ToolSupportUchida.View
                 string result = string.Empty;
                 foreach (string item in arrLogicName)
                 {
-                    result = findSekkeiLogicName(lstSekkei, item.Trim());
+                    result = findSekkeiLogicName(item.Trim(), lstSekkei);
+                    result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
+
                     txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
                 }
 
@@ -96,7 +98,9 @@ namespace ToolSupportUchida.View
                 string result = string.Empty;
                 foreach (string item in arrPhysiName)
                 {
-                    result = findSekkeiPhysiName(item.Trim());
+                    result = findSekkeiPhysiName(item.Trim(), lstSekkei);
+                    result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
+
                     txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
                 }
 
@@ -132,7 +136,7 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Method
-        private string findSekkeiLogicName(List<SekkeiModel> lstSekkei, string nameLogic)
+        private string findSekkeiLogicName(string nameLogic, List<SekkeiModel> lstSekkei)
         {
             string result = nameLogic;
 
@@ -148,28 +152,42 @@ namespace ToolSupportUchida.View
             {
                 result = result.Replace(objSekkei.logicName, objSekkei.physiName);
                 lstSekkeiTmp.RemoveAll(obj => obj.logicName.Equals(objSekkei.logicName) && obj.physiName.Equals(objSekkei.physiName));
-                result = findSekkeiLogicName(lstSekkeiTmp, result);
+                result = findSekkeiLogicName(result, lstSekkeiTmp);
             }
 
             return result;
         }
 
-        private string findSekkeiPhysiName(string namePhysi)
+        private string findSekkeiPhysiName(string namePhysi, List<SekkeiModel> lstSekkei)
         {
-            string result = namePhysi;
-            SekkeiModel objSekkei = lstSekkei.Find(item => namePhysi.Contains(item.physiName));
-
-            if (objSekkei == null)
+            try
             {
+                string result = namePhysi;
+                List<SekkeiModel> lstSekkeiTmp = new List<SekkeiModel>();
+
+                lstSekkeiTmp.AddRange(lstSekkei);
+                SekkeiModel objSekkei = lstSekkeiTmp.Find(item => namePhysi.Contains(item.physiName));
+
+                if (objSekkei == null)
+                {
+                    return result;
+                }
+                else
+                {
+                    result = result.Replace(objSekkei.physiName, objSekkei.logicName);
+                    lstSekkeiTmp.RemoveAll(obj => obj.physiName.Equals(objSekkei.physiName) && obj.logicName.Equals(objSekkei.logicName));
+                    result = findSekkeiPhysiName(result, lstSekkeiTmp);
+                }
+
                 return result;
             }
-            else
+            catch (Exception ex)
             {
-                result = result.Replace(objSekkei.physiName, objSekkei.logicName);
-                result = findSekkeiPhysiName(result);
-            }
+                MessageBox.Show("Exception has occurred: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            return result;
+                return namePhysi;
+            }
         }
 
         private void clearEmptyLine()
