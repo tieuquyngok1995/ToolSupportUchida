@@ -62,6 +62,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_VBCRLF = "& vbCrLf";
 
         public const string STRING_EMPTY = "String.Empty";
+        public const string STRING_NONE = "none";
         public const string STRING_LIST_EN = "List";
         public const string STRING_LIST_JP = "リスト";
         public const string STRING_CREATE_BUILDER = "StringBuilder b = new StringBuilder();\r\n";

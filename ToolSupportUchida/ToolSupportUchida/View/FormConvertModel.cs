@@ -449,64 +449,22 @@ namespace ToolSupportUchida.View
                 return;
             }
 
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (rdbLine.Checked)
-            {
-                stringBuilder.Append("/// <summary>\r\n");
-
-                if (string.IsNullOrEmpty(txtAddLogic.Text))
-                {
-                    stringBuilder.Append("/// {0}\r\n");
-                }
-                else
-                {
-                    stringBuilder.Append("/// {0}" + txtAddLogic.Text + "\r\n");
-                }
-
-                stringBuilder.Append("/// </summary>\r\n");
-            }
-            else if (rdbBlock.Checked)
-            {
-                stringBuilder.Append("/**\r\n");
-
-                if (string.IsNullOrEmpty(txtAddLogic.Text))
-                {
-                    stringBuilder.Append(" * {0}\r\n");
-                }
-                else
-                {
-                    stringBuilder.Append(" * {0}" + txtAddLogic.Text + "\r\n");
-                }
-
-                stringBuilder.Append(" */\r\n");
-            }
-            else if (rdbLineBlock.Checked)
-            {
-                if (string.IsNullOrEmpty(txtAddLogic.Text))
-                {
-                    stringBuilder.Append("/** {0} */\r\n");
-                }
-                else
-                {
-                    stringBuilder.Append("/** {0}" + txtAddLogic.Text + " */\r\n");
-                }
-            }
-
-            if (string.IsNullOrEmpty(txtAddPhysi.Text))
-            {
-                stringBuilder.Append("public {1} {2} {{ get; set; }}\r\n");
-            }
-            else
-            {
-                stringBuilder.Append("public {1} {2}" + txtAddPhysi.Text + " {{ get; set; }}\r\n");
-            }
-
-            string template = stringBuilder.ToString();
+            string template = string.Empty; ;
 
             for (int i = 0; i < lstLogic.Count; i++)
             {
-                string element = string.Format(template, lstLogic[i].Trim(), lstType[i].Trim(), lstPhysi[i].Trim());
+                string element = string.Empty;
+                string nameLogic = lstLogic[i].Trim();
+                template = createTemplateC(lstLogic[i].Trim());
+
+                if (nameLogic.ToLower().Equals(CONST.STRING_NONE))
+                {
+                    element = string.Format(template, lstType[i].Trim(), lstPhysi[i].Trim());
+                }
+                else
+                {
+                    element = string.Format(template, lstLogic[i].Trim(), lstType[i].Trim(), lstPhysi[i].Trim());
+                }
 
                 if (i == lstLogic.Count - 1)
                 {
@@ -514,7 +472,7 @@ namespace ToolSupportUchida.View
                 }
                 else
                 {
-                    lstResult.Add(element + " \r\n");
+                    lstResult.Add(element + "\r\n");
                 }
             }
 
@@ -536,49 +494,16 @@ namespace ToolSupportUchida.View
             string namePhy = string.Empty;
             string dot = ": ";
             string nameLog = string.Empty;
+            string element = string.Empty;
 
             if (lstLogic.Count != lstPhysi.Count || lstLogic.Count != lstType.Count)
             {
                 return;
             }
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (rdbLine.Checked)
-            {
-                stringBuilder.Append("// {0}\r\n");
-            }
-            else if (rdbBlock.Checked)
-            {
-                stringBuilder.Append("/**\r\n");
-                stringBuilder.Append(" * {0}\r\n");
-                stringBuilder.Append(" **/\r\n");
-            }
-            else if (rdbLineBlock.Checked)
-            {
-                stringBuilder.Append("/** {0} */\r\n");
-            }
-
-            if (rdbSetParam.Checked)
-            {
-                dot = string.Empty;
-                stringBuilder.Append("{1}{2}{3}\r\n");
-            }
-            else
-            {
-                if (rdbFirst.Checked)
-                {
-                    stringBuilder.Append("public {1}{2}{3};\r\n");
-                }
-                else if (rdbLast.Checked)
-                {
-                    stringBuilder.Append("private {1}{2}{3};\r\n");
-                }
-            }
-
-            string template = stringBuilder.ToString();
 
             for (int i = 0; i < lstLogic.Count; i++)
             {
+
                 string type = lstType[i].Trim();
                 if (type.Equals("void") || type.Equals("function"))
                 {
@@ -625,7 +550,7 @@ namespace ToolSupportUchida.View
                 }
 
                 nameLog = lstLogic[i].Trim();
-                if (!String.IsNullOrEmpty(txtAddLogic.Text.Trim()))
+                if (!String.IsNullOrEmpty(txtAddLogic.Text.Trim()) && !nameLog.ToLower().Equals(CONST.STRING_NONE))
                 {
                     nameLog = nameLog + txtAddLogic.Text.Trim();
                 }
@@ -647,7 +572,64 @@ namespace ToolSupportUchida.View
                     type = " = " + type + ";";
                 }
 
-                string element = string.Format(template, nameLog, namePhy, dot, type);
+                StringBuilder stringBuilder = new StringBuilder();
+                if (!nameLog.ToLower().Equals(CONST.STRING_NONE))
+                {
+                    if (rdbLine.Checked)
+                    {
+                        stringBuilder.Append("// {0}\r\n");
+                    }
+                    else if (rdbBlock.Checked)
+                    {
+                        stringBuilder.Append("/**\r\n");
+                        stringBuilder.Append(" * {0}\r\n");
+                        stringBuilder.Append(" **/\r\n");
+                    }
+                    else if (rdbLineBlock.Checked)
+                    {
+                        stringBuilder.Append("/** {0} */\r\n");
+                    }
+
+                    if (rdbSetParam.Checked)
+                    {
+                        dot = string.Empty;
+                        stringBuilder.Append("{1}{2}{3}\r\n");
+                    }
+                    else
+                    {
+                        if (rdbFirst.Checked)
+                        {
+                            stringBuilder.Append("public {1}{2}{3};\r\n");
+                        }
+                        else if (rdbLast.Checked)
+                        {
+                            stringBuilder.Append("private {1}{2}{3};\r\n");
+                        }
+                    }
+
+                    element = string.Format(stringBuilder.ToString(), nameLog, namePhy, dot, type);
+                }
+                else
+                {
+                    if (rdbSetParam.Checked)
+                    {
+                        dot = string.Empty;
+                        stringBuilder.Append("{0}{1}{2}\r\n");
+                    }
+                    else
+                    {
+                        if (rdbFirst.Checked)
+                        {
+                            stringBuilder.Append("public {0}{1}{2};\r\n");
+                        }
+                        else if (rdbLast.Checked)
+                        {
+                            stringBuilder.Append("private {0}{1}{2};\r\n");
+                        }
+                    }
+
+                    element = string.Format(stringBuilder.ToString(), namePhy, dot, type);
+                }
 
                 if (i == lstLogic.Count - 1)
                 {
@@ -655,7 +637,7 @@ namespace ToolSupportUchida.View
                 }
                 else
                 {
-                    lstResult.Add(element + " \r\n");
+                    lstResult.Add(element + "\r\n");
                 }
             }
 
@@ -850,6 +832,77 @@ namespace ToolSupportUchida.View
             return result;
         }
 
+        private string createTemplateC(string nameLogic)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (!nameLogic.ToLower().Equals(CONST.STRING_NONE))
+            {
+                if (rdbLine.Checked)
+                {
+                    stringBuilder.Append("/// <summary>\r\n");
+
+                    if (string.IsNullOrEmpty(txtAddLogic.Text))
+                    {
+                        stringBuilder.Append("/// {0}\r\n");
+                    }
+                    else
+                    {
+                        stringBuilder.Append("/// {0}" + txtAddLogic.Text + "\r\n");
+                    }
+
+                    stringBuilder.Append("/// </summary>\r\n");
+                }
+                else if (rdbBlock.Checked)
+                {
+                    stringBuilder.Append("/**\r\n");
+
+                    if (string.IsNullOrEmpty(txtAddLogic.Text))
+                    {
+                        stringBuilder.Append(" * {0}\r\n");
+                    }
+                    else
+                    {
+                        stringBuilder.Append(" * {0}" + txtAddLogic.Text + "\r\n");
+                    }
+
+                    stringBuilder.Append(" */\r\n");
+                }
+                else if (rdbLineBlock.Checked)
+                {
+                    if (string.IsNullOrEmpty(txtAddLogic.Text))
+                    {
+                        stringBuilder.Append("/** {0} */\r\n");
+                    }
+                    else
+                    {
+                        stringBuilder.Append("/** {0}" + txtAddLogic.Text + " */\r\n");
+                    }
+                }
+
+                if (string.IsNullOrEmpty(txtAddPhysi.Text))
+                {
+                    stringBuilder.Append("public {1} {2} {{ get; set; }}\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append("public {1} {2}" + txtAddPhysi.Text + " {{ get; set; }}\r\n");
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtAddPhysi.Text))
+                {
+                    stringBuilder.Append("public {0} {1} {{ get; set; }}\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append("public {0} {1}" + txtAddPhysi.Text + " {{ get; set; }}\r\n");
+                }
+            }
+
+            return stringBuilder.ToString();
+        }
         #endregion
     }
 }
