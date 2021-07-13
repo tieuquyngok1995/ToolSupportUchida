@@ -89,7 +89,7 @@ namespace ToolSupportUchida.View
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
             lstLogic.Clear();
-            lstLogic = txtLogic.Text.Replace("\t", "").Split(DELI, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstLogic = txtLogic.Text.Replace("\t", "").Split(DELI, StringSplitOptions.None).ToList();
 
             if (lstLogic.Count > 0)
             {
@@ -457,7 +457,7 @@ namespace ToolSupportUchida.View
                 string nameLogic = lstLogic[i].Trim();
                 template = createTemplateC(lstLogic[i].Trim());
 
-                if (nameLogic.ToLower().Equals(CONST.STRING_NONE))
+                if (nameLogic.ToLower().Equals(CONST.STRING_NONE) || string.IsNullOrEmpty(nameLogic))
                 {
                     element = string.Format(template, lstType[i].Trim(), lstPhysi[i].Trim());
                 }
@@ -573,7 +573,7 @@ namespace ToolSupportUchida.View
                 }
 
                 StringBuilder stringBuilder = new StringBuilder();
-                if (!nameLog.ToLower().Equals(CONST.STRING_NONE))
+                if (!nameLog.ToLower().Equals(CONST.STRING_NONE) && !string.IsNullOrEmpty(nameLog))
                 {
                     if (rdbLine.Checked)
                     {
@@ -836,7 +836,7 @@ namespace ToolSupportUchida.View
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            if (!nameLogic.ToLower().Equals(CONST.STRING_NONE))
+            if (!nameLogic.ToLower().Equals(CONST.STRING_NONE) && !string.IsNullOrEmpty(nameLogic))
             {
                 if (rdbLine.Checked)
                 {
