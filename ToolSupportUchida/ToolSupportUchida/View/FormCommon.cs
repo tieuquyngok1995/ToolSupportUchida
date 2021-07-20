@@ -392,10 +392,10 @@ namespace ToolSupportUchida.View
 
             foreach (string line in lstFormatCode)
             {
-                if (line.Contains(CONST.STRING_APPEND))
-                {
-                    tmpLine = line.Trim();
+                tmpLine = line.Trim();
 
+                if (tmpLine.Contains(CONST.STRING_APPEND))
+                {
                     if (tmpLine.Substring(0, 1).Equals(CONST.STRING_DOT))
                     {
                         tmpLine = CUtils.CreateSpace(lengthAppend) + tmpLine;
@@ -404,9 +404,15 @@ namespace ToolSupportUchida.View
                     {
                         lengthAppend = tmpLine.IndexOf(CONST.STRING_DOT);
                     }
+
+                    lengthText = tmpLine.LastIndexOf("/");
+                }
+                else
+                {
+                    lengthText = tmpLine.LastIndexOf("/") + 1;
                 }
 
-                lengthText = line.LastIndexOf("/");
+
                 if (lengthText > maxLengthRow)
                 {
                     maxLengthRow = lengthText;
