@@ -477,7 +477,7 @@ namespace ToolSupportUchida.Utils
                 if (lengthText != -1 && lengthText < maxLengthRow)
                 {
                     textAdd = new string(CONST.CHAR_SPACE, maxLengthRow - lengthText);
-                    result = result + line.Substring(0, lengthText - 1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText) + CONST.STRING_ADD_LINE;
+                    result = result + line.Substring(0, lengthText - 1) + textAdd + line.Substring(lengthText - 1, line.Length - lengthText + 1) + CONST.STRING_ADD_LINE;
                 }
                 else
                 {
