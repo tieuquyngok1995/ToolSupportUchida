@@ -422,6 +422,12 @@ namespace ToolSupportUchida.View
             }
 
             txtFormatResult.Text = CUtils.FormatCode(result, maxLengthRow);
+            txtFormatResult.Text = Regex.Replace(txtFormatResult.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+
+            if (txtFormatResult.Text.LastIndexOf("\r\n") == (txtFormatResult.Text.Length - 2))
+            {
+                txtFormatResult.Text = txtFormatResult.Text.Substring(0, txtFormatResult.Text.Length - 2);
+            }
 
             if (txtFormatResult.Text.Length > 0)
             {
