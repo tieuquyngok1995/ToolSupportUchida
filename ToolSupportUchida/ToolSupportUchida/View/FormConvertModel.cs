@@ -659,7 +659,7 @@ namespace ToolSupportUchida.View
                     }
                     else if (rdbObservable.Checked)
                     {
-                        stringBuilder.Append("readonly {1}{2}{3};\r\n");
+                        stringBuilder.Append("readonly {0}{2}{3};\r\n");
                     }
                     else
                     {
