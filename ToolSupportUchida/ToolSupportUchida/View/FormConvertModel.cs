@@ -228,8 +228,16 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                if (rdbJS.Checked && (rdbSetParam.Checked || rdbTypeScript.Checked))
+                {
+                    this.rdbFirst.Visible = true;
+                    this.rdbLast.Visible = true;
+                }
+                else
+                {
+                    this.rdbFirst.Visible = false;
+                    this.rdbLast.Visible = false;
+                }
 
                 convert();
             }
@@ -245,8 +253,16 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                if (rdbJS.Checked && (rdbSetParam.Checked || rdbTypeScript.Checked))
+                {
+                    this.rdbFirst.Visible = true;
+                    this.rdbLast.Visible = true;
+                }
+                else
+                {
+                    this.rdbFirst.Visible = false;
+                    this.rdbLast.Visible = false;
+                }
 
                 convert();
             }
@@ -262,8 +278,16 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                if (rdbJS.Checked && (rdbSetParam.Checked || rdbTypeScript.Checked))
+                {
+                    this.rdbFirst.Visible = true;
+                    this.rdbLast.Visible = true;
+                }
+                else
+                {
+                    this.rdbFirst.Visible = false;
+                    this.rdbLast.Visible = false;
+                }
 
                 convert();
             }
@@ -279,8 +303,16 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                if (rdbJS.Checked && (rdbSetParam.Checked || rdbTypeScript.Checked))
+                {
+                    this.rdbFirst.Visible = true;
+                    this.rdbLast.Visible = true;
+                }
+                else
+                {
+                    this.rdbFirst.Visible = false;
+                    this.rdbLast.Visible = false;
+                }
 
                 convert();
             }
@@ -296,8 +328,16 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
+                if (rdbJS.Checked && (rdbSetParam.Checked || rdbTypeScript.Checked))
+                {
+                    this.rdbFirst.Visible = true;
+                    this.rdbLast.Visible = true;
+                }
+                else
+                {
+                    this.rdbFirst.Visible = false;
+                    this.rdbLast.Visible = false;
+                }
 
                 convert();
             }
@@ -333,11 +373,8 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                this.rdbFirst.Visible = true;
-                this.rdbLast.Visible = true;
-
-                this.rdbFirst.Text = "Set Public";
-                this.rdbLast.Text = "Set Private";
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
 
                 convert();
             }
@@ -595,6 +632,10 @@ namespace ToolSupportUchida.View
                         dot = string.Empty;
                         stringBuilder.Append("{1}{2}{3}\r\n");
                     }
+                    else if (rdbObservable.Checked)
+                    {
+                        stringBuilder.Append("readonly {1}{2}{3};\r\n");
+                    }
                     else
                     {
                         if (rdbFirst.Checked)
@@ -615,6 +656,10 @@ namespace ToolSupportUchida.View
                     {
                         dot = string.Empty;
                         stringBuilder.Append("{0}{1}{2}\r\n");
+                    }
+                    else if (rdbObservable.Checked)
+                    {
+                        stringBuilder.Append("readonly {1}{2}{3};\r\n");
                     }
                     else
                     {
