@@ -630,7 +630,7 @@ namespace ToolSupportUchida.View
                     if (rdbSetParam.Checked)
                     {
                         dot = string.Empty;
-                        stringBuilder.Append("{1}{2}{3}\r\n");
+                        stringBuilder.Append("{1}{2}{3}");
                     }
                     else if (rdbObservable.Checked)
                     {
@@ -640,11 +640,20 @@ namespace ToolSupportUchida.View
                     {
                         if (rdbFirst.Checked)
                         {
-                            stringBuilder.Append("public {1}{2}{3};\r\n");
+                            stringBuilder.Append("public {1}{2}{3}");
                         }
                         else if (rdbLast.Checked)
                         {
-                            stringBuilder.Append("private {1}{2}{3};\r\n");
+                            stringBuilder.Append("private {1}{2}{3}");
+                        }
+
+                        if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
+                        {
+                            stringBuilder.Append(";\r\n");
+                        }
+                        else
+                        {
+                            stringBuilder.Append("\r\n");
                         }
                     }
 
@@ -655,7 +664,7 @@ namespace ToolSupportUchida.View
                     if (rdbSetParam.Checked)
                     {
                         dot = string.Empty;
-                        stringBuilder.Append("{0}{1}{2}\r\n");
+                        stringBuilder.Append("{0}{1}{2}");
                     }
                     else if (rdbObservable.Checked)
                     {
@@ -665,11 +674,20 @@ namespace ToolSupportUchida.View
                     {
                         if (rdbFirst.Checked)
                         {
-                            stringBuilder.Append("public {0}{1}{2};\r\n");
+                            stringBuilder.Append("public {0}{1}{2}");
                         }
                         else if (rdbLast.Checked)
                         {
-                            stringBuilder.Append("private {0}{1}{2};\r\n");
+                            stringBuilder.Append("private {0}{1}{2}");
+                        }
+
+                        if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
+                        {
+                            stringBuilder.Append(";\r\n");
+                        }
+                        else
+                        {
+                            stringBuilder.Append("\r\n");
                         }
                     }
 
