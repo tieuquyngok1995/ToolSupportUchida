@@ -84,6 +84,11 @@ namespace ToolSupportUchida.Utils
         public const string STRING_ADD_LIST_SPLIT = "1";
         public const string STRING_CREATE_MESS = "0";
         public const string STRING_CREATE_MESS_EQ = "1";
+
+        public const string STRING_FRS = "FRS";
+        public const string STRING_FRM = "FRM";
+        public const string STRING_CALL = "CALL";
+        public const string STRING_HLP = "HLP";
         #endregion
 
         #region Text

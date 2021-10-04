@@ -66,6 +66,7 @@ namespace ToolSupportUchida.View
             this.btnClear = new System.Windows.Forms.Button();
             this.rdbFirst = new System.Windows.Forms.RadioButton();
             this.rdbLast = new System.Windows.Forms.RadioButton();
+            this.chkCreateInterf = new System.Windows.Forms.CheckBox();
             this.panelLanguage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelComment.SuspendLayout();
@@ -521,11 +522,25 @@ namespace ToolSupportUchida.View
             this.rdbLast.Visible = false;
             this.rdbLast.CheckedChanged += new System.EventHandler(this.rdbLast_CheckedChanged);
             // 
+            // chkCreateInterf
+            // 
+            this.chkCreateInterf.AutoSize = true;
+            this.chkCreateInterf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCreateInterf.Location = new System.Drawing.Point(185, 357);
+            this.chkCreateInterf.Name = "chkCreateInterf";
+            this.chkCreateInterf.Size = new System.Drawing.Size(128, 21);
+            this.chkCreateInterf.TabIndex = 14;
+            this.chkCreateInterf.Text = "Create Interface";
+            this.chkCreateInterf.UseVisualStyleBackColor = true;
+            this.chkCreateInterf.Visible = false;
+            this.chkCreateInterf.CheckedChanged += new System.EventHandler(this.chkCreateInterf_CheckedChanged);
+            // 
             // FormConvertModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 421);
+            this.Controls.Add(this.chkCreateInterf);
             this.Controls.Add(this.rdbLast);
             this.Controls.Add(this.rdbFirst);
             this.Controls.Add(this.btnClear);
@@ -611,5 +626,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.RadioButton rdbFirst;
         private System.Windows.Forms.RadioButton rdbLast;
+        private System.Windows.Forms.CheckBox chkCreateInterf;
     }
 }

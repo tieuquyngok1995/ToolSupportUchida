@@ -157,6 +157,8 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
+                this.chkCreateInterf.Visible = false;
+
                 this.isCsharp = true;
                 this.isJs = false;
                 this.isHtml = false;
@@ -181,6 +183,8 @@ namespace ToolSupportUchida.View
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
+
+                this.chkCreateInterf.Visible = true;
 
                 this.rdbFirst.Text = "Set Public";
                 this.rdbLast.Text = "Set Private";
@@ -210,6 +214,8 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
+                this.chkCreateInterf.Visible = false;
+
                 this.isCsharp = false;
                 this.isJs = false;
                 this.isHtml = true;
@@ -232,11 +238,13 @@ namespace ToolSupportUchida.View
                 {
                     this.rdbFirst.Visible = true;
                     this.rdbLast.Visible = true;
+                    this.chkCreateInterf.Visible = true;
                 }
                 else
                 {
                     this.rdbFirst.Visible = false;
                     this.rdbLast.Visible = false;
+                    this.chkCreateInterf.Visible = false;
                 }
 
                 convert();
@@ -257,11 +265,13 @@ namespace ToolSupportUchida.View
                 {
                     this.rdbFirst.Visible = true;
                     this.rdbLast.Visible = true;
+                    this.chkCreateInterf.Visible = true;
                 }
                 else
                 {
                     this.rdbFirst.Visible = false;
                     this.rdbLast.Visible = false;
+                    this.chkCreateInterf.Visible = false;
                 }
 
                 convert();
@@ -282,11 +292,13 @@ namespace ToolSupportUchida.View
                 {
                     this.rdbFirst.Visible = true;
                     this.rdbLast.Visible = true;
+                    this.chkCreateInterf.Visible = true;
                 }
                 else
                 {
                     this.rdbFirst.Visible = false;
                     this.rdbLast.Visible = false;
+                    this.chkCreateInterf.Visible = false;
                 }
 
                 convert();
@@ -307,11 +319,13 @@ namespace ToolSupportUchida.View
                 {
                     this.rdbFirst.Visible = true;
                     this.rdbLast.Visible = true;
+                    this.chkCreateInterf.Visible = true;
                 }
                 else
                 {
                     this.rdbFirst.Visible = false;
                     this.rdbLast.Visible = false;
+                    this.chkCreateInterf.Visible = false;
                 }
 
                 convert();
@@ -332,11 +346,13 @@ namespace ToolSupportUchida.View
                 {
                     this.rdbFirst.Visible = true;
                     this.rdbLast.Visible = true;
+                    this.chkCreateInterf.Visible = true;
                 }
                 else
                 {
                     this.rdbFirst.Visible = false;
                     this.rdbLast.Visible = false;
+                    this.chkCreateInterf.Visible = false;
                 }
 
                 convert();
@@ -359,6 +375,8 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Text = "Set First";
                 this.rdbLast.Text = "Set Last";
 
+                this.chkCreateInterf.Visible = false;
+
                 convert();
             }
         }
@@ -375,6 +393,8 @@ namespace ToolSupportUchida.View
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
+
+                this.chkCreateInterf.Visible = false;
 
                 convert();
             }
@@ -396,8 +416,26 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Text = "Set Public";
                 this.rdbLast.Text = "Set Private";
 
+                this.chkCreateInterf.Visible = true;
+
                 convert();
             }
+        }
+
+        private void chkCreateInterf_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCreateInterf.Checked)
+            {
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+            }
+            else
+            {
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+            }
+
+            convert();
         }
 
         private void rdbFirst_CheckedChanged(object sender, EventArgs e)
@@ -638,16 +676,24 @@ namespace ToolSupportUchida.View
                     }
                     else
                     {
-                        if (rdbFirst.Checked)
+                        if (rdbFirst.Checked && rdbFirst.Visible)
                         {
                             stringBuilder.Append("public {1}{2}{3}");
                         }
-                        else if (rdbLast.Checked)
+                        else if (rdbLast.Checked && rdbLast.Visible)
                         {
                             stringBuilder.Append("private {1}{2}{3}");
                         }
+                        else if (chkCreateInterf.Checked)
+                        {
+                            stringBuilder.Append("{1}{2}{3}");
+                        }
 
-                        if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
+                        if (chkCreateInterf.Checked)
+                        {
+                            stringBuilder.Append(",\r\n");
+                        }
+                        else if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
                         {
                             stringBuilder.Append(";\r\n");
                         }
@@ -672,15 +718,23 @@ namespace ToolSupportUchida.View
                     }
                     else
                     {
-                        if (rdbFirst.Checked)
+                        if (rdbFirst.Checked && rdbFirst.Visible)
                         {
                             stringBuilder.Append("public {0}{1}{2}");
                         }
-                        else if (rdbLast.Checked)
+                        else if (rdbLast.Checked && rdbLast.Visible)
                         {
                             stringBuilder.Append("private {0}{1}{2}");
                         }
+                        else if (chkCreateInterf.Checked)
+                        {
+                            stringBuilder.Append("{1}{2}{3}");
+                        }
 
+                        if (chkCreateInterf.Checked)
+                        {
+                            stringBuilder.Append(",\r\n");
+                        }
                         if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
                         {
                             stringBuilder.Append(";\r\n");
