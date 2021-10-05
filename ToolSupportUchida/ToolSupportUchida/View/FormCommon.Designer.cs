@@ -76,7 +76,23 @@ namespace ToolSupportUchida.View
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtFormatCode = new System.Windows.Forms.TextBox();
             this.tabPageCreateHTML = new System.Windows.Forms.TabPage();
+            this.btnCopyCSHMTML = new System.Windows.Forms.Button();
+            this.btnCopyBundle = new System.Windows.Forms.Button();
+            this.btnCopyDialog = new System.Windows.Forms.Button();
+            this.btnCopyInit = new System.Windows.Forms.Button();
+            this.btnCopyController = new System.Windows.Forms.Button();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.txtDialog = new System.Windows.Forms.RichTextBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.txtInit = new System.Windows.Forms.RichTextBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.txtCshtml = new System.Windows.Forms.RichTextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.txtController = new System.Windows.Forms.RichTextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.txtBundle = new System.Windows.Forms.RichTextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtRow = new System.Windows.Forms.TextBox();
             this.chkPara = new System.Windows.Forms.CheckBox();
@@ -86,23 +102,23 @@ namespace ToolSupportUchida.View
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageCreateItem = new System.Windows.Forms.TabPage();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.txtBundle = new System.Windows.Forms.RichTextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.txtController = new System.Windows.Forms.RichTextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.btnCopyCSHMTML = new System.Windows.Forms.Button();
-            this.txtCshtml = new System.Windows.Forms.RichTextBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.txtInit = new System.Windows.Forms.RichTextBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.txtDialog = new System.Windows.Forms.RichTextBox();
-            this.btnCopyDialog = new System.Windows.Forms.Button();
-            this.btnCopyController = new System.Windows.Forms.Button();
-            this.btnCopyInit = new System.Windows.Forms.Button();
-            this.btnCopyBundle = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnHtmlCopy = new System.Windows.Forms.Button();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.txtHtmlResult = new System.Windows.Forms.RichTextBox();
+            this.btnHtmlClear = new System.Windows.Forms.Button();
+            this.btnCreateOut = new System.Windows.Forms.Button();
+            this.chkItem = new System.Windows.Forms.CheckBox();
+            this.cbItem = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbHtmlName = new System.Windows.Forms.Label();
+            this.txtHtmlName = new System.Windows.Forms.TextBox();
+            this.rdbNone = new System.Windows.Forms.RadioButton();
+            this.rdbUpdate = new System.Windows.Forms.RadioButton();
+            this.rdbDelete = new System.Windows.Forms.RadioButton();
+            this.lbHtmlJpName = new System.Windows.Forms.Label();
+            this.txtHtmlJPName = new System.Windows.Forms.TextBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -118,12 +134,15 @@ namespace ToolSupportUchida.View
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPageCreateHTML.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.groupBox15.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.tabPageCreateItem.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
@@ -717,6 +736,201 @@ namespace ToolSupportUchida.View
             this.tabPageCreateHTML.Text = "Create Src HTML";
             this.tabPageCreateHTML.UseVisualStyleBackColor = true;
             // 
+            // btnCopyCSHMTML
+            // 
+            this.btnCopyCSHMTML.Enabled = false;
+            this.btnCopyCSHMTML.FlatAppearance.BorderSize = 0;
+            this.btnCopyCSHMTML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyCSHMTML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyCSHMTML.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyCSHMTML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyCSHMTML.Location = new System.Drawing.Point(453, 365);
+            this.btnCopyCSHMTML.Name = "btnCopyCSHMTML";
+            this.btnCopyCSHMTML.Size = new System.Drawing.Size(115, 24);
+            this.btnCopyCSHMTML.TabIndex = 16;
+            this.btnCopyCSHMTML.TabStop = false;
+            this.btnCopyCSHMTML.Text = "Copy CSHTML";
+            this.btnCopyCSHMTML.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopyCSHMTML.UseVisualStyleBackColor = true;
+            this.btnCopyCSHMTML.Click += new System.EventHandler(this.btnCopyCSHMTML_Click);
+            // 
+            // btnCopyBundle
+            // 
+            this.btnCopyBundle.Enabled = false;
+            this.btnCopyBundle.FlatAppearance.BorderSize = 0;
+            this.btnCopyBundle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyBundle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyBundle.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyBundle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyBundle.Location = new System.Drawing.Point(80, 204);
+            this.btnCopyBundle.Name = "btnCopyBundle";
+            this.btnCopyBundle.Size = new System.Drawing.Size(100, 24);
+            this.btnCopyBundle.TabIndex = 100;
+            this.btnCopyBundle.TabStop = false;
+            this.btnCopyBundle.Text = "Copy Bundle";
+            this.btnCopyBundle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopyBundle.UseVisualStyleBackColor = true;
+            this.btnCopyBundle.Click += new System.EventHandler(this.btnCopyBundle_Click);
+            // 
+            // btnCopyDialog
+            // 
+            this.btnCopyDialog.Enabled = false;
+            this.btnCopyDialog.FlatAppearance.BorderSize = 0;
+            this.btnCopyDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyDialog.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyDialog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyDialog.Location = new System.Drawing.Point(260, 365);
+            this.btnCopyDialog.Name = "btnCopyDialog";
+            this.btnCopyDialog.Size = new System.Drawing.Size(115, 24);
+            this.btnCopyDialog.TabIndex = 14;
+            this.btnCopyDialog.TabStop = false;
+            this.btnCopyDialog.Text = "Copy Dialog";
+            this.btnCopyDialog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopyDialog.UseVisualStyleBackColor = true;
+            this.btnCopyDialog.Click += new System.EventHandler(this.btnCopyDialog_Click);
+            // 
+            // btnCopyInit
+            // 
+            this.btnCopyInit.Enabled = false;
+            this.btnCopyInit.FlatAppearance.BorderSize = 0;
+            this.btnCopyInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyInit.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyInit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyInit.Location = new System.Drawing.Point(80, 365);
+            this.btnCopyInit.Name = "btnCopyInit";
+            this.btnCopyInit.Size = new System.Drawing.Size(100, 24);
+            this.btnCopyInit.TabIndex = 12;
+            this.btnCopyInit.TabStop = false;
+            this.btnCopyInit.Text = "Copy Init";
+            this.btnCopyInit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopyInit.UseVisualStyleBackColor = true;
+            this.btnCopyInit.Click += new System.EventHandler(this.btnCopyInit_Click);
+            // 
+            // btnCopyController
+            // 
+            this.btnCopyController.Enabled = false;
+            this.btnCopyController.FlatAppearance.BorderSize = 0;
+            this.btnCopyController.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyController.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyController.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyController.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyController.Location = new System.Drawing.Point(254, 204);
+            this.btnCopyController.Name = "btnCopyController";
+            this.btnCopyController.Size = new System.Drawing.Size(115, 24);
+            this.btnCopyController.TabIndex = 10;
+            this.btnCopyController.TabStop = false;
+            this.btnCopyController.Text = "Copy Controller";
+            this.btnCopyController.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopyController.UseVisualStyleBackColor = true;
+            this.btnCopyController.Click += new System.EventHandler(this.btnCopyController_Click);
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.txtDialog);
+            this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox15.Location = new System.Drawing.Point(195, 231);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(180, 130);
+            this.groupBox15.TabIndex = 0;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "File *.dialog.ts";
+            // 
+            // txtDialog
+            // 
+            this.txtDialog.Location = new System.Drawing.Point(6, 22);
+            this.txtDialog.Name = "txtDialog";
+            this.txtDialog.ReadOnly = true;
+            this.txtDialog.Size = new System.Drawing.Size(168, 102);
+            this.txtDialog.TabIndex = 13;
+            this.txtDialog.TabStop = false;
+            this.txtDialog.Text = "";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.txtInit);
+            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox14.Location = new System.Drawing.Point(6, 231);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(180, 130);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "File *.init.ts";
+            // 
+            // txtInit
+            // 
+            this.txtInit.Location = new System.Drawing.Point(6, 22);
+            this.txtInit.Name = "txtInit";
+            this.txtInit.ReadOnly = true;
+            this.txtInit.Size = new System.Drawing.Size(168, 102);
+            this.txtInit.TabIndex = 11;
+            this.txtInit.TabStop = false;
+            this.txtInit.Text = "";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.txtCshtml);
+            this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox13.Location = new System.Drawing.Point(384, 65);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(184, 296);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "File *.cshtml";
+            // 
+            // txtCshtml
+            // 
+            this.txtCshtml.Location = new System.Drawing.Point(6, 22);
+            this.txtCshtml.Name = "txtCshtml";
+            this.txtCshtml.ReadOnly = true;
+            this.txtCshtml.Size = new System.Drawing.Size(172, 268);
+            this.txtCshtml.TabIndex = 15;
+            this.txtCshtml.TabStop = false;
+            this.txtCshtml.Text = "";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.txtController);
+            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox12.Location = new System.Drawing.Point(195, 65);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(180, 130);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "File *.Controller";
+            // 
+            // txtController
+            // 
+            this.txtController.Location = new System.Drawing.Point(6, 22);
+            this.txtController.Name = "txtController";
+            this.txtController.ReadOnly = true;
+            this.txtController.Size = new System.Drawing.Size(168, 102);
+            this.txtController.TabIndex = 9;
+            this.txtController.TabStop = false;
+            this.txtController.Text = "";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.txtBundle);
+            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox11.Location = new System.Drawing.Point(6, 65);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(180, 130);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "File BundleConfig";
+            // 
+            // txtBundle
+            // 
+            this.txtBundle.Location = new System.Drawing.Point(6, 22);
+            this.txtBundle.Name = "txtBundle";
+            this.txtBundle.ReadOnly = true;
+            this.txtBundle.Size = new System.Drawing.Size(168, 102);
+            this.txtBundle.TabIndex = 7;
+            this.txtBundle.TabStop = false;
+            this.txtBundle.Text = "";
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.txtID);
@@ -735,6 +949,14 @@ namespace ToolSupportUchida.View
             this.groupBox10.TabIndex = 99;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Input Value";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(35, 18);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 23);
+            this.txtID.TabIndex = 1;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // txtName
             // 
@@ -818,6 +1040,12 @@ namespace ToolSupportUchida.View
             // 
             // tabPageCreateItem
             // 
+            this.tabPageCreateItem.Controls.Add(this.chkItem);
+            this.tabPageCreateItem.Controls.Add(this.btnCreateOut);
+            this.tabPageCreateItem.Controls.Add(this.btnHtmlClear);
+            this.tabPageCreateItem.Controls.Add(this.btnHtmlCopy);
+            this.tabPageCreateItem.Controls.Add(this.groupBox17);
+            this.tabPageCreateItem.Controls.Add(this.groupBox16);
             this.tabPageCreateItem.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateItem.Name = "tabPageCreateItem";
             this.tabPageCreateItem.Padding = new System.Windows.Forms.Padding(3);
@@ -825,209 +1053,6 @@ namespace ToolSupportUchida.View
             this.tabPageCreateItem.TabIndex = 4;
             this.tabPageCreateItem.Text = "Create Item HTML";
             this.tabPageCreateItem.UseVisualStyleBackColor = true;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(35, 18);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 23);
-            this.txtID.TabIndex = 1;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.txtBundle);
-            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox11.Location = new System.Drawing.Point(6, 65);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(180, 130);
-            this.groupBox11.TabIndex = 0;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "File BundleConfig";
-            // 
-            // txtBundle
-            // 
-            this.txtBundle.Location = new System.Drawing.Point(6, 22);
-            this.txtBundle.Name = "txtBundle";
-            this.txtBundle.ReadOnly = true;
-            this.txtBundle.Size = new System.Drawing.Size(168, 102);
-            this.txtBundle.TabIndex = 7;
-            this.txtBundle.TabStop = false;
-            this.txtBundle.Text = "";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.txtController);
-            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox12.Location = new System.Drawing.Point(195, 65);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(180, 130);
-            this.groupBox12.TabIndex = 0;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "File *.Controller";
-            // 
-            // txtController
-            // 
-            this.txtController.Location = new System.Drawing.Point(6, 22);
-            this.txtController.Name = "txtController";
-            this.txtController.ReadOnly = true;
-            this.txtController.Size = new System.Drawing.Size(168, 102);
-            this.txtController.TabIndex = 9;
-            this.txtController.TabStop = false;
-            this.txtController.Text = "";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.txtCshtml);
-            this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox13.Location = new System.Drawing.Point(384, 65);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(184, 296);
-            this.groupBox13.TabIndex = 0;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "File *.cshtml";
-            // 
-            // btnCopyCSHMTML
-            // 
-            this.btnCopyCSHMTML.Enabled = false;
-            this.btnCopyCSHMTML.FlatAppearance.BorderSize = 0;
-            this.btnCopyCSHMTML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyCSHMTML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyCSHMTML.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnCopyCSHMTML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyCSHMTML.Location = new System.Drawing.Point(453, 365);
-            this.btnCopyCSHMTML.Name = "btnCopyCSHMTML";
-            this.btnCopyCSHMTML.Size = new System.Drawing.Size(115, 24);
-            this.btnCopyCSHMTML.TabIndex = 16;
-            this.btnCopyCSHMTML.TabStop = false;
-            this.btnCopyCSHMTML.Text = "Copy CSHTML";
-            this.btnCopyCSHMTML.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopyCSHMTML.UseVisualStyleBackColor = true;
-            this.btnCopyCSHMTML.Click += new System.EventHandler(this.btnCopyCSHMTML_Click);
-            // 
-            // txtCshtml
-            // 
-            this.txtCshtml.Location = new System.Drawing.Point(6, 22);
-            this.txtCshtml.Name = "txtCshtml";
-            this.txtCshtml.ReadOnly = true;
-            this.txtCshtml.Size = new System.Drawing.Size(172, 268);
-            this.txtCshtml.TabIndex = 15;
-            this.txtCshtml.TabStop = false;
-            this.txtCshtml.Text = "";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.txtInit);
-            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox14.Location = new System.Drawing.Point(6, 231);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(180, 130);
-            this.groupBox14.TabIndex = 0;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "File *.init.ts";
-            // 
-            // txtInit
-            // 
-            this.txtInit.Location = new System.Drawing.Point(6, 22);
-            this.txtInit.Name = "txtInit";
-            this.txtInit.ReadOnly = true;
-            this.txtInit.Size = new System.Drawing.Size(168, 102);
-            this.txtInit.TabIndex = 11;
-            this.txtInit.TabStop = false;
-            this.txtInit.Text = "";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.txtDialog);
-            this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox15.Location = new System.Drawing.Point(195, 231);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(180, 130);
-            this.groupBox15.TabIndex = 0;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "File *.dialog.ts";
-            // 
-            // txtDialog
-            // 
-            this.txtDialog.Location = new System.Drawing.Point(6, 22);
-            this.txtDialog.Name = "txtDialog";
-            this.txtDialog.ReadOnly = true;
-            this.txtDialog.Size = new System.Drawing.Size(168, 102);
-            this.txtDialog.TabIndex = 13;
-            this.txtDialog.TabStop = false;
-            this.txtDialog.Text = "";
-            // 
-            // btnCopyDialog
-            // 
-            this.btnCopyDialog.Enabled = false;
-            this.btnCopyDialog.FlatAppearance.BorderSize = 0;
-            this.btnCopyDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyDialog.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnCopyDialog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyDialog.Location = new System.Drawing.Point(260, 365);
-            this.btnCopyDialog.Name = "btnCopyDialog";
-            this.btnCopyDialog.Size = new System.Drawing.Size(115, 24);
-            this.btnCopyDialog.TabIndex = 14;
-            this.btnCopyDialog.TabStop = false;
-            this.btnCopyDialog.Text = "Copy Dialog";
-            this.btnCopyDialog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopyDialog.UseVisualStyleBackColor = true;
-            this.btnCopyDialog.Click += new System.EventHandler(this.btnCopyDialog_Click);
-            // 
-            // btnCopyController
-            // 
-            this.btnCopyController.Enabled = false;
-            this.btnCopyController.FlatAppearance.BorderSize = 0;
-            this.btnCopyController.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyController.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyController.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnCopyController.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyController.Location = new System.Drawing.Point(254, 204);
-            this.btnCopyController.Name = "btnCopyController";
-            this.btnCopyController.Size = new System.Drawing.Size(115, 24);
-            this.btnCopyController.TabIndex = 10;
-            this.btnCopyController.TabStop = false;
-            this.btnCopyController.Text = "Copy Controller";
-            this.btnCopyController.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopyController.UseVisualStyleBackColor = true;
-            this.btnCopyController.Click += new System.EventHandler(this.btnCopyController_Click);
-            // 
-            // btnCopyInit
-            // 
-            this.btnCopyInit.Enabled = false;
-            this.btnCopyInit.FlatAppearance.BorderSize = 0;
-            this.btnCopyInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyInit.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnCopyInit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyInit.Location = new System.Drawing.Point(80, 365);
-            this.btnCopyInit.Name = "btnCopyInit";
-            this.btnCopyInit.Size = new System.Drawing.Size(100, 24);
-            this.btnCopyInit.TabIndex = 12;
-            this.btnCopyInit.TabStop = false;
-            this.btnCopyInit.Text = "Copy Init";
-            this.btnCopyInit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopyInit.UseVisualStyleBackColor = true;
-            this.btnCopyInit.Click += new System.EventHandler(this.btnCopyInit_Click);
-            // 
-            // btnCopyBundle
-            // 
-            this.btnCopyBundle.Enabled = false;
-            this.btnCopyBundle.FlatAppearance.BorderSize = 0;
-            this.btnCopyBundle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyBundle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyBundle.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
-            this.btnCopyBundle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyBundle.Location = new System.Drawing.Point(80, 204);
-            this.btnCopyBundle.Name = "btnCopyBundle";
-            this.btnCopyBundle.Size = new System.Drawing.Size(100, 24);
-            this.btnCopyBundle.TabIndex = 100;
-            this.btnCopyBundle.TabStop = false;
-            this.btnCopyBundle.Text = "Copy Bundle";
-            this.btnCopyBundle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopyBundle.UseVisualStyleBackColor = true;
-            this.btnCopyBundle.Click += new System.EventHandler(this.btnCopyBundle_Click);
             // 
             // tabPage2
             // 
@@ -1038,6 +1063,209 @@ namespace ToolSupportUchida.View
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Comming Soon";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnHtmlCopy
+            // 
+            this.btnHtmlCopy.Enabled = false;
+            this.btnHtmlCopy.FlatAppearance.BorderSize = 0;
+            this.btnHtmlCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHtmlCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnHtmlCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnHtmlCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHtmlCopy.Location = new System.Drawing.Point(406, 361);
+            this.btnHtmlCopy.Name = "btnHtmlCopy";
+            this.btnHtmlCopy.Size = new System.Drawing.Size(74, 28);
+            this.btnHtmlCopy.TabIndex = 9;
+            this.btnHtmlCopy.Text = "Coppy";
+            this.btnHtmlCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHtmlCopy.UseVisualStyleBackColor = true;
+            this.btnHtmlCopy.Click += new System.EventHandler(this.btnHtmlCopy_Click);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.txtHtmlResult);
+            this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox17.Location = new System.Drawing.Point(246, 8);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(322, 347);
+            this.groupBox17.TabIndex = 17;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Result";
+            // 
+            // txtHtmlResult
+            // 
+            this.txtHtmlResult.Location = new System.Drawing.Point(6, 22);
+            this.txtHtmlResult.Name = "txtHtmlResult";
+            this.txtHtmlResult.ReadOnly = true;
+            this.txtHtmlResult.Size = new System.Drawing.Size(310, 319);
+            this.txtHtmlResult.TabIndex = 15;
+            this.txtHtmlResult.TabStop = false;
+            this.txtHtmlResult.Text = "";
+            // 
+            // btnHtmlClear
+            // 
+            this.btnHtmlClear.Enabled = false;
+            this.btnHtmlClear.FlatAppearance.BorderSize = 0;
+            this.btnHtmlClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHtmlClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnHtmlClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnHtmlClear.Location = new System.Drawing.Point(486, 361);
+            this.btnHtmlClear.Name = "btnHtmlClear";
+            this.btnHtmlClear.Size = new System.Drawing.Size(76, 28);
+            this.btnHtmlClear.TabIndex = 10;
+            this.btnHtmlClear.Text = "Clear";
+            this.btnHtmlClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHtmlClear.UseVisualStyleBackColor = true;
+            this.btnHtmlClear.Click += new System.EventHandler(this.btnHtmlClear_Click);
+            // 
+            // btnCreateOut
+            // 
+            this.btnCreateOut.FlatAppearance.BorderSize = 0;
+            this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
+            this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateOut.Location = new System.Drawing.Point(111, 361);
+            this.btnCreateOut.Name = "btnCreateOut";
+            this.btnCreateOut.Size = new System.Drawing.Size(123, 28);
+            this.btnCreateOut.TabIndex = 8;
+            this.btnCreateOut.Text = "Generate Item";
+            this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateOut.UseVisualStyleBackColor = true;
+            this.btnCreateOut.Click += new System.EventHandler(this.btnCreateOut_Click);
+            // 
+            // chkItem
+            // 
+            this.chkItem.AutoSize = true;
+            this.chkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkItem.Location = new System.Drawing.Point(15, 366);
+            this.chkItem.Name = "chkItem";
+            this.chkItem.Size = new System.Drawing.Size(87, 21);
+            this.chkItem.TabIndex = 7;
+            this.chkItem.Text = "Readonly";
+            this.chkItem.UseVisualStyleBackColor = true;
+            // 
+            // cbItem
+            // 
+            this.cbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbItem.Items.AddRange(new object[] {
+            "Label",
+            "Button",
+            "TextBox",
+            "TextBox Code",
+            "TextBox Date",
+            "TextBox Money",
+            "TextBox PostCode",
+            "TextBox InputGroup",
+            "ComboBox",
+            "CheckBox",
+            "Radio",
+            "Spread",
+            "Tree"});
+            this.cbItem.Location = new System.Drawing.Point(75, 20);
+            this.cbItem.Name = "cbItem";
+            this.cbItem.Size = new System.Drawing.Size(153, 24);
+            this.cbItem.TabIndex = 1;
+            this.cbItem.SelectedIndexChanged += new System.EventHandler(this.cbItem_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Item";
+            // 
+            // lbHtmlName
+            // 
+            this.lbHtmlName.AutoSize = true;
+            this.lbHtmlName.Location = new System.Drawing.Point(6, 82);
+            this.lbHtmlName.Name = "lbHtmlName";
+            this.lbHtmlName.Size = new System.Drawing.Size(58, 17);
+            this.lbHtmlName.TabIndex = 2;
+            this.lbHtmlName.Text = "E Name";
+            this.lbHtmlName.Visible = false;
+            // 
+            // txtHtmlName
+            // 
+            this.txtHtmlName.Location = new System.Drawing.Point(75, 79);
+            this.txtHtmlName.Name = "txtHtmlName";
+            this.txtHtmlName.Size = new System.Drawing.Size(153, 23);
+            this.txtHtmlName.TabIndex = 3;
+            this.txtHtmlName.Visible = false;
+            // 
+            // rdbNone
+            // 
+            this.rdbNone.AutoSize = true;
+            this.rdbNone.Checked = true;
+            this.rdbNone.Location = new System.Drawing.Point(9, 108);
+            this.rdbNone.Name = "rdbNone";
+            this.rdbNone.Size = new System.Drawing.Size(60, 21);
+            this.rdbNone.TabIndex = 4;
+            this.rdbNone.TabStop = true;
+            this.rdbNone.Text = "None";
+            this.rdbNone.UseVisualStyleBackColor = true;
+            this.rdbNone.Visible = false;
+            // 
+            // rdbUpdate
+            // 
+            this.rdbUpdate.AutoSize = true;
+            this.rdbUpdate.Location = new System.Drawing.Point(75, 108);
+            this.rdbUpdate.Name = "rdbUpdate";
+            this.rdbUpdate.Size = new System.Drawing.Size(72, 21);
+            this.rdbUpdate.TabIndex = 5;
+            this.rdbUpdate.TabStop = true;
+            this.rdbUpdate.Text = "Update";
+            this.rdbUpdate.UseVisualStyleBackColor = true;
+            this.rdbUpdate.Visible = false;
+            // 
+            // rdbDelete
+            // 
+            this.rdbDelete.AutoSize = true;
+            this.rdbDelete.Location = new System.Drawing.Point(153, 108);
+            this.rdbDelete.Name = "rdbDelete";
+            this.rdbDelete.Size = new System.Drawing.Size(67, 21);
+            this.rdbDelete.TabIndex = 6;
+            this.rdbDelete.TabStop = true;
+            this.rdbDelete.Text = "Delete";
+            this.rdbDelete.UseVisualStyleBackColor = true;
+            this.rdbDelete.Visible = false;
+            // 
+            // lbHtmlJpName
+            // 
+            this.lbHtmlJpName.AutoSize = true;
+            this.lbHtmlJpName.Location = new System.Drawing.Point(6, 53);
+            this.lbHtmlJpName.Name = "lbHtmlJpName";
+            this.lbHtmlJpName.Size = new System.Drawing.Size(56, 17);
+            this.lbHtmlJpName.TabIndex = 7;
+            this.lbHtmlJpName.Text = "J Name";
+            // 
+            // txtHtmlJPName
+            // 
+            this.txtHtmlJPName.Location = new System.Drawing.Point(75, 50);
+            this.txtHtmlJPName.Name = "txtHtmlJPName";
+            this.txtHtmlJPName.Size = new System.Drawing.Size(153, 23);
+            this.txtHtmlJPName.TabIndex = 2;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.txtHtmlJPName);
+            this.groupBox16.Controls.Add(this.lbHtmlJpName);
+            this.groupBox16.Controls.Add(this.rdbDelete);
+            this.groupBox16.Controls.Add(this.rdbUpdate);
+            this.groupBox16.Controls.Add(this.rdbNone);
+            this.groupBox16.Controls.Add(this.txtHtmlName);
+            this.groupBox16.Controls.Add(this.lbHtmlName);
+            this.groupBox16.Controls.Add(this.label6);
+            this.groupBox16.Controls.Add(this.cbItem);
+            this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox16.Location = new System.Drawing.Point(6, 8);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(234, 347);
+            this.groupBox16.TabIndex = 0;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Input";
             // 
             // FormCommon
             // 
@@ -1071,13 +1299,18 @@ namespace ToolSupportUchida.View
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPageCreateHTML.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
+            this.tabPageCreateItem.ResumeLayout(false);
+            this.tabPageCreateItem.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1156,5 +1389,21 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.RichTextBox txtController;
         private System.Windows.Forms.Button btnCopyBundle;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnHtmlCopy;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.RichTextBox txtHtmlResult;
+        private System.Windows.Forms.Button btnHtmlClear;
+        private System.Windows.Forms.Button btnCreateOut;
+        private System.Windows.Forms.CheckBox chkItem;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.TextBox txtHtmlJPName;
+        private System.Windows.Forms.Label lbHtmlJpName;
+        private System.Windows.Forms.RadioButton rdbDelete;
+        private System.Windows.Forms.RadioButton rdbUpdate;
+        private System.Windows.Forms.RadioButton rdbNone;
+        private System.Windows.Forms.TextBox txtHtmlName;
+        private System.Windows.Forms.Label lbHtmlName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbItem;
     }
 }

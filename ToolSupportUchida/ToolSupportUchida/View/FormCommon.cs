@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ToolSupportUchida.Theme;
 using ToolSupportUchida.Utils;
-using static System.Windows.Forms.TabControl;
 
 namespace ToolSupportUchida.View
 {
@@ -102,6 +101,10 @@ namespace ToolSupportUchida.View
                     break;
                 case 3:
                     txtID.Focus();
+                    break;
+                case 4:
+                    cbItem.SelectedIndex = 0;
+                    cbItem.Focus();
                     break;
             }
         }
@@ -931,6 +934,423 @@ namespace ToolSupportUchida.View
 
         #endregion
 
+        #region Tab Create Item HTML
+        private void cbItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbItem.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    lbHtmlJpName.Text = "J Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 1:
+                    lbHtmlJpName.Text = "J Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "E Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = true;
+                    chkItem.Text = "Span";
+                    break;
+                case 2:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = true;
+                    chkItem.Text = "Readonly";
+                    break;
+                case 3:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "Length";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = true;
+                    rdbNone.Text = "Left";
+                    rdbUpdate.Visible = true;
+                    rdbUpdate.Text = "Right";
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 4:
+                    lbHtmlJpName.Text = "F Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "T Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = true;
+                    rdbNone.Text = "From";
+                    rdbUpdate.Visible = true;
+                    rdbUpdate.Text = "To";
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = true;
+                    chkItem.Text = "To";
+                    break;
+                case 5:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 6:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 7:
+                    lbHtmlJpName.Text = "B Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "I Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 8:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 9:
+                    lbHtmlJpName.Text = "J Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "E Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 10:
+                    lbHtmlJpName.Text = "J Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "E Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 11:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 12:
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "ID Sceen";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+            }
+            txtHtmlJPName.Text = string.Empty;
+            txtHtmlName.Text = string.Empty;
+            txtResult.Text = string.Empty;
+
+            btnHtmlCopy.Enabled = false;
+            btnHtmlClear.Enabled = false;
+        }
+        private void btnCreateOut_Click(object sender, EventArgs e)
+        {
+            int index = cbItem.SelectedIndex;
+            string name = txtHtmlName.Text;
+            string jpName = txtHtmlJPName.Text;
+            string result = string.Empty;
+            StringBuilder sb = new StringBuilder();
+
+            switch (index)
+            {
+                case 0:
+                    sb.Append("<label class=\"label label-sm\" tabindex=\"-1\">@Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))</label>\r\n");
+
+                    result = string.Format(sb.ToString(), jpName);
+                    break;
+                case 1:
+                    if (rdbUpdate.Checked)
+                    {
+                        sb.Append("<button class=\"btn btn-sm btn-primary\" tabindex=\"-1\"\r\n");
+                        sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    }
+                    else if (rdbDelete.Checked)
+                    {
+                        sb.Append("<button class=\"btn btn-sm btn-danger\" tabindex=\"-1\"\r\n");
+                        sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("<button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                        sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    }
+
+                    if (chkItem.Checked && rdbUpdate.Checked)
+                    {
+                        sb.Append("    <span class=\"fas fa-save mr-1\"></span>\r\n");
+                    }
+                    else if (chkItem.Checked && rdbDelete.Checked)
+                    {
+                        sb.Append("    <span class=\"fas fa-trash mr-1\"></span>\r\n");
+                    }
+                    else if (chkItem.Checked)
+                    {
+                        sb.Append("    <span class=\"fas fa- mr-1\"></span>\r\n");
+                    }
+
+                    if (!string.IsNullOrEmpty(jpName))
+                    {
+                        sb.Append("    @Html.Raw(literalCtrl[\"\"].CreateHtml(\"{1}\"))\r\n");
+                        sb.Append("</button>\r\n");
+                        result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(name), jpName);
+                    }
+                    else
+                    {
+                        sb.Append("</button>\r\n");
+                        result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(name));
+                    }
+
+                    break;
+                case 2:
+                    if (chkItem.Checked)
+                    {
+                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" readonly/>\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\"/>\r\n");
+                    }
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 3:
+                    if (rdbNone.Checked)
+                    {
+                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"codeValue: tx{0}, codePaddingOnly: true, codeLength: {1}, codePadding: 'left', disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"codeValue: tx{0}, codePaddingOnly: true, codeLength: {1}, codePadding: 'right', disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
+
+                    }
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName), name);
+                    break;
+                case 4:
+                    sb.Append("<div class=\"input-group\">\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("           data-bind=\"dateJpValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\">\r\n");
+                    sb.Append("    <div class=\"input-group-append\">\r\n");
+                    sb.Append("        <button class=\"btn btn-sm btn-primary border-secondary\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    sb.Append("            <span class=\"fas fa-calendar-alt\"></span>\r\n");
+                    sb.Append("        </button>\r\n");
+
+                    if (rdbNone.Checked)
+                    {
+                        if (chkItem.Checked)
+                        {
+                            sb.Append("        <dropdown-calendar params=\"fromValue: tx{0}, toValue: tx{1}\"></dropdown-calendar>\r\n");
+                            sb.Append("    </div>\r\n");
+                            sb.Append("</div>\r\n");
+
+                            result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName), CUtils.FirstCharToUpperCase(name));
+                        }
+                        else
+                        {
+                            sb.Append("        <dropdown-calendar params=\"fromValue: tx{0}\"></dropdown-calendar>\r\n");
+                            sb.Append("    </div>\r\n");
+                            sb.Append("</div>\r\n");
+
+                            result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                        }
+                    }
+                    else
+                    {
+                        sb.Append("        <dropdown-calendar params=\"toValue: tx{0}\"></dropdown-calendar>\r\n");
+                        sb.Append("    </div>\r\n");
+                        sb.Append("</div>\r\n");
+
+                        result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(name));
+                    }
+
+                    break;
+                case 5:
+                    sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("       data-bind = \"moneyValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 6:
+                    sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("       data-bind = \"postCodeValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 7:
+                    sb.Append("<div class=\"input-group\">\r\n");
+                    sb.Append("    <div class=\"input-group-prepend\">\r\n");
+                    sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                    sb.Append("                data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    sb.Append("            <span class=\"fas fa-search\"></span>\r\n");
+                    sb.Append("        </button>\r\n");
+                    sb.Append("    </div>\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("           data-bind = \"value: tx{1}Code, disable: tx{1}CodeDisable, hasFocus: tx{1}CodeFocus\" readonly/>\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("           data-bind = \"value: tx{1}Name, disable: tx{1}NameDisable, hasFocus: tx{1}NameFocus\" readonly/>\r\n");
+                    sb.Append("    <div class=\"input-group-append\">\r\n");
+                    sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                    sb.Append("                data-bind=\"click: btClearOnClick, disable: btClearDisable, hasFocus: btClearFocus\">\r\n");
+                    sb.Append("            <span class=\"fas fa-eraser\"></span>\r\n");
+                    sb.Append("        </button>\r\n");
+                    sb.Append("    </div>\r\n");
+                    sb.Append("</div>\r\n");
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(name), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 8:
+                    sb.Append("<select class=\"form-control form-control-sm\" data-bind=\"\r\n");
+                    sb.Append("        options:       cx{0},\r\n");
+                    sb.Append("        optionsText:  'cx{0}Name',\r\n");
+                    sb.Append("        optionsValue: 'cx{0}Code',\r\n");
+                    sb.Append("        value:         cx{0},\r\n");
+                    sb.Append("        disable:       cx{0},\r\n");
+                    sb.Append("        hasfocus:      cx{0},\r\n");
+                    sb.Append("</select>\r\n");
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 9:
+                    sb.Append("<label class=\"label label-sm\">\r\n");
+                    sb.Append("    <input type=\"checkbox\" class=\"align-middle\" value=\"0\"\r\n");
+                    sb.Append("           data-bind=\"checked: ck{1}, disable: ck{1}Disable, hasfocus: ck{1}Focus\">\r\n");
+                    sb.Append("        @Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))\r\n");
+                    sb.Append("</label>\r\n");
+
+                    result = string.Format(sb.ToString(), jpName, CUtils.FirstCharToUpperCase(name));
+                    break;
+                case 10:
+                    sb.Append("<label class=\"label label-sm\">\r\n");
+                    sb.Append("    <input type=\"radio\" class=\"align-middle\" name=\"rb{1}\" value=\"0\"\r\n");
+                    sb.Append("           data-bind=\"checked: rb{1}, disable: rb{1}Disable, hasfocus: rb{1}Focus\">\r\n");
+                    sb.Append("        @Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))\r\n");
+                    sb.Append("</label>\r\n");
+
+                    result = string.Format(sb.ToString(), jpName, CUtils.FirstCharToUpperCase(name));
+                    break;
+                case 11:
+                    sb.Append("<div class=\"d-flex align-items-center d-flex flex-column flex-fill spread-area mb-2\">\r\n");
+                    sb.Append("    <div id=\"{0}Spread\" class=\"spread-item\"></div>\r\n");
+                    sb.Append("</div>\r\n");
+
+                    result = string.Format(sb.ToString(), jpName);
+                    break;
+                case 12:
+                    sb.Append("<div class=\"flex-fill flex-column\" id=\"{0}TreeArea\">\r\n");
+                    sb.Append("    <div class=\"tree-box\">\r\n");
+                    sb.Append("        <div id=\"{1}Tree\"></div>\r\n");
+                    sb.Append("    </div>\r\n");
+                    sb.Append("</div>\r\n");
+
+                    result = string.Format(sb.ToString(), name, jpName);
+                    break;
+            }
+
+            if (string.IsNullOrEmpty(result))
+            {
+                txtHtmlResult.Text = result;
+                btnHtmlCopy.Enabled = false;
+                btnHtmlClear.Enabled = false;
+            }
+            else
+            {
+                txtHtmlResult.Text = result;
+                btnHtmlCopy.Enabled = true;
+                btnHtmlClear.Enabled = true;
+            }
+        }
+
+        private void btnHtmlCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtHtmlResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtHtmlResult.Text);
+        }
+
+        private void btnHtmlClear_Click(object sender, EventArgs e)
+        {
+            cbItem.SelectedIndex = 0;
+
+            txtHtmlResult.Text = string.Empty;
+            txtHtmlName.Text = string.Empty;
+            txtHtmlJPName.Text = string.Empty;
+
+            Clipboard.Clear();
+
+        }
+        #endregion
+
         #region Method
         private string addComman(string[] lst)
         {
@@ -964,5 +1384,7 @@ namespace ToolSupportUchida.View
             gridInputParam.Visible = val;
         }
         #endregion
+
+
     }
 }
