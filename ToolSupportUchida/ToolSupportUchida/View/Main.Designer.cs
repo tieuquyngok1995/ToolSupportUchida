@@ -795,7 +795,7 @@ namespace ToolSupportUchida
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Ver: 1.1";
+            this.label2.Text = "Ver: 2.0";
             // 
             // dataGridViewImageColumn1
             // 

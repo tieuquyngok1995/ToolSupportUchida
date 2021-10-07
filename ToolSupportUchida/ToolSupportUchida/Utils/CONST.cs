@@ -89,6 +89,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_FRM = "FRM";
         public const string STRING_CALL = "CALL";
         public const string STRING_HLP = "HLP";
+        public const string STRING_MSGBOX = "MSGBOX";
         #endregion
 
         #region Text

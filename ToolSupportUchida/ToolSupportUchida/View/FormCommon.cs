@@ -48,6 +48,22 @@ namespace ToolSupportUchida.View
                         btn.ForeColor = Color.White;
                         btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                     }
+
+                    if (pageControl.GetType() == typeof(GroupBox))
+                    {
+                        GroupBox grbC = (GroupBox)pageControl;
+
+                        foreach (Control grbControl in grbC.Controls)
+                        {
+                            if (grbControl.GetType() == typeof(Button))
+                            {
+                                Button btn = (Button)grbControl;
+                                btn.BackColor = ThemeColor.PrimaryColor;
+                                btn.ForeColor = Color.White;
+                                btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                            }
+                        }
+                    }
                 }
 
             }
@@ -94,6 +110,8 @@ namespace ToolSupportUchida.View
                     txtCase.Focus();
                     break;
                 case 1:
+                    cbMessDone.SelectedIndex = 0;
+                    cbMessCancel.SelectedIndex = 0;
                     txtMessCode.Focus();
                     break;
                 case 2:
@@ -249,7 +267,8 @@ namespace ToolSupportUchida.View
                 {
                     result = result + tab + "]" + CONST.STRING_ADD_LINE;
                 }
-                else {
+                else
+                {
                     result = result + tab + "}" + CONST.STRING_ADD_LINE;
                 }
             }
@@ -288,6 +307,430 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Tab Create Message
+        private void rdMess_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbMess.Checked)
+            {
+                this.grbMessText.Visible = true;
+                this.grbMessTitle.Visible = true;
+                this.grbMessTextI.Visible = false;
+            }
+        }
+
+        private void rdMessDisp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbMessDisp.Checked)
+            {
+                this.grbMessText.Visible = false;
+                this.grbMessTitle.Visible = false;
+                this.grbMessTextI.Visible = true;
+
+                this.lblMessCode.Text = "Msg Code";
+                this.txtMessMsgCode.Text = "0001";
+                this.lblMessDesc.Text = "Msg Desc";
+                this.txtMessDesc.Text = "UCHIDA";
+                this.lblMessDescH.Text = "Msg DescH";
+                this.lblMessQuestion.Text = "Question";
+                this.lblMessType.Text = "Type";
+                this.lblMessQuestion.Visible = true;
+                this.lblMessType.Visible = true;
+            }
+        }
+
+        private void rdMessBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbMessBox.Checked)
+            {
+                this.grbMessText.Visible = false;
+                this.grbMessTitle.Visible = false;
+                this.grbMessTextI.Visible = true;
+
+                this.lblMessCode.Text = "Message";
+                this.txtMessMsgCode.Text = string.Empty;
+                this.lblMessDesc.Text = "Type";
+                this.txtMessDesc.Text = string.Empty;
+                this.lblMessDescH.Text = "Title";
+                this.lblMessQuestion.Visible = false;
+                this.txtMessQues.Visible = false;
+                this.lblMessType.Visible = false;
+                this.txtMessType.Visible = false;
+            }
+        }
+
+        private void chkMessShowC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMessShowC.Checked)
+            {
+                lblMessCancel.Visible = true;
+                cbMessCancel.Visible = true;
+            }
+            else
+            {
+                lblMessCancel.Visible = false;
+                cbMessCancel.Visible = false;
+            }
+        }
+
+        private void txtMessMsg_TextChanged(object sender, EventArgs e)
+        {
+            string input = txtMessMsg.Text.Trim();
+            string inputN = string.Empty;
+            string[] arrI;
+
+            if (!string.IsNullOrEmpty(input))
+            {
+                txtMessCode.Text = string.Empty;
+                txtMessDesc.Text = string.Empty;
+            }
+
+            if (rdbMessDisp.Checked)
+            {
+                if (input.Contains(CONST.CHAR_O_BRACKETS))
+                {
+                    if (input.Contains(CONST.CHAR_C_BRACKETS))
+                    {
+                        inputN = input.Substring(input.IndexOf(CONST.CHAR_O_BRACKETS) + 1, input.IndexOf(CONST.CHAR_C_BRACKETS) - input.IndexOf(CONST.CHAR_O_BRACKETS));
+                    }
+                    else
+                    {
+                        inputN = input.Substring(input.IndexOf(CONST.CHAR_O_BRACKETS) + 1);
+                    }
+                }
+
+                arrI = inputN.Split(CONST.CHAR_COMMA);
+
+                if (arrI.Length > 0)
+                {
+                    txtMessMsgCode.Text = arrI[0];
+                }
+
+                if (arrI.Length > 1)
+                {
+                    txtMessDesc.Text = arrI[1];
+                }
+
+                if (arrI.Length > 2)
+                {
+                    txtMessDescH.Text = arrI[2];
+                }
+
+                if (arrI.Length > 3)
+                {
+                    txtMessQues.Text = arrI[3];
+                }
+
+                if (arrI.Length > 4)
+                {
+                    txtMessType.Text = arrI[4];
+                }
+            }
+            else if (rdbMessBox.Checked)
+            {
+                if (input.Length > 6 && input.Substring(0,6).ToUpper() == CONST.STRING_MSGBOX)
+                {
+                    inputN = input.Substring(7).Trim(); ;
+                }
+
+                arrI = inputN.Split(CONST.CHAR_COMMA);
+
+                if (arrI.Length > 0)
+                {
+                    txtMessMsgCode.Text = arrI[0].Replace("\"", "");
+                }
+
+                if (arrI.Length > 1)
+                {
+                    txtMessDesc.Text = arrI[1];
+                }
+
+                if (arrI.Length > 2)
+                {
+                    txtMessDescH.Text = arrI[2];
+                }
+            }
+        }
+
+        private void txtMessType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnMessCreate_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty;
+            string doneText = string.Empty;
+            string cancelText = string.Empty;
+
+            StringBuilder sb = new StringBuilder();
+
+            if (chkMessStatus.Checked)
+            {
+                sb.Append("const {{ status }} = await this._messageDialog.open({{\r\n");
+            }
+            else
+            {
+                sb.Append("await this._messageDialog.open({{\r\n");
+            }
+
+            if (rdMessErr.Checked)
+            {
+                sb.Append("    title: \"エラー情報\",\r\n");
+                sb.Append("    message: Utils.createErrorMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+            }
+            else if (rdMessNoti.Checked)
+            {
+                sb.Append("    title: \"通知\",\r\n");
+                sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+            }
+            else if (rdMessVeri.Checked)
+            {
+                sb.Append("    title: \"確認\",\r\n");
+                sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+            }
+
+            sb.Append("    showDone: true,\r\n");
+            sb.Append("    doneText: \"{2}\",\r\n");
+            doneText = cbMessDone.Text;
+
+            if (chkMessShowC.Checked)
+            {
+                cancelText = cbMessCancel.Text;
+                sb.Append("    showCancel: true,\r\n");
+                sb.Append("    cancelText: \"{3}\",\r\n");
+                sb.Append("}});\r\n");
+
+                result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText, cancelText);
+            }
+            else
+            {
+                sb.Append("}});\r\n");
+                result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText);
+            }
+
+            txtMessResult.Text = result;
+
+            if (result.Length > 0)
+            {
+                btnMessCopy.Enabled = true;
+            }
+        }
+
+        private void btnCreateMessI_Click(object sender, EventArgs e)
+        {
+            string mType = txtMessType.Text;
+            string mTitle = "メッセージ";
+            string result = string.Empty;
+            bool showDone = false;
+
+            StringBuilder sb = new StringBuilder();
+            if (rdbMessDisp.Checked)
+            {
+                if (!string.IsNullOrEmpty(mType))
+                {
+                    if (!string.IsNullOrEmpty(txtMessDesc.Text))
+                    {
+                        if (string.IsNullOrEmpty(txtMessMsgCode.Text))
+                        {
+                            mTitle = "通知";
+                        }
+                        else
+                        {
+                            mTitle = "エラー情報";
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(txtMessDescH.Text))
+                    {
+                        mTitle = "エラー情報";
+                    }
+
+                    if (!string.IsNullOrEmpty(txtMessQues.Text))
+                    {
+                        mTitle = "確認";
+                    }
+
+                    if (txtMessDesc.Text.Contains(":"))
+                    {
+                        string[] mArrayWk = txtMessDesc.Text.Split(':');
+                        if (mArrayWk[0].Length == 9)
+                        {
+                            if (mArrayWk[0].Substring(0, 1).ToUpper() == "W")
+                            {
+                                mTitle = "確認";
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    string[] mArray = txtMessQues.Text.Split(CONST.CHAR_COMMA);
+                    string mIcon = string.Empty;
+                    string mButtonType = string.Empty;
+                    int mTyp = 0;
+
+                    if (mArray.Length > 0)
+                    {
+                        mIcon = mArray[0];
+                    }
+                    if (mArray.Length > 0)
+                    {
+                        mIcon = mArray[1];
+                    }
+
+                    switch (mIcon.ToUpper())
+                    {
+                        case "C":
+                            mTyp = 16;
+                            mTitle = "警告";
+                            break;
+                        case "Q":
+                            mTyp = 32;
+                            mTitle = "問い合わせ";
+                            break;
+                        case "E":
+                            mTyp = 48;
+                            mTitle = "注意";
+                            break;
+                        case "I":
+                            mTyp = 64;
+                            mTitle = "情報";
+                            break;
+                    }
+
+                    switch (mButtonType)
+                    {
+                        case "0":
+                            mTyp = mTyp + 0;
+                            break;
+                        case "1":
+                            mTyp = mTyp + 1;
+                            break;
+                        case "2":
+                            mTyp = mTyp + 2;
+                            break;
+                        case "3":
+                            mTyp = mTyp + 3 + 256;
+                            break;
+                        case "4":
+                            mTyp = mTyp + 4 + 256;
+                            break;
+                        case "5":
+                            mTyp = mTyp + 5 + 256;
+                            break;
+                    }
+                }
+
+                if (mType == "1" || mType == "4" || mType == "5" || mType == "17" || mType == "20" ||
+                    mType == "21" || mType == "33" || mType == "36" || mType == "37" || mType == "49" ||
+                    mType == "52" || mType == "53" || mType == "65" || mType == "68" || mType == "69" ||
+                    mType == "257" || mType == "260" || mType == "261" || mType == "273" || mType == "276" ||
+                    mType == "289" || mType == "292" || mType == "293" || mType == "305" || mType == "308" ||
+                    mType == "309" || mType == "321" || mType == "324" || mType == "325")
+                {
+                    showDone = true;
+                }
+
+                if (chkMessStatusI.Checked)
+                {
+                    sb.Append("const {{ status }} = await this._messageDialog.open({{\r\n");
+                }
+                else
+                {
+                    sb.Append("await this._messageDialog.open({{\r\n");
+                }
+
+                if (mTitle == "エラー情報")
+                {
+                    sb.Append("    title: \"{0}\",\r\n");
+                    sb.Append("    message: Utils.createErrorMessage(Utils.getMessage(\"{1}\", \"{2}\")),\r\n");
+                }
+                else
+                {
+                    sb.Append("    title: \"{0}\",\r\n");
+                    sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{1}\", \"{2}\")),\r\n");
+                }
+
+                sb.Append("    showDone: true,\r\n");
+                sb.Append("    doneText: \"{3}\",\r\n");
+
+                if (showDone)
+                {
+                    sb.Append("    showCancel: true,\r\n");
+                    sb.Append("    cancelText: \"{4}\",\r\n");
+                    sb.Append("}});\r\n");
+
+                    result = string.Format(sb.ToString(), mTitle, txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), "OK", "いいえ");
+                }
+                else
+                {
+                    sb.Append("}});\r\n");
+                    result = string.Format(sb.ToString(), mTitle, txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), "OK");
+                }
+            }
+            else
+            {
+                string type = txtMessDesc.Text.Trim().ToUpper();
+                if (type.Equals("VBOKCANCEL") || type.Equals("VBYESNO"))
+                {
+                    showDone = true;
+                }
+
+                if (chkMessStatusI.Checked)
+                {
+                    sb.Append("const {{ status }} = await this._messageDialog.open({{\r\n");
+                }
+                else
+                {
+                    sb.Append("await this._messageDialog.open({{\r\n");
+                }
+
+                if (showDone)
+                {
+                    sb.Append("    title: \"エラー情報\",\r\n");
+                    sb.Append("    message: Utils.createErrorMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+                }
+                else
+                {
+                    sb.Append("    title: \"確認\",\r\n");
+                    sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+                }
+
+                sb.Append("    showDone: true,\r\n");
+                sb.Append("    doneText: \"{2}\",\r\n");
+
+                if (showDone)
+                {
+                    sb.Append("    showCancel: true,\r\n");
+                    sb.Append("    cancelText: \"{3}\",\r\n");
+                    sb.Append("}});\r\n");
+
+                    result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), "OK", "いいえ");
+                }
+                else
+                {
+                    sb.Append("}});\r\n");
+                    result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), "OK");
+                }
+            }
+
+            txtMessResult.Text = result;
+
+            if (result.Length > 0)
+            {
+                btnMessCopy.Enabled = true;
+            }
+
+        }
+
         private void txtMessCode_TextChanged(object sender, EventArgs e)
         {
             lstMessCode = txtMessCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
@@ -339,7 +782,11 @@ namespace ToolSupportUchida.View
         private void btnCreateMess_Click(object sender, EventArgs e)
         {
             string result = string.Empty;
-            string template = string.Empty;
+
+            if (lstMessCode == null)
+            {
+                return;
+            }
 
             for (int i = 0; i < lstMessCode.Length; i++)
             {
@@ -347,15 +794,13 @@ namespace ToolSupportUchida.View
                 {
                     if (i + 1 < lstMessContent.Length && !string.IsNullOrEmpty(lstMessContent[i + 1]) && lstMessContent[i + 1] != "\"\"")
                     {
-                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ);
-                        result += string.Format(template, lstMessCode[i],
+                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ), lstMessCode[i],
                             lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty),
                             lstMessContent[i + 1].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
                     }
                     else
                     {
-                        template = CUtils.CreTmlMess(CONST.STRING_CREATE_MESS);
-                        result += string.Format(template, lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS), lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
                     }
                 }
             }
@@ -680,7 +1125,7 @@ namespace ToolSupportUchida.View
         {
             string id = txtID.Text.ToLower();
             string idUpCase = CUtils.FirstCharToUpperCase(id);
-            string date = DateTime.Now.Year +"/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
+            string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
 
             StringBuilder sb = new StringBuilder();
 
@@ -1106,6 +1551,7 @@ namespace ToolSupportUchida.View
             btnHtmlCopy.Enabled = false;
             btnHtmlClear.Enabled = false;
         }
+
         private void btnCreateOut_Click(object sender, EventArgs e)
         {
             int index = cbItem.SelectedIndex;
@@ -1347,7 +1793,6 @@ namespace ToolSupportUchida.View
             txtHtmlJPName.Text = string.Empty;
 
             Clipboard.Clear();
-
         }
         #endregion
 
@@ -1383,8 +1828,7 @@ namespace ToolSupportUchida.View
 
             gridInputParam.Visible = val;
         }
+
         #endregion
-
-
     }
 }
