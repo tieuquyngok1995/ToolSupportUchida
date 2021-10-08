@@ -29,8 +29,8 @@ namespace ToolSupportUchida.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -75,13 +75,14 @@ namespace ToolSupportUchida.View
             this.cbMessCancel = new System.Windows.Forms.ComboBox();
             this.cbMessDone = new System.Windows.Forms.ComboBox();
             this.lblMessCancel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblMessDone = new System.Windows.Forms.Label();
             this.grbMessTitle = new System.Windows.Forms.GroupBox();
             this.rdMessVeri = new System.Windows.Forms.RadioButton();
             this.chkMessShowC = new System.Windows.Forms.CheckBox();
             this.rdMessNoti = new System.Windows.Forms.RadioButton();
             this.rdMessErr = new System.Windows.Forms.RadioButton();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.rdbMessF = new System.Windows.Forms.RadioButton();
             this.rdbMessBox = new System.Windows.Forms.RadioButton();
             this.rdbMessDisp = new System.Windows.Forms.RadioButton();
             this.rdbMess = new System.Windows.Forms.RadioButton();
@@ -150,8 +151,6 @@ namespace ToolSupportUchida.View
             this.label6 = new System.Windows.Forms.Label();
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chkMessFCore = new System.Windows.Forms.CheckBox();
-            this.chkMessFCivion = new System.Windows.Forms.CheckBox();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -351,14 +350,14 @@ namespace ToolSupportUchida.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -375,8 +374,8 @@ namespace ToolSupportUchida.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle5;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -511,7 +510,7 @@ namespace ToolSupportUchida.View
             this.grbMessTextI.Controls.Add(this.lblMessDesc);
             this.grbMessTextI.Controls.Add(this.lblMessCode);
             this.grbMessTextI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessTextI.Location = new System.Drawing.Point(195, 8);
+            this.grbMessTextI.Location = new System.Drawing.Point(-195, 8);
             this.grbMessTextI.Name = "grbMessTextI";
             this.grbMessTextI.Size = new System.Drawing.Size(372, 130);
             this.grbMessTextI.TabIndex = 4;
@@ -648,14 +647,12 @@ namespace ToolSupportUchida.View
             // 
             // grbMessText
             // 
-            this.grbMessText.Controls.Add(this.chkMessFCore);
             this.grbMessText.Controls.Add(this.chkMessStatus);
             this.grbMessText.Controls.Add(this.btnMessCreate);
             this.grbMessText.Controls.Add(this.cbMessCancel);
             this.grbMessText.Controls.Add(this.cbMessDone);
             this.grbMessText.Controls.Add(this.lblMessCancel);
-            this.grbMessText.Controls.Add(this.label7);
-            this.grbMessText.Controls.Add(this.chkMessFCivion);
+            this.grbMessText.Controls.Add(this.lblMessDone);
             this.grbMessText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbMessText.Location = new System.Drawing.Point(380, 8);
             this.grbMessText.Name = "grbMessText";
@@ -723,14 +720,14 @@ namespace ToolSupportUchida.View
             this.lblMessCancel.Text = "Cancel";
             this.lblMessCancel.Visible = false;
             // 
-            // label7
+            // lblMessDone
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Done";
+            this.lblMessDone.AutoSize = true;
+            this.lblMessDone.Location = new System.Drawing.Point(6, 23);
+            this.lblMessDone.Name = "lblMessDone";
+            this.lblMessDone.Size = new System.Drawing.Size(42, 17);
+            this.lblMessDone.TabIndex = 1;
+            this.lblMessDone.Text = "Done";
             // 
             // grbMessTitle
             // 
@@ -785,11 +782,13 @@ namespace ToolSupportUchida.View
             this.rdMessErr.Name = "rdMessErr";
             this.rdMessErr.Size = new System.Drawing.Size(86, 21);
             this.rdMessErr.TabIndex = 4;
+            this.rdMessErr.TabStop = true;
             this.rdMessErr.Text = "エラー情報";
             this.rdMessErr.UseVisualStyleBackColor = true;
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.rdbMessF);
             this.groupBox18.Controls.Add(this.rdbMessBox);
             this.groupBox18.Controls.Add(this.rdbMessDisp);
             this.groupBox18.Controls.Add(this.rdbMess);
@@ -800,6 +799,17 @@ namespace ToolSupportUchida.View
             this.groupBox18.TabIndex = 21;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Choose Type";
+            // 
+            // rdbMessF
+            // 
+            this.rdbMessF.AutoSize = true;
+            this.rdbMessF.Location = new System.Drawing.Point(6, 102);
+            this.rdbMessF.Name = "rdbMessF";
+            this.rdbMessF.Size = new System.Drawing.Size(105, 21);
+            this.rdbMessF.TabIndex = 3;
+            this.rdbMessF.Text = "Create Src F";
+            this.rdbMessF.UseVisualStyleBackColor = true;
+            this.rdbMessF.CheckedChanged += new System.EventHandler(this.rdbMessF_CheckedChanged);
             // 
             // rdbMessBox
             // 
@@ -831,6 +841,7 @@ namespace ToolSupportUchida.View
             this.rdbMess.Name = "rdbMess";
             this.rdbMess.Size = new System.Drawing.Size(93, 21);
             this.rdbMess.TabIndex = 0;
+            this.rdbMess.TabStop = true;
             this.rdbMess.Text = "Create Src";
             this.rdbMess.UseVisualStyleBackColor = true;
             this.rdbMess.CheckedChanged += new System.EventHandler(this.rdMess_CheckedChanged);
@@ -1648,26 +1659,6 @@ namespace ToolSupportUchida.View
             this.tabPage2.Text = "Comming Soon";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // chkMessFCore
-            // 
-            this.chkMessFCore.AutoSize = true;
-            this.chkMessFCore.Location = new System.Drawing.Point(9, 77);
-            this.chkMessFCore.Name = "chkMessFCore";
-            this.chkMessFCore.Size = new System.Drawing.Size(69, 21);
-            this.chkMessFCore.TabIndex = 10;
-            this.chkMessFCore.Text = "F Core";
-            this.chkMessFCore.UseVisualStyleBackColor = true;
-            // 
-            // chkMessFCivion
-            // 
-            this.chkMessFCivion.AutoSize = true;
-            this.chkMessFCivion.Location = new System.Drawing.Point(87, 77);
-            this.chkMessFCivion.Name = "chkMessFCivion";
-            this.chkMessFCivion.Size = new System.Drawing.Size(77, 21);
-            this.chkMessFCivion.TabIndex = 11;
-            this.chkMessFCivion.Text = "F Civion";
-            this.chkMessFCivion.UseVisualStyleBackColor = true;
-            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1818,7 +1809,7 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.ComboBox cbMessCancel;
         private System.Windows.Forms.ComboBox cbMessDone;
         private System.Windows.Forms.Label lblMessCancel;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMessDone;
         private System.Windows.Forms.GroupBox grbMessTitle;
         private System.Windows.Forms.CheckBox chkMessShowC;
         private System.Windows.Forms.RadioButton rdMessNoti;
@@ -1845,7 +1836,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.CheckBox chkMessStatus;
         private System.Windows.Forms.CheckBox chkMessStatusI;
         private System.Windows.Forms.RadioButton rdMessVeri;
-        private System.Windows.Forms.CheckBox chkMessFCivion;
-        private System.Windows.Forms.CheckBox chkMessFCore;
+        private System.Windows.Forms.RadioButton rdbMessF;
     }
 }

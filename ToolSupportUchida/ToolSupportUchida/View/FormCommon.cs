@@ -314,6 +314,14 @@ namespace ToolSupportUchida.View
                 this.grbMessText.Visible = true;
                 this.grbMessTitle.Visible = true;
                 this.grbMessTextI.Visible = false;
+
+                this.rdMessErr.Text = "エラー情報";
+                this.rdMessNoti.Text = "通知";
+                this.rdMessVeri.Visible = true;
+                this.chkMessShowC.Text = "Show Cancel";
+
+                this.lblMessDone.Visible = true;
+                this.cbMessDone.Visible = true;
             }
         }
 
@@ -334,6 +342,24 @@ namespace ToolSupportUchida.View
                 this.lblMessType.Text = "Type";
                 this.lblMessQuestion.Visible = true;
                 this.lblMessType.Visible = true;
+            }
+        }
+
+        private void rdbMessF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbMessF.Checked)
+            {
+                this.grbMessText.Visible = true;
+                this.grbMessTitle.Visible = true;
+                this.grbMessTextI.Visible = false;
+
+                this.rdMessErr.Text = "F Core";
+                this.rdMessNoti.Text = "F Civion";
+                this.rdMessVeri.Visible = false;
+                this.chkMessShowC.Text = "Error M";
+
+                this.lblMessDone.Visible = false;
+                this.cbMessDone.Visible = false;
             }
         }
 
@@ -359,7 +385,7 @@ namespace ToolSupportUchida.View
 
         private void chkMessShowC_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkMessShowC.Checked)
+            if (chkMessShowC.Checked && rdbMess.Checked)
             {
                 lblMessCancel.Visible = true;
                 cbMessCancel.Visible = true;
@@ -481,39 +507,87 @@ namespace ToolSupportUchida.View
                 sb.Append("await this._messageDialog.open({{\r\n");
             }
 
-            if (rdMessErr.Checked)
+            if (rdbMess.Checked)
             {
-                sb.Append("    title: \"エラー情報\",\r\n");
-                sb.Append("    message: Utils.createErrorMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
-            }
-            else if (rdMessNoti.Checked)
-            {
-                sb.Append("    title: \"通知\",\r\n");
-                sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
-            }
-            else if (rdMessVeri.Checked)
-            {
-                sb.Append("    title: \"確認\",\r\n");
-                sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
-            }
+                if (rdMessErr.Checked)
+                {
+                    sb.Append("    title: \"エラー情報\",\r\n");
+                    sb.Append("    message: Utils.createErrorMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+                }
+                else if (rdMessNoti.Checked)
+                {
+                    sb.Append("    title: \"通知\",\r\n");
+                    sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+                }
+                else if (rdMessVeri.Checked)
+                {
+                    sb.Append("    title: \"確認\",\r\n");
+                    sb.Append("    message: Utils.createMessage(Utils.getMessage(\"{0}\", \"{1}\")),\r\n");
+                }
 
-            sb.Append("    showDone: true,\r\n");
-            sb.Append("    doneText: \"{2}\",\r\n");
-            doneText = cbMessDone.Text;
+                sb.Append("    showDone: true,\r\n");
+                sb.Append("    doneText: \"{2}\",\r\n");
+                doneText = cbMessDone.Text;
 
-            if (chkMessShowC.Checked)
+                if (chkMessShowC.Checked)
+                {
+                    cancelText = cbMessCancel.Text;
+                    sb.Append("    showCancel: true,\r\n");
+                    sb.Append("    cancelText: \"{3}\",\r\n");
+                    sb.Append("}});\r\n");
+
+                    result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText, cancelText);
+                }
+                else
+                {
+                    sb.Append("}});\r\n");
+                    result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText);
+                }
+            }
+            else if (rdbMessF.Checked)
             {
-                cancelText = cbMessCancel.Text;
-                sb.Append("    showCancel: true,\r\n");
-                sb.Append("    cancelText: \"{3}\",\r\n");
+                if (rdMessErr.Checked)
+                {
+                    if (chkMessShowC.Checked)
+                    {
+                        sb.Append("    title: \"確認\",\r\n");
+                        sb.Append("    // 確認メッセージ(エラー区分＝\"M\"など)の場合\r\n");
+                        sb.Append("    message: Utils.createErrorMessage(response.errMessage, response.errMessageHosoku),\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("    title: \"エラー情報\",\r\n");
+                        sb.Append("    // エラーメッセージの場合\r\n");
+                        sb.Append("    message: Utils.createErrorMessage(response.errMessage, response.errMessageHosoku, response.errMessageNo),\r\n");
+                    }
+                }
+                else if (rdMessNoti.Checked)
+                {
+                    if (chkMessShowC.Checked)
+                    {
+                        sb.Append("    title: \"確認\",\r\n");
+                        sb.Append("    // 確認メッセージ(エラー区分＝\"M\"など)の場合\r\n");
+                        sb.Append("    message: Utils.createErrorMessage(response.errMessage, null),\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("    title: \"エラー情報\",\r\n");
+                        sb.Append("    // エラーメッセージの場合\r\n");
+                        sb.Append("    message: Utils.createErrorMessage(response.errMessage, null, response.errMessageNo),\r\n");
+                    }
+                }
+                sb.Append("    showDone: true,\r\n");
+                sb.Append("    doneText: \"OK\",\r\n");
+
+                if (chkMessShowC.Checked)
+                {
+                    sb.Append("    showCancel: true,\r\n");
+                    sb.Append("    cancelText: \"いいえ\",\r\n");
+                }
+
                 sb.Append("}});\r\n");
 
-                result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText, cancelText);
-            }
-            else
-            {
-                sb.Append("}});\r\n");
-                result = string.Format(sb.ToString(), txtMessCode.Text.Trim(), txtMessContent.Text.Trim(), doneText);
+                result = string.Format(sb.ToString());
             }
 
             txtMessResult.Text = result;
@@ -521,6 +595,8 @@ namespace ToolSupportUchida.View
             if (result.Length > 0)
             {
                 btnMessCopy.Enabled = true;
+                lblMessResult.Visible = false;
+                Clipboard.Clear();
             }
         }
 
@@ -727,6 +803,8 @@ namespace ToolSupportUchida.View
             if (result.Length > 0)
             {
                 btnMessCopy.Enabled = true;
+                lblMessResult.Visible = false;
+                Clipboard.Clear();
             }
 
         }
