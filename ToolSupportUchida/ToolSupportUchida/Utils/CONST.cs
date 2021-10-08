@@ -41,6 +41,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_COMMA = ",";
         public const string STRING_QUOTATION_MARKS = "\"";
         public const string STRING_DOT = ".";
+        public const string STRING_APOSTROPHE = "'";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";
@@ -60,6 +61,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_NULL = "NULL";
         public const string STRING_LIKE = "LIKE";
         public const string STRING_VBCRLF = "& vbCrLf";
+        public const string STRING_PRIVATEM = "PRIVATE M";
 
         public const string STRING_EMPTY = "String.Empty";
         public const string STRING_NONE = "none";

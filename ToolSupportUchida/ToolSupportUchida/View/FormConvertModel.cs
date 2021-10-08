@@ -665,6 +665,11 @@ namespace ToolSupportUchida.View
                 }
 
                 nameLog = lstLogic[i].Trim();
+                if (!string.IsNullOrEmpty(nameLog) && nameLog.Length > 1 && nameLog.Substring(0, 1).Equals(CONST.STRING_APOSTROPHE))
+                {
+                    nameLog = nameLog.Substring(1);
+                }
+
                 if (!String.IsNullOrEmpty(txtAddLogic.Text.Trim()) && !nameLog.ToLower().Equals(CONST.STRING_NONE))
                 {
                     nameLog = nameLog + txtAddLogic.Text.Trim();
@@ -680,6 +685,11 @@ namespace ToolSupportUchida.View
                     {
                         namePhy = namePhy + txtAddPhysi.Text.Trim();
                     }
+                }
+
+                if (!string.IsNullOrEmpty(namePhy) && chkCreateInterf.Checked && namePhy.Length > 10 && namePhy.ToUpper().Contains(CONST.STRING_PRIVATEM))
+                {
+                    namePhy = namePhy.Substring(9);
                 }
 
                 if (rdbSetParam.Checked)
