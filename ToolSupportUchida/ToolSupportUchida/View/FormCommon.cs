@@ -1664,15 +1664,15 @@ namespace ToolSupportUchida.View
 
                     if (chkItem.Checked && rdbUpdate.Checked)
                     {
-                        sb.Append("    <span class=\"fas fa-save mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa-xs fa-sm fa-save mr-1\"></span>\r\n");
                     }
                     else if (chkItem.Checked && rdbDelete.Checked)
                     {
-                        sb.Append("    <span class=\"fas fa-trash mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa-xs fa-sm fa-trash mr-1\"></span>\r\n");
                     }
                     else if (chkItem.Checked)
                     {
-                        sb.Append("    <span class=\"fas fa- mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa-xs fa-sm fa- mr-1\"></span>\r\n");
                     }
 
                     if (!string.IsNullOrEmpty(jpName))
@@ -1723,7 +1723,7 @@ namespace ToolSupportUchida.View
                     sb.Append("           data-bind=\"dateJpValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\">\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
                     sb.Append("        <button class=\"btn btn-sm btn-primary border-secondary\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
-                    sb.Append("            <span class=\"fas fa-calendar-alt\"></span>\r\n");
+                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-calendar-alt\"></span>\r\n");
                     sb.Append("        </button>\r\n");
 
                     if (rdbNone.Checked)
@@ -1772,7 +1772,7 @@ namespace ToolSupportUchida.View
                     sb.Append("    <div class=\"input-group-prepend\">\r\n");
                     sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
                     sb.Append("                data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
-                    sb.Append("            <span class=\"fas fa-search\"></span>\r\n");
+                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-search\"></span>\r\n");
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
                     sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
@@ -1782,7 +1782,7 @@ namespace ToolSupportUchida.View
                     sb.Append("    <div class=\"input-group-append\">\r\n");
                     sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
                     sb.Append("                data-bind=\"click: btClearOnClick, disable: btClearDisable, hasFocus: btClearFocus\">\r\n");
-                    sb.Append("            <span class=\"fas fa-eraser\"></span>\r\n");
+                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-eraser\"></span>\r\n");
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
                     sb.Append("</div>\r\n");
