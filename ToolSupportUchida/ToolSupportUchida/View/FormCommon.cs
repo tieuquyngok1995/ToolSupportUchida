@@ -940,6 +940,7 @@ namespace ToolSupportUchida.View
             foreach (string line in lstFormatCode)
             {
                 tmpLine = line.Trim();
+                tmpLine = tmpLine.Replace(CONST.STRING_TAB, "    ");
 
                 if (tmpLine.Contains(CONST.STRING_APPEND))
                 {
@@ -956,6 +957,10 @@ namespace ToolSupportUchida.View
                 }
                 else
                 {
+                    if (tmpLine.Contains("'"))
+                    {
+                        tmpLine = tmpLine.Replace("'", "//");
+                    }
                     lengthText = tmpLine.LastIndexOf("/") + 1;
                 }
 
