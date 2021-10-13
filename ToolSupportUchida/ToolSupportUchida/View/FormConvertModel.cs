@@ -237,8 +237,16 @@ namespace ToolSupportUchida.View
                 if (rdbJS.Checked && rdbTypeScript.Checked)
                 {
                     this.chkCreateInterf.Visible = true;
-                    this.rdbFirst.Visible = true;
-                    this.rdbLast.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else if (rdbJS.Checked && rdbSetParam.Checked)
                 {
@@ -271,9 +279,16 @@ namespace ToolSupportUchida.View
 
                 if (rdbJS.Checked && rdbTypeScript.Checked)
                 {
-                    this.chkCreateInterf.Visible = true;
-                    this.rdbFirst.Visible = true;
-                    this.rdbLast.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else if (rdbJS.Checked && rdbSetParam.Checked)
                 {
@@ -306,9 +321,16 @@ namespace ToolSupportUchida.View
 
                 if (rdbJS.Checked && rdbTypeScript.Checked)
                 {
-                    this.chkCreateInterf.Visible = true;
-                    this.rdbFirst.Visible = true;
-                    this.rdbLast.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else if (rdbJS.Checked && rdbSetParam.Checked)
                 {
@@ -341,9 +363,16 @@ namespace ToolSupportUchida.View
 
                 if (rdbJS.Checked && rdbTypeScript.Checked)
                 {
-                    this.chkCreateInterf.Visible = true;
-                    this.rdbFirst.Visible = true;
-                    this.rdbLast.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else if (rdbJS.Checked && rdbSetParam.Checked)
                 {
@@ -376,9 +405,16 @@ namespace ToolSupportUchida.View
 
                 if (rdbJS.Checked && rdbTypeScript.Checked)
                 {
-                    this.chkCreateInterf.Visible = true;
-                    this.rdbFirst.Visible = true;
-                    this.rdbLast.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else if (rdbJS.Checked && rdbSetParam.Checked)
                 {
