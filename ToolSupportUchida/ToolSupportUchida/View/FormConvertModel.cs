@@ -691,6 +691,8 @@ namespace ToolSupportUchida.View
                     }
                 }
 
+                namePhy = lstPhysi[i].Trim();
+
                 if (!string.IsNullOrEmpty(namePhy) && chkCreateInterf.Checked && namePhy.Length > 10 && namePhy.ToUpper().Contains(CONST.STRING_PRIVATEM))
                 {
                     namePhy = namePhy.Substring(9);
@@ -698,11 +700,11 @@ namespace ToolSupportUchida.View
 
                 if (rdbLowerCase.Checked)
                 {
-                    namePhy = lstPhysi[i].Trim().Substring(0, 1).ToLower() + lstPhysi[i].Trim().Substring(1);
+                    namePhy = namePhy.Substring(0, 1).ToLower() + namePhy.Substring(1);
                 }
                 else if (rdbUpperCase.Checked)
                 {
-                    namePhy = lstPhysi[i].Trim().Substring(0, 1).ToUpper() + lstPhysi[i].Trim().Substring(1);
+                    namePhy = namePhy.Substring(0, 1).ToUpper() + namePhy.Substring(1);
                 }
 
                 nameLog = lstLogic[i].Trim();
