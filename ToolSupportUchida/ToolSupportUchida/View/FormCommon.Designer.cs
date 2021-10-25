@@ -29,8 +29,8 @@ namespace ToolSupportUchida.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -126,11 +126,9 @@ namespace ToolSupportUchida.View
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtRow = new System.Windows.Forms.TextBox();
             this.chkPara = new System.Windows.Forms.CheckBox();
             this.chkSub = new System.Windows.Forms.CheckBox();
             this.chkMain = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageCreateItem = new System.Windows.Forms.TabPage();
@@ -350,14 +348,14 @@ namespace ToolSupportUchida.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -374,8 +372,8 @@ namespace ToolSupportUchida.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -1327,11 +1325,9 @@ namespace ToolSupportUchida.View
             // 
             this.groupBox10.Controls.Add(this.txtID);
             this.groupBox10.Controls.Add(this.txtName);
-            this.groupBox10.Controls.Add(this.txtRow);
             this.groupBox10.Controls.Add(this.chkPara);
             this.groupBox10.Controls.Add(this.chkSub);
             this.groupBox10.Controls.Add(this.chkMain);
-            this.groupBox10.Controls.Add(this.label5);
             this.groupBox10.Controls.Add(this.label4);
             this.groupBox10.Controls.Add(this.label3);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -1357,16 +1353,6 @@ namespace ToolSupportUchida.View
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 2;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            // 
-            // txtRow
-            // 
-            this.txtRow.Location = new System.Drawing.Point(342, 18);
-            this.txtRow.MaxLength = 3;
-            this.txtRow.Name = "txtRow";
-            this.txtRow.Size = new System.Drawing.Size(30, 23);
-            this.txtRow.TabIndex = 3;
-            this.txtRow.TextChanged += new System.EventHandler(this.txtRow_TextChanged);
-            this.txtRow.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRow_KeyPress);
             // 
             // chkPara
             // 
@@ -1402,15 +1388,6 @@ namespace ToolSupportUchida.View
             this.chkMain.Text = "Main";
             this.chkMain.UseVisualStyleBackColor = true;
             this.chkMain.CheckedChanged += new System.EventHandler(this.chkMain_CheckedChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(301, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Row";
             // 
             // label4
             // 
@@ -1638,6 +1615,7 @@ namespace ToolSupportUchida.View
             "TextBox Money",
             "TextBox PostCode",
             "TextBox InputGroup",
+            "TextArea",
             "ComboBox",
             "CheckBox",
             "Radio",
@@ -1767,11 +1745,9 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.CheckBox chkPara;
         private System.Windows.Forms.CheckBox chkSub;
         private System.Windows.Forms.CheckBox chkMain;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtRow;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.RichTextBox txtBundle;

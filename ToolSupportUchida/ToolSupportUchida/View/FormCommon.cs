@@ -1055,7 +1055,7 @@ namespace ToolSupportUchida.View
 
         private void createHTML()
         {
-            if ((!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtName.Text) && !string.IsNullOrEmpty(txtRow.Text)) &&
+            if ((!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtName.Text)) &&
                 chkMain.Checked || chkSub.Checked)
             {
                 createBundle();
@@ -1146,7 +1146,12 @@ namespace ToolSupportUchida.View
             {
                 sb.Append("public ActionResult {0}()");
             }
-            else if (chkMain.Checked && chkSub.Checked && !chkPara.Checked)
+            else if (chkMain.Checked && !chkSub.Checked && chkPara.Checked)
+            {
+                sb.Append("public ActionResult {0}(string para)\r\n");
+                sb.Append("    ViewBag.Para = para;\r\n");
+            }
+            else if (chkSub.Checked && !chkPara.Checked)
             {
                 sb.Append("public ActionResult {0}(string dialog)\r\n");
                 sb.Append("    if (dialog == \"1\")\r\n");
@@ -1155,12 +1160,7 @@ namespace ToolSupportUchida.View
                 sb.Append("        return PartialView();\r\n");
                 sb.Append("    }}\r\n");
             }
-            else if (chkMain.Checked && !chkSub.Checked && chkPara.Checked)
-            {
-                sb.Append("public ActionResult {0}(string para)\r\n");
-                sb.Append("    ViewBag.Para = para;\r\n");
-            }
-            else if (chkMain.Checked && chkSub.Checked && chkPara.Checked)
+            else if (chkSub.Checked && chkPara.Checked)
             {
                 sb.Append("public ActionResult {0}(string dialog, string para)\r\n");
                 sb.Append("    ViewBag.Para = para;\r\n");
@@ -1176,10 +1176,17 @@ namespace ToolSupportUchida.View
                 sb.Append("public ActionResult {0}()");
             }
 
-            sb.Append("\r\n");
-            sb.Append("    // 主要画面で開くために \"View()\"を使用\r\n");
-            sb.Append("    return View();\r\n");
-            sb.Append("}}\r\n");
+            if (!chkMain.Checked)
+            {
+                sb.Append("}}\r\n");
+            }
+            else
+            {
+                sb.Append("\r\n");
+                sb.Append("    // 主要画面で開くために \"View()\"を使用\r\n");
+                sb.Append("    return View();\r\n");
+                sb.Append("}}\r\n");
+            }
 
             txtController.Text = string.Format(sb.ToString(), name, txtName.Text);
 
@@ -1410,16 +1417,16 @@ namespace ToolSupportUchida.View
             sb.Append("    @Styles.Render(\"~/Content/{2}/{1}\")\r\n");
             sb.Append("}}\r\n");
             sb.Append("\r\n");
-            sb.Append("<div id=\"{3}Main\" class=\"contentMain {3}-style\">\r\n");
+            sb.Append("<div id=\"{3}Main\" class=\"contentMain-row-25 {3}-style\">\r\n");
             sb.Append("    <input class=\"para\" type=\"hidden\" value=\"@ViewBag.Para\"/>\r\n");
             sb.Append("    @Html.Hidden(\"spreadLiteral\", @Newtonsoft.Json.JsonConvert.SerializeObject(spreadLiteral))\r\n");
             sb.Append("    <!-- コンテンツエリア -->\r\n");
             sb.Append("        <div class=\"card main\">\r\n");
             sb.Append("            <div class=\"card-body\">\r\n");
 
-            for (int i = 0; i < int.Parse(txtRow.Text); i++)
+            for (int i = 0; i < 25; i++)
             {
-                sb.Append("                <div class=\"row align-items-center my-2\">\r\n");
+                sb.Append("                <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
                 sb.Append("                    <div class=\"col\">\r\n");
                 sb.Append("                    </div>\r\n");
                 sb.Append("                </div>\r\n");
@@ -1429,7 +1436,7 @@ namespace ToolSupportUchida.View
             sb.Append("        </div>\r\n");
             sb.Append("\r\n");
             sb.Append("        <div class=\"contentFooter {3}BottomBtnArea\">\r\n");
-            sb.Append("            <div class=\"row align-items-center\">\r\n");
+            sb.Append("            <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
             sb.Append("                <div class=\"col\">\r\n");
             sb.Append("                </div>\r\n");
             sb.Append("            </div>\r\n");
@@ -1570,20 +1577,21 @@ namespace ToolSupportUchida.View
                     break;
                 case 8:
                     lbHtmlJpName.Text = "E Name";
-                    lbHtmlName.Visible = false;
-                    txtHtmlName.Visible = false;
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "Num Col";
+                    txtHtmlName.Visible = true;
 
                     rdbNone.Visible = false;
                     rdbUpdate.Visible = false;
                     rdbDelete.Visible = false;
 
-                    chkItem.Visible = false;
+                    chkItem.Visible = true;
+                    chkItem.Text = "Readonly";
                     break;
                 case 9:
-                    lbHtmlJpName.Text = "J Name";
-                    lbHtmlName.Visible = true;
-                    lbHtmlName.Text = "E Name";
-                    txtHtmlName.Visible = true;
+                    lbHtmlJpName.Text = "E Name";
+                    lbHtmlName.Visible = false;
+                    txtHtmlName.Visible = false;
 
                     rdbNone.Visible = false;
                     rdbUpdate.Visible = false;
@@ -1604,6 +1612,18 @@ namespace ToolSupportUchida.View
                     chkItem.Visible = false;
                     break;
                 case 11:
+                    lbHtmlJpName.Text = "J Name";
+                    lbHtmlName.Visible = true;
+                    lbHtmlName.Text = "E Name";
+                    txtHtmlName.Visible = true;
+
+                    rdbNone.Visible = false;
+                    rdbUpdate.Visible = false;
+                    rdbDelete.Visible = false;
+
+                    chkItem.Visible = false;
+                    break;
+                case 12:
                     lbHtmlJpName.Text = "E Name";
                     lbHtmlName.Visible = false;
                     txtHtmlName.Visible = false;
@@ -1614,7 +1634,7 @@ namespace ToolSupportUchida.View
 
                     chkItem.Visible = false;
                     break;
-                case 12:
+                case 13:
                     lbHtmlJpName.Text = "E Name";
                     lbHtmlName.Visible = true;
                     lbHtmlName.Text = "ID Sceen";
@@ -1646,38 +1666,38 @@ namespace ToolSupportUchida.View
             switch (index)
             {
                 case 0:
-                    sb.Append("<label class=\"label label-sm\" tabindex=\"-1\">@Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))</label>\r\n");
+                    sb.Append("<label class=\"label row-25\" tabindex=\"-1\">@Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))</label>\r\n");
 
                     result = string.Format(sb.ToString(), jpName);
                     break;
                 case 1:
                     if (rdbUpdate.Checked)
                     {
-                        sb.Append("<button class=\"btn btn-sm btn-primary\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-primary\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
                     else if (rdbDelete.Checked)
                     {
-                        sb.Append("<button class=\"btn btn-sm btn-danger\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-danger\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
                     else
                     {
-                        sb.Append("<button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
 
                     if (chkItem.Checked && rdbUpdate.Checked)
                     {
-                        sb.Append("    <span class=\"fa fa-xs fa-sm fa-save mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa-save mr-1\"></span>\r\n");
                     }
                     else if (chkItem.Checked && rdbDelete.Checked)
                     {
-                        sb.Append("    <span class=\"fa fa-xs fa-sm fa-trash mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa-trash mr-1\"></span>\r\n");
                     }
                     else if (chkItem.Checked)
                     {
-                        sb.Append("    <span class=\"fa fa-xs fa-sm fa- mr-1\"></span>\r\n");
+                        sb.Append("    <span class=\"fa fa- mr-1\"></span>\r\n");
                     }
 
                     if (!string.IsNullOrEmpty(jpName))
@@ -1696,12 +1716,12 @@ namespace ToolSupportUchida.View
                 case 2:
                     if (chkItem.Checked)
                     {
-                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                         sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" readonly/>\r\n");
                     }
                     else
                     {
-                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                         sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\"/>\r\n");
                     }
 
@@ -1710,12 +1730,12 @@ namespace ToolSupportUchida.View
                 case 3:
                     if (rdbNone.Checked)
                     {
-                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                         sb.Append("       data-bind = \"codeValue: tx{0}, codePaddingOnly: true, codeLength: {1}, codePadding: 'left', disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
                     }
                     else
                     {
-                        sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                        sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex =\"-1\"\r\n");
                         sb.Append("       data-bind = \"codeValue: tx{0}, codePaddingOnly: true, codeLength: {1}, codePadding: 'right', disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
 
                     }
@@ -1723,12 +1743,12 @@ namespace ToolSupportUchida.View
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName), name);
                     break;
                 case 4:
-                    sb.Append("<div class=\"input-group\">\r\n");
-                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("<div class=\"input-group row-25\">\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("           data-bind=\"dateJpValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\">\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
-                    sb.Append("        <button class=\"btn btn-sm btn-primary border-secondary\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
-                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-calendar-alt\"></span>\r\n");
+                    sb.Append("        <button class=\"btn row-25 btn-primary border-secondary\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    sb.Append("            <span class=\"far fa-calendar-alt\"></span>\r\n");
                     sb.Append("        </button>\r\n");
 
                     if (rdbNone.Checked)
@@ -1761,13 +1781,13 @@ namespace ToolSupportUchida.View
 
                     break;
                 case 5:
-                    sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("       data-bind = \"moneyValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
 
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
                     break;
                 case 6:
-                    sb.Append("<input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("       data-bind = \"postCodeValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\"/>\r\n");
 
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
@@ -1775,19 +1795,19 @@ namespace ToolSupportUchida.View
                 case 7:
                     sb.Append("<div class=\"input-group\">\r\n");
                     sb.Append("    <div class=\"input-group-prepend\">\r\n");
-                    sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                    sb.Append("        <button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
                     sb.Append("                data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
-                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-search\"></span>\r\n");
+                    sb.Append("            <span class=\"fa fa-search\"></span>\r\n");
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
-                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("           data-bind = \"value: tx{1}Code, disable: tx{1}CodeDisable, hasFocus: tx{1}CodeFocus\" readonly/>\r\n");
-                    sb.Append("    <input type=\"text\" class=\"form-control form-control-sm\" tabindex=\"-1\"\r\n");
+                    sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("           data-bind = \"value: tx{1}Name, disable: tx{1}NameDisable, hasFocus: tx{1}NameFocus\" readonly/>\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
-                    sb.Append("        <button class=\"btn btn-sm btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                    sb.Append("        <button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
                     sb.Append("                data-bind=\"click: btClearOnClick, disable: btClearDisable, hasFocus: btClearFocus\">\r\n");
-                    sb.Append("            <span class=\"fa fa-xs fa-sm fa-eraser\"></span>\r\n");
+                    sb.Append("            <span class=\"fa fa-eraser\"></span>\r\n");
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
                     sb.Append("</div>\r\n");
@@ -1795,7 +1815,21 @@ namespace ToolSupportUchida.View
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(name), CUtils.FirstCharToUpperCase(jpName));
                     break;
                 case 8:
-                    sb.Append("<select class=\"form-control form-control-sm\" data-bind=\"\r\n");
+                    if (chkItem.Checked)
+                    {
+                        sb.Append("<textarea class=\"form-control txarea-row-25\" maxleng=\"100\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" readonly/>\r\n");
+                    }
+                    else
+                    {
+                        sb.Append("<textarea class=\"form-control txarea-row-25\" maxleng=\"100\" tabindex=\"-1\"\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\"/>\r\n");
+                    }
+
+                    result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
+                    break;
+                case 9:
+                    sb.Append("<select class=\"form-control row-25\" data-bind=\"\r\n");
                     sb.Append("        options:       cx{0},\r\n");
                     sb.Append("        optionsText:  'cx{0}Name',\r\n");
                     sb.Append("        optionsValue: 'cx{0}Code',\r\n");
@@ -1806,35 +1840,39 @@ namespace ToolSupportUchida.View
 
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
                     break;
-                case 9:
-                    sb.Append("<label class=\"label label-sm\">\r\n");
-                    sb.Append("    <input type=\"checkbox\" class=\"align-middle\" value=\"0\"\r\n");
+                case 10:
+                    sb.Append("<label class=\"label row-25\">\r\n");
+                    sb.Append("    <input type=\"checkbox\" class=\"check-row-25\" value=\"0\"\r\n");
                     sb.Append("           data-bind=\"checked: ck{1}, disable: ck{1}Disable, hasfocus: ck{1}Focus\">\r\n");
                     sb.Append("        @Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))\r\n");
                     sb.Append("</label>\r\n");
 
                     result = string.Format(sb.ToString(), jpName, CUtils.FirstCharToUpperCase(name));
                     break;
-                case 10:
-                    sb.Append("<label class=\"label label-sm\">\r\n");
-                    sb.Append("    <input type=\"radio\" class=\"align-middle\" name=\"rb{1}\" value=\"0\"\r\n");
+                case 11:
+                    sb.Append("<label class=\"label row-25\">\r\n");
+                    sb.Append("    <input type=\"radio\" class=\"check-row-25\" name=\"rb{1}\" value=\"0\"\r\n");
                     sb.Append("           data-bind=\"checked: rb{1}, disable: rb{1}Disable, hasfocus: rb{1}Focus\">\r\n");
                     sb.Append("        @Html.Raw(literalCtrl[\"\"].CreateHtml(\"{0}\"))\r\n");
                     sb.Append("</label>\r\n");
 
                     result = string.Format(sb.ToString(), jpName, CUtils.FirstCharToUpperCase(name));
                     break;
-                case 11:
-                    sb.Append("<div class=\"d-flex align-items-center d-flex flex-column flex-fill spread-area mb-2\">\r\n");
-                    sb.Append("    <div id=\"{0}Spread\" class=\"spread-item\"></div>\r\n");
+                case 12:
+                    sb.Append("<div class=\"d-flex row-25 col-px align-items-center\">\r\n");
+                    sb.Append("    <div class=\"col-12\">\r\n");
+                    sb.Append("        <div id=\"{0}Spread\" class=\"sp-font-row-25\"></div>\r\n");
+                    sb.Append("    </div>\r\n");
                     sb.Append("</div>\r\n");
 
                     result = string.Format(sb.ToString(), jpName);
                     break;
-                case 12:
-                    sb.Append("<div class=\"flex-fill flex-column\" id=\"{0}TreeArea\">\r\n");
-                    sb.Append("    <div class=\"tree-box\">\r\n");
-                    sb.Append("        <div id=\"{1}Tree\"></div>\r\n");
+                case 13:
+                    sb.Append("<div class=\"d-flex row-25 col-px align-items-center\" id=\"{0}TreeArea\">\r\n");
+                    sb.Append("    <div class=\"tree-main\">\r\n");
+                    sb.Append("        <div class=\"tree-body\">\r\n");
+                    sb.Append("            <div id=\"{1}Tree\" class=\"tree-font-row-25\"></div>\r\n");
+                    sb.Append("        </div>\r\n");
                     sb.Append("    </div>\r\n");
                     sb.Append("</div>\r\n");
 
