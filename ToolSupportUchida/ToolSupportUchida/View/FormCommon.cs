@@ -1113,9 +1113,9 @@ namespace ToolSupportUchida.View
             sb.Append("//-------------------------------------------------------------\r\n");
             sb.Append("// {1}\r\n");
             sb.Append("//-------------------------------------------------------------\r\n");
-            sb.Append("bundles.Add(new StyleBundle(\"/Content/{0}/{1}\").Include(\r\n");
+            sb.Append("bundles.Add(new StyleBundle(\"~/Content/{0}/{1}\").Include(\r\n");
             sb.Append("    \"/Content/app/{0}/{1}/{2}.index.css\"));\r\n");
-            sb.Append("bundles.Add(new ScriptBundle(\"/bundles/{0}/{1}\").Include(\r\n");
+            sb.Append("bundles.Add(new ScriptBundle(\"~/bundles/{0}/{1}\").Include(\r\n");
             sb.Append("    \"/Scripts/app/{0}/{1}/{2}.init.js\",\r\n");
             sb.Append("    \"/Scripts/app/{0}/{1}/{2}.viewmodel.js));\"\r\n");
 
