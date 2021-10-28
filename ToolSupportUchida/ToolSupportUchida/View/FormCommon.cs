@@ -1079,6 +1079,12 @@ namespace ToolSupportUchida.View
                 txtDialog.Text = string.Empty;
                 txtCshtml.Text = string.Empty;
             }
+
+            lblResultSrcBundel.Visible = false;
+            lblResultSrcController.Visible = false;
+            lblResultSrcDialog.Visible = false;
+            lblResultSrcHtml.Visible = false;
+            lblResultSrcInit.Visible = false;
         }
 
         private void createBundle()
@@ -1132,6 +1138,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblResultSrcBundel.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtBundle.Text);
         }
@@ -1207,6 +1214,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblResultSrcController.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtController.Text);
         }
@@ -1269,6 +1277,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblResultSrcInit.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtInit.Text);
         }
@@ -1347,6 +1356,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblResultSrcDialog.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtDialog.Text);
         }
@@ -1463,6 +1473,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblResultSrcHtml.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtCshtml.Text);
         }
@@ -1653,6 +1664,7 @@ namespace ToolSupportUchida.View
 
             btnHtmlCopy.Enabled = false;
             btnHtmlClear.Enabled = false;
+            lblHtmlResult.Visible = false;
         }
 
         private void btnCreateOut_Click(object sender, EventArgs e)
@@ -1892,6 +1904,8 @@ namespace ToolSupportUchida.View
                 btnHtmlCopy.Enabled = true;
                 btnHtmlClear.Enabled = true;
             }
+
+            lblHtmlResult.Visible = false;
         }
 
         private void btnHtmlCopy_Click(object sender, EventArgs e)
@@ -1901,6 +1915,7 @@ namespace ToolSupportUchida.View
                 return;
             }
 
+            lblHtmlResult.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtHtmlResult.Text);
         }
@@ -1912,6 +1927,8 @@ namespace ToolSupportUchida.View
             txtHtmlResult.Text = string.Empty;
             txtHtmlName.Text = string.Empty;
             txtHtmlJPName.Text = string.Empty;
+
+            lblHtmlResult.Visible = false;
 
             Clipboard.Clear();
         }
