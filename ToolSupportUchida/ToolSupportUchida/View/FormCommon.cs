@@ -1111,7 +1111,7 @@ namespace ToolSupportUchida.View
             sb.Append("    \"/Content/app/{0}/{1}/{2}.index.css\"));\r\n");
             sb.Append("bundles.Add(new ScriptBundle(\"/bundles/{0}/{1}\").Include(\r\n");
             sb.Append("    \"/Scripts/app/{0}/{1}/{2}.init.js\",\r\n");
-            sb.Append("    \"/Scripts/app/{0}/{1}/{2}.viewmodel.js\"\r\n");
+            sb.Append("    \"/Scripts/app/{0}/{1}/{2}.viewmodel.js));\"\r\n");
 
             txtBundle.Text = string.Format(sb.ToString(), id, name, name.ToLower());
 
@@ -1144,16 +1144,16 @@ namespace ToolSupportUchida.View
             sb.Append("// {0}：{1}画面\r\n");
             if (chkMain.Checked && !chkSub.Checked && !chkPara.Checked)
             {
-                sb.Append("public ActionResult {0}()");
+                sb.Append("public ActionResult {0}(){{\r\n");
             }
             else if (chkMain.Checked && !chkSub.Checked && chkPara.Checked)
             {
-                sb.Append("public ActionResult {0}(string para)\r\n");
+                sb.Append("public ActionResult {0}(string para){{\r\n");
                 sb.Append("    ViewBag.Para = para;\r\n");
             }
             else if (chkSub.Checked && !chkPara.Checked)
             {
-                sb.Append("public ActionResult {0}(string dialog)\r\n");
+                sb.Append("public ActionResult {0}(string dialog){{\r\n");
                 sb.Append("    if (dialog == \"1\")\r\n");
                 sb.Append("    {{\r\n");
                 sb.Append("        // サブ画面で開くために \"PartialView()\"を使用\r\n");
@@ -1162,7 +1162,7 @@ namespace ToolSupportUchida.View
             }
             else if (chkSub.Checked && chkPara.Checked)
             {
-                sb.Append("public ActionResult {0}(string dialog, string para)\r\n");
+                sb.Append("public ActionResult {0}(string dialog, string para){{\r\n");
                 sb.Append("    ViewBag.Para = para;\r\n");
                 sb.Append("\r\n");
                 sb.Append("    if (dialog == \"1\")\r\n");
@@ -1173,7 +1173,7 @@ namespace ToolSupportUchida.View
             }
             else
             {
-                sb.Append("public ActionResult {0}()");
+                sb.Append("public ActionResult {0}(){{\r\n");
             }
 
             if (!chkMain.Checked)
