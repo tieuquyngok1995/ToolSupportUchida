@@ -1515,9 +1515,9 @@ namespace ToolSupportUchida.View
                     lbHtmlName.Text = "E Name";
                     txtHtmlName.Visible = true;
 
-                    rdbNone.Visible = false;
-                    rdbUpdate.Visible = false;
-                    rdbDelete.Visible = false;
+                    rdbNone.Visible = true;
+                    rdbUpdate.Visible = true;
+                    rdbDelete.Visible = true;
 
                     chkItem.Visible = true;
                     chkItem.Text = "Span";
@@ -1696,17 +1696,17 @@ namespace ToolSupportUchida.View
                 case 1:
                     if (rdbUpdate.Checked)
                     {
-                        sb.Append("<button class=\"btn row-25 btn-primary\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-primary btn-block\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
                     else if (rdbDelete.Checked)
                     {
-                        sb.Append("<button class=\"btn row-25 btn-danger\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-danger btn-block\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
                     else
                     {
-                        sb.Append("<button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
+                        sb.Append("<button class=\"btn row-25 btn-light border-secondary btn-block\" tabindex=\"-1\"\r\n");
                         sb.Append("        data-bind=\"click: bt{0}OnClick, disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     }
 
