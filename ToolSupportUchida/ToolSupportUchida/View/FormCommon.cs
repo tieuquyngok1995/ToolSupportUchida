@@ -1442,24 +1442,23 @@ namespace ToolSupportUchida.View
             sb.Append("    <input class=\"para\" type=\"hidden\" value=\"@ViewBag.Para\"/>\r\n");
             sb.Append("    @Html.Hidden(\"spreadLiteral\", @Newtonsoft.Json.JsonConvert.SerializeObject(spreadLiteral))\r\n");
             sb.Append("    <!-- コンテンツエリア -->\r\n");
-            sb.Append("        <div class=\"card main\">\r\n");
-            sb.Append("            <div class=\"card-body\">\r\n");
+            sb.Append("    <div class=\"card main\">\r\n");
+            sb.Append("        <div class=\"card-body\">\r\n");
 
             for (int i = 0; i < 25; i++)
             {
-                sb.Append("                <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
-                sb.Append("                    <div class=\"col\">\r\n");
-                sb.Append("                    </div>\r\n");
+                sb.Append("            <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
+                sb.Append("                <div class=\"col\">\r\n");
                 sb.Append("                </div>\r\n");
+                sb.Append("            </div>\r\n");
             }
 
-            sb.Append("            </div>\r\n");
             sb.Append("        </div>\r\n");
+            sb.Append("    </div>\r\n");
             sb.Append("\r\n");
-            sb.Append("        <div class=\"contentFooter {3}BottomBtnArea\">\r\n");
-            sb.Append("            <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
-            sb.Append("                <div class=\"col\">\r\n");
-            sb.Append("                </div>\r\n");
+            sb.Append("    <div class=\"contentFooter {3}BottomBtnArea\">\r\n");
+            sb.Append("        <div class=\"d-flex row-25 align-items-center col-px\">\r\n");
+            sb.Append("            <div class=\"col\">\r\n");
             sb.Append("            </div>\r\n");
             sb.Append("        </div>\r\n");
             sb.Append("    </div>\r\n");
