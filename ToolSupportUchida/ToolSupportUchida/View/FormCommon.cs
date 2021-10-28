@@ -1252,12 +1252,12 @@ namespace ToolSupportUchida.View
             sb.Append("//-----------------------------------------------------------------------\r\n");
             sb.Append("\r\n");
             sb.Append("$(() => {{\r\n");
-            sb.Append("    const viewmodel = new {2}ViewModel();\r\n");
+            sb.Append("    const viewmodel = new {2}ViewModel();\r\n\r\n");
             sb.Append("    Utils.applyBindings(viewmodel, $(\"#{0}Main\"));\r\n");
 
             if (chkPara.Checked)
             {
-                sb.Append("    const para = $(\"#{0}Main > input.para\").val();\r\n");
+                sb.Append("    const para = $(\"#{0}Main > input.para\").val();\r\n\r\n");
                 sb.Append("    viewmodel.init({{\r\n");
                 sb.Append("        initParam: para\r\n");
                 sb.Append("    }});\r\n");
