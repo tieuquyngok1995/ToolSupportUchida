@@ -1156,7 +1156,7 @@ namespace ToolSupportUchida.View
             else if (chkMain.Checked && !chkSub.Checked && chkPara.Checked)
             {
                 sb.Append("public ActionResult {0}(string para){{\r\n");
-                sb.Append("    ViewBag.Para = para;\r\n");
+                sb.Append("    ViewBag.Para = para ?? \"\";\r\n");
             }
             else if (chkSub.Checked && !chkPara.Checked)
             {
@@ -1170,7 +1170,7 @@ namespace ToolSupportUchida.View
             else if (chkSub.Checked && chkPara.Checked)
             {
                 sb.Append("public ActionResult {0}(string dialog, string para){{\r\n");
-                sb.Append("    ViewBag.Para = para;\r\n");
+                sb.Append("    ViewBag.Para = para ?? \"\";\r\n");
                 sb.Append("\r\n");
                 sb.Append("    if (dialog == \"1\")\r\n");
                 sb.Append("    {{\r\n");
