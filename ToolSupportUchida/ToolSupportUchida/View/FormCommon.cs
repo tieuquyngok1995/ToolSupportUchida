@@ -1858,7 +1858,7 @@ namespace ToolSupportUchida.View
                     sb.Append("        optionsValue: 'cx{0}Code',\r\n");
                     sb.Append("        value:         cx{0}Sentaku,\r\n");
                     sb.Append("        disable:       cx{0}Disable,\r\n");
-                    sb.Append("        hasfocus:      cx{0}Focus,\r\n");
+                    sb.Append("        hasfocus:      cx{0}Focus\">\r\n");
                     sb.Append("</select>\r\n");
 
                     result = string.Format(sb.ToString(), CUtils.FirstCharToUpperCase(jpName));
