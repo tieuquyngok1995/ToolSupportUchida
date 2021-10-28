@@ -1148,18 +1148,25 @@ namespace ToolSupportUchida.View
             string name = txtID.Text.ToUpper();
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("// {0}：{1}画面\r\n");
+            sb.Append("/// <summary>\r\n");
+            sb.Append("/// {0}：{1}画面\r\n");
+            sb.Append("/// <summary>\r\n");
             if (chkMain.Checked && !chkSub.Checked && !chkPara.Checked)
             {
+                sb.Append("/// <returns></returns>\r\n");
                 sb.Append("public ActionResult {0}(){{\r\n");
             }
             else if (chkMain.Checked && !chkSub.Checked && chkPara.Checked)
             {
+                sb.Append("/// <param name=\"para\"></param>\r\n");
+                sb.Append("/// <returns></returns>\r\n");
                 sb.Append("public ActionResult {0}(string para){{\r\n");
                 sb.Append("    ViewBag.Para = para ?? \"\";\r\n");
             }
             else if (chkSub.Checked && !chkPara.Checked)
             {
+                sb.Append("/// <param name=\"dialog\"></param>\r\n");
+                sb.Append("/// <returns></returns>\r\n");
                 sb.Append("public ActionResult {0}(string dialog){{\r\n");
                 sb.Append("    if (dialog == \"1\")\r\n");
                 sb.Append("    {{\r\n");
@@ -1169,6 +1176,9 @@ namespace ToolSupportUchida.View
             }
             else if (chkSub.Checked && chkPara.Checked)
             {
+                sb.Append("/// <param name=\"dialog\"></param>\r\n");
+                sb.Append("/// <param name=\"para\"></param>\r\n");
+                sb.Append("/// <returns></returns>\r\n");
                 sb.Append("public ActionResult {0}(string dialog, string para){{\r\n");
                 sb.Append("    ViewBag.Para = para ?? \"\";\r\n");
                 sb.Append("\r\n");
@@ -1180,6 +1190,7 @@ namespace ToolSupportUchida.View
             }
             else
             {
+                sb.Append("/// <returns></returns>\r\n");
                 sb.Append("public ActionResult {0}(){{\r\n");
             }
 
