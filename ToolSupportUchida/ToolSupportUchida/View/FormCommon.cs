@@ -1829,7 +1829,7 @@ namespace ToolSupportUchida.View
                     sb.Append("           data-bind = \"value: tx{1}Name, disable: tx{1}NameDisable, hasFocus: tx{1}NameFocus\" readonly/>\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
                     sb.Append("        <button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
-                    sb.Append("                data-bind=\"click: btClearOnClick, disable: btClearDisable, hasFocus: btClearFocus\">\r\n");
+                    sb.Append("                data-bind=\"click: bt{0}ClearOnClick, disable: bt{0}ClearDisable, hasFocus: bt{0}ClearFocus\">\r\n");
                     sb.Append("            <span class=\"fa fa-eraser\"></span>\r\n");
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
