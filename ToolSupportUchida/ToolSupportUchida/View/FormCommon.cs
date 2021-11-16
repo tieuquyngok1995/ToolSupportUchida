@@ -1117,7 +1117,7 @@ namespace ToolSupportUchida.View
             sb.Append("    \"~/Content/app/{0}/{1}/{2}.index.css\"));\r\n");
             sb.Append("bundles.Add(new ScriptBundle(\"~/bundles/{0}/{1}\").Include(\r\n");
             sb.Append("    \"~/Scripts/app/{0}/{1}/{2}.init.js\",\r\n");
-            sb.Append("    \"~/Scripts/app/{0}/{1}/{2}.viewmodel.js));\"\r\n");
+            sb.Append("    \"~/Scripts/app/{0}/{1}/{2}.viewmodel.js\"));\r\n");
 
             txtBundle.Text = string.Format(sb.ToString(), id, name, name.ToLower());
 
@@ -1200,7 +1200,6 @@ namespace ToolSupportUchida.View
             }
             else
             {
-                sb.Append("\r\n");
                 sb.Append("    // 主要画面で開くために \"View()\"を使用\r\n");
                 sb.Append("    return View();\r\n");
                 sb.Append("}}\r\n");
@@ -1240,15 +1239,15 @@ namespace ToolSupportUchida.View
 
             sb.Append("//-----------------------------------------------------------------------\r\n");
             sb.Append("// ファイル名\r\n");
-            sb.Append("// {0}.init.ts\r\n");
+            sb.Append("//    {0}.init.ts\r\n");
             sb.Append("// 概要\r\n");
             sb.Append("// \r\n");
             sb.Append("// 著作権\r\n");
-            sb.Append("// Copyright © UCHIDA YOKO CO., LTD. All rights reserved.\r\n");
+            sb.Append("//    Copyright © UCHIDA YOKO CO., LTD. All rights reserved.\r\n");
             sb.Append("// 作成者\r\n");
-            sb.Append("// フジネットシステムズ株式会社\r\n");
+            sb.Append("//    フジネットシステムズ株式会社\r\n");
             sb.Append("// 作成日\r\n");
-            sb.Append("// {1}\r\n");
+            sb.Append("//    {1}\r\n");
             sb.Append("//-----------------------------------------------------------------------\r\n");
             sb.Append("\r\n");
             sb.Append("$(() => {{\r\n");
