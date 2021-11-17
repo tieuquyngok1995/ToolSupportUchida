@@ -1584,9 +1584,9 @@ namespace ToolSupportUchida.View
                     chkItem.Visible = false;
                     break;
                 case 7:
-                    lbHtmlJpName.Text = "B Name";
+                    lbHtmlJpName.Text = "I Name";
                     lbHtmlName.Visible = true;
-                    lbHtmlName.Text = "I Name";
+                    lbHtmlName.Text = "B Name";
                     txtHtmlName.Visible = true;
 
                     rdbNone.Visible = false;
