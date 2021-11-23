@@ -1530,7 +1530,7 @@ namespace ToolSupportUchida.View
                     rdbDelete.Visible = false;
 
                     chkItem.Visible = true;
-                    chkItem.Text = "Readonly";
+                    chkItem.Text = "disable";
                     break;
                 case 3:
                     lbHtmlJpName.Text = "E Name";
@@ -1606,7 +1606,7 @@ namespace ToolSupportUchida.View
                     rdbDelete.Visible = false;
 
                     chkItem.Visible = true;
-                    chkItem.Text = "Readonly";
+                    chkItem.Text = "disable";
                     break;
                 case 9:
                     lbHtmlJpName.Text = "E Name";
@@ -1738,7 +1738,7 @@ namespace ToolSupportUchida.View
                     if (chkItem.Checked)
                     {
                         sb.Append("<input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
-                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" readonly/>\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" disable/>\r\n");
                     }
                     else
                     {
@@ -1768,7 +1768,7 @@ namespace ToolSupportUchida.View
                     sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
                     sb.Append("           data-bind=\"dateJpValue: tx{0}, disable: tx{0}Disable, hasFocus: tx{0}Focus\">\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
-                    sb.Append("        <button class=\"btn row-25 btn-primary border-secondary\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
+                    sb.Append("        <button class=\"btn row-25 btn-light border-secondary btn-block\" tabindex=\"-1\" data-bind=\"disable: bt{0}Disable, hasFocus: bt{0}Focus\">\r\n");
                     sb.Append("            <span class=\"far fa-calendar-alt\"></span>\r\n");
                     sb.Append("        </button>\r\n");
 
@@ -1822,9 +1822,9 @@ namespace ToolSupportUchida.View
                     sb.Append("        </button>\r\n");
                     sb.Append("    </div>\r\n");
                     sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
-                    sb.Append("           data-bind = \"value: tx{1}Code, disable: tx{1}CodeDisable, hasFocus: tx{1}CodeFocus\" readonly/>\r\n");
+                    sb.Append("           data-bind = \"value: tx{1}Code, disable: tx{1}CodeDisable, hasFocus: tx{1}CodeFocus\" disable/>\r\n");
                     sb.Append("    <input type=\"text\" class=\"form-control row-25\" tabindex=\"-1\"\r\n");
-                    sb.Append("           data-bind = \"value: tx{1}Name, disable: tx{1}NameDisable, hasFocus: tx{1}NameFocus\" readonly/>\r\n");
+                    sb.Append("           data-bind = \"value: tx{1}Name, disable: tx{1}NameDisable, hasFocus: tx{1}NameFocus\" disable/>\r\n");
                     sb.Append("    <div class=\"input-group-append\">\r\n");
                     sb.Append("        <button class=\"btn row-25 btn-light border-secondary\" tabindex=\"-1\"\r\n");
                     sb.Append("                data-bind=\"click: bt{0}ClearOnClick, disable: bt{0}ClearDisable, hasFocus: bt{0}ClearFocus\">\r\n");
@@ -1839,7 +1839,7 @@ namespace ToolSupportUchida.View
                     if (chkItem.Checked)
                     {
                         sb.Append("<textarea class=\"form-control txarea-row-25\" maxleng=\"100\" tabindex=\"-1\"\r\n");
-                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" readonly/>\r\n");
+                        sb.Append("       data-bind = \"value: tx{0}, disable: tx{0}Disable, hidden: tx{0}Hidden, hasFocus: tx{0}Focus\" disable/>\r\n");
                     }
                     else
                     {
