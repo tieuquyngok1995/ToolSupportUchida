@@ -738,6 +738,11 @@ namespace ToolSupportUchida.View
                 StringBuilder stringBuilder = new StringBuilder();
                 if (!nameLog.ToLower().Equals(CONST.STRING_NONE) && !string.IsNullOrEmpty(nameLog))
                 {
+                    if (i > 0)
+                    {
+                        lstResult[i - 1] = lstResult[i - 1] + "\r\n";
+                    }
+
                     if (rdbLine.Checked)
                     {
                         stringBuilder.Append("// {0}\r\n");
@@ -760,7 +765,7 @@ namespace ToolSupportUchida.View
                     }
                     else if (rdbObservable.Checked)
                     {
-                        stringBuilder.Append("readonly {1}{2}{3};\r\n");
+                        stringBuilder.Append("readonly {1}{2}{3};");
                     }
                     else
                     {
@@ -779,15 +784,15 @@ namespace ToolSupportUchida.View
 
                         if (chkCreateInterf.Checked)
                         {
-                            stringBuilder.Append(",\r\n");
+                            stringBuilder.Append(",");
                         }
                         else if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
                         {
-                            stringBuilder.Append(";\r\n");
+                            stringBuilder.Append(";");
                         }
                         else
                         {
-                            stringBuilder.Append("\r\n");
+                            stringBuilder.Append("");
                         }
                     }
 
@@ -821,15 +826,15 @@ namespace ToolSupportUchida.View
 
                         if (chkCreateInterf.Checked)
                         {
-                            stringBuilder.Append(",\r\n");
+                            stringBuilder.Append(",");
                         }
                         if (!lstType[i].Trim().Equals("void") && !lstType[i].Trim().Equals("function"))
                         {
-                            stringBuilder.Append(";\r\n");
+                            stringBuilder.Append(";");
                         }
                         else
                         {
-                            stringBuilder.Append("\r\n");
+                            stringBuilder.Append("");
                         }
                     }
 
