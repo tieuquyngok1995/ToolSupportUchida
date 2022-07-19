@@ -11,6 +11,7 @@ namespace ToolSupportUchida.View
 {
     public partial class FormConvertModel : Form
     {
+        private int isMode = 0;
         private List<string> lstLogic = new List<string>();
 
         private List<string> lstPhysi = new List<string>();
@@ -60,14 +61,92 @@ namespace ToolSupportUchida.View
     };
 
         #region Load Form
-        public FormConvertModel()
+        public FormConvertModel(int mode)
         {
+            this.isMode = mode;
             InitializeComponent();
         }
 
         private void FormConvertModel_Load(object sender, EventArgs e)
         {
             LoadTheme();
+
+            if (this.isMode == 0)
+            {
+                this.lbLanguage.Text = "C#";
+
+                this.panelComment.Visible = true;
+                this.panelFormat.Visible = false;
+                this.panelType.Visible = false;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
+                this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
+
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
+                this.chkCreateInterf.Visible = false;
+
+                this.isCsharp = true;
+                this.isJs = false;
+                this.isHtml = false;
+            }
+            else if (this.isMode == 1)
+            {
+                this.lbLanguage.Text = "TypeScript";
+
+                this.panelComment.Visible = true;
+                this.panelFormat.Visible = true;
+                this.panelType.Visible = true;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
+                this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
+
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
+                this.chkCreateInterf.Visible = true;
+
+                this.rdbFirst.Text = "Set Public";
+                this.rdbLast.Text = "Set Private";
+
+                this.isCsharp = false;
+                this.isJs = true;
+                this.isHtml = false;
+            }
+            if (this.isMode == 2)
+            {
+                this.lbLanguage.Text = "Java";
+            }
+            if (this.isMode == 3)
+            {
+                this.lbLanguage.Text = "HTML";
+
+                this.panelComment.Visible = false;
+                this.panelFormat.Visible = false;
+                this.panelType.Visible = false;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
+                this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
+
+                this.rdbFirst.Visible = false;
+                this.rdbLast.Visible = false;
+
+                this.chkCreateInterf.Visible = false;
+
+                this.isCsharp = false;
+                this.isJs = false;
+                this.isHtml = true;
+            }
         }
 
         private void LoadTheme()
@@ -140,90 +219,6 @@ namespace ToolSupportUchida.View
             convert();
         }
 
-        private void rdbC_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbC.Checked)
-            {
-                this.panelComment.Visible = true;
-                this.panelFormat.Visible = false;
-                this.panelType.Visible = false;
-
-                this.txtAddLogic.Visible = false;
-                this.txtAddLogic.Text = string.Empty;
-                this.txtAddPhysi.Visible = false;
-                this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
-
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
-
-                this.chkCreateInterf.Visible = false;
-
-                this.isCsharp = true;
-                this.isJs = false;
-                this.isHtml = false;
-
-                convert();
-            }
-        }
-
-        private void rdbJS_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbJS.Checked)
-            {
-                this.panelComment.Visible = true;
-                this.panelFormat.Visible = true;
-                this.panelType.Visible = true;
-
-                this.txtAddLogic.Visible = false;
-                this.txtAddLogic.Text = string.Empty;
-                this.txtAddPhysi.Visible = false;
-                this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
-
-                this.rdbFirst.Visible = true;
-                this.rdbLast.Visible = true;
-
-                this.chkCreateInterf.Visible = true;
-
-                this.rdbFirst.Text = "Set Public";
-                this.rdbLast.Text = "Set Private";
-
-                this.isCsharp = false;
-                this.isJs = true;
-                this.isHtml = false;
-
-                convert();
-            }
-        }
-
-        private void rdbHTML_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbHTML.Checked)
-            {
-                this.panelComment.Visible = false;
-                this.panelFormat.Visible = false;
-                this.panelType.Visible = false;
-
-                this.txtAddLogic.Visible = false;
-                this.txtAddLogic.Text = string.Empty;
-                this.txtAddPhysi.Visible = false;
-                this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
-
-                this.rdbFirst.Visible = false;
-                this.rdbLast.Visible = false;
-
-                this.chkCreateInterf.Visible = false;
-
-                this.isCsharp = false;
-                this.isJs = false;
-                this.isHtml = true;
-
-                convert();
-            }
-        }
-
         private void rdbLineBlock_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbLineBlock.Checked)
@@ -234,7 +229,7 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                if (rdbJS.Checked && rdbTypeScript.Checked)
+                if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
                     this.chkCreateInterf.Visible = true;
                     if (this.chkCreateInterf.Checked)
@@ -248,7 +243,7 @@ namespace ToolSupportUchida.View
                         this.rdbLast.Visible = true;
                     }
                 }
-                else if (rdbJS.Checked && rdbSetParam.Checked)
+                else if (this.isMode == 1 && rdbSetParam.Checked)
                 {
                     this.chkCreateInterf.Visible = false;
                     this.rdbFirst.Visible = true;
@@ -277,7 +272,7 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                if (rdbJS.Checked && rdbTypeScript.Checked)
+                if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
                     if (this.chkCreateInterf.Checked)
                     {
@@ -290,7 +285,7 @@ namespace ToolSupportUchida.View
                         this.rdbLast.Visible = true;
                     }
                 }
-                else if (rdbJS.Checked && rdbSetParam.Checked)
+                else if (this.isMode == 1 && rdbSetParam.Checked)
                 {
                     this.chkCreateInterf.Visible = false;
                     this.rdbFirst.Visible = true;
@@ -319,7 +314,7 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                if (rdbJS.Checked && rdbTypeScript.Checked)
+                if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
                     if (this.chkCreateInterf.Checked)
                     {
@@ -332,7 +327,7 @@ namespace ToolSupportUchida.View
                         this.rdbLast.Visible = true;
                     }
                 }
-                else if (rdbJS.Checked && rdbSetParam.Checked)
+                else if (this.isMode == 1 && rdbSetParam.Checked)
                 {
                     this.chkCreateInterf.Visible = false;
                     this.rdbFirst.Visible = true;
@@ -361,7 +356,7 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                if (rdbJS.Checked && rdbTypeScript.Checked)
+                if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
                     if (this.chkCreateInterf.Checked)
                     {
@@ -374,7 +369,7 @@ namespace ToolSupportUchida.View
                         this.rdbLast.Visible = true;
                     }
                 }
-                else if (rdbJS.Checked && rdbSetParam.Checked)
+                else if (this.isMode == 1 && rdbSetParam.Checked)
                 {
                     this.chkCreateInterf.Visible = false;
                     this.rdbFirst.Visible = true;
@@ -403,7 +398,7 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
 
-                if (rdbJS.Checked && rdbTypeScript.Checked)
+                if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
                     if (this.chkCreateInterf.Checked)
                     {
@@ -416,7 +411,7 @@ namespace ToolSupportUchida.View
                         this.rdbLast.Visible = true;
                     }
                 }
-                else if (rdbJS.Checked && rdbSetParam.Checked)
+                else if (this.isMode == 1 && rdbSetParam.Checked)
                 {
                     this.chkCreateInterf.Visible = false;
                     this.rdbFirst.Visible = true;

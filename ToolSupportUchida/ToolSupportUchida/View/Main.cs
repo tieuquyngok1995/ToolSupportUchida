@@ -33,6 +33,7 @@ namespace ToolSupportUchida
 
         private ToolSupportModel objToolSupport;
 
+        private int mode;
         private List<SekkeiModel> lstSekkei;
         private List<AdapterModel> lstAdapter;
 
@@ -185,6 +186,52 @@ namespace ToolSupportUchida
                 }
             }
 
+            mode = objToolSupport.modeLanguage;
+            if (mode == 0)
+            {
+                rbC.Checked = true;
+            }
+            else if (mode == 1)
+            {
+                rbTypeScript.Checked = true;
+            }
+            else if (mode == 2)
+            {
+                rbJava.Checked = true;
+            }
+            else if (mode == 3)
+            {
+                rbHtml.Checked = true;
+            }
+
+        }
+
+        private void rbC_CheckedChanged(object sender, EventArgs e)
+        {
+            mode = 0;
+            objToolSupport.modeLanguage = mode;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void rbTypeScript_CheckedChanged(object sender, EventArgs e)
+        {
+            mode = 1;
+            objToolSupport.modeLanguage = mode;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void rbJava_CheckedChanged(object sender, EventArgs e)
+        {
+            mode = 2;
+            objToolSupport.modeLanguage = mode;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void rbHtml_CheckedChanged(object sender, EventArgs e)
+        {
+            mode = 3;
+            objToolSupport.modeLanguage = mode;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
         }
 
         private void btnAddSekkei_Click(object sender, EventArgs e)
@@ -458,12 +505,12 @@ namespace ToolSupportUchida
 
         private void btnConverSekkei_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormConvertSekkei(lstSekkei), sender);
+            OpenChildForm(new FormConvertSekkei(lstSekkei, mode), sender);
         }
 
         private void btnConvertModel_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormConvertModel(), sender);
+            OpenChildForm(new FormConvertModel(mode), sender);
         }
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
@@ -474,6 +521,11 @@ namespace ToolSupportUchida
         private void btnCheckData_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormCommon(), sender);
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormAbout(), sender);
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)

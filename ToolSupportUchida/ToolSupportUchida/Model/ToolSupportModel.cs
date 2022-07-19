@@ -9,5 +9,7 @@ namespace ToolSupportUchida.Model
         public List<SekkeiModel> lstSekkei { get; set; }
 
         public List<AdapterModel> lstAdapter { get; set; }
+
+        public int modeLanguage { get; set; }
     }
 }

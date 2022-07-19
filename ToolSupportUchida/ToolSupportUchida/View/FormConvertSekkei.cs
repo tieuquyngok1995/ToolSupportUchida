@@ -17,7 +17,7 @@ namespace ToolSupportUchida.View
         private const string reduceMultiSpace = @"[ ]{2,}";
 
         #region Load Form
-        public FormConvertSekkei(List<SekkeiModel> lstSekkei)
+        public FormConvertSekkei(List<SekkeiModel> lstSekkei, int mode)
         {
             InitializeComponent();
 

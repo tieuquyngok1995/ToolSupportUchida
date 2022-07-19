@@ -31,9 +31,7 @@ namespace ToolSupportUchida.View
         {
             this.panelLanguage = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbJS = new System.Windows.Forms.RadioButton();
-            this.rdbC = new System.Windows.Forms.RadioButton();
-            this.rdbHTML = new System.Windows.Forms.RadioButton();
+            this.lbLanguage = new System.Windows.Forms.Label();
             this.panelComment = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdbBlock = new System.Windows.Forms.RadioButton();
@@ -91,10 +89,7 @@ namespace ToolSupportUchida.View
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rdbJS);
-            this.groupBox1.Controls.Add(this.rdbC);
-            this.groupBox1.Controls.Add(this.rdbHTML);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Controls.Add(this.lbLanguage);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -103,43 +98,13 @@ namespace ToolSupportUchida.View
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Language";
             // 
-            // rdbJS
+            // lbLanguage
             // 
-            this.rdbJS.AutoSize = true;
-            this.rdbJS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbJS.Location = new System.Drawing.Point(50, 22);
-            this.rdbJS.Name = "rdbJS";
-            this.rdbJS.Size = new System.Drawing.Size(39, 19);
-            this.rdbJS.TabIndex = 99;
-            this.rdbJS.Text = "JS";
-            this.rdbJS.UseVisualStyleBackColor = true;
-            this.rdbJS.CheckedChanged += new System.EventHandler(this.rdbJS_CheckedChanged);
-            // 
-            // rdbC
-            // 
-            this.rdbC.AutoSize = true;
-            this.rdbC.Checked = true;
-            this.rdbC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbC.Location = new System.Drawing.Point(6, 22);
-            this.rdbC.Name = "rdbC";
-            this.rdbC.Size = new System.Drawing.Size(40, 19);
-            this.rdbC.TabIndex = 99;
-            this.rdbC.TabStop = true;
-            this.rdbC.Text = "C#";
-            this.rdbC.UseVisualStyleBackColor = true;
-            this.rdbC.CheckedChanged += new System.EventHandler(this.rdbC_CheckedChanged);
-            // 
-            // rdbHTML
-            // 
-            this.rdbHTML.AutoSize = true;
-            this.rdbHTML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbHTML.Location = new System.Drawing.Point(95, 22);
-            this.rdbHTML.Name = "rdbHTML";
-            this.rdbHTML.Size = new System.Drawing.Size(59, 19);
-            this.rdbHTML.TabIndex = 99;
-            this.rdbHTML.Text = "HTML";
-            this.rdbHTML.UseVisualStyleBackColor = true;
-            this.rdbHTML.CheckedChanged += new System.EventHandler(this.rdbHTML_CheckedChanged);
+            this.lbLanguage.AutoSize = true;
+            this.lbLanguage.Location = new System.Drawing.Point(6, 22);
+            this.lbLanguage.Name = "lbLanguage";
+            this.lbLanguage.Size = new System.Drawing.Size(0, 17);
+            this.lbLanguage.TabIndex = 100;
             // 
             // panelComment
             // 
@@ -591,9 +556,6 @@ namespace ToolSupportUchida.View
 
         private System.Windows.Forms.Panel panelLanguage;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdbJS;
-        private System.Windows.Forms.RadioButton rdbC;
-        private System.Windows.Forms.RadioButton rdbHTML;
         private System.Windows.Forms.Panel panelComment;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rdbBlock;
@@ -627,5 +589,6 @@ namespace ToolSupportUchida.View
         private System.Windows.Forms.RadioButton rdbFirst;
         private System.Windows.Forms.RadioButton rdbLast;
         private System.Windows.Forms.CheckBox chkCreateInterf;
+        private System.Windows.Forms.Label lbLanguage;
     }
 }

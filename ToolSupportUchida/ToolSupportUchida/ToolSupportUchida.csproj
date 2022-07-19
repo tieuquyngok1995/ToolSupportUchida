@@ -61,6 +61,12 @@
     <Compile Include="Theme\ThemeColor.cs" />
     <Compile Include="Utils\CONST.cs" />
     <Compile Include="Utils\CUtils.cs" />
+    <Compile Include="View\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormConvertSekkei.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormCommon.resx">
       <DependentUpon>FormCommon.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +154,7 @@
     <None Include="Resources\button-edit.png" />
     <None Include="Resources\button-left.png" />
     <None Include="Resources\button-right.png" />
+    <None Include="Resources\about.png" />
     <Content Include="Resources\button-clear.png" />
     <None Include="Resources\button-create-in.png" />
     <None Include="Resources\button-create-out.png" />

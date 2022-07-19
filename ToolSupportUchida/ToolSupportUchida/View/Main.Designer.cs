@@ -32,11 +32,14 @@ namespace ToolSupportUchida
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnAbout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCheckData = new System.Windows.Forms.Button();
             this.btnCreateAdapter = new System.Windows.Forms.Button();
             this.btnConvertModel = new System.Windows.Forms.Button();
@@ -67,6 +70,11 @@ namespace ToolSupportUchida
             this.colSekkeiEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.colSekkeiDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelSettingTop = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbHtml = new System.Windows.Forms.RadioButton();
+            this.rbJava = new System.Windows.Forms.RadioButton();
+            this.rbTypeScript = new System.Windows.Forms.RadioButton();
+            this.rbC = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -91,6 +99,8 @@ namespace ToolSupportUchida
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,6 +111,7 @@ namespace ToolSupportUchida
             this.panelSettingLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSekkei)).BeginInit();
             this.panelSettingTop.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelFooter.SuspendLayout();
@@ -109,6 +120,8 @@ namespace ToolSupportUchida
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnAbout);
+            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.btnCheckData);
             this.panelMenu.Controls.Add(this.btnCreateAdapter);
             this.panelMenu.Controls.Add(this.btnConvertModel);
@@ -120,6 +133,45 @@ namespace ToolSupportUchida
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 484);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAbout.Image = global::ToolSupportUchida.Properties.Resources.about;
+            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.Location = new System.Drawing.Point(0, 424);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(220, 60);
+            this.btnAbout.TabIndex = 5;
+            this.btnAbout.TabStop = false;
+            this.btnAbout.Text = "  About";
+            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 364);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(220, 60);
+            this.button1.TabIndex = 4;
+            this.button1.TabStop = false;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnCheckData
             // 
@@ -199,7 +251,7 @@ namespace ToolSupportUchida
             this.btnConverSekkei.Size = new System.Drawing.Size(220, 60);
             this.btnConverSekkei.TabIndex = 3;
             this.btnConverSekkei.TabStop = false;
-            this.btnConverSekkei.Text = "  Convert Sekkei";
+            this.btnConverSekkei.Text = "  Get CONST";
             this.btnConverSekkei.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConverSekkei.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConverSekkei.UseVisualStyleBackColor = true;
@@ -347,9 +399,9 @@ namespace ToolSupportUchida
             // 
             this.panelSettingRight.Controls.Add(this.gridAdapter);
             this.panelSettingRight.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSettingRight.Location = new System.Drawing.Point(305, 80);
+            this.panelSettingRight.Location = new System.Drawing.Point(305, 120);
             this.panelSettingRight.Name = "panelSettingRight";
-            this.panelSettingRight.Size = new System.Drawing.Size(388, 320);
+            this.panelSettingRight.Size = new System.Drawing.Size(388, 280);
             this.panelSettingRight.TabIndex = 3;
             // 
             // gridAdapter
@@ -396,7 +448,7 @@ namespace ToolSupportUchida
             this.gridAdapter.RowHeadersWidth = 25;
             this.gridAdapter.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAdapter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridAdapter.Size = new System.Drawing.Size(377, 309);
+            this.gridAdapter.Size = new System.Drawing.Size(377, 271);
             this.gridAdapter.TabIndex = 1;
             this.gridAdapter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAdapter_CellContentClick);
             // 
@@ -414,21 +466,21 @@ namespace ToolSupportUchida
             // 
             this.DataGridViewTextBoxColumn.HeaderText = "Item Join Type";
             this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
-            this.DataGridViewTextBoxColumn.Width = 86;
+            this.DataGridViewTextBoxColumn.Width = 95;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Item Join Key";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 95;
+            this.dataGridViewTextBoxColumn2.Width = 97;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Item Join Value";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.Width = 95;
+            this.dataGridViewTextBoxColumn3.Width = 97;
             // 
             // colAdapterEdit
             // 
@@ -450,9 +502,9 @@ namespace ToolSupportUchida
             // 
             this.panelSettingLeft.Controls.Add(this.gridSekkei);
             this.panelSettingLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSettingLeft.Location = new System.Drawing.Point(0, 80);
+            this.panelSettingLeft.Location = new System.Drawing.Point(0, 120);
             this.panelSettingLeft.Name = "panelSettingLeft";
-            this.panelSettingLeft.Size = new System.Drawing.Size(305, 320);
+            this.panelSettingLeft.Size = new System.Drawing.Size(305, 280);
             this.panelSettingLeft.TabIndex = 2;
             // 
             // gridSekkei
@@ -465,6 +517,14 @@ namespace ToolSupportUchida
             this.gridSekkei.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSekkei.CausesValidation = false;
             this.gridSekkei.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSekkei.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridSekkei.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSekkei.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
@@ -473,58 +533,56 @@ namespace ToolSupportUchida
             this.colSekkeiEdit,
             this.colSekkeiDelete});
             this.gridSekkei.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSekkei.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSekkei.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridSekkei.EnableHeadersVisualStyles = false;
             this.gridSekkei.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gridSekkei.Location = new System.Drawing.Point(6, 6);
             this.gridSekkei.MultiSelect = false;
             this.gridSekkei.Name = "gridSekkei";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSekkei.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSekkei.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.gridSekkei.RowHeadersVisible = false;
             this.gridSekkei.RowHeadersWidth = 25;
             this.gridSekkei.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSekkei.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSekkei.Size = new System.Drawing.Size(291, 309);
+            this.gridSekkei.Size = new System.Drawing.Size(291, 271);
             this.gridSekkei.TabIndex = 0;
             this.gridSekkei.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSekkei_CellContentClick);
             // 
             // Column5
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "No.";
             this.Column5.Name = "Column5";
             this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column5.Width = 35;
+            this.Column5.Width = 42;
             // 
             // colLogic
             // 
             this.colLogic.HeaderText = "Logical Name";
             this.colLogic.Name = "colLogic";
             this.colLogic.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colLogic.Width = 95;
             // 
             // colPhysi
             // 
             this.colPhysi.HeaderText = "Physical Name";
             this.colPhysi.Name = "colPhysi";
             this.colPhysi.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colPhysi.Width = 95;
             // 
             // colSekkeiEdit
             // 
@@ -546,13 +604,78 @@ namespace ToolSupportUchida
             // 
             // panelSettingTop
             // 
+            this.panelSettingTop.Controls.Add(this.groupBox3);
             this.panelSettingTop.Controls.Add(this.groupBox2);
             this.panelSettingTop.Controls.Add(this.groupBox1);
             this.panelSettingTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettingTop.Location = new System.Drawing.Point(0, 0);
             this.panelSettingTop.Name = "panelSettingTop";
-            this.panelSettingTop.Size = new System.Drawing.Size(700, 80);
+            this.panelSettingTop.Size = new System.Drawing.Size(700, 120);
             this.panelSettingTop.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbHtml);
+            this.groupBox3.Controls.Add(this.rbJava);
+            this.groupBox3.Controls.Add(this.rbTypeScript);
+            this.groupBox3.Controls.Add(this.rbC);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(6, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(687, 46);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Language";
+            // 
+            // rbHtml
+            // 
+            this.rbHtml.AutoSize = true;
+            this.rbHtml.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbHtml.Location = new System.Drawing.Point(196, 19);
+            this.rbHtml.Name = "rbHtml";
+            this.rbHtml.Size = new System.Drawing.Size(64, 24);
+            this.rbHtml.TabIndex = 3;
+            this.rbHtml.Text = "HTML";
+            this.rbHtml.UseVisualStyleBackColor = true;
+            this.rbHtml.CheckedChanged += new System.EventHandler(this.rbHtml_CheckedChanged);
+            // 
+            // rbJava
+            // 
+            this.rbJava.AutoSize = true;
+            this.rbJava.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbJava.Location = new System.Drawing.Point(140, 19);
+            this.rbJava.Name = "rbJava";
+            this.rbJava.Size = new System.Drawing.Size(56, 24);
+            this.rbJava.TabIndex = 2;
+            this.rbJava.Text = "Java";
+            this.rbJava.UseVisualStyleBackColor = true;
+            this.rbJava.CheckedChanged += new System.EventHandler(this.rbJava_CheckedChanged);
+            // 
+            // rbTypeScript
+            // 
+            this.rbTypeScript.AutoSize = true;
+            this.rbTypeScript.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbTypeScript.Location = new System.Drawing.Point(46, 19);
+            this.rbTypeScript.Name = "rbTypeScript";
+            this.rbTypeScript.Size = new System.Drawing.Size(94, 24);
+            this.rbTypeScript.TabIndex = 1;
+            this.rbTypeScript.Text = "TypeScript";
+            this.rbTypeScript.UseVisualStyleBackColor = true;
+            this.rbTypeScript.CheckedChanged += new System.EventHandler(this.rbTypeScript_CheckedChanged);
+            // 
+            // rbC
+            // 
+            this.rbC.AutoSize = true;
+            this.rbC.Checked = true;
+            this.rbC.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbC.Location = new System.Drawing.Point(3, 19);
+            this.rbC.Name = "rbC";
+            this.rbC.Size = new System.Drawing.Size(43, 24);
+            this.rbC.TabIndex = 0;
+            this.rbC.TabStop = true;
+            this.rbC.Text = "C#";
+            this.rbC.UseVisualStyleBackColor = true;
+            this.rbC.CheckedChanged += new System.EventHandler(this.rbC_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -566,7 +689,7 @@ namespace ToolSupportUchida
             this.groupBox2.Controls.Add(this.txtJoinKey);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(311, 3);
+            this.groupBox2.Location = new System.Drawing.Point(311, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(382, 71);
             this.groupBox2.TabIndex = 6;
@@ -672,12 +795,12 @@ namespace ToolSupportUchida
             this.groupBox1.Controls.Add(this.txtLogicName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 3);
+            this.groupBox1.Location = new System.Drawing.Point(6, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(299, 71);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Setting Sekkei";
+            this.groupBox1.Text = "Setting CONST";
             // 
             // btnClear
             // 
@@ -795,7 +918,7 @@ namespace ToolSupportUchida
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Ver: 2.0";
+            this.label2.Text = "Ver: 2.1";
             // 
             // dataGridViewImageColumn1
             // 
@@ -815,6 +938,24 @@ namespace ToolSupportUchida
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn2.Width = 24;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.FillWeight = 24F;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::ToolSupportUchida.Properties.Resources.button_edit;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn3.Width = 24;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.FillWeight = 24F;
+            this.dataGridViewImageColumn4.HeaderText = "";
+            this.dataGridViewImageColumn4.Image = global::ToolSupportUchida.Properties.Resources.button_delete;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn4.Width = 24;
             // 
             // Main
             // 
@@ -842,6 +983,8 @@ namespace ToolSupportUchida
             this.panelSettingLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSekkei)).EndInit();
             this.panelSettingTop.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -898,6 +1041,11 @@ namespace ToolSupportUchida
         private System.Windows.Forms.DataGridView gridAdapter;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -909,6 +1057,10 @@ namespace ToolSupportUchida
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhysi;
         private System.Windows.Forms.DataGridViewImageColumn colSekkeiEdit;
         private System.Windows.Forms.DataGridViewImageColumn colSekkeiDelete;
+        private System.Windows.Forms.RadioButton rbC;
+        private System.Windows.Forms.RadioButton rbTypeScript;
+        private System.Windows.Forms.RadioButton rbJava;
+        private System.Windows.Forms.RadioButton rbHtml;
     }
 }
 
