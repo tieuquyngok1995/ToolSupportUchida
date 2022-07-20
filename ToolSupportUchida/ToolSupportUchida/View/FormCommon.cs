@@ -1530,7 +1530,7 @@ namespace ToolSupportUchida.View
                     rdbDelete.Visible = false;
 
                     chkItem.Visible = true;
-                    chkItem.Text = "disable";
+                    chkItem.Text = "Disable";
                     break;
                 case 3:
                     lbHtmlJpName.Text = "E Name";
@@ -1606,7 +1606,7 @@ namespace ToolSupportUchida.View
                     rdbDelete.Visible = false;
 
                     chkItem.Visible = true;
-                    chkItem.Text = "disable";
+                    chkItem.Text = "Disable";
                     break;
                 case 9:
                     lbHtmlJpName.Text = "E Name";
