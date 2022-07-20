@@ -39,10 +39,11 @@ namespace ToolSupportUchida.View
             // 
             // lstTextUpdateVer
             // 
-            this.lstTextUpdateVer.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lstTextUpdateVer.Location = new System.Drawing.Point(6, 20);
+            this.lstTextUpdateVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lstTextUpdateVer.Location = new System.Drawing.Point(6, 22);
             this.lstTextUpdateVer.Name = "lstTextUpdateVer";
-            this.lstTextUpdateVer.Size = new System.Drawing.Size(328, 334);
+            this.lstTextUpdateVer.ReadOnly = true;
+            this.lstTextUpdateVer.Size = new System.Drawing.Size(328, 362);
             this.lstTextUpdateVer.TabIndex = 0;
             this.lstTextUpdateVer.Text = "";
             // 
@@ -50,9 +51,9 @@ namespace ToolSupportUchida.View
             // 
             this.groupBox1.Controls.Add(this.lstTextUpdateVer);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(358, 6);
+            this.groupBox1.Location = new System.Drawing.Point(358, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 360);
+            this.groupBox1.Size = new System.Drawing.Size(340, 390);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update Ver";
@@ -61,26 +62,27 @@ namespace ToolSupportUchida.View
             // 
             this.groupBox2.Controls.Add(this.lstDocument);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(12, 6);
+            this.groupBox2.Location = new System.Drawing.Point(12, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 360);
+            this.groupBox2.Size = new System.Drawing.Size(340, 390);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Document";
             // 
             // lstDocument
             // 
-            this.lstDocument.Location = new System.Drawing.Point(6, 20);
+            this.lstDocument.Location = new System.Drawing.Point(6, 22);
             this.lstDocument.Name = "lstDocument";
-            this.lstDocument.Size = new System.Drawing.Size(328, 334);
+            this.lstDocument.ReadOnly = true;
+            this.lstDocument.Size = new System.Drawing.Size(328, 362);
             this.lstDocument.TabIndex = 0;
             this.lstDocument.Text = "";
             // 
             // FormAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 374);
+            this.ClientSize = new System.Drawing.Size(704, 405);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Default;

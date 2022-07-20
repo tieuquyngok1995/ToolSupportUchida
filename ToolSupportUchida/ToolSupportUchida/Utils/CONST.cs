@@ -9,6 +9,9 @@ namespace ToolSupportUchida.Utils
         public static string[] STRING_SEPARATORS = new string[] { STRING_ADD_LINE };
 
         #region Item
+        public static string ITEM_CHAR_FORMAT_EQUALS = "Equals";
+        public static string ITEM_CHAR_FORMAT_TAB = "Tab";
+
         public static string ITEM_ROWS = "Rows";
         public static string ITEM_COLUMNS = "Columns";
         public static string ITEM_SUB_ROWS = "SubRows";
@@ -28,6 +31,7 @@ namespace ToolSupportUchida.Utils
         public const char CHAR_COMMA = ',';
         public const char CHAR_O_BRACKETS = '(';
         public const char CHAR_C_BRACKETS = ')';
+        public const char CHAR_EQUALS = '=';
         #endregion
 
         #region String
@@ -104,6 +108,7 @@ namespace ToolSupportUchida.Utils
         #endregion
 
         #region Messager
+        public const string MESS_OPEN_FILE = "File import failed, please try again.";
         public const string MESS_ADD_NEW_LOGIC_BLANK = "A new add has caused an error. \nLogical name value is blank.";
         public const string MESS_ADD_NEW_PHYSI_BLANK = "A new add has caused an error. \nPhysical name value is blank.";
         public const string MESS_ADD_NEW_EXIST = "A new add has caused an error. \nNew added value already exists.";

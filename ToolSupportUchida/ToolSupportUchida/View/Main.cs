@@ -57,6 +57,10 @@ namespace ToolSupportUchida
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
+            cbCharFormat.Items.Add(CONST.ITEM_CHAR_FORMAT_EQUALS);
+            cbCharFormat.Items.Add(CONST.ITEM_CHAR_FORMAT_TAB);
+            cbCharFormat.SelectedIndex = 0;
+
             cbType.Items.Add(CONST.ITEM_ROWS);
             cbType.Items.Add(CONST.ITEM_COLUMNS);
             cbType.Items.Add(CONST.ITEM_SUB_ROWS);
@@ -232,6 +236,74 @@ namespace ToolSupportUchida
             mode = 3;
             objToolSupport.modeLanguage = mode;
             BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void btImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog.FileName;
+                try
+                {
+                    string text = File.ReadAllText(file);
+
+                    string[] stringSeparators = new string[] { "\r\n" };
+                    string[] lines = text.Split(stringSeparators, StringSplitOptions.None);
+
+                    int mode = 0;
+                    if (this.rbFormat.Checked) mode = 1;
+
+                    int charFormat = this.cbCharFormat.SelectedIndex;
+
+                    lstSekkei = new List<SekkeiModel>();
+                    foreach (string line in lines)
+                    {
+                        if (string.IsNullOrEmpty(line)) continue;
+
+                        string[] dataLine = new string[0];
+                        if (mode == 0)
+                        {
+                            if (charFormat == 0) {
+                                dataLine = line.Split(CONST.CHAR_EQUALS);
+                            } else if (charFormat == 1) {
+                                dataLine = line.Split(CONST.CHAR_TAB);
+                            }
+
+                            if (dataLine.Length >= 1)
+                            {
+                                lstSekkei.Add(new SekkeiModel(dataLine[0], dataLine[1]));
+                            }
+                        }
+                        else if (mode == 1)
+                        {
+                            dataLine = line.Split(CONST.CHAR_TAB);
+                        }
+                    }
+
+                    if (lstSekkei.Count > 0)
+                    {
+                        objToolSupport.lstSekkei = lstSekkei;
+                        BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+
+                        gridSekkei.Rows.Clear();
+                        gridSekkei.Refresh();
+                        foreach (SekkeiModel sekkei in objToolSupport.lstSekkei)
+                        {
+                            gridSekkei.Rows.Add(noSekkei, sekkei.logicName, sekkei.physiName);
+                            noSekkei++;
+                        }
+                    }
+                    
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show(CONST.MESS_OPEN_FILE, CONST.TEXT_CAPTION_ERROR,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
 
         private void btnAddSekkei_Click(object sender, EventArgs e)
