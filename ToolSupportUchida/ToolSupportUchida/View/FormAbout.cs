@@ -26,30 +26,30 @@ namespace ToolSupportUchida.View
             LoadTheme();
 
             // Set data ver update
-            StringBuilder lstTextVer = new StringBuilder();
-            lstTextVer.Append("Ver1.0").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Phiên bản đầu tiên cho phép setting thông tin sử dụng cho typescript và c#.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Convert Databse từ hệ thống trước đó.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Convert Sekkei hệ thống chạy tương tự hệ thống của khách hàng.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Convert Model tạo model theo thông tin input của người dùng.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Create Addapter theo thông tin config.").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("------------------------------------------------------------------").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("Ver2.0").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Common nơi có các chức năng có thể sử dụng ở nhiều dự án.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Create Json giúp rút ngắn thời gian tạo data json.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Create Message tạo message theo format.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Format Comment giúp chỉnh src của các comment sau nội dung src.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Create Html theo thiết kế chi tiết.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng Create Item Html theo format của kh.").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("------------------------------------------------------------------").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("Ver2.1").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Thêm mới chức năng chọn ngôn ngữ java.").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Chỉnh sửa chức năng Convert Sekkei thành Check CONST thêm khả năng search data const của data đã input .").Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("    - Chỉnh sửa  Convert Model cho phép tạo Model theo ngôn ngữ java.").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append("------------------------------------------------------------------").Append(CONST.CHAR_NEW_LINE).Append(CONST.CHAR_NEW_LINE);
-            lstTextVer.Append(" More update to next time ............").Append(CONST.CHAR_NEW_LINE);
+            string lstTextVer = "";
+            lstTextVer += "Ver1.0" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Phien ban dau tien cho phep setting thong tin su dung cho typescript va c#." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Convert Databse tu he thong truoc đo."+ CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Convert Sekkei he thong chay tuong tu he thong cua khach hang." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Convert Model tao model theo thong tin input cua nguoi dung." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Create Addapter theo thông tin config." + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.0" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Common noi co cac chuc nang co the su dung o nhieu du an." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Create Json giup rut ngan thoi gian tao data json." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Create Message tao message theo format." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Format Comment giup chinh src cua cac comment sau noi dung src." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Create Html theo thiet ke chi tiet." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Create Item Html theo format cua kh." + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.1" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang chon ngon ngu java." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Convert Sekkei thanh Check CONST them kha năng search data const cua data đa input ." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Convert Model cho phep tao Model theo ngon ngu java." + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE + CONST.CHAR_NEW_LINE;
+            lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 
-            lstTextUpdateVer.Text = lstTextVer.ToString();
+            lstTextUpdateVer.Text = lstTextVer;
         }
 
         private void LoadTheme()

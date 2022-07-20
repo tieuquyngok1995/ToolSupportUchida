@@ -22,12 +22,6 @@ namespace ToolSupportUchida.View
 
         private readonly string[] DELI = new[] { "\r\n" };
 
-        private bool isCsharp = true;
-
-        private bool isJs = false;
-
-        private bool isHtml = false;
-
         private Dictionary<string, string> typeScriptKeyword = new Dictionary<string, string>
     {
         { "function", " = (): void => { \r\n}" },
@@ -89,10 +83,6 @@ namespace ToolSupportUchida.View
                 this.rdbLast.Visible = false;
 
                 this.chkCreateInterf.Visible = false;
-
-                this.isCsharp = true;
-                this.isJs = false;
-                this.isHtml = false;
             }
             else if (this.isMode == 1)
             {
@@ -115,14 +105,20 @@ namespace ToolSupportUchida.View
 
                 this.rdbFirst.Text = "Set Public";
                 this.rdbLast.Text = "Set Private";
-
-                this.isCsharp = false;
-                this.isJs = true;
-                this.isHtml = false;
             }
             if (this.isMode == 2)
             {
                 this.lbLanguage.Text = "Java";
+
+                this.panelComment.Visible = true;
+                this.panelFormat.Visible = true;
+                this.panelType.Visible = false;
+
+                this.txtAddLogic.Visible = false;
+                this.txtAddLogic.Text = string.Empty;
+                this.txtAddPhysi.Visible = false;
+                this.txtAddPhysi.Text = string.Empty;
+                this.lblResult.Visible = false;
             }
             if (this.isMode == 3)
             {
@@ -142,10 +138,6 @@ namespace ToolSupportUchida.View
                 this.rdbLast.Visible = false;
 
                 this.chkCreateInterf.Visible = false;
-
-                this.isCsharp = false;
-                this.isJs = false;
-                this.isHtml = true;
             }
         }
 
@@ -572,15 +564,19 @@ namespace ToolSupportUchida.View
         {
             this.lstResult.Clear();
 
-            if (isCsharp)
+            if (this.isMode == 0)
             {
                 convertToCsharp();
             }
-            else if (isJs)
+            else if (this.isMode == 1)
             {
                 convertToTypeScripts();
             }
-            else if (isHtml)
+            else if (this.isMode == 2)
+            {
+                convertToJava();
+            }
+            else if (this.isMode == 3)
             {
                 convertToHTML();
             }
@@ -834,6 +830,53 @@ namespace ToolSupportUchida.View
                     }
 
                     element = string.Format(stringBuilder.ToString(), namePhy, dot, type);
+                }
+
+                if (i == lstLogic.Count - 1)
+                {
+                    lstResult.Add(element);
+                }
+                else
+                {
+                    lstResult.Add(element + "\r\n");
+                }
+            }
+
+            foreach (string value in lstResult)
+            {
+                txtResult.Text += value;
+            }
+
+            if (txtResult.Text.Length > 0)
+            {
+                btnCopy.Enabled = true;
+            }
+        }
+
+        private void convertToJava()
+        {
+            txtResult.Text = string.Empty;
+
+            if (lstLogic.Count != lstPhysi.Count || lstLogic.Count != lstType.Count)
+            {
+                return;
+            }
+
+            string template = string.Empty;
+
+            for (int i = 0; i < lstLogic.Count; i++)
+            {
+                string element = string.Empty;
+                string nameLogic = lstLogic[i].Trim();
+                template = createTemplateC(lstLogic[i].Trim());
+
+                if (nameLogic.ToLower().Equals(CONST.STRING_NONE) || string.IsNullOrEmpty(nameLogic))
+                {
+                    element = string.Format(template, lstType[i].Trim(), lstPhysi[i].Trim());
+                }
+                else
+                {
+                    element = string.Format(template, lstLogic[i].Trim(), lstType[i].Trim(), lstPhysi[i].Trim());
                 }
 
                 if (i == lstLogic.Count - 1)
