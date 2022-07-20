@@ -42,6 +42,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_QUOTATION_MARKS = "\"";
         public const string STRING_DOT = ".";
         public const string STRING_APOSTROPHE = "'";
+        public const string STRING_HYPHEN = "-";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";
@@ -69,6 +70,7 @@ namespace ToolSupportUchida.Utils
         public const string STRING_LIST_JP = "リスト";
         public const string STRING_CREATE_BUILDER = "StringBuilder b = new StringBuilder();\r\n";
         public const string STRING_APPEND = ".Append";
+        public const string STRING_IS_TABLE = "hd";
 
         public const string STRING_CREATE = "0";
         public const string STRING_END_LINE = "1";

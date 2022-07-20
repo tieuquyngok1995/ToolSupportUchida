@@ -82,6 +82,7 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
+                this.chkIsTable.Visible = false;
                 this.chkCreateInterf.Visible = false;
             }
             else if (this.isMode == 1)
@@ -101,10 +102,13 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
 
+                this.chkIsTable.Visible = false;
                 this.chkCreateInterf.Visible = true;
 
                 this.rdbFirst.Text = "Set Public";
                 this.rdbLast.Text = "Set Private";
+
+                this.chkCreateInterf.Text = "Create Interface";
             }
             if (this.isMode == 2)
             {
@@ -119,6 +123,17 @@ namespace ToolSupportUchida.View
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
                 this.lblResult.Visible = false;
+
+                this.rdbFirst.Visible = true;
+                this.rdbLast.Visible = true;
+
+                this.chkIsTable.Visible = true;
+                this.chkCreateInterf.Visible = true;
+
+                this.rdbFirst.Text = "Set Public";
+                this.rdbLast.Text = "Set Private";
+
+                this.chkCreateInterf.Text = "Create Static";
             }
             if (this.isMode == 3)
             {
@@ -137,6 +152,7 @@ namespace ToolSupportUchida.View
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
 
+                this.chkIsTable.Visible = false;
                 this.chkCreateInterf.Visible = false;
             }
         }
@@ -243,6 +259,20 @@ namespace ToolSupportUchida.View
                     this.txtAddLogic.Visible = true;
                     this.txtAddPhysi.Visible = true;
                 }
+                else if (this.isMode == 2)
+                {
+                    this.chkCreateInterf.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
+                }
                 else
                 {
                     this.rdbFirst.Visible = false;
@@ -284,6 +314,20 @@ namespace ToolSupportUchida.View
                     this.rdbLast.Visible = true;
                     this.txtAddLogic.Visible = true;
                     this.txtAddPhysi.Visible = true;
+                }
+                else if (this.isMode == 2)
+                {
+                    this.chkCreateInterf.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else
                 {
@@ -327,6 +371,20 @@ namespace ToolSupportUchida.View
                     this.txtAddLogic.Visible = true;
                     this.txtAddPhysi.Visible = true;
                 }
+                else if (this.isMode == 2)
+                {
+                    this.chkCreateInterf.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
+                }
                 else
                 {
                     this.rdbFirst.Visible = false;
@@ -369,6 +427,20 @@ namespace ToolSupportUchida.View
                     this.txtAddLogic.Visible = true;
                     this.txtAddPhysi.Visible = true;
                 }
+                else if (this.isMode == 2)
+                {
+                    this.chkCreateInterf.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
+                }
                 else
                 {
                     this.rdbFirst.Visible = false;
@@ -410,6 +482,20 @@ namespace ToolSupportUchida.View
                     this.rdbLast.Visible = true;
                     this.txtAddLogic.Visible = true;
                     this.txtAddPhysi.Visible = true;
+                }
+                else if (this.isMode == 2)
+                {
+                    this.chkCreateInterf.Visible = true;
+                    if (this.chkCreateInterf.Checked)
+                    {
+                        this.rdbFirst.Visible = false;
+                        this.rdbLast.Visible = false;
+                    }
+                    else
+                    {
+                        this.rdbFirst.Visible = true;
+                        this.rdbLast.Visible = true;
+                    }
                 }
                 else
                 {
@@ -485,6 +571,11 @@ namespace ToolSupportUchida.View
             }
         }
 
+        private void chkIsTable_CheckedChanged(object sender, EventArgs e)
+        {
+            convert();
+        }
+
         private void chkCreateInterf_CheckedChanged(object sender, EventArgs e)
         {
             if (chkCreateInterf.Checked)
@@ -544,6 +635,8 @@ namespace ToolSupportUchida.View
             lblNumPhysi.Visible = false;
             lblNumType.Visible = false;
             lblResult.Visible = false;
+
+            this.chkCreateInterf.Checked = false;
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -868,22 +961,42 @@ namespace ToolSupportUchida.View
             {
                 string element = string.Empty;
                 string nameLogic = lstLogic[i].Trim();
-                template = createTemplateC(lstLogic[i].Trim());
+                template = cereateTemplateJava(lstLogic[i].Trim(), lstPhysi[i].Trim());
+                string txPhysi = lstPhysi[i].Trim();
 
-                if (nameLogic.ToLower().Equals(CONST.STRING_NONE) || string.IsNullOrEmpty(nameLogic))
+                if (this.chkIsTable.Checked && !string.IsNullOrEmpty(txPhysi) && !txPhysi.Equals(CONST.STRING_HYPHEN))
                 {
-                    element = string.Format(template, lstType[i].Trim(), lstPhysi[i].Trim());
+                    if (txPhysi.Substring(0, 2).Equals(CONST.STRING_IS_TABLE))
+                    {
+                        txPhysi = txPhysi.Replace(CONST.STRING_IS_TABLE, "");
+                        txPhysi = CUtils.FirstCharToLowerCase(txPhysi);
+                    }
+                } else if (this.rdbLowerCase.Checked)
+                {
+                    txPhysi = CUtils.FirstCharToLowerCase(txPhysi);
+                } else if (this.rdbUpperCase.Checked)
+                {
+                    txPhysi = CUtils.FirstCharToUpperCase(txPhysi);
+                }
+
+                if (template == null)
+                {
+                    element = "";
+                }
+                else if (nameLogic.ToLower().Equals(CONST.STRING_NONE) || string.IsNullOrEmpty(nameLogic))
+                {
+                    element = string.Format(template, lstType[i].Trim(), txPhysi);
                 }
                 else
                 {
-                    element = string.Format(template, lstLogic[i].Trim(), lstType[i].Trim(), lstPhysi[i].Trim());
+                    element = string.Format(template, lstLogic[i].Trim(), lstType[i].Trim(), txPhysi);
                 }
 
                 if (i == lstLogic.Count - 1)
                 {
                     lstResult.Add(element);
                 }
-                else
+                else if (template != null)
                 {
                     lstResult.Add(element + "\r\n");
                 }
@@ -1146,6 +1259,51 @@ namespace ToolSupportUchida.View
                 else
                 {
                     stringBuilder.Append("public {0} {1}" + txtAddPhysi.Text + " {{ get; set; }}\r\n");
+                }
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        private string cereateTemplateJava(string nameLogic, string namePhysi)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (namePhysi.Equals(CONST.STRING_HYPHEN))
+            {
+                return null;
+            }
+
+            string aces = "public";
+            if (this.rdbLast.Checked)
+            {
+                aces = "private";
+            }
+
+            if (!nameLogic.ToLower().Equals(CONST.STRING_NONE) && !string.IsNullOrEmpty(nameLogic))
+            {
+                if (rdbLine.Checked)
+                {
+                    stringBuilder.Append("// {0} \r\n");
+                }
+                else if (rdbBlock.Checked)
+                {
+                    stringBuilder.Append("/**\r\n");
+                    stringBuilder.Append(" * {0}\r\n");
+                    stringBuilder.Append(" */\r\n");
+                }
+                else if (rdbLineBlock.Checked)
+                {
+                    stringBuilder.Append("/** {0} */\r\n");
+                }
+
+                if (this.chkCreateInterf.Checked)
+                {
+                    stringBuilder.Append(aces + " static final {1} {2} = \"\";\r\n");
+                }
+                else
+                {
+                    stringBuilder.Append(aces + " {1} {2} ;\r\n");
                 }
             }
 
