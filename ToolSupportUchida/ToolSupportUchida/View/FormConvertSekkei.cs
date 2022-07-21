@@ -142,7 +142,7 @@ namespace ToolSupportUchida.View
 
             List<SekkeiModel> lstSekkeiTmp = new List<SekkeiModel>();
             lstSekkeiTmp.AddRange(lstSekkei);
-            SekkeiModel objSekkei = lstSekkeiTmp.Find(obj => nameLogic.Contains(obj.logicName));
+            SekkeiModel objSekkei = lstSekkeiTmp.Find(obj => nameLogic.Equals(obj.logicName));
 
             if (objSekkei == null)
             {
@@ -166,7 +166,7 @@ namespace ToolSupportUchida.View
                 List<SekkeiModel> lstSekkeiTmp = new List<SekkeiModel>();
 
                 lstSekkeiTmp.AddRange(lstSekkei);
-                SekkeiModel objSekkei = lstSekkeiTmp.Find(item => namePhysi.Contains(item.physiName));
+                SekkeiModel objSekkei = lstSekkeiTmp.Find(item => namePhysi.Equals(item.physiName));
 
                 if (objSekkei == null)
                 {

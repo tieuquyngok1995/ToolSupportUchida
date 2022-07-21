@@ -201,7 +201,7 @@ namespace ToolSupportUchida.View
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormConvertSekkei";
-            this.Text = "Convert Sekkei";
+            this.Text = "Get CONST";
             this.Load += new System.EventHandler(this.FormConvertSekkei_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -271,7 +271,7 @@ namespace ToolSupportUchida
                                 dataLine = line.Split(CONST.CHAR_TAB);
                             }
 
-                            if (dataLine.Length >= 1)
+                            if (dataLine.Length > 1)
                             {
                                 lstSekkei.Add(new SekkeiModel(dataLine[0], dataLine[1]));
                             }
