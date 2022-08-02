@@ -19,6 +19,10 @@ namespace ToolSupportUchida.View
 
         private string[] lstFormatCode;
 
+        // list using get column
+        private string[] lstColumnData;
+        private string[] lstColumnTable;
+
         #region Load Form
         public FormCommon()
         {
@@ -110,9 +114,9 @@ namespace ToolSupportUchida.View
                     txtCase.Focus();
                     break;
                 case 1:
-                    cbMessDone.SelectedIndex = 0;
-                    cbMessCancel.SelectedIndex = 0;
-                    txtMessCode.Focus();
+                    //cbMessDone.SelectedIndex = 0;
+                    //cbMessCancel.SelectedIndex = 0;
+                    //txtMessCode.Focus();
                     break;
                 case 2:
                     txtFormatCode.Focus();
@@ -307,7 +311,7 @@ namespace ToolSupportUchida.View
         #endregion
 
         #region Tab Create Message
-        private void rdMess_CheckedChanged(object sender, EventArgs e)
+        /*private void rdMess_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbMess.Checked)
             {
@@ -1005,11 +1009,11 @@ namespace ToolSupportUchida.View
             txtFormatResult.Text = string.Empty;
 
             lblFormatResult.Visible = false;
-        }
+        }*/
         #endregion
 
         #region Tab Create HTML
-        private void txtID_TextChanged(object sender, EventArgs e)
+        /*private void txtID_TextChanged(object sender, EventArgs e)
         {
             createHTML();
         }
@@ -1485,7 +1489,7 @@ namespace ToolSupportUchida.View
             lblResultSrcHtml.Visible = true;
             Clipboard.Clear();
             Clipboard.SetText(txtCshtml.Text);
-        }
+        }*/
 
         #endregion
 
@@ -1943,6 +1947,49 @@ namespace ToolSupportUchida.View
         }
         #endregion
 
+        #region Tab Get Name Column
+        private void txColumnData_TextChanged(object sender, EventArgs e)
+        {
+            string value = txColumnData.Text;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                string strRegex = @"[\t]+";
+                Regex myRegex = new Regex(strRegex, RegexOptions.None);
+                string strReplace = @"\t";
+                value =  myRegex.Replace(value, strReplace);
+
+                string[] stringSeparators = new string[] { "\r\n" };
+                lstColumnData = value.Split(stringSeparators, StringSplitOptions.None);
+            }
+        }
+
+        private void txColumnTable_TextChanged(object sender, EventArgs e)
+        {
+            string value = txColumnTable.Text;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                string strRegex = @"[\t]+";
+                Regex myRegex = new Regex(strRegex, RegexOptions.None);
+                string strReplace = @"\t";
+                value = myRegex.Replace(value, strReplace);
+
+                string[] stringSeparators = new string[] { "\r\n" };
+                lstColumnTable = value.Split(stringSeparators, StringSplitOptions.None);
+            }
+        }
+
+        private void txColumnInput_TextChanged(object sender, EventArgs e)
+        {
+            string value = txColumnInput.Text;
+            if (!string.IsNullOrEmpty(value) && lstColumnData.Length > 0 && lstColumnTable.Length > 0)
+            {
+
+            }
+        }
+        #endregion
+
         #region Method
         private string addComman(string[] lst)
         {
@@ -1976,6 +2023,10 @@ namespace ToolSupportUchida.View
             gridInputParam.Visible = val;
         }
 
+
+
         #endregion
+
+        
     }
 }

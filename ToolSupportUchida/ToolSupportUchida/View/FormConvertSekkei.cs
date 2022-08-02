@@ -124,12 +124,12 @@ namespace ToolSupportUchida.View
             if (isCopyPhysi && !string.IsNullOrEmpty(txtPhysiName.Text))
             {
 
-                Clipboard.SetText(txtPhysiName.Text);
+                Clipboard.SetText(txtPhysiName.Text.Trim());
                 lblResult.Visible = true;
             }
             else if (!isCopyPhysi && !string.IsNullOrEmpty(txtLogicName.Text))
             {
-                Clipboard.SetText(txtLogicName.Text);
+                Clipboard.SetText(txtLogicName.Text.Trim());
                 lblResult.Visible = true;
             }
         }
