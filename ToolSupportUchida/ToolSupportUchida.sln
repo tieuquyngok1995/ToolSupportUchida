@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolSupportUchida", "ToolSupportUchida\ToolSupportUchida.csproj", "{30793F4F-603E-44B8-AD76-D6B5F3BF621D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolSupportCoding", "ToolSupportUchida\ToolSupportCoding.csproj", "{30793F4F-603E-44B8-AD76-D6B5F3BF621D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,27 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ToolSupportUchida.Theme;
-using ToolSupportUchida.Utils;
+using ToolSupportCoding.Theme;
+using ToolSupportCoding.Utils;
 
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     public partial class FormCommon : Form
     {
         private string[] lstKey;
         private string[] stringSeparators;
 
-        private string[] lstMessCode;
-        private string[] lstMessContent;
-
-        private string[] lstFormatCode;
+        // list using mess
+        // private string[] lstMessCode;
+        // private string[] lstMessContent;
+        // list format 
+        // private string[] lstFormatCode;
 
         // list using get column
-        private string[] lstColumnData;
-        private string[] lstColumnTable;
+        private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
+        private Dictionary<string, string> dicColumnTable = new Dictionary<string, string>();
 
         #region Load Form
         public FormCommon()
@@ -1951,23 +1953,60 @@ namespace ToolSupportUchida.View
         private void txColumnData_TextChanged(object sender, EventArgs e)
         {
             string value = txColumnData.Text;
-
+            List<string> lstColumnData = new List<string>();
+            // create data in table 
             if (!string.IsNullOrEmpty(value))
             {
                 string strRegex = @"[\t]+";
                 Regex myRegex = new Regex(strRegex, RegexOptions.None);
                 string strReplace = @"\t";
-                value =  myRegex.Replace(value, strReplace);
+                value = myRegex.Replace(value, strReplace);
 
-                string[] stringSeparators = new string[] { "\r\n" };
-                lstColumnData = value.Split(stringSeparators, StringSplitOptions.None);
+                string[] stringSeparators = new string[] { "テーブル物理名" };
+                lstColumnData = value.Split(stringSeparators, StringSplitOptions.None).ToList();
             }
+
+            // create list in table
+            if (lstColumnData.Count > 0)
+            {
+                foreach (string table in lstColumnData)
+                {
+                    dicColumnData = new Dictionary<string, Dictionary<string, string>>();
+                    if (!string.IsNullOrEmpty(table))
+                    {
+                        string[] stringNewLine = new string[] { "\r\n" };
+                        string[] data = table.Split(stringNewLine, StringSplitOptions.None);
+
+                        string nameTable = Regex.Replace(data[0], @"\\t", "");
+
+                        Dictionary<string, string> dicData = new Dictionary<string, string>();
+                        string[] stringTab = new string[] { "\\t" };
+                        for (int idx = 1; idx < data.Length; idx++)
+                        {
+                            if (!string.IsNullOrEmpty(data[idx]))
+                            {
+                                string[] item = data[idx].Split(stringTab, StringSplitOptions.None);
+                                if (item.Length > 1)
+                                {
+                                    dicData.Add(item[0], item[1]);
+                                }
+                            }
+                        }
+                        if (dicData.Count > 0)
+                        {
+                            dicColumnData.Add(nameTable, dicData);
+                        }
+                    }
+                }
+            }
+            getColumn();
         }
 
         private void txColumnTable_TextChanged(object sender, EventArgs e)
         {
             string value = txColumnTable.Text;
-
+            List<string> lstColumnTable = new List<string>();
+            // create data in table 
             if (!string.IsNullOrEmpty(value))
             {
                 string strRegex = @"[\t]+";
@@ -1976,18 +2015,165 @@ namespace ToolSupportUchida.View
                 value = myRegex.Replace(value, strReplace);
 
                 string[] stringSeparators = new string[] { "\r\n" };
-                lstColumnTable = value.Split(stringSeparators, StringSplitOptions.None);
+                lstColumnTable = value.Split(stringSeparators, StringSplitOptions.None).ToList();
             }
+
+            // add data to dic
+            if (lstColumnTable.Count > 0)
+            {
+                dicColumnTable = new Dictionary<string, string>();
+                string[] stringTab = new string[] { "\\t" };
+                foreach (string table in lstColumnTable)
+                {
+                    if (!string.IsNullOrEmpty(table))
+                    {
+                        string[] item = table.Split(stringTab, StringSplitOptions.None);
+                        if (item.Length > 1)
+                        {
+                            dicColumnTable.Add(item[0], item[1]);
+                        }
+                    }
+                }
+            }
+            getColumn();
         }
 
         private void txColumnInput_TextChanged(object sender, EventArgs e)
         {
-            string value = txColumnInput.Text;
-            if (!string.IsNullOrEmpty(value) && lstColumnData.Length > 0 && lstColumnTable.Length > 0)
-            {
+            getColumn();
+        }
 
+        private void cbColumnFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getColumn();
+        }
+
+        private void getColumn()
+        {
+            lbColumnResult.Visible = false;
+            string value = txColumnInput.Text;
+            string format = "";
+            int selectIndex = 0;
+            if (cbColumnFormat.SelectedItem != null)
+            {
+                selectIndex = cbColumnFormat.SelectedIndex;
+                format = cbColumnFormat.Text;
+            }
+
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(format))
+            {
+                return;
+            }
+
+            // get value input
+            string[] lstVal; string[] stringFormat;
+            string key = "";
+            switch (selectIndex)
+            {
+                case 0:
+                    stringFormat = new string[] { "].[" };
+                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                    if (lstVal.Length > 1)
+                    {
+                        key = lstVal[0].Replace("[", "");
+                        value = lstVal[1].Replace("]", "");
+                    }
+                    break;
+                case 1:
+                    stringFormat = new string[] { "】.[" };
+                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                    if (lstVal.Length > 1)
+                    {
+                        key = lstVal[0].Replace("【", "");
+                        value = lstVal[1].Replace("]", "");
+                    }
+                    break;
+                case 2:
+                    stringFormat = new string[] { "】.【" };
+                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                    if (lstVal.Length > 1)
+                    {
+                        key = lstVal[0].Replace("【", "");
+                        value = lstVal[1].Replace("】", "");
+                    }
+                    break;
+                case 3:
+                    stringFormat = new string[] { "/" };
+                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                    if (lstVal.Length > 1)
+                    {
+                        key = lstVal[0].Replace("[", "");
+                        value = lstVal[1].Replace("]", "");
+                    }
+                    break;
+                case 4:
+                    stringFormat = new string[] { "/" };
+                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                    if (lstVal.Length > 1)
+                    {
+                        key = lstVal[0].Replace("【", "");
+                        value = lstVal[1].Replace("】", "");
+                    }
+                    break;
+            }
+
+            // check data
+            if (dicColumnData.Count == 0 || dicColumnTable.Count == 0)
+            {
+                btColumnCoppy.Enabled = false;
+                return;
+            }
+
+            // get key
+            string valueKey;
+            string columnKey;
+            if (dicColumnTable.TryGetValue(key, out valueKey))
+            {
+                columnKey = valueKey;
+                key = valueKey;
+            } else
+            {
+                txColumnResult.Text = "Can not be found";
+                return;
+            }
+
+            Dictionary<string, string> dicValue = new Dictionary<string, string>();
+            if (dicColumnData.TryGetValue(key, out dicValue))
+            {
+                if (dicValue.TryGetValue(value, out valueKey))
+                {
+                    txColumnResult.Text = columnKey +"."+ valueKey;
+                    btColumnCoppy.Enabled = true;
+                }
+            }
+            else
+            {
+                txColumnResult.Text = "Can not be found";
+                return;
             }
         }
+
+        private void btColumnCoppy_Click(object sender, EventArgs e)
+        {
+            lbColumnResult.Visible = true;
+            Clipboard.Clear();
+            Clipboard.SetText(txColumnResult.Text);
+        }
+
+        private void btColumnClear_Click(object sender, EventArgs e)
+        {
+            txColumnData.Text = "";
+            txColumnTable.Text = "";
+            txColumnInput.Text = "";
+            
+            txColumnResult.Text = "";
+            cbColumnFormat.SelectedIndex = -1;
+
+            lbColumnResult.Visible = false;
+            btColumnCoppy.Enabled = false;
+            Clipboard.Clear();
+        }
+
         #endregion
 
         #region Method
@@ -2027,6 +2213,6 @@ namespace ToolSupportUchida.View
 
         #endregion
 
-        
+
     }
 }

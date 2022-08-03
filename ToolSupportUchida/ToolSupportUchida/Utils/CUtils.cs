@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ToolSupportUchida.Utils
+namespace ToolSupportCoding.Utils
 {
     public static class CUtils
     {

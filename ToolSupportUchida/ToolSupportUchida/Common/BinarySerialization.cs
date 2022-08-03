@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ToolSupportUchida.Model;
-using ToolSupportUchida.Utils;
+using ToolSupportCoding.Model;
+using ToolSupportCoding.Utils;
 
-namespace ToolSupportUchida.Common
+namespace ToolSupportCoding.Common
 {
     public static class BinarySerialization
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToolSupportUchida.Model
+namespace ToolSupportCoding.Model
 {
     [Serializable]
     public class AdapterModel

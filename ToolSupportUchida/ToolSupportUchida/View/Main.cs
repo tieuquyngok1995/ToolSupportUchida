@@ -5,13 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ToolSupportUchida.Common;
-using ToolSupportUchida.Model;
-using ToolSupportUchida.Theme;
-using ToolSupportUchida.Utils;
-using ToolSupportUchida.View;
+using ToolSupportCoding.Common;
+using ToolSupportCoding.Model;
+using ToolSupportCoding.Theme;
+using ToolSupportCoding.Utils;
+using ToolSupportCoding.View;
 
-namespace ToolSupportUchida
+namespace ToolSupportCoding
 {
     public partial class Main : Form
     {

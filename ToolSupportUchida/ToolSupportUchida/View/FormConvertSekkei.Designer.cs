@@ -1,5 +1,5 @@
 ﻿
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     partial class FormConvertSekkei
     {
@@ -103,7 +103,7 @@ namespace ToolSupportUchida.View
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
             this.btnClear.Location = new System.Drawing.Point(338, 182);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(28, 28);
@@ -119,7 +119,7 @@ namespace ToolSupportUchida.View
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopy.Location = new System.Drawing.Point(302, 216);
             this.btnCopy.Name = "btnCopy";
@@ -135,7 +135,7 @@ namespace ToolSupportUchida.View
             this.btnConvertLogic.FlatAppearance.BorderSize = 0;
             this.btnConvertLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvertLogic.Image = global::ToolSupportUchida.Properties.Resources.button_left;
+            this.btnConvertLogic.Image = global::ToolSupportCoding.Properties.Resources.button_left;
             this.btnConvertLogic.Location = new System.Drawing.Point(302, 182);
             this.btnConvertLogic.Name = "btnConvertLogic";
             this.btnConvertLogic.Size = new System.Drawing.Size(28, 28);
@@ -150,7 +150,7 @@ namespace ToolSupportUchida.View
             this.btnConvertPhysi.FlatAppearance.BorderSize = 0;
             this.btnConvertPhysi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvertPhysi.Image = global::ToolSupportUchida.Properties.Resources.button_right;
+            this.btnConvertPhysi.Image = global::ToolSupportCoding.Properties.Resources.button_right;
             this.btnConvertPhysi.Location = new System.Drawing.Point(374, 182);
             this.btnConvertPhysi.Name = "btnConvertPhysi";
             this.btnConvertPhysi.Size = new System.Drawing.Size(28, 28);

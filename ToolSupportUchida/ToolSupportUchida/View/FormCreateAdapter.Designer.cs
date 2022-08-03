@@ -1,5 +1,5 @@
 ﻿
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     partial class FormCreateAdapter
     {
@@ -254,7 +254,7 @@ namespace ToolSupportUchida.View
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.Location = new System.Drawing.Point(78, 326);
             this.btnClear.Name = "btnClear";
@@ -269,7 +269,7 @@ namespace ToolSupportUchida.View
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopy.Location = new System.Drawing.Point(4, 326);
             this.btnCopy.Name = "btnCopy";
@@ -285,7 +285,7 @@ namespace ToolSupportUchida.View
             this.btnCreateOut.Enabled = false;
             this.btnCreateOut.FlatAppearance.BorderSize = 0;
             this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
+            this.btnCreateOut.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
             this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateOut.Location = new System.Drawing.Point(4, 290);
             this.btnCreateOut.Name = "btnCreateOut";
@@ -301,7 +301,7 @@ namespace ToolSupportUchida.View
             this.btnCreateIn.Enabled = false;
             this.btnCreateIn.FlatAppearance.BorderSize = 0;
             this.btnCreateIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateIn.Image = global::ToolSupportUchida.Properties.Resources.button_create_in;
+            this.btnCreateIn.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
             this.btnCreateIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateIn.Location = new System.Drawing.Point(4, 224);
             this.btnCreateIn.Name = "btnCreateIn";

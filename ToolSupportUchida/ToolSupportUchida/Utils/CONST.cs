@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ToolSupportUchida.Utils
+namespace ToolSupportCoding.Utils
 {
    public static class CONST
     {

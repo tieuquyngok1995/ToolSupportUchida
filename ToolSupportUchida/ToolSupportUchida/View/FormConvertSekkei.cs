@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ToolSupportUchida.Model;
-using ToolSupportUchida.Theme;
-using ToolSupportUchida.Utils;
+using ToolSupportCoding.Model;
+using ToolSupportCoding.Theme;
+using ToolSupportCoding.Utils;
 
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     public partial class FormConvertSekkei : Form
     {

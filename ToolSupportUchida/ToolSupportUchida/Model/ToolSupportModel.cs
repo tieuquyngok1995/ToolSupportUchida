@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ToolSupportUchida.Model
+namespace ToolSupportCoding.Model
 {
     [Serializable]
     public class ToolSupportModel

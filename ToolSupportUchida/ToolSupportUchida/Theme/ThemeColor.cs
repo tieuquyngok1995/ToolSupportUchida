@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace ToolSupportUchida.Theme
+namespace ToolSupportCoding.Theme
 {
     public static class ThemeColor
     {

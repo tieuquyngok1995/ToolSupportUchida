@@ -1,5 +1,5 @@
 ﻿
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     partial class FormCommon
     {
@@ -81,6 +81,8 @@ namespace ToolSupportUchida.View
             this.label6 = new System.Windows.Forms.Label();
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.txColumnTable = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txColumnResult = new System.Windows.Forms.RichTextBox();
             this.lbColumnResult = new System.Windows.Forms.Label();
@@ -116,8 +118,6 @@ namespace ToolSupportUchida.View
             this.btnCopyDialog = new System.Windows.Forms.Button();
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.txColumnTable = new System.Windows.Forms.TextBox();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -132,10 +132,10 @@ namespace ToolSupportUchida.View
             this.groupBox17.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
@@ -154,7 +154,7 @@ namespace ToolSupportUchida.View
             this.tabControlCommon.Name = "tabControlCommon";
             this.tabControlCommon.Padding = new System.Drawing.Point(3, 3);
             this.tabControlCommon.SelectedIndex = 0;
-            this.tabControlCommon.Size = new System.Drawing.Size(704, 405);
+            this.tabControlCommon.Size = new System.Drawing.Size(704, 374);
             this.tabControlCommon.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlCommon.TabIndex = 999;
             this.tabControlCommon.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlCommon_DrawItem);
@@ -169,7 +169,7 @@ namespace ToolSupportUchida.View
             this.tabPageCreateJson.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateJson.Name = "tabPageCreateJson";
             this.tabPageCreateJson.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateJson.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateJson.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateJson.TabIndex = 0;
             this.tabPageCreateJson.Text = "Create JSON";
             this.tabPageCreateJson.UseVisualStyleBackColor = true;
@@ -182,9 +182,9 @@ namespace ToolSupportUchida.View
             this.groupBox4.Controls.Add(this.txtResult);
             this.groupBox4.Controls.Add(this.btnClear);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(330, 98);
+            this.groupBox4.Location = new System.Drawing.Point(330, 90);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(236, 290);
+            this.groupBox4.Size = new System.Drawing.Size(236, 268);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Result";
@@ -195,11 +195,11 @@ namespace ToolSupportUchida.View
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Image = global::ToolSupportUchida.Properties.Resources.create;
+            this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(3, 256);
+            this.btnCreate.Location = new System.Drawing.Point(3, 236);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 30);
+            this.btnCreate.Size = new System.Drawing.Size(75, 28);
             this.btnCreate.TabIndex = 15;
             this.btnCreate.Text = "Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -210,9 +210,9 @@ namespace ToolSupportUchida.View
             // 
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(146, 255);
+            this.lblResult.Location = new System.Drawing.Point(146, 235);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(90, 28);
+            this.lblResult.Size = new System.Drawing.Size(90, 26);
             this.lblResult.TabIndex = 14;
             this.lblResult.Text = "Copy to Clipboard is done!";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,11 +224,11 @@ namespace ToolSupportUchida.View
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(83, 256);
+            this.btnCopy.Location = new System.Drawing.Point(83, 236);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(28, 30);
+            this.btnCopy.Size = new System.Drawing.Size(28, 28);
             this.btnCopy.TabIndex = 13;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@ namespace ToolSupportUchida.View
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(230, 232);
+            this.txtResult.Size = new System.Drawing.Size(230, 214);
             this.txtResult.TabIndex = 1;
             // 
             // btnClear
@@ -250,10 +250,10 @@ namespace ToolSupportUchida.View
             this.btnClear.Enabled = false;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(116, 256);
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnClear.Location = new System.Drawing.Point(116, 236);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(28, 30);
+            this.btnClear.Size = new System.Drawing.Size(28, 28);
             this.btnClear.TabIndex = 12;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -264,7 +264,7 @@ namespace ToolSupportUchida.View
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(330, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(236, 96);
+            this.groupBox3.Size = new System.Drawing.Size(236, 89);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Input Key Paramerter";
@@ -276,7 +276,7 @@ namespace ToolSupportUchida.View
             this.txtInputKey.Multiline = true;
             this.txtInputKey.Name = "txtInputKey";
             this.txtInputKey.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInputKey.Size = new System.Drawing.Size(230, 74);
+            this.txtInputKey.Size = new System.Drawing.Size(230, 67);
             this.txtInputKey.TabIndex = 0;
             this.txtInputKey.TextChanged += new System.EventHandler(this.txtInputKey_TextChanged);
             this.txtInputKey.Leave += new System.EventHandler(this.txtInputKey_Leave);
@@ -285,9 +285,9 @@ namespace ToolSupportUchida.View
             // 
             this.groupBox2.Controls.Add(this.gridInputParam);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(9, 98);
+            this.groupBox2.Location = new System.Drawing.Point(9, 90);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 290);
+            this.groupBox2.Size = new System.Drawing.Size(312, 268);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Value";
@@ -324,7 +324,7 @@ namespace ToolSupportUchida.View
             this.gridInputParam.RowHeadersWidth = 25;
             this.gridInputParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridInputParam.Size = new System.Drawing.Size(306, 268);
+            this.gridInputParam.Size = new System.Drawing.Size(306, 246);
             this.gridInputParam.TabIndex = 1;
             this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
             // 
@@ -367,7 +367,7 @@ namespace ToolSupportUchida.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 96);
+            this.groupBox1.Size = new System.Drawing.Size(312, 89);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Case Out";
@@ -376,7 +376,7 @@ namespace ToolSupportUchida.View
             // 
             this.rdbCreateJson.AutoSize = true;
             this.rdbCreateJson.Checked = true;
-            this.rdbCreateJson.Location = new System.Drawing.Point(210, 28);
+            this.rdbCreateJson.Location = new System.Drawing.Point(210, 26);
             this.rdbCreateJson.Name = "rdbCreateJson";
             this.rdbCreateJson.Size = new System.Drawing.Size(102, 21);
             this.rdbCreateJson.TabIndex = 6;
@@ -387,7 +387,7 @@ namespace ToolSupportUchida.View
             // rdbCreateObj
             // 
             this.rdbCreateObj.AutoSize = true;
-            this.rdbCreateObj.Location = new System.Drawing.Point(210, 63);
+            this.rdbCreateObj.Location = new System.Drawing.Point(210, 58);
             this.rdbCreateObj.Name = "rdbCreateObj";
             this.rdbCreateObj.Size = new System.Drawing.Size(94, 21);
             this.rdbCreateObj.TabIndex = 5;
@@ -396,7 +396,7 @@ namespace ToolSupportUchida.View
             // 
             // txtOut
             // 
-            this.txtOut.Location = new System.Drawing.Point(83, 62);
+            this.txtOut.Location = new System.Drawing.Point(83, 57);
             this.txtOut.Name = "txtOut";
             this.txtOut.Size = new System.Drawing.Size(120, 23);
             this.txtOut.TabIndex = 4;
@@ -404,7 +404,7 @@ namespace ToolSupportUchida.View
             // 
             // txtCase
             // 
-            this.txtCase.Location = new System.Drawing.Point(83, 28);
+            this.txtCase.Location = new System.Drawing.Point(83, 26);
             this.txtCase.Name = "txtCase";
             this.txtCase.Size = new System.Drawing.Size(120, 23);
             this.txtCase.TabIndex = 3;
@@ -413,7 +413,7 @@ namespace ToolSupportUchida.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 65);
+            this.label2.Location = new System.Drawing.Point(6, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 1;
@@ -422,7 +422,7 @@ namespace ToolSupportUchida.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Location = new System.Drawing.Point(6, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 0;
@@ -435,7 +435,7 @@ namespace ToolSupportUchida.View
             this.tabPageFormatCode.Location = new System.Drawing.Point(124, 4);
             this.tabPageFormatCode.Name = "tabPageFormatCode";
             this.tabPageFormatCode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 397);
+            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 366);
             this.tabPageFormatCode.TabIndex = 2;
             this.tabPageFormatCode.Text = "Format Coment";
             this.tabPageFormatCode.UseVisualStyleBackColor = true;
@@ -450,7 +450,7 @@ namespace ToolSupportUchida.View
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(292, 0);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(275, 388);
+            this.groupBox9.Size = new System.Drawing.Size(275, 358);
             this.groupBox9.TabIndex = 21;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Result";
@@ -459,10 +459,10 @@ namespace ToolSupportUchida.View
             // 
             this.btnFormatClear.FlatAppearance.BorderSize = 0;
             this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnFormatClear.Location = new System.Drawing.Point(120, 353);
+            this.btnFormatClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnFormatClear.Location = new System.Drawing.Point(120, 326);
             this.btnFormatClear.Name = "btnFormatClear";
-            this.btnFormatClear.Size = new System.Drawing.Size(28, 30);
+            this.btnFormatClear.Size = new System.Drawing.Size(28, 28);
             this.btnFormatClear.TabIndex = 22;
             this.btnFormatClear.UseVisualStyleBackColor = true;
             // 
@@ -472,11 +472,11 @@ namespace ToolSupportUchida.View
             this.btnFormatCopy.FlatAppearance.BorderSize = 0;
             this.btnFormatCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormatCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnFormatCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCopy.Location = new System.Drawing.Point(86, 353);
+            this.btnFormatCopy.Location = new System.Drawing.Point(86, 326);
             this.btnFormatCopy.Name = "btnFormatCopy";
-            this.btnFormatCopy.Size = new System.Drawing.Size(28, 30);
+            this.btnFormatCopy.Size = new System.Drawing.Size(28, 28);
             this.btnFormatCopy.TabIndex = 23;
             this.btnFormatCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFormatCopy.UseVisualStyleBackColor = true;
@@ -485,9 +485,9 @@ namespace ToolSupportUchida.View
             // 
             this.lblFormatResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormatResult.ForeColor = System.Drawing.Color.Red;
-            this.lblFormatResult.Location = new System.Drawing.Point(154, 353);
+            this.lblFormatResult.Location = new System.Drawing.Point(154, 326);
             this.lblFormatResult.Name = "lblFormatResult";
-            this.lblFormatResult.Size = new System.Drawing.Size(115, 28);
+            this.lblFormatResult.Size = new System.Drawing.Size(115, 26);
             this.lblFormatResult.TabIndex = 24;
             this.lblFormatResult.Text = "Copy to Clipboard is done!";
             this.lblFormatResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -499,11 +499,11 @@ namespace ToolSupportUchida.View
             this.btnFormatCode.FlatAppearance.BorderSize = 0;
             this.btnFormatCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormatCode.Image = global::ToolSupportUchida.Properties.Resources.format;
+            this.btnFormatCode.Image = global::ToolSupportCoding.Properties.Resources.format;
             this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCode.Location = new System.Drawing.Point(3, 353);
+            this.btnFormatCode.Location = new System.Drawing.Point(3, 326);
             this.btnFormatCode.Name = "btnFormatCode";
-            this.btnFormatCode.Size = new System.Drawing.Size(77, 30);
+            this.btnFormatCode.Size = new System.Drawing.Size(77, 28);
             this.btnFormatCode.TabIndex = 25;
             this.btnFormatCode.Text = "Format";
             this.btnFormatCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -517,7 +517,7 @@ namespace ToolSupportUchida.View
             this.txtFormatResult.Multiline = true;
             this.txtFormatResult.Name = "txtFormatResult";
             this.txtFormatResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFormatResult.Size = new System.Drawing.Size(269, 329);
+            this.txtFormatResult.Size = new System.Drawing.Size(269, 304);
             this.txtFormatResult.TabIndex = 1;
             // 
             // groupBox8
@@ -526,7 +526,7 @@ namespace ToolSupportUchida.View
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(9, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(275, 388);
+            this.groupBox8.Size = new System.Drawing.Size(275, 358);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Code";
@@ -538,7 +538,7 @@ namespace ToolSupportUchida.View
             this.txtFormatCode.Multiline = true;
             this.txtFormatCode.Name = "txtFormatCode";
             this.txtFormatCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFormatCode.Size = new System.Drawing.Size(269, 365);
+            this.txtFormatCode.Size = new System.Drawing.Size(269, 337);
             this.txtFormatCode.TabIndex = 2;
             // 
             // tabPageCreateItem
@@ -548,7 +548,7 @@ namespace ToolSupportUchida.View
             this.tabPageCreateItem.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateItem.Name = "tabPageCreateItem";
             this.tabPageCreateItem.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateItem.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateItem.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateItem.TabIndex = 4;
             this.tabPageCreateItem.Text = "Create Item HTML";
             this.tabPageCreateItem.UseVisualStyleBackColor = true;
@@ -560,9 +560,9 @@ namespace ToolSupportUchida.View
             this.groupBox17.Controls.Add(this.btnHtmlCopy);
             this.groupBox17.Controls.Add(this.txtHtmlResult);
             this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox17.Location = new System.Drawing.Point(246, 8);
+            this.groupBox17.Location = new System.Drawing.Point(246, 7);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(322, 381);
+            this.groupBox17.Size = new System.Drawing.Size(322, 352);
             this.groupBox17.TabIndex = 17;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Result";
@@ -571,9 +571,9 @@ namespace ToolSupportUchida.View
             // 
             this.lblHtmlResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHtmlResult.ForeColor = System.Drawing.Color.Red;
-            this.lblHtmlResult.Location = new System.Drawing.Point(168, 347);
+            this.lblHtmlResult.Location = new System.Drawing.Point(168, 320);
             this.lblHtmlResult.Name = "lblHtmlResult";
-            this.lblHtmlResult.Size = new System.Drawing.Size(148, 28);
+            this.lblHtmlResult.Size = new System.Drawing.Size(148, 26);
             this.lblHtmlResult.TabIndex = 16;
             this.lblHtmlResult.Text = "Copy to Clipboard is done!";
             this.lblHtmlResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -585,10 +585,10 @@ namespace ToolSupportUchida.View
             this.btnHtmlClear.FlatAppearance.BorderSize = 0;
             this.btnHtmlClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHtmlClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnHtmlClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btnHtmlClear.Location = new System.Drawing.Point(86, 346);
+            this.btnHtmlClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnHtmlClear.Location = new System.Drawing.Point(86, 319);
             this.btnHtmlClear.Name = "btnHtmlClear";
-            this.btnHtmlClear.Size = new System.Drawing.Size(76, 30);
+            this.btnHtmlClear.Size = new System.Drawing.Size(76, 28);
             this.btnHtmlClear.TabIndex = 10;
             this.btnHtmlClear.Text = "Clear";
             this.btnHtmlClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -601,11 +601,11 @@ namespace ToolSupportUchida.View
             this.btnHtmlCopy.FlatAppearance.BorderSize = 0;
             this.btnHtmlCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHtmlCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnHtmlCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnHtmlCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnHtmlCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHtmlCopy.Location = new System.Drawing.Point(6, 346);
+            this.btnHtmlCopy.Location = new System.Drawing.Point(6, 319);
             this.btnHtmlCopy.Name = "btnHtmlCopy";
-            this.btnHtmlCopy.Size = new System.Drawing.Size(74, 30);
+            this.btnHtmlCopy.Size = new System.Drawing.Size(74, 28);
             this.btnHtmlCopy.TabIndex = 9;
             this.btnHtmlCopy.Text = "Coppy";
             this.btnHtmlCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -614,10 +614,10 @@ namespace ToolSupportUchida.View
             // 
             // txtHtmlResult
             // 
-            this.txtHtmlResult.Location = new System.Drawing.Point(6, 20);
+            this.txtHtmlResult.Location = new System.Drawing.Point(6, 18);
             this.txtHtmlResult.Name = "txtHtmlResult";
             this.txtHtmlResult.ReadOnly = true;
-            this.txtHtmlResult.Size = new System.Drawing.Size(310, 321);
+            this.txtHtmlResult.Size = new System.Drawing.Size(310, 297);
             this.txtHtmlResult.TabIndex = 15;
             this.txtHtmlResult.TabStop = false;
             this.txtHtmlResult.Text = "";
@@ -636,9 +636,9 @@ namespace ToolSupportUchida.View
             this.groupBox16.Controls.Add(this.label6);
             this.groupBox16.Controls.Add(this.cbItem);
             this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox16.Location = new System.Drawing.Point(6, 8);
+            this.groupBox16.Location = new System.Drawing.Point(6, 7);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(234, 381);
+            this.groupBox16.Size = new System.Drawing.Size(234, 352);
             this.groupBox16.TabIndex = 0;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Input";
@@ -647,7 +647,7 @@ namespace ToolSupportUchida.View
             // 
             this.chkItem.AutoSize = true;
             this.chkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkItem.Location = new System.Drawing.Point(6, 352);
+            this.chkItem.Location = new System.Drawing.Point(6, 325);
             this.chkItem.Name = "chkItem";
             this.chkItem.Size = new System.Drawing.Size(87, 21);
             this.chkItem.TabIndex = 7;
@@ -656,7 +656,7 @@ namespace ToolSupportUchida.View
             // 
             // txtHtmlJPName
             // 
-            this.txtHtmlJPName.Location = new System.Drawing.Point(75, 50);
+            this.txtHtmlJPName.Location = new System.Drawing.Point(75, 46);
             this.txtHtmlJPName.Name = "txtHtmlJPName";
             this.txtHtmlJPName.Size = new System.Drawing.Size(153, 23);
             this.txtHtmlJPName.TabIndex = 2;
@@ -666,11 +666,11 @@ namespace ToolSupportUchida.View
             this.btnCreateOut.FlatAppearance.BorderSize = 0;
             this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCreateOut.Image = global::ToolSupportUchida.Properties.Resources.button_create_out;
+            this.btnCreateOut.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
             this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateOut.Location = new System.Drawing.Point(105, 346);
+            this.btnCreateOut.Location = new System.Drawing.Point(105, 319);
             this.btnCreateOut.Name = "btnCreateOut";
-            this.btnCreateOut.Size = new System.Drawing.Size(123, 30);
+            this.btnCreateOut.Size = new System.Drawing.Size(123, 28);
             this.btnCreateOut.TabIndex = 8;
             this.btnCreateOut.Text = "Generate Item";
             this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -680,7 +680,7 @@ namespace ToolSupportUchida.View
             // lbHtmlJpName
             // 
             this.lbHtmlJpName.AutoSize = true;
-            this.lbHtmlJpName.Location = new System.Drawing.Point(6, 53);
+            this.lbHtmlJpName.Location = new System.Drawing.Point(6, 49);
             this.lbHtmlJpName.Name = "lbHtmlJpName";
             this.lbHtmlJpName.Size = new System.Drawing.Size(56, 17);
             this.lbHtmlJpName.TabIndex = 7;
@@ -689,7 +689,7 @@ namespace ToolSupportUchida.View
             // rdbDelete
             // 
             this.rdbDelete.AutoSize = true;
-            this.rdbDelete.Location = new System.Drawing.Point(153, 108);
+            this.rdbDelete.Location = new System.Drawing.Point(153, 100);
             this.rdbDelete.Name = "rdbDelete";
             this.rdbDelete.Size = new System.Drawing.Size(67, 21);
             this.rdbDelete.TabIndex = 6;
@@ -701,7 +701,7 @@ namespace ToolSupportUchida.View
             // rdbUpdate
             // 
             this.rdbUpdate.AutoSize = true;
-            this.rdbUpdate.Location = new System.Drawing.Point(75, 108);
+            this.rdbUpdate.Location = new System.Drawing.Point(75, 100);
             this.rdbUpdate.Name = "rdbUpdate";
             this.rdbUpdate.Size = new System.Drawing.Size(72, 21);
             this.rdbUpdate.TabIndex = 5;
@@ -714,7 +714,7 @@ namespace ToolSupportUchida.View
             // 
             this.rdbNone.AutoSize = true;
             this.rdbNone.Checked = true;
-            this.rdbNone.Location = new System.Drawing.Point(9, 108);
+            this.rdbNone.Location = new System.Drawing.Point(9, 100);
             this.rdbNone.Name = "rdbNone";
             this.rdbNone.Size = new System.Drawing.Size(60, 21);
             this.rdbNone.TabIndex = 4;
@@ -725,7 +725,7 @@ namespace ToolSupportUchida.View
             // 
             // txtHtmlName
             // 
-            this.txtHtmlName.Location = new System.Drawing.Point(75, 79);
+            this.txtHtmlName.Location = new System.Drawing.Point(75, 73);
             this.txtHtmlName.Name = "txtHtmlName";
             this.txtHtmlName.Size = new System.Drawing.Size(153, 23);
             this.txtHtmlName.TabIndex = 3;
@@ -734,7 +734,7 @@ namespace ToolSupportUchida.View
             // lbHtmlName
             // 
             this.lbHtmlName.AutoSize = true;
-            this.lbHtmlName.Location = new System.Drawing.Point(6, 82);
+            this.lbHtmlName.Location = new System.Drawing.Point(6, 76);
             this.lbHtmlName.Name = "lbHtmlName";
             this.lbHtmlName.Size = new System.Drawing.Size(58, 17);
             this.lbHtmlName.TabIndex = 2;
@@ -744,7 +744,7 @@ namespace ToolSupportUchida.View
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 24);
+            this.label6.Location = new System.Drawing.Point(6, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 17);
             this.label6.TabIndex = 1;
@@ -768,7 +768,7 @@ namespace ToolSupportUchida.View
             "Radio",
             "Spread",
             "Tree"});
-            this.cbItem.Location = new System.Drawing.Point(75, 20);
+            this.cbItem.Location = new System.Drawing.Point(75, 18);
             this.cbItem.Name = "cbItem";
             this.cbItem.Size = new System.Drawing.Size(153, 24);
             this.cbItem.TabIndex = 1;
@@ -782,10 +782,32 @@ namespace ToolSupportUchida.View
             this.tabPageGetColumn.Controls.Add(this.groupBox5);
             this.tabPageGetColumn.Location = new System.Drawing.Point(124, 4);
             this.tabPageGetColumn.Name = "tabPageGetColumn";
-            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 397);
+            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 366);
             this.tabPageGetColumn.TabIndex = 6;
             this.tabPageGetColumn.Text = "Get Name Column";
             this.tabPageGetColumn.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.txColumnTable);
+            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox10.Location = new System.Drawing.Point(324, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(244, 174);
+            this.groupBox10.TabIndex = 4;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Input Table";
+            // 
+            // txColumnTable
+            // 
+            this.txColumnTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txColumnTable.Location = new System.Drawing.Point(3, 19);
+            this.txColumnTable.Multiline = true;
+            this.txColumnTable.Name = "txColumnTable";
+            this.txColumnTable.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txColumnTable.Size = new System.Drawing.Size(238, 152);
+            this.txColumnTable.TabIndex = 4;
+            this.txColumnTable.TextChanged += new System.EventHandler(this.txColumnTable_TextChanged);
             // 
             // groupBox7
             // 
@@ -794,9 +816,9 @@ namespace ToolSupportUchida.View
             this.groupBox7.Controls.Add(this.btColumnClear);
             this.groupBox7.Controls.Add(this.btColumnCoppy);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(325, 287);
+            this.groupBox7.Location = new System.Drawing.Point(325, 265);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(244, 105);
+            this.groupBox7.Size = new System.Drawing.Size(244, 97);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Result";
@@ -804,10 +826,10 @@ namespace ToolSupportUchida.View
             // txColumnResult
             // 
             this.txColumnResult.Enabled = false;
-            this.txColumnResult.Location = new System.Drawing.Point(3, 18);
+            this.txColumnResult.Location = new System.Drawing.Point(3, 17);
             this.txColumnResult.Name = "txColumnResult";
             this.txColumnResult.ReadOnly = true;
-            this.txColumnResult.Size = new System.Drawing.Size(238, 48);
+            this.txColumnResult.Size = new System.Drawing.Size(238, 45);
             this.txColumnResult.TabIndex = 20;
             this.txColumnResult.TabStop = false;
             this.txColumnResult.Text = "";
@@ -816,27 +838,28 @@ namespace ToolSupportUchida.View
             // 
             this.lbColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbColumnResult.ForeColor = System.Drawing.Color.Red;
-            this.lbColumnResult.Location = new System.Drawing.Point(148, 69);
+            this.lbColumnResult.Location = new System.Drawing.Point(148, 64);
             this.lbColumnResult.Name = "lbColumnResult";
-            this.lbColumnResult.Size = new System.Drawing.Size(96, 30);
+            this.lbColumnResult.Size = new System.Drawing.Size(96, 28);
             this.lbColumnResult.TabIndex = 19;
             this.lbColumnResult.Text = "Copy to Clipboard is done!";
             this.lbColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbColumnResult.Visible = false;
             // 
             // btColumnClear
             // 
-            this.btColumnClear.Enabled = false;
             this.btColumnClear.FlatAppearance.BorderSize = 0;
             this.btColumnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btColumnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
-            this.btColumnClear.Location = new System.Drawing.Point(81, 69);
+            this.btColumnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btColumnClear.Location = new System.Drawing.Point(81, 64);
             this.btColumnClear.Name = "btColumnClear";
-            this.btColumnClear.Size = new System.Drawing.Size(66, 30);
+            this.btColumnClear.Size = new System.Drawing.Size(66, 28);
             this.btColumnClear.TabIndex = 18;
             this.btColumnClear.Text = "Clear";
             this.btColumnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btColumnClear.UseVisualStyleBackColor = true;
+            this.btColumnClear.Click += new System.EventHandler(this.btColumnClear_Click);
             // 
             // btColumnCoppy
             // 
@@ -844,15 +867,16 @@ namespace ToolSupportUchida.View
             this.btColumnCoppy.FlatAppearance.BorderSize = 0;
             this.btColumnCoppy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btColumnCoppy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btColumnCoppy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btColumnCoppy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btColumnCoppy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btColumnCoppy.Location = new System.Drawing.Point(4, 69);
+            this.btColumnCoppy.Location = new System.Drawing.Point(4, 64);
             this.btColumnCoppy.Name = "btColumnCoppy";
-            this.btColumnCoppy.Size = new System.Drawing.Size(72, 30);
+            this.btColumnCoppy.Size = new System.Drawing.Size(72, 28);
             this.btColumnCoppy.TabIndex = 17;
             this.btColumnCoppy.Text = "Coppy";
             this.btColumnCoppy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btColumnCoppy.UseVisualStyleBackColor = true;
+            this.btColumnCoppy.Click += new System.EventHandler(this.btColumnCoppy_Click);
             // 
             // groupBox6
             // 
@@ -861,9 +885,9 @@ namespace ToolSupportUchida.View
             this.groupBox6.Controls.Add(this.txColumnInput);
             this.groupBox6.Controls.Add(this.cbColumnFormat);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox6.Location = new System.Drawing.Point(325, 198);
+            this.groupBox6.Location = new System.Drawing.Point(325, 183);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(244, 87);
+            this.groupBox6.Size = new System.Drawing.Size(244, 80);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Input Format";
@@ -871,7 +895,7 @@ namespace ToolSupportUchida.View
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 56);
+            this.label7.Location = new System.Drawing.Point(6, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 17);
             this.label7.TabIndex = 3;
@@ -880,7 +904,7 @@ namespace ToolSupportUchida.View
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 30);
+            this.label5.Location = new System.Drawing.Point(6, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 2;
@@ -888,7 +912,7 @@ namespace ToolSupportUchida.View
             // 
             // txColumnInput
             // 
-            this.txColumnInput.Location = new System.Drawing.Point(79, 24);
+            this.txColumnInput.Location = new System.Drawing.Point(79, 22);
             this.txColumnInput.Name = "txColumnInput";
             this.txColumnInput.Size = new System.Drawing.Size(159, 23);
             this.txColumnInput.TabIndex = 1;
@@ -899,12 +923,16 @@ namespace ToolSupportUchida.View
             this.cbColumnFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColumnFormat.FormattingEnabled = true;
             this.cbColumnFormat.Items.AddRange(new object[] {
-            "[].[]",
-            "[/]"});
-            this.cbColumnFormat.Location = new System.Drawing.Point(79, 53);
+            "[-].[-]",
+            "【-】.[-]",
+            "【-】.【-】",
+            "[-/-]",
+            "【-/-】"});
+            this.cbColumnFormat.Location = new System.Drawing.Point(79, 49);
             this.cbColumnFormat.Name = "cbColumnFormat";
             this.cbColumnFormat.Size = new System.Drawing.Size(159, 24);
             this.cbColumnFormat.TabIndex = 0;
+            this.cbColumnFormat.SelectedIndexChanged += new System.EventHandler(this.cbColumnFormat_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -912,19 +940,19 @@ namespace ToolSupportUchida.View
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(318, 391);
+            this.groupBox5.Size = new System.Drawing.Size(318, 361);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input Data";
             // 
             // txColumnData
             // 
-            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Top;
             this.txColumnData.Location = new System.Drawing.Point(3, 19);
             this.txColumnData.Multiline = true;
             this.txColumnData.Name = "txColumnData";
             this.txColumnData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txColumnData.Size = new System.Drawing.Size(312, 369);
+            this.txColumnData.Size = new System.Drawing.Size(312, 24);
             this.txColumnData.TabIndex = 3;
             this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
             // 
@@ -933,7 +961,7 @@ namespace ToolSupportUchida.View
             this.tabPage2.Location = new System.Drawing.Point(124, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(576, 397);
+            this.tabPage2.Size = new System.Drawing.Size(576, 366);
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Comming Soon";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -990,14 +1018,14 @@ namespace ToolSupportUchida.View
             // 
             this.txtName.Location = new System.Drawing.Point(209, 17);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(154, 20);
+            this.txtName.Size = new System.Drawing.Size(154, 19);
             this.txtName.TabIndex = 2;
             // 
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(35, 18);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(113, 20);
+            this.txtID.Size = new System.Drawing.Size(113, 19);
             this.txtID.TabIndex = 1;
             // 
             // btnCopyBundle
@@ -1006,7 +1034,7 @@ namespace ToolSupportUchida.View
             this.btnCopyBundle.FlatAppearance.BorderSize = 0;
             this.btnCopyBundle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyBundle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyBundle.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyBundle.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopyBundle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyBundle.Location = new System.Drawing.Point(6, 126);
             this.btnCopyBundle.Name = "btnCopyBundle";
@@ -1044,7 +1072,7 @@ namespace ToolSupportUchida.View
             this.btnCopyController.FlatAppearance.BorderSize = 0;
             this.btnCopyController.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyController.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyController.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyController.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopyController.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyController.Location = new System.Drawing.Point(6, 126);
             this.btnCopyController.Name = "btnCopyController";
@@ -1092,7 +1120,7 @@ namespace ToolSupportUchida.View
             this.btnCopyCSHMTML.FlatAppearance.BorderSize = 0;
             this.btnCopyCSHMTML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyCSHMTML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyCSHMTML.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyCSHMTML.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopyCSHMTML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyCSHMTML.Location = new System.Drawing.Point(6, 290);
             this.btnCopyCSHMTML.Name = "btnCopyCSHMTML";
@@ -1120,7 +1148,7 @@ namespace ToolSupportUchida.View
             this.btnCopyInit.FlatAppearance.BorderSize = 0;
             this.btnCopyInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyInit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyInit.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyInit.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopyInit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyInit.Location = new System.Drawing.Point(6, 130);
             this.btnCopyInit.Name = "btnCopyInit";
@@ -1158,7 +1186,7 @@ namespace ToolSupportUchida.View
             this.btnCopyDialog.FlatAppearance.BorderSize = 0;
             this.btnCopyDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyDialog.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopyDialog.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopyDialog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyDialog.Location = new System.Drawing.Point(6, 130);
             this.btnCopyDialog.Name = "btnCopyDialog";
@@ -1190,33 +1218,11 @@ namespace ToolSupportUchida.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.txColumnTable);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox10.Location = new System.Drawing.Point(324, 3);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(244, 189);
-            this.groupBox10.TabIndex = 4;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Input Table";
-            // 
-            // txColumnTable
-            // 
-            this.txColumnTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txColumnTable.Location = new System.Drawing.Point(3, 19);
-            this.txColumnTable.Multiline = true;
-            this.txColumnTable.Name = "txColumnTable";
-            this.txColumnTable.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txColumnTable.Size = new System.Drawing.Size(238, 167);
-            this.txColumnTable.TabIndex = 4;
-            this.txColumnTable.TextChanged += new System.EventHandler(this.txColumnTable_TextChanged);
-            // 
             // FormCommon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 405);
+            this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.tabControlCommon);
             this.Name = "FormCommon";
             this.Text = "Tool Common";
@@ -1241,13 +1247,13 @@ namespace ToolSupportUchida.View
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             this.tabPageGetColumn.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -1,5 +1,5 @@
 ﻿
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     partial class FormAbout
     {

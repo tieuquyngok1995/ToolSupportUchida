@@ -1,5 +1,5 @@
 ﻿
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     partial class FormConvertModel
     {
@@ -322,7 +322,7 @@ namespace ToolSupportUchida.View
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Image = global::ToolSupportUchida.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopy.Location = new System.Drawing.Point(529, 329);
             this.btnCopy.Name = "btnCopy";
@@ -450,7 +450,7 @@ namespace ToolSupportUchida.View
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportUchida.Properties.Resources.button_clear;
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
             this.btnClear.Location = new System.Drawing.Point(638, 330);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(28, 26);

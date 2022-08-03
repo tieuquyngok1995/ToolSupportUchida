@@ -4,10 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ToolSupportUchida.Theme;
-using ToolSupportUchida.Utils;
+using ToolSupportCoding.Theme;
+using ToolSupportCoding.Utils;
 
-namespace ToolSupportUchida.View
+namespace ToolSupportCoding.View
 {
     public partial class FormConvertModel : Form
     {
