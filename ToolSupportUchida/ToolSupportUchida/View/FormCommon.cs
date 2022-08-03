@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace ToolSupportCoding.View
         // list using get column
         private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
         private Dictionary<string, string> dicColumnTable = new Dictionary<string, string>();
+        DataTable table;
 
         #region Load Form
         public FormCommon()
@@ -1952,94 +1954,142 @@ namespace ToolSupportCoding.View
         #region Tab Get Name Column
         private void txColumnData_TextChanged(object sender, EventArgs e)
         {
-            string value = txColumnData.Text;
-            List<string> lstColumnData = new List<string>();
-            // create data in table 
-            if (!string.IsNullOrEmpty(value))
+            try
             {
-                string strRegex = @"[\t]+";
-                Regex myRegex = new Regex(strRegex, RegexOptions.None);
-                string strReplace = @"\t";
-                value = myRegex.Replace(value, strReplace);
+                string value = txColumnData.Text;
+                List<string> lstColumnData = new List<string>();
+                // create data in table 
+                if (!string.IsNullOrEmpty(value))
+                {
+                    string strRegex = @"[\t]+";
+                    Regex myRegex = new Regex(strRegex, RegexOptions.None);
+                    string strReplace = @"\t";
+                    value = myRegex.Replace(value, strReplace);
 
-                string[] stringSeparators = new string[] { "テーブル物理名" };
-                lstColumnData = value.Split(stringSeparators, StringSplitOptions.None).ToList();
-            }
+                    string[] stringSeparators = new string[] { "テーブル論理名" };
+                    lstColumnData = value.Split(stringSeparators, StringSplitOptions.None).ToList();
+                }
 
-            // create list in table
-            if (lstColumnData.Count > 0)
-            {
-                foreach (string table in lstColumnData)
+                // create list in table
+                if (lstColumnData.Count > 0)
                 {
                     dicColumnData = new Dictionary<string, Dictionary<string, string>>();
-                    if (!string.IsNullOrEmpty(table))
+                    dicColumnTable = new Dictionary<string, string>();
+                    foreach (string table in lstColumnData)
                     {
-                        string[] stringNewLine = new string[] { "\r\n" };
-                        string[] data = table.Split(stringNewLine, StringSplitOptions.None);
-
-                        string nameTable = Regex.Replace(data[0], @"\\t", "");
-
-                        Dictionary<string, string> dicData = new Dictionary<string, string>();
-                        string[] stringTab = new string[] { "\\t" };
-                        for (int idx = 1; idx < data.Length; idx++)
+                        if (!string.IsNullOrEmpty(table))
                         {
-                            if (!string.IsNullOrEmpty(data[idx]))
+                            string[] stringNewLine = new string[] { "\r\n" };
+                            string[] data = table.Split(stringNewLine, StringSplitOptions.None);
+
+                            string[] stringNameTable = new string[] { "テーブル物理名" };
+                            string[] lstNameTable = data[0].Split(stringNameTable, StringSplitOptions.None);
+
+                            string nameLogicTable = ""; string namePhysTable;
+                            if (lstNameTable.Length > 1)
                             {
-                                string[] item = data[idx].Split(stringTab, StringSplitOptions.None);
-                                if (item.Length > 1)
+                                namePhysTable = Regex.Replace(lstNameTable[0], @"\\t", "");
+                                nameLogicTable = Regex.Replace(lstNameTable[1], @"\\t", "");
+                                dicColumnTable.Add(nameLogicTable, namePhysTable);
+                            }
+
+                            Dictionary<string, string> dicData = new Dictionary<string, string>();
+                            string[] stringTab = new string[] { "\\t" };
+                            for (int idx = 1; idx < data.Length; idx++)
+                            {
+                                if (!string.IsNullOrEmpty(data[idx]))
                                 {
-                                    dicData.Add(item[0], item[1]);
+                                    string[] item = data[idx].Split(stringTab, StringSplitOptions.None);
+                                    if (item.Length > 1)
+                                    {
+                                        dicData.Add(item[0], item[1]);
+                                    }
                                 }
                             }
-                        }
-                        if (dicData.Count > 0)
-                        {
-                            dicColumnData.Add(nameTable, dicData);
+                            if (dicData.Count > 0)
+                            {
+                                dicColumnData.Add(nameLogicTable, dicData);
+                            }
                         }
                     }
                 }
+
+                setDataTable();
+
+                getColumn();
             }
-            getColumn();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An abnormal error occurs in the function: ColumnData\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void txColumnTable_TextChanged(object sender, EventArgs e)
+        private void setDataTable()
         {
-            string value = txColumnTable.Text;
-            List<string> lstColumnTable = new List<string>();
-            // create data in table 
-            if (!string.IsNullOrEmpty(value))
+            try
             {
-                string strRegex = @"[\t]+";
-                Regex myRegex = new Regex(strRegex, RegexOptions.None);
-                string strReplace = @"\t";
-                value = myRegex.Replace(value, strReplace);
+                // set data to combobox
+                List<string> lstTableName = new List<string>(dicColumnData.Keys);
 
-                string[] stringSeparators = new string[] { "\r\n" };
-                lstColumnTable = value.Split(stringSeparators, StringSplitOptions.None).ToList();
-            }
+                table = new DataTable();
 
-            // add data to dic
-            if (lstColumnTable.Count > 0)
-            {
-                dicColumnTable = new Dictionary<string, string>();
-                string[] stringTab = new string[] { "\\t" };
-                foreach (string table in lstColumnTable)
+                table.Columns.Add("PhysicalTable", typeof(string));
+                table.Columns.Add("LogicTable", typeof(string));
+                table.Columns.Add("PhysicalName", typeof(string));
+                table.Columns.Add("LogicName", typeof(string));
+
+                cbColumnTable.Items.Clear();
+                cbColumnTable.Items.Add("");
+                foreach (string item in lstTableName)
                 {
-                    if (!string.IsNullOrEmpty(table))
+                    cbColumnTable.Items.Add(item);
+                    // Set data to table
+                    Dictionary<string, string> lstData = dicColumnData[item];
+                    foreach (KeyValuePair<string, string> pair in lstData)
                     {
-                        string[] item = table.Split(stringTab, StringSplitOptions.None);
-                        if (item.Length > 1)
-                        {
-                            dicColumnTable.Add(item[0], item[1]);
-                        }
+                        table.Rows.Add(dicColumnTable[item], item, pair.Key, pair.Value);
                     }
                 }
+                // set data to gird
+                gridColumnData.DataSource = table;
+                DataGridViewColumn column = gridColumnData.Columns[0];
+                column.HeaderText = "Physical Table";
+                column.Width = 125;
+                column = gridColumnData.Columns[1];
+                column.HeaderText = "Logic Table";
+                column.Width = 125;
+                column = gridColumnData.Columns[2];
+                column.HeaderText = "Physical Name";
+                column.Width = 150;
+                column = gridColumnData.Columns[3];
+                column.HeaderText = "Logic Name";
+                column.Width = 140;
             }
-            getColumn();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An abnormal error occurs in the function: SetDataTable\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txColumnSearch_TextChanged(object sender, EventArgs e)
+        {
+            setDataTable();
+
+            DataView dv = table.DefaultView;
+
+            string filter = "";
+            if (cbColumnTable.SelectedItem != null && !string.IsNullOrEmpty(cbColumnTable.Text))
+            {
+                filter = "LogicTable = '" + cbColumnTable.SelectedItem + "' And ";
+            }
+            filter += "PhysicalName LIKE '" + txColumnSearch.Text + "%'";
+            dv.RowFilter = filter;
+            gridColumnData.DataSource = dv;
         }
 
         private void txColumnInput_TextChanged(object sender, EventArgs e)
         {
+            setDataTable();
             getColumn();
         }
 
@@ -2050,128 +2100,114 @@ namespace ToolSupportCoding.View
 
         private void getColumn()
         {
-            lbColumnResult.Visible = false;
-            string value = txColumnInput.Text;
-            string format = "";
-            int selectIndex = 0;
-            if (cbColumnFormat.SelectedItem != null)
+            try
             {
-                selectIndex = cbColumnFormat.SelectedIndex;
-                format = cbColumnFormat.Text;
-            }
+                string value = txColumnInput.Text;
+                string strRegex = @"[\t]+";
+                Regex myRegex = new Regex(strRegex, RegexOptions.None);
+                string strReplace = "";
+                value = myRegex.Replace(value, strReplace);
+                value.Replace("\r\n", "");
 
-            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(format))
-            {
-                return;
-            }
-
-            // get value input
-            string[] lstVal; string[] stringFormat;
-            string key = "";
-            switch (selectIndex)
-            {
-                case 0:
-                    stringFormat = new string[] { "].[" };
-                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
-                    if (lstVal.Length > 1)
-                    {
-                        key = lstVal[0].Replace("[", "");
-                        value = lstVal[1].Replace("]", "");
-                    }
-                    break;
-                case 1:
-                    stringFormat = new string[] { "】.[" };
-                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
-                    if (lstVal.Length > 1)
-                    {
-                        key = lstVal[0].Replace("【", "");
-                        value = lstVal[1].Replace("]", "");
-                    }
-                    break;
-                case 2:
-                    stringFormat = new string[] { "】.【" };
-                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
-                    if (lstVal.Length > 1)
-                    {
-                        key = lstVal[0].Replace("【", "");
-                        value = lstVal[1].Replace("】", "");
-                    }
-                    break;
-                case 3:
-                    stringFormat = new string[] { "/" };
-                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
-                    if (lstVal.Length > 1)
-                    {
-                        key = lstVal[0].Replace("[", "");
-                        value = lstVal[1].Replace("]", "");
-                    }
-                    break;
-                case 4:
-                    stringFormat = new string[] { "/" };
-                    lstVal = value.Split(stringFormat, StringSplitOptions.None);
-                    if (lstVal.Length > 1)
-                    {
-                        key = lstVal[0].Replace("【", "");
-                        value = lstVal[1].Replace("】", "");
-                    }
-                    break;
-            }
-
-            // check data
-            if (dicColumnData.Count == 0 || dicColumnTable.Count == 0)
-            {
-                btColumnCoppy.Enabled = false;
-                return;
-            }
-
-            // get key
-            string valueKey;
-            string columnKey;
-            if (dicColumnTable.TryGetValue(key, out valueKey))
-            {
-                columnKey = valueKey;
-                key = valueKey;
-            } else
-            {
-                txColumnResult.Text = "Can not be found";
-                return;
-            }
-
-            Dictionary<string, string> dicValue = new Dictionary<string, string>();
-            if (dicColumnData.TryGetValue(key, out dicValue))
-            {
-                if (dicValue.TryGetValue(value, out valueKey))
+                string format = "";
+                int selectIndex = 0;
+                if (cbColumnFormat.SelectedItem != null)
                 {
-                    txColumnResult.Text = columnKey +"."+ valueKey;
-                    btColumnCoppy.Enabled = true;
+                    selectIndex = cbColumnFormat.SelectedIndex;
+                    format = cbColumnFormat.Text;
                 }
+
+                if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(format))
+                {
+                    return;
+                }
+
+                // get value input
+                string[] lstVal; string[] stringFormat;
+                string key = "";
+                switch (selectIndex)
+                {
+                    case 0:
+                        stringFormat = new string[] { "].[" };
+                        lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                        if (lstVal.Length > 1)
+                        {
+                            key = lstVal[0].Replace("[", "");
+                            value = lstVal[1].Replace("]", "");
+                        }
+                        break;
+                    case 1:
+                        stringFormat = new string[] { "】.[" };
+                        lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                        if (lstVal.Length > 1)
+                        {
+                            key = lstVal[0].Replace("【", "");
+                            value = lstVal[1].Replace("]", "");
+                        }
+                        break;
+                    case 2:
+                        stringFormat = new string[] { "】.【" };
+                        lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                        if (lstVal.Length > 1)
+                        {
+                            key = lstVal[0].Replace("【", "");
+                            value = lstVal[1].Replace("】", "");
+                        }
+                        break;
+                    case 3:
+                        stringFormat = new string[] { "/" };
+                        lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                        if (lstVal.Length > 1)
+                        {
+                            key = lstVal[0].Replace("[", "");
+                            value = lstVal[1].Replace("]", "");
+                        }
+                        break;
+                    case 4:
+                        stringFormat = new string[] { "/" };
+                        lstVal = value.Split(stringFormat, StringSplitOptions.None);
+                        if (lstVal.Length > 1)
+                        {
+                            key = lstVal[0].Replace("【", "");
+                            value = lstVal[1].Replace("】", "");
+                        }
+                        break;
+                }
+
+                DataView dv = table.DefaultView;
+
+                string filter = "PhysicalTable = '" + key + "' And PhysicalName LIKE '" + value + "%'";
+                dv.RowFilter = filter;
+                gridColumnData.DataSource = dv;
             }
-            else
+            catch (Exception ex)
             {
-                txColumnResult.Text = "Can not be found";
-                return;
+                MessageBox.Show("An abnormal error occurs in the function: GetColumn\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btColumnCoppy_Click(object sender, EventArgs e)
+        private void btColumnReset_Click(object sender, EventArgs e)
         {
-            lbColumnResult.Visible = true;
-            Clipboard.Clear();
-            Clipboard.SetText(txColumnResult.Text);
+            txColumnSearch.Text = "";
+            txColumnInput.Text = "";
+
+            cbColumnTable.SelectedIndex = -1;
+            cbColumnFormat.SelectedIndex = -1;
+
+            setDataTable();
         }
 
         private void btColumnClear_Click(object sender, EventArgs e)
         {
             txColumnData.Text = "";
-            txColumnTable.Text = "";
+            txColumnSearch.Text = "";
             txColumnInput.Text = "";
-            
-            txColumnResult.Text = "";
+
+            cbColumnTable.Items.Clear();
             cbColumnFormat.SelectedIndex = -1;
 
-            lbColumnResult.Visible = false;
-            btColumnCoppy.Enabled = false;
-            Clipboard.Clear();
+            gridColumnData.DataSource = null;
+            gridColumnData.Rows.Clear();
         }
 
         #endregion
@@ -2211,8 +2247,8 @@ namespace ToolSupportCoding.View
 
 
 
-        #endregion
 
+        #endregion
 
     }
 }
