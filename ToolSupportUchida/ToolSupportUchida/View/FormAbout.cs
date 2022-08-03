@@ -96,7 +96,7 @@ namespace ToolSupportCoding.View
             lstTextDoc += "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Lay thong tin cua tung colum table trong thiet ke theo format." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input data la thong tin table co trong thiet ke, dong dau tien la ten table bao gom ca chu テーブル物理名." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input data la thong tin table co trong thiet ke, dong dau tien la ten table tu テーブル論理名 toi ten logic." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - B2: Input danh sach table se su dung." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - B3: Input doan text can tim kiem." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - B4: Chon format tuong ung cua doan text da input." + CONST.CHAR_NEW_LINE;
