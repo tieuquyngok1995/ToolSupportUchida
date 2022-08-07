@@ -40,7 +40,7 @@ namespace ToolSupportCoding.Common
                 ToolSupportModel objTool = new ToolSupportModel();
 
                 List<SekkeiModel> lstSekkei = new List<SekkeiModel>();
-                List<AdapterModel> lstAdapter = new List<AdapterModel>();
+                List<ItemModel> lstItem = new List<ItemModel>();
 
                 if (File.Exists(CONST.FILE_PATH_IMPORT))
                 {
@@ -54,7 +54,7 @@ namespace ToolSupportCoding.Common
                 }
 
                 objTool.lstSekkei = lstSekkei;
-                objTool.lstAdapter = lstAdapter;
+                objTool.lstItem = lstItem;
 
                 WriteToBinaryFile<ToolSupportModel>(objTool);
             }

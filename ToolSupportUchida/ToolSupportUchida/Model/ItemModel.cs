@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ToolSupportCoding.Model
 {
     [Serializable]
-    public class AdapterModel
+    public class ItemModel
     {
         public string type { get; set; }
 
@@ -15,11 +15,11 @@ namespace ToolSupportCoding.Model
 
         public string value { get; set; }
 
-        public AdapterModel()
+        public ItemModel()
         {
         }
 
-        public AdapterModel(string type, string key, string value)
+        public ItemModel(string type, string key, string value)
         {
             this.type = type;
             this.key = key;

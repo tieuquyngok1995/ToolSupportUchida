@@ -13,12 +13,9 @@ namespace ToolSupportCoding.View
 {
     public partial class FormCreateAdapter : Form
     {
-        private List<AdapterModel> lstAdapter;
+        private List<ItemModel> lstItem;
 
-        private List<AdapterModel> lstRows;
-        private List<AdapterModel> lstColumn;
-        private List<AdapterModel> lstSubRows;
-        private List<AdapterModel> lstSubColumn;
+        private List<ItemModel> lstHTML;
 
         private string[] lstLogic;
         private string[] lstPhysi;
@@ -34,11 +31,11 @@ namespace ToolSupportCoding.View
         private bool isAppend;
 
         #region Load Form
-        public FormCreateAdapter(List<AdapterModel> lstAdapter)
+        public FormCreateAdapter(List<ItemModel> lstItem)
         {
             InitializeComponent();
 
-            this.lstAdapter = lstAdapter;
+            this.lstItem = lstItem;
 
             lstLogic = new string[0];
             lstPhysi = new string[0];
@@ -72,41 +69,41 @@ namespace ToolSupportCoding.View
 
         private void LoadData()
         {
-            lstRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_ROWS)).ToList();
-            if (lstRows.Count > 0)
-            {
-                cbRow.DataSource = new BindingSource(lstRows, null);
-                cbRow.DisplayMember = CONST.ITEM_KEY;
-                cbRow.ValueMember = CONST.ITEM_VALUE;
-                cbRow.SelectedIndex = 0;
-            }
+            //lstRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_ROWS)).ToList();
+            //if (lstRows.Count > 0)
+            //{
+            //    cbRow.DataSource = new BindingSource(lstRows, null);
+            //    cbRow.DisplayMember = CONST.ITEM_KEY;
+            //    cbRow.ValueMember = CONST.ITEM_VALUE;
+            //    cbRow.SelectedIndex = 0;
+            //}
 
-            lstColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_COLUMNS)).ToList();
-            if (lstColumn.Count > 0)
-            {
-                cbColumn.DataSource = new BindingSource(lstColumn, null);
-                cbColumn.DisplayMember = CONST.ITEM_KEY;
-                cbColumn.ValueMember = CONST.ITEM_VALUE;
-                cbColumn.SelectedIndex = 0;
-            }
+            //lstColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_COLUMNS)).ToList();
+            //if (lstColumn.Count > 0)
+            //{
+            //    cbColumn.DataSource = new BindingSource(lstColumn, null);
+            //    cbColumn.DisplayMember = CONST.ITEM_KEY;
+            //    cbColumn.ValueMember = CONST.ITEM_VALUE;
+            //    cbColumn.SelectedIndex = 0;
+            //}
 
-            lstSubRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_ROWS)).ToList();
-            if (lstSubRows.Count > 0)
-            {
-                cbSubRow.DataSource = new BindingSource(lstSubRows, null);
-                cbSubRow.DisplayMember = CONST.ITEM_KEY;
-                cbSubRow.ValueMember = CONST.ITEM_VALUE;
-                cbSubRow.SelectedIndex = 0;
-            }
+            //lstSubRows = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_ROWS)).ToList();
+            //if (lstSubRows.Count > 0)
+            //{
+            //    cbSubRow.DataSource = new BindingSource(lstSubRows, null);
+            //    cbSubRow.DisplayMember = CONST.ITEM_KEY;
+            //    cbSubRow.ValueMember = CONST.ITEM_VALUE;
+            //    cbSubRow.SelectedIndex = 0;
+            //}
 
-            lstSubColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_COLUMNS)).ToList();
-            if (lstSubColumn.Count > 0)
-            {
-                cbSubColumn.DataSource = new BindingSource(lstSubColumn, null);
-                cbSubColumn.DisplayMember = CONST.ITEM_KEY;
-                cbSubColumn.ValueMember = CONST.ITEM_VALUE;
-                cbSubColumn.SelectedIndex = 0;
-            }
+            //lstSubColumn = lstAdapter.Where(obj => obj.type.Equals(CONST.ITEM_SUB_COLUMNS)).ToList();
+            //if (lstSubColumn.Count > 0)
+            //{
+            //    cbSubColumn.DataSource = new BindingSource(lstSubColumn, null);
+            //    cbSubColumn.DisplayMember = CONST.ITEM_KEY;
+            //    cbSubColumn.ValueMember = CONST.ITEM_VALUE;
+            //    cbSubColumn.SelectedIndex = 0;
+            //}
         }
         #endregion
 
@@ -114,70 +111,70 @@ namespace ToolSupportCoding.View
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
 
-            lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+            //lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
 
-            if (lstLogic.Length > 0)
-            {
-                lblNumLogic.Visible = true;
-                lblNumLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Length);
-            }
-            else
-            {
-                lblNumLogic.Visible = false;
-            }
+            //if (lstLogic.Length > 0)
+            //{
+            //    lblNumLogic.Visible = true;
+            //    lblNumLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstLogic.Length);
+            //}
+            //else
+            //{
+            //    lblNumLogic.Visible = false;
+            //}
 
             displayButtonInOut();
         }
 
         private void txtLogic_Leave(object sender, EventArgs e)
         {
-            txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+           // txtLogic.Text = Regex.Replace(txtLogic.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
         }
 
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
-            lstPhysi = txtPhysi.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+            //lstPhysi = txtPhysi.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
 
-            if (lstPhysi.Length > 0)
-            {
-                lblNumPhy.Visible = true;
-                lblNumPhy.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Length);
-            }
-            else
-            {
-                lblNumPhy.Visible = false;
-            }
+            //if (lstPhysi.Length > 0)
+            //{
+            //    lblNumPhy.Visible = true;
+            //    lblNumPhy.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysi.Length);
+            //}
+            //else
+            //{
+            //    lblNumPhy.Visible = false;
+            //}
 
             displayButtonInOut();
         }
 
         private void txtPhysi_Leave(object sender, EventArgs e)
         {
-            txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+            //txtPhysi.Text = Regex.Replace(txtPhysi.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
         }
 
         private void cbRow_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AdapterModel obj = (AdapterModel)cbRow.SelectedItem;
-            valRows = obj.value;
+            //AdapterModel obj = (AdapterModel)cbRow.SelectedItem;
+            //valRows = obj.value;
         }
 
         private void cbColumn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AdapterModel obj = (AdapterModel)cbColumn.SelectedItem;
-            valColumn = obj.value;
+           // AdapterModel obj = (AdapterModel)cbColumn.SelectedItem;
+            //valColumn = obj.value;
         }
 
         private void cbSubRow_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AdapterModel obj = (AdapterModel)cbSubRow.SelectedItem;
-            valSubRows = obj.value;
+           // AdapterModel obj = (AdapterModel)cbSubRow.SelectedItem;
+            //valSubRows = obj.value;
         }
 
         private void cbSubColumn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AdapterModel obj = (AdapterModel)cbSubColumn.SelectedItem;
-            valSubColumn = obj.value;
+          //  AdapterModel obj = (AdapterModel)cbSubColumn.SelectedItem;
+           // valSubColumn = obj.value;
         }
 
         private void btnCreateIn_Click(object sender, EventArgs e)
@@ -188,7 +185,7 @@ namespace ToolSupportCoding.View
 
             Dictionary<string, string> lstName = new Dictionary<string, string>();
 
-            lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+            //lstLogic = txtLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
             lstLogic = lstLogic.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
             string result = string.Empty;
@@ -348,11 +345,11 @@ namespace ToolSupportCoding.View
                 }
             }
 
-            txtResult.Text = CUtils.FormatCode(result, maxLengthRow);
+           // txtResult.Text = CUtils.FormatCode(result, maxLengthRow);
 
             if (result.Length > 0)
             {
-                btnCopy.Enabled = true;
+              //  btnCopy.Enabled = true;
             }
         }
 
@@ -376,20 +373,20 @@ namespace ToolSupportCoding.View
                 string linePhysi = lstPhysi[i].Replace(CONST.STRING_CARRIAGE_RETUR, string.Empty).Trim();
                 if (i == 0)
                 {
-                    if (ckbCreate.Checked)
-                    {
-                        template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE_LIST);
-                        result = result + string.Format(template, linePhysi);
+                    //if (ckbCreate.Checked)
+                    //{
+                    //    template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE_LIST);
+                    //    result = result + string.Format(template, linePhysi);
 
-                        template = CUtils.CreTmlAdapForEachOut(tab, dAry, CONST.STRING_CREATE);
-                        result = result + string.Format(template, valRows);
+                    //    template = CUtils.CreTmlAdapForEachOut(tab, dAry, CONST.STRING_CREATE);
+                    //    result = result + string.Format(template, valRows);
 
-                        result = result + "{" + CONST.STRING_ADD_LINE;
-                        tab = CUtils.CreateTab(ref indexTab);
+                    //    result = result + "{" + CONST.STRING_ADD_LINE;
+                    //    tab = CUtils.CreateTab(ref indexTab);
 
-                        template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE);
-                        result = result + string.Format(template, linePhysi);
-                    }
+                    //    template = CUtils.CreTmlAdapModelOut(tab, CONST.STRING_CREATE);
+                    //    result = result + string.Format(template, linePhysi);
+                    //}
 
                     template = CUtils.CreTmlAdapArrayOut(tab, dAry);
                     result = result + string.Format(template, valColumn);
@@ -402,18 +399,18 @@ namespace ToolSupportCoding.View
                     if (i <= lstLogic.Length - 2)
                     {
                         numTabCheck = CUtils.GetNumTab(lstLogic[i + 1]);
-                        if (ckbCreate.Checked)
-                        {
-                            numTabCheck++;
-                        }
+                        //if (ckbCreate.Checked)
+                        //{
+                        //    numTabCheck++;
+                        //}
                     }
                     else if (i == lstLogic.Length - 1)
                     {
                         numTabCheck = CUtils.GetNumTab(lstLogic[i]);
-                        if (ckbCreate.Checked)
-                        {
-                            numTabCheck++;
-                        }
+                        //if (ckbCreate.Checked)
+                        //{
+                        //    numTabCheck++;
+                        //}
                     }
 
                     if (numTabCheck == numTab)
@@ -485,19 +482,19 @@ namespace ToolSupportCoding.View
                     if (i <= lstLogic.Length - 2)
                     {
                         numTab = CUtils.GetNumTab(lstLogic[i + 1]);
-                        if (ckbCreate.Checked)
-                        {
-                            numTab++;
-                        }
+                        //if (ckbCreate.Checked)
+                        //{
+                        //    numTab++;
+                        //}
                     }
                     else if (i == lstLogic.Length - 1)
                     {
                         numTab = CUtils.GetNumTab(lstLogic[i]);
                         numTab = (indexTab - lstName.Count) >= 0 ? (indexTab - lstName.Count) : 0;
-                        if (ckbCreate.Checked)
-                        {
-                            numTab++;
-                        }
+                        //if (ckbCreate.Checked)
+                        //{
+                        //    numTab++;
+                        //}
                     }
 
 
@@ -531,32 +528,32 @@ namespace ToolSupportCoding.View
                     }
                 }
 
-                if (i == (lstLogic.Length - 1) && ckbCreate.Checked)
-                {
-                    tab = CUtils.RemoveTab(ref indexTab);
-                    result = result + tab + "outputModelList.Add(outputModel);" + CONST.STRING_ADD_LINE;
-                    result = result + "}";
-                }
+                //if (i == (lstLogic.Length - 1) && ckbCreate.Checked)
+                //{
+                //    tab = CUtils.RemoveTab(ref indexTab);
+                //    result = result + tab + "outputModelList.Add(outputModel);" + CONST.STRING_ADD_LINE;
+                //    result = result + "}";
+                //}
             }
 
-            txtResult.Text = result;
+            //txtResult.Text = result;
 
-            if (result.Length > 0)
-            {
-                btnCopy.Enabled = true;
-            }
+            //if (result.Length > 0)
+            //{
+            //    btnCopy.Enabled = true;
+            //}
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                return;
-            }
+            //if (string.IsNullOrEmpty(txtResult.Text))
+            //{
+            //    return;
+            //}
 
-            Clipboard.Clear();
-            Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
+            //Clipboard.Clear();
+            //Clipboard.SetText(txtResult.Text);
+            //lblResult.Visible = true;
         }
         #endregion
 
@@ -588,16 +585,16 @@ namespace ToolSupportCoding.View
 
         private void displayButtonInOut()
         {
-            if (lstLogic.Length == lstPhysi.Length)
-            {
-                btnCreateIn.Enabled = true;
-                btnCreateOut.Enabled = true;
-            }
-            else
-            {
-                btnCreateIn.Enabled = false;
-                btnCreateOut.Enabled = false;
-            }
+            //if (lstLogic.Length == lstPhysi.Length)
+            //{
+            //    btnCreateIn.Enabled = true;
+            //    btnCreateOut.Enabled = true;
+            //}
+            //else
+            //{
+            //    btnCreateIn.Enabled = false;
+            //    btnCreateOut.Enabled = false;
+            //}
         }
 
         #endregion

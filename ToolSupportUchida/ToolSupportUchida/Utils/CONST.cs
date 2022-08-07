@@ -12,10 +12,7 @@ namespace ToolSupportCoding.Utils
         public static string ITEM_CHAR_FORMAT_EQUALS = "Equals";
         public static string ITEM_CHAR_FORMAT_TAB = "Tab";
 
-        public static string ITEM_ROWS = "Rows";
-        public static string ITEM_COLUMNS = "Columns";
-        public static string ITEM_SUB_ROWS = "SubRows";
-        public static string ITEM_SUB_COLUMNS = "SubColumns";
+        public static string ITEM_HTML = "HTML";
 
         public static string ITEM_KEY = "key";
         public static string ITEM_VALUE = "value";

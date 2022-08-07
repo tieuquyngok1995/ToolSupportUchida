@@ -8,7 +8,7 @@ namespace ToolSupportCoding.Model
     {
         public List<SekkeiModel> lstSekkei { get; set; }
 
-        public List<AdapterModel> lstAdapter { get; set; }
+        public List<ItemModel> lstItem { get; set; }
 
         public int modeLanguage { get; set; }
     }

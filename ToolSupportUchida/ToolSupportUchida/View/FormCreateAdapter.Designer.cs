@@ -29,402 +29,309 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelTextJapan = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtPhysi = new System.Windows.Forms.TextBox();
-            this.lblNumPhy = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtLogic = new System.Windows.Forms.TextBox();
-            this.lblNumLogic = new System.Windows.Forms.Label();
-            this.panelTextEng = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.txtResult = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbRow = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
-            this.ckbCreate = new System.Windows.Forms.CheckBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnCopy = new System.Windows.Forms.Button();
-            this.btnCreateOut = new System.Windows.Forms.Button();
-            this.btnCreateIn = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbSubColumn = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbSubRow = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbColumn = new System.Windows.Forms.ComboBox();
-            this.panelTextJapan.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panelTextEng.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbKey = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelData = new System.Windows.Forms.Panel();
+            this.panelResult = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.txtFormat = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gridSetParam = new System.Windows.Forms.DataGridView();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSetting.SuspendLayout();
             this.groupBoxSetting.SuspendLayout();
+            this.panelData.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelTextJapan
-            // 
-            this.panelTextJapan.Controls.Add(this.groupBox3);
-            this.panelTextJapan.Controls.Add(this.groupBox1);
-            this.panelTextJapan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTextJapan.Location = new System.Drawing.Point(0, 0);
-            this.panelTextJapan.Name = "panelTextJapan";
-            this.panelTextJapan.Size = new System.Drawing.Size(375, 405);
-            this.panelTextJapan.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtPhysi);
-            this.groupBox3.Controls.Add(this.lblNumPhy);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(192, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(180, 394);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Physical Name";
-            // 
-            // txtPhysi
-            // 
-            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysi.Multiline = true;
-            this.txtPhysi.Name = "txtPhysi";
-            this.txtPhysi.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPhysi.Size = new System.Drawing.Size(174, 338);
-            this.txtPhysi.TabIndex = 3;
-            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
-            this.txtPhysi.Leave += new System.EventHandler(this.txtPhysi_Leave);
-            // 
-            // lblNumPhy
-            // 
-            this.lblNumPhy.AutoSize = true;
-            this.lblNumPhy.Location = new System.Drawing.Point(6, 364);
-            this.lblNumPhy.Name = "lblNumPhy";
-            this.lblNumPhy.Size = new System.Drawing.Size(91, 17);
-            this.lblNumPhy.TabIndex = 2;
-            this.lblNumPhy.Text = "Line number:";
-            this.lblNumPhy.Visible = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtLogic);
-            this.groupBox1.Controls.Add(this.lblNumLogic);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(9, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(180, 394);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Logical Name";
-            // 
-            // txtLogic
-            // 
-            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtLogic.Multiline = true;
-            this.txtLogic.Name = "txtLogic";
-            this.txtLogic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogic.Size = new System.Drawing.Size(174, 338);
-            this.txtLogic.TabIndex = 2;
-            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
-            this.txtLogic.Leave += new System.EventHandler(this.txtLogic_Leave);
-            // 
-            // lblNumLogic
-            // 
-            this.lblNumLogic.AutoSize = true;
-            this.lblNumLogic.Location = new System.Drawing.Point(6, 364);
-            this.lblNumLogic.Name = "lblNumLogic";
-            this.lblNumLogic.Size = new System.Drawing.Size(91, 17);
-            this.lblNumLogic.TabIndex = 1;
-            this.lblNumLogic.Text = "Line number:";
-            this.lblNumLogic.Visible = false;
-            // 
-            // panelTextEng
-            // 
-            this.panelTextEng.Controls.Add(this.groupBox2);
-            this.panelTextEng.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelTextEng.Location = new System.Drawing.Point(489, 0);
-            this.panelTextEng.Name = "panelTextEng";
-            this.panelTextEng.Size = new System.Drawing.Size(215, 405);
-            this.panelTextEng.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblResult);
-            this.groupBox2.Controls.Add(this.txtResult);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 393);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Result";
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(4, 367);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(149, 15);
-            this.lblResult.TabIndex = 13;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.Visible = false;
-            // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtResult.Enabled = false;
-            this.txtResult.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResult.Location = new System.Drawing.Point(3, 19);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(194, 338);
-            this.txtResult.TabIndex = 1;
-            this.txtResult.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Rows";
-            // 
-            // cbRow
-            // 
-            this.cbRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRow.Location = new System.Drawing.Point(4, 47);
-            this.cbRow.Name = "cbRow";
-            this.cbRow.Size = new System.Drawing.Size(102, 24);
-            this.cbRow.Sorted = true;
-            this.cbRow.TabIndex = 3;
-            this.cbRow.SelectedIndexChanged += new System.EventHandler(this.cbRow_SelectedIndexChanged);
             // 
             // panelSetting
             // 
             this.panelSetting.Controls.Add(this.groupBoxSetting);
-            this.panelSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSetting.Location = new System.Drawing.Point(375, 0);
+            this.panelSetting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSetting.Location = new System.Drawing.Point(0, 0);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(114, 405);
-            this.panelSetting.TabIndex = 4;
+            this.panelSetting.Size = new System.Drawing.Size(704, 78);
+            this.panelSetting.TabIndex = 0;
             // 
             // groupBoxSetting
             // 
-            this.groupBoxSetting.Controls.Add(this.ckbCreate);
-            this.groupBoxSetting.Controls.Add(this.btnClear);
-            this.groupBoxSetting.Controls.Add(this.btnCopy);
-            this.groupBoxSetting.Controls.Add(this.btnCreateOut);
-            this.groupBoxSetting.Controls.Add(this.btnCreateIn);
-            this.groupBoxSetting.Controls.Add(this.label6);
-            this.groupBoxSetting.Controls.Add(this.cbSubColumn);
-            this.groupBoxSetting.Controls.Add(this.label7);
-            this.groupBoxSetting.Controls.Add(this.cbSubRow);
-            this.groupBoxSetting.Controls.Add(this.label5);
-            this.groupBoxSetting.Controls.Add(this.cbColumn);
-            this.groupBoxSetting.Controls.Add(this.label4);
-            this.groupBoxSetting.Controls.Add(this.cbRow);
-            this.groupBoxSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxSetting.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxSetting.Controls.Add(this.btnReset);
+            this.groupBoxSetting.Controls.Add(this.btnCreate);
+            this.groupBoxSetting.Controls.Add(this.txtFormat);
+            this.groupBoxSetting.Controls.Add(this.label3);
+            this.groupBoxSetting.Controls.Add(this.txtValue);
+            this.groupBoxSetting.Controls.Add(this.label2);
+            this.groupBoxSetting.Controls.Add(this.cbKey);
+            this.groupBoxSetting.Controls.Add(this.label1);
+            this.groupBoxSetting.Controls.Add(this.cbType);
+            this.groupBoxSetting.Controls.Add(this.label9);
+            this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBoxSetting.Location = new System.Drawing.Point(6, 3);
             this.groupBoxSetting.Name = "groupBoxSetting";
-            this.groupBoxSetting.Size = new System.Drawing.Size(114, 393);
-            this.groupBoxSetting.TabIndex = 4;
+            this.groupBoxSetting.Size = new System.Drawing.Size(686, 66);
+            this.groupBoxSetting.TabIndex = 0;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "Setting";
             // 
-            // ckbCreate
+            // cbType
             // 
-            this.ckbCreate.AutoSize = true;
-            this.ckbCreate.Location = new System.Drawing.Point(9, 261);
-            this.ckbCreate.Name = "ckbCreate";
-            this.ckbCreate.Size = new System.Drawing.Size(95, 21);
-            this.ckbCreate.TabIndex = 14;
-            this.ckbCreate.Text = "Create List";
-            this.ckbCreate.UseVisualStyleBackColor = true;
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Location = new System.Drawing.Point(10, 36);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(110, 23);
+            this.cbType.TabIndex = 7;
             // 
-            // btnClear
+            // label9
             // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(78, 326);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(28, 28);
-            this.btnClear.TabIndex = 13;
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 15);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Item Type";
             // 
-            // btnCopy
+            // cbKey
             // 
-            this.btnCopy.Enabled = false;
-            this.btnCopy.FlatAppearance.BorderSize = 0;
-            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(4, 326);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(65, 28);
-            this.btnCopy.TabIndex = 12;
-            this.btnCopy.Text = "Copy";
-            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            this.cbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKey.FormattingEnabled = true;
+            this.cbKey.Location = new System.Drawing.Point(127, 36);
+            this.cbKey.Name = "cbKey";
+            this.cbKey.Size = new System.Drawing.Size(110, 23);
+            this.cbKey.TabIndex = 9;
             // 
-            // btnCreateOut
+            // label1
             // 
-            this.btnCreateOut.Enabled = false;
-            this.btnCreateOut.FlatAppearance.BorderSize = 0;
-            this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOut.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
-            this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateOut.Location = new System.Drawing.Point(4, 290);
-            this.btnCreateOut.Name = "btnCreateOut";
-            this.btnCreateOut.Size = new System.Drawing.Size(102, 28);
-            this.btnCreateOut.TabIndex = 11;
-            this.btnCreateOut.Text = "Create Out";
-            this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateOut.UseVisualStyleBackColor = true;
-            this.btnCreateOut.Click += new System.EventHandler(this.btnCreateOut_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(124, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Item Key";
             // 
-            // btnCreateIn
+            // panelData
             // 
-            this.btnCreateIn.Enabled = false;
-            this.btnCreateIn.FlatAppearance.BorderSize = 0;
-            this.btnCreateIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateIn.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
-            this.btnCreateIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateIn.Location = new System.Drawing.Point(4, 224);
-            this.btnCreateIn.Name = "btnCreateIn";
-            this.btnCreateIn.Size = new System.Drawing.Size(102, 28);
-            this.btnCreateIn.TabIndex = 10;
-            this.btnCreateIn.Text = "Create In";
-            this.btnCreateIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateIn.UseVisualStyleBackColor = true;
-            this.btnCreateIn.Click += new System.EventHandler(this.btnCreateIn_Click);
+            this.panelData.Controls.Add(this.groupBox1);
+            this.panelData.Controls.Add(this.panelResult);
+            this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelData.Location = new System.Drawing.Point(0, 78);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(704, 327);
+            this.panelData.TabIndex = 1;
             // 
-            // label6
+            // panelResult
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 17);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Sub Columns";
+            this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelResult.Location = new System.Drawing.Point(0, 259);
+            this.panelResult.Name = "panelResult";
+            this.panelResult.Size = new System.Drawing.Size(704, 68);
+            this.panelResult.TabIndex = 1;
             // 
-            // cbSubColumn
+            // label2
             // 
-            this.cbSubColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSubColumn.FormattingEnabled = true;
-            this.cbSubColumn.Location = new System.Drawing.Point(4, 194);
-            this.cbSubColumn.Name = "cbSubColumn";
-            this.cbSubColumn.Size = new System.Drawing.Size(102, 24);
-            this.cbSubColumn.TabIndex = 9;
-            this.cbSubColumn.SelectedIndexChanged += new System.EventHandler(this.cbSubColumn_SelectedIndexChanged);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(357, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Value";
             // 
-            // label7
+            // txtValue
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 124);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Sub Rows";
+            this.txtValue.Location = new System.Drawing.Point(360, 36);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(110, 23);
+            this.txtValue.TabIndex = 12;
             // 
-            // cbSubRow
+            // txtFormat
             // 
-            this.cbSubRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSubRow.FormattingEnabled = true;
-            this.cbSubRow.Location = new System.Drawing.Point(4, 145);
-            this.cbSubRow.Name = "cbSubRow";
-            this.cbSubRow.Size = new System.Drawing.Size(102, 24);
-            this.cbSubRow.TabIndex = 7;
-            this.cbSubRow.SelectedIndexChanged += new System.EventHandler(this.cbSubRow_SelectedIndexChanged);
+            this.txtFormat.Location = new System.Drawing.Point(243, 36);
+            this.txtFormat.Name = "txtFormat";
+            this.txtFormat.Size = new System.Drawing.Size(110, 23);
+            this.txtFormat.TabIndex = 14;
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Columns";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(240, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 15);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Format Value ";
             // 
-            // cbColumn
+            // btnCreate
             // 
-            this.cbColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbColumn.FormattingEnabled = true;
-            this.cbColumn.Location = new System.Drawing.Point(4, 96);
-            this.cbColumn.Name = "cbColumn";
-            this.cbColumn.Size = new System.Drawing.Size(102, 24);
-            this.cbColumn.TabIndex = 5;
-            this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
+            this.btnCreate.FlatAppearance.BorderSize = 0;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
+            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreate.Location = new System.Drawing.Point(477, 34);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(116, 24);
+            this.btnCreate.TabIndex = 9;
+            this.btnCreate.Text = "  Create Data";
+            this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.Location = new System.Drawing.Point(600, 34);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(78, 24);
+            this.btnReset.TabIndex = 15;
+            this.btnReset.Text = "  Reset";
+            this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gridSetParam);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox1.Location = new System.Drawing.Point(6, -3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(686, 256);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Set Param ";
+            // 
+            // gridSetParam
+            // 
+            this.gridSetParam.AllowUserToAddRows = false;
+            this.gridSetParam.AllowUserToDeleteRows = false;
+            this.gridSetParam.AllowUserToResizeColumns = false;
+            this.gridSetParam.AllowUserToResizeRows = false;
+            this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridSetParam.CausesValidation = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNo,
+            this.colKey,
+            this.colValue});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridSetParam.EnableHeadersVisualStyles = false;
+            this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gridSetParam.Location = new System.Drawing.Point(3, 19);
+            this.gridSetParam.MultiSelect = false;
+            this.gridSetParam.Name = "gridSetParam";
+            this.gridSetParam.RowHeadersVisible = false;
+            this.gridSetParam.RowHeadersWidth = 25;
+            this.gridSetParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridSetParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridSetParam.Size = new System.Drawing.Size(680, 234);
+            this.gridSetParam.TabIndex = 1;
+            // 
+            // colNo
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 40;
+            // 
+            // colKey
+            // 
+            this.colKey.HeaderText = "Key Item";
+            this.colKey.Name = "colKey";
+            this.colKey.ReadOnly = true;
+            this.colKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colKey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colKey.Width = 270;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value Item";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 320;
             // 
             // FormCreateAdapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.panelData);
             this.Controls.Add(this.panelSetting);
-            this.Controls.Add(this.panelTextEng);
-            this.Controls.Add(this.panelTextJapan);
             this.Name = "FormCreateAdapter";
             this.Text = "Create Item";
             this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
-            this.panelTextJapan.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panelTextEng.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.panelSetting.ResumeLayout(false);
             this.groupBoxSetting.ResumeLayout(false);
             this.groupBoxSetting.PerformLayout();
+            this.panelData.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelTextJapan;
-        private System.Windows.Forms.Panel panelTextEng;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox txtResult;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label lblNumPhy;
-        private System.Windows.Forms.Label lblNumLogic;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbRow;
         private System.Windows.Forms.Panel panelSetting;
         private System.Windows.Forms.GroupBox groupBoxSetting;
-        private System.Windows.Forms.Button btnCreateIn;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbSubColumn;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbSubRow;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbColumn;
-        private System.Windows.Forms.Button btnCreateOut;
-        private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.Button btnCopy;
-        private System.Windows.Forms.TextBox txtPhysi;
-        private System.Windows.Forms.TextBox txtLogic;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.CheckBox ckbCreate;
+        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbKey;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelData;
+        private System.Windows.Forms.Panel panelResult;
+        private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFormat;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView gridSetParam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
     }
 }
