@@ -127,6 +127,10 @@ namespace ToolSupportCoding.View
             lstTextVer += "    - Chinh sua chuc nang Convert Sekkei thanh Check CONST them kha năng search data const cua data đa input ." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Chinh sua chuc nang Convert Model cho phep tao Model theo ngon ngu java." + CONST.CHAR_NEW_LINE;
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.2" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang chon common Get Name Column." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Create Adapter thanh Create Item theo thong tin da duoc setting." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 
             lstTextUpdateVer.Text = lstTextVer;

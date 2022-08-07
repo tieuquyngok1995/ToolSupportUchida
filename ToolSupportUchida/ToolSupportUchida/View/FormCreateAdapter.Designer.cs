@@ -381,7 +381,7 @@ namespace ToolSupportCoding.View
             this.Controls.Add(this.panelTextEng);
             this.Controls.Add(this.panelTextJapan);
             this.Name = "FormCreateAdapter";
-            this.Text = "Create Adapter";
+            this.Text = "Create Item";
             this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
             this.panelTextJapan.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
