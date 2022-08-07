@@ -36,6 +36,7 @@ namespace ToolSupportCoding
         private int mode;
         private List<SekkeiModel> lstSekkei;
         private List<ItemModel> lstItem;
+        private List<string> lstType;
 
         //Constructor
         public Main()
@@ -50,6 +51,7 @@ namespace ToolSupportCoding
 
             lstSekkei = new List<SekkeiModel>();
             lstItem = new List<ItemModel>();
+            lstType = new List<string>();
 
             btnCloseChildForm.Visible = false;
 
@@ -61,7 +63,9 @@ namespace ToolSupportCoding
             cbCharFormat.Items.Add(CONST.ITEM_CHAR_FORMAT_TAB);
             cbCharFormat.SelectedIndex = 0;
 
-            cbType.Items.Add(CONST.ITEM_HTML);
+            lstType.Add(CONST.ITEM_HTML);
+            lstType.Add("test");
+            cbType.DataSource = lstType;
             cbType.SelectedIndex = 0;
         }
 
@@ -627,7 +631,7 @@ namespace ToolSupportCoding
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateAdapter(lstItem), sender);
+            OpenChildForm(new FormCreateAdapter(lstType, lstItem), sender);
         }
 
         private void btnCheckData_Click(object sender, EventArgs e)
