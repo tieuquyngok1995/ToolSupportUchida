@@ -29,9 +29,9 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@ namespace ToolSupportCoding.View
             this.panelSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSetting.Location = new System.Drawing.Point(0, 0);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(704, 72);
+            this.panelSetting.Size = new System.Drawing.Size(704, 78);
             this.panelSetting.TabIndex = 0;
             // 
             // groupBoxSetting
@@ -82,7 +82,7 @@ namespace ToolSupportCoding.View
             this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxSetting.Location = new System.Drawing.Point(6, 3);
             this.groupBoxSetting.Name = "groupBoxSetting";
-            this.groupBoxSetting.Size = new System.Drawing.Size(686, 61);
+            this.groupBoxSetting.Size = new System.Drawing.Size(686, 66);
             this.groupBoxSetting.TabIndex = 0;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "Setting";
@@ -94,9 +94,9 @@ namespace ToolSupportCoding.View
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(600, 32);
+            this.btnReset.Location = new System.Drawing.Point(600, 35);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(78, 24);
+            this.btnReset.Size = new System.Drawing.Size(78, 26);
             this.btnReset.TabIndex = 15;
             this.btnReset.Text = "  Reset";
             this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,9 +111,9 @@ namespace ToolSupportCoding.View
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(477, 32);
+            this.btnCreate.Location = new System.Drawing.Point(477, 35);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(116, 24);
+            this.btnCreate.Size = new System.Drawing.Size(116, 26);
             this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "  Create Data";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,7 +123,7 @@ namespace ToolSupportCoding.View
             // 
             // txtFormat
             // 
-            this.txtFormat.Location = new System.Drawing.Point(243, 32);
+            this.txtFormat.Location = new System.Drawing.Point(243, 35);
             this.txtFormat.Name = "txtFormat";
             this.txtFormat.Size = new System.Drawing.Size(110, 23);
             this.txtFormat.TabIndex = 14;
@@ -132,15 +132,15 @@ namespace ToolSupportCoding.View
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(240, 16);
+            this.label3.Location = new System.Drawing.Point(240, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 15);
+            this.label3.Size = new System.Drawing.Size(93, 15);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Format Value ";
+            this.label3.Text = "Format Value [-]";
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(360, 32);
+            this.txtValue.Location = new System.Drawing.Point(360, 35);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(110, 23);
             this.txtValue.TabIndex = 12;
@@ -149,7 +149,7 @@ namespace ToolSupportCoding.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(357, 16);
+            this.label2.Location = new System.Drawing.Point(357, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 11;
@@ -160,7 +160,7 @@ namespace ToolSupportCoding.View
             this.cbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbKey.FormattingEnabled = true;
-            this.cbKey.Location = new System.Drawing.Point(127, 32);
+            this.cbKey.Location = new System.Drawing.Point(127, 35);
             this.cbKey.Name = "cbKey";
             this.cbKey.Size = new System.Drawing.Size(110, 23);
             this.cbKey.TabIndex = 9;
@@ -169,7 +169,7 @@ namespace ToolSupportCoding.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(124, 16);
+            this.label1.Location = new System.Drawing.Point(124, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 10;
@@ -180,7 +180,7 @@ namespace ToolSupportCoding.View
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(10, 32);
+            this.cbType.Location = new System.Drawing.Point(10, 35);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(110, 23);
             this.cbType.TabIndex = 7;
@@ -190,7 +190,7 @@ namespace ToolSupportCoding.View
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 16);
+            this.label9.Location = new System.Drawing.Point(7, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 15);
             this.label9.TabIndex = 8;
@@ -201,9 +201,9 @@ namespace ToolSupportCoding.View
             this.panelData.Controls.Add(this.groupBox1);
             this.panelData.Controls.Add(this.panelResult);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 72);
+            this.panelData.Location = new System.Drawing.Point(0, 78);
             this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(704, 302);
+            this.panelData.Size = new System.Drawing.Size(704, 327);
             this.panelData.TabIndex = 1;
             // 
             // groupBox1
@@ -212,7 +212,7 @@ namespace ToolSupportCoding.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox1.Location = new System.Drawing.Point(6, -3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 236);
+            this.groupBox1.Size = new System.Drawing.Size(686, 256);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Set Param ";
@@ -226,27 +226,27 @@ namespace ToolSupportCoding.View
             this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSetParam.CausesValidation = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
             this.colKey,
             this.colValue});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSetParam.EnableHeadersVisualStyles = false;
             this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -257,13 +257,13 @@ namespace ToolSupportCoding.View
             this.gridSetParam.RowHeadersWidth = 25;
             this.gridSetParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSetParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSetParam.Size = new System.Drawing.Size(680, 214);
+            this.gridSetParam.Size = new System.Drawing.Size(680, 234);
             this.gridSetParam.TabIndex = 1;
             // 
             // colNo
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -291,19 +291,19 @@ namespace ToolSupportCoding.View
             // panelResult
             // 
             this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelResult.Location = new System.Drawing.Point(0, 239);
+            this.panelResult.Location = new System.Drawing.Point(0, 259);
             this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(704, 63);
+            this.panelResult.Size = new System.Drawing.Size(704, 68);
             this.panelResult.TabIndex = 1;
             // 
-            // FormCreateAdapter
+            // FormCreateItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 374);
+            this.ClientSize = new System.Drawing.Size(704, 405);
             this.Controls.Add(this.panelData);
             this.Controls.Add(this.panelSetting);
-            this.Name = "FormCreateAdapter";
+            this.Name = "FormCreateItem";
             this.Text = "Create Item";
             this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
             this.panelSetting.ResumeLayout(false);

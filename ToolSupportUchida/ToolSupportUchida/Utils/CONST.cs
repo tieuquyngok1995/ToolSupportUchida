@@ -45,6 +45,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
         public const string STRING_BR = "<br>";
+        public const string STRING_TABLE = "TABLE";
+        public const string STRING_END_TAG = "/>";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";

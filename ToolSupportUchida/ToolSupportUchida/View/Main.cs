@@ -283,7 +283,7 @@ namespace ToolSupportCoding
 
                             if (dataLine.Length > 1)
                             {
-                                lstItem.Add(new ItemModel(dataLine[0], dataLine[1], dataLine[2]));
+                                lstItem.Add(new ItemModel(dataLine[0].Replace(CONST.STRING_ADD_LINE, string.Empty), dataLine[1], dataLine[2]));
                             }
                         }
                     }
@@ -655,7 +655,7 @@ namespace ToolSupportCoding
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateItem(lstType, lstItem), sender);
+            OpenChildForm(new FormCreateItem(lstSekkei, lstType, lstItem), sender);
         }
 
         private void btnCheckData_Click(object sender, EventArgs e)
