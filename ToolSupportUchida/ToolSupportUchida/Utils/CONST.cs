@@ -9,8 +9,8 @@ namespace ToolSupportCoding.Utils
         public static string[] STRING_SEPARATORS = new string[] { STRING_ADD_LINE };
 
         #region Item
-        public static string ITEM_CHAR_FORMAT_EQUALS = "Equals";
-        public static string ITEM_CHAR_FORMAT_TAB = "Tab";
+        public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = *** End: \\r\\n";
+        public static string ITEM_CHAR_FORMAT_TAB = "Split: [--] *** End: <br>";
 
         public static string ITEM_HTML = "HTML";
 
@@ -44,6 +44,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_DOT = ".";
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
+        public const string STRING_BR = "<br>";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";

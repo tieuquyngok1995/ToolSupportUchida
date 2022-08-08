@@ -59,12 +59,9 @@ namespace ToolSupportCoding
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-            cbCharFormat.Items.Add(CONST.ITEM_CHAR_FORMAT_EQUALS);
-            cbCharFormat.Items.Add(CONST.ITEM_CHAR_FORMAT_TAB);
-            cbCharFormat.SelectedIndex = 0;
+            txFormat.Text = CONST.ITEM_CHAR_FORMAT_EQUALS;
 
             lstType.Add(CONST.ITEM_HTML);
-            lstType.Add("test");
             cbType.DataSource = lstType;
             cbType.SelectedIndex = 0;
         }
@@ -250,30 +247,29 @@ namespace ToolSupportCoding
                 {
                     string text = File.ReadAllText(file);
 
-                    string[] stringSeparators = new string[] { "\r\n" };
-                    string[] lines = text.Split(stringSeparators, StringSplitOptions.None);
-
                     int mode = 0;
                     if (this.rbFormat.Checked) mode = 1;
 
-                    int charFormat = this.cbCharFormat.SelectedIndex;
+                    string[] stringSeparators = new string[] { "\r\n" };
+                    if (mode == 1)
+                    {
+                        stringSeparators = new string[] { "<br>" };
+                    }
+
+                    string[] lines = text.Split(stringSeparators, StringSplitOptions.None);
+
 
                     lstSekkei = new List<SekkeiModel>();
+                    lstItem = new List<ItemModel>();
                     foreach (string line in lines)
                     {
                         if (string.IsNullOrEmpty(line)) continue;
 
                         string[] dataLine = new string[0];
+
                         if (mode == 0)
                         {
-                            if (charFormat == 0)
-                            {
-                                dataLine = line.Split(CONST.CHAR_EQUALS);
-                            }
-                            else if (charFormat == 1)
-                            {
-                                dataLine = line.Split(CONST.CHAR_TAB);
-                            }
+                            dataLine = line.Split(CONST.CHAR_EQUALS);
 
                             if (dataLine.Length > 1)
                             {
@@ -282,7 +278,13 @@ namespace ToolSupportCoding
                         }
                         else if (mode == 1)
                         {
-                            dataLine = line.Split(CONST.CHAR_TAB);
+                            stringSeparators = new string[] { "[--]" };
+                            dataLine = line.Split(stringSeparators, StringSplitOptions.None);
+
+                            if (dataLine.Length > 1)
+                            {
+                                lstItem.Add(new ItemModel(dataLine[0], dataLine[1], dataLine[2]));
+                            }
                         }
                     }
 
@@ -299,7 +301,19 @@ namespace ToolSupportCoding
                             no++;
                         }
                     }
+                    if (lstItem.Count > 0)
+                    {
+                        objToolSupport.lstItem = lstItem;
+                        BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
 
+                        gridFormat.Rows.Clear();
+                        gridFormat.Refresh();
+                        foreach (ItemModel item in objToolSupport.lstItem)
+                        {
+                            gridFormat.Rows.Add(no, item.type, item.key, item.value);
+                            no++;
+                        }
+                    }
                 }
                 catch (IOException)
                 {
@@ -458,6 +472,16 @@ namespace ToolSupportCoding
             {
                 return;
             }
+        }
+
+        private void rbConst_CheckedChanged(object sender, EventArgs e)
+        {
+            txFormat.Text = CONST.ITEM_CHAR_FORMAT_EQUALS;
+        }
+
+        private void rbFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            txFormat.Text = CONST.ITEM_CHAR_FORMAT_TAB;
         }
 
         private void btnSearchAdapter_Click(object sender, EventArgs e)

@@ -74,8 +74,6 @@ namespace ToolSupportCoding
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rbFormat = new System.Windows.Forms.RadioButton();
             this.rbConst = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbCharFormat = new System.Windows.Forms.ComboBox();
             this.btImport = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbHtml = new System.Windows.Forms.RadioButton();
@@ -108,6 +106,7 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txFormat = new System.Windows.Forms.TextBox();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -634,10 +633,9 @@ namespace ToolSupportCoding
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txFormat);
             this.groupBox4.Controls.Add(this.rbFormat);
             this.groupBox4.Controls.Add(this.rbConst);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.cbCharFormat);
             this.groupBox4.Controls.Add(this.btImport);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(311, 3);
@@ -650,12 +648,13 @@ namespace ToolSupportCoding
             // rbFormat
             // 
             this.rbFormat.AutoSize = true;
-            this.rbFormat.Location = new System.Drawing.Point(139, 20);
+            this.rbFormat.Location = new System.Drawing.Point(143, 20);
             this.rbFormat.Name = "rbFormat";
             this.rbFormat.Size = new System.Drawing.Size(70, 21);
             this.rbFormat.TabIndex = 4;
             this.rbFormat.Text = "Format";
             this.rbFormat.UseVisualStyleBackColor = true;
+            this.rbFormat.CheckedChanged += new System.EventHandler(this.rbFormat_CheckedChanged);
             // 
             // rbConst
             // 
@@ -668,25 +667,7 @@ namespace ToolSupportCoding
             this.rbConst.TabStop = true;
             this.rbConst.Text = "Const";
             this.rbConst.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(208, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 17);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Char Format";
-            // 
-            // cbCharFormat
-            // 
-            this.cbCharFormat.AllowDrop = true;
-            this.cbCharFormat.CausesValidation = false;
-            this.cbCharFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCharFormat.Location = new System.Drawing.Point(300, 16);
-            this.cbCharFormat.Name = "cbCharFormat";
-            this.cbCharFormat.Size = new System.Drawing.Size(76, 24);
-            this.cbCharFormat.TabIndex = 1;
+            this.rbConst.CheckedChanged += new System.EventHandler(this.rbConst_CheckedChanged);
             // 
             // btImport
             // 
@@ -1045,6 +1026,15 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn4.Width = 24;
             // 
+            // txFormat
+            // 
+            this.txFormat.Enabled = false;
+            this.txFormat.Location = new System.Drawing.Point(219, 18);
+            this.txFormat.Name = "txFormat";
+            this.txFormat.ReadOnly = true;
+            this.txFormat.Size = new System.Drawing.Size(158, 23);
+            this.txFormat.TabIndex = 5;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1147,16 +1137,15 @@ namespace ToolSupportCoding
         private System.Windows.Forms.DataGridViewImageColumn colSekkeiDelete;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btImport;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rbFormat;
         private System.Windows.Forms.RadioButton rbConst;
-        private System.Windows.Forms.ComboBox cbCharFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewImageColumn colAdapterEdit;
         private System.Windows.Forms.DataGridViewImageColumn colAdapterDelete;
+        private System.Windows.Forms.TextBox txFormat;
     }
 }
 
