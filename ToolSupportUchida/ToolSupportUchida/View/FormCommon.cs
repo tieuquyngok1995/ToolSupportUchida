@@ -1990,7 +1990,7 @@ namespace ToolSupportCoding.View
                             {
                                 namePhysTable = Regex.Replace(lstNameTable[0], @"\\t", "");
                                 nameLogicTable = Regex.Replace(lstNameTable[1], @"\\t", "");
-                                dicColumnTable.Add(nameLogicTable, namePhysTable);
+                                dicColumnTable.Add(nameLogicTable, namePhysTable.Replace("テーブル", ""));
                             }
 
                             Dictionary<string, string> dicData = new Dictionary<string, string>();
