@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ToolSupportCoding.Model;
 using ToolSupportCoding.Theme;
@@ -11,7 +9,7 @@ using ToolSupportCoding.Utils;
 
 namespace ToolSupportCoding.View
 {
-    public partial class FormCreateAdapter : Form
+    public partial class FormCreateItem : Form
     {
         private List<string> lstType;
 
@@ -20,7 +18,7 @@ namespace ToolSupportCoding.View
 
 
         #region Load Form
-        public FormCreateAdapter(List<string> lstType,List<ItemModel> lstItem)
+        public FormCreateItem(List<string> lstType,List<ItemModel> lstItem)
         {
             InitializeComponent();
 
