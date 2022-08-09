@@ -2024,12 +2024,94 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void setDataTable()
+        private void rbColumnTable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbColumnTable.Checked)
+            {
+                cbColumnFormat.SelectedIndex = -1;
+                txColumnInput.Text = string.Empty;
+
+                setDataTable();
+            }
+        }
+
+        private void cbColumnTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rbColumnTable.Checked)
+            {
+                setDataTable(false);
+                if (!string.IsNullOrEmpty(txColumnSearch.Text))
+                {
+                    DataView dv = table.DefaultView;
+
+                    string filter = "";
+                    if (cbColumnTable.SelectedItem != null && !string.IsNullOrEmpty(cbColumnTable.Text))
+                    {
+                        filter = "LogicTable = '" + cbColumnTable.SelectedItem + "' And ";
+                    }
+                    filter += "PhysicalName LIKE '" + txColumnSearch.Text + "%'";
+                    dv.RowFilter = filter;
+                    gridColumnData.DataSource = dv;
+                }
+            }
+        }
+
+        private void txColumnSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (rbColumnTable.Checked)
+            {
+                int selectIndexTable = cbColumnTable.SelectedIndex;
+                setDataTable();
+
+                cbColumnTable.SelectedIndex = selectIndexTable;
+
+                DataView dv = table.DefaultView;
+
+                string filter = "";
+                if (cbColumnTable.SelectedItem != null && !string.IsNullOrEmpty(cbColumnTable.Text))
+                {
+                    filter = "LogicTable = '" + cbColumnTable.SelectedItem + "' And ";
+                }
+                filter += "PhysicalName LIKE '" + txColumnSearch.Text + "%'";
+                dv.RowFilter = filter;
+                gridColumnData.DataSource = dv;
+            }
+        }
+
+        private void rbColumnFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbColumnFormat.Checked)
+            {
+                cbColumnTable.SelectedIndex = -1;
+                txColumnSearch.Text = string.Empty;
+
+                setDataTable();
+            }
+        }
+
+        private void cbColumnFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rbColumnFormat.Checked)
+            {
+                getColumn();
+            }
+        }
+
+        private void txColumnInput_TextChanged(object sender, EventArgs e)
+        {
+            if (rbColumnFormat.Checked)
+            {
+                setDataTable();
+
+                getColumn();
+            }
+        }
+        private void setDataTable(bool isClear = true)
         {
             try
             {
                 // set data to combobox
-                List<string> lstTableName = new List<string>(dicColumnData.Keys);
+                List<string> lstTableName = new List<string>();
 
                 table = new DataTable();
 
@@ -2038,11 +2120,27 @@ namespace ToolSupportCoding.View
                 table.Columns.Add("PhysicalName", typeof(string));
                 table.Columns.Add("LogicName", typeof(string));
 
-                cbColumnTable.Items.Clear();
-                cbColumnTable.Items.Add("");
+                if (isClear)
+                {
+                    cbColumnTable.Items.Clear();
+                    cbColumnTable.Items.Add("");
+                    lstTableName = new List<string>(dicColumnData.Keys);
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(cbColumnTable.SelectedItem.ToString()))
+                    {
+                        lstTableName = new List<string>(dicColumnData.Keys);
+                    }
+                    else
+                    {
+                        lstTableName.Add(cbColumnTable.SelectedItem.ToString());
+                    }
+                }
+
                 foreach (string item in lstTableName)
                 {
-                    cbColumnTable.Items.Add(item);
+                    if (isClear) cbColumnTable.Items.Add(item);
                     // Set data to table
                     Dictionary<string, string> lstData = dicColumnData[item];
                     foreach (KeyValuePair<string, string> pair in lstData)
@@ -2050,6 +2148,7 @@ namespace ToolSupportCoding.View
                         table.Rows.Add(dicColumnTable[item], item, pair.Key, pair.Value);
                     }
                 }
+
                 // set data to gird
                 gridColumnData.DataSource = table;
                 DataGridViewColumn column = gridColumnData.Columns[0];
@@ -2069,33 +2168,6 @@ namespace ToolSupportCoding.View
             {
                 MessageBox.Show("An abnormal error occurs in the function: SetDataTable\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void txColumnSearch_TextChanged(object sender, EventArgs e)
-        {
-            setDataTable();
-
-            DataView dv = table.DefaultView;
-
-            string filter = "";
-            if (cbColumnTable.SelectedItem != null && !string.IsNullOrEmpty(cbColumnTable.Text))
-            {
-                filter = "LogicTable = '" + cbColumnTable.SelectedItem + "' And ";
-            }
-            filter += "PhysicalName LIKE '" + txColumnSearch.Text + "%'";
-            dv.RowFilter = filter;
-            gridColumnData.DataSource = dv;
-        }
-
-        private void txColumnInput_TextChanged(object sender, EventArgs e)
-        {
-            setDataTable();
-            getColumn();
-        }
-
-        private void cbColumnFormat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            getColumn();
         }
 
         private void getColumn()
@@ -2188,6 +2260,8 @@ namespace ToolSupportCoding.View
 
         private void btColumnReset_Click(object sender, EventArgs e)
         {
+            rbColumnTable.Checked = true;
+
             txColumnSearch.Text = "";
             txColumnInput.Text = "";
 
@@ -2200,6 +2274,9 @@ namespace ToolSupportCoding.View
         private void btColumnClear_Click(object sender, EventArgs e)
         {
             txColumnData.Text = "";
+
+            rbColumnTable.Checked = true;
+
             txColumnSearch.Text = "";
             txColumnInput.Text = "";
 

@@ -310,8 +310,8 @@ namespace ToolSupportCoding
                         gridFormat.Refresh();
                         foreach (ItemModel item in objToolSupport.lstItem)
                         {
-                            gridFormat.Rows.Add(no, item.type, item.key, item.value);
-                            no++;
+                            gridFormat.Rows.Add(noAdapter, item.type, item.key, item.value);
+                            noAdapter++;
                         }
                     }
                 }
