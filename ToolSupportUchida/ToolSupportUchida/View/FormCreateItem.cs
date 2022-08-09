@@ -53,6 +53,16 @@ namespace ToolSupportCoding.View
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
+            foreach (Control btns in this.panelResult.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
 
         private void LoadData()
@@ -100,6 +110,8 @@ namespace ToolSupportCoding.View
             if (val.Count > 0)
             {
                 handleData(val[0]);
+
+                btnCreateResult.Enabled = true;
             }
 
         }
@@ -114,6 +126,11 @@ namespace ToolSupportCoding.View
 
             gridSetParam.Rows.Clear();
             gridSetParam.Refresh();
+
+            btnCreateResult.Enabled =false;
+            txtResult.Text = string.Empty;
+            btnCopy.Enabled =false;
+            lblResult.Visible = false;
         }
         #endregion
 
@@ -124,6 +141,7 @@ namespace ToolSupportCoding.View
             try
             {
                 int no = 1, index = 1;
+                bool isMess = false;
                 gridSetParam.Rows.Clear();
                 gridSetParam.Refresh();
 
@@ -143,7 +161,7 @@ namespace ToolSupportCoding.View
 
                     for (int i = 0; i < numRow; i++)
                     {
-                        gridSetParam.Rows.Add(no, "col class " + no, "");
+                        gridSetParam.Rows.Add(no, "Col class " + no, "");
                         no++;
                     }
 
@@ -159,8 +177,10 @@ namespace ToolSupportCoding.View
 
                     foreach (string param in lstParam)
                     {
+                        if (param.Contains(CONST.STRING_MESSAGE)) isMess = true;
+
                         string name, key;
-                        string pattern = @"{\d|\D}";
+                        string pattern = @"{[0-9]}";
                         Regex rg = new Regex(pattern);
                         if (rg.IsMatch(param))
                         {
@@ -178,6 +198,9 @@ namespace ToolSupportCoding.View
                                     dicData.Add(CONST.STRING_FORM_VALUE, txtFormat.Text.Trim());
                                 }
 
+                                if (isMess && name.ToUpper().Equals(CONST.STRING_NAME_ID)) name = "Message " + name;
+                                else name = CUtils.FirstCharToUpperCase(name);
+
                                 if (key.ToUpper().Contains(CONST.STRING_TAG_FH))
                                 {
                                     string[] lstFH = key.Split(CONST.CHAR_DOT);
@@ -187,18 +210,35 @@ namespace ToolSupportCoding.View
                                         key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
                                         if (rg.IsMatch(fh) && !dicData.ContainsKey(key))
                                         {
-                                            dicData.Add(key, string.Empty);
-                                            gridSetParam.Rows.Add(no, name, key);
+                                            dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
+                                            gridSetParam.Rows.Add(no, name, string.Empty);
                                             no++;
                                         }
                                     }
+                                    continue;
+                                }
+                                else if (key.ToUpper().Contains(CONST.STRING_TEST))
+                                {
+                                    string[] lstTest = key.Split(CONST.CHAR_DOT);
+                                    foreach (string test in lstTest)
+                                    {
+                                        key = test.ToUpper().Replace(CONST.STRING_TEST, string.Empty);
+                                        key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
+                                        if (rg.IsMatch(test) && !dicData.ContainsKey(key))
+                                        {
+                                            dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
+                                            gridSetParam.Rows.Add(no, name, string.Empty);
+                                            no++;
+                                        }
+                                    }
+                                    continue;
                                 }
 
                                 key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
                                 if (!dicData.ContainsKey(key))
                                 {
                                     dicData.Add(key, string.Empty);
-                                    gridSetParam.Rows.Add(no, name, key);
+                                    gridSetParam.Rows.Add(no, name, string.Empty);
                                     no++;
                                 }
                             }
@@ -252,14 +292,14 @@ namespace ToolSupportCoding.View
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(txtResult.Text))
-            //{
-            //    return;
-            //}
+            if (string.IsNullOrEmpty(txtResult.Text))
+            {
+                return;
+            }
 
-            //Clipboard.Clear();
-            //Clipboard.SetText(txtResult.Text);
-            //lblResult.Visible = true;
+            Clipboard.Clear();
+            Clipboard.SetText(txtResult.Text);
+            lblResult.Visible = true;
         }
 
         #endregion
@@ -280,17 +320,14 @@ namespace ToolSupportCoding.View
             int numStar = val.IndexOf(txFistChar);
             int numEnd = val.IndexOf(txLastChar);
             int length = val.Length - 1;
-            if ((model == 0 && numStar == -1) || (model == 1 && numEnd == -1)) return val;
+            if ((model == 0 && numStar == -1) || (model == 1 && numEnd == -1) || (model == 2 && numStar == -1)) return val;
             if (numStar == 0 && numEnd == length) return val;
 
             if (isUp && numEnd != length) numEnd++;
 
-            StringBuilder str = new StringBuilder(val);
-
-            if (model == 0) return val.Substring(numStar, length);
-            else if (model == 1) return val.Substring(0, numEnd);
-            else val = val.Remove(numEnd); return val.Substring(numStar, val.Length);
-
+            if (model == 0 || (model == 2 && numEnd == length)) return val.Substring(numStar);
+            else if (model == 1 || (model == 2 && numStar == 0)) return val.Substring(0, numEnd);
+            else val = val.Substring(numStar); return val.Substring(0, val.Length - val.IndexOf(txLastChar));
         }
 
         #endregion

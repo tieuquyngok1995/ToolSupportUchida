@@ -295,10 +295,10 @@ namespace ToolSupportCoding.View
             // txtResult
             // 
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Enabled = false;
             this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResult.Size = new System.Drawing.Size(159, 255);
             this.txtResult.TabIndex = 3;

@@ -55,9 +55,13 @@ namespace ToolSupportCoding.Utils
 
         // Const using create Item
         public const string STRING_FORM_VALUE = "{-}";
+        public const string STRING_NAME_ID = "ID";
         public const string STRING_TAG_FH = "${F:H(";
+        public const string STRING_TAG_TEST = "TEST";
+        public const string STRING_TEST = "${";
         public const string STRING_TABLE = "TABLE";
         public const string STRING_LABEL = "LABEL";
+        public const string STRING_MESSAGE = "message";
         public const string STRING_INPUT_TEXT = "INPUT TEXT";
         public const string STRING_FOCUS = "AutoFocus";
         public const string STRING_SIZE = "Size";

@@ -29,9 +29,9 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -51,11 +51,16 @@ namespace ToolSupportCoding.View
             this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResult = new System.Windows.Forms.Panel();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.btnCreateResult = new System.Windows.Forms.Button();
             this.panelSetting.SuspendLayout();
             this.groupBoxSetting.SuspendLayout();
             this.panelData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).BeginInit();
+            this.panelResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -64,7 +69,7 @@ namespace ToolSupportCoding.View
             this.panelSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSetting.Location = new System.Drawing.Point(0, 0);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(704, 72);
+            this.panelSetting.Size = new System.Drawing.Size(704, 70);
             this.panelSetting.TabIndex = 0;
             // 
             // groupBoxSetting
@@ -82,7 +87,7 @@ namespace ToolSupportCoding.View
             this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxSetting.Location = new System.Drawing.Point(6, 3);
             this.groupBoxSetting.Name = "groupBoxSetting";
-            this.groupBoxSetting.Size = new System.Drawing.Size(686, 61);
+            this.groupBoxSetting.Size = new System.Drawing.Size(686, 65);
             this.groupBoxSetting.TabIndex = 0;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "Setting";
@@ -94,7 +99,7 @@ namespace ToolSupportCoding.View
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(600, 32);
+            this.btnReset.Location = new System.Drawing.Point(602, 35);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(78, 24);
             this.btnReset.TabIndex = 15;
@@ -111,11 +116,11 @@ namespace ToolSupportCoding.View
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(477, 32);
+            this.btnCreate.Location = new System.Drawing.Point(469, 35);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(116, 24);
+            this.btnCreate.Size = new System.Drawing.Size(128, 24);
             this.btnCreate.TabIndex = 9;
-            this.btnCreate.Text = "  Create Data";
+            this.btnCreate.Text = "  Create Param";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -123,7 +128,7 @@ namespace ToolSupportCoding.View
             // 
             // txtFormat
             // 
-            this.txtFormat.Location = new System.Drawing.Point(243, 32);
+            this.txtFormat.Location = new System.Drawing.Point(243, 35);
             this.txtFormat.Name = "txtFormat";
             this.txtFormat.Size = new System.Drawing.Size(110, 23);
             this.txtFormat.TabIndex = 14;
@@ -132,7 +137,7 @@ namespace ToolSupportCoding.View
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(240, 16);
+            this.label3.Location = new System.Drawing.Point(240, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 15);
             this.label3.TabIndex = 13;
@@ -140,16 +145,16 @@ namespace ToolSupportCoding.View
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(360, 32);
+            this.txtValue.Location = new System.Drawing.Point(360, 35);
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(110, 23);
+            this.txtValue.Size = new System.Drawing.Size(103, 23);
             this.txtValue.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(357, 16);
+            this.label2.Location = new System.Drawing.Point(357, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 11;
@@ -160,7 +165,7 @@ namespace ToolSupportCoding.View
             this.cbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbKey.FormattingEnabled = true;
-            this.cbKey.Location = new System.Drawing.Point(127, 32);
+            this.cbKey.Location = new System.Drawing.Point(127, 35);
             this.cbKey.Name = "cbKey";
             this.cbKey.Size = new System.Drawing.Size(110, 23);
             this.cbKey.TabIndex = 9;
@@ -169,7 +174,7 @@ namespace ToolSupportCoding.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(124, 16);
+            this.label1.Location = new System.Drawing.Point(124, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 10;
@@ -180,7 +185,7 @@ namespace ToolSupportCoding.View
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(10, 32);
+            this.cbType.Location = new System.Drawing.Point(10, 35);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(110, 23);
             this.cbType.TabIndex = 7;
@@ -190,7 +195,7 @@ namespace ToolSupportCoding.View
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 16);
+            this.label9.Location = new System.Drawing.Point(7, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 15);
             this.label9.TabIndex = 8;
@@ -201,18 +206,18 @@ namespace ToolSupportCoding.View
             this.panelData.Controls.Add(this.groupBox1);
             this.panelData.Controls.Add(this.panelResult);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 72);
+            this.panelData.Location = new System.Drawing.Point(0, 70);
             this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(704, 302);
+            this.panelData.Size = new System.Drawing.Size(704, 304);
             this.panelData.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.gridSetParam);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(6, -3);
+            this.groupBox1.Location = new System.Drawing.Point(6, -1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 236);
+            this.groupBox1.Size = new System.Drawing.Size(686, 213);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Set Param ";
@@ -226,27 +231,27 @@ namespace ToolSupportCoding.View
             this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSetParam.CausesValidation = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
             this.colKey,
             this.colValue});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle12;
             this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSetParam.EnableHeadersVisualStyles = false;
             this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -257,13 +262,13 @@ namespace ToolSupportCoding.View
             this.gridSetParam.RowHeadersWidth = 25;
             this.gridSetParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSetParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSetParam.Size = new System.Drawing.Size(680, 214);
+            this.gridSetParam.Size = new System.Drawing.Size(680, 191);
             this.gridSetParam.TabIndex = 1;
             // 
             // colNo
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -278,7 +283,7 @@ namespace ToolSupportCoding.View
             this.colKey.ReadOnly = true;
             this.colKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colKey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colKey.Width = 270;
+            this.colKey.Width = 280;
             // 
             // colValue
             // 
@@ -286,15 +291,76 @@ namespace ToolSupportCoding.View
             this.colValue.Name = "colValue";
             this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 320;
+            this.colValue.Width = 340;
             // 
             // panelResult
             // 
+            this.panelResult.Controls.Add(this.btnCreateResult);
+            this.panelResult.Controls.Add(this.lblResult);
+            this.panelResult.Controls.Add(this.btnCopy);
+            this.panelResult.Controls.Add(this.txtResult);
             this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelResult.Location = new System.Drawing.Point(0, 239);
+            this.panelResult.Location = new System.Drawing.Point(0, 216);
             this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(704, 63);
+            this.panelResult.Size = new System.Drawing.Size(704, 88);
             this.panelResult.TabIndex = 1;
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.Color.Red;
+            this.lblResult.Location = new System.Drawing.Point(570, 65);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(130, 13);
+            this.lblResult.TabIndex = 12;
+            this.lblResult.Text = "Copy to Clipboard is done!";
+            this.lblResult.Visible = false;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.Enabled = false;
+            this.btnCopy.FlatAppearance.BorderSize = 0;
+            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopy.Location = new System.Drawing.Point(483, 58);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(85, 26);
+            this.btnCopy.TabIndex = 10;
+            this.btnCopy.Text = "  Copy";
+            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(8, 6);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResult.Size = new System.Drawing.Size(684, 48);
+            this.txtResult.TabIndex = 4;
+            this.txtResult.TabStop = false;
+            // 
+            // btnCreateResult
+            // 
+            this.btnCreateResult.Enabled = false;
+            this.btnCreateResult.FlatAppearance.BorderSize = 0;
+            this.btnCreateResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateResult.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
+            this.btnCreateResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateResult.Location = new System.Drawing.Point(9, 58);
+            this.btnCreateResult.Name = "btnCreateResult";
+            this.btnCreateResult.Size = new System.Drawing.Size(128, 24);
+            this.btnCreateResult.TabIndex = 16;
+            this.btnCreateResult.Text = "  Create Result";
+            this.btnCreateResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateResult.UseVisualStyleBackColor = true;
             // 
             // FormCreateItem
             // 
@@ -312,6 +378,8 @@ namespace ToolSupportCoding.View
             this.panelData.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).EndInit();
+            this.panelResult.ResumeLayout(false);
+            this.panelResult.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,8 +401,12 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView gridSetParam;
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button btnCreateResult;
     }
 }
