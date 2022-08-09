@@ -22,12 +22,15 @@ namespace ToolSupportCoding.Utils
         public const char CHAR_NEW_LINE = '\n';
         public const char CHAR_CARRIAGE_RETUR = '\r';
         public const char CHAR_TAB = '\t';
+        public const char CHAR_DOT = '.';
         public const char CHAR_SPACE = ' ';
         public const char CHAR_AMPERSAND = '&';
         public const char CHAR_QUOTATION = '"';
         public const char CHAR_COMMA = ',';
         public const char CHAR_O_BRACKETS = '(';
         public const char CHAR_C_BRACKETS = ')';
+        public const char CHAR_O_CUR_BRACKETS = '{';
+        public const char CHAR_C_CUR_BRACKETS = '}';
         public const char CHAR_EQUALS = '=';
         #endregion
 
@@ -45,8 +48,22 @@ namespace ToolSupportCoding.Utils
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
         public const string STRING_BR = "<br>";
-        public const string STRING_TABLE = "TABLE";
         public const string STRING_END_TAG = "/>";
+        public const string STRING_C_SIGN = ">";
+        public const string STRING_O_CUR_BRACKETS = "{";
+        public const string STRING_C_CUR_BRACKETS = "}";
+
+        // Const using create Item
+        public const string STRING_FORM_VALUE = "{-}";
+        public const string STRING_TAG_FH = "${F:H(";
+        public const string STRING_TABLE = "TABLE";
+        public const string STRING_LABEL = "LABEL";
+        public const string STRING_INPUT_TEXT = "INPUT TEXT";
+        public const string STRING_FOCUS = "AutoFocus";
+        public const string STRING_SIZE = "Size";
+        public const string STRING_READONLY = "Readonly";
+        public const string STRING_TITLE = "Title";
+        public const string STRING_SPAN = "Span";
 
         public const string STRING_IS_SELECT_CASE = " IsSelectCase: ";
         public const string STRING_AND = "And";

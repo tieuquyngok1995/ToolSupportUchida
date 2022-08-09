@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ToolSupportCoding.Model;
@@ -17,6 +19,7 @@ namespace ToolSupportCoding.View
         private List<ItemModel> lstKey;
 
         private List<string> lstType;
+        private Dictionary<string, string> dicData;
 
         #region Load Form
         public FormCreateItem(List<SekkeiModel> lstSekei, List<string> lstType, List<ItemModel> lstItem)
@@ -27,6 +30,8 @@ namespace ToolSupportCoding.View
 
             this.lstData = lstItem;
             this.lstType = lstType;
+
+            dicData = new Dictionary<string, string>();
         }
 
         private void FormCreateAdapter_Load(object sender, EventArgs e)
@@ -116,8 +121,9 @@ namespace ToolSupportCoding.View
 
         private void handleData(ItemModel data)
         {
-            try {
-                int no = 1;
+            try
+            {
+                int no = 1, index = 1;
                 gridSetParam.Rows.Clear();
                 gridSetParam.Refresh();
 
@@ -144,19 +150,96 @@ namespace ToolSupportCoding.View
                     return;
                 }
 
+                dicData = new Dictionary<string, string>();
                 foreach (string line in lines)
                 {
                     if (string.IsNullOrEmpty(line)) continue;
 
                     string[] lstParam = line.Split(CONST.CHAR_SPACE);
-                   
-                    foreach(string param in lstParam)
+
+                    foreach (string param in lstParam)
                     {
+                        string name, key;
                         string pattern = @"{\d|\D}";
                         Regex rg = new Regex(pattern);
                         if (rg.IsMatch(param))
                         {
-                            Console.WriteLine(param);
+                            string[] lstItem = param.Split(CONST.CHAR_EQUALS);
+                            if (lstItem.Length > 1)
+                            {
+                                name = lstItem[0];
+                                key = lstItem[1];
+
+                                key = removeChar(key, "", CONST.STRING_END_TAG, 1);
+                                key = key.Replace(CONST.STRING_QUOTATION_MARKS, string.Empty);
+
+                                if (key.Contains(CONST.STRING_FORM_VALUE) && !dicData.ContainsKey(CONST.STRING_FORM_VALUE))
+                                {
+                                    dicData.Add(CONST.STRING_FORM_VALUE, txtFormat.Text.Trim());
+                                }
+
+                                if (key.ToUpper().Contains(CONST.STRING_TAG_FH))
+                                {
+                                    string[] lstFH = key.Split(CONST.CHAR_DOT);
+                                    foreach (string fh in lstFH)
+                                    {
+                                        key = fh.ToUpper().Replace(CONST.STRING_TAG_FH, string.Empty);
+                                        key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
+                                        if (rg.IsMatch(fh) && !dicData.ContainsKey(key))
+                                        {
+                                            dicData.Add(key, string.Empty);
+                                            gridSetParam.Rows.Add(no, name, key);
+                                            no++;
+                                        }
+                                    }
+                                }
+
+                                key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
+                                if (!dicData.ContainsKey(key))
+                                {
+                                    dicData.Add(key, string.Empty);
+                                    gridSetParam.Rows.Add(no, name, key);
+                                    no++;
+                                }
+                            }
+                            else if (cbKey.SelectedItem != null)
+                            {
+                                ItemModel obj = (ItemModel)cbKey.SelectedItem;
+                                if (obj.key.ToUpper().Equals(CONST.STRING_INPUT_TEXT) && lstItem.Length == 1)
+                                {
+                                    key = lstItem[0].Replace(CONST.STRING_C_SIGN, string.Empty);
+                                    if (!dicData.ContainsKey(key) && index == 1)
+                                    {
+                                        dicData.Add(key, string.Empty);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_FOCUS, key);
+                                        no++; index++;
+                                    }
+                                    else if (!dicData.ContainsKey(key) && index == 2)
+                                    {
+                                        dicData.Add(key, string.Empty);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_SIZE, key);
+                                        no++; index++;
+                                    }
+                                    else if (!dicData.ContainsKey(key) && index == 3)
+                                    {
+                                        dicData.Add(key, string.Empty);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_READONLY, key);
+                                        no++; index++;
+                                    }
+                                    else if (!dicData.ContainsKey(key) && index == 4)
+                                    {
+                                        dicData.Add(key, string.Empty);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_TITLE, key);
+                                        no++; index++;
+                                    }
+                                    else if (!dicData.ContainsKey(key) && index == 5)
+                                    {
+                                        dicData.Add(key, string.Empty);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_SPAN, key);
+                                        no++; index++;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -183,29 +266,31 @@ namespace ToolSupportCoding.View
 
         #region Method
 
-        private int checkEndTag(string val)
+        /// <summary>
+        /// Remove end char text in string
+        /// </summary>
+        /// <param name="val">text need change</param>
+        /// <param name="txFistChar">first char check</param>
+        /// <param name="txLastChar">last char check</param>
+        /// <param name="model">0: fist, 1: last: 2: all</param>
+        /// <param name="isUp">remove start after text</param>
+        /// <returns></returns>
+        private string removeChar(string val, string txFistChar, string txLastChar, int model, bool isUp = false)
         {
-            if (val.Contains(CONST.STRING_END_TAG))
-            {
-                return val.IndexOf(CONST.STRING_END_TAG);
-            }
-            else
-            {
-                return -1;
-            }
-        }
+            int numStar = val.IndexOf(txFistChar);
+            int numEnd = val.IndexOf(txLastChar);
+            int length = val.Length - 1;
+            if ((model == 0 && numStar == -1) || (model == 1 && numEnd == -1)) return val;
+            if (numStar == 0 && numEnd == length) return val;
 
-        private string removeEndTag(string val)
-        {
-            int numEnd = checkEndTag(val);
-            if (numEnd == -1)
-            {
-                return val;
-            }
-            else
-            {
-                return val.Substring(0, numEnd);
-            }
+            if (isUp && numEnd != length) numEnd++;
+
+            StringBuilder str = new StringBuilder(val);
+
+            if (model == 0) return val.Substring(numStar, length);
+            else if (model == 1) return val.Substring(0, numEnd);
+            else val = val.Remove(numEnd); return val.Substring(numStar, val.Length);
+
         }
 
         #endregion
