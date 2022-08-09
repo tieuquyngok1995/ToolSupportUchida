@@ -113,7 +113,6 @@ namespace ToolSupportCoding.View
 
                 btnCreateResult.Enabled = true;
             }
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -251,31 +250,31 @@ namespace ToolSupportCoding.View
                                     if (!dicData.ContainsKey(key) && index == 1)
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_FOCUS, key);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_FOCUS, string.Empty);
                                         no++; index++;
                                     }
                                     else if (!dicData.ContainsKey(key) && index == 2)
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_SIZE, key);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_SIZE, string.Empty);
                                         no++; index++;
                                     }
                                     else if (!dicData.ContainsKey(key) && index == 3)
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_READONLY, key);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_READONLY, string.Empty);
                                         no++; index++;
                                     }
                                     else if (!dicData.ContainsKey(key) && index == 4)
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_TITLE, key);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_TITLE, string.Empty);
                                         no++; index++;
                                     }
                                     else if (!dicData.ContainsKey(key) && index == 5)
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_SPAN, key);
+                                        gridSetParam.Rows.Add(no, CONST.STRING_SPAN, string.Empty);
                                         no++; index++;
                                     }
                                 }
