@@ -19,10 +19,13 @@ namespace ToolSupportCoding.View
         private List<ItemModel> lstSeting;
         private List<ItemModel> lstKey;
 
+        private ItemModel objItem;
+
         private List<string> lstType;
         private Dictionary<string, string> dicData;
 
-        private string key;
+        private string valType;
+        private string valKey;
         #region Load Form
         public FormCreateItem(List<SekkeiModel> lstSekei, List<string> lstType, List<ItemModel> lstItem)
         {
@@ -108,17 +111,23 @@ namespace ToolSupportCoding.View
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            key = "";
+            valType = "";
+            if (cbType.SelectedItem != null) valType = cbType.SelectedItem.ToString();
+
+            valKey = "";
             if (cbKey.SelectedItem != null)
             {
                 ItemModel obj = (ItemModel)cbKey.SelectedItem;
-                key = obj.key;
+                valKey = obj.key;
             }
-            List<ItemModel> val = lstData.Where(obj => obj.key.Equals(key)).ToList();
+            List<ItemModel> val = lstData.Where(obj => obj.key.Equals(valKey)).ToList();
 
+            txtResult.Text = string.Empty;
+            lblResult.Visible = false;
             if (val.Count > 0)
             {
-                handleData(val[0]);
+                objItem = val[0];
+                handleData(objItem);
 
                 if (!dicData.ContainsKey(CONST.STRING_FORM_VALUE))
                 {
@@ -130,6 +139,10 @@ namespace ToolSupportCoding.View
                 }
 
                 btnCreateResult.Enabled = true;
+                
+            }else
+            {
+                btnCreateResult.Enabled = false;
             }
         }
 
@@ -155,6 +168,7 @@ namespace ToolSupportCoding.View
             try
             {
                 int no = 1, index = 0;
+                string name, key;
                 bool isMess = false;
                 gridSetParam.Rows.Clear();
                 gridSetParam.Refresh();
@@ -165,8 +179,9 @@ namespace ToolSupportCoding.View
                 string[] stringSeparators = new string[] { "\r\n" };
                 string[] lines = data.value.Split(stringSeparators, StringSplitOptions.None);
 
-                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('-')[0])).ToList();
+                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && obj.value.Split('|').Length > 0 && data.key.Equals(obj.value.Split('|')[0])).ToList();
 
+                dicData = new Dictionary<string, string>();
                 if (lstSetingHandle.Count == 1 && lstSetingHandle[0].value.Contains(data.key))
                 {
                     int numRow = 1;
@@ -177,14 +192,32 @@ namespace ToolSupportCoding.View
 
                     for (int i = 0; i < numRow; i++)
                     {
-                        gridSetParam.Rows.Add(no, "Col class " + no, "" , "");
+                        gridSetParam.Rows.Add(no, "Col class " + no, "", "");
                         no++;
                     }
 
+                    foreach (string line in lines)
+                    {
+                        if (string.IsNullOrEmpty(line)) continue;
+
+                        string[] lstParam = line.Split(CONST.CHAR_SPACE);
+
+                        foreach (string param in lstParam)
+                        {
+                            string pattern = @"{[0-9]}";
+                            Regex rg = new Regex(pattern);
+                            if (rg.IsMatch(param))
+                            {
+                                string value = removeChar(param, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
+                                dicData.Add(value, string.Empty);
+                            }
+                        }
+                    }
+
+                    txtValue.Enabled = true;
                     return;
                 }
 
-                dicData = new Dictionary<string, string>();
                 foreach (string line in lines)
                 {
                     if (string.IsNullOrEmpty(line)) continue;
@@ -195,7 +228,6 @@ namespace ToolSupportCoding.View
                     {
                         if (param.Contains(CONST.STRING_MESSAGE)) isMess = true;
 
-                        string name, key;
                         string pattern = @"{[0-9]}";
                         Regex rg = new Regex(pattern);
                         if (rg.IsMatch(param))
@@ -253,7 +285,7 @@ namespace ToolSupportCoding.View
                                 key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
                                 if (!dicData.ContainsKey(key))
                                 {
-                                    dicData.Add(key, string.Empty);
+                                    dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
                                     gridSetParam.Rows.Add(no, name, string.Empty, key);
                                     no++;
                                 }
@@ -263,7 +295,7 @@ namespace ToolSupportCoding.View
                                 key = lstItem[0].Replace(CONST.STRING_C_SIGN, string.Empty);
                                 if (index < lstSetingHandle.Count)
                                 {
-                                    string text = lstSetingHandle[index].value.Split('-')[1];
+                                    string text = lstSetingHandle[index].value.Split('|')[1];
 
                                     if (!dicData.ContainsKey(key))
                                     {
@@ -276,6 +308,7 @@ namespace ToolSupportCoding.View
                         }
                     }
                 }
+                txtValue.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -287,27 +320,92 @@ namespace ToolSupportCoding.View
         {
             if (dicData.ContainsKey(CONST.STRING_FORM_VALUE))
             {
-                dicData[CONST.STRING_FORM_VALUE] = txtFormat.Text.Trim();
+                string valTxFormat = txtFormat.Text.Trim();
+                if (string.IsNullOrEmpty(valTxFormat))
+                {
+                    MessageBox.Show(CONST.MESS_FORMAT_VALUE_EMPTY, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                dicData[CONST.STRING_FORM_VALUE] = valTxFormat;
             }
+
+            List<ItemModel> lstSetingParam = lstSeting.Where(obj => obj.value.Split('|').Length > 0 && CONST.STRING_FORMAT.Equals(obj.value.Split('|')[0].ToUpper())).ToList();
 
             foreach (DataGridViewRow item in gridSetParam.Rows)
             {
+                string key = item.Cells[1].Value.ToString();
+                string value = item.Cells[2].Value.ToString();
                 string index = item.Cells[3].Value.ToString();
 
-                if (key.ToUpper().Equals(CONST.STRING_TABLE))
+                if (valKey.ToUpper().Equals(CONST.STRING_TABLE))
                 {
+                    ItemModel objFormat = lstSetingParam.Find(obj => obj.value.Split('|').Length > 1 && valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
+                    string format = value;
+                    if (objFormat != null)
+                    {
+                        format = objFormat.value.Split('|')[2];
+                        format = format.Replace(CONST.STRING_FORM_VALUE, value);
+                    }
 
+                    List<string> lstKey = dicData.Keys.ToList();
+                    for (int idx = 0; idx < lstKey.Count; idx++)
+                    {
+                        value = dicData[lstKey[idx]];
+                        if (idx == 0)
+                        {
+                            dicData[lstKey[idx]] = value + "        " + format + CONST.STRING_ADD_LINE;
+                        }
+                        else
+                        {
+                            dicData[lstKey[idx]] = value + "        <tr>\r\n            <th></th>\r\n            <td></td>\r\n        </tr>" + CONST.STRING_ADD_LINE;
+                        }
+                    }
                 }
                 else if (dicData.ContainsKey(index))
                 {
-                    string value = item.Cells[2].Value.ToString();
-                    dicData[index] = value;
-                }
 
-                //dicValue = string.IsNullOrEmpty(item.Cells[2].Value.ToString())
-                //    ? CONST.STRING_EMPTY : item.Cells[2].Value.ToString();
-                //lstDicParam.Add(item.Cells[1].Value.ToString(), dicValue);
+                    if (key.ToUpper().Contains(CONST.STRING_MESSAGE.ToUpper()))
+                    {
+                        SekkeiModel objSekkei = lstSekei.Find(obj => obj.physiName.Equals(value));
+                        if (objSekkei != null)
+                        {
+                            dicData[index] = objSekkei.logicName;
+                        }
+                        else
+                        {
+                            dicData[index] = value;
+                        }
+                    }
+                    else
+                    {
+                        if (lstSetingParam.Count > 0)
+                        {
+                            ItemModel objFormat = lstSetingParam.Find(obj => obj.value.Split('|').Length > 1 && key.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
+                            string format = value;
+                            if (objFormat != null)
+                            {
+                                format = objFormat.value.Split('|')[2];
+                                format = format.Replace(CONST.STRING_FORM_VALUE, value);
+                            }
+                            dicData[index] = format;
+                        }
+                        else
+                        {
+                            dicData[index] = value;
+                        }
+                    }
+                }
             }
+
+            string result = objItem.value;
+            foreach (KeyValuePair<string, string> dic in dicData)
+            {
+                result = result.Replace(dic.Key, dic.Value);
+            }
+
+            txtResult.Text = result;
+
+            btnCopy.Enabled = true;
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -351,5 +449,13 @@ namespace ToolSupportCoding.View
         }
 
         #endregion
+
+        private void gridSetParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (gridSetParam.IsCurrentCellDirty)
+            {
+                gridSetParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
     }
 }

@@ -62,6 +62,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_TEST = "${";
         public const string STRING_TABLE = "TABLE";
         public const string STRING_LABEL = "LABEL";
+        public const string STRING_FORMAT = "FORMAT";
         public const string STRING_MESSAGE = "message";
         public const string STRING_INPUT_TEXT = "INPUT TEXT";
         public const string STRING_FOCUS = "AutoFocus";
@@ -136,6 +137,8 @@ namespace ToolSupportCoding.Utils
         public const string MESS_ADD_NEW_EXIST = "A new add has caused an error. \nNew added value already exists.";
         public const string MESS_DELETE_ROW = "Do you want to continue deleting this row.";
         public const string MESS_NO_RESULT = "No results found.";
+
+        public const string MESS_FORMAT_VALUE_EMPTY = "Format Value is required, please input and Create Result again.";
 
         public const string MESS_HAND_FORMAT_ERROR = "An abnormal error occurs in the function: HandFormatStringInput\nError content: ";
 
