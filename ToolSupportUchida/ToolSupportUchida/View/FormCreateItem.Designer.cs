@@ -29,9 +29,9 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -47,14 +47,15 @@ namespace ToolSupportCoding.View
             this.panelData = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridSetParam = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResult = new System.Windows.Forms.Panel();
+            this.btnCreateResult = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.btnCreateResult = new System.Windows.Forms.Button();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSetting.SuspendLayout();
             this.groupBoxSetting.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -231,27 +232,28 @@ namespace ToolSupportCoding.View
             this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSetParam.CausesValidation = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
             this.colKey,
-            this.colValue});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle12;
+            this.colValue,
+            this.index});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSetParam.EnableHeadersVisualStyles = false;
             this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -265,34 +267,6 @@ namespace ToolSupportCoding.View
             this.gridSetParam.Size = new System.Drawing.Size(680, 191);
             this.gridSetParam.TabIndex = 1;
             // 
-            // colNo
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
-            this.colNo.HeaderText = "No.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 40;
-            // 
-            // colKey
-            // 
-            this.colKey.HeaderText = "Key Item";
-            this.colKey.Name = "colKey";
-            this.colKey.ReadOnly = true;
-            this.colKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colKey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colKey.Width = 280;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value Item";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 340;
-            // 
             // panelResult
             // 
             this.panelResult.Controls.Add(this.btnCreateResult);
@@ -304,6 +278,24 @@ namespace ToolSupportCoding.View
             this.panelResult.Name = "panelResult";
             this.panelResult.Size = new System.Drawing.Size(704, 88);
             this.panelResult.TabIndex = 1;
+            // 
+            // btnCreateResult
+            // 
+            this.btnCreateResult.Enabled = false;
+            this.btnCreateResult.FlatAppearance.BorderSize = 0;
+            this.btnCreateResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateResult.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
+            this.btnCreateResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateResult.Location = new System.Drawing.Point(9, 58);
+            this.btnCreateResult.Name = "btnCreateResult";
+            this.btnCreateResult.Size = new System.Drawing.Size(128, 24);
+            this.btnCreateResult.TabIndex = 16;
+            this.btnCreateResult.Text = "  Create Result";
+            this.btnCreateResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateResult.UseVisualStyleBackColor = true;
+            this.btnCreateResult.Click += new System.EventHandler(this.btnCreateResult_Click);
             // 
             // lblResult
             // 
@@ -345,22 +337,39 @@ namespace ToolSupportCoding.View
             this.txtResult.TabIndex = 4;
             this.txtResult.TabStop = false;
             // 
-            // btnCreateResult
+            // colNo
             // 
-            this.btnCreateResult.Enabled = false;
-            this.btnCreateResult.FlatAppearance.BorderSize = 0;
-            this.btnCreateResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateResult.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
-            this.btnCreateResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateResult.Location = new System.Drawing.Point(9, 58);
-            this.btnCreateResult.Name = "btnCreateResult";
-            this.btnCreateResult.Size = new System.Drawing.Size(128, 24);
-            this.btnCreateResult.TabIndex = 16;
-            this.btnCreateResult.Text = "  Create Result";
-            this.btnCreateResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateResult.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 40;
+            // 
+            // colKey
+            // 
+            this.colKey.HeaderText = "Key Item";
+            this.colKey.Name = "colKey";
+            this.colKey.ReadOnly = true;
+            this.colKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colKey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colKey.Width = 280;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value Item";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 340;
+            // 
+            // index
+            // 
+            this.index.HeaderText = "Index";
+            this.index.Name = "index";
+            this.index.Visible = false;
             // 
             // FormCreateItem
             // 
@@ -403,10 +412,11 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.DataGridView gridSetParam;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button btnCreateResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
-        private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.Button btnCreateResult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn index;
     }
 }

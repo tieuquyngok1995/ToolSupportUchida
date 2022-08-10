@@ -60,10 +60,6 @@ namespace ToolSupportCoding
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
             txFormat.Text = CONST.ITEM_CHAR_FORMAT_EQUALS;
-
-            lstType.Add(CONST.ITEM_HTML);
-            cbType.DataSource = lstType;
-            cbType.SelectedIndex = 0;
         }
 
         #region Theme
@@ -178,15 +174,20 @@ namespace ToolSupportCoding
                 }
             }
 
+            string type = string.Empty;
             if (objToolSupport.lstItem != null)
             {
                 lstItem = objToolSupport.lstItem;
                 foreach (ItemModel adapter in objToolSupport.lstItem)
                 {
+                    if (lstType.Count == 0 || adapter.type != type) { type = adapter.type; lstType.Add(type); }
                     gridFormat.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
                     noAdapter++;
                 }
             }
+
+            cbType.DataSource = lstType;
+            cbType.SelectedIndex = 0;
 
             mode = objToolSupport.modeLanguage;
             if (mode == 0)

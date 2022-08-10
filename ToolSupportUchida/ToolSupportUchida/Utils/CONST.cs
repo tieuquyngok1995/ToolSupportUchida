@@ -13,6 +13,7 @@ namespace ToolSupportCoding.Utils
         public static string ITEM_CHAR_FORMAT_TAB = "Split: [--] *** End: <br>";
 
         public static string ITEM_HTML = "HTML";
+        public static string ITEM_SETTING = "Setting";
 
         public static string ITEM_KEY = "key";
         public static string ITEM_VALUE = "value";

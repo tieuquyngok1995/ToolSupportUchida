@@ -16,11 +16,13 @@ namespace ToolSupportCoding.View
     {
         private List<SekkeiModel> lstSekei;
         private List<ItemModel> lstData;
+        private List<ItemModel> lstSeting;
         private List<ItemModel> lstKey;
 
         private List<string> lstType;
         private Dictionary<string, string> dicData;
 
+        private string key;
         #region Load Form
         public FormCreateItem(List<SekkeiModel> lstSekei, List<string> lstType, List<ItemModel> lstItem)
         {
@@ -29,6 +31,7 @@ namespace ToolSupportCoding.View
             this.lstSekei = lstSekei;
 
             this.lstData = lstItem;
+            lstSeting = new List<ItemModel>();
             this.lstType = lstType;
 
             dicData = new Dictionary<string, string>();
@@ -67,7 +70,8 @@ namespace ToolSupportCoding.View
 
         private void LoadData()
         {
-            cbType.DataSource = lstType;
+            List<string> lstTypeCombobox = lstType.Where(str => str != CONST.ITEM_SETTING).ToList();
+            cbType.DataSource = lstTypeCombobox;
 
             lstKey = lstData.Where(obj => obj.type.Equals(CONST.ITEM_HTML)).ToList();
             if (lstKey.Count > 0)
@@ -77,8 +81,12 @@ namespace ToolSupportCoding.View
                 cbKey.ValueMember = CONST.ITEM_VALUE;
                 cbKey.SelectedIndex = 0;
             }
-        }
 
+            lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
+        }
+        #endregion
+
+        #region Event
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectText = "";
@@ -95,21 +103,31 @@ namespace ToolSupportCoding.View
                 cbKey.ValueMember = CONST.ITEM_VALUE;
                 cbKey.SelectedIndex = 0;
             }
+            lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string selectText = "";
+            key = "";
             if (cbKey.SelectedItem != null)
             {
                 ItemModel obj = (ItemModel)cbKey.SelectedItem;
-                selectText = obj.key;
+                key = obj.key;
             }
-            List<ItemModel> val = lstData.Where(obj => obj.key.Equals(selectText)).ToList();
+            List<ItemModel> val = lstData.Where(obj => obj.key.Equals(key)).ToList();
 
             if (val.Count > 0)
             {
                 handleData(val[0]);
+
+                if (!dicData.ContainsKey(CONST.STRING_FORM_VALUE))
+                {
+                    txtFormat.Enabled = false;
+                }
+                else
+                {
+                    txtFormat.Enabled = true;
+                }
 
                 btnCreateResult.Enabled = true;
             }
@@ -126,20 +144,17 @@ namespace ToolSupportCoding.View
             gridSetParam.Rows.Clear();
             gridSetParam.Refresh();
 
-            btnCreateResult.Enabled =false;
+            btnCreateResult.Enabled = false;
             txtResult.Text = string.Empty;
-            btnCopy.Enabled =false;
+            btnCopy.Enabled = false;
             lblResult.Visible = false;
         }
-        #endregion
-
-        #region Event
 
         private void handleData(ItemModel data)
         {
             try
             {
-                int no = 1, index = 1;
+                int no = 1, index = 0;
                 bool isMess = false;
                 gridSetParam.Rows.Clear();
                 gridSetParam.Refresh();
@@ -150,7 +165,9 @@ namespace ToolSupportCoding.View
                 string[] stringSeparators = new string[] { "\r\n" };
                 string[] lines = data.value.Split(stringSeparators, StringSplitOptions.None);
 
-                if (data.key.ToUpper().Equals(CONST.STRING_TABLE))
+                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('-')[0])).ToList();
+
+                if (lstSetingHandle.Count == 1 && lstSetingHandle[0].value.Contains(data.key))
                 {
                     int numRow = 1;
                     if (!string.IsNullOrEmpty(txValue))
@@ -160,7 +177,7 @@ namespace ToolSupportCoding.View
 
                     for (int i = 0; i < numRow; i++)
                     {
-                        gridSetParam.Rows.Add(no, "Col class " + no, "");
+                        gridSetParam.Rows.Add(no, "Col class " + no, "" , "");
                         no++;
                     }
 
@@ -210,7 +227,7 @@ namespace ToolSupportCoding.View
                                         if (rg.IsMatch(fh) && !dicData.ContainsKey(key))
                                         {
                                             dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
-                                            gridSetParam.Rows.Add(no, name, string.Empty);
+                                            gridSetParam.Rows.Add(no, name, string.Empty, key);
                                             no++;
                                         }
                                     }
@@ -226,7 +243,7 @@ namespace ToolSupportCoding.View
                                         if (rg.IsMatch(test) && !dicData.ContainsKey(key))
                                         {
                                             dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
-                                            gridSetParam.Rows.Add(no, name, string.Empty);
+                                            gridSetParam.Rows.Add(no, name, string.Empty, key);
                                             no++;
                                         }
                                     }
@@ -237,45 +254,22 @@ namespace ToolSupportCoding.View
                                 if (!dicData.ContainsKey(key))
                                 {
                                     dicData.Add(key, string.Empty);
-                                    gridSetParam.Rows.Add(no, name, string.Empty);
+                                    gridSetParam.Rows.Add(no, name, string.Empty, key);
                                     no++;
                                 }
                             }
-                            else if (cbKey.SelectedItem != null)
+                            else if (lstItem.Length == 1 && lstSetingHandle.Count > 0)
                             {
-                                ItemModel obj = (ItemModel)cbKey.SelectedItem;
-                                if (obj.key.ToUpper().Equals(CONST.STRING_INPUT_TEXT) && lstItem.Length == 1)
+                                key = lstItem[0].Replace(CONST.STRING_C_SIGN, string.Empty);
+                                if (index < lstSetingHandle.Count)
                                 {
-                                    key = lstItem[0].Replace(CONST.STRING_C_SIGN, string.Empty);
-                                    if (!dicData.ContainsKey(key) && index == 1)
+                                    string text = lstSetingHandle[index].value.Split('-')[1];
+
+                                    if (!dicData.ContainsKey(key))
                                     {
                                         dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_FOCUS, string.Empty);
-                                        no++; index++;
-                                    }
-                                    else if (!dicData.ContainsKey(key) && index == 2)
-                                    {
-                                        dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_SIZE, string.Empty);
-                                        no++; index++;
-                                    }
-                                    else if (!dicData.ContainsKey(key) && index == 3)
-                                    {
-                                        dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_READONLY, string.Empty);
-                                        no++; index++;
-                                    }
-                                    else if (!dicData.ContainsKey(key) && index == 4)
-                                    {
-                                        dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_TITLE, string.Empty);
-                                        no++; index++;
-                                    }
-                                    else if (!dicData.ContainsKey(key) && index == 5)
-                                    {
-                                        dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, CONST.STRING_SPAN, string.Empty);
-                                        no++; index++;
+                                        gridSetParam.Rows.Add(no, text, string.Empty, key);
+                                        no++; index = index + 1;
                                     }
                                 }
                             }
@@ -286,6 +280,33 @@ namespace ToolSupportCoding.View
             catch (Exception ex)
             {
                 MessageBox.Show("An abnormal error occurs in the function: HandleData\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCreateResult_Click(object sender, EventArgs e)
+        {
+            if (dicData.ContainsKey(CONST.STRING_FORM_VALUE))
+            {
+                dicData[CONST.STRING_FORM_VALUE] = txtFormat.Text.Trim();
+            }
+
+            foreach (DataGridViewRow item in gridSetParam.Rows)
+            {
+                string index = item.Cells[3].Value.ToString();
+
+                if (key.ToUpper().Equals(CONST.STRING_TABLE))
+                {
+
+                }
+                else if (dicData.ContainsKey(index))
+                {
+                    string value = item.Cells[2].Value.ToString();
+                    dicData[index] = value;
+                }
+
+                //dicValue = string.IsNullOrEmpty(item.Cells[2].Value.ToString())
+                //    ? CONST.STRING_EMPTY : item.Cells[2].Value.ToString();
+                //lstDicParam.Add(item.Cells[1].Value.ToString(), dicValue);
             }
         }
 
