@@ -122,6 +122,12 @@ namespace ToolSupportCoding.View
             }
             List<ItemModel> val = lstData.Where(obj => obj.key.Equals(valKey)).ToList();
 
+            txtFormat.Text = string.Empty;
+            if (!valKey.ToUpper().Equals(CONST.STRING_TABLE))
+            {
+                txtValue.Text = string.Empty;
+            }
+
             txtResult.Text = string.Empty;
             lblResult.Visible = false;
             if (val.Count > 0)
@@ -179,7 +185,7 @@ namespace ToolSupportCoding.View
                 string[] stringSeparators = new string[] { "\r\n" };
                 string[] lines = data.value.Split(stringSeparators, StringSplitOptions.None);
 
-                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && obj.value.Split('|').Length > 0 && data.key.Equals(obj.value.Split('|')[0])).ToList();
+                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('|')[0])).ToList();
 
                 dicData = new Dictionary<string, string>();
                 if (lstSetingHandle.Count == 1 && lstSetingHandle[0].value.Contains(data.key))
@@ -329,7 +335,7 @@ namespace ToolSupportCoding.View
                 dicData[CONST.STRING_FORM_VALUE] = valTxFormat;
             }
 
-            List<ItemModel> lstSetingParam = lstSeting.Where(obj => obj.value.Split('|').Length > 0 && CONST.STRING_FORMAT.Equals(obj.value.Split('|')[0].ToUpper())).ToList();
+            List<ItemModel> lstSetingParam = lstSeting.Where(obj => CONST.STRING_FORMAT.Equals(obj.value.Split('|')[0].ToUpper())).ToList();
 
             foreach (DataGridViewRow item in gridSetParam.Rows)
             {
@@ -339,7 +345,7 @@ namespace ToolSupportCoding.View
 
                 if (valKey.ToUpper().Equals(CONST.STRING_TABLE))
                 {
-                    ItemModel objFormat = lstSetingParam.Find(obj => obj.value.Split('|').Length > 1 && valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
+                    ItemModel objFormat = lstSetingParam.Find(obj => valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
                     string format = value;
                     if (objFormat != null)
                     {
@@ -380,13 +386,31 @@ namespace ToolSupportCoding.View
                     {
                         if (lstSetingParam.Count > 0)
                         {
-                            ItemModel objFormat = lstSetingParam.Find(obj => obj.value.Split('|').Length > 1 && key.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
+                            ItemModel objFormat = lstSetingParam.Find(obj => key.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
                             string format = value;
                             if (objFormat != null)
                             {
                                 format = objFormat.value.Split('|')[2];
                                 format = format.Replace(CONST.STRING_FORM_VALUE, value);
+                            } else
+                            {
+                                objFormat = lstSetingParam.Find(obj => valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()) && key.ToUpper().Equals(obj.value.Split('|')[2].ToUpper()));
+                                if (objFormat != null && !string.IsNullOrEmpty(value))
+                                {
+                                    format = objFormat.value.Split('|')[3];
+                                    if (format.ToUpper().Contains(CONST.STRING_MESSAGE.ToUpper()))
+                                    {
+                                        SekkeiModel objSekkei = lstSekei.Find(obj => obj.physiName.Equals(value));
+                                        if (objSekkei != null)
+                                        {
+                                            value = objSekkei.logicName;
+                                        }
+                                        format = format.Replace(CONST.STRING_FORM_VALUE, value);
+                                    }
+                                    format = format.Replace(CONST.STRING_FORM_VALUE, value);
+                                }
                             }
+
                             dicData[index] = format;
                         }
                         else

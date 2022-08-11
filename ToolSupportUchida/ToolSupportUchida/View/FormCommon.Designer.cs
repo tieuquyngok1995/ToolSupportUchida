@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -64,24 +64,6 @@ namespace ToolSupportCoding.View
             this.txtFormatResult = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtFormatCode = new System.Windows.Forms.TextBox();
-            this.tabPageCreateItem = new System.Windows.Forms.TabPage();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.lblHtmlResult = new System.Windows.Forms.Label();
-            this.btnHtmlClear = new System.Windows.Forms.Button();
-            this.btnHtmlCopy = new System.Windows.Forms.Button();
-            this.txtHtmlResult = new System.Windows.Forms.RichTextBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.chkItem = new System.Windows.Forms.CheckBox();
-            this.txtHtmlJPName = new System.Windows.Forms.TextBox();
-            this.btnCreateOut = new System.Windows.Forms.Button();
-            this.lbHtmlJpName = new System.Windows.Forms.Label();
-            this.rdbDelete = new System.Windows.Forms.RadioButton();
-            this.rdbUpdate = new System.Windows.Forms.RadioButton();
-            this.rdbNone = new System.Windows.Forms.RadioButton();
-            this.txtHtmlName = new System.Windows.Forms.TextBox();
-            this.lbHtmlName = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbItem = new System.Windows.Forms.ComboBox();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.rbColumnFormat = new System.Windows.Forms.RadioButton();
@@ -130,9 +112,6 @@ namespace ToolSupportCoding.View
             this.tabPageFormatCode.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.tabPageCreateItem.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox16.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).BeginInit();
@@ -144,7 +123,6 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControlCommon.Controls.Add(this.tabPageCreateJson);
             this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
-            this.tabControlCommon.Controls.Add(this.tabPageCreateItem);
             this.tabControlCommon.Controls.Add(this.tabPageGetColumn);
             this.tabControlCommon.Controls.Add(this.tabPage2);
             this.tabControlCommon.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -307,14 +285,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -331,8 +309,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -542,239 +520,6 @@ namespace ToolSupportCoding.View
             this.txtFormatCode.Size = new System.Drawing.Size(269, 337);
             this.txtFormatCode.TabIndex = 2;
             // 
-            // tabPageCreateItem
-            // 
-            this.tabPageCreateItem.Controls.Add(this.groupBox17);
-            this.tabPageCreateItem.Controls.Add(this.groupBox16);
-            this.tabPageCreateItem.Location = new System.Drawing.Point(124, 4);
-            this.tabPageCreateItem.Name = "tabPageCreateItem";
-            this.tabPageCreateItem.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateItem.Size = new System.Drawing.Size(576, 366);
-            this.tabPageCreateItem.TabIndex = 4;
-            this.tabPageCreateItem.Text = "Create Item HTML";
-            this.tabPageCreateItem.UseVisualStyleBackColor = true;
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.lblHtmlResult);
-            this.groupBox17.Controls.Add(this.btnHtmlClear);
-            this.groupBox17.Controls.Add(this.btnHtmlCopy);
-            this.groupBox17.Controls.Add(this.txtHtmlResult);
-            this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox17.Location = new System.Drawing.Point(246, 7);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(322, 352);
-            this.groupBox17.TabIndex = 17;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Result";
-            // 
-            // lblHtmlResult
-            // 
-            this.lblHtmlResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHtmlResult.ForeColor = System.Drawing.Color.Red;
-            this.lblHtmlResult.Location = new System.Drawing.Point(168, 320);
-            this.lblHtmlResult.Name = "lblHtmlResult";
-            this.lblHtmlResult.Size = new System.Drawing.Size(148, 26);
-            this.lblHtmlResult.TabIndex = 16;
-            this.lblHtmlResult.Text = "Copy to Clipboard is done!";
-            this.lblHtmlResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblHtmlResult.Visible = false;
-            // 
-            // btnHtmlClear
-            // 
-            this.btnHtmlClear.Enabled = false;
-            this.btnHtmlClear.FlatAppearance.BorderSize = 0;
-            this.btnHtmlClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHtmlClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnHtmlClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnHtmlClear.Location = new System.Drawing.Point(86, 319);
-            this.btnHtmlClear.Name = "btnHtmlClear";
-            this.btnHtmlClear.Size = new System.Drawing.Size(76, 28);
-            this.btnHtmlClear.TabIndex = 10;
-            this.btnHtmlClear.Text = "Clear";
-            this.btnHtmlClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHtmlClear.UseVisualStyleBackColor = true;
-            this.btnHtmlClear.Click += new System.EventHandler(this.btnHtmlClear_Click);
-            // 
-            // btnHtmlCopy
-            // 
-            this.btnHtmlCopy.Enabled = false;
-            this.btnHtmlCopy.FlatAppearance.BorderSize = 0;
-            this.btnHtmlCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHtmlCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnHtmlCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btnHtmlCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHtmlCopy.Location = new System.Drawing.Point(6, 319);
-            this.btnHtmlCopy.Name = "btnHtmlCopy";
-            this.btnHtmlCopy.Size = new System.Drawing.Size(74, 28);
-            this.btnHtmlCopy.TabIndex = 9;
-            this.btnHtmlCopy.Text = "Coppy";
-            this.btnHtmlCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHtmlCopy.UseVisualStyleBackColor = true;
-            this.btnHtmlCopy.Click += new System.EventHandler(this.btnHtmlCopy_Click);
-            // 
-            // txtHtmlResult
-            // 
-            this.txtHtmlResult.Location = new System.Drawing.Point(6, 18);
-            this.txtHtmlResult.Name = "txtHtmlResult";
-            this.txtHtmlResult.ReadOnly = true;
-            this.txtHtmlResult.Size = new System.Drawing.Size(310, 297);
-            this.txtHtmlResult.TabIndex = 15;
-            this.txtHtmlResult.TabStop = false;
-            this.txtHtmlResult.Text = "";
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.chkItem);
-            this.groupBox16.Controls.Add(this.txtHtmlJPName);
-            this.groupBox16.Controls.Add(this.btnCreateOut);
-            this.groupBox16.Controls.Add(this.lbHtmlJpName);
-            this.groupBox16.Controls.Add(this.rdbDelete);
-            this.groupBox16.Controls.Add(this.rdbUpdate);
-            this.groupBox16.Controls.Add(this.rdbNone);
-            this.groupBox16.Controls.Add(this.txtHtmlName);
-            this.groupBox16.Controls.Add(this.lbHtmlName);
-            this.groupBox16.Controls.Add(this.label6);
-            this.groupBox16.Controls.Add(this.cbItem);
-            this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox16.Location = new System.Drawing.Point(6, 7);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(234, 352);
-            this.groupBox16.TabIndex = 0;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Input";
-            // 
-            // chkItem
-            // 
-            this.chkItem.AutoSize = true;
-            this.chkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkItem.Location = new System.Drawing.Point(6, 325);
-            this.chkItem.Name = "chkItem";
-            this.chkItem.Size = new System.Drawing.Size(87, 21);
-            this.chkItem.TabIndex = 7;
-            this.chkItem.Text = "Readonly";
-            this.chkItem.UseVisualStyleBackColor = true;
-            // 
-            // txtHtmlJPName
-            // 
-            this.txtHtmlJPName.Location = new System.Drawing.Point(75, 46);
-            this.txtHtmlJPName.Name = "txtHtmlJPName";
-            this.txtHtmlJPName.Size = new System.Drawing.Size(153, 23);
-            this.txtHtmlJPName.TabIndex = 2;
-            // 
-            // btnCreateOut
-            // 
-            this.btnCreateOut.FlatAppearance.BorderSize = 0;
-            this.btnCreateOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCreateOut.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
-            this.btnCreateOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateOut.Location = new System.Drawing.Point(105, 319);
-            this.btnCreateOut.Name = "btnCreateOut";
-            this.btnCreateOut.Size = new System.Drawing.Size(123, 28);
-            this.btnCreateOut.TabIndex = 8;
-            this.btnCreateOut.Text = "Generate Item";
-            this.btnCreateOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateOut.UseVisualStyleBackColor = true;
-            this.btnCreateOut.Click += new System.EventHandler(this.btnCreateOut_Click);
-            // 
-            // lbHtmlJpName
-            // 
-            this.lbHtmlJpName.AutoSize = true;
-            this.lbHtmlJpName.Location = new System.Drawing.Point(6, 49);
-            this.lbHtmlJpName.Name = "lbHtmlJpName";
-            this.lbHtmlJpName.Size = new System.Drawing.Size(56, 17);
-            this.lbHtmlJpName.TabIndex = 7;
-            this.lbHtmlJpName.Text = "J Name";
-            // 
-            // rdbDelete
-            // 
-            this.rdbDelete.AutoSize = true;
-            this.rdbDelete.Location = new System.Drawing.Point(153, 100);
-            this.rdbDelete.Name = "rdbDelete";
-            this.rdbDelete.Size = new System.Drawing.Size(67, 21);
-            this.rdbDelete.TabIndex = 6;
-            this.rdbDelete.TabStop = true;
-            this.rdbDelete.Text = "Delete";
-            this.rdbDelete.UseVisualStyleBackColor = true;
-            this.rdbDelete.Visible = false;
-            // 
-            // rdbUpdate
-            // 
-            this.rdbUpdate.AutoSize = true;
-            this.rdbUpdate.Location = new System.Drawing.Point(75, 100);
-            this.rdbUpdate.Name = "rdbUpdate";
-            this.rdbUpdate.Size = new System.Drawing.Size(72, 21);
-            this.rdbUpdate.TabIndex = 5;
-            this.rdbUpdate.TabStop = true;
-            this.rdbUpdate.Text = "Update";
-            this.rdbUpdate.UseVisualStyleBackColor = true;
-            this.rdbUpdate.Visible = false;
-            // 
-            // rdbNone
-            // 
-            this.rdbNone.AutoSize = true;
-            this.rdbNone.Checked = true;
-            this.rdbNone.Location = new System.Drawing.Point(9, 100);
-            this.rdbNone.Name = "rdbNone";
-            this.rdbNone.Size = new System.Drawing.Size(60, 21);
-            this.rdbNone.TabIndex = 4;
-            this.rdbNone.TabStop = true;
-            this.rdbNone.Text = "None";
-            this.rdbNone.UseVisualStyleBackColor = true;
-            this.rdbNone.Visible = false;
-            // 
-            // txtHtmlName
-            // 
-            this.txtHtmlName.Location = new System.Drawing.Point(75, 73);
-            this.txtHtmlName.Name = "txtHtmlName";
-            this.txtHtmlName.Size = new System.Drawing.Size(153, 23);
-            this.txtHtmlName.TabIndex = 3;
-            this.txtHtmlName.Visible = false;
-            // 
-            // lbHtmlName
-            // 
-            this.lbHtmlName.AutoSize = true;
-            this.lbHtmlName.Location = new System.Drawing.Point(6, 76);
-            this.lbHtmlName.Name = "lbHtmlName";
-            this.lbHtmlName.Size = new System.Drawing.Size(58, 17);
-            this.lbHtmlName.TabIndex = 2;
-            this.lbHtmlName.Text = "E Name";
-            this.lbHtmlName.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 17);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Item";
-            // 
-            // cbItem
-            // 
-            this.cbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbItem.Items.AddRange(new object[] {
-            "Label",
-            "Button",
-            "TextBox",
-            "TextBox Code",
-            "TextBox Date",
-            "TextBox Money",
-            "TextBox PostCode",
-            "TextBox InputGroup",
-            "TextArea",
-            "ComboBox",
-            "CheckBox",
-            "Radio",
-            "Spread",
-            "Tree"});
-            this.cbItem.Location = new System.Drawing.Point(75, 18);
-            this.cbItem.Name = "cbItem";
-            this.cbItem.Size = new System.Drawing.Size(153, 24);
-            this.cbItem.TabIndex = 1;
-            this.cbItem.SelectedIndexChanged += new System.EventHandler(this.cbItem_SelectedIndexChanged);
-            // 
             // tabPageGetColumn
             // 
             this.tabPageGetColumn.Controls.Add(this.groupBox11);
@@ -913,24 +658,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 71);
@@ -1270,10 +1015,6 @@ namespace ToolSupportCoding.View
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.tabPageCreateItem.ResumeLayout(false);
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
             this.tabPageGetColumn.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -1317,25 +1058,7 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btnFormatClear;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtFormatResult;
-        private System.Windows.Forms.TabPage tabPageCreateItem;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnHtmlCopy;
-        private System.Windows.Forms.GroupBox groupBox17;
-        private System.Windows.Forms.RichTextBox txtHtmlResult;
-        private System.Windows.Forms.Button btnHtmlClear;
-        private System.Windows.Forms.Button btnCreateOut;
-        private System.Windows.Forms.CheckBox chkItem;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.TextBox txtHtmlJPName;
-        private System.Windows.Forms.Label lbHtmlJpName;
-        private System.Windows.Forms.RadioButton rdbDelete;
-        private System.Windows.Forms.RadioButton rdbUpdate;
-        private System.Windows.Forms.RadioButton rdbNone;
-        private System.Windows.Forms.TextBox txtHtmlName;
-        private System.Windows.Forms.Label lbHtmlName;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbItem;
-        private System.Windows.Forms.Label lblHtmlResult;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkMain;

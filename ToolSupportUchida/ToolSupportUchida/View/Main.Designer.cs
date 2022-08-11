@@ -32,11 +32,11 @@ namespace ToolSupportCoding
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -57,6 +57,12 @@ namespace ToolSupportCoding
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panelSettingRight = new System.Windows.Forms.Panel();
             this.gridFormat = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdapterEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAdapterDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelSettingLeft = new System.Windows.Forms.Panel();
             this.gridSekkei = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,12 +107,6 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdapterEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colAdapterDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -467,6 +467,52 @@ namespace ToolSupportCoding
             this.gridFormat.TabIndex = 1;
             this.gridFormat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAdapter_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 35;
+            // 
+            // DataGridViewTextBoxColumn
+            // 
+            this.DataGridViewTextBoxColumn.HeaderText = "Item Type";
+            this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
+            this.DataGridViewTextBoxColumn.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item Key";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Item Value";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 120;
+            // 
+            // colAdapterEdit
+            // 
+            this.colAdapterEdit.HeaderText = "";
+            this.colAdapterEdit.Image = global::ToolSupportCoding.Properties.Resources.button_edit;
+            this.colAdapterEdit.Name = "colAdapterEdit";
+            this.colAdapterEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterEdit.Width = 24;
+            // 
+            // colAdapterDelete
+            // 
+            this.colAdapterDelete.HeaderText = "";
+            this.colAdapterDelete.Image = global::ToolSupportCoding.Properties.Resources.button_delete;
+            this.colAdapterDelete.Name = "colAdapterDelete";
+            this.colAdapterDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterDelete.Width = 24;
+            // 
             // panelSettingLeft
             // 
             this.panelSettingLeft.Controls.Add(this.gridSekkei);
@@ -668,6 +714,7 @@ namespace ToolSupportCoding
             this.rbHtml.Text = "HTML";
             this.rbHtml.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbHtml.UseVisualStyleBackColor = true;
+            this.rbHtml.Visible = false;
             this.rbHtml.CheckedChanged += new System.EventHandler(this.rbHtml_CheckedChanged);
             // 
             // rbJava
@@ -988,52 +1035,6 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn4.Width = 24;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 35;
-            // 
-            // DataGridViewTextBoxColumn
-            // 
-            this.DataGridViewTextBoxColumn.HeaderText = "Item Type";
-            this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
-            this.DataGridViewTextBoxColumn.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Item Key";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Item Value";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.Width = 120;
-            // 
-            // colAdapterEdit
-            // 
-            this.colAdapterEdit.HeaderText = "";
-            this.colAdapterEdit.Image = global::ToolSupportCoding.Properties.Resources.button_edit;
-            this.colAdapterEdit.Name = "colAdapterEdit";
-            this.colAdapterEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colAdapterEdit.Width = 24;
-            // 
-            // colAdapterDelete
-            // 
-            this.colAdapterDelete.HeaderText = "";
-            this.colAdapterDelete.Image = global::ToolSupportCoding.Properties.Resources.button_delete;
-            this.colAdapterDelete.Name = "colAdapterDelete";
-            this.colAdapterDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colAdapterDelete.Width = 24;
             // 
             // Main
             // 
