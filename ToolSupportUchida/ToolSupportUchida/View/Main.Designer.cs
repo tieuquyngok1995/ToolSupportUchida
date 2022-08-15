@@ -968,11 +968,11 @@ namespace ToolSupportCoding
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(447, 0);
+            this.label5.Location = new System.Drawing.Point(419, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 17);
+            this.label5.Size = new System.Drawing.Size(212, 17);
             this.label5.TabIndex = 3;
-            this.label5.Text = "© 2021 Copyright: Tuan-VQ";
+            this.label5.Text = "© 2021 Copyright: Tuấn-Vờ Quờ";
             // 
             // label4
             // 

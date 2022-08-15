@@ -375,6 +375,8 @@ namespace ToolSupportCoding
                 // Clear data
                 txtLogicName.Text = string.Empty;
                 txtPhysiName.Text = string.Empty;
+
+                btnSearchSekkei.Enabled = true;
             }
         }
 
@@ -427,6 +429,7 @@ namespace ToolSupportCoding
         {
             txtLogicName.Text = string.Empty;
             txtPhysiName.Text = string.Empty;
+            btnSearchSekkei.Enabled = true;
 
             txtLogicName.Focus();
         }
@@ -446,6 +449,8 @@ namespace ToolSupportCoding
                 txtLogicName.Text = row.Cells[1].Value.ToString();
                 txtPhysiName.Text = row.Cells[2].Value.ToString();
                 rowIndex = e.RowIndex;
+
+                btnSearchSekkei.Enabled = false;
             }
             else if (colName.Equals(CONST.NAME_COL_SEKKEI_DELETE))
             {
@@ -582,6 +587,7 @@ namespace ToolSupportCoding
                 // Clear data
                 txtKey.Text = string.Empty;
                 txtValue.Text = string.Empty;
+                btnSearchAdapter.Enabled = true;
             }
         }
 
@@ -590,6 +596,7 @@ namespace ToolSupportCoding
             cbType.SelectedIndex = 0;
             txtKey.Text = string.Empty;
             txtValue.Text = string.Empty;
+            btnSearchAdapter.Enabled = true;
 
             txtKey.Focus();
         }
@@ -610,6 +617,8 @@ namespace ToolSupportCoding
                 txtKey.Text = row.Cells[2].Value.ToString();
                 txtValue.Text = row.Cells[3].Value.ToString();
                 rowIndex = e.RowIndex;
+
+                btnSearchAdapter.Enabled = false;
             }
             else if (colName.Equals(CONST.NAME_COL_ADAPTER_DELETE))
             {

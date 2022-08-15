@@ -108,14 +108,6 @@ namespace ToolSupportCoding.View
             lstTextDoc += "          - B2: Tu format thang hang cac coment." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - " + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Create Item HTML:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao cac doan code cua tung item theo format da setting." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Chon loai item" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input name cua tuong loai item yeu cau." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Nhan Generate Item de lay src." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Doi voi check box readonly se them thuoc tinh readonly." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Lay thong tin cua tung colum table trong thiet ke theo format." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
