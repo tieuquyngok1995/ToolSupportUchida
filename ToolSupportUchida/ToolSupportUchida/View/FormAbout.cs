@@ -120,7 +120,7 @@ namespace ToolSupportCoding.View
             lstDocument.Text = lstTextDoc;
 
 
-            // Set data ver update
+            // Set data version update
             string lstTextVer = "";
             lstTextVer += "Ver1.0" + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Phien ban dau tien cho phep setting thong tin su dung cho typescript va c#." + CONST.CHAR_NEW_LINE;
@@ -146,6 +146,11 @@ namespace ToolSupportCoding.View
             lstTextVer += "    - Them moi chuc nang chon common Get Name Column." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Chinh sua chuc nang Create Adapter thanh Create Item theo thong tin da duoc setting." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Remove chuc nang Common Create Item HTML." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.3" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang tao comment tu noi dung tieng nhat va src." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Get Name Column them xu li tao sql theo tkct." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Format Comment them chon mode comment." + CONST.CHAR_NEW_LINE;
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 

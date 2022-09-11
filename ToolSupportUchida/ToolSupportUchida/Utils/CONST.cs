@@ -54,7 +54,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_O_CUR_BRACKETS = "{";
         public const string STRING_C_CUR_BRACKETS = "}";
 
-        // Const using create Item
+        // Cons using create Item
         public const string STRING_FORM_VALUE = "{-}";
         public const string STRING_NAME_ID = "ID";
         public const string STRING_TAG_FH = "${F:H(";
@@ -130,7 +130,7 @@ namespace ToolSupportCoding.Utils
         public const string TEXT_LINE_NUM = "Line number: ";
         #endregion
 
-        #region Messager
+        #region Message
         public const string MESS_OPEN_FILE = "File import failed, please try again.";
         public const string MESS_ADD_NEW_LOGIC_BLANK = "A new add has caused an error. \nLogical name value is blank.";
         public const string MESS_ADD_NEW_PHYSI_BLANK = "A new add has caused an error. \nPhysical name value is blank.";
@@ -140,10 +140,15 @@ namespace ToolSupportCoding.Utils
 
         public const string MESS_FORMAT_VALUE_EMPTY = "Format Value is required, please input and Create Result again.";
 
-        public const string MESS_HAND_FORMAT_ERROR = "An abnormal error occurs in the function: HandFormatStringInput\nError content: ";
-
         public const string MESS_ADD_NEW_JOIN_KEY_BLANK = "A new add has caused an error. \nItem Join key value is blank.";
         public const string MESS_ADD_NEW_JOIN_VALUE_BLANK = "A new add has caused an error. \nItem Join value value is blank.";
+
+        public const string MESS_COMMON_COLUMN_SELECT_FORMAT = "Please select the type \"Format\".";
+        public const string MESS_COMMON_COLUMN_INPUT_VALUE = "Please enter value.";
+
+        public const string MESS_COMMON_CREATE_COMMENT = "Please enter value \"Input Comment\" and \"Input Code\"";
+
+        public const string MESS_ERROR_EXCEPTION = "An abnormal error occurs in the function: {0}\nError content: ";
         #endregion
 
         #region Grid View

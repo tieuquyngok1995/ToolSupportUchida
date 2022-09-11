@@ -178,7 +178,7 @@ namespace ToolSupportCoding.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An abnormal error occurs in the function: Convert\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Button Convert") + ex.Message, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -201,6 +201,12 @@ namespace ToolSupportCoding.View
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtResult.Text))
+            {
+                lblResult.Visible = false;
+                return;
+            }
+
             Clipboard.SetText(txtResult.Text);
             lblResult.Visible = true;
         }
@@ -276,7 +282,7 @@ namespace ToolSupportCoding.View
                         }
                     }
 
-                    // Format str SQL
+                    // Format string SQL
                     if (item.Contains(string.Format(CONST.STRING_CHECK_CONTAINS_01, strSQLChar)))
                     {
                         item = CUtils.ReplaceFormat(item, CONST.STRING_CHECK_CONTAINS_01, string.Empty, strSQLChar);
@@ -312,8 +318,8 @@ namespace ToolSupportCoding.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(CONST.MESS_HAND_FORMAT_ERROR + ex.Message, CONST.TEXT_CAPTION_ERROR,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Handle Format String Input") + ex.Message,
+                    CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
@@ -381,7 +387,8 @@ namespace ToolSupportCoding.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An abnormal error occurs in the function: HandleInputParam\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Handle Input Parameter Data") + ex.Message,
+                    CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -436,7 +443,8 @@ namespace ToolSupportCoding.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An abnormal error occurs in the function: HandleItemParam\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Handle Item Parameter Data") + ex.Message,
+                    CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
         }

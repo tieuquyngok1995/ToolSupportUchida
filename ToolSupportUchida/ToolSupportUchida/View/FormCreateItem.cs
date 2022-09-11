@@ -24,8 +24,8 @@ namespace ToolSupportCoding.View
         private List<string> lstType;
         private Dictionary<string, string> dicData;
 
-        private string valType;
         private string valKey;
+
         #region Load Form
         public FormCreateItem(List<SekkeiModel> lstSekei, List<string> lstType, List<ItemModel> lstItem)
         {
@@ -111,9 +111,6 @@ namespace ToolSupportCoding.View
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            valType = "";
-            if (cbType.SelectedItem != null) valType = cbType.SelectedItem.ToString();
-
             valKey = "";
             if (cbKey.SelectedItem != null)
             {
@@ -145,8 +142,9 @@ namespace ToolSupportCoding.View
                 }
 
                 btnCreateResult.Enabled = true;
-                
-            }else
+
+            }
+            else
             {
                 btnCreateResult.Enabled = false;
             }
@@ -318,7 +316,8 @@ namespace ToolSupportCoding.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An abnormal error occurs in the function: HandleData\nError content: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Handle Data") + ex.Message,
+                    CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -392,7 +391,8 @@ namespace ToolSupportCoding.View
                             {
                                 format = objFormat.value.Split('|')[2];
                                 format = format.Replace(CONST.STRING_FORM_VALUE, value);
-                            } else
+                            }
+                            else
                             {
                                 objFormat = lstSetingParam.Find(obj => valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()) && key.ToUpper().Equals(obj.value.Split('|')[2].ToUpper()));
                                 if (objFormat != null && !string.IsNullOrEmpty(value))
@@ -436,6 +436,7 @@ namespace ToolSupportCoding.View
         {
             if (string.IsNullOrEmpty(txtResult.Text))
             {
+                lblResult.Visible = false;
                 return;
             }
 

@@ -643,6 +643,7 @@ namespace ToolSupportCoding.View
         {
             if (string.IsNullOrEmpty(txtResult.Text))
             {
+                lblResult.Visible = false;
                 return;
             }
 
