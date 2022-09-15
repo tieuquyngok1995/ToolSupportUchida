@@ -187,7 +187,6 @@ namespace ToolSupportCoding
             }
 
             cbType.DataSource = lstType;
-            cbType.SelectedIndex = 0;
 
             mode = objToolSupport.modeLanguage;
             if (mode == 0)
