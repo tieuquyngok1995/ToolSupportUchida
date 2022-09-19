@@ -338,6 +338,7 @@ namespace ToolSupportCoding.View
         {
             int mode = 0;
             if (rbFormatCommentLine.Checked) mode = 1;
+            else if (rbFormatCommentSQL.Checked) mode = 2;
 
             int maxLengthRow = 0;
             int lengthAppend = -1;
@@ -345,7 +346,9 @@ namespace ToolSupportCoding.View
             string result = string.Empty;
             foreach (string line in lstFormatCode)
             {
-                string tmpLine = line.Trim();
+                string tmpLine = line;
+                if (mode != 0) tmpLine = tmpLine.Trim();
+
                 tmpLine = tmpLine.Replace(CONST.STRING_TAB, "    ");
 
                 if (tmpLine.Contains(CONST.STRING_APPEND))
@@ -357,13 +360,6 @@ namespace ToolSupportCoding.View
                     else
                     {
                         lengthAppend = tmpLine.IndexOf(CONST.STRING_DOT);
-                    }
-                }
-                else
-                {
-                    if (tmpLine.Contains("'"))
-                    {
-                        tmpLine = tmpLine.Replace("'", "//");
                     }
                 }
 
@@ -1148,6 +1144,7 @@ namespace ToolSupportCoding.View
 
             string charComment = "/**";
             if (mode == 1) charComment = "//";
+            else if (mode == 2) charComment = "<!--";
 
             if (line.Contains(CONST.STRING_APPEND))
             {
@@ -1167,5 +1164,6 @@ namespace ToolSupportCoding.View
         }
 
         #endregion
+
     }
 }
