@@ -570,7 +570,7 @@ namespace ToolSupportCoding.Utils
             int lastIndex = str.LastIndexOf("\r\n");
             if (lastIndex != -1 && lastIndex == str.Length - 2)
             {
-                str = str.Substring(0, lastIndex - 2);
+                str = str.Substring(0, lastIndex);
                 str = removeLastLineBlank(str);
             }
             return str;

@@ -848,11 +848,6 @@ namespace ToolSupportCoding.View
 
         #region Tab Create Comment
 
-        private void txtCrCmComment_Click(object sender, EventArgs e)
-        {
-            txtCrCmComment.SelectAll();
-        }
-
         private void txtCrCmComment_TextChanged(object sender, EventArgs e)
         {
             lstInputComment.Clear();
@@ -872,11 +867,6 @@ namespace ToolSupportCoding.View
         private void txtCrCmComment_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtCrCmComment.Text)) createComment();
-        }
-
-        private void txtCrCmCode_Click(object sender, EventArgs e)
-        {
-            txtCrCmCode.SelectAll();
         }
 
         private void txtCrCmCode_TextChanged(object sender, EventArgs e)
@@ -904,7 +894,6 @@ namespace ToolSupportCoding.View
         {
             if (rbCrCmFirst.Checked)
             {
-                rbCrCmBlock.Visible = true;
                 createComentLocation = 0;
 
                 createComment();
@@ -915,7 +904,6 @@ namespace ToolSupportCoding.View
         {
             if (rbCrCmLast.Checked)
             {
-                rbCrCmBlock.Visible = false;
                 createComentLocation = 1;
 
                 createComment();
@@ -936,7 +924,7 @@ namespace ToolSupportCoding.View
         {
             if (rbCrCmBlock.Checked)
             {
-                createComentMode = 1;
+                createComentMode = 2;
 
                 createComment();
             }
@@ -1013,6 +1001,7 @@ namespace ToolSupportCoding.View
                 else
                 {
                     if (lstInputComment.Count > 0 && txtCrCmCode.Focused) return;
+                    if (lstInputCode.Count > 0 && txtCrCmComment.Focused) return;
 
                     MessageBox.Show(CONST.MESS_COMMON_CREATE_COMMENT, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -1061,12 +1050,13 @@ namespace ToolSupportCoding.View
                 case 2:
                     if (createComentLocation == 0)
                     {
-                        stringBuilder.Append("/**\r\n");
-                        stringBuilder.Append(" * {0}\r\n");
-                        stringBuilder.Append(" */\r\n");
+                        stringBuilder.Append("<!-- {0} -->\r\n");
                         stringBuilder.Append("{1}" + CONST.STRING_ADD_LINE);
                     }
-                    
+                    else
+                    {
+                        stringBuilder.Append("{0} <!-- {1} -->" + CONST.STRING_ADD_LINE);
+                    }    
                     if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
 
                     return stringBuilder.ToString();

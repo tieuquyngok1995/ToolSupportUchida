@@ -985,7 +985,6 @@ namespace ToolSupportCoding.View
             this.txtCrCmCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtCrCmCode.Size = new System.Drawing.Size(179, 274);
             this.txtCrCmCode.TabIndex = 2;
-            this.txtCrCmCode.Click += new System.EventHandler(this.txtCrCmCode_Click);
             this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
             this.txtCrCmCode.Leave += new System.EventHandler(this.txtCrCmCode_Leave);
             // 
@@ -1110,7 +1109,6 @@ namespace ToolSupportCoding.View
             this.txtCrCmComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtCrCmComment.Size = new System.Drawing.Size(179, 274);
             this.txtCrCmComment.TabIndex = 2;
-            this.txtCrCmComment.Click += new System.EventHandler(this.txtCrCmComment_Click);
             this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
             this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
             // 
