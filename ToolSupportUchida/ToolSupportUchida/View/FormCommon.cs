@@ -959,6 +959,7 @@ namespace ToolSupportCoding.View
 
                     int mode = 0;
                     if (rbCrCmLine.Checked) mode = 1;
+                    else if (rbCrCmBlock.Checked) mode = 2;
 
                     for (int i = 0; i < lstInputComment.Count; i++)
                     {
@@ -983,8 +984,8 @@ namespace ToolSupportCoding.View
 
                         maxLengthRow = getLengthText(mode, element, maxLengthRow);
 
-                        if (i < lstInputComment.Count - 1) txtResult.Text += CONST.STRING_ADD_LINE;
                         txtCrCmResult.Text += element;
+                        if (createComentLocation == 1 && !isBlankLine) txtCrCmResult.Text += CONST.STRING_ADD_LINE;
                     }
 
                     if (createComentLocation == 1) txtCrCmResult.Text = CUtils.FormatCode(mode, txtCrCmResult.Text, maxLengthRow, isBlankLine);
@@ -1027,7 +1028,7 @@ namespace ToolSupportCoding.View
                     }
                     else
                     {
-                        stringBuilder.Append("{0} /** {1} */" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{0} /** {1} */");
                     }
                     if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
 
@@ -1041,7 +1042,7 @@ namespace ToolSupportCoding.View
                     }
                     else
                     {
-                        stringBuilder.Append("{0} // {1}" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{0} // {1}");
                     }
                     if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
 
@@ -1055,7 +1056,7 @@ namespace ToolSupportCoding.View
                     }
                     else
                     {
-                        stringBuilder.Append("{0} <!-- {1} -->" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{0} <!-- {1} -->");
                     }    
                     if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
 

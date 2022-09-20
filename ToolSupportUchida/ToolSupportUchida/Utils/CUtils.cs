@@ -470,6 +470,7 @@ namespace ToolSupportCoding.Utils
 
             string charComment = "/**";
             if (mode == 1) charComment = "//";
+            if (mode == 2) charComment = "<!--";
 
             foreach (string line in lstInput)
             {
