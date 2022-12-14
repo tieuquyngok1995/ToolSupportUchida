@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ToolCommon.Models;
 
 namespace ToolSupportCoding.Model
 {
@@ -11,5 +12,7 @@ namespace ToolSupportCoding.Model
         public List<ItemModel> lstItem { get; set; }
 
         public int modeLanguage { get; set; }
+
+        public AppSettingModel appSettingModel { get; set; }
     }
 }

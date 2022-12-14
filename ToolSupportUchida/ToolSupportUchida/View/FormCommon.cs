@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ToolCommon.Models;
+using ToolCommon.Service;
+using ToolSupportCoding.Common;
+using ToolSupportCoding.Model;
 using ToolSupportCoding.Theme;
 using ToolSupportCoding.Utils;
 
@@ -33,12 +37,24 @@ namespace ToolSupportCoding.View
         // cons split 
         private readonly string[] DELI = new[] { "\r\n" };
 
+        private CreateFileService _createFileService;
+
+        private List<ItemModel> lstItem;
+
+        private ToolSupportModel objToolSupport;
+
         DataTable table;
 
         #region Load Form
-        public FormCommon()
+        public FormCommon(ToolSupportModel objToolSupport)
         {
             InitializeComponent();
+
+            this.objToolSupport = objToolSupport;
+
+            this.lstItem = objToolSupport.lstItem;
+
+            _createFileService = new CreateFileService(this.getAppSettingModel(this.lstItem));
 
             stringSeparators = new string[] { CONST.STRING_ADD_LINE };
         }
@@ -1096,6 +1112,78 @@ namespace ToolSupportCoding.View
 
         #endregion
 
+        #region Tab Clone Src 
+
+        private void btnChoosePath_Click(object sender, EventArgs e)
+        {
+
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.ShowNewFolderButton = true;
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.txtChoosePath.Text = folderDlg.SelectedPath;
+                foreach (ItemModel item in this.lstItem)
+                {
+                    if (item.key.Equals("sourcePath"))
+                    {
+                        item.value = folderDlg.SelectedPath;
+                    }
+                }
+            }
+            _createFileService = new CreateFileService(this.getAppSettingModel(this.lstItem));
+            objToolSupport.lstItem = this.lstItem;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.txtViewResult.Text = "";
+                this.btnDeleteFileCreated.Visible = false;
+                this._createFileService.Generate(txtScreeenSample.Text.Trim(), txtScreenNew.Text.Trim());
+                if (rdbFuncProcess.Checked)
+                {
+                    this._createFileService.editFileWithFunctionAndProcess();
+                }
+                else if (rdbNoFunc.Checked)
+                {
+                    this._createFileService.editFileWithoutFunction();
+                    this._createFileService.editFileWithFunctionAndProcess();
+                }
+                this.txtViewResult.Text = this._createFileService.resultData;
+                MessageBox.Show(this._createFileService.message);
+                this.btnDeleteFileCreated.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeleteFileCreated_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show("Are you sure?", "Delete Files",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    this.txtViewResult.Text = this._createFileService.deleteFileCreated(); ;
+                    MessageBox.Show(this._createFileService.message);
+                    this.btnDeleteFileCreated.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
         #region Method
         private string addComman(string[] lst)
         {
@@ -1154,7 +1242,34 @@ namespace ToolSupportCoding.View
             return maxLengthRow;
         }
 
-        #endregion
+        private AppSettingModel getAppSettingModel(List<ItemModel> lstItem)
+        {
+            AppSettingModel appSettingModel = new AppSettingModel
+            {
+                sourcePath = "D:\\",
+                generateSource = new GenerateSource(),
+                editSource = new List<EditSource>()
+            };
 
+            if (lstItem.Count <= 0) return appSettingModel;
+
+            List<ItemModel> lstCloneSrc = lstItem.Where(i => i.type.Equals("SettingCloneSrc")).ToList();
+            appSettingModel.sourcePath = lstCloneSrc.Where(i => i.key.Equals("sourcePath")).ToList()[0].value;
+            appSettingModel.generateSource.ignoreFile = lstCloneSrc.Where(i => i.key.Equals("ignoreFile")).ToList()[0].value.Split('%');
+            List<ItemModel> lstEditSrc = lstCloneSrc.Where(i => i.key.Equals("editSource")).ToList();
+            foreach(ItemModel item in lstEditSrc)
+            {
+                string[] value = item.value.Split('%');
+                appSettingModel.editSource.Add(new EditSource { 
+                    fileType = value[0],
+                    functionPattern = value[1],
+                    functionKeyword = value[2]
+                });
+            }
+            this.txtChoosePath.Text = appSettingModel.sourcePath;
+            return appSettingModel;
+        }
+
+        #endregion
     }
 }
