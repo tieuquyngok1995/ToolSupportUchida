@@ -106,8 +106,6 @@ namespace ToolSupportCoding.View
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - B1: Input noi dung src chua comment o cuoi hang sau do bam format." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - B2: Tu format thang hang cac coment." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - " + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Lay thong tin cua tung colum table trong thiet ke theo format." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
@@ -117,6 +115,14 @@ namespace ToolSupportCoding.View
             lstTextDoc += "          - B4: Chon format tuong ung cua doan text da input." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - " + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Create Message:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao message theo thong tin da duoc cung cap tai thiet ke ." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input code tai file thiet ke vao filed message code." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input message tai file thiet ke vao filed message content." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B3: Nhan Create mess de nhan noi dung message tuong ung cua noi dung da input." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Co the tao src tao message theo cac tuy chon da setting" + CONST.CHAR_NEW_LINE;
             lstDocument.Text = lstTextDoc;
 
 
@@ -151,6 +157,10 @@ namespace ToolSupportCoding.View
             lstTextVer += "    - Them moi chuc nang tao comment tu noi dung tieng nhat va src." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Chinh sua chuc nang Get Name Column them xu li tao sql theo tkct." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Chinh sua chuc nang Format Comment them chon mode comment." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.4" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang tao copy va clone file src tu src da co." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Reopen chuc nang tao comment tu thong tin da co." + CONST.CHAR_NEW_LINE;
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 
