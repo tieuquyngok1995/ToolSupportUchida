@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using ToolCommon.Models;
 using ToolSupportCoding.Common;
 using ToolSupportCoding.Model;
 using ToolSupportCoding.Theme;
@@ -37,6 +38,7 @@ namespace ToolSupportCoding
         private List<SekkeiModel> lstSekkei;
         private List<ItemModel> lstItem;
         private List<string> lstType;
+        private AppSettingModel appSettingModel;
 
         //Constructor
         public Main()
@@ -52,6 +54,7 @@ namespace ToolSupportCoding
             lstSekkei = new List<SekkeiModel>();
             lstItem = new List<ItemModel>();
             lstType = new List<string>();
+            appSettingModel = new AppSettingModel();
 
             btnCloseChildForm.Visible = false;
 
@@ -184,6 +187,11 @@ namespace ToolSupportCoding
                     gridFormat.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
                     noAdapter++;
                 }
+            }
+
+            if (objToolSupport.appSettingModel != null)
+            {
+                appSettingModel = objToolSupport.appSettingModel;
             }
 
             cbType.DataSource = lstType;
@@ -669,7 +677,7 @@ namespace ToolSupportCoding
 
         private void btnCheckData_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCommon(), sender);
+            OpenChildForm(new FormCommon(objToolSupport), sender);
         }
 
         private void btnAbout_Click(object sender, EventArgs e)

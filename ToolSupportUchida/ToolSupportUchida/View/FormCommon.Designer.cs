@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -106,7 +106,20 @@ namespace ToolSupportCoding.View
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lblCrCmNumComment = new System.Windows.Forms.Label();
             this.txtCrCmComment = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageCloneSrc = new System.Windows.Forms.TabPage();
+            this.lbChoosePath = new System.Windows.Forms.Label();
+            this.txtChoosePath = new System.Windows.Forms.TextBox();
+            this.btnChoosePath = new System.Windows.Forms.Button();
+            this.btnDeleteFileCreated = new System.Windows.Forms.Button();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.txtViewResult = new System.Windows.Forms.TextBox();
+            this.rdbNoFunc = new System.Windows.Forms.RadioButton();
+            this.rdbFuncProcess = new System.Windows.Forms.RadioButton();
+            this.txtScreenNew = new System.Windows.Forms.TextBox();
+            this.lbScreenNew = new System.Windows.Forms.Label();
+            this.lbScreenSample = new System.Windows.Forms.Label();
+            this.txtScreeenSample = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.chkMain = new System.Windows.Forms.CheckBox();
@@ -150,6 +163,7 @@ namespace ToolSupportCoding.View
             this.groupBox10.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tabPageCloneSrc.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
@@ -159,7 +173,8 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
             this.tabControlCommon.Controls.Add(this.tabPageGetColumn);
             this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
-            this.tabControlCommon.Controls.Add(this.tabPage2);
+            this.tabControlCommon.Controls.Add(this.tabPageCloneSrc);
+            this.tabControlCommon.Controls.Add(this.tabPage1);
             this.tabControlCommon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlCommon.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControlCommon.ItemSize = new System.Drawing.Size(28, 120);
@@ -320,14 +335,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -344,8 +359,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle5;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -773,24 +788,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 81);
@@ -1112,15 +1127,165 @@ namespace ToolSupportCoding.View
             this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
             this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
             // 
-            // tabPage2
+            // tabPageCloneSrc
             // 
-            this.tabPage2.Location = new System.Drawing.Point(124, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(576, 397);
-            this.tabPage2.TabIndex = 5;
-            this.tabPage2.Text = "Comming Soon";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageCloneSrc.Controls.Add(this.lbChoosePath);
+            this.tabPageCloneSrc.Controls.Add(this.txtChoosePath);
+            this.tabPageCloneSrc.Controls.Add(this.btnChoosePath);
+            this.tabPageCloneSrc.Controls.Add(this.btnDeleteFileCreated);
+            this.tabPageCloneSrc.Controls.Add(this.btnGenerate);
+            this.tabPageCloneSrc.Controls.Add(this.txtViewResult);
+            this.tabPageCloneSrc.Controls.Add(this.rdbNoFunc);
+            this.tabPageCloneSrc.Controls.Add(this.rdbFuncProcess);
+            this.tabPageCloneSrc.Controls.Add(this.txtScreenNew);
+            this.tabPageCloneSrc.Controls.Add(this.lbScreenNew);
+            this.tabPageCloneSrc.Controls.Add(this.lbScreenSample);
+            this.tabPageCloneSrc.Controls.Add(this.txtScreeenSample);
+            this.tabPageCloneSrc.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCloneSrc.Name = "tabPageCloneSrc";
+            this.tabPageCloneSrc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCloneSrc.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCloneSrc.TabIndex = 5;
+            this.tabPageCloneSrc.Text = "Clone Source";
+            this.tabPageCloneSrc.UseVisualStyleBackColor = true;
+            // 
+            // lbChoosePath
+            // 
+            this.lbChoosePath.AutoSize = true;
+            this.lbChoosePath.Location = new System.Drawing.Point(6, 22);
+            this.lbChoosePath.Name = "lbChoosePath";
+            this.lbChoosePath.Size = new System.Drawing.Size(66, 13);
+            this.lbChoosePath.TabIndex = 20;
+            this.lbChoosePath.Text = "Source Path";
+            // 
+            // txtChoosePath
+            // 
+            this.txtChoosePath.Location = new System.Drawing.Point(109, 19);
+            this.txtChoosePath.Name = "txtChoosePath";
+            this.txtChoosePath.ReadOnly = true;
+            this.txtChoosePath.Size = new System.Drawing.Size(429, 20);
+            this.txtChoosePath.TabIndex = 19;
+            // 
+            // btnChoosePath
+            // 
+            this.btnChoosePath.FlatAppearance.BorderSize = 0;
+            this.btnChoosePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoosePath.Image = global::ToolSupportCoding.Properties.Resources.button_search;
+            this.btnChoosePath.Location = new System.Drawing.Point(544, 19);
+            this.btnChoosePath.Name = "btnChoosePath";
+            this.btnChoosePath.Size = new System.Drawing.Size(24, 20);
+            this.btnChoosePath.TabIndex = 18;
+            this.btnChoosePath.Text = " ";
+            this.btnChoosePath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChoosePath.UseVisualStyleBackColor = true;
+            this.btnChoosePath.Click += new System.EventHandler(this.btnChoosePath_Click);
+            // 
+            // btnDeleteFileCreated
+            // 
+            this.btnDeleteFileCreated.FlatAppearance.BorderSize = 0;
+            this.btnDeleteFileCreated.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFileCreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFileCreated.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnDeleteFileCreated.Location = new System.Drawing.Point(109, 166);
+            this.btnDeleteFileCreated.Name = "btnDeleteFileCreated";
+            this.btnDeleteFileCreated.Size = new System.Drawing.Size(181, 31);
+            this.btnDeleteFileCreated.TabIndex = 17;
+            this.btnDeleteFileCreated.Text = "Delete created files";
+            this.btnDeleteFileCreated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteFileCreated.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteFileCreated.UseVisualStyleBackColor = true;
+            this.btnDeleteFileCreated.Visible = false;
+            this.btnDeleteFileCreated.Click += new System.EventHandler(this.btnDeleteFileCreated_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.FlatAppearance.BorderSize = 0;
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btnGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerate.Location = new System.Drawing.Point(9, 166);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(79, 31);
+            this.btnGenerate.TabIndex = 16;
+            this.btnGenerate.Text = "Create";
+            this.btnGenerate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // txtViewResult
+            // 
+            this.txtViewResult.Location = new System.Drawing.Point(9, 212);
+            this.txtViewResult.Multiline = true;
+            this.txtViewResult.Name = "txtViewResult";
+            this.txtViewResult.ReadOnly = true;
+            this.txtViewResult.Size = new System.Drawing.Size(559, 177);
+            this.txtViewResult.TabIndex = 13;
+            // 
+            // rdbNoFunc
+            // 
+            this.rdbNoFunc.AutoSize = true;
+            this.rdbNoFunc.Location = new System.Drawing.Point(137, 134);
+            this.rdbNoFunc.Name = "rdbNoFunc";
+            this.rdbNoFunc.Size = new System.Drawing.Size(124, 17);
+            this.rdbNoFunc.TabIndex = 12;
+            this.rdbNoFunc.TabStop = true;
+            this.rdbNoFunc.Text = "Remove all functions";
+            this.rdbNoFunc.UseVisualStyleBackColor = true;
+            // 
+            // rdbFuncProcess
+            // 
+            this.rdbFuncProcess.AutoSize = true;
+            this.rdbFuncProcess.Checked = true;
+            this.rdbFuncProcess.Location = new System.Drawing.Point(9, 134);
+            this.rdbFuncProcess.Name = "rdbFuncProcess";
+            this.rdbFuncProcess.Size = new System.Drawing.Size(109, 17);
+            this.rdbFuncProcess.TabIndex = 11;
+            this.rdbFuncProcess.TabStop = true;
+            this.rdbFuncProcess.Text = "Keep all functions";
+            this.rdbFuncProcess.UseVisualStyleBackColor = true;
+            // 
+            // txtScreenNew
+            // 
+            this.txtScreenNew.Location = new System.Drawing.Point(109, 88);
+            this.txtScreenNew.Name = "txtScreenNew";
+            this.txtScreenNew.Size = new System.Drawing.Size(459, 20);
+            this.txtScreenNew.TabIndex = 10;
+            // 
+            // lbScreenNew
+            // 
+            this.lbScreenNew.AutoSize = true;
+            this.lbScreenNew.Location = new System.Drawing.Point(6, 95);
+            this.lbScreenNew.Name = "lbScreenNew";
+            this.lbScreenNew.Size = new System.Drawing.Size(80, 13);
+            this.lbScreenNew.TabIndex = 9;
+            this.lbScreenNew.Text = "New Screen ID";
+            // 
+            // lbScreenSample
+            // 
+            this.lbScreenSample.AutoSize = true;
+            this.lbScreenSample.Location = new System.Drawing.Point(6, 58);
+            this.lbScreenSample.Name = "lbScreenSample";
+            this.lbScreenSample.Size = new System.Drawing.Size(93, 13);
+            this.lbScreenSample.TabIndex = 3;
+            this.lbScreenSample.Text = "Sample Screen ID";
+            // 
+            // txtScreeenSample
+            // 
+            this.txtScreeenSample.Location = new System.Drawing.Point(109, 55);
+            this.txtScreeenSample.Name = "txtScreeenSample";
+            this.txtScreeenSample.Size = new System.Drawing.Size(459, 20);
+            this.txtScreeenSample.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(124, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(576, 397);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Comming Soon";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -1417,6 +1582,8 @@ namespace ToolSupportCoding.View
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tabPageCloneSrc.ResumeLayout(false);
+            this.tabPageCloneSrc.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1454,7 +1621,7 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btnFormatClear;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtFormatResult;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageCloneSrc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkMain;
@@ -1519,5 +1686,18 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RadioButton rbFormatCommentLBlock;
         private System.Windows.Forms.RadioButton rbFormatCommentLine;
         private System.Windows.Forms.RadioButton rbFormatCommentSQL;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label lbScreenSample;
+        private System.Windows.Forms.TextBox txtScreeenSample;
+        private System.Windows.Forms.RadioButton rdbNoFunc;
+        private System.Windows.Forms.RadioButton rdbFuncProcess;
+        private System.Windows.Forms.TextBox txtScreenNew;
+        private System.Windows.Forms.Label lbScreenNew;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.TextBox txtViewResult;
+        private System.Windows.Forms.Button btnDeleteFileCreated;
+        private System.Windows.Forms.TextBox txtChoosePath;
+        private System.Windows.Forms.Button btnChoosePath;
+        private System.Windows.Forms.Label lbChoosePath;
     }
 }
