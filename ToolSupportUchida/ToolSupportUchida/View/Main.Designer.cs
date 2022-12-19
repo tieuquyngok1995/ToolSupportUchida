@@ -32,11 +32,11 @@ namespace ToolSupportCoding
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -57,6 +57,12 @@ namespace ToolSupportCoding
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panelSettingRight = new System.Windows.Forms.Panel();
             this.gridFormat = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdapterEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colAdapterDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelSettingLeft = new System.Windows.Forms.Panel();
             this.gridSekkei = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,12 +107,6 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdapterEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colAdapterDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -279,7 +279,7 @@ namespace ToolSupportCoding
             this.btnConvertDatabase.Size = new System.Drawing.Size(220, 55);
             this.btnConvertDatabase.TabIndex = 0;
             this.btnConvertDatabase.TabStop = false;
-            this.btnConvertDatabase.Text = "  Convert Database";
+            this.btnConvertDatabase.Text = "  Convert SQL";
             this.btnConvertDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertDatabase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConvertDatabase.UseVisualStyleBackColor = true;
@@ -467,6 +467,52 @@ namespace ToolSupportCoding
             this.gridFormat.TabIndex = 1;
             this.gridFormat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAdapter_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 35;
+            // 
+            // DataGridViewTextBoxColumn
+            // 
+            this.DataGridViewTextBoxColumn.HeaderText = "Item Type";
+            this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
+            this.DataGridViewTextBoxColumn.Width = 87;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item Key";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 87;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Item Value";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 109;
+            // 
+            // colAdapterEdit
+            // 
+            this.colAdapterEdit.HeaderText = "";
+            this.colAdapterEdit.Image = global::ToolSupportCoding.Properties.Resources.button_edit;
+            this.colAdapterEdit.Name = "colAdapterEdit";
+            this.colAdapterEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterEdit.Width = 24;
+            // 
+            // colAdapterDelete
+            // 
+            this.colAdapterDelete.HeaderText = "";
+            this.colAdapterDelete.Image = global::ToolSupportCoding.Properties.Resources.button_delete;
+            this.colAdapterDelete.Name = "colAdapterDelete";
+            this.colAdapterDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colAdapterDelete.Width = 24;
+            // 
             // panelSettingLeft
             // 
             this.panelSettingLeft.Controls.Add(this.gridSekkei);
@@ -611,9 +657,10 @@ namespace ToolSupportCoding
             // rbFormat
             // 
             this.rbFormat.AutoSize = true;
+            this.rbFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbFormat.Location = new System.Drawing.Point(147, 17);
             this.rbFormat.Name = "rbFormat";
-            this.rbFormat.Size = new System.Drawing.Size(70, 21);
+            this.rbFormat.Size = new System.Drawing.Size(64, 19);
             this.rbFormat.TabIndex = 4;
             this.rbFormat.Text = "Format";
             this.rbFormat.UseVisualStyleBackColor = true;
@@ -623,9 +670,10 @@ namespace ToolSupportCoding
             // 
             this.rbConst.AutoSize = true;
             this.rbConst.Checked = true;
+            this.rbConst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbConst.Location = new System.Drawing.Point(79, 17);
             this.rbConst.Name = "rbConst";
-            this.rbConst.Size = new System.Drawing.Size(62, 21);
+            this.rbConst.Size = new System.Drawing.Size(56, 19);
             this.rbConst.TabIndex = 3;
             this.rbConst.TabStop = true;
             this.rbConst.Text = "Const";
@@ -660,9 +708,10 @@ namespace ToolSupportCoding
             // rbHtml
             // 
             this.rbHtml.AutoSize = true;
+            this.rbHtml.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbHtml.Location = new System.Drawing.Point(214, 17);
             this.rbHtml.Name = "rbHtml";
-            this.rbHtml.Size = new System.Drawing.Size(64, 21);
+            this.rbHtml.Size = new System.Drawing.Size(59, 19);
             this.rbHtml.TabIndex = 3;
             this.rbHtml.Text = "HTML";
             this.rbHtml.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -673,9 +722,10 @@ namespace ToolSupportCoding
             // rbJava
             // 
             this.rbJava.AutoSize = true;
+            this.rbJava.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbJava.Location = new System.Drawing.Point(152, 17);
             this.rbJava.Name = "rbJava";
-            this.rbJava.Size = new System.Drawing.Size(56, 21);
+            this.rbJava.Size = new System.Drawing.Size(50, 19);
             this.rbJava.TabIndex = 2;
             this.rbJava.Text = "Java";
             this.rbJava.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -685,9 +735,10 @@ namespace ToolSupportCoding
             // rbTypeScript
             // 
             this.rbTypeScript.AutoSize = true;
+            this.rbTypeScript.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbTypeScript.Location = new System.Drawing.Point(54, 17);
             this.rbTypeScript.Name = "rbTypeScript";
-            this.rbTypeScript.Size = new System.Drawing.Size(94, 21);
+            this.rbTypeScript.Size = new System.Drawing.Size(82, 19);
             this.rbTypeScript.TabIndex = 1;
             this.rbTypeScript.Text = "TypeScript";
             this.rbTypeScript.UseVisualStyleBackColor = true;
@@ -697,9 +748,10 @@ namespace ToolSupportCoding
             // 
             this.rbC.AutoSize = true;
             this.rbC.Checked = true;
+            this.rbC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbC.Location = new System.Drawing.Point(5, 17);
             this.rbC.Name = "rbC";
-            this.rbC.Size = new System.Drawing.Size(43, 21);
+            this.rbC.Size = new System.Drawing.Size(40, 19);
             this.rbC.TabIndex = 0;
             this.rbC.TabStop = true;
             this.rbC.Text = "C#";
@@ -985,52 +1037,6 @@ namespace ToolSupportCoding
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewImageColumn4.Width = 24;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 35;
-            // 
-            // DataGridViewTextBoxColumn
-            // 
-            this.DataGridViewTextBoxColumn.HeaderText = "Item Type";
-            this.DataGridViewTextBoxColumn.Name = "DataGridViewTextBoxColumn";
-            this.DataGridViewTextBoxColumn.Width = 87;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Item Key";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 87;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Item Value";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.Width = 109;
-            // 
-            // colAdapterEdit
-            // 
-            this.colAdapterEdit.HeaderText = "";
-            this.colAdapterEdit.Image = global::ToolSupportCoding.Properties.Resources.button_edit;
-            this.colAdapterEdit.Name = "colAdapterEdit";
-            this.colAdapterEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colAdapterEdit.Width = 24;
-            // 
-            // colAdapterDelete
-            // 
-            this.colAdapterDelete.HeaderText = "";
-            this.colAdapterDelete.Image = global::ToolSupportCoding.Properties.Resources.button_delete;
-            this.colAdapterDelete.Name = "colAdapterDelete";
-            this.colAdapterDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colAdapterDelete.Width = 24;
             // 
             // Main
             // 

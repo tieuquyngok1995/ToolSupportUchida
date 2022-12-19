@@ -6,7 +6,7 @@ namespace ToolSupportCoding.Utils
     {
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
-        public static string[] STRING_SEPARATORS = new string[] { STRING_ADD_LINE };
+        public static string[] STRING_SEPARATORS = new string[] { STRING_NEW_LINE };
 
         #region Item
         public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = *** End: \\r\\n";

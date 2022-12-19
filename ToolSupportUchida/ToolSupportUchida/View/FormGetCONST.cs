@@ -14,8 +14,6 @@ namespace ToolSupportCoding.View
         private bool isCopyPhysi;
         private List<SekkeiModel> lstSekkei;
 
-        private const string reduceMultiSpace = @"[ ]{2,}";
-
         #region Load Form
         public FormGetCONST(List<SekkeiModel> lstSekkei, int mode)
         {
@@ -32,14 +30,30 @@ namespace ToolSupportCoding.View
 
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control control in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (control.GetType() == typeof(Button))
                 {
-                    Button btn = (Button)btns;
+                    Button btn = (Button)control;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+
+                if (control.GetType() == typeof(GroupBox))
+                {
+                    GroupBox grpB = (GroupBox)control;
+
+                    foreach (Control grbControl in grpB.Controls)
+                    {
+                        if (grbControl.GetType() == typeof(Button))
+                        {
+                            Button btn = (Button)grbControl;
+                            btn.BackColor = ThemeColor.PrimaryColor;
+                            btn.ForeColor = Color.White;
+                            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        }
+                    }
                 }
             }
         }
@@ -52,12 +66,11 @@ namespace ToolSupportCoding.View
             txtPhysiName.Text = string.Empty;
 
             if (txtLogicName.Text.Length != 0)
-             {
+            {
                 string[] arrLogicName = txtLogicName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
-                string result = string.Empty;
                 foreach (string item in arrLogicName)
                 {
-                    result = findSekkeiLogicName(item.Trim(), lstSekkei);
+                    string result = FindSekkeiLogicName(item.Trim(), lstSekkei);
                     result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
                     txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
@@ -66,7 +79,7 @@ namespace ToolSupportCoding.View
                 txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
                 txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
 
-                clearEmptyLine();
+                ClearEmptyLine();
 
                 isCopyPhysi = true;
                 lblResult.Visible = false;
@@ -95,10 +108,9 @@ namespace ToolSupportCoding.View
             if (txtPhysiName.Text.Length != 0)
             {
                 string[] arrPhysiName = txtPhysiName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
-                string result = string.Empty;
                 foreach (string item in arrPhysiName)
                 {
-                    result = findSekkeiPhysiName(item.Trim(), lstSekkei);
+                    string result = FindSekkeiPhysiName(item.Trim(), lstSekkei);
                     result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
                     txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
@@ -107,7 +119,7 @@ namespace ToolSupportCoding.View
                 txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
                 txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
 
-                clearEmptyLine();
+                ClearEmptyLine();
 
                 isCopyPhysi = false;
                 lblResult.Visible = false;
@@ -136,7 +148,7 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Method
-        private string findSekkeiLogicName(string nameLogic, List<SekkeiModel> lstSekkei)
+        private string FindSekkeiLogicName(string nameLogic, List<SekkeiModel> lstSekkei)
         {
             string result = nameLogic;
 
@@ -152,13 +164,13 @@ namespace ToolSupportCoding.View
             {
                 result = result.Replace(objSekkei.logicName, objSekkei.physiName);
                 lstSekkeiTmp.RemoveAll(obj => obj.logicName.Equals(objSekkei.logicName) && obj.physiName.Equals(objSekkei.physiName));
-                result = findSekkeiLogicName(result, lstSekkeiTmp);
+                result = FindSekkeiLogicName(result, lstSekkeiTmp);
             }
 
             return result;
         }
 
-        private string findSekkeiPhysiName(string namePhysi, List<SekkeiModel> lstSekkei)
+        private string FindSekkeiPhysiName(string namePhysi, List<SekkeiModel> lstSekkei)
         {
             try
             {
@@ -176,7 +188,7 @@ namespace ToolSupportCoding.View
                 {
                     result = result.Replace(objSekkei.physiName, objSekkei.logicName);
                     lstSekkeiTmp.RemoveAll(obj => obj.physiName.Equals(objSekkei.physiName) && obj.logicName.Equals(objSekkei.logicName));
-                    result = findSekkeiPhysiName(result, lstSekkeiTmp);
+                    result = FindSekkeiPhysiName(result, lstSekkeiTmp);
                 }
 
                 return result;
@@ -190,7 +202,7 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void clearEmptyLine()
+        private void ClearEmptyLine()
         {
             txtPhysiName.Text = txtPhysiName.Text.Replace(CONST.STRING_DOUBLE_LINE, CONST.STRING_NEW_LINE);
             txtLogicName.Text = txtLogicName.Text.Replace(CONST.STRING_DOUBLE_LINE, CONST.STRING_NEW_LINE);

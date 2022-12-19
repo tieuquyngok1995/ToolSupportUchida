@@ -10,7 +10,7 @@ using ToolSupportCoding.Utils;
 
 namespace ToolSupportCoding.View
 {
-    public partial class FormConvertDatabase : Form
+    public partial class FormConvertSQL : Form
     {
         private Dictionary<string, List<string>> lstDic = new Dictionary<string, List<string>>();
         private Dictionary<string, string> lstDicParam = new Dictionary<string, string>();
@@ -20,7 +20,7 @@ namespace ToolSupportCoding.View
         private string strInputSQL = string.Empty;
 
         #region Load Form
-        public FormConvertDatabase()
+        public FormConvertSQL()
         {
             InitializeComponent();
         }
@@ -32,14 +32,30 @@ namespace ToolSupportCoding.View
 
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control control in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (control.GetType() == typeof(Button))
                 {
-                    Button btn = (Button)btns;
+                    Button btn = (Button)control;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+
+                if (control.GetType() == typeof(GroupBox))
+                {
+                    GroupBox grpB = (GroupBox)control;
+
+                    foreach (Control grbControl in grpB.Controls)
+                    {
+                        if (grbControl.GetType() == typeof(Button))
+                        {
+                            Button btn = (Button)grbControl;
+                            btn.BackColor = ThemeColor.PrimaryColor;
+                            btn.ForeColor = Color.White;
+                            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        }
+                    }
                 }
             }
         }

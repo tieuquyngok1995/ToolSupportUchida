@@ -665,7 +665,7 @@ namespace ToolSupportCoding
 
         private void btnConvertDatabase_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormConvertDatabase(), sender);
+            OpenChildForm(new FormConvertSQL(), sender);
         }
 
         private void btnConverSekkei_Click(object sender, EventArgs e)

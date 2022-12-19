@@ -159,14 +159,30 @@ namespace ToolSupportCoding.View
 
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control control in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (control.GetType() == typeof(Button))
                 {
-                    Button btn = (Button)btns;
+                    Button btn = (Button)control;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+
+                if (control.GetType() == typeof(GroupBox))
+                {
+                    GroupBox grpB = (GroupBox)control;
+
+                    foreach (Control grbControl in grpB.Controls)
+                    {
+                        if (grbControl.GetType() == typeof(Button))
+                        {
+                            Button btn = (Button)grbControl;
+                            btn.BackColor = ThemeColor.PrimaryColor;
+                            btn.ForeColor = Color.White;
+                            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        }
+                    }
                 }
             }
         }
@@ -176,7 +192,7 @@ namespace ToolSupportCoding.View
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
             lstLogic.Clear();
-            lstLogic = txtLogic.Text.Replace("\t", "").Split(DELI, StringSplitOptions.None).ToList();
+            lstLogic = txtLogic.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             if (lstLogic.Count > 0)
             {
@@ -194,7 +210,7 @@ namespace ToolSupportCoding.View
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
             lstPhysi.Clear();
-            lstPhysi = txtPhysi.Text.Replace("\t", "").Split(DELI, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstPhysi = txtPhysi.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             if (lstPhysi.Count > 0)
             {
@@ -212,7 +228,7 @@ namespace ToolSupportCoding.View
         private void txtType_TextChanged(object sender, EventArgs e)
         {
             lstType.Clear();
-            lstType = txtType.Text.Replace("\t", "").Split(DELI, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstType = txtType.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             if (lstType.Count > 0)
             {
