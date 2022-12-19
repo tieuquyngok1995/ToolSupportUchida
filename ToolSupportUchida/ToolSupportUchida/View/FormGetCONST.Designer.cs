@@ -1,7 +1,7 @@
 ﻿
 namespace ToolSupportCoding.View
 {
-    partial class FormConvertSekkei
+    partial class FormGetCONST
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,7 @@ namespace ToolSupportCoding.View
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtLogicName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtPhysiName = new System.Windows.Forms.TextBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
@@ -40,8 +38,12 @@ namespace ToolSupportCoding.View
             this.btnConvertPhysi = new System.Windows.Forms.Button();
             this.rdbUpperCase = new System.Windows.Forms.RadioButton();
             this.rdbLowerCase = new System.Windows.Forms.RadioButton();
+            this.txtLogicName = new System.Windows.Forms.RichTextBox();
+            this.txtPhysiName = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -50,49 +52,29 @@ namespace ToolSupportCoding.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(285, 390);
+            this.groupBox1.Size = new System.Drawing.Size(275, 357);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Logical Name";
-            // 
-            // txtLogicName
-            // 
-            this.txtLogicName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLogicName.Location = new System.Drawing.Point(3, 19);
-            this.txtLogicName.Multiline = true;
-            this.txtLogicName.Name = "txtLogicName";
-            this.txtLogicName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogicName.Size = new System.Drawing.Size(279, 368);
-            this.txtLogicName.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtPhysiName);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(408, 3);
+            this.groupBox2.Location = new System.Drawing.Point(423, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(285, 390);
+            this.groupBox2.Size = new System.Drawing.Size(275, 357);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Physical Name";
-            // 
-            // txtPhysiName
-            // 
-            this.txtPhysiName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhysiName.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysiName.Multiline = true;
-            this.txtPhysiName.Name = "txtPhysiName";
-            this.txtPhysiName.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPhysiName.Size = new System.Drawing.Size(279, 368);
-            this.txtPhysiName.TabIndex = 0;
             // 
             // lblResult
             // 
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(300, 247);
+            this.lblResult.Location = new System.Drawing.Point(2, 138);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(102, 33);
+            this.lblResult.Size = new System.Drawing.Size(104, 33);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Copy to Clipboard is done!";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,7 +86,7 @@ namespace ToolSupportCoding.View
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(338, 182);
+            this.btnClear.Location = new System.Drawing.Point(40, 73);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(28, 28);
             this.btnClear.TabIndex = 6;
@@ -121,7 +103,7 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(302, 216);
+            this.btnCopy.Location = new System.Drawing.Point(6, 107);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(100, 28);
             this.btnCopy.TabIndex = 4;
@@ -136,7 +118,7 @@ namespace ToolSupportCoding.View
             this.btnConvertLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertLogic.Image = global::ToolSupportCoding.Properties.Resources.button_left;
-            this.btnConvertLogic.Location = new System.Drawing.Point(302, 182);
+            this.btnConvertLogic.Location = new System.Drawing.Point(6, 73);
             this.btnConvertLogic.Name = "btnConvertLogic";
             this.btnConvertLogic.Size = new System.Drawing.Size(28, 28);
             this.btnConvertLogic.TabIndex = 2;
@@ -151,7 +133,7 @@ namespace ToolSupportCoding.View
             this.btnConvertPhysi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertPhysi.Image = global::ToolSupportCoding.Properties.Resources.button_right;
-            this.btnConvertPhysi.Location = new System.Drawing.Point(374, 182);
+            this.btnConvertPhysi.Location = new System.Drawing.Point(74, 73);
             this.btnConvertPhysi.Name = "btnConvertPhysi";
             this.btnConvertPhysi.Size = new System.Drawing.Size(28, 28);
             this.btnConvertPhysi.TabIndex = 3;
@@ -164,10 +146,10 @@ namespace ToolSupportCoding.View
             // 
             this.rdbUpperCase.AutoSize = true;
             this.rdbUpperCase.Checked = true;
-            this.rdbUpperCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbUpperCase.Location = new System.Drawing.Point(303, 118);
+            this.rdbUpperCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbUpperCase.Location = new System.Drawing.Point(6, 23);
             this.rdbUpperCase.Name = "rdbUpperCase";
-            this.rdbUpperCase.Size = new System.Drawing.Size(99, 20);
+            this.rdbUpperCase.Size = new System.Drawing.Size(90, 19);
             this.rdbUpperCase.TabIndex = 7;
             this.rdbUpperCase.TabStop = true;
             this.rdbUpperCase.Text = "Upper Case";
@@ -176,39 +158,67 @@ namespace ToolSupportCoding.View
             // rdbLowerCase
             // 
             this.rdbLowerCase.AutoSize = true;
-            this.rdbLowerCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbLowerCase.Location = new System.Drawing.Point(303, 150);
+            this.rdbLowerCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbLowerCase.Location = new System.Drawing.Point(6, 48);
             this.rdbLowerCase.Name = "rdbLowerCase";
-            this.rdbLowerCase.Size = new System.Drawing.Size(97, 20);
+            this.rdbLowerCase.Size = new System.Drawing.Size(90, 19);
             this.rdbLowerCase.TabIndex = 8;
             this.rdbLowerCase.TabStop = true;
             this.rdbLowerCase.Text = "Lower Case";
             this.rdbLowerCase.UseVisualStyleBackColor = true;
             // 
-            // FormConvertSekkei
+            // txtLogicName
+            // 
+            this.txtLogicName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLogicName.Location = new System.Drawing.Point(3, 19);
+            this.txtLogicName.Name = "txtLogicName";
+            this.txtLogicName.Size = new System.Drawing.Size(269, 335);
+            this.txtLogicName.TabIndex = 1;
+            this.txtLogicName.Text = "";
+            // 
+            // txtPhysiName
+            // 
+            this.txtPhysiName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhysiName.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysiName.Name = "txtPhysiName";
+            this.txtPhysiName.Size = new System.Drawing.Size(269, 335);
+            this.txtPhysiName.TabIndex = 1;
+            this.txtPhysiName.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdbUpperCase);
+            this.groupBox3.Controls.Add(this.btnClear);
+            this.groupBox3.Controls.Add(this.btnCopy);
+            this.groupBox3.Controls.Add(this.rdbLowerCase);
+            this.groupBox3.Controls.Add(this.btnConvertPhysi);
+            this.groupBox3.Controls.Add(this.btnConvertLogic);
+            this.groupBox3.Controls.Add(this.lblResult);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox3.Location = new System.Drawing.Point(295, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(108, 357);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Setting";
+            // 
+            // FormGetCONST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
-            this.Controls.Add(this.rdbLowerCase);
-            this.Controls.Add(this.rdbUpperCase);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.lblResult);
-            this.Controls.Add(this.btnCopy);
-            this.Controls.Add(this.btnConvertLogic);
-            this.Controls.Add(this.btnConvertPhysi);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FormConvertSekkei";
+            this.Name = "FormGetCONST";
             this.Text = "Get CONST";
             this.Load += new System.EventHandler(this.FormConvertSekkei_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -221,9 +231,10 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtLogicName;
-        private System.Windows.Forms.TextBox txtPhysiName;
         private System.Windows.Forms.RadioButton rdbUpperCase;
         private System.Windows.Forms.RadioButton rdbLowerCase;
+        private System.Windows.Forms.RichTextBox txtLogicName;
+        private System.Windows.Forms.RichTextBox txtPhysiName;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

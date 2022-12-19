@@ -9,7 +9,7 @@ using ToolSupportCoding.Utils;
 
 namespace ToolSupportCoding.View
 {
-    public partial class FormConvertSekkei : Form
+    public partial class FormGetCONST : Form
     {
         private bool isCopyPhysi;
         private List<SekkeiModel> lstSekkei;
@@ -17,7 +17,7 @@ namespace ToolSupportCoding.View
         private const string reduceMultiSpace = @"[ ]{2,}";
 
         #region Load Form
-        public FormConvertSekkei(List<SekkeiModel> lstSekkei, int mode)
+        public FormGetCONST(List<SekkeiModel> lstSekkei, int mode)
         {
             InitializeComponent();
 

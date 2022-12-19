@@ -84,11 +84,11 @@
     <Compile Include="View\FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormConvertSekkei.cs">
+    <Compile Include="View\FormGetCONST.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormConvertSekkei.Designer.cs">
-      <DependentUpon>FormConvertSekkei.cs</DependentUpon>
+    <Compile Include="View\FormGetCONST.Designer.cs">
+      <DependentUpon>FormGetCONST.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormCommon.cs">
       <SubType>Form</SubType>
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="View\FormConvertModel.resx">
       <DependentUpon>FormConvertModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormConvertSekkei.resx">
-      <DependentUpon>FormConvertSekkei.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormGetCONST.resx">
+      <DependentUpon>FormGetCONST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormCreateItem.resx">
       <DependentUpon>FormCreateItem.cs</DependentUpon>

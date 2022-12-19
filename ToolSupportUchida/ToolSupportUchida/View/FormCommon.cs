@@ -66,6 +66,9 @@ namespace ToolSupportCoding.View
         {
             txtCase.Focus();
 
+            tabControlCommon.TabPages.Remove(tabPageCreateJson);
+            tabControlCommon.TabPages.Remove(tabPageGetColumn);
+
             LoadTheme();
         }
 
@@ -833,6 +836,8 @@ namespace ToolSupportCoding.View
 
             Clipboard.Clear();
             Clipboard.SetText(txColumnResult.Text);
+
+            lblColumnResult.Visible = true;
         }
 
         private void btColumnReset_Click(object sender, EventArgs e)
@@ -846,6 +851,8 @@ namespace ToolSupportCoding.View
             cbColumnFormat.SelectedIndex = -1;
 
             setDataTable();
+
+            lblColumnResult.Visible = false;
         }
 
         private void btColumnClear_Click(object sender, EventArgs e)
@@ -862,6 +869,8 @@ namespace ToolSupportCoding.View
 
             gridColumnData.DataSource = null;
             gridColumnData.Rows.Clear();
+
+            lblColumnResult.Visible = false;
         }
 
         #endregion
@@ -1405,7 +1414,6 @@ namespace ToolSupportCoding.View
             if (result.Length > 0)
             {
                 btnMessCopy.Enabled = true;
-                lblMessResult.Visible = false;
                 Clipboard.Clear();
             }
         }
@@ -1613,7 +1621,6 @@ namespace ToolSupportCoding.View
             if (result.Length > 0)
             {
                 btnMessCopy.Enabled = true;
-                lblMessResult.Visible = false;
                 Clipboard.Clear();
             }
 
@@ -1710,15 +1717,12 @@ namespace ToolSupportCoding.View
 
             Clipboard.Clear();
             Clipboard.SetText(txtMessResult.Text);
-            lblMessResult.Visible = true;
         }
 
         private void btnMessClear_Click(object sender, EventArgs e)
         {
             txtMessCode.Text = string.Empty;
             txtMessContent.Text = string.Empty;
-
-            lblMessResult.Visible = false;
         }
         #endregion
 
