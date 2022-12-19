@@ -1868,6 +1868,8 @@ namespace ToolSupportCoding.View
             if (lstItem.Count <= 0) return appSettingModel;
 
             List<ItemModel> lstCloneSrc = lstItem.Where(i => i.type.Equals("SettingCloneSrc")).ToList();
+
+            if (lstCloneSrc.Count <= 0) return appSettingModel;
             appSettingModel.sourcePath = lstCloneSrc.Where(i => i.key.Equals("sourcePath")).ToList()[0].value;
             appSettingModel.generateSource.ignoreFile = lstCloneSrc.Where(i => i.key.Equals("ignoreFile")).ToList()[0].value.Split('%');
             List<ItemModel> lstEditSrc = lstCloneSrc.Where(i => i.key.Equals("editSource")).ToList();
