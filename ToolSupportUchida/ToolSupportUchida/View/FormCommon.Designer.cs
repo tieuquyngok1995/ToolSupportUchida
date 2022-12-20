@@ -29,25 +29,14 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.btnCopy = new System.Windows.Forms.Button();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtInputKey = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gridInputParam = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInputKey = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbCreateJson = new System.Windows.Forms.RadioButton();
             this.rdbCreateObj = new System.Windows.Forms.RadioButton();
@@ -55,19 +44,32 @@ namespace ToolSupportCoding.View
             this.txtCase = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gridInputParam = new System.Windows.Forms.DataGridView();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.tabPageFormatCode = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtFormatResult = new System.Windows.Forms.RichTextBox();
             this.btnFormatClear = new System.Windows.Forms.Button();
             this.btnFormatCopy = new System.Windows.Forms.Button();
             this.lblFormatResult = new System.Windows.Forms.Label();
             this.btnFormatCode = new System.Windows.Forms.Button();
-            this.txtFormatResult = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.txtFormatCode = new System.Windows.Forms.RichTextBox();
             this.rbFormatCommentSQL = new System.Windows.Forms.RadioButton();
             this.rbFormatCommentLBlock = new System.Windows.Forms.RadioButton();
             this.rbFormatCommentLine = new System.Windows.Forms.RadioButton();
-            this.txtFormatCode = new System.Windows.Forms.TextBox();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txColumnData = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.txColumnResult = new System.Windows.Forms.TextBox();
             this.btColumnCopy = new System.Windows.Forms.Button();
@@ -83,29 +85,27 @@ namespace ToolSupportCoding.View
             this.gridColumnData = new System.Windows.Forms.DataGridView();
             this.txColumnSearch = new System.Windows.Forms.TextBox();
             this.cbColumnTable = new System.Windows.Forms.ComboBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txColumnData = new System.Windows.Forms.TextBox();
+            this.lblColumnResult = new System.Windows.Forms.Label();
             this.tabPageCreateComment = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.chkCrCmLine = new System.Windows.Forms.CheckBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.btCrCmClear = new System.Windows.Forms.Button();
-            this.btCrCmCopy = new System.Windows.Forms.Button();
-            this.lblCrCmCopy = new System.Windows.Forms.Label();
-            this.txtCrCmResult = new System.Windows.Forms.TextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.lblCrCmNumCode = new System.Windows.Forms.Label();
-            this.txtCrCmCode = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.rbCrCmBlock = new System.Windows.Forms.RadioButton();
-            this.rbCrCmLineBlock = new System.Windows.Forms.RadioButton();
             this.rbCrCmLine = new System.Windows.Forms.RadioButton();
+            this.rbCrCmLineBlock = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.rbCrCmLast = new System.Windows.Forms.RadioButton();
             this.rbCrCmFirst = new System.Windows.Forms.RadioButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmComment = new System.Windows.Forms.RichTextBox();
             this.lblCrCmNumComment = new System.Windows.Forms.Label();
-            this.txtCrCmComment = new System.Windows.Forms.TextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmCode = new System.Windows.Forms.RichTextBox();
+            this.lblCrCmNumCode = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmResult = new System.Windows.Forms.RichTextBox();
+            this.btCrCmClear = new System.Windows.Forms.Button();
+            this.btCrCmCopy = new System.Windows.Forms.Button();
             this.tabPageCreateMessage = new System.Windows.Forms.TabPage();
             this.grbMessTextI = new System.Windows.Forms.GroupBox();
             this.chkMessStatusI = new System.Windows.Forms.CheckBox();
@@ -140,20 +140,18 @@ namespace ToolSupportCoding.View
             this.rdbMessDisp = new System.Windows.Forms.RadioButton();
             this.rdbMess = new System.Windows.Forms.RadioButton();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.txtMessResult = new System.Windows.Forms.TextBox();
             this.btnCreateMess = new System.Windows.Forms.Button();
             this.btnMessCopy = new System.Windows.Forms.Button();
             this.btnMessClear = new System.Windows.Forms.Button();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.lblNumMessContent = new System.Windows.Forms.Label();
-            this.txtMessContent = new System.Windows.Forms.TextBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.lblNumLMessCode = new System.Windows.Forms.Label();
-            this.txtMessCode = new System.Windows.Forms.TextBox();
             this.tabPageCreateFileSrc = new System.Windows.Forms.TabPage();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.lbChoosePath = new System.Windows.Forms.Label();
-            this.txtChoosePath = new System.Windows.Forms.TextBox();
             this.btnChoosePath = new System.Windows.Forms.Button();
+            this.txtChoosePath = new System.Windows.Forms.TextBox();
             this.btnDeleteFileCreated = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.txtViewResult = new System.Windows.Forms.TextBox();
@@ -187,29 +185,30 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.lblColumnResult = new System.Windows.Forms.Label();
+            this.txtMessCode = new System.Windows.Forms.RichTextBox();
+            this.txtMessContent = new System.Windows.Forms.RichTextBox();
+            this.txtMessResult = new System.Windows.Forms.RichTextBox();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tabPageFormatCode.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.tabPageCreateComment.SuspendLayout();
             this.groupBox14.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.tabPageCreateMessage.SuspendLayout();
             this.grbMessTextI.SuspendLayout();
             this.grbMessText.SuspendLayout();
@@ -248,10 +247,10 @@ namespace ToolSupportCoding.View
             // 
             // tabPageCreateJson
             // 
-            this.tabPageCreateJson.Controls.Add(this.groupBox4);
             this.tabPageCreateJson.Controls.Add(this.groupBox3);
-            this.tabPageCreateJson.Controls.Add(this.groupBox2);
             this.tabPageCreateJson.Controls.Add(this.groupBox1);
+            this.tabPageCreateJson.Controls.Add(this.groupBox2);
+            this.tabPageCreateJson.Controls.Add(this.groupBox4);
             this.tabPageCreateJson.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateJson.Name = "tabPageCreateJson";
             this.tabPageCreateJson.Padding = new System.Windows.Forms.Padding(3);
@@ -260,20 +259,216 @@ namespace ToolSupportCoding.View
             this.tabPageCreateJson.Text = "Create JSON";
             this.tabPageCreateJson.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtInputKey);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(324, -2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(242, 94);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Input Key Paramerter";
+            // 
+            // txtInputKey
+            // 
+            this.txtInputKey.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtInputKey.Location = new System.Drawing.Point(3, 19);
+            this.txtInputKey.Name = "txtInputKey";
+            this.txtInputKey.Size = new System.Drawing.Size(236, 72);
+            this.txtInputKey.TabIndex = 4;
+            this.txtInputKey.Text = "";
+            this.txtInputKey.TextChanged += new System.EventHandler(this.txtInputKey_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbCreateJson);
+            this.groupBox1.Controls.Add(this.rdbCreateObj);
+            this.groupBox1.Controls.Add(this.txtOut);
+            this.groupBox1.Controls.Add(this.txtCase);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, -2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(312, 94);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Input Case Out";
+            // 
+            // rdbCreateJson
+            // 
+            this.rdbCreateJson.AutoSize = true;
+            this.rdbCreateJson.Checked = true;
+            this.rdbCreateJson.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbCreateJson.Location = new System.Drawing.Point(210, 26);
+            this.rdbCreateJson.Name = "rdbCreateJson";
+            this.rdbCreateJson.Size = new System.Drawing.Size(90, 19);
+            this.rdbCreateJson.TabIndex = 1;
+            this.rdbCreateJson.TabStop = true;
+            this.rdbCreateJson.Text = "Create Json";
+            this.rdbCreateJson.UseVisualStyleBackColor = true;
+            // 
+            // rdbCreateObj
+            // 
+            this.rdbCreateObj.AutoSize = true;
+            this.rdbCreateObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbCreateObj.Location = new System.Drawing.Point(210, 60);
+            this.rdbCreateObj.Name = "rdbCreateObj";
+            this.rdbCreateObj.Size = new System.Drawing.Size(83, 19);
+            this.rdbCreateObj.TabIndex = 3;
+            this.rdbCreateObj.Text = "Create Obj";
+            this.rdbCreateObj.UseVisualStyleBackColor = true;
+            // 
+            // txtOut
+            // 
+            this.txtOut.Location = new System.Drawing.Point(83, 59);
+            this.txtOut.Name = "txtOut";
+            this.txtOut.Size = new System.Drawing.Size(120, 23);
+            this.txtOut.TabIndex = 2;
+            this.txtOut.Text = "1";
+            // 
+            // txtCase
+            // 
+            this.txtCase.Location = new System.Drawing.Point(83, 26);
+            this.txtCase.Name = "txtCase";
+            this.txtCase.Size = new System.Drawing.Size(120, 23);
+            this.txtCase.TabIndex = 0;
+            this.txtCase.Text = "1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.Location = new System.Drawing.Point(6, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Input Out";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.Location = new System.Drawing.Point(6, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Input Case";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gridInputParam);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(6, 89);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(312, 268);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Input Value";
+            // 
+            // gridInputParam
+            // 
+            this.gridInputParam.AllowUserToAddRows = false;
+            this.gridInputParam.AllowUserToDeleteRows = false;
+            this.gridInputParam.AllowUserToResizeColumns = false;
+            this.gridInputParam.AllowUserToResizeRows = false;
+            this.gridInputParam.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridInputParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridInputParam.CausesValidation = false;
+            this.gridInputParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridInputParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNo,
+            this.colParam,
+            this.colValue});
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle42;
+            this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridInputParam.EnableHeadersVisualStyles = false;
+            this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gridInputParam.Location = new System.Drawing.Point(3, 19);
+            this.gridInputParam.MultiSelect = false;
+            this.gridInputParam.Name = "gridInputParam";
+            this.gridInputParam.RowHeadersVisible = false;
+            this.gridInputParam.RowHeadersWidth = 25;
+            this.gridInputParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridInputParam.Size = new System.Drawing.Size(306, 246);
+            this.gridInputParam.TabIndex = 5;
+            this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
+            // 
+            // colNo
+            // 
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle41;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 35;
+            // 
+            // colParam
+            // 
+            this.colParam.HeaderText = "Param";
+            this.colParam.Name = "colParam";
+            this.colParam.ReadOnly = true;
+            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colParam.Width = 113;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 140;
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtResult);
             this.groupBox4.Controls.Add(this.btnClear);
             this.groupBox4.Controls.Add(this.btnCreate);
             this.groupBox4.Controls.Add(this.lblResult);
             this.groupBox4.Controls.Add(this.btnCopy);
-            this.groupBox4.Controls.Add(this.txtResult);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(324, 90);
+            this.groupBox4.Location = new System.Drawing.Point(324, 89);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(246, 268);
+            this.groupBox4.Size = new System.Drawing.Size(242, 268);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Result";
+            // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.Size = new System.Drawing.Size(236, 216);
+            this.txtResult.TabIndex = 9;
+            this.txtResult.Text = "";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnClear.Location = new System.Drawing.Point(106, 238);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(24, 24);
+            this.btnClear.TabIndex = 8;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnCreate
             // 
@@ -286,7 +481,7 @@ namespace ToolSupportCoding.View
             this.btnCreate.Location = new System.Drawing.Point(3, 238);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(67, 24);
-            this.btnCreate.TabIndex = 15;
+            this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -315,206 +510,10 @@ namespace ToolSupportCoding.View
             this.btnCopy.Location = new System.Drawing.Point(76, 238);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(24, 24);
-            this.btnCopy.TabIndex = 13;
+            this.btnCopy.TabIndex = 7;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResult.Location = new System.Drawing.Point(3, 19);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(240, 216);
-            this.txtResult.TabIndex = 1;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Enabled = false;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(106, 238);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 24);
-            this.btnClear.TabIndex = 14;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtInputKey);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(324, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(246, 89);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Input Key Paramerter";
-            // 
-            // txtInputKey
-            // 
-            this.txtInputKey.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputKey.Location = new System.Drawing.Point(3, 19);
-            this.txtInputKey.Multiline = true;
-            this.txtInputKey.Name = "txtInputKey";
-            this.txtInputKey.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInputKey.Size = new System.Drawing.Size(240, 67);
-            this.txtInputKey.TabIndex = 0;
-            this.txtInputKey.TextChanged += new System.EventHandler(this.txtInputKey_TextChanged);
-            this.txtInputKey.Leave += new System.EventHandler(this.txtInputKey_Leave);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.gridInputParam);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 90);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 268);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Input Value";
-            // 
-            // gridInputParam
-            // 
-            this.gridInputParam.AllowUserToAddRows = false;
-            this.gridInputParam.AllowUserToDeleteRows = false;
-            this.gridInputParam.AllowUserToResizeColumns = false;
-            this.gridInputParam.AllowUserToResizeRows = false;
-            this.gridInputParam.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.gridInputParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridInputParam.CausesValidation = false;
-            this.gridInputParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridInputParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNo,
-            this.colParam,
-            this.colValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridInputParam.EnableHeadersVisualStyles = false;
-            this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gridInputParam.Location = new System.Drawing.Point(3, 19);
-            this.gridInputParam.MultiSelect = false;
-            this.gridInputParam.Name = "gridInputParam";
-            this.gridInputParam.RowHeadersVisible = false;
-            this.gridInputParam.RowHeadersWidth = 25;
-            this.gridInputParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridInputParam.Size = new System.Drawing.Size(306, 246);
-            this.gridInputParam.TabIndex = 1;
-            this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colNo.HeaderText = "No.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 35;
-            // 
-            // colParam
-            // 
-            this.colParam.HeaderText = "Param";
-            this.colParam.Name = "colParam";
-            this.colParam.ReadOnly = true;
-            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colParam.Width = 113;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 140;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rdbCreateJson);
-            this.groupBox1.Controls.Add(this.rdbCreateObj);
-            this.groupBox1.Controls.Add(this.txtOut);
-            this.groupBox1.Controls.Add(this.txtCase);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 89);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Input Case Out";
-            // 
-            // rdbCreateJson
-            // 
-            this.rdbCreateJson.AutoSize = true;
-            this.rdbCreateJson.Checked = true;
-            this.rdbCreateJson.Location = new System.Drawing.Point(210, 26);
-            this.rdbCreateJson.Name = "rdbCreateJson";
-            this.rdbCreateJson.Size = new System.Drawing.Size(102, 21);
-            this.rdbCreateJson.TabIndex = 6;
-            this.rdbCreateJson.TabStop = true;
-            this.rdbCreateJson.Text = "Create Json";
-            this.rdbCreateJson.UseVisualStyleBackColor = true;
-            // 
-            // rdbCreateObj
-            // 
-            this.rdbCreateObj.AutoSize = true;
-            this.rdbCreateObj.Location = new System.Drawing.Point(210, 58);
-            this.rdbCreateObj.Name = "rdbCreateObj";
-            this.rdbCreateObj.Size = new System.Drawing.Size(94, 21);
-            this.rdbCreateObj.TabIndex = 5;
-            this.rdbCreateObj.Text = "Create Obj";
-            this.rdbCreateObj.UseVisualStyleBackColor = true;
-            // 
-            // txtOut
-            // 
-            this.txtOut.Location = new System.Drawing.Point(83, 57);
-            this.txtOut.Name = "txtOut";
-            this.txtOut.Size = new System.Drawing.Size(120, 23);
-            this.txtOut.TabIndex = 4;
-            this.txtOut.Text = "1";
-            // 
-            // txtCase
-            // 
-            this.txtCase.Location = new System.Drawing.Point(83, 26);
-            this.txtCase.Name = "txtCase";
-            this.txtCase.Size = new System.Drawing.Size(120, 23);
-            this.txtCase.TabIndex = 3;
-            this.txtCase.Text = "1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Input Out";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Input Case";
             // 
             // tabPageFormatCode
             // 
@@ -530,23 +529,34 @@ namespace ToolSupportCoding.View
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.txtFormatResult);
             this.groupBox9.Controls.Add(this.btnFormatClear);
             this.groupBox9.Controls.Add(this.btnFormatCopy);
             this.groupBox9.Controls.Add(this.lblFormatResult);
             this.groupBox9.Controls.Add(this.btnFormatCode);
-            this.groupBox9.Controls.Add(this.txtFormatResult);
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(273, 0);
+            this.groupBox9.Location = new System.Drawing.Point(276, -2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(300, 358);
+            this.groupBox9.Size = new System.Drawing.Size(290, 359);
             this.groupBox9.TabIndex = 21;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Result";
+            // 
+            // txtFormatResult
+            // 
+            this.txtFormatResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatResult.Name = "txtFormatResult";
+            this.txtFormatResult.ReadOnly = true;
+            this.txtFormatResult.Size = new System.Drawing.Size(284, 303);
+            this.txtFormatResult.TabIndex = 26;
+            this.txtFormatResult.Text = "";
             // 
             // btnFormatClear
             // 
             this.btnFormatClear.FlatAppearance.BorderSize = 0;
             this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
             this.btnFormatClear.Location = new System.Drawing.Point(121, 328);
             this.btnFormatClear.Name = "btnFormatClear";
@@ -560,7 +570,7 @@ namespace ToolSupportCoding.View
             this.btnFormatCopy.Enabled = false;
             this.btnFormatCopy.FlatAppearance.BorderSize = 0;
             this.btnFormatCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormatCopy.Location = new System.Drawing.Point(86, 328);
@@ -588,7 +598,7 @@ namespace ToolSupportCoding.View
             this.btnFormatCode.Enabled = false;
             this.btnFormatCode.FlatAppearance.BorderSize = 0;
             this.btnFormatCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatCode.Image = global::ToolSupportCoding.Properties.Resources.format;
             this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormatCode.Location = new System.Drawing.Point(3, 328);
@@ -600,30 +610,29 @@ namespace ToolSupportCoding.View
             this.btnFormatCode.UseVisualStyleBackColor = true;
             this.btnFormatCode.Click += new System.EventHandler(this.btnFormatCode_Click);
             // 
-            // txtFormatResult
-            // 
-            this.txtFormatResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
-            this.txtFormatResult.Multiline = true;
-            this.txtFormatResult.Name = "txtFormatResult";
-            this.txtFormatResult.ReadOnly = true;
-            this.txtFormatResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFormatResult.Size = new System.Drawing.Size(294, 307);
-            this.txtFormatResult.TabIndex = 1;
-            // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.txtFormatCode);
             this.groupBox8.Controls.Add(this.rbFormatCommentSQL);
             this.groupBox8.Controls.Add(this.rbFormatCommentLBlock);
             this.groupBox8.Controls.Add(this.rbFormatCommentLine);
-            this.groupBox8.Controls.Add(this.txtFormatCode);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(6, 0);
+            this.groupBox8.Location = new System.Drawing.Point(6, -2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(264, 358);
+            this.groupBox8.Size = new System.Drawing.Size(264, 359);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Code";
+            // 
+            // txtFormatCode
+            // 
+            this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatCode.Name = "txtFormatCode";
+            this.txtFormatCode.Size = new System.Drawing.Size(258, 307);
+            this.txtFormatCode.TabIndex = 103;
+            this.txtFormatCode.Text = "";
+            this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
             // 
             // rbFormatCommentSQL
             // 
@@ -660,27 +669,37 @@ namespace ToolSupportCoding.View
             this.rbFormatCommentLine.Text = "Line";
             this.rbFormatCommentLine.UseVisualStyleBackColor = true;
             // 
-            // txtFormatCode
-            // 
-            this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
-            this.txtFormatCode.Multiline = true;
-            this.txtFormatCode.Name = "txtFormatCode";
-            this.txtFormatCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFormatCode.Size = new System.Drawing.Size(258, 307);
-            this.txtFormatCode.TabIndex = 2;
-            this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
-            // 
             // tabPageGetColumn
             // 
-            this.tabPageGetColumn.Controls.Add(this.groupBox11);
             this.tabPageGetColumn.Controls.Add(this.groupBox5);
+            this.tabPageGetColumn.Controls.Add(this.groupBox11);
             this.tabPageGetColumn.Location = new System.Drawing.Point(124, 4);
             this.tabPageGetColumn.Name = "tabPageGetColumn";
             this.tabPageGetColumn.Size = new System.Drawing.Size(576, 366);
             this.tabPageGetColumn.TabIndex = 6;
             this.tabPageGetColumn.Text = "Get Name Column";
             this.tabPageGetColumn.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txColumnData);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox5.Location = new System.Drawing.Point(6, -2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(560, 72);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Input Data";
+            // 
+            // txColumnData
+            // 
+            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txColumnData.Location = new System.Drawing.Point(3, 19);
+            this.txColumnData.Multiline = true;
+            this.txColumnData.Name = "txColumnData";
+            this.txColumnData.Size = new System.Drawing.Size(554, 48);
+            this.txColumnData.TabIndex = 3;
+            this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
             // 
             // groupBox11
             // 
@@ -700,9 +719,9 @@ namespace ToolSupportCoding.View
             this.groupBox11.Controls.Add(this.cbColumnTable);
             this.groupBox11.Controls.Add(this.lblColumnResult);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox11.Location = new System.Drawing.Point(6, 72);
+            this.groupBox11.Location = new System.Drawing.Point(6, 67);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(567, 286);
+            this.groupBox11.Size = new System.Drawing.Size(560, 290);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Search";
@@ -713,7 +732,7 @@ namespace ToolSupportCoding.View
             this.txColumnResult.Multiline = true;
             this.txColumnResult.Name = "txColumnResult";
             this.txColumnResult.ReadOnly = true;
-            this.txColumnResult.Size = new System.Drawing.Size(115, 35);
+            this.txColumnResult.Size = new System.Drawing.Size(115, 39);
             this.txColumnResult.TabIndex = 24;
             // 
             // btColumnCopy
@@ -721,9 +740,9 @@ namespace ToolSupportCoding.View
             this.btColumnCopy.Enabled = false;
             this.btColumnCopy.FlatAppearance.BorderSize = 0;
             this.btColumnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btColumnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btColumnCopy.Location = new System.Drawing.Point(336, 245);
+            this.btColumnCopy.Location = new System.Drawing.Point(335, 245);
             this.btColumnCopy.Name = "btColumnCopy";
             this.btColumnCopy.Size = new System.Drawing.Size(66, 24);
             this.btColumnCopy.TabIndex = 23;
@@ -737,16 +756,17 @@ namespace ToolSupportCoding.View
             this.txColumnDoc.Location = new System.Drawing.Point(6, 245);
             this.txColumnDoc.Multiline = true;
             this.txColumnDoc.Name = "txColumnDoc";
-            this.txColumnDoc.Size = new System.Drawing.Size(202, 35);
+            this.txColumnDoc.Size = new System.Drawing.Size(202, 39);
             this.txColumnDoc.TabIndex = 22;
             this.txColumnDoc.TextChanged += new System.EventHandler(this.txColumnDoc_TextChanged);
             // 
             // rbColumnFormat
             // 
             this.rbColumnFormat.AutoSize = true;
+            this.rbColumnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbColumnFormat.Location = new System.Drawing.Point(6, 43);
             this.rbColumnFormat.Name = "rbColumnFormat";
-            this.rbColumnFormat.Size = new System.Drawing.Size(70, 21);
+            this.rbColumnFormat.Size = new System.Drawing.Size(64, 19);
             this.rbColumnFormat.TabIndex = 21;
             this.rbColumnFormat.Text = "Format";
             this.rbColumnFormat.UseVisualStyleBackColor = true;
@@ -756,9 +776,10 @@ namespace ToolSupportCoding.View
             // 
             this.rbColumnTable.AutoSize = true;
             this.rbColumnTable.Checked = true;
+            this.rbColumnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.rbColumnTable.Location = new System.Drawing.Point(6, 18);
             this.rbColumnTable.Name = "rbColumnTable";
-            this.rbColumnTable.Size = new System.Drawing.Size(62, 21);
+            this.rbColumnTable.Size = new System.Drawing.Size(56, 19);
             this.rbColumnTable.TabIndex = 20;
             this.rbColumnTable.TabStop = true;
             this.rbColumnTable.Text = "Table";
@@ -769,10 +790,10 @@ namespace ToolSupportCoding.View
             // 
             this.btColumnReset.FlatAppearance.BorderSize = 0;
             this.btColumnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btColumnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btColumnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btColumnReset.Location = new System.Drawing.Point(409, 245);
+            this.btColumnReset.Location = new System.Drawing.Point(407, 245);
             this.btColumnReset.Name = "btColumnReset";
             this.btColumnReset.Size = new System.Drawing.Size(75, 24);
             this.btColumnReset.TabIndex = 19;
@@ -785,9 +806,9 @@ namespace ToolSupportCoding.View
             // 
             this.btColumnClear.FlatAppearance.BorderSize = 0;
             this.btColumnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btColumnClear.Location = new System.Drawing.Point(493, 245);
+            this.btColumnClear.Location = new System.Drawing.Point(488, 245);
             this.btColumnClear.Name = "btColumnClear";
             this.btColumnClear.Size = new System.Drawing.Size(66, 24);
             this.btColumnClear.TabIndex = 18;
@@ -799,9 +820,10 @@ namespace ToolSupportCoding.View
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label5.Location = new System.Drawing.Point(223, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 17);
+            this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Input Value";
             // 
@@ -824,9 +846,10 @@ namespace ToolSupportCoding.View
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label9.Location = new System.Drawing.Point(223, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 17);
+            this.label9.Size = new System.Drawing.Size(80, 15);
             this.label9.TabIndex = 7;
             this.label9.Text = "Search Value";
             // 
@@ -834,7 +857,7 @@ namespace ToolSupportCoding.View
             // 
             this.txColumnInput.Location = new System.Drawing.Point(322, 42);
             this.txColumnInput.Name = "txColumnInput";
-            this.txColumnInput.Size = new System.Drawing.Size(238, 23);
+            this.txColumnInput.Size = new System.Drawing.Size(232, 23);
             this.txColumnInput.TabIndex = 1;
             this.txColumnInput.Click += new System.EventHandler(this.txColumnInput_Click);
             this.txColumnInput.TextChanged += new System.EventHandler(this.txColumnInput_TextChanged);
@@ -848,24 +871,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle44;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 75);
@@ -876,14 +899,14 @@ namespace ToolSupportCoding.View
             this.gridColumnData.RowHeadersWidth = 25;
             this.gridColumnData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridColumnData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridColumnData.Size = new System.Drawing.Size(553, 164);
+            this.gridColumnData.Size = new System.Drawing.Size(548, 164);
             this.gridColumnData.TabIndex = 6;
             // 
             // txColumnSearch
             // 
             this.txColumnSearch.Location = new System.Drawing.Point(322, 14);
             this.txColumnSearch.Name = "txColumnSearch";
-            this.txColumnSearch.Size = new System.Drawing.Size(237, 23);
+            this.txColumnSearch.Size = new System.Drawing.Size(232, 23);
             this.txColumnSearch.TabIndex = 4;
             this.txColumnSearch.Click += new System.EventHandler(this.txColumnSearch_Click);
             this.txColumnSearch.TextChanged += new System.EventHandler(this.txColumnSearch_TextChanged);
@@ -898,35 +921,26 @@ namespace ToolSupportCoding.View
             this.cbColumnTable.TabIndex = 4;
             this.cbColumnTable.SelectedIndexChanged += new System.EventHandler(this.cbColumnTable_SelectedIndexChanged);
             // 
-            // groupBox5
+            // lblColumnResult
             // 
-            this.groupBox5.Controls.Add(this.txColumnData);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox5.Location = new System.Drawing.Point(6, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(565, 72);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Input Data";
-            // 
-            // txColumnData
-            // 
-            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txColumnData.Location = new System.Drawing.Point(3, 19);
-            this.txColumnData.Multiline = true;
-            this.txColumnData.Name = "txColumnData";
-            this.txColumnData.Size = new System.Drawing.Size(559, 48);
-            this.txColumnData.TabIndex = 3;
-            this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
+            this.lblColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColumnResult.ForeColor = System.Drawing.Color.Red;
+            this.lblColumnResult.Location = new System.Drawing.Point(427, 263);
+            this.lblColumnResult.Name = "lblColumnResult";
+            this.lblColumnResult.Size = new System.Drawing.Size(140, 26);
+            this.lblColumnResult.TabIndex = 25;
+            this.lblColumnResult.Text = "Copy to Clipboard is done!";
+            this.lblColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblColumnResult.Visible = false;
             // 
             // tabPageCreateComment
             // 
             this.tabPageCreateComment.Controls.Add(this.groupBox14);
-            this.tabPageCreateComment.Controls.Add(this.groupBox13);
-            this.tabPageCreateComment.Controls.Add(this.groupBox12);
             this.tabPageCreateComment.Controls.Add(this.groupBox10);
             this.tabPageCreateComment.Controls.Add(this.groupBox7);
             this.tabPageCreateComment.Controls.Add(this.groupBox6);
+            this.tabPageCreateComment.Controls.Add(this.groupBox12);
+            this.tabPageCreateComment.Controls.Add(this.groupBox13);
             this.tabPageCreateComment.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateComment.Name = "tabPageCreateComment";
             this.tabPageCreateComment.Size = new System.Drawing.Size(576, 366);
@@ -938,9 +952,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox14.Controls.Add(this.chkCrCmLine);
             this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox14.Location = new System.Drawing.Point(388, 0);
+            this.groupBox14.Location = new System.Drawing.Point(387, -2);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(182, 46);
+            this.groupBox14.Size = new System.Drawing.Size(179, 46);
             this.groupBox14.TabIndex = 102;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Setting";
@@ -950,37 +964,204 @@ namespace ToolSupportCoding.View
             this.chkCrCmLine.AutoSize = true;
             this.chkCrCmLine.Checked = true;
             this.chkCrCmLine.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.chkCrCmLine.Location = new System.Drawing.Point(7, 21);
             this.chkCrCmLine.Name = "chkCrCmLine";
-            this.chkCrCmLine.Size = new System.Drawing.Size(83, 21);
+            this.chkCrCmLine.Size = new System.Drawing.Size(74, 19);
             this.chkCrCmLine.TabIndex = 0;
             this.chkCrCmLine.Text = "Add Line";
             this.chkCrCmLine.UseVisualStyleBackColor = true;
             this.chkCrCmLine.CheckedChanged += new System.EventHandler(this.chkCrCmLine_CheckedChanged);
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.rbCrCmBlock);
+            this.groupBox10.Controls.Add(this.rbCrCmLine);
+            this.groupBox10.Controls.Add(this.rbCrCmLineBlock);
+            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox10.Location = new System.Drawing.Point(196, -2);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(185, 46);
+            this.groupBox10.TabIndex = 101;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Comment Mode";
+            // 
+            // rbCrCmBlock
+            // 
+            this.rbCrCmBlock.AutoSize = true;
+            this.rbCrCmBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmBlock.Location = new System.Drawing.Point(131, 21);
+            this.rbCrCmBlock.Name = "rbCrCmBlock";
+            this.rbCrCmBlock.Size = new System.Drawing.Size(55, 19);
+            this.rbCrCmBlock.TabIndex = 11;
+            this.rbCrCmBlock.Text = "Block";
+            this.rbCrCmBlock.UseVisualStyleBackColor = true;
+            this.rbCrCmBlock.CheckedChanged += new System.EventHandler(this.rbCrCmBlock_CheckedChanged);
+            // 
+            // rbCrCmLine
+            // 
+            this.rbCrCmLine.AutoSize = true;
+            this.rbCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLine.Location = new System.Drawing.Point(86, 20);
+            this.rbCrCmLine.Name = "rbCrCmLine";
+            this.rbCrCmLine.Size = new System.Drawing.Size(49, 19);
+            this.rbCrCmLine.TabIndex = 99;
+            this.rbCrCmLine.Text = "Line";
+            this.rbCrCmLine.UseVisualStyleBackColor = true;
+            this.rbCrCmLine.CheckedChanged += new System.EventHandler(this.rbCrCmLine_CheckedChanged);
+            // 
+            // rbCrCmLineBlock
+            // 
+            this.rbCrCmLineBlock.AutoSize = true;
+            this.rbCrCmLineBlock.Checked = true;
+            this.rbCrCmLineBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLineBlock.Location = new System.Drawing.Point(4, 20);
+            this.rbCrCmLineBlock.Name = "rbCrCmLineBlock";
+            this.rbCrCmLineBlock.Size = new System.Drawing.Size(82, 19);
+            this.rbCrCmLineBlock.TabIndex = 10;
+            this.rbCrCmLineBlock.TabStop = true;
+            this.rbCrCmLineBlock.Text = "Line Block";
+            this.rbCrCmLineBlock.UseVisualStyleBackColor = true;
+            this.rbCrCmLineBlock.CheckedChanged += new System.EventHandler(this.rbCrCmLineBlock_CheckedChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.rbCrCmLast);
+            this.groupBox7.Controls.Add(this.rbCrCmFirst);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(6, -2);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(184, 46);
+            this.groupBox7.TabIndex = 100;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Comment Location";
+            // 
+            // rbCrCmLast
+            // 
+            this.rbCrCmLast.AutoSize = true;
+            this.rbCrCmLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLast.Location = new System.Drawing.Point(71, 20);
+            this.rbCrCmLast.Name = "rbCrCmLast";
+            this.rbCrCmLast.Size = new System.Drawing.Size(90, 19);
+            this.rbCrCmLast.TabIndex = 11;
+            this.rbCrCmLast.Text = "Stay Behind";
+            this.rbCrCmLast.UseVisualStyleBackColor = true;
+            this.rbCrCmLast.CheckedChanged += new System.EventHandler(this.rbCrCmLast_CheckedChanged);
+            // 
+            // rbCrCmFirst
+            // 
+            this.rbCrCmFirst.AutoSize = true;
+            this.rbCrCmFirst.Checked = true;
+            this.rbCrCmFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmFirst.Location = new System.Drawing.Point(3, 20);
+            this.rbCrCmFirst.Name = "rbCrCmFirst";
+            this.rbCrCmFirst.Size = new System.Drawing.Size(66, 19);
+            this.rbCrCmFirst.TabIndex = 10;
+            this.rbCrCmFirst.TabStop = true;
+            this.rbCrCmFirst.Text = "In Front";
+            this.rbCrCmFirst.UseVisualStyleBackColor = true;
+            this.rbCrCmFirst.CheckedChanged += new System.EventHandler(this.rbCrCmFirst_CheckedChanged);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtCrCmComment);
+            this.groupBox6.Controls.Add(this.lblCrCmNumComment);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(6, 41);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(184, 316);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Input Comment";
+            // 
+            // txtCrCmComment
+            // 
+            this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmComment.Name = "txtCrCmComment";
+            this.txtCrCmComment.Size = new System.Drawing.Size(178, 260);
+            this.txtCrCmComment.TabIndex = 11;
+            this.txtCrCmComment.Text = "";
+            this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
+            this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
+            // 
+            // lblCrCmNumComment
+            // 
+            this.lblCrCmNumComment.AutoSize = true;
+            this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 290);
+            this.lblCrCmNumComment.Name = "lblCrCmNumComment";
+            this.lblCrCmNumComment.Size = new System.Drawing.Size(80, 15);
+            this.lblCrCmNumComment.TabIndex = 10;
+            this.lblCrCmNumComment.Text = "Line number:";
+            this.lblCrCmNumComment.Visible = false;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.txtCrCmCode);
+            this.groupBox12.Controls.Add(this.lblCrCmNumCode);
+            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox12.Location = new System.Drawing.Point(196, 41);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(185, 316);
+            this.groupBox12.TabIndex = 3;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Input Code";
+            // 
+            // txtCrCmCode
+            // 
+            this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmCode.Name = "txtCrCmCode";
+            this.txtCrCmCode.Size = new System.Drawing.Size(179, 260);
+            this.txtCrCmCode.TabIndex = 12;
+            this.txtCrCmCode.Text = "";
+            this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
+            this.txtCrCmCode.Leave += new System.EventHandler(this.txtCrCmCode_Leave);
+            // 
+            // lblCrCmNumCode
+            // 
+            this.lblCrCmNumCode.AutoSize = true;
+            this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 290);
+            this.lblCrCmNumCode.Name = "lblCrCmNumCode";
+            this.lblCrCmNumCode.Size = new System.Drawing.Size(80, 15);
+            this.lblCrCmNumCode.TabIndex = 11;
+            this.lblCrCmNumCode.Text = "Line number:";
+            this.lblCrCmNumCode.Visible = false;
+            // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.txtCrCmResult);
             this.groupBox13.Controls.Add(this.btCrCmClear);
             this.groupBox13.Controls.Add(this.btCrCmCopy);
-            this.groupBox13.Controls.Add(this.lblCrCmCopy);
-            this.groupBox13.Controls.Add(this.txtCrCmResult);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(388, 45);
+            this.groupBox13.Location = new System.Drawing.Point(387, 41);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(185, 318);
+            this.groupBox13.Size = new System.Drawing.Size(179, 316);
             this.groupBox13.TabIndex = 4;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Result";
+            // 
+            // txtCrCmResult
+            // 
+            this.txtCrCmResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmResult.Name = "txtCrCmResult";
+            this.txtCrCmResult.ReadOnly = true;
+            this.txtCrCmResult.Size = new System.Drawing.Size(173, 260);
+            this.txtCrCmResult.TabIndex = 13;
+            this.txtCrCmResult.Text = "";
             // 
             // btCrCmClear
             // 
             this.btCrCmClear.FlatAppearance.BorderSize = 0;
             this.btCrCmClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrCmClear.Location = new System.Drawing.Point(83, 278);
+            this.btCrCmClear.Location = new System.Drawing.Point(113, 284);
             this.btCrCmClear.Name = "btCrCmClear";
-            this.btCrCmClear.Size = new System.Drawing.Size(69, 24);
+            this.btCrCmClear.Size = new System.Drawing.Size(63, 24);
             this.btCrCmClear.TabIndex = 12;
             this.btCrCmClear.Text = " Clear";
             this.btCrCmClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -993,209 +1174,27 @@ namespace ToolSupportCoding.View
             this.btCrCmCopy.Enabled = false;
             this.btCrCmCopy.FlatAppearance.BorderSize = 0;
             this.btCrCmCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btCrCmCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrCmCopy.Location = new System.Drawing.Point(3, 278);
+            this.btCrCmCopy.Location = new System.Drawing.Point(3, 284);
             this.btCrCmCopy.Name = "btCrCmCopy";
-            this.btCrCmCopy.Size = new System.Drawing.Size(74, 24);
+            this.btCrCmCopy.Size = new System.Drawing.Size(104, 24);
             this.btCrCmCopy.TabIndex = 11;
-            this.btCrCmCopy.Text = " Copy";
+            this.btCrCmCopy.Text = " Copy Result";
             this.btCrCmCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btCrCmCopy.UseVisualStyleBackColor = true;
             this.btCrCmCopy.Click += new System.EventHandler(this.btCrCmCopy_Click);
             // 
-            // lblCrCmCopy
-            // 
-            this.lblCrCmCopy.AutoSize = true;
-            this.lblCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrCmCopy.ForeColor = System.Drawing.Color.Red;
-            this.lblCrCmCopy.Location = new System.Drawing.Point(48, 303);
-            this.lblCrCmCopy.Name = "lblCrCmCopy";
-            this.lblCrCmCopy.Size = new System.Drawing.Size(130, 13);
-            this.lblCrCmCopy.TabIndex = 10;
-            this.lblCrCmCopy.Text = "Copy to Clipboard is done!";
-            this.lblCrCmCopy.Visible = false;
-            // 
-            // txtCrCmResult
-            // 
-            this.txtCrCmResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmResult.Multiline = true;
-            this.txtCrCmResult.Name = "txtCrCmResult";
-            this.txtCrCmResult.ReadOnly = true;
-            this.txtCrCmResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCrCmResult.Size = new System.Drawing.Size(179, 253);
-            this.txtCrCmResult.TabIndex = 2;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.lblCrCmNumCode);
-            this.groupBox12.Controls.Add(this.txtCrCmCode);
-            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(197, 45);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(185, 318);
-            this.groupBox12.TabIndex = 3;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Input Code";
-            // 
-            // lblCrCmNumCode
-            // 
-            this.lblCrCmNumCode.AutoSize = true;
-            this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrCmNumCode.Location = new System.Drawing.Point(74, 292);
-            this.lblCrCmNumCode.Name = "lblCrCmNumCode";
-            this.lblCrCmNumCode.Size = new System.Drawing.Size(91, 17);
-            this.lblCrCmNumCode.TabIndex = 11;
-            this.lblCrCmNumCode.Text = "Line number:";
-            this.lblCrCmNumCode.Visible = false;
-            // 
-            // txtCrCmCode
-            // 
-            this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmCode.Multiline = true;
-            this.txtCrCmCode.Name = "txtCrCmCode";
-            this.txtCrCmCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCrCmCode.Size = new System.Drawing.Size(179, 253);
-            this.txtCrCmCode.TabIndex = 2;
-            this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
-            this.txtCrCmCode.Leave += new System.EventHandler(this.txtCrCmCode_Leave);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.rbCrCmBlock);
-            this.groupBox10.Controls.Add(this.rbCrCmLineBlock);
-            this.groupBox10.Controls.Add(this.rbCrCmLine);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(161, 0);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(221, 46);
-            this.groupBox10.TabIndex = 101;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Comment Mode";
-            // 
-            // rbCrCmBlock
-            // 
-            this.rbCrCmBlock.AutoSize = true;
-            this.rbCrCmBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmBlock.Location = new System.Drawing.Point(158, 21);
-            this.rbCrCmBlock.Name = "rbCrCmBlock";
-            this.rbCrCmBlock.Size = new System.Drawing.Size(55, 19);
-            this.rbCrCmBlock.TabIndex = 11;
-            this.rbCrCmBlock.Text = "Block";
-            this.rbCrCmBlock.UseVisualStyleBackColor = true;
-            this.rbCrCmBlock.CheckedChanged += new System.EventHandler(this.rbCrCmBlock_CheckedChanged);
-            // 
-            // rbCrCmLineBlock
-            // 
-            this.rbCrCmLineBlock.AutoSize = true;
-            this.rbCrCmLineBlock.Checked = true;
-            this.rbCrCmLineBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLineBlock.Location = new System.Drawing.Point(6, 20);
-            this.rbCrCmLineBlock.Name = "rbCrCmLineBlock";
-            this.rbCrCmLineBlock.Size = new System.Drawing.Size(82, 19);
-            this.rbCrCmLineBlock.TabIndex = 10;
-            this.rbCrCmLineBlock.TabStop = true;
-            this.rbCrCmLineBlock.Text = "Line Block";
-            this.rbCrCmLineBlock.UseVisualStyleBackColor = true;
-            this.rbCrCmLineBlock.CheckedChanged += new System.EventHandler(this.rbCrCmLineBlock_CheckedChanged);
-            // 
-            // rbCrCmLine
-            // 
-            this.rbCrCmLine.AutoSize = true;
-            this.rbCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLine.Location = new System.Drawing.Point(97, 20);
-            this.rbCrCmLine.Name = "rbCrCmLine";
-            this.rbCrCmLine.Size = new System.Drawing.Size(49, 19);
-            this.rbCrCmLine.TabIndex = 99;
-            this.rbCrCmLine.Text = "Line";
-            this.rbCrCmLine.UseVisualStyleBackColor = true;
-            this.rbCrCmLine.CheckedChanged += new System.EventHandler(this.rbCrCmLine_CheckedChanged);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.rbCrCmLast);
-            this.groupBox7.Controls.Add(this.rbCrCmFirst);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 0);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(149, 46);
-            this.groupBox7.TabIndex = 100;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Comment Location";
-            // 
-            // rbCrCmLast
-            // 
-            this.rbCrCmLast.AutoSize = true;
-            this.rbCrCmLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLast.Location = new System.Drawing.Point(60, 20);
-            this.rbCrCmLast.Name = "rbCrCmLast";
-            this.rbCrCmLast.Size = new System.Drawing.Size(48, 19);
-            this.rbCrCmLast.TabIndex = 11;
-            this.rbCrCmLast.Text = "Last";
-            this.rbCrCmLast.UseVisualStyleBackColor = true;
-            this.rbCrCmLast.CheckedChanged += new System.EventHandler(this.rbCrCmLast_CheckedChanged);
-            // 
-            // rbCrCmFirst
-            // 
-            this.rbCrCmFirst.AutoSize = true;
-            this.rbCrCmFirst.Checked = true;
-            this.rbCrCmFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmFirst.Location = new System.Drawing.Point(6, 20);
-            this.rbCrCmFirst.Name = "rbCrCmFirst";
-            this.rbCrCmFirst.Size = new System.Drawing.Size(48, 19);
-            this.rbCrCmFirst.TabIndex = 10;
-            this.rbCrCmFirst.TabStop = true;
-            this.rbCrCmFirst.Text = "First";
-            this.rbCrCmFirst.UseVisualStyleBackColor = true;
-            this.rbCrCmFirst.CheckedChanged += new System.EventHandler(this.rbCrCmFirst_CheckedChanged);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.lblCrCmNumComment);
-            this.groupBox6.Controls.Add(this.txtCrCmComment);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(6, 45);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(185, 318);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Input Comment";
-            // 
-            // lblCrCmNumComment
-            // 
-            this.lblCrCmNumComment.AutoSize = true;
-            this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrCmNumComment.Location = new System.Drawing.Point(73, 292);
-            this.lblCrCmNumComment.Name = "lblCrCmNumComment";
-            this.lblCrCmNumComment.Size = new System.Drawing.Size(91, 17);
-            this.lblCrCmNumComment.TabIndex = 10;
-            this.lblCrCmNumComment.Text = "Line number:";
-            this.lblCrCmNumComment.Visible = false;
-            // 
-            // txtCrCmComment
-            // 
-            this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmComment.Multiline = true;
-            this.txtCrCmComment.Name = "txtCrCmComment";
-            this.txtCrCmComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCrCmComment.Size = new System.Drawing.Size(179, 253);
-            this.txtCrCmComment.TabIndex = 2;
-            this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
-            this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
-            // 
             // tabPageCreateMessage
             // 
-            this.tabPageCreateMessage.Controls.Add(this.grbMessTextI);
-            this.tabPageCreateMessage.Controls.Add(this.grbMessText);
-            this.tabPageCreateMessage.Controls.Add(this.grbMessTitle);
             this.tabPageCreateMessage.Controls.Add(this.groupBox18);
+            this.tabPageCreateMessage.Controls.Add(this.groupBox15);
+            this.tabPageCreateMessage.Controls.Add(this.grbMessTitle);
+            this.tabPageCreateMessage.Controls.Add(this.grbMessText);
+            this.tabPageCreateMessage.Controls.Add(this.grbMessTextI);
             this.tabPageCreateMessage.Controls.Add(this.groupBox17);
             this.tabPageCreateMessage.Controls.Add(this.groupBox16);
-            this.tabPageCreateMessage.Controls.Add(this.groupBox15);
             this.tabPageCreateMessage.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateMessage.Name = "tabPageCreateMessage";
             this.tabPageCreateMessage.Padding = new System.Windows.Forms.Padding(3);
@@ -1206,10 +1205,10 @@ namespace ToolSupportCoding.View
             // 
             // grbMessTextI
             // 
+            this.grbMessTextI.Controls.Add(this.btnCreateMessI);
             this.grbMessTextI.Controls.Add(this.chkMessStatusI);
             this.grbMessTextI.Controls.Add(this.txtMessMsg);
             this.grbMessTextI.Controls.Add(this.label14);
-            this.grbMessTextI.Controls.Add(this.btnCreateMessI);
             this.grbMessTextI.Controls.Add(this.txtMessType);
             this.grbMessTextI.Controls.Add(this.lblMessType);
             this.grbMessTextI.Controls.Add(this.txtMessQues);
@@ -1221,9 +1220,9 @@ namespace ToolSupportCoding.View
             this.grbMessTextI.Controls.Add(this.lblMessDesc);
             this.grbMessTextI.Controls.Add(this.lblMessCode);
             this.grbMessTextI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessTextI.Location = new System.Drawing.Point(195, 0);
+            this.grbMessTextI.Location = new System.Drawing.Point(192, -2);
             this.grbMessTextI.Name = "grbMessTextI";
-            this.grbMessTextI.Size = new System.Drawing.Size(372, 120);
+            this.grbMessTextI.Size = new System.Drawing.Size(374, 120);
             this.grbMessTextI.TabIndex = 4;
             this.grbMessTextI.TabStop = false;
             this.grbMessTextI.Text = "Input Text";
@@ -1232,27 +1231,30 @@ namespace ToolSupportCoding.View
             // chkMessStatusI
             // 
             this.chkMessStatusI.AutoSize = true;
+            this.chkMessStatusI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.chkMessStatusI.Location = new System.Drawing.Point(194, 94);
             this.chkMessStatusI.Name = "chkMessStatusI";
-            this.chkMessStatusI.Size = new System.Drawing.Size(67, 21);
+            this.chkMessStatusI.Size = new System.Drawing.Size(60, 19);
             this.chkMessStatusI.TabIndex = 9;
             this.chkMessStatusI.Text = "Status";
             this.chkMessStatusI.UseVisualStyleBackColor = true;
             // 
             // txtMessMsg
             // 
-            this.txtMessMsg.Location = new System.Drawing.Point(75, 14);
+            this.txtMessMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMessMsg.Location = new System.Drawing.Point(75, 15);
             this.txtMessMsg.Name = "txtMessMsg";
-            this.txtMessMsg.Size = new System.Drawing.Size(292, 23);
+            this.txtMessMsg.Size = new System.Drawing.Size(292, 21);
             this.txtMessMsg.TabIndex = 3;
             this.txtMessMsg.TextChanged += new System.EventHandler(this.txtMessMsg_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 17);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label14.Location = new System.Drawing.Point(7, 20);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 17);
+            this.label14.Size = new System.Drawing.Size(31, 15);
             this.label14.TabIndex = 25;
             this.label14.Text = "Msg";
             // 
@@ -1260,12 +1262,12 @@ namespace ToolSupportCoding.View
             // 
             this.btnCreateMessI.FlatAppearance.BorderSize = 0;
             this.btnCreateMessI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateMessI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMessI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreateMessI.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreateMessI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMessI.Location = new System.Drawing.Point(266, 89);
+            this.btnCreateMessI.Location = new System.Drawing.Point(267, 91);
             this.btnCreateMessI.Name = "btnCreateMessI";
-            this.btnCreateMessI.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateMessI.Size = new System.Drawing.Size(100, 24);
             this.btnCreateMessI.TabIndex = 10;
             this.btnCreateMessI.Text = "Create Src";
             this.btnCreateMessI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1274,9 +1276,10 @@ namespace ToolSupportCoding.View
             // 
             // txtMessType
             // 
-            this.txtMessType.Location = new System.Drawing.Point(74, 94);
+            this.txtMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMessType.Location = new System.Drawing.Point(74, 91);
             this.txtMessType.Name = "txtMessType";
-            this.txtMessType.Size = new System.Drawing.Size(100, 23);
+            this.txtMessType.Size = new System.Drawing.Size(100, 21);
             this.txtMessType.TabIndex = 8;
             this.txtMessType.Text = "0";
             this.txtMessType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMessType_KeyPress);
@@ -1284,75 +1287,84 @@ namespace ToolSupportCoding.View
             // lblMessType
             // 
             this.lblMessType.AutoSize = true;
-            this.lblMessType.Location = new System.Drawing.Point(4, 98);
+            this.lblMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessType.Location = new System.Drawing.Point(7, 96);
             this.lblMessType.Name = "lblMessType";
-            this.lblMessType.Size = new System.Drawing.Size(40, 17);
+            this.lblMessType.Size = new System.Drawing.Size(33, 15);
             this.lblMessType.TabIndex = 8;
             this.lblMessType.Text = "Type";
             // 
             // txtMessQues
             // 
-            this.txtMessQues.Location = new System.Drawing.Point(266, 64);
+            this.txtMessQues.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMessQues.Location = new System.Drawing.Point(267, 66);
             this.txtMessQues.Name = "txtMessQues";
-            this.txtMessQues.Size = new System.Drawing.Size(100, 23);
+            this.txtMessQues.Size = new System.Drawing.Size(100, 21);
             this.txtMessQues.TabIndex = 7;
             // 
             // txtMessDescH
             // 
-            this.txtMessDescH.Location = new System.Drawing.Point(266, 39);
+            this.txtMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMessDescH.Location = new System.Drawing.Point(267, 41);
             this.txtMessDescH.Name = "txtMessDescH";
-            this.txtMessDescH.Size = new System.Drawing.Size(100, 23);
+            this.txtMessDescH.Size = new System.Drawing.Size(100, 21);
             this.txtMessDescH.TabIndex = 6;
             // 
             // lblMessQuestion
             // 
             this.lblMessQuestion.AutoSize = true;
-            this.lblMessQuestion.Location = new System.Drawing.Point(182, 66);
+            this.lblMessQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessQuestion.Location = new System.Drawing.Point(190, 71);
             this.lblMessQuestion.Name = "lblMessQuestion";
-            this.lblMessQuestion.Size = new System.Drawing.Size(65, 17);
+            this.lblMessQuestion.Size = new System.Drawing.Size(56, 15);
             this.lblMessQuestion.TabIndex = 5;
             this.lblMessQuestion.Text = "Question";
             // 
             // lblMessDescH
             // 
             this.lblMessDescH.AutoSize = true;
-            this.lblMessDescH.Location = new System.Drawing.Point(182, 42);
+            this.lblMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessDescH.Location = new System.Drawing.Point(190, 46);
             this.lblMessDescH.Name = "lblMessDescH";
-            this.lblMessDescH.Size = new System.Drawing.Size(80, 17);
+            this.lblMessDescH.Size = new System.Drawing.Size(71, 15);
             this.lblMessDescH.TabIndex = 4;
             this.lblMessDescH.Text = "Msg DescH";
             // 
             // txtMessDesc
             // 
-            this.txtMessDesc.Location = new System.Drawing.Point(75, 67);
+            this.txtMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtMessDesc.Location = new System.Drawing.Point(75, 66);
             this.txtMessDesc.Name = "txtMessDesc";
-            this.txtMessDesc.Size = new System.Drawing.Size(100, 23);
+            this.txtMessDesc.Size = new System.Drawing.Size(100, 21);
             this.txtMessDesc.TabIndex = 5;
             this.txtMessDesc.Text = "UCHIDA";
             // 
             // txtMessMsgCode
             // 
+            this.txtMessMsgCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtMessMsgCode.Location = new System.Drawing.Point(75, 41);
             this.txtMessMsgCode.Name = "txtMessMsgCode";
-            this.txtMessMsgCode.Size = new System.Drawing.Size(100, 23);
+            this.txtMessMsgCode.Size = new System.Drawing.Size(100, 21);
             this.txtMessMsgCode.TabIndex = 4;
             this.txtMessMsgCode.Text = "0001";
             // 
             // lblMessDesc
             // 
             this.lblMessDesc.AutoSize = true;
-            this.lblMessDesc.Location = new System.Drawing.Point(4, 70);
+            this.lblMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessDesc.Location = new System.Drawing.Point(7, 71);
             this.lblMessDesc.Name = "lblMessDesc";
-            this.lblMessDesc.Size = new System.Drawing.Size(70, 17);
+            this.lblMessDesc.Size = new System.Drawing.Size(62, 15);
             this.lblMessDesc.TabIndex = 1;
             this.lblMessDesc.Text = "Msg Desc";
             // 
             // lblMessCode
             // 
             this.lblMessCode.AutoSize = true;
-            this.lblMessCode.Location = new System.Drawing.Point(4, 43);
+            this.lblMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessCode.Location = new System.Drawing.Point(7, 46);
             this.lblMessCode.Name = "lblMessCode";
-            this.lblMessCode.Size = new System.Drawing.Size(71, 17);
+            this.lblMessCode.Size = new System.Drawing.Size(63, 15);
             this.lblMessCode.TabIndex = 0;
             this.lblMessCode.Text = "Msg Code";
             // 
@@ -1365,9 +1377,9 @@ namespace ToolSupportCoding.View
             this.grbMessText.Controls.Add(this.lblMessCancel);
             this.grbMessText.Controls.Add(this.lblMessDone);
             this.grbMessText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessText.Location = new System.Drawing.Point(380, 0);
+            this.grbMessText.Location = new System.Drawing.Point(378, -2);
             this.grbMessText.Name = "grbMessText";
-            this.grbMessText.Size = new System.Drawing.Size(185, 120);
+            this.grbMessText.Size = new System.Drawing.Size(188, 120);
             this.grbMessText.TabIndex = 23;
             this.grbMessText.TabStop = false;
             this.grbMessText.Text = "Input Text";
@@ -1375,9 +1387,10 @@ namespace ToolSupportCoding.View
             // chkMessStatus
             // 
             this.chkMessStatus.AutoSize = true;
-            this.chkMessStatus.Location = new System.Drawing.Point(9, 94);
+            this.chkMessStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkMessStatus.Location = new System.Drawing.Point(8, 94);
             this.chkMessStatus.Name = "chkMessStatus";
-            this.chkMessStatus.Size = new System.Drawing.Size(67, 21);
+            this.chkMessStatus.Size = new System.Drawing.Size(60, 19);
             this.chkMessStatus.TabIndex = 12;
             this.chkMessStatus.Text = "Status";
             this.chkMessStatus.UseVisualStyleBackColor = true;
@@ -1386,12 +1399,12 @@ namespace ToolSupportCoding.View
             // 
             this.btnMessCreate.FlatAppearance.BorderSize = 0;
             this.btnMessCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMessCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnMessCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCreate.Location = new System.Drawing.Point(81, 89);
+            this.btnMessCreate.Location = new System.Drawing.Point(81, 91);
             this.btnMessCreate.Name = "btnMessCreate";
-            this.btnMessCreate.Size = new System.Drawing.Size(100, 26);
+            this.btnMessCreate.Size = new System.Drawing.Size(100, 24);
             this.btnMessCreate.TabIndex = 13;
             this.btnMessCreate.Text = "Create Src";
             this.btnMessCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1401,32 +1414,35 @@ namespace ToolSupportCoding.View
             // cbMessCancel
             // 
             this.cbMessCancel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbMessCancel.Items.AddRange(new object[] {
             "いいえ",
             "キャンセル"});
-            this.cbMessCancel.Location = new System.Drawing.Point(63, 45);
+            this.cbMessCancel.Location = new System.Drawing.Point(58, 46);
             this.cbMessCancel.Name = "cbMessCancel";
-            this.cbMessCancel.Size = new System.Drawing.Size(119, 24);
+            this.cbMessCancel.Size = new System.Drawing.Size(123, 23);
             this.cbMessCancel.TabIndex = 9;
             this.cbMessCancel.Visible = false;
             // 
             // cbMessDone
             // 
             this.cbMessDone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMessDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbMessDone.Items.AddRange(new object[] {
             "OK",
             "はい"});
-            this.cbMessDone.Location = new System.Drawing.Point(63, 17);
+            this.cbMessDone.Location = new System.Drawing.Point(58, 18);
             this.cbMessDone.Name = "cbMessDone";
-            this.cbMessDone.Size = new System.Drawing.Size(119, 24);
+            this.cbMessDone.Size = new System.Drawing.Size(123, 23);
             this.cbMessDone.TabIndex = 8;
             // 
             // lblMessCancel
             // 
             this.lblMessCancel.AutoSize = true;
-            this.lblMessCancel.Location = new System.Drawing.Point(6, 47);
+            this.lblMessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessCancel.Location = new System.Drawing.Point(6, 49);
             this.lblMessCancel.Name = "lblMessCancel";
-            this.lblMessCancel.Size = new System.Drawing.Size(51, 17);
+            this.lblMessCancel.Size = new System.Drawing.Size(45, 15);
             this.lblMessCancel.TabIndex = 3;
             this.lblMessCancel.Text = "Cancel";
             this.lblMessCancel.Visible = false;
@@ -1434,9 +1450,10 @@ namespace ToolSupportCoding.View
             // lblMessDone
             // 
             this.lblMessDone.AutoSize = true;
-            this.lblMessDone.Location = new System.Drawing.Point(6, 21);
+            this.lblMessDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMessDone.Location = new System.Drawing.Point(6, 23);
             this.lblMessDone.Name = "lblMessDone";
-            this.lblMessDone.Size = new System.Drawing.Size(42, 17);
+            this.lblMessDone.Size = new System.Drawing.Size(37, 15);
             this.lblMessDone.TabIndex = 1;
             this.lblMessDone.Text = "Done";
             // 
@@ -1447,9 +1464,9 @@ namespace ToolSupportCoding.View
             this.grbMessTitle.Controls.Add(this.rdMessNoti);
             this.grbMessTitle.Controls.Add(this.rdMessErr);
             this.grbMessTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessTitle.Location = new System.Drawing.Point(195, 0);
+            this.grbMessTitle.Location = new System.Drawing.Point(192, -2);
             this.grbMessTitle.Name = "grbMessTitle";
-            this.grbMessTitle.Size = new System.Drawing.Size(178, 120);
+            this.grbMessTitle.Size = new System.Drawing.Size(180, 120);
             this.grbMessTitle.TabIndex = 22;
             this.grbMessTitle.TabStop = false;
             this.grbMessTitle.Text = "Choose Title";
@@ -1457,9 +1474,10 @@ namespace ToolSupportCoding.View
             // rdMessVeri
             // 
             this.rdMessVeri.AutoSize = true;
-            this.rdMessVeri.Location = new System.Drawing.Point(6, 69);
+            this.rdMessVeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdMessVeri.Location = new System.Drawing.Point(7, 69);
             this.rdMessVeri.Name = "rdMessVeri";
-            this.rdMessVeri.Size = new System.Drawing.Size(54, 21);
+            this.rdMessVeri.Size = new System.Drawing.Size(49, 19);
             this.rdMessVeri.TabIndex = 6;
             this.rdMessVeri.Text = "確認";
             this.rdMessVeri.UseVisualStyleBackColor = true;
@@ -1467,9 +1485,10 @@ namespace ToolSupportCoding.View
             // chkMessShowC
             // 
             this.chkMessShowC.AutoSize = true;
-            this.chkMessShowC.Location = new System.Drawing.Point(6, 93);
+            this.chkMessShowC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkMessShowC.Location = new System.Drawing.Point(7, 94);
             this.chkMessShowC.Name = "chkMessShowC";
-            this.chkMessShowC.Size = new System.Drawing.Size(108, 21);
+            this.chkMessShowC.Size = new System.Drawing.Size(98, 19);
             this.chkMessShowC.TabIndex = 7;
             this.chkMessShowC.Text = "Show Cancel";
             this.chkMessShowC.UseVisualStyleBackColor = true;
@@ -1478,9 +1497,10 @@ namespace ToolSupportCoding.View
             // rdMessNoti
             // 
             this.rdMessNoti.AutoSize = true;
-            this.rdMessNoti.Location = new System.Drawing.Point(6, 44);
+            this.rdMessNoti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdMessNoti.Location = new System.Drawing.Point(7, 44);
             this.rdMessNoti.Name = "rdMessNoti";
-            this.rdMessNoti.Size = new System.Drawing.Size(54, 21);
+            this.rdMessNoti.Size = new System.Drawing.Size(49, 19);
             this.rdMessNoti.TabIndex = 5;
             this.rdMessNoti.Text = "通知";
             this.rdMessNoti.UseVisualStyleBackColor = true;
@@ -1489,9 +1509,10 @@ namespace ToolSupportCoding.View
             // 
             this.rdMessErr.AutoSize = true;
             this.rdMessErr.Checked = true;
-            this.rdMessErr.Location = new System.Drawing.Point(6, 19);
+            this.rdMessErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdMessErr.Location = new System.Drawing.Point(7, 19);
             this.rdMessErr.Name = "rdMessErr";
-            this.rdMessErr.Size = new System.Drawing.Size(86, 21);
+            this.rdMessErr.Size = new System.Drawing.Size(76, 19);
             this.rdMessErr.TabIndex = 4;
             this.rdMessErr.TabStop = true;
             this.rdMessErr.Text = "エラー情報";
@@ -1504,9 +1525,9 @@ namespace ToolSupportCoding.View
             this.groupBox18.Controls.Add(this.rdbMessDisp);
             this.groupBox18.Controls.Add(this.rdbMess);
             this.groupBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox18.Location = new System.Drawing.Point(6, 0);
+            this.groupBox18.Location = new System.Drawing.Point(6, -2);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(178, 120);
+            this.groupBox18.Size = new System.Drawing.Size(180, 120);
             this.groupBox18.TabIndex = 21;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Choose Type";
@@ -1514,9 +1535,10 @@ namespace ToolSupportCoding.View
             // rdbMessF
             // 
             this.rdbMessF.AutoSize = true;
-            this.rdbMessF.Location = new System.Drawing.Point(6, 94);
+            this.rdbMessF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbMessF.Location = new System.Drawing.Point(7, 94);
             this.rdbMessF.Name = "rdbMessF";
-            this.rdbMessF.Size = new System.Drawing.Size(105, 21);
+            this.rdbMessF.Size = new System.Drawing.Size(92, 19);
             this.rdbMessF.TabIndex = 3;
             this.rdbMessF.Text = "Create Src F";
             this.rdbMessF.UseVisualStyleBackColor = true;
@@ -1525,9 +1547,10 @@ namespace ToolSupportCoding.View
             // rdbMessBox
             // 
             this.rdbMessBox.AutoSize = true;
-            this.rdbMessBox.Location = new System.Drawing.Point(6, 70);
+            this.rdbMessBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbMessBox.Location = new System.Drawing.Point(7, 70);
             this.rdbMessBox.Name = "rdbMessBox";
-            this.rdbMessBox.Size = new System.Drawing.Size(146, 21);
+            this.rdbMessBox.Size = new System.Drawing.Size(130, 19);
             this.rdbMessBox.TabIndex = 2;
             this.rdbMessBox.Text = "Create Src MsgBox";
             this.rdbMessBox.UseVisualStyleBackColor = true;
@@ -1536,9 +1559,10 @@ namespace ToolSupportCoding.View
             // rdbMessDisp
             // 
             this.rdbMessDisp.AutoSize = true;
-            this.rdbMessDisp.Location = new System.Drawing.Point(6, 45);
+            this.rdbMessDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbMessDisp.Location = new System.Drawing.Point(7, 45);
             this.rdbMessDisp.Name = "rdbMessDisp";
-            this.rdbMessDisp.Size = new System.Drawing.Size(151, 21);
+            this.rdbMessDisp.Size = new System.Drawing.Size(134, 19);
             this.rdbMessDisp.TabIndex = 1;
             this.rdbMessDisp.Text = "Create Src MsgDisp";
             this.rdbMessDisp.UseVisualStyleBackColor = true;
@@ -1548,9 +1572,10 @@ namespace ToolSupportCoding.View
             // 
             this.rdbMess.AutoSize = true;
             this.rdbMess.Checked = true;
-            this.rdbMess.Location = new System.Drawing.Point(6, 20);
+            this.rdbMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rdbMess.Location = new System.Drawing.Point(7, 20);
             this.rdbMess.Name = "rdbMess";
-            this.rdbMess.Size = new System.Drawing.Size(93, 21);
+            this.rdbMess.Size = new System.Drawing.Size(82, 19);
             this.rdbMess.TabIndex = 0;
             this.rdbMess.TabStop = true;
             this.rdbMess.Text = "Create Src";
@@ -1564,34 +1589,23 @@ namespace ToolSupportCoding.View
             this.groupBox17.Controls.Add(this.btnMessCopy);
             this.groupBox17.Controls.Add(this.btnMessClear);
             this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox17.Location = new System.Drawing.Point(380, 126);
+            this.groupBox17.Location = new System.Drawing.Point(378, 115);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(185, 232);
+            this.groupBox17.Size = new System.Drawing.Size(188, 242);
             this.groupBox17.TabIndex = 16;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Result";
-            // 
-            // txtMessResult
-            // 
-            this.txtMessResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessResult.Enabled = false;
-            this.txtMessResult.Location = new System.Drawing.Point(3, 19);
-            this.txtMessResult.Multiline = true;
-            this.txtMessResult.Name = "txtMessResult";
-            this.txtMessResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessResult.Size = new System.Drawing.Size(179, 177);
-            this.txtMessResult.TabIndex = 1;
             // 
             // btnCreateMess
             // 
             this.btnCreateMess.FlatAppearance.BorderSize = 0;
             this.btnCreateMess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreateMess.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreateMess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMess.Location = new System.Drawing.Point(4, 202);
+            this.btnCreateMess.Location = new System.Drawing.Point(4, 213);
             this.btnCreateMess.Name = "btnCreateMess";
-            this.btnCreateMess.Size = new System.Drawing.Size(113, 26);
+            this.btnCreateMess.Size = new System.Drawing.Size(118, 24);
             this.btnCreateMess.TabIndex = 16;
             this.btnCreateMess.Text = "Create Mess";
             this.btnCreateMess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1603,12 +1617,12 @@ namespace ToolSupportCoding.View
             this.btnMessCopy.Enabled = false;
             this.btnMessCopy.FlatAppearance.BorderSize = 0;
             this.btnMessCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnMessCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCopy.Location = new System.Drawing.Point(120, 202);
+            this.btnMessCopy.Location = new System.Drawing.Point(125, 213);
             this.btnMessCopy.Name = "btnMessCopy";
-            this.btnMessCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnMessCopy.Size = new System.Drawing.Size(28, 24);
             this.btnMessCopy.TabIndex = 17;
             this.btnMessCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMessCopy.UseVisualStyleBackColor = true;
@@ -1618,22 +1632,23 @@ namespace ToolSupportCoding.View
             // 
             this.btnMessClear.FlatAppearance.BorderSize = 0;
             this.btnMessClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMessClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnMessClear.Location = new System.Drawing.Point(151, 202);
+            this.btnMessClear.Location = new System.Drawing.Point(156, 213);
             this.btnMessClear.Name = "btnMessClear";
-            this.btnMessClear.Size = new System.Drawing.Size(28, 26);
+            this.btnMessClear.Size = new System.Drawing.Size(28, 24);
             this.btnMessClear.TabIndex = 18;
             this.btnMessClear.UseVisualStyleBackColor = true;
             this.btnMessClear.Click += new System.EventHandler(this.btnMessClear_Click);
             // 
             // groupBox16
             // 
-            this.groupBox16.Controls.Add(this.lblNumMessContent);
             this.groupBox16.Controls.Add(this.txtMessContent);
+            this.groupBox16.Controls.Add(this.lblNumMessContent);
             this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(195, 126);
+            this.groupBox16.Location = new System.Drawing.Point(192, 115);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(178, 232);
+            this.groupBox16.Size = new System.Drawing.Size(180, 242);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Message Content";
@@ -1641,32 +1656,22 @@ namespace ToolSupportCoding.View
             // lblNumMessContent
             // 
             this.lblNumMessContent.AutoSize = true;
-            this.lblNumMessContent.Location = new System.Drawing.Point(69, 206);
+            this.lblNumMessContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumMessContent.Location = new System.Drawing.Point(77, 221);
             this.lblNumMessContent.Name = "lblNumMessContent";
-            this.lblNumMessContent.Size = new System.Drawing.Size(91, 17);
+            this.lblNumMessContent.Size = new System.Drawing.Size(80, 15);
             this.lblNumMessContent.TabIndex = 4;
             this.lblNumMessContent.Text = "Line number:";
             this.lblNumMessContent.Visible = false;
             // 
-            // txtMessContent
-            // 
-            this.txtMessContent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessContent.Location = new System.Drawing.Point(3, 19);
-            this.txtMessContent.Multiline = true;
-            this.txtMessContent.Name = "txtMessContent";
-            this.txtMessContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessContent.Size = new System.Drawing.Size(172, 177);
-            this.txtMessContent.TabIndex = 15;
-            this.txtMessContent.TextChanged += new System.EventHandler(this.txtMessContent_TextChanged);
-            // 
             // groupBox15
             // 
-            this.groupBox15.Controls.Add(this.lblNumLMessCode);
             this.groupBox15.Controls.Add(this.txtMessCode);
+            this.groupBox15.Controls.Add(this.lblNumLMessCode);
             this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox15.Location = new System.Drawing.Point(6, 126);
+            this.groupBox15.Location = new System.Drawing.Point(6, 115);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(178, 234);
+            this.groupBox15.Size = new System.Drawing.Size(180, 242);
             this.groupBox15.TabIndex = 0;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Message Code";
@@ -1674,23 +1679,13 @@ namespace ToolSupportCoding.View
             // lblNumLMessCode
             // 
             this.lblNumLMessCode.AutoSize = true;
-            this.lblNumLMessCode.Location = new System.Drawing.Point(66, 206);
+            this.lblNumLMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 221);
             this.lblNumLMessCode.Name = "lblNumLMessCode";
-            this.lblNumLMessCode.Size = new System.Drawing.Size(91, 17);
+            this.lblNumLMessCode.Size = new System.Drawing.Size(80, 15);
             this.lblNumLMessCode.TabIndex = 3;
             this.lblNumLMessCode.Text = "Line number:";
             this.lblNumLMessCode.Visible = false;
-            // 
-            // txtMessCode
-            // 
-            this.txtMessCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessCode.Location = new System.Drawing.Point(3, 19);
-            this.txtMessCode.Multiline = true;
-            this.txtMessCode.Name = "txtMessCode";
-            this.txtMessCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessCode.Size = new System.Drawing.Size(172, 177);
-            this.txtMessCode.TabIndex = 14;
-            this.txtMessCode.TextChanged += new System.EventHandler(this.txtMessCode_TextChanged);
             // 
             // tabPageCreateFileSrc
             // 
@@ -1712,6 +1707,19 @@ namespace ToolSupportCoding.View
             this.tabPageCreateFileSrc.Text = "Create File Source";
             this.tabPageCreateFileSrc.UseVisualStyleBackColor = true;
             // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.lbChoosePath);
+            this.groupBox19.Controls.Add(this.btnChoosePath);
+            this.groupBox19.Controls.Add(this.txtChoosePath);
+            this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox19.Location = new System.Drawing.Point(3, 3);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(573, 100);
+            this.groupBox19.TabIndex = 21;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Setting";
+            // 
             // lbChoosePath
             // 
             this.lbChoosePath.AutoSize = true;
@@ -1721,15 +1729,6 @@ namespace ToolSupportCoding.View
             this.lbChoosePath.Size = new System.Drawing.Size(86, 17);
             this.lbChoosePath.TabIndex = 20;
             this.lbChoosePath.Text = "Source Path";
-            // 
-            // txtChoosePath
-            // 
-            this.txtChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtChoosePath.Location = new System.Drawing.Point(9, 45);
-            this.txtChoosePath.Name = "txtChoosePath";
-            this.txtChoosePath.ReadOnly = true;
-            this.txtChoosePath.Size = new System.Drawing.Size(410, 23);
-            this.txtChoosePath.TabIndex = 19;
             // 
             // btnChoosePath
             // 
@@ -1745,6 +1744,15 @@ namespace ToolSupportCoding.View
             this.btnChoosePath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnChoosePath.UseVisualStyleBackColor = true;
             this.btnChoosePath.Click += new System.EventHandler(this.btnChoosePath_Click);
+            // 
+            // txtChoosePath
+            // 
+            this.txtChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtChoosePath.Location = new System.Drawing.Point(9, 45);
+            this.txtChoosePath.Name = "txtChoosePath";
+            this.txtChoosePath.ReadOnly = true;
+            this.txtChoosePath.Size = new System.Drawing.Size(410, 23);
+            this.txtChoosePath.TabIndex = 19;
             // 
             // btnDeleteFileCreated
             // 
@@ -2110,30 +2118,35 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
-            // groupBox19
+            // txtMessCode
             // 
-            this.groupBox19.Controls.Add(this.lbChoosePath);
-            this.groupBox19.Controls.Add(this.btnChoosePath);
-            this.groupBox19.Controls.Add(this.txtChoosePath);
-            this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox19.Location = new System.Drawing.Point(3, 3);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(573, 100);
-            this.groupBox19.TabIndex = 21;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Setting";
+            this.txtMessCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtMessCode.Location = new System.Drawing.Point(3, 19);
+            this.txtMessCode.Name = "txtMessCode";
+            this.txtMessCode.Size = new System.Drawing.Size(174, 192);
+            this.txtMessCode.TabIndex = 4;
+            this.txtMessCode.Text = "";
+            this.txtMessCode.TextChanged += new System.EventHandler(this.txtMessCode_TextChanged);
             // 
-            // lblColumnResult
+            // txtMessContent
             // 
-            this.lblColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColumnResult.ForeColor = System.Drawing.Color.Red;
-            this.lblColumnResult.Location = new System.Drawing.Point(427, 263);
-            this.lblColumnResult.Name = "lblColumnResult";
-            this.lblColumnResult.Size = new System.Drawing.Size(140, 26);
-            this.lblColumnResult.TabIndex = 25;
-            this.lblColumnResult.Text = "Copy to Clipboard is done!";
-            this.lblColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblColumnResult.Visible = false;
+            this.txtMessContent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtMessContent.Location = new System.Drawing.Point(3, 19);
+            this.txtMessContent.Name = "txtMessContent";
+            this.txtMessContent.Size = new System.Drawing.Size(174, 192);
+            this.txtMessContent.TabIndex = 5;
+            this.txtMessContent.Text = "";
+            this.txtMessContent.TextChanged += new System.EventHandler(this.txtMessContent_TextChanged);
+            // 
+            // txtMessResult
+            // 
+            this.txtMessResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtMessResult.Location = new System.Drawing.Point(3, 19);
+            this.txtMessResult.Name = "txtMessResult";
+            this.txtMessResult.ReadOnly = true;
+            this.txtMessResult.Size = new System.Drawing.Size(182, 192);
+            this.txtMessResult.TabIndex = 19;
+            this.txtMessResult.Text = "";
             // 
             // FormCommon
             // 
@@ -2146,38 +2159,34 @@ namespace ToolSupportCoding.View
             this.Load += new System.EventHandler(this.FormCheckDataModel_Load);
             this.tabControlCommon.ResumeLayout(false);
             this.tabPageCreateJson.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.tabPageFormatCode.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPageGetColumn.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.tabPageCreateComment.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
             this.tabPageCreateMessage.ResumeLayout(false);
             this.grbMessTextI.ResumeLayout(false);
             this.grbMessTextI.PerformLayout();
@@ -2188,7 +2197,6 @@ namespace ToolSupportCoding.View
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             this.groupBox15.ResumeLayout(false);
@@ -2212,9 +2220,7 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.TextBox txtCase;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtInputKey;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnCopy;
@@ -2227,13 +2233,11 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RadioButton rdbCreateObj;
         private System.Windows.Forms.TabPage tabPageFormatCode;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TextBox txtFormatCode;
         private System.Windows.Forms.Button btnFormatCode;
         private System.Windows.Forms.Label lblFormatResult;
         private System.Windows.Forms.Button btnFormatCopy;
         private System.Windows.Forms.Button btnFormatClear;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox txtFormatResult;
         private System.Windows.Forms.TabPage tabPageCreateFileSrc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -2279,7 +2283,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.TabPage tabPageCreateComment;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.TextBox txtCrCmComment;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RadioButton rbCrCmBlock;
         private System.Windows.Forms.RadioButton rbCrCmLineBlock;
@@ -2289,12 +2292,9 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RadioButton rbCrCmLast;
         private System.Windows.Forms.RadioButton rbCrCmFirst;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.TextBox txtCrCmResult;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.TextBox txtCrCmCode;
         private System.Windows.Forms.Button btCrCmClear;
         private System.Windows.Forms.Button btCrCmCopy;
-        private System.Windows.Forms.Label lblCrCmCopy;
         private System.Windows.Forms.Label lblCrCmNumCode;
         private System.Windows.Forms.Label lblCrCmNumComment;
         private System.Windows.Forms.GroupBox groupBox14;
@@ -2348,9 +2348,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.CheckBox chkMessStatusI;
         private System.Windows.Forms.RadioButton rdMessVeri;
         private System.Windows.Forms.RadioButton rdbMessF;
-        private System.Windows.Forms.TextBox txtMessResult;
-        private System.Windows.Forms.TextBox txtMessContent;
-        private System.Windows.Forms.TextBox txtMessCode;
         private System.Windows.Forms.Button btnCreateMess;
         private System.Windows.Forms.Button btnMessCopy;
         private System.Windows.Forms.Button btnMessClear;
@@ -2359,5 +2356,15 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.GroupBox groupBox19;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label lblColumnResult;
+        private System.Windows.Forms.RichTextBox txtInputKey;
+        private System.Windows.Forms.RichTextBox txtResult;
+        private System.Windows.Forms.RichTextBox txtFormatCode;
+        private System.Windows.Forms.RichTextBox txtFormatResult;
+        private System.Windows.Forms.RichTextBox txtCrCmComment;
+        private System.Windows.Forms.RichTextBox txtCrCmCode;
+        private System.Windows.Forms.RichTextBox txtCrCmResult;
+        private System.Windows.Forms.RichTextBox txtMessCode;
+        private System.Windows.Forms.RichTextBox txtMessContent;
+        private System.Windows.Forms.RichTextBox txtMessResult;
     }
 }

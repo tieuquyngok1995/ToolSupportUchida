@@ -18,7 +18,6 @@ namespace ToolSupportCoding.View
     public partial class FormCommon : Form
     {
         private string[] lstKey;
-        private string[] stringSeparators;
 
         private string[] lstMessCode;
         private string[] lstMessContent;
@@ -36,9 +35,6 @@ namespace ToolSupportCoding.View
 
         private int createComentLocation = 0;
         private int createComentMode = 0;
-
-        // cons split 
-        private readonly string[] DELI = new[] { "\r\n" };
 
         private CreateFileService _createFileService;
 
@@ -58,16 +54,11 @@ namespace ToolSupportCoding.View
             this.lstItem = objToolSupport.lstItem;
 
             _createFileService = new CreateFileService(this.getAppSettingModel(this.lstItem));
-
-            stringSeparators = new string[] { CONST.STRING_ADD_LINE };
         }
 
         private void FormCheckDataModel_Load(object sender, EventArgs e)
         {
             txtCase.Focus();
-
-            tabControlCommon.TabPages.Remove(tabPageCreateJson);
-            tabControlCommon.TabPages.Remove(tabPageGetColumn);
 
             LoadTheme();
         }
@@ -142,20 +133,26 @@ namespace ToolSupportCoding.View
 
         private void tabControlCommon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (tabControlCommon.SelectedIndex)
+            int currentTab = tabControlCommon.SelectedIndex;
+
+            switch (tabControlCommon.TabPages[currentTab].Text)
             {
-                case 0:
+                case CONST.TAB_CR_JSON:
                     txtCase.Focus();
                     break;
-                case 1:
-                    //cbMessDone.SelectedIndex = 0;
-                    //cbMessCancel.SelectedIndex = 0;
-                    //txtMessCode.Focus();
-                    break;
-                case 2:
+                case CONST.TAB_FORMAT_COMMENT:
                     txtFormatCode.Focus();
                     break;
-                case 3:
+                case CONST.TAB_GET_NAME:
+                    txColumnData.Focus();
+                    break;
+                case CONST.TAB_CR_COMMENT:
+                    txtCrCmComment.Focus();
+                    break;
+                case CONST.TAB_CR_MESS:
+                    txtMessCode.Focus();
+                    break;
+                case CONST.TAB_CR_FILE_SRC:
                     txtID.Focus();
                     break;
             }
@@ -165,7 +162,7 @@ namespace ToolSupportCoding.View
         #region Tab Create JSON
         private void txtInputKey_TextChanged(object sender, EventArgs e)
         {
-            lstKey = txtInputKey.Text.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+            lstKey = txtInputKey.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
             if (string.IsNullOrEmpty(txtInputKey.Text) && lstKey.Length > 0)
             {
                 displayItem(false);
@@ -215,17 +212,17 @@ namespace ToolSupportCoding.View
 
             if (rdbCreateJson.Checked)
             {
-                result = "{" + CONST.STRING_ADD_LINE;
+                result = "{" + CONST.STRING_NEW_LINE;
                 tab = CUtils.CreateTab(ref indexTab);
                 template = CUtils.CreTmlCommonCaseOut(tab);
                 result = result + string.Format(template, txtCase.Text.Trim(), txtOut.Text.Trim());
-                result = result + "{" + CONST.STRING_ADD_LINE;
+                result = result + "{" + CONST.STRING_NEW_LINE;
             }
             else if (rdbCreateObj.Checked)
             {
-                result = "[" + CONST.STRING_ADD_LINE;
+                result = "[" + CONST.STRING_NEW_LINE;
                 tab = CUtils.CreateTab(ref indexTab);
-                result = result + tab + "{" + CONST.STRING_ADD_LINE;
+                result = result + tab + "{" + CONST.STRING_NEW_LINE;
             }
 
             tab = CUtils.CreateTab(ref indexTab);
@@ -252,14 +249,14 @@ namespace ToolSupportCoding.View
                 if (key.Contains(CONST.STRING_LIST_EN))
                 {
                     template = CUtils.CreTmlCommonObj(tab);
-                    result = result + string.Format(template, key) + "[{" + CONST.STRING_ADD_LINE;
+                    result = result + string.Format(template, key) + "[{" + CONST.STRING_NEW_LINE;
                     isList = true;
                     tab = CUtils.CreateTab(ref indexTab);
                 }
                 else if (numTab > (indexTab - 2))
                 {
                     template = CUtils.CreTmlCommonObj(tab);
-                    result = result + string.Format(template, key) + "{" + CONST.STRING_ADD_LINE;
+                    result = result + string.Format(template, key) + "{" + CONST.STRING_NEW_LINE;
                     tab = CUtils.CreateTab(ref indexTab);
                 }
                 else if (value.Contains(CONST.STRING_COMMA))
@@ -281,13 +278,13 @@ namespace ToolSupportCoding.View
                     if (isList)
                     {
                         tab = CUtils.RemoveTab(ref indexTab);
-                        result = result + tab + "}]" + CONST.STRING_ADD_LINE;
+                        result = result + tab + "}]" + CONST.STRING_NEW_LINE;
                         isList = false;
                     }
                     else
                     {
                         tab = CUtils.RemoveTab(ref indexTab);
-                        result = result + tab + "}" + CONST.STRING_ADD_LINE;
+                        result = result + tab + "}" + CONST.STRING_NEW_LINE;
                     }
                 }
 
@@ -299,11 +296,11 @@ namespace ToolSupportCoding.View
                 tab = CUtils.RemoveTab(ref indexTab);
                 if (indexTab == 0 && rdbCreateObj.Checked)
                 {
-                    result = result + tab + "]" + CONST.STRING_ADD_LINE;
+                    result = result + tab + "]" + CONST.STRING_NEW_LINE;
                 }
                 else
                 {
-                    result = result + tab + "}" + CONST.STRING_ADD_LINE;
+                    result = result + tab + "}" + CONST.STRING_NEW_LINE;
                 }
             }
 
@@ -387,15 +384,15 @@ namespace ToolSupportCoding.View
 
                 maxLengthRow = getLengthText(mode, tmpLine, maxLengthRow);
 
-                result += tmpLine + CONST.STRING_ADD_LINE;
+                result += tmpLine + CONST.STRING_NEW_LINE;
             }
 
             txtFormatResult.Text = CUtils.FormatCode(mode, result, maxLengthRow);
-            txtFormatResult.Text = Regex.Replace(txtFormatResult.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+            txtFormatResult.Text = Regex.Replace(txtFormatResult.Text, @"^\s+$[\n]*", string.Empty, RegexOptions.Multiline);
 
-            if (txtFormatResult.Text.LastIndexOf("\r\n") == (txtFormatResult.Text.Length - 2))
+            if (txtFormatResult.Text.LastIndexOf("\n") == (txtFormatResult.Text.Length - 1))
             {
-                txtFormatResult.Text = txtFormatResult.Text.Substring(0, txtFormatResult.Text.Length - 2);
+                txtFormatResult.Text = txtFormatResult.Text.Substring(0, txtFormatResult.Text.Length - 1);
             }
 
             if (txtFormatResult.Text.Length > 0)
@@ -639,16 +636,16 @@ namespace ToolSupportCoding.View
                 gridColumnData.DataSource = table;
                 DataGridViewColumn column = gridColumnData.Columns[0];
                 column.HeaderText = "Physical Table";
-                column.Width = 125;
+                column.Width = 122;
                 column = gridColumnData.Columns[1];
                 column.HeaderText = "Logic Table";
-                column.Width = 125;
+                column.Width = 122;
                 column = gridColumnData.Columns[2];
                 column.HeaderText = "Physical Name";
                 column.Width = 140;
                 column = gridColumnData.Columns[3];
                 column.HeaderText = "Logic Name";
-                column.Width = 145;
+                column.Width = 144;
             }
             catch (Exception ex)
             {
@@ -767,7 +764,7 @@ namespace ToolSupportCoding.View
                 return;
             }
 
-            List<string> lstDoc = txColumnDoc.Text.Replace("\t", "").Split(DELI, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> lstDoc = txColumnDoc.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             string format = "";
             int selectIndex = 0;
@@ -818,7 +815,7 @@ namespace ToolSupportCoding.View
                 lstDoc[i] = valueInput;
             }
 
-            txColumnResult.Text = string.Join(CONST.STRING_ADD_LINE, lstDoc.ToArray());
+            txColumnResult.Text = string.Join(CONST.STRING_NEW_LINE, lstDoc.ToArray());
 
             btColumnCopy.Enabled = false;
             if (!string.IsNullOrEmpty(txColumnResult.Text))
@@ -880,7 +877,7 @@ namespace ToolSupportCoding.View
         private void txtCrCmComment_TextChanged(object sender, EventArgs e)
         {
             lstInputComment.Clear();
-            lstInputComment = txtCrCmComment.Text.Replace("\t", "").Split(DELI, StringSplitOptions.None).ToList();
+            lstInputComment = txtCrCmComment.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             if (lstInputComment.Count > 0)
             {
@@ -901,7 +898,7 @@ namespace ToolSupportCoding.View
         private void txtCrCmCode_TextChanged(object sender, EventArgs e)
         {
             lstInputCode.Clear();
-            lstInputCode = txtCrCmCode.Text.Replace("\t", "").Split(DELI, StringSplitOptions.None).ToList();
+            lstInputCode = txtCrCmCode.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             if (lstInputCode.Count > 0)
             {
@@ -1014,7 +1011,7 @@ namespace ToolSupportCoding.View
                         maxLengthRow = getLengthText(mode, element, maxLengthRow);
 
                         txtCrCmResult.Text += element;
-                        if (createComentLocation == 1 && !isBlankLine) txtCrCmResult.Text += CONST.STRING_ADD_LINE;
+                        if (createComentLocation == 1 && !isBlankLine) txtCrCmResult.Text += CONST.STRING_NEW_LINE;
                     }
 
                     if (createComentLocation == 1) txtCrCmResult.Text = CUtils.FormatCode(mode, txtCrCmResult.Text, maxLengthRow, isBlankLine);
@@ -1022,7 +1019,6 @@ namespace ToolSupportCoding.View
                     txtCrCmResult.Text = CUtils.removeLastLineBlank(txtCrCmResult.Text);
 
                     btCrCmCopy.Enabled = false;
-                    lblCrCmCopy.Visible = false;
                     if (!string.IsNullOrEmpty(txtCrCmResult.Text))
                     {
                         btCrCmCopy.Enabled = true;
@@ -1053,13 +1049,13 @@ namespace ToolSupportCoding.View
                     if (createComentLocation == 0)
                     {
                         stringBuilder.Append("/** {0} */\r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
                     }
                     else
                     {
                         stringBuilder.Append("{0} /** {1} */");
                     }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
 
                     return stringBuilder.ToString();
                 // line
@@ -1067,13 +1063,13 @@ namespace ToolSupportCoding.View
                     if (createComentLocation == 0)
                     {
                         stringBuilder.Append("// {0} \r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
                     }
                     else
                     {
                         stringBuilder.Append("{0} // {1}");
                     }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
 
                     return stringBuilder.ToString();
                 // block
@@ -1081,13 +1077,13 @@ namespace ToolSupportCoding.View
                     if (createComentLocation == 0)
                     {
                         stringBuilder.Append("<!-- {0} -->\r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_ADD_LINE);
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
                     }
                     else
                     {
                         stringBuilder.Append("{0} <!-- {1} -->");
                     }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_ADD_LINE);
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
 
                     return stringBuilder.ToString();
 
@@ -1100,13 +1096,11 @@ namespace ToolSupportCoding.View
         {
             if (string.IsNullOrEmpty(txtCrCmResult.Text))
             {
-                lblCrCmCopy.Visible = false;
                 return;
             }
 
             Clipboard.Clear();
             Clipboard.SetText(txtCrCmResult.Text);
-            lblCrCmCopy.Visible = true;
         }
 
         private void btCrCmClear_Click(object sender, EventArgs e)
@@ -1120,7 +1114,6 @@ namespace ToolSupportCoding.View
             txtCrCmResult.Text = string.Empty;
 
             btCrCmCopy.Enabled = false;
-            lblCrCmCopy.Visible = false;
         }
 
         #endregion

@@ -164,6 +164,15 @@ namespace ToolSupportCoding.Utils
         public const string NAME_COL_VALUE  = "colValue";
         #endregion
 
+        #region Tab Name
+        public const string TAB_CR_JSON = "Create JSON";
+        public const string TAB_FORMAT_COMMENT = "Format Coment";
+        public const string TAB_GET_NAME = "Get Name Column";
+        public const string TAB_CR_COMMENT = "Create Comment";
+        public const string TAB_CR_MESS = "Create Message";
+        public const string TAB_CR_FILE_SRC = "Create File Source";
+        #endregion
+
         #region String Check
         public const string STRING_CHECK_APOSTROPHE = " '";
         public const string STRING_CHECK_COMMENT = "'//";

@@ -200,7 +200,7 @@ namespace ToolSupportCoding.View
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.Size = new System.Drawing.Size(194, 339);
-            this.txtResult.TabIndex = 1;
+            this.txtResult.TabIndex = 6;
             this.txtResult.Text = "";
             // 
             // groupBox4
@@ -241,7 +241,7 @@ namespace ToolSupportCoding.View
             this.btnCreateParam.Location = new System.Drawing.Point(7, 49);
             this.btnCreateParam.Name = "btnCreateParam";
             this.btnCreateParam.Size = new System.Drawing.Size(121, 24);
-            this.btnCreateParam.TabIndex = 8;
+            this.btnCreateParam.TabIndex = 2;
             this.btnCreateParam.Text = "  Add Param";
             this.btnCreateParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateParam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -271,7 +271,7 @@ namespace ToolSupportCoding.View
             this.btnCopy.Location = new System.Drawing.Point(7, 109);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(91, 24);
-            this.btnCopy.TabIndex = 6;
+            this.btnCopy.TabIndex = 4;
             this.btnCopy.Text = "  Copy";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@ namespace ToolSupportCoding.View
             this.txtSQLChar.Location = new System.Drawing.Point(7, 20);
             this.txtSQLChar.Name = "txtSQLChar";
             this.txtSQLChar.Size = new System.Drawing.Size(121, 23);
-            this.txtSQLChar.TabIndex = 0;
+            this.txtSQLChar.TabIndex = 1;
             // 
             // btnConvert
             // 
@@ -295,7 +295,7 @@ namespace ToolSupportCoding.View
             this.btnConvert.Location = new System.Drawing.Point(7, 79);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(121, 24);
-            this.btnConvert.TabIndex = 4;
+            this.btnConvert.TabIndex = 3;
             this.btnConvert.Text = "  Convert SQL";
             this.btnConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
