@@ -1721,15 +1721,14 @@ namespace ToolSupportCoding.View
 
         #region Tab Clone Src 
 
-        private void btnChoosePath_Click(object sender, EventArgs e)
+        private void btnCloneSrcPath_Click(object sender, EventArgs e)
         {
-
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             folderDlg.ShowNewFolderButton = true;
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.txtChoosePath.Text = folderDlg.SelectedPath;
+                this.txtCloneSrcPath.Text = folderDlg.SelectedPath;
                 foreach (ItemModel item in this.lstItem)
                 {
                     if (item.key.Equals("sourcePath"))
@@ -1743,25 +1742,43 @@ namespace ToolSupportCoding.View
             BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
+        private void rdCloneSrcCreateNew_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdCloneSrcCreateNew.Checked)
+            {
+                rdCloneSrcFuncProcess.Visible = false;
+                rdCloneSrcNoFunc.Visible = false;
+            }
+        }
+
+        private void rdCloneSrcCopyCreate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdCloneSrcCopyCreate.Checked)
+            {
+                rdCloneSrcFuncProcess.Visible = true;
+                rdCloneSrcNoFunc.Visible = true;
+            }
+        }
+
+        private void btnCloneSrcCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                this.txtViewResult.Text = "";
-                this.btnDeleteFileCreated.Visible = false;
-                this._createFileService.Generate(txtScreeenSample.Text.Trim(), txtScreenNew.Text.Trim());
-                if (rdbFuncProcess.Checked)
+                this.txtCloneSrcViewResult.Text = "";
+                this.btCloneSrcDelete.Visible = false;
+                this._createFileService.Generate(txtCloneSrcPGID.Text.Trim(), txtCloneSrcPGName.Text.Trim());
+                if (rdCloneSrcFuncProcess.Checked)
                 {
                     this._createFileService.editFileWithFunctionAndProcess();
                 }
-                else if (rdbNoFunc.Checked)
+                else if (rdCloneSrcNoFunc.Checked)
                 {
                     this._createFileService.editFileWithoutFunction();
                     this._createFileService.editFileWithFunctionAndProcess();
                 }
-                this.txtViewResult.Text = this._createFileService.resultData;
+                this.txtCloneSrcViewResult.Text = this._createFileService.resultData;
                 MessageBox.Show(this._createFileService.message);
-                this.btnDeleteFileCreated.Visible = true;
+                this.btCloneSrcDelete.Visible = true;
             }
             catch (Exception ex)
             {
@@ -1769,7 +1786,7 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void btnDeleteFileCreated_Click(object sender, EventArgs e)
+        private void btCloneSrcDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1778,9 +1795,9 @@ namespace ToolSupportCoding.View
 
                 if (dr == DialogResult.Yes)
                 {
-                    this.txtViewResult.Text = this._createFileService.deleteFileCreated(); ;
+                    this.txtCloneSrcViewResult.Text = this._createFileService.deleteFileCreated(); ;
                     MessageBox.Show(this._createFileService.message);
-                    this.btnDeleteFileCreated.Visible = false;
+                    this.btCloneSrcDelete.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -1876,10 +1893,11 @@ namespace ToolSupportCoding.View
                     functionKeyword = value[2]
                 });
             }
-            this.txtChoosePath.Text = appSettingModel.sourcePath;
+            this.txtCloneSrcPath.Text = appSettingModel.sourcePath;
             return appSettingModel;
         }
 
         #endregion
+
     }
 }
