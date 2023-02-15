@@ -1682,13 +1682,15 @@ namespace ToolSupportCoding.View
                 {
                     if (i + 1 < lstMessContent.Length && !string.IsNullOrEmpty(lstMessContent[i + 1]) && lstMessContent[i + 1] != "\"\"")
                     {
-                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ), lstMessCode[i],
-                            lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty),
-                            lstMessContent[i + 1].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS_EQ), lstMessCode[i].Replace("\t", ""),
+                            lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty).Replace("\t", ""),
+                            lstMessContent[i + 1].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty).Replace("\t", ""));
                     }
                     else
                     {
-                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS), lstMessCode[i], lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty));
+                        result += string.Format(CUtils.CreTmlMess(CONST.STRING_CREATE_MESS),
+                            lstMessCode[i].Replace("\t", ""),
+                            lstMessContent[i].Replace(CONST.STRING_QUOTATION_MARKS, string.Empty).Replace("\t", ""));
                     }
                 }
             }
