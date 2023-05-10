@@ -20,14 +20,12 @@ namespace ToolSupportCoding.View
         private List<ItemModel> lstKey;
 
         private ItemModel objItem;
-
-        private List<string> lstType;
         private Dictionary<string, string> dicData;
 
         private string valKey;
 
         #region Load Form
-        public FormCreateItem(List<SekkeiModel> lstSekei, List<string> lstType, List<ItemModel> lstItem)
+        public FormCreateItem(List<SekkeiModel> lstSekei, List<ItemModel> lstItem)
         {
             InitializeComponent();
 
@@ -35,7 +33,6 @@ namespace ToolSupportCoding.View
 
             this.lstData = lstItem;
             lstSeting = new List<ItemModel>();
-            this.lstType = lstType;
 
             dicData = new Dictionary<string, string>();
         }
@@ -73,19 +70,17 @@ namespace ToolSupportCoding.View
 
         private void LoadData()
         {
-            List<string> lstTypeCombobox = lstType.Where(str => str != CONST.ITEM_SETTING).ToList();
-            cbType.DataSource = lstTypeCombobox;
+            
+            //lstKey = lstData.Where(obj => obj.type.Equals(CONST.ITEM_HTML)).ToList();
+            //if (lstKey.Count > 0)
+            //{
+            //    cbKey.DataSource = new BindingSource(lstKey, null);
+            //    cbKey.DisplayMember = CONST.ITEM_KEY;
+            //    cbKey.ValueMember = CONST.ITEM_VALUE;
+            //    cbKey.SelectedIndex = 0;
+            //}
 
-            lstKey = lstData.Where(obj => obj.type.Equals(CONST.ITEM_HTML)).ToList();
-            if (lstKey.Count > 0)
-            {
-                cbKey.DataSource = new BindingSource(lstKey, null);
-                cbKey.DisplayMember = CONST.ITEM_KEY;
-                cbKey.ValueMember = CONST.ITEM_VALUE;
-                cbKey.SelectedIndex = 0;
-            }
-
-            lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
+            //lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
         }
         #endregion
 
@@ -93,70 +88,70 @@ namespace ToolSupportCoding.View
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectText = "";
-            if (cbType.SelectedItem != null)
-            {
-                selectText = cbType.SelectedItem.ToString();
-            }
+            //if (cbType.SelectedItem != null)
+            //{
+            //    selectText = cbType.SelectedItem.ToString();
+            //}
 
-            lstKey = lstData.Where(obj => obj.type.Equals(selectText)).ToList();
-            if (lstKey.Count > 0)
-            {
-                cbKey.DataSource = new BindingSource(lstKey, null);
-                cbKey.DisplayMember = CONST.ITEM_KEY;
-                cbKey.ValueMember = CONST.ITEM_VALUE;
-                cbKey.SelectedIndex = 0;
-            }
-            lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
+            //lstKey = lstData.Where(obj => obj.type.Equals(selectText)).ToList();
+            //if (lstKey.Count > 0)
+            //{
+            //    cbKey.DataSource = new BindingSource(lstKey, null);
+            //    cbKey.DisplayMember = CONST.ITEM_KEY;
+            //    cbKey.ValueMember = CONST.ITEM_VALUE;
+            //    cbKey.SelectedIndex = 0;
+            //}
+            //lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            valKey = "";
-            if (cbKey.SelectedItem != null)
-            {
-                ItemModel obj = (ItemModel)cbKey.SelectedItem;
-                valKey = obj.key;
-            }
-            List<ItemModel> val = lstData.Where(obj => obj.key.Equals(valKey)).ToList();
+            //valKey = "";
+            //if (cbKey.SelectedItem != null)
+            //{
+            //    ItemModel obj = (ItemModel)cbKey.SelectedItem;
+            //    valKey = obj.key;
+            //}
+            //List<ItemModel> val = lstData.Where(obj => obj.key.Equals(valKey)).ToList();
 
-            txtFormat.Text = string.Empty;
-            if (!valKey.ToUpper().Equals(CONST.STRING_TABLE))
-            {
-                txtValue.Text = string.Empty;
-            }
+            //txtFormat.Text = string.Empty;
+            //if (!valKey.ToUpper().Equals(CONST.STRING_TABLE))
+            //{
+            //    txtInputCode.Text = string.Empty;
+            //}
 
-            txtResult.Text = string.Empty;
-            lblResult.Visible = false;
-            if (val.Count > 0)
-            {
-                objItem = val[0];
-                handleData(objItem);
+            //txtResult.Text = string.Empty;
+            //lblResult.Visible = false;
+            //if (val.Count > 0)
+            //{
+            //    objItem = val[0];
+            //    handleData(objItem);
 
-                if (!dicData.ContainsKey(CONST.STRING_FORM_VALUE))
-                {
-                    txtFormat.Enabled = false;
-                }
-                else
-                {
-                    txtFormat.Enabled = true;
-                }
+            //    if (!dicData.ContainsKey(CONST.STRING_FORM_VALUE))
+            //    {
+            //        txtFormat.Enabled = false;
+            //    }
+            //    else
+            //    {
+            //        txtFormat.Enabled = true;
+            //    }
 
-                btnCreateResult.Enabled = true;
+            //    btnCreateResult.Enabled = true;
 
-            }
-            else
-            {
-                btnCreateResult.Enabled = false;
-            }
+            //}
+            //else
+            //{
+            //    btnCreateResult.Enabled = false;
+            //}
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            cbType.SelectedIndex = 0;
-            cbKey.SelectedIndex = 0;
+            //cbType.SelectedIndex = 0;
+            //cbKey.SelectedIndex = 0;
 
-            txtFormat.Text = string.Empty;
-            txtValue.Text = string.Empty;
+            //txtFormat.Text = string.Empty;
+            //txtInputCode.Text = string.Empty;
 
             gridSetParam.Rows.Clear();
             gridSetParam.Refresh();
@@ -177,22 +172,22 @@ namespace ToolSupportCoding.View
                 gridSetParam.Rows.Clear();
                 gridSetParam.Refresh();
 
-                string txFromatValue = txtFormat.Text.Trim();
-                string txValue = txtValue.Text.Trim();
+                //string txFromatValue = txtFormat.Text.Trim();
+                //string txValue = txtInputCode.Text.Trim();
 
                 string[] stringSeparators = new string[] { "\r\n" };
                 string[] lines = data.value.Split(stringSeparators, StringSplitOptions.None);
 
-                List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('|')[0])).ToList();
-
+                //List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('|')[0])).ToList();
+                List<ItemModel> lstSetingHandle = new List<ItemModel>();
                 dicData = new Dictionary<string, string>();
                 if (lstSetingHandle.Count == 1 && lstSetingHandle[0].value.Contains(data.key))
                 {
                     int numRow = 1;
-                    if (!string.IsNullOrEmpty(txValue))
-                    {
-                        numRow = int.Parse(txValue);
-                    }
+                    //if (!string.IsNullOrEmpty(txValue))
+                    //{
+                    //    numRow = int.Parse(txValue);
+                    //}
 
                     for (int i = 0; i < numRow; i++)
                     {
@@ -218,7 +213,7 @@ namespace ToolSupportCoding.View
                         }
                     }
 
-                    txtValue.Enabled = true;
+                    //txtInputCode.Enabled = true;
                     return;
                 }
 
@@ -247,7 +242,7 @@ namespace ToolSupportCoding.View
 
                                 if (key.Contains(CONST.STRING_FORM_VALUE) && !dicData.ContainsKey(CONST.STRING_FORM_VALUE))
                                 {
-                                    dicData.Add(CONST.STRING_FORM_VALUE, txtFormat.Text.Trim());
+                                    //dicData.Add(CONST.STRING_FORM_VALUE, txtFormat.Text.Trim());
                                 }
 
                                 if (isMess && name.ToUpper().Equals(CONST.STRING_NAME_ID)) name = "Message " + name;
@@ -312,7 +307,7 @@ namespace ToolSupportCoding.View
                         }
                     }
                 }
-                txtValue.Enabled = false;
+                ///txtInputCode.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -325,13 +320,13 @@ namespace ToolSupportCoding.View
         {
             if (dicData.ContainsKey(CONST.STRING_FORM_VALUE))
             {
-                string valTxFormat = txtFormat.Text.Trim();
-                if (string.IsNullOrEmpty(valTxFormat))
-                {
-                    MessageBox.Show(CONST.MESS_FORMAT_VALUE_EMPTY, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                dicData[CONST.STRING_FORM_VALUE] = valTxFormat;
+                //string valTxFormat = txtFormat.Text.Trim();
+                //if (string.IsNullOrEmpty(valTxFormat))
+                //{
+                //    MessageBox.Show(CONST.MESS_FORMAT_VALUE_EMPTY, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+                //dicData[CONST.STRING_FORM_VALUE] = valTxFormat;
             }
 
             List<ItemModel> lstSetingParam = lstSeting.Where(obj => CONST.STRING_FORMAT.Equals(obj.value.Split('|')[0].ToUpper())).ToList();

@@ -9,7 +9,7 @@ namespace ToolSupportCoding.Model
     [Serializable]
     public class ItemModel
     {
-        public string type { get; set; }
+        public string name { get; set; }
 
         public string key { get; set; }
 
@@ -19,9 +19,9 @@ namespace ToolSupportCoding.Model
         {
         }
 
-        public ItemModel(string type, string key, string value)
+        public ItemModel(string name, string key, string value)
         {
-            this.type = type;
+            this.name = name;
             this.key = key;
             this.value = value;
         }

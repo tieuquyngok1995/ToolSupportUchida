@@ -37,7 +37,6 @@ namespace ToolSupportCoding
         private int mode;
         private List<SekkeiModel> lstSekkei;
         private List<ItemModel> lstItem;
-        private List<string> lstType;
         private AppSettingModel appSettingModel;
 
         //Constructor
@@ -53,7 +52,6 @@ namespace ToolSupportCoding
 
             lstSekkei = new List<SekkeiModel>();
             lstItem = new List<ItemModel>();
-            lstType = new List<string>();
             appSettingModel = new AppSettingModel();
 
             btnCloseChildForm.Visible = false;
@@ -177,14 +175,12 @@ namespace ToolSupportCoding
                 }
             }
 
-            string type = string.Empty;
             if (objToolSupport.lstItem != null)
             {
                 lstItem = objToolSupport.lstItem;
                 foreach (ItemModel adapter in objToolSupport.lstItem)
                 {
-                    if (lstType.Count == 0 || adapter.type != type) { type = adapter.type; lstType.Add(type); }
-                    gridFormat.Rows.Add(noAdapter, adapter.type, adapter.key, adapter.value);
+                    gridFormat.Rows.Add(noAdapter, adapter.name, adapter.key, adapter.value);
                     noAdapter++;
                 }
             }
@@ -193,8 +189,6 @@ namespace ToolSupportCoding
             {
                 appSettingModel = objToolSupport.appSettingModel;
             }
-
-            cbType.DataSource = lstType;
 
             mode = objToolSupport.modeLanguage;
             if (mode == 0)
@@ -326,7 +320,7 @@ namespace ToolSupportCoding
                         gridFormat.Refresh();
                         foreach (ItemModel item in objToolSupport.lstItem)
                         {
-                            gridFormat.Rows.Add(noAdapter, item.type, item.key, item.value);
+                            gridFormat.Rows.Add(noAdapter, item.name, item.key, item.value);
                             noAdapter++;
                         }
                     }
@@ -518,7 +512,7 @@ namespace ToolSupportCoding
             {
                 foreach (ItemModel item in lstItem)
                 {
-                    gridFormat.Rows.Add(no, item.type, item.key, item.value);
+                    gridFormat.Rows.Add(no, item.name, item.key, item.value);
                     no++;
                 }
             }
@@ -540,7 +534,7 @@ namespace ToolSupportCoding
 
                 if (objItem != null)
                 {
-                    this.gridFormat.Rows.Add(1, objItem.type, objItem.key, objItem.value);
+                    this.gridFormat.Rows.Add(1, objItem.name, objItem.key, objItem.value);
                     no++;
                 }
                 else
@@ -552,7 +546,7 @@ namespace ToolSupportCoding
 
         private void btnAddAdapter_Click(object sender, EventArgs e)
         {
-            string type = this.cbType.GetItemText(cbType.SelectedItem);
+            string txName = txtName.Text.Trim();
             string txKey = txtKey.Text.Trim();
             string txValue = txtValue.Text.Trim();
 
@@ -583,17 +577,17 @@ namespace ToolSupportCoding
 
                 if (rowIndex != -1)
                 {
-                    this.gridFormat.Rows[rowIndex].Cells[1].Value = type;
+                    this.gridFormat.Rows[rowIndex].Cells[1].Value = txName;
                     this.gridFormat.Rows[rowIndex].Cells[2].Value = txKey;
                     this.gridFormat.Rows[rowIndex].Cells[3].Value = txValue;
-                    lstItem[rowIndex] = new ItemModel(type, txKey, txValue);
+                    lstItem[rowIndex] = new ItemModel(txName, txKey, txValue);
 
                     rowIndex = -1;
                 }
                 else
                 {
-                    this.gridFormat.Rows.Add(noAdapter++, type, txKey, txValue);
-                    lstItem.Add(new ItemModel(type, txKey, txValue));
+                    this.gridFormat.Rows.Add(noAdapter++, txName, txKey, txValue);
+                    lstItem.Add(new ItemModel(txName, txKey, txValue));
                 }
 
                 objToolSupport.lstItem = lstItem;
@@ -608,7 +602,7 @@ namespace ToolSupportCoding
 
         private void btnClearAdaper_Click(object sender, EventArgs e)
         {
-            cbType.SelectedIndex = 0;
+            txtName.Text = string.Empty;
             txtKey.Text = string.Empty;
             txtValue.Text = string.Empty;
             btnSearchAdapter.Enabled = true;
@@ -628,7 +622,7 @@ namespace ToolSupportCoding
 
             if (colName.Equals(CONST.NAME_COL_ADAPTER_EDIT))
             {
-                cbType.SelectedItem = row.Cells[1].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
                 txtKey.Text = row.Cells[2].Value.ToString();
                 txtValue.Text = row.Cells[3].Value.ToString();
                 rowIndex = e.RowIndex;
@@ -680,7 +674,7 @@ namespace ToolSupportCoding
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateItem(lstSekkei, lstType, lstItem), sender);
+            OpenChildForm(new FormCreateItem(lstSekkei, lstItem), sender);
         }
 
         private void btnCheckData_Click(object sender, EventArgs e)

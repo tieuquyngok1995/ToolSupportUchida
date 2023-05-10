@@ -9,8 +9,8 @@ namespace ToolSupportCoding.Utils
         public static string[] STRING_SEPARATORS = new string[] { STRING_NEW_LINE };
 
         #region Item
-        public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = *** End: \\r\\n";
-        public static string ITEM_CHAR_FORMAT_TAB = "Split: [--] *** End: <br>";
+        public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = || End: \\r\\n";
+        public static string ITEM_CHAR_FORMAT_TAB    = "Split: [--] || End: <br>";
 
         public static string ITEM_HTML = "HTML";
         public static string ITEM_SETTING = "Setting";
