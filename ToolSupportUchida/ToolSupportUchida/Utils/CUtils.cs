@@ -460,6 +460,11 @@ namespace ToolSupportCoding.Utils
                 return sb.Append("{0}={1}[%EQ%]{2}").Append(CONST.STRING_ADD_LINE).ToString();
             }
         }
+
+        public static string CreTmlHTMLComment(string value)
+        {
+            return "<!-- " + value + " -->";
+        }
         #endregion
 
         #region Method

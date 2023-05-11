@@ -15,9 +15,9 @@ namespace ToolSupportCoding.View
     public partial class FormCreateItem : Form
     {
         private List<SekkeiModel> lstSekei;
-        private List<ItemModel> lstData;
-        private List<ItemModel> lstSeting;
-        private List<ItemModel> lstKey;
+        private List<ItemModel> lstItem;
+
+        private List<string> lstCode;
 
         private ItemModel objItem;
         private Dictionary<string, string> dicData;
@@ -31,8 +31,7 @@ namespace ToolSupportCoding.View
 
             this.lstSekei = lstSekei;
 
-            this.lstData = lstItem;
-            lstSeting = new List<ItemModel>();
+            this.lstItem = lstItem;
 
             dicData = new Dictionary<string, string>();
         }
@@ -40,13 +39,11 @@ namespace ToolSupportCoding.View
         private void FormCreateAdapter_Load(object sender, EventArgs e)
         {
             LoadTheme();
-
-            LoadData();
         }
 
         private void LoadTheme()
         {
-            foreach (Control btns in this.groupBoxSetting.Controls)
+            foreach (Control btns in groupBoxSetting.Controls)
             {
                 if (btns.GetType() == typeof(Button))
                 {
@@ -56,7 +53,7 @@ namespace ToolSupportCoding.View
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
-            foreach (Control btns in this.panelResult.Controls)
+            foreach (Control btns in groupBoxResult.Controls)
             {
                 if (btns.GetType() == typeof(Button))
                 {
@@ -66,365 +63,173 @@ namespace ToolSupportCoding.View
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
-        }
-
-        private void LoadData()
-        {
-            
-            //lstKey = lstData.Where(obj => obj.type.Equals(CONST.ITEM_HTML)).ToList();
-            //if (lstKey.Count > 0)
-            //{
-            //    cbKey.DataSource = new BindingSource(lstKey, null);
-            //    cbKey.DisplayMember = CONST.ITEM_KEY;
-            //    cbKey.ValueMember = CONST.ITEM_VALUE;
-            //    cbKey.SelectedIndex = 0;
-            //}
-
-            //lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
         }
         #endregion
 
         #region Event
-        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnGetItem_Click(object sender, EventArgs e)
         {
-            string selectText = "";
-            //if (cbType.SelectedItem != null)
-            //{
-            //    selectText = cbType.SelectedItem.ToString();
-            //}
+            if (string.IsNullOrEmpty(txtInputCode.Text)) return;
 
-            //lstKey = lstData.Where(obj => obj.type.Equals(selectText)).ToList();
-            //if (lstKey.Count > 0)
-            //{
-            //    cbKey.DataSource = new BindingSource(lstKey, null);
-            //    cbKey.DisplayMember = CONST.ITEM_KEY;
-            //    cbKey.ValueMember = CONST.ITEM_VALUE;
-            //    cbKey.SelectedIndex = 0;
-            //}
-            //lstSeting = lstData.Where(obj => obj.type.Equals(CONST.ITEM_SETTING) && obj.key.Equals(cbType.SelectedItem.ToString())).ToList();
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            //valKey = "";
-            //if (cbKey.SelectedItem != null)
-            //{
-            //    ItemModel obj = (ItemModel)cbKey.SelectedItem;
-            //    valKey = obj.key;
-            //}
-            //List<ItemModel> val = lstData.Where(obj => obj.key.Equals(valKey)).ToList();
-
-            //txtFormat.Text = string.Empty;
-            //if (!valKey.ToUpper().Equals(CONST.STRING_TABLE))
-            //{
-            //    txtInputCode.Text = string.Empty;
-            //}
-
-            //txtResult.Text = string.Empty;
-            //lblResult.Visible = false;
-            //if (val.Count > 0)
-            //{
-            //    objItem = val[0];
-            //    handleData(objItem);
-
-            //    if (!dicData.ContainsKey(CONST.STRING_FORM_VALUE))
-            //    {
-            //        txtFormat.Enabled = false;
-            //    }
-            //    else
-            //    {
-            //        txtFormat.Enabled = true;
-            //    }
-
-            //    btnCreateResult.Enabled = true;
-
-            //}
-            //else
-            //{
-            //    btnCreateResult.Enabled = false;
-            //}
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            //cbType.SelectedIndex = 0;
-            //cbKey.SelectedIndex = 0;
-
-            //txtFormat.Text = string.Empty;
-            //txtInputCode.Text = string.Empty;
+            lstCode = new List<string>();
+            lstCode = txtInputCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             gridSetParam.Rows.Clear();
             gridSetParam.Refresh();
 
-            btnCreateResult.Enabled = false;
+            if (lstCode.Count <= 0) return;
+
+            int numOpen = 0, numClose = 0, rowIndex = 0, rowCount = 1;
+            bool isExit = false, isClose = true;
+            string rowTmp = string.Empty;
+            ItemModel objItem = new ItemModel();
+            List<string> lstKey = lstItem.Select(obj => obj.key).ToList();
+
+            for (int i = 0; i < lstCode.Count; i++)
+            {
+                string row = lstCode[i];
+
+                if (isClose)
+                {
+                    isExit = lstItem.Any(obj => row.Contains(obj.name));
+                }
+                else
+                {
+                    rowTmp += row;
+                    rowCount++;
+                    numOpen += row.Split(CONST.CHAR_O_BRACKETS).Length - 1;
+                    numClose += row.Split(CONST.CHAR_C_BRACKETS).Length - 1;
+
+                    if (numOpen == numClose)
+                    {
+                        string action = objItem.key.Equals(CONST.STRING_DEL) ? CONST.STRING_DEL :
+                                       (objItem.key.Equals(CONST.STRING_REPLACE) ? CONST.STRING_REPLACE : CONST.STRING_EDIT);
+
+                        rowTmp = Regex.Replace(rowTmp, @"\s", "");
+                        gridSetParam.Rows.Add(rowIndex, objItem.name, rowTmp.Trim(), action, objItem.value, rowCount);
+                        rowCount = 1;
+                        isClose = true;
+                    }
+                    else if (numClose > numOpen)
+                    {
+                        rowCount = 1;
+                        isExit = false;
+                        isClose = true;
+                    }
+                }
+
+                if (isExit)
+                {
+                    rowIndex = i + 1;
+
+                    numOpen = row.Split(CONST.CHAR_O_BRACKETS).Length - 1;
+                    numClose = row.Split(CONST.CHAR_C_BRACKETS).Length - 1;
+
+                    objItem = lstItem.FirstOrDefault(obj => row.Contains(obj.name));
+
+                    if (numOpen == numClose)
+                    {
+                        string action = objItem.key.Equals(CONST.STRING_DEL) ? CONST.STRING_DEL :
+                                       (objItem.key.Equals(CONST.STRING_REPLACE) ? CONST.STRING_REPLACE : CONST.STRING_EDIT);
+
+                        gridSetParam.Rows.Add(rowIndex, objItem.name, row.Trim(), action, objItem.value, rowCount);
+                        isClose = true;
+                    }
+                    else
+                    {
+                        rowTmp = row;
+                        isExit = false;
+                        isClose = false;
+                    }
+                }
+            }
+
+            if (gridSetParam.Rows.Count > 0)
+            {
+                btnEdit.Enabled = true;
+                txtResult.Text = string.Empty;
+                btnCopy.Enabled = true;
+                lblResult.Visible = false;
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtInputCode.Text = string.Empty;
+
+            gridSetParam.Rows.Clear();
+            gridSetParam.Refresh();
+
+            btnEdit.Enabled = false;
             txtResult.Text = string.Empty;
             btnCopy.Enabled = false;
             lblResult.Visible = false;
         }
 
-        private void handleData(ItemModel data)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            try
+            foreach (DataGridViewRow row in gridSetParam.Rows)
             {
-                int no = 1, index = 0;
-                string name, key;
-                bool isMess = false;
-                gridSetParam.Rows.Clear();
-                gridSetParam.Refresh();
+                int rowIdx = int.Parse(row.Cells[0].Value.ToString()) - 1;
+                int rowCount = int.Parse(row.Cells[5].Value.ToString());
 
-                //string txFromatValue = txtFormat.Text.Trim();
-                //string txValue = txtInputCode.Text.Trim();
+                string value = row.Cells[2].Value.ToString();
+                string type = row.Cells[3].Value.ToString();
+                string valueAdd = row.Cells[4].Value.ToString();
+                string paramAdd = string.Empty;
 
-                string[] stringSeparators = new string[] { "\r\n" };
-                string[] lines = data.value.Split(stringSeparators, StringSplitOptions.None);
-
-                //List<ItemModel> lstSetingHandle = lstSeting.Where(obj => obj.key.Equals(data.type) && data.key.Equals(obj.value.Split('|')[0])).ToList();
-                List<ItemModel> lstSetingHandle = new List<ItemModel>();
-                dicData = new Dictionary<string, string>();
-                if (lstSetingHandle.Count == 1 && lstSetingHandle[0].value.Contains(data.key))
+                if (type.Equals(CONST.STRING_EDIT))
                 {
-                    int numRow = 1;
-                    //if (!string.IsNullOrEmpty(txValue))
-                    //{
-                    //    numRow = int.Parse(txValue);
-                    //}
+                    lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
 
-                    for (int i = 0; i < numRow; i++)
+                    
+                    if (value.Contains(CONST.STRING_FUNCTION))
                     {
-                        gridSetParam.Rows.Add(no, "Col class " + no, "", "");
-                        no++;
+                        paramAdd = addProperty(value);
+                    }
+                    if (value.Contains(CONST.STRING_DATA_BIND))
+                    {
+                        paramAdd += addDataBind(value);
+                    }
+                    if (value.Contains(CONST.STRING_TD_CLASS) || value.Contains(CONST.STRING_TD))
+                    {
+                        valueAdd = editTagTD(value, valueAdd);
                     }
 
-                    foreach (string line in lines)
+                    if (value.Contains(CONST.STRING_CLASS) || value.Contains(CONST.STRING_CLASS_SP))
                     {
-                        if (string.IsNullOrEmpty(line)) continue;
-
-                        string[] lstParam = line.Split(CONST.CHAR_SPACE);
-
-                        foreach (string param in lstParam)
-                        {
-                            string pattern = @"{[0-9]}";
-                            Regex rg = new Regex(pattern);
-                            if (rg.IsMatch(param))
-                            {
-                                string value = removeChar(param, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
-                                dicData.Add(value, string.Empty);
-                            }
-                        }
+                        valueAdd = addClassColumn(value, valueAdd);
                     }
 
-                    //txtInputCode.Enabled = true;
-                    return;
-                }
-
-                foreach (string line in lines)
-                {
-                    if (string.IsNullOrEmpty(line)) continue;
-
-                    string[] lstParam = line.Split(CONST.CHAR_SPACE);
-
-                    foreach (string param in lstParam)
+                    if (rowCount >= 2)
                     {
-                        if (param.Contains(CONST.STRING_MESSAGE)) isMess = true;
-
-                        string pattern = @"{[0-9]}";
-                        Regex rg = new Regex(pattern);
-                        if (rg.IsMatch(param))
-                        {
-                            string[] lstItem = param.Split(CONST.CHAR_EQUALS);
-                            if (lstItem.Length > 1)
-                            {
-                                name = lstItem[0];
-                                key = lstItem[1];
-
-                                key = removeChar(key, "", CONST.STRING_END_TAG, 1);
-                                key = key.Replace(CONST.STRING_QUOTATION_MARKS, string.Empty);
-
-                                if (key.Contains(CONST.STRING_FORM_VALUE) && !dicData.ContainsKey(CONST.STRING_FORM_VALUE))
-                                {
-                                    //dicData.Add(CONST.STRING_FORM_VALUE, txtFormat.Text.Trim());
-                                }
-
-                                if (isMess && name.ToUpper().Equals(CONST.STRING_NAME_ID)) name = "Message " + name;
-                                else name = CUtils.FirstCharToUpperCase(name);
-
-                                if (key.ToUpper().Contains(CONST.STRING_TAG_FH))
-                                {
-                                    string[] lstFH = key.Split(CONST.CHAR_DOT);
-                                    foreach (string fh in lstFH)
-                                    {
-                                        key = fh.ToUpper().Replace(CONST.STRING_TAG_FH, string.Empty);
-                                        key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
-                                        if (rg.IsMatch(fh) && !dicData.ContainsKey(key))
-                                        {
-                                            dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
-                                            gridSetParam.Rows.Add(no, name, string.Empty, key);
-                                            no++;
-                                        }
-                                    }
-                                    continue;
-                                }
-                                else if (key.ToUpper().Contains(CONST.STRING_TEST))
-                                {
-                                    string[] lstTest = key.Split(CONST.CHAR_DOT);
-                                    foreach (string test in lstTest)
-                                    {
-                                        key = test.ToUpper().Replace(CONST.STRING_TEST, string.Empty);
-                                        key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
-                                        if (rg.IsMatch(test) && !dicData.ContainsKey(key))
-                                        {
-                                            dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
-                                            gridSetParam.Rows.Add(no, name, string.Empty, key);
-                                            no++;
-                                        }
-                                    }
-                                    continue;
-                                }
-
-                                key = removeChar(key, CONST.STRING_O_CUR_BRACKETS, CONST.STRING_C_CUR_BRACKETS, 2, true);
-                                if (!dicData.ContainsKey(key))
-                                {
-                                    dicData.Add(key, isMess ? CONST.STRING_MESSAGE : string.Empty);
-                                    gridSetParam.Rows.Add(no, name, string.Empty, key);
-                                    no++;
-                                }
-                            }
-                            else if (lstItem.Length == 1 && lstSetingHandle.Count > 0)
-                            {
-                                key = lstItem[0].Replace(CONST.STRING_C_SIGN, string.Empty);
-                                if (index < lstSetingHandle.Count)
-                                {
-                                    string text = lstSetingHandle[index].value.Split('|')[1];
-
-                                    if (!dicData.ContainsKey(key))
-                                    {
-                                        dicData.Add(key, string.Empty);
-                                        gridSetParam.Rows.Add(no, text, string.Empty, key);
-                                        no++; index = index + 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                ///txtInputCode.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Handle Data") + ex.Message,
-                    CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnCreateResult_Click(object sender, EventArgs e)
-        {
-            if (dicData.ContainsKey(CONST.STRING_FORM_VALUE))
-            {
-                //string valTxFormat = txtFormat.Text.Trim();
-                //if (string.IsNullOrEmpty(valTxFormat))
-                //{
-                //    MessageBox.Show(CONST.MESS_FORMAT_VALUE_EMPTY, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
-                //dicData[CONST.STRING_FORM_VALUE] = valTxFormat;
-            }
-
-            List<ItemModel> lstSetingParam = lstSeting.Where(obj => CONST.STRING_FORMAT.Equals(obj.value.Split('|')[0].ToUpper())).ToList();
-
-            foreach (DataGridViewRow item in gridSetParam.Rows)
-            {
-                string key = item.Cells[1].Value.ToString();
-                string value = item.Cells[2].Value.ToString();
-                string index = item.Cells[3].Value.ToString();
-
-                if (valKey.ToUpper().Equals(CONST.STRING_TABLE))
-                {
-                    ItemModel objFormat = lstSetingParam.Find(obj => valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
-                    string format = value;
-                    if (objFormat != null)
-                    {
-                        format = objFormat.value.Split('|')[2];
-                        format = format.Replace(CONST.STRING_FORM_VALUE, value);
-                    }
-
-                    List<string> lstKey = dicData.Keys.ToList();
-                    for (int idx = 0; idx < lstKey.Count; idx++)
-                    {
-                        value = dicData[lstKey[idx]];
-                        if (idx == 0)
-                        {
-                            dicData[lstKey[idx]] = value + "        " + format + CONST.STRING_ADD_LINE;
-                        }
-                        else
-                        {
-                            dicData[lstKey[idx]] = value + "        <tr>\r\n            <th></th>\r\n            <td></td>\r\n        </tr>" + CONST.STRING_ADD_LINE;
-                        }
-                    }
-                }
-                else if (dicData.ContainsKey(index))
-                {
-
-                    if (key.ToUpper().Contains(CONST.STRING_MESSAGE.ToUpper()))
-                    {
-                        SekkeiModel objSekkei = lstSekei.Find(obj => obj.physiName.Equals(value));
-                        if (objSekkei != null)
-                        {
-                            dicData[index] = objSekkei.logicName;
-                        }
-                        else
-                        {
-                            dicData[index] = value;
-                        }
+                        rowIdx++;
+                        lstCode[rowIdx] = valueAdd.Replace("{0}", paramAdd);
                     }
                     else
                     {
-                        if (lstSetingParam.Count > 0)
-                        {
-                            ItemModel objFormat = lstSetingParam.Find(obj => key.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()));
-                            string format = value;
-                            if (objFormat != null)
-                            {
-                                format = objFormat.value.Split('|')[2];
-                                format = format.Replace(CONST.STRING_FORM_VALUE, value);
-                            }
-                            else
-                            {
-                                objFormat = lstSetingParam.Find(obj => valKey.ToUpper().Equals(obj.value.Split('|')[1].ToUpper()) && key.ToUpper().Equals(obj.value.Split('|')[2].ToUpper()));
-                                if (objFormat != null && !string.IsNullOrEmpty(value))
-                                {
-                                    format = objFormat.value.Split('|')[3];
-                                    if (format.ToUpper().Contains(CONST.STRING_MESSAGE.ToUpper()))
-                                    {
-                                        SekkeiModel objSekkei = lstSekei.Find(obj => obj.physiName.Equals(value));
-                                        if (objSekkei != null)
-                                        {
-                                            value = objSekkei.logicName;
-                                        }
-                                        format = format.Replace(CONST.STRING_FORM_VALUE, value);
-                                    }
-                                    format = format.Replace(CONST.STRING_FORM_VALUE, value);
-                                }
-                            }
-
-                            dicData[index] = format;
-                        }
-                        else
-                        {
-                            dicData[index] = value;
-                        }
+                        lstCode[rowIdx] += CONST.STRING_NEW_LINE + valueAdd.Replace("{0}", paramAdd);
                     }
+
+                    int rowTmp = 3;
+                    while (rowTmp <= rowCount)
+                    {
+                        rowIdx++;
+                        lstCode[rowIdx] = string.Empty;
+                        rowTmp++;
+                    }
+                }
+                else if (type.Equals(CONST.STRING_DEL))
+                {
+                    lstCode[rowIdx] = string.Empty;
+                }
+                else if (type.Equals(CONST.STRING_REPLACE))
+                {
+                    lstCode[rowIdx] = valueAdd;
                 }
             }
 
-            string result = objItem.value;
-            foreach (KeyValuePair<string, string> dic in dicData)
-            {
-                result = result.Replace(dic.Key, dic.Value);
-            }
-
-            txtResult.Text = result;
-
-            btnCopy.Enabled = true;
+            txtResult.Text = string.Join("\n", lstCode);
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -444,28 +249,62 @@ namespace ToolSupportCoding.View
 
         #region Method
 
-        /// <summary>
-        /// Remove end char text in string
-        /// </summary>
-        /// <param name="val">text need change</param>
-        /// <param name="txFistChar">first char check</param>
-        /// <param name="txLastChar">last char check</param>
-        /// <param name="model">0: fist, 1: last: 2: all</param>
-        /// <param name="isUp">remove start after text</param>
-        /// <returns></returns>
-        private string removeChar(string val, string txFistChar, string txLastChar, int model, bool isUp = false)
+        private string addProperty(string value)
         {
-            int numStar = val.IndexOf(txFistChar);
-            int numEnd = val.IndexOf(txLastChar);
-            int length = val.Length - 1;
-            if ((model == 0 && numStar == -1) || (model == 1 && numEnd == -1) || (model == 2 && numStar == -1)) return val;
-            if (numStar == 0 && numEnd == length) return val;
+            value = Regex.Replace(value, @"\s", "");
+            string[] arr = value.Split(new[] { "(Function(x)" }, StringSplitOptions.None);
 
-            if (isUp && numEnd != length) numEnd++;
+            if (arr.Length < 1) return string.Empty;
 
-            if (model == 0 || (model == 2 && numEnd == length)) return val.Substring(numStar);
-            else if (model == 1 || (model == 2 && numStar == 0)) return val.Substring(0, numEnd);
-            else val = val.Substring(numStar); return val.Substring(0, val.Length - val.IndexOf(txLastChar));
+            arr = arr[1].Replace("})", string.Empty).Split(new[] { ",NewWith" }, StringSplitOptions.None);
+
+            return "[ucdProperty]=\"" + arr[0] + "\"";
+        }
+
+        private string addDataBind(string value)
+        {
+            value = Regex.Replace(value, @"\s", "");
+            string[] arr = value.Split(new[] { ".data_bind=\"" }, StringSplitOptions.None);
+
+            if (arr.Length < 1) return string.Empty;
+
+            value = arr[1].Replace("\"})", string.Empty);
+
+            return " data-bind=\"" + value + "\"";
+        }
+
+        private string editTagTD(string value, string valueAdd)
+        {
+            string[] arr = value.Split(new char[] { '<', '>' });
+
+            if (arr.Length < 3) return string.Empty;
+
+            return "<" + arr[1] + ">" + valueAdd + "<" + arr[3] + ">";
+        }
+
+        private string addClassColumn(string value, string valueAdd)
+        {
+            string strClass = getClass(value);
+            if (!string.IsNullOrEmpty(strClass))
+            {
+                return "<div class=\"" + strClass + "\">" + CONST.CHAR_NEW_LINE + valueAdd + CONST.CHAR_NEW_LINE + "</div>";
+            }
+            else
+            {
+                return valueAdd;
+            }
+        }
+
+        private string getClass(string value)
+        {
+            value = Regex.Replace(value, @"\s", "");
+            string[] arr = value.Split(new[] { ".class=\"" }, StringSplitOptions.None);
+
+            if (arr.Length < 1) return string.Empty;
+
+            arr = arr[1].Split('"');
+
+            return arr[0].Trim();
         }
 
         #endregion

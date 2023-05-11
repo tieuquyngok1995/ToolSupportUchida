@@ -121,6 +121,17 @@ namespace ToolSupportCoding.Utils
         public const string STRING_CALL = "CALL";
         public const string STRING_HLP = "HLP";
         public const string STRING_MSGBOX = "MSGBOX";
+
+        public const string STRING_EDIT = "Edit";
+        public const string STRING_DEL = "Delete";
+        public const string STRING_REPLACE = "Replace";
+
+        public const string STRING_FUNCTION = "(Function(x)";
+        public const string STRING_DATA_BIND = ".data_bind=\"";
+        public const string STRING_TD = "<td>";
+        public const string STRING_TD_CLASS = "<td class=\"";
+        public const string STRING_CLASS = ".class=\"";
+        public const string STRING_CLASS_SP = ".class = \"";
         #endregion
 
         #region Text
