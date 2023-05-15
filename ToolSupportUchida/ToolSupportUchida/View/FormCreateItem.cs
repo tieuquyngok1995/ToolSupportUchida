@@ -255,7 +255,7 @@ namespace ToolSupportCoding.View
 
             if (arr.Length < 1) return string.Empty;
 
-            arr = arr[1].Replace("})", string.Empty).Split(new[] { ",NewWith" }, StringSplitOptions.None);
+            arr = arr[1].Replace("})", string.Empty).Replace(")", string.Empty).Split(new[] { ",NewWith" }, StringSplitOptions.None);
 
             return "ucdProperty=\"" + arr[0].Replace("x.", "model.") + "\"";
         }
@@ -323,7 +323,7 @@ namespace ToolSupportCoding.View
                 }
             }
 
-            return string.Join("\n", lstSrc).Replace(", ", ",").Replace(",", ", ");
+            return string.Join("\n", lstSrc).Replace(", ", ",").Replace(",", ", ").Replace(": ", ":").Replace(":", ": ");
         }
 
         private string editTagTD(string value, string valueAdd)
