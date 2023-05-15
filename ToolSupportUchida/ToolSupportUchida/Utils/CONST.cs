@@ -33,6 +33,7 @@ namespace ToolSupportCoding.Utils
         public const char CHAR_O_CUR_BRACKETS = '{';
         public const char CHAR_C_CUR_BRACKETS = '}';
         public const char CHAR_EQUALS = '=';
+        public const char CHAR_O_TAG = '<';
         #endregion
 
         #region String
@@ -49,10 +50,12 @@ namespace ToolSupportCoding.Utils
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
         public const string STRING_BR = "<br>";
+        public const string STRING_OPEN_TAG = "<";
         public const string STRING_END_TAG = "/>";
         public const string STRING_C_SIGN = ">";
         public const string STRING_O_CUR_BRACKETS = "{";
         public const string STRING_C_CUR_BRACKETS = "}";
+        public const string STRING_DC_CUR_BRACKETS = "}}";
 
         // Cons using create Item
         public const string STRING_FORM_VALUE = "{-}";
@@ -127,6 +130,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_REPLACE = "Replace";
 
         public const string STRING_FUNCTION = "(Function(x)";
+        public const string STRING_ITEM_RES_Z = "@ItemResources.";
+        public const string STRING_ITEM_RES_A = "{{ItemResources.";
         public const string STRING_DATA_BIND = ".data_bind=\"";
         public const string STRING_TD = "<td>";
         public const string STRING_TD_CLASS = "<td class=\"";

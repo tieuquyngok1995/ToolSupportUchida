@@ -73,9 +73,9 @@ namespace ToolSupportCoding.View
             ItemModel objItem = new ItemModel();
             List<string> lstKey = lstItem.Select(obj => obj.key).ToList();
 
-            for (int i = 0; i < lstCode.Count; i++)
+            for (int idx = 0; idx < lstCode.Count; idx++)
             {
-                string row = lstCode[i];
+                string row = lstCode[idx];
 
                 if (isClose)
                 {
@@ -108,7 +108,7 @@ namespace ToolSupportCoding.View
 
                 if (isExit)
                 {
-                    rowIndex = i + 1;
+                    rowIndex = idx + 1;
 
                     numOpen = row.Split(CONST.CHAR_O_BRACKETS).Length - 1;
                     numClose = row.Split(CONST.CHAR_C_BRACKETS).Length - 1;
@@ -171,11 +171,11 @@ namespace ToolSupportCoding.View
 
                 if (type.Equals(CONST.STRING_EDIT))
                 {
-                    if (chkComment.Checked)
+                    if (chkComment.Checked && !value.Contains(CONST.STRING_COMMENT_O_HTML) && !value.Contains(CONST.STRING_COMMENT_C_HTML))
                     {
                         lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
                     }
-                    else
+                    else if (!chkComment.Checked)
                     {
                         lstCode[rowIdx] = string.Empty;
                     }
@@ -226,7 +226,7 @@ namespace ToolSupportCoding.View
                 }
             }
 
-            txtResult.Text = string.Join("\n", lstCode);
+            txtResult.Text = editItemResources(lstCode);
 
             txtResult.Text = editCommentZazor(txtResult.Text);
         }
@@ -272,15 +272,6 @@ namespace ToolSupportCoding.View
             return " data-bind=\"" + value + "\"";
         }
 
-        private string editTagTD(string value, string valueAdd)
-        {
-            string[] arr = value.Split(new char[] { '<', '>' });
-
-            if (arr.Length < 3) return string.Empty;
-
-            return "<" + arr[1] + ">" + valueAdd + "<" + arr[3] + ">";
-        }
-
         private string addClassColumn(string value, string valueAdd)
         {
             string strClass = getClass(value);
@@ -304,6 +295,44 @@ namespace ToolSupportCoding.View
             arr = arr[1].Split('"');
 
             return arr[0].Trim();
+        }
+
+        private string editItemResources(List<string> lstSrc)
+        {
+            for (int idx = 0; idx < lstSrc.Count; idx++)
+            {
+                string line = lstSrc[idx];
+                if (line.Contains(CONST.STRING_ITEM_RES_Z))
+                {
+                    line = line.Replace(CONST.STRING_ITEM_RES_Z, CONST.STRING_ITEM_RES_A);
+
+                    if (line.Contains(CONST.STRING_OPEN_TAG))
+                    {
+                        string[] arrLine = line.Split(CONST.CHAR_O_TAG);
+                        if (arrLine.Length > 1)
+                        {
+                            line = line.Replace(CONST.STRING_OPEN_TAG + arrLine[2], CONST.STRING_DC_CUR_BRACKETS + CONST.STRING_OPEN_TAG + arrLine[2]);
+                        }
+                        
+                    } else
+                    {
+                        line = line + CONST.STRING_DC_CUR_BRACKETS;
+                    }
+
+                    lstSrc[idx] = line;
+                }
+            }
+
+            return string.Join("\n", lstSrc);
+        }
+
+        private string editTagTD(string value, string valueAdd)
+        {
+            string[] arr = value.Split(new char[] { '<', '>' });
+
+            if (arr.Length < 3) return string.Empty;
+
+            return "<" + arr[1] + ">" + valueAdd + "<" + arr[3] + ">";
         }
 
         private string editCommentZazor(string value)
