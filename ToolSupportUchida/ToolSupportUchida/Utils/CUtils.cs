@@ -463,7 +463,7 @@ namespace ToolSupportCoding.Utils
 
         public static string CreTmlHTMLComment(string value)
         {
-            return "<!-- " + value + " -->";
+            return CONST.STRING_COMMENT_O_HTML + value + CONST.STRING_COMMENT_C_HTML;
         }
         #endregion
 

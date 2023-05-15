@@ -132,6 +132,11 @@ namespace ToolSupportCoding.Utils
         public const string STRING_TD_CLASS = "<td class=\"";
         public const string STRING_CLASS = ".class=\"";
         public const string STRING_CLASS_SP = ".class = \"";
+
+        public const string STRING_COMMENT_O_ZAZOR = "@*";
+        public const string STRING_COMMENT_C_ZAZOR = "*@";
+        public const string STRING_COMMENT_O_HTML = "<!-- ";
+        public const string STRING_COMMENT_C_HTML = " -->";
         #endregion
 
         #region Text

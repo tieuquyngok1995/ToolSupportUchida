@@ -78,16 +78,13 @@ namespace ToolSupportCoding.View
             lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "Chuc nang Create Item" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung de tao src theo thong tin da duoc seting tai seting, hien tai chi su dung doi voi html." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Su dung chinh sua item html tren src input dua vao thong tin da dc setting tai main" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Chon cac thong tin can thiet va bam Create Param." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input gia tri cac item yeu cau tai table set param." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input gia tri Format Value hoac Value neu duoc yeu cau." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Bam Create Result de lay duoc src." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input code html vao phan input code." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Bam button Get Item de lay danh sach item co trong src da input." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B3: Bam Edit de lay src da duoc chinh sua." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Format Value la thong tin gia tri {-} da duoc setting tai setting." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Value hien tai dang duoc su dung cho viec tao table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Truong hop la class tieng thi input tieng nhat tool tu lay code tuong ung neu co." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Checkbox Comment de xac dinh co add hay remove comment src cu hay khong" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "Chuc nang Common" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
@@ -161,6 +158,9 @@ namespace ToolSupportCoding.View
             lstTextVer += "Ver2.4" + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Them moi chuc nang tao copy va clone file src tu src da co." + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Reopen chuc nang tao comment tu thong tin da co." + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.5" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Create Item de chinh sua src html theo dinh dang moi" + CONST.CHAR_NEW_LINE;
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 

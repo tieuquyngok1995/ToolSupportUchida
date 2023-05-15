@@ -14,26 +14,14 @@ namespace ToolSupportCoding.View
 {
     public partial class FormCreateItem : Form
     {
-        private List<SekkeiModel> lstSekei;
         private List<ItemModel> lstItem;
 
-        private List<string> lstCode;
-
-        private ItemModel objItem;
-        private Dictionary<string, string> dicData;
-
-        private string valKey;
-
         #region Load Form
-        public FormCreateItem(List<SekkeiModel> lstSekei, List<ItemModel> lstItem)
+        public FormCreateItem(List<ItemModel> lstItem)
         {
             InitializeComponent();
 
-            this.lstSekei = lstSekei;
-
             this.lstItem = lstItem;
-
-            dicData = new Dictionary<string, string>();
         }
 
         private void FormCreateAdapter_Load(object sender, EventArgs e)
@@ -71,7 +59,7 @@ namespace ToolSupportCoding.View
         {
             if (string.IsNullOrEmpty(txtInputCode.Text)) return;
 
-            lstCode = new List<string>();
+            List<string> lstCode = new List<string>();
             lstCode = txtInputCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             gridSetParam.Rows.Clear();
@@ -168,6 +156,9 @@ namespace ToolSupportCoding.View
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            List<string> lstCode = new List<string>();
+            lstCode = txtInputCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
             foreach (DataGridViewRow row in gridSetParam.Rows)
             {
                 int rowIdx = int.Parse(row.Cells[0].Value.ToString()) - 1;
@@ -180,9 +171,15 @@ namespace ToolSupportCoding.View
 
                 if (type.Equals(CONST.STRING_EDIT))
                 {
-                    lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
+                    if (chkComment.Checked)
+                    {
+                        lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
+                    }
+                    else
+                    {
+                        lstCode[rowIdx] = string.Empty;
+                    }
 
-                    
                     if (value.Contains(CONST.STRING_FUNCTION))
                     {
                         paramAdd = addProperty(value);
@@ -201,17 +198,17 @@ namespace ToolSupportCoding.View
                         valueAdd = addClassColumn(value, valueAdd);
                     }
 
-                    if (rowCount >= 2)
+                    if (rowCount >= 2 && chkComment.Checked)
                     {
                         rowIdx++;
                         lstCode[rowIdx] = valueAdd.Replace("{0}", paramAdd);
                     }
                     else
                     {
-                        lstCode[rowIdx] += CONST.STRING_NEW_LINE + valueAdd.Replace("{0}", paramAdd);
+                        lstCode[rowIdx] += (chkComment.Checked ? CONST.STRING_NEW_LINE : string.Empty) + valueAdd.Replace("{0}", paramAdd);
                     }
 
-                    int rowTmp = 3;
+                    int rowTmp = chkComment.Checked ? 3 : 2;
                     while (rowTmp <= rowCount)
                     {
                         rowIdx++;
@@ -230,6 +227,8 @@ namespace ToolSupportCoding.View
             }
 
             txtResult.Text = string.Join("\n", lstCode);
+
+            txtResult.Text = editCommentZazor(txtResult.Text);
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -258,7 +257,7 @@ namespace ToolSupportCoding.View
 
             arr = arr[1].Replace("})", string.Empty).Split(new[] { ",NewWith" }, StringSplitOptions.None);
 
-            return "[ucdProperty]=\"" + arr[0] + "\"";
+            return "[ucdProperty]=\"" + arr[0].Replace("x.", "model.") + "\"";
         }
 
         private string addDataBind(string value)
@@ -307,6 +306,11 @@ namespace ToolSupportCoding.View
             return arr[0].Trim();
         }
 
+        private string editCommentZazor(string value)
+        {
+            return value.Replace(CONST.STRING_COMMENT_O_ZAZOR, CONST.STRING_COMMENT_O_HTML)
+                        .Replace(CONST.STRING_COMMENT_C_ZAZOR, CONST.STRING_COMMENT_C_HTML);
+        }
         #endregion
 
         private void gridSetParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)

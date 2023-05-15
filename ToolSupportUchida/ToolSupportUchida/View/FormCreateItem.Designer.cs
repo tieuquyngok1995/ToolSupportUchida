@@ -29,9 +29,9 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
             this.txtInputCode = new System.Windows.Forms.RichTextBox();
@@ -45,13 +45,14 @@ namespace ToolSupportCoding.View
             this.btnCopy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridSetParam = new System.Windows.Forms.DataGridView();
-            this.panelResult = new System.Windows.Forms.Panel();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.act = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelResult = new System.Windows.Forms.Panel();
+            this.chkComment = new System.Windows.Forms.CheckBox();
             this.panelSetting.SuspendLayout();
             this.groupBoxSetting.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -137,14 +138,15 @@ namespace ToolSupportCoding.View
             // 
             // groupBoxResult
             // 
+            this.groupBoxResult.Controls.Add(this.chkComment);
             this.groupBoxResult.Controls.Add(this.btnEdit);
             this.groupBoxResult.Controls.Add(this.lblResult);
             this.groupBoxResult.Controls.Add(this.txtResult);
             this.groupBoxResult.Controls.Add(this.btnCopy);
             this.groupBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBoxResult.Location = new System.Drawing.Point(9, 169);
+            this.groupBoxResult.Location = new System.Drawing.Point(9, 148);
             this.groupBoxResult.Name = "groupBoxResult";
-            this.groupBoxResult.Size = new System.Drawing.Size(682, 116);
+            this.groupBoxResult.Size = new System.Drawing.Size(682, 137);
             this.groupBoxResult.TabIndex = 18;
             this.groupBoxResult.TabStop = false;
             this.groupBoxResult.Text = "Result";
@@ -157,7 +159,7 @@ namespace ToolSupportCoding.View
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(580, 15);
+            this.btnEdit.Location = new System.Drawing.Point(580, 48);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(95, 26);
             this.btnEdit.TabIndex = 16;
@@ -171,7 +173,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(580, 78);
+            this.lblResult.Location = new System.Drawing.Point(580, 105);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(95, 28);
             this.lblResult.TabIndex = 12;
@@ -184,7 +186,7 @@ namespace ToolSupportCoding.View
             this.txtResult.Location = new System.Drawing.Point(7, 16);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(567, 93);
+            this.txtResult.Size = new System.Drawing.Size(567, 114);
             this.txtResult.TabIndex = 17;
             this.txtResult.Text = "";
             // 
@@ -196,7 +198,7 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(580, 47);
+            this.btnCopy.Location = new System.Drawing.Point(580, 80);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(95, 26);
             this.btnCopy.TabIndex = 10;
@@ -211,7 +213,7 @@ namespace ToolSupportCoding.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox1.Location = new System.Drawing.Point(9, -2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(682, 171);
+            this.groupBox1.Size = new System.Drawing.Size(682, 150);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Item";
@@ -225,14 +227,14 @@ namespace ToolSupportCoding.View
             this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSetParam.CausesValidation = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
@@ -241,14 +243,14 @@ namespace ToolSupportCoding.View
             this.act,
             this.index,
             this.rowCount});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSetParam.EnableHeadersVisualStyles = false;
             this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -259,22 +261,14 @@ namespace ToolSupportCoding.View
             this.gridSetParam.RowHeadersWidth = 25;
             this.gridSetParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSetParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridSetParam.Size = new System.Drawing.Size(676, 149);
+            this.gridSetParam.Size = new System.Drawing.Size(676, 128);
             this.gridSetParam.TabIndex = 1;
             this.gridSetParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridSetParam_CurrentCellDirtyStateChanged);
             // 
-            // panelResult
-            // 
-            this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelResult.Location = new System.Drawing.Point(0, 170);
-            this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(704, 127);
-            this.panelResult.TabIndex = 1;
-            // 
             // colNo
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
             this.colNo.HeaderText = "Line.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -317,6 +311,26 @@ namespace ToolSupportCoding.View
             this.rowCount.Name = "rowCount";
             this.rowCount.Visible = false;
             // 
+            // panelResult
+            // 
+            this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelResult.Location = new System.Drawing.Point(0, 151);
+            this.panelResult.Name = "panelResult";
+            this.panelResult.Size = new System.Drawing.Size(704, 146);
+            this.panelResult.TabIndex = 1;
+            // 
+            // chkComment
+            // 
+            this.chkComment.AutoSize = true;
+            this.chkComment.Checked = true;
+            this.chkComment.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkComment.Location = new System.Drawing.Point(580, 16);
+            this.chkComment.Name = "chkComment";
+            this.chkComment.Size = new System.Drawing.Size(86, 21);
+            this.chkComment.TabIndex = 18;
+            this.chkComment.Text = "Comment";
+            this.chkComment.UseVisualStyleBackColor = true;
+            // 
             // FormCreateItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -331,6 +345,7 @@ namespace ToolSupportCoding.View
             this.groupBoxSetting.ResumeLayout(false);
             this.panelData.ResumeLayout(false);
             this.groupBoxResult.ResumeLayout(false);
+            this.groupBoxResult.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).EndInit();
             this.ResumeLayout(false);
@@ -358,5 +373,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.DataGridViewTextBoxColumn act;
         private System.Windows.Forms.DataGridViewTextBoxColumn index;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowCount;
+        private System.Windows.Forms.CheckBox chkComment;
     }
 }

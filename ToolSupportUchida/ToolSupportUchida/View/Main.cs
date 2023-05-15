@@ -674,7 +674,7 @@ namespace ToolSupportCoding
 
         private void btnCreateAdapter_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateItem(lstSekkei, lstItem), sender);
+            OpenChildForm(new FormCreateItem(lstItem), sender);
         }
 
         private void btnCheckData_Click(object sender, EventArgs e)
