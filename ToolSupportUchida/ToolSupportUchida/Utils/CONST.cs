@@ -131,7 +131,7 @@ namespace ToolSupportCoding.Utils
 
         public const string STRING_FUNCTION = "(Function(x)";
         public const string STRING_ITEM_RES_Z = "@ItemResources.";
-        public const string STRING_ITEM_RES_A = "{{ItemResources.";
+        public const string STRING_ITEM_RES_A = "{{ ItemResources.";
         public const string STRING_DATA_BIND = ".data_bind=\"";
         public const string STRING_TD = "<td>";
         public const string STRING_TD_CLASS = "<td class=\"";
