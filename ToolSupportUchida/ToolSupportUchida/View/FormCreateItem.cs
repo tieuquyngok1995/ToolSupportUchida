@@ -311,12 +311,12 @@ namespace ToolSupportCoding.View
                         string[] arrLine = line.Split(CONST.CHAR_O_TAG);
                         if (arrLine.Length > 1)
                         {
-                            line = line.Replace(CONST.STRING_OPEN_TAG + arrLine[2], " " + CONST.STRING_DC_CUR_BRACKETS + CONST.STRING_OPEN_TAG + arrLine[2]);
+                            line = line.Replace(CONST.STRING_OPEN_TAG + arrLine[2], CONST.STRING_DC_CUR_BRACKETS + CONST.STRING_OPEN_TAG + arrLine[2]);
                         }
                     }
                     else
                     {
-                        line = line + " " + CONST.STRING_DC_CUR_BRACKETS;
+                        line = line + CONST.STRING_DC_CUR_BRACKETS;
                     }
 
                     lstSrc[idx] = line;
