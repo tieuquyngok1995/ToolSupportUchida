@@ -140,8 +140,8 @@ namespace ToolSupportCoding.Utils
 
         public const string STRING_COMMENT_O_ZAZOR = "@*";
         public const string STRING_COMMENT_C_ZAZOR = "*@";
-        public const string STRING_COMMENT_O_HTML = "<!-- ";
-        public const string STRING_COMMENT_C_HTML = " -->";
+        public const string STRING_COMMENT_O_HTML = "<!--";
+        public const string STRING_COMMENT_C_HTML = "-->";
         #endregion
 
         #region Text

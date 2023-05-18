@@ -154,6 +154,14 @@ namespace ToolSupportCoding.View
             lblResult.Visible = false;
         }
 
+        private void gridSetParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (gridSetParam.IsCurrentCellDirty)
+            {
+                gridSetParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             List<string> lstCode = new List<string>();
@@ -171,13 +179,15 @@ namespace ToolSupportCoding.View
 
                 if (type.Equals(CONST.STRING_EDIT))
                 {
+                    if (!chkComment.Checked)
+                    {
+                        lstCode[rowIdx] = string.Empty;
+                        continue;
+                    }
+
                     if (chkComment.Checked && !value.Contains(CONST.STRING_COMMENT_O_HTML) && !value.Contains(CONST.STRING_COMMENT_C_HTML))
                     {
                         lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
-                    }
-                    else if (!chkComment.Checked)
-                    {
-                        lstCode[rowIdx] = string.Empty;
                     }
 
                     if (value.Contains(CONST.STRING_FUNCTION))
@@ -227,7 +237,6 @@ namespace ToolSupportCoding.View
             }
 
             txtResult.Text = editItemResources(lstCode);
-
             txtResult.Text = editCommentZazor(txtResult.Text);
         }
 
@@ -243,11 +252,9 @@ namespace ToolSupportCoding.View
             Clipboard.SetText(txtResult.Text);
             lblResult.Visible = true;
         }
-
         #endregion
 
         #region Method
-
         private string addProperty(string value)
         {
             value = Regex.Replace(value, @"\s", "");
@@ -337,17 +344,9 @@ namespace ToolSupportCoding.View
 
         private string editCommentZazor(string value)
         {
-            return value.Replace(CONST.STRING_COMMENT_O_ZAZOR, CONST.STRING_COMMENT_O_HTML)
-                        .Replace(CONST.STRING_COMMENT_C_ZAZOR, CONST.STRING_COMMENT_C_HTML);
+            return value.Replace(CONST.STRING_COMMENT_O_ZAZOR, CONST.STRING_COMMENT_O_HTML + " ")
+                        .Replace(CONST.STRING_COMMENT_C_ZAZOR, " " + CONST.STRING_COMMENT_C_HTML);
         }
         #endregion
-
-        private void gridSetParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (gridSetParam.IsCurrentCellDirty)
-            {
-                gridSetParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
-        }
     }
 }
