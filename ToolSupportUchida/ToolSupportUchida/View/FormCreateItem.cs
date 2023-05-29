@@ -170,11 +170,13 @@ namespace ToolSupportCoding.View
             foreach (DataGridViewRow row in gridSetParam.Rows)
             {
                 int rowIdx = int.Parse(row.Cells[0].Value.ToString()) - 1;
+                int rowRemove = rowIdx + 1;
                 int rowCount = int.Parse(row.Cells[5].Value.ToString());
 
                 string value = row.Cells[2].Value.ToString();
                 string type = row.Cells[3].Value.ToString();
-                string valueAdd = row.Cells[4].Value.ToString();
+                string valRow = row.Cells[4].Value.ToString();
+                string valAdd = row.Cells[4].Value.ToString();
                 string paramAdd = string.Empty;
 
                 if (type.Equals(CONST.STRING_EDIT))
@@ -189,6 +191,10 @@ namespace ToolSupportCoding.View
                     {
                         lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
                     }
+                    else
+                    {
+                        if (value.Contains(CONST.STRING_COMMENT_O_HTML) && value.Contains(CONST.STRING_COMMENT_C_HTML)) continue;
+                    }
 
                     if (value.Contains(CONST.STRING_FUNCTION))
                     {
@@ -200,22 +206,22 @@ namespace ToolSupportCoding.View
                     }
                     if (value.Contains(CONST.STRING_TD_CLASS) || value.Contains(CONST.STRING_TD))
                     {
-                        valueAdd = editTagTD(value, valueAdd);
+                        valAdd = editTagTD(value, valAdd);
                     }
 
                     if (value.Contains(CONST.STRING_CLASS) || value.Contains(CONST.STRING_CLASS_SP))
                     {
-                        valueAdd = addClassColumn(value, valueAdd);
+                        valAdd = addClassColumn(value, valAdd);
                     }
 
                     if (rowCount >= 2 && chkComment.Checked)
                     {
                         rowIdx++;
-                        lstCode[rowIdx] = valueAdd.Replace("{0}", paramAdd);
+                        lstCode[rowIdx] = valAdd.Replace("{0}", paramAdd);
                     }
                     else
                     {
-                        lstCode[rowIdx] += (chkComment.Checked ? CONST.STRING_NEW_LINE : string.Empty) + valueAdd.Replace("{0}", paramAdd);
+                        lstCode[rowIdx] += (chkComment.Checked ? CONST.STRING_NEW_LINE : string.Empty) + valAdd.Replace("{0}", paramAdd);
                     }
 
                     int rowTmp = chkComment.Checked ? 3 : 2;
@@ -232,7 +238,81 @@ namespace ToolSupportCoding.View
                 }
                 else if (type.Equals(CONST.STRING_REPLACE))
                 {
-                    lstCode[rowIdx] = valueAdd;
+                    if (!chkComment.Checked)
+                    {
+                        lstCode[rowIdx] = string.Empty;
+                        continue;
+                    }
+
+                    if (chkComment.Checked && !value.Contains(CONST.STRING_COMMENT_O_HTML) && !value.Contains(CONST.STRING_COMMENT_C_HTML))
+                    {
+                        lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
+                    }
+                    else
+                    {
+                        if (value.Contains(CONST.STRING_COMMENT_O_HTML) && value.Contains(CONST.STRING_COMMENT_C_HTML)) continue;
+                    }
+
+                    if (value.Contains(CONST.STRING_FUNCTION))
+                    {
+                        paramAdd = addProperty(value);
+                    }
+                    if (value.Contains(CONST.STRING_DATA_BIND))
+                    {
+                        paramAdd += addDataBind(value);
+                    }
+                    if (value.Contains(CONST.STRING_TD_CLASS) || value.Contains(CONST.STRING_TD))
+                    {
+                        valAdd = editTagTD(value, valAdd);
+                    }
+
+                    if (value.Contains(CONST.STRING_CLASS) || value.Contains(CONST.STRING_CLASS_SP))
+                    {
+                        valAdd = addClassColumn(value, valAdd);
+                    }
+
+                    string nextRow = lstCode[rowRemove];
+                    bool isEnd = false;
+                    if (value.Contains(CONST.STRING_COMMENT_O_HTML) && value.Contains(CONST.STRING_COMMENT_C_HTML))
+                    {
+                        if (nextRow.Contains(CONST.STRING_DIV_CLASS))
+                        {
+                            while (isEnd == false && rowRemove < lstCode.Count)
+                            {
+                                isEnd = lstCode[rowRemove].Contains(CONST.STRING_DIV_END);
+                                lstCode[rowRemove] = string.Empty;
+                                rowRemove++;
+                            }
+                        }
+                        else
+                        {
+                            string itemCheck = valRow.Split(CONST.CHAR_SPACE).Length > 0 ? valRow.Split(CONST.CHAR_SPACE)[0] : string.Empty;
+                            while (isEnd == false && rowRemove < lstCode.Count)
+                            {
+                                isEnd = lstCode[rowRemove].Contains(itemCheck.Replace(CONST.STRING_OPEN_TAG, CONST.STRING_SLASH));
+                                lstCode[rowRemove] = string.Empty;
+                                rowRemove++;
+                            }
+                        }
+                    }
+
+                    if (rowCount >= 2 && chkComment.Checked)
+                    {
+                        rowIdx++;
+                        lstCode[rowIdx] = valAdd.Replace("{0}", paramAdd);
+                    }
+                    else
+                    {
+                        lstCode[rowIdx] += (chkComment.Checked ? CONST.STRING_NEW_LINE : string.Empty) + valAdd.Replace("{0}", paramAdd);
+                    }
+
+                    int rowTmp = chkComment.Checked ? 3 : 2;
+                    while (rowTmp <= rowCount)
+                    {
+                        rowIdx++;
+                        lstCode[rowIdx] = string.Empty;
+                        rowTmp++;
+                    }
                 }
             }
 
@@ -274,14 +354,14 @@ namespace ToolSupportCoding.View
 
             if (arr.Length < 1) return string.Empty;
 
-            value = arr[1].Replace("\"})", string.Empty);
+            value = arr[1].Replace("\"})", string.Empty).Replace(CONST.STRING_COMMENT_C_HTML, string.Empty);
 
             return " data-bind=\"" + value + "\"";
         }
 
         private string addClassColumn(string value, string valueAdd)
         {
-            string strClass = getClass(value);
+            string strClass = getClass(value).Replace(CONST.STRING_OFFSET, " " + CONST.STRING_OFFSET);
             if (!string.IsNullOrEmpty(strClass))
             {
                 return "<div class=\"" + strClass + "\">" + CONST.CHAR_NEW_LINE + valueAdd + CONST.CHAR_NEW_LINE + "</div>";
@@ -330,6 +410,7 @@ namespace ToolSupportCoding.View
                 }
             }
 
+            lstSrc = lstSrc.Where(x => !string.IsNullOrEmpty(x)).ToList();
             return string.Join("\n", lstSrc).Replace(", ", ",").Replace(",", ", ").Replace(": ", ":").Replace(":", ": ");
         }
 

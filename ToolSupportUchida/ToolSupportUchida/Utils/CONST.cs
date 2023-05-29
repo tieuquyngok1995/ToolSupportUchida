@@ -34,6 +34,7 @@ namespace ToolSupportCoding.Utils
         public const char CHAR_C_CUR_BRACKETS = '}';
         public const char CHAR_EQUALS = '=';
         public const char CHAR_O_TAG = '<';
+        public const char CHAR_SLASH = '/';
         #endregion
 
         #region String
@@ -53,6 +54,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_OPEN_TAG = "<";
         public const string STRING_END_TAG = "/>";
         public const string STRING_C_SIGN = ">";
+        public const string STRING_SLASH = "/";
         public const string STRING_O_CUR_BRACKETS = "{";
         public const string STRING_C_CUR_BRACKETS = "}";
         public const string STRING_DC_CUR_BRACKETS = "}}";
@@ -132,11 +134,14 @@ namespace ToolSupportCoding.Utils
         public const string STRING_FUNCTION = "(Function(x)";
         public const string STRING_ITEM_RES_Z = "@ItemResources.";
         public const string STRING_ITEM_RES_A = "{{ItemResources.";
-        public const string STRING_DATA_BIND = ".data_bind=\"";
+        public const string STRING_DATA_BIND = ".data_bind";
         public const string STRING_TD = "<td>";
         public const string STRING_TD_CLASS = "<td class=\"";
+        public const string STRING_DIV_CLASS = "<div class=\"";
+        public const string STRING_DIV_END = "</div>";
         public const string STRING_CLASS = ".class=\"";
         public const string STRING_CLASS_SP = ".class = \"";
+        public const string STRING_OFFSET = "offset";
 
         public const string STRING_COMMENT_O_ZAZOR = "@*";
         public const string STRING_COMMENT_C_ZAZOR = "*@";
