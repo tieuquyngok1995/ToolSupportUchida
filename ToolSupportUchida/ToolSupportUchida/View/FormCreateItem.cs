@@ -248,11 +248,7 @@ namespace ToolSupportCoding.View
                     {
                         lstCode[rowIdx] = CUtils.CreTmlHTMLComment(value);
                     }
-                    else
-                    {
-                        if (value.Contains(CONST.STRING_COMMENT_O_HTML) && value.Contains(CONST.STRING_COMMENT_C_HTML)) continue;
-                    }
-
+                    
                     if (value.Contains(CONST.STRING_FUNCTION))
                     {
                         paramAdd = addProperty(value);
