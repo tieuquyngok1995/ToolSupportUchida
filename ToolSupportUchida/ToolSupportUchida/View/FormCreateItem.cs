@@ -340,7 +340,7 @@ namespace ToolSupportCoding.View
 
             arr = arr[1].Replace("})", string.Empty).Replace(")", string.Empty).Split(new[] { ",NewWith" }, StringSplitOptions.None);
 
-            return "ucdProperty=\"" + arr[0].Replace("x.", "model.") + "\"";
+            return "[ucdProperty]=\"" + arr[0].Replace("x.", "model.") + "\"";
         }
 
         private string addDataBind(string value)

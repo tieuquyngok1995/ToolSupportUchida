@@ -32,6 +32,8 @@ namespace ToolSupportCoding.Utils
         public const char CHAR_C_BRACKETS = ')';
         public const char CHAR_O_CUR_BRACKETS = '{';
         public const char CHAR_C_CUR_BRACKETS = '}';
+        public const char CHAR_O_SQU_BRACKETS = '[';
+        public const char CHAR_C_SQU_BRACKETS = ']';
         public const char CHAR_EQUALS = '=';
         public const char CHAR_O_TAG = '<';
         public const char CHAR_SLASH = '/';
@@ -55,11 +57,15 @@ namespace ToolSupportCoding.Utils
         public const string STRING_END_TAG = "/>";
         public const string STRING_C_SIGN = ">";
         public const string STRING_SLASH = "/";
+        public const string STRING_O_BRACKETS = "(";
+        public const string STRING_C_BRACKETS = ")";
         public const string STRING_O_CUR_BRACKETS = "{";
         public const string STRING_C_CUR_BRACKETS = "}";
+        public const string STRING_O_SQU_BRACKETS = "[";
+        public const string STRING_C_SQU_BRACKETS = "]";
         public const string STRING_DC_CUR_BRACKETS = "}}";
 
-        // Cons using create Item
+        // Const using create Item
         public const string STRING_FORM_VALUE = "{-}";
         public const string STRING_NAME_ID = "ID";
         public const string STRING_TAG_FH = "${F:H(";
@@ -147,6 +153,25 @@ namespace ToolSupportCoding.Utils
         public const string STRING_COMMENT_C_ZAZOR = "*@";
         public const string STRING_COMMENT_O_HTML = "<!--";
         public const string STRING_COMMENT_C_HTML = "-->";
+
+        // Const SQL Type
+        public const string SQL_TYPE_VARCHAR = "varchar";
+        public const string SQL_TYPE_NVARCHAR = "nvarchar";
+        public const string SQL_TYPE_DATE_TIME = "datetime";
+        public const string SQL_TYPE_BIGINT = "bigint";
+        public const string SQL_TYPE_SMALLINT = "smallint";
+        public const string SQL_TYPE_MONEY = "money";
+        public const string SQL_TYPE_NUMERIC = "numeric";
+        public const string SQL_TYPE_DECIMAL = "decimal";
+
+        // Const C# Type
+        public const string C_TYPE_STRING = "string";
+        public const string C_TYPE_DATE_TIME = "DateTime";
+        public const string C_TYPE_SHORT = "short";
+        public const string C_TYPE_INT  = "int";
+        public const string C_TYPE_LONG = "long";
+        public const string C_TYPE_DECIMAL = "decimal";
+
         #endregion
 
         #region Text
@@ -200,6 +225,9 @@ namespace ToolSupportCoding.Utils
         #endregion
 
         #region String Check
+        public const string STRING_CHECK_SQL_TABLE = "].[";
+        public const string STRING_CHECK_SQL_AS = " AS ";
+
         public const string STRING_CHECK_APOSTROPHE = " '";
         public const string STRING_CHECK_COMMENT = "'//";
         public const string STRING_CHECK_ADD_END = "ADD END";

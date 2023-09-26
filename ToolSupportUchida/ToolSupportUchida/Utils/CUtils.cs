@@ -69,6 +69,28 @@ namespace ToolSupportCoding.Utils
             return result;
         }
 
+        public static string ConvertSQLToCType(string type)
+        {
+            switch (type)
+            {
+                case var varchar when type.Contains(CONST.SQL_TYPE_VARCHAR):
+                case var nvarchar when type.Contains(CONST.SQL_TYPE_NVARCHAR):
+                    return CONST.C_TYPE_STRING;
+                case CONST.SQL_TYPE_DATE_TIME:
+                    return CONST.C_TYPE_DATE_TIME;
+                case CONST.SQL_TYPE_SMALLINT:
+                    return CONST.C_TYPE_SHORT;
+                case CONST.SQL_TYPE_BIGINT:
+                    return CONST.C_TYPE_LONG;
+                case CONST.SQL_TYPE_MONEY:
+                case CONST.SQL_TYPE_NUMERIC:
+                case CONST.SQL_TYPE_DECIMAL:
+                    return CONST.C_TYPE_DECIMAL;
+                default:
+                    return CONST.C_TYPE_INT;
+            }
+        }
+
         private static Dictionary<string, string> ConvertStringConditionalToLsit(string text)
         {
             text = text.Replace(CONST.STRING_CHECK_ELSE_IF, string.Empty)

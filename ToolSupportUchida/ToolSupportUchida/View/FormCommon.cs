@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ToolCommon.Models;
 using ToolCommon.Service;
 using ToolSupportCoding.Common;
@@ -21,6 +22,11 @@ namespace ToolSupportCoding.View
 
         private string[] lstMessCode;
         private string[] lstMessContent;
+
+        // list create entity
+        private string[] lstEntityProcedure;
+        private string[] lstEntityTable;
+        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
 
         // list format 
         private string[] lstFormatCode;
@@ -1808,6 +1814,163 @@ namespace ToolSupportCoding.View
             }
         }
 
+        #endregion
+
+        #region Tab Create Entity
+
+        private void txtCrEntityP_TextChanged(object sender, EventArgs e)
+        {
+            lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstEntityProcedure.Length > 0)
+            {
+                lblCrEntityNumP.Visible = true;
+                lblCrEntityNumP.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityProcedure.Length);
+            }
+            else
+            {
+                lblCrEntityNumP.Visible = false;
+            }
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void txtCrEntityT_TextChanged(object sender, EventArgs e)
+        {
+            lstEntityTable = txtCrEntityT.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstEntityTable.Length > 0)
+            {
+                dicEntityType = new Dictionary<string, string>();
+                foreach (var item in lstEntityTable)
+                {
+                    string[] arrItem = item.Split(CONST.CHAR_TAB);
+
+                    if (arrItem.Length > 1)
+                    {
+                        dicEntityType.Add(arrItem[0], arrItem[1]);
+                    }
+                }
+
+                lblCrEntityNumT.Visible = true;
+                lblCrEntityNumT.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityTable.Length);
+            }
+            else
+            {
+                lblCrEntityNumT.Visible = false;
+            }
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void btnCrEntity_Click(object sender, EventArgs e)
+        {
+            txtCrEntityResult.Text = string.Empty;
+
+            for (int i = 0; i < lstEntityProcedure.Length; i++)
+            {
+
+                if (string.IsNullOrEmpty(lstEntityProcedure[i])) continue;
+
+                // Handle Logic and Physical
+                string[] item = lstEntityProcedure[i].Split(new string[]
+                { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
+                string logic, physical, type;
+
+                if (item.Length >= 3)
+                {
+                    logic = item[1].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = item[2].Trim();
+                }
+                else if (item.Length >= 2)
+                {
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = item[1].Trim();
+                }
+                else
+                {
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = logic;
+                }
+                logic = logic.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
+                physical = physical.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
+
+                if (dicEntityType.TryGetValue(logic, out type))
+                {
+                    type = CUtils.ConvertSQLToCType(type);
+                }
+                else
+                {
+                    type = string.Empty;
+                }
+
+                StringBuilder stringBuilder = new StringBuilder();
+                if (rbCrEntityLine.Checked)
+                {
+                    stringBuilder.Append("// {0}\r\n");
+                }
+                else if (rbCrEntityBlock.Checked)
+                {
+                    stringBuilder.Append("/**\r\n");
+                    stringBuilder.Append(" * {0}\r\n");
+                    stringBuilder.Append(" **/\r\n");
+                }
+                else if (rbCrEntityLBlock.Checked)
+                {
+                    stringBuilder.Append("/** {0} */\r\n");
+                }
+                stringBuilder.Append("public {1}? {2}");
+
+                if (i == lstEntityProcedure.Length - 2)
+                {
+                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
+                }
+                else
+                {
+                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
+                    txtCrEntityResult.Text += CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtCrEntityResult.Text)) btnCrEntityCopy.Enabled = true;
+        }
+
+        private void btnCrEntityCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrEntityResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtCrEntityResult.Text);
+        }
+
+        private void btnCrEntityClear_Click(object sender, EventArgs e)
+        {
+            txtCrEntityP.Text = string.Empty;
+            lblCrEntityNumP.Visible = false;
+            txtCrEntityT.Text = string.Empty;
+            lblCrEntityNumT.Visible = false;
+            txtCrEntityResult.Text = string.Empty;
+
+            btnCrEntity.Enabled = false;
+            btnCrEntityCopy.Enabled = false;
+        }
         #endregion
 
         #region Method

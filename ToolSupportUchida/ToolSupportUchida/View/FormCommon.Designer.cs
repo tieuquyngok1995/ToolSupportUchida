@@ -191,6 +191,22 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tabPageCreateEnity = new System.Windows.Forms.TabPage();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityP = new System.Windows.Forms.RichTextBox();
+            this.lblCrEntityNumP = new System.Windows.Forms.Label();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityT = new System.Windows.Forms.RichTextBox();
+            this.lblCrEntityNumT = new System.Windows.Forms.Label();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityResult = new System.Windows.Forms.RichTextBox();
+            this.btnCrEntity = new System.Windows.Forms.Button();
+            this.btnCrEntityCopy = new System.Windows.Forms.Button();
+            this.btnCrEntityClear = new System.Windows.Forms.Button();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.rbCrEntityBlock = new System.Windows.Forms.RadioButton();
+            this.rbCrEntityLine = new System.Windows.Forms.RadioButton();
+            this.rbCrEntityLBlock = new System.Windows.Forms.RadioButton();
             this.tabControlCommon.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -223,6 +239,11 @@ namespace ToolSupportCoding.View
             this.tabPageCreateFileSrc.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPageCreateEnity.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox23.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
@@ -234,6 +255,7 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
             this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
             this.tabControlCommon.Controls.Add(this.tabPageCreateFileSrc);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateEnity);
             this.tabControlCommon.Controls.Add(this.tabPage1);
             this.tabControlCommon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlCommon.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -1083,7 +1105,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmComment.Name = "txtCrCmComment";
-            this.txtCrCmComment.Size = new System.Drawing.Size(178, 260);
+            this.txtCrCmComment.Size = new System.Drawing.Size(178, 266);
             this.txtCrCmComment.TabIndex = 11;
             this.txtCrCmComment.Text = "";
             this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
@@ -1093,7 +1115,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrCmNumComment.AutoSize = true;
             this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 290);
+            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 291);
             this.lblCrCmNumComment.Name = "lblCrCmNumComment";
             this.lblCrCmNumComment.Size = new System.Drawing.Size(80, 15);
             this.lblCrCmNumComment.TabIndex = 10;
@@ -1117,7 +1139,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmCode.Name = "txtCrCmCode";
-            this.txtCrCmCode.Size = new System.Drawing.Size(179, 260);
+            this.txtCrCmCode.Size = new System.Drawing.Size(179, 266);
             this.txtCrCmCode.TabIndex = 12;
             this.txtCrCmCode.Text = "";
             this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
@@ -1127,7 +1149,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrCmNumCode.AutoSize = true;
             this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 290);
+            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 291);
             this.lblCrCmNumCode.Name = "lblCrCmNumCode";
             this.lblCrCmNumCode.Size = new System.Drawing.Size(80, 15);
             this.lblCrCmNumCode.TabIndex = 11;
@@ -1153,7 +1175,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmResult.Name = "txtCrCmResult";
             this.txtCrCmResult.ReadOnly = true;
-            this.txtCrCmResult.Size = new System.Drawing.Size(173, 260);
+            this.txtCrCmResult.Size = new System.Drawing.Size(173, 266);
             this.txtCrCmResult.TabIndex = 13;
             this.txtCrCmResult.Text = "";
             // 
@@ -1163,7 +1185,7 @@ namespace ToolSupportCoding.View
             this.btCrCmClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrCmClear.Location = new System.Drawing.Point(113, 284);
+            this.btCrCmClear.Location = new System.Drawing.Point(113, 287);
             this.btCrCmClear.Name = "btCrCmClear";
             this.btCrCmClear.Size = new System.Drawing.Size(63, 24);
             this.btCrCmClear.TabIndex = 12;
@@ -1181,7 +1203,7 @@ namespace ToolSupportCoding.View
             this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btCrCmCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrCmCopy.Location = new System.Drawing.Point(3, 284);
+            this.btCrCmCopy.Location = new System.Drawing.Point(3, 287);
             this.btCrCmCopy.Name = "btCrCmCopy";
             this.btCrCmCopy.Size = new System.Drawing.Size(104, 24);
             this.btCrCmCopy.TabIndex = 11;
@@ -1297,7 +1319,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumLMessCode.AutoSize = true;
             this.lblNumLMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 221);
+            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 217);
             this.lblNumLMessCode.Name = "lblNumLMessCode";
             this.lblNumLMessCode.Size = new System.Drawing.Size(80, 15);
             this.lblNumLMessCode.TabIndex = 3;
@@ -1714,7 +1736,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumMessContent.AutoSize = true;
             this.lblNumMessContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumMessContent.Location = new System.Drawing.Point(77, 221);
+            this.lblNumMessContent.Location = new System.Drawing.Point(77, 217);
             this.lblNumMessContent.Name = "lblNumMessContent";
             this.lblNumMessContent.Size = new System.Drawing.Size(80, 15);
             this.lblNumMessContent.TabIndex = 4;
@@ -1748,7 +1770,7 @@ namespace ToolSupportCoding.View
             this.groupBox19.Controls.Add(this.lbScreenNew);
             this.groupBox19.Controls.Add(this.panel1);
             this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox19.Location = new System.Drawing.Point(6, 0);
+            this.groupBox19.Location = new System.Drawing.Point(6, -2);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(560, 132);
             this.groupBox19.TabIndex = 21;
@@ -1921,11 +1943,11 @@ namespace ToolSupportCoding.View
             // 
             // txtCloneSrcViewResult
             // 
-            this.txtCloneSrcViewResult.Location = new System.Drawing.Point(9, 138);
+            this.txtCloneSrcViewResult.Location = new System.Drawing.Point(6, 138);
             this.txtCloneSrcViewResult.Multiline = true;
             this.txtCloneSrcViewResult.Name = "txtCloneSrcViewResult";
             this.txtCloneSrcViewResult.ReadOnly = true;
-            this.txtCloneSrcViewResult.Size = new System.Drawing.Size(559, 222);
+            this.txtCloneSrcViewResult.Size = new System.Drawing.Size(560, 215);
             this.txtCloneSrcViewResult.TabIndex = 13;
             // 
             // tabPage1
@@ -2189,6 +2211,203 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
+            // tabPageCreateEnity
+            // 
+            this.tabPageCreateEnity.Controls.Add(this.groupBox23);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox22);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox21);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox20);
+            this.tabPageCreateEnity.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateEnity.Name = "tabPageCreateEnity";
+            this.tabPageCreateEnity.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateEnity.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateEnity.TabIndex = 10;
+            this.tabPageCreateEnity.Text = "Create Entity";
+            this.tabPageCreateEnity.UseVisualStyleBackColor = true;
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.txtCrEntityP);
+            this.groupBox20.Controls.Add(this.lblCrEntityNumP);
+            this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox20.Location = new System.Drawing.Point(6, 41);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(180, 316);
+            this.groupBox20.TabIndex = 1;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "SQL Procedure";
+            // 
+            // txtCrEntityP
+            // 
+            this.txtCrEntityP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityP.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityP.Name = "txtCrEntityP";
+            this.txtCrEntityP.Size = new System.Drawing.Size(174, 266);
+            this.txtCrEntityP.TabIndex = 4;
+            this.txtCrEntityP.Text = "";
+            this.txtCrEntityP.TextChanged += new System.EventHandler(this.txtCrEntityP_TextChanged);
+            // 
+            // lblCrEntityNumP
+            // 
+            this.lblCrEntityNumP.AutoSize = true;
+            this.lblCrEntityNumP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrEntityNumP.Location = new System.Drawing.Point(77, 291);
+            this.lblCrEntityNumP.Name = "lblCrEntityNumP";
+            this.lblCrEntityNumP.Size = new System.Drawing.Size(80, 15);
+            this.lblCrEntityNumP.TabIndex = 3;
+            this.lblCrEntityNumP.Text = "Line number:";
+            this.lblCrEntityNumP.Visible = false;
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.txtCrEntityT);
+            this.groupBox21.Controls.Add(this.lblCrEntityNumT);
+            this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox21.Location = new System.Drawing.Point(192, 41);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(180, 316);
+            this.groupBox21.TabIndex = 5;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "SQL Table";
+            // 
+            // txtCrEntityT
+            // 
+            this.txtCrEntityT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityT.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityT.Name = "txtCrEntityT";
+            this.txtCrEntityT.Size = new System.Drawing.Size(174, 266);
+            this.txtCrEntityT.TabIndex = 4;
+            this.txtCrEntityT.Text = "";
+            this.txtCrEntityT.TextChanged += new System.EventHandler(this.txtCrEntityT_TextChanged);
+            // 
+            // lblCrEntityNumT
+            // 
+            this.lblCrEntityNumT.AutoSize = true;
+            this.lblCrEntityNumT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrEntityNumT.Location = new System.Drawing.Point(77, 291);
+            this.lblCrEntityNumT.Name = "lblCrEntityNumT";
+            this.lblCrEntityNumT.Size = new System.Drawing.Size(80, 15);
+            this.lblCrEntityNumT.TabIndex = 3;
+            this.lblCrEntityNumT.Text = "Line number:";
+            this.lblCrEntityNumT.Visible = false;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.txtCrEntityResult);
+            this.groupBox22.Controls.Add(this.btnCrEntity);
+            this.groupBox22.Controls.Add(this.btnCrEntityCopy);
+            this.groupBox22.Controls.Add(this.btnCrEntityClear);
+            this.groupBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox22.Location = new System.Drawing.Point(378, 41);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(188, 316);
+            this.groupBox22.TabIndex = 17;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Result";
+            // 
+            // txtCrEntityResult
+            // 
+            this.txtCrEntityResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityResult.Name = "txtCrEntityResult";
+            this.txtCrEntityResult.ReadOnly = true;
+            this.txtCrEntityResult.Size = new System.Drawing.Size(182, 266);
+            this.txtCrEntityResult.TabIndex = 19;
+            this.txtCrEntityResult.Text = "";
+            // 
+            // btnCrEntity
+            // 
+            this.btnCrEntity.FlatAppearance.BorderSize = 0;
+            this.btnCrEntity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntity.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btnCrEntity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrEntity.Location = new System.Drawing.Point(4, 287);
+            this.btnCrEntity.Name = "btnCrEntity";
+            this.btnCrEntity.Size = new System.Drawing.Size(118, 24);
+            this.btnCrEntity.TabIndex = 16;
+            this.btnCrEntity.Text = "Create Entity";
+            this.btnCrEntity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCrEntity.UseVisualStyleBackColor = true;
+            this.btnCrEntity.Click += new System.EventHandler(this.btnCrEntity_Click);
+            // 
+            // btnCrEntityCopy
+            // 
+            this.btnCrEntityCopy.Enabled = false;
+            this.btnCrEntityCopy.FlatAppearance.BorderSize = 0;
+            this.btnCrEntityCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntityCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntityCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btnCrEntityCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrEntityCopy.Location = new System.Drawing.Point(125, 287);
+            this.btnCrEntityCopy.Name = "btnCrEntityCopy";
+            this.btnCrEntityCopy.Size = new System.Drawing.Size(28, 24);
+            this.btnCrEntityCopy.TabIndex = 17;
+            this.btnCrEntityCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCrEntityCopy.UseVisualStyleBackColor = true;
+            this.btnCrEntityCopy.Click += new System.EventHandler(this.btnCrEntityCopy_Click);
+            // 
+            // btnCrEntityClear
+            // 
+            this.btnCrEntityClear.FlatAppearance.BorderSize = 0;
+            this.btnCrEntityClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntityClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntityClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnCrEntityClear.Location = new System.Drawing.Point(156, 287);
+            this.btnCrEntityClear.Name = "btnCrEntityClear";
+            this.btnCrEntityClear.Size = new System.Drawing.Size(28, 24);
+            this.btnCrEntityClear.TabIndex = 18;
+            this.btnCrEntityClear.UseVisualStyleBackColor = true;
+            this.btnCrEntityClear.Click += new System.EventHandler(this.btnCrEntityClear_Click);
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.rbCrEntityBlock);
+            this.groupBox23.Controls.Add(this.rbCrEntityLine);
+            this.groupBox23.Controls.Add(this.rbCrEntityLBlock);
+            this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox23.Location = new System.Drawing.Point(8, -2);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(178, 46);
+            this.groupBox23.TabIndex = 102;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Comment Mode";
+            // 
+            // rbCrEntityBlock
+            // 
+            this.rbCrEntityBlock.AutoSize = true;
+            this.rbCrEntityBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityBlock.Location = new System.Drawing.Point(122, 21);
+            this.rbCrEntityBlock.Name = "rbCrEntityBlock";
+            this.rbCrEntityBlock.Size = new System.Drawing.Size(55, 19);
+            this.rbCrEntityBlock.TabIndex = 11;
+            this.rbCrEntityBlock.Text = "Block";
+            this.rbCrEntityBlock.UseVisualStyleBackColor = true;
+            // 
+            // rbCrEntityLine
+            // 
+            this.rbCrEntityLine.AutoSize = true;
+            this.rbCrEntityLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityLine.Location = new System.Drawing.Point(71, 20);
+            this.rbCrEntityLine.Name = "rbCrEntityLine";
+            this.rbCrEntityLine.Size = new System.Drawing.Size(49, 19);
+            this.rbCrEntityLine.TabIndex = 99;
+            this.rbCrEntityLine.Text = "Line";
+            this.rbCrEntityLine.UseVisualStyleBackColor = true;
+            // 
+            // rbCrEntityLBlock
+            // 
+            this.rbCrEntityLBlock.AutoSize = true;
+            this.rbCrEntityLBlock.Checked = true;
+            this.rbCrEntityLBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityLBlock.Location = new System.Drawing.Point(5, 20);
+            this.rbCrEntityLBlock.Name = "rbCrEntityLBlock";
+            this.rbCrEntityLBlock.Size = new System.Drawing.Size(65, 19);
+            this.rbCrEntityLBlock.TabIndex = 10;
+            this.rbCrEntityLBlock.TabStop = true;
+            this.rbCrEntityLBlock.Text = "L Block";
+            this.rbCrEntityLBlock.UseVisualStyleBackColor = true;
+            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2248,6 +2467,14 @@ namespace ToolSupportCoding.View
             this.groupBox19.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPageCreateEnity.ResumeLayout(false);
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2412,5 +2639,21 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RadioButton rdCloneSrcCopyCreate;
         private System.Windows.Forms.RadioButton rdCloneSrcCreateNew;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabPageCreateEnity;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.RichTextBox txtCrEntityT;
+        private System.Windows.Forms.Label lblCrEntityNumT;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.RichTextBox txtCrEntityP;
+        private System.Windows.Forms.Label lblCrEntityNumP;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.RichTextBox txtCrEntityResult;
+        private System.Windows.Forms.Button btnCrEntity;
+        private System.Windows.Forms.Button btnCrEntityCopy;
+        private System.Windows.Forms.Button btnCrEntityClear;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.RadioButton rbCrEntityBlock;
+        private System.Windows.Forms.RadioButton rbCrEntityLine;
+        private System.Windows.Forms.RadioButton rbCrEntityLBlock;
     }
 }
