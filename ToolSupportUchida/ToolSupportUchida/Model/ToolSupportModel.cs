@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ToolCommon.Models;
 
 namespace ToolSupportCoding.Model
 {
@@ -13,6 +12,6 @@ namespace ToolSupportCoding.Model
 
         public int modeLanguage { get; set; }
 
-        public AppSettingModel appSettingModel { get; set; }
+        public string sourcePath { get; set; }
     }
 }

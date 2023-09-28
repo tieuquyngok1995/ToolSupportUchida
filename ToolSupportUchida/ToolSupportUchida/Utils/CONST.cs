@@ -64,6 +64,18 @@ namespace ToolSupportCoding.Utils
         public const string STRING_O_SQU_BRACKETS = "[";
         public const string STRING_C_SQU_BRACKETS = "]";
         public const string STRING_DC_CUR_BRACKETS = "}}";
+        public const string STRING_CONTROLLER = "Controller";
+        public const string STRING_SERVICE = "Service";
+        public const string STRING_REPOSITORY = "Repository";
+        public const string STRING_VIEW_MODEL = "ViewModel";
+        public const string STRING_MODEL = "Model";
+        public const string STRING_ENTITY = "Entity";
+        public const string STRING_ENTITIES = "Entities";
+        public const string STRING_LIB = ".Lib";
+        public const string STRING_JP_CONTROLLER = "コントローラ";
+        public const string STRING_JP_SERVICE = "サービス";
+        public const string STRING_JP_REPOSITORY = "リポジトリ";
+        public const string STRING_JP_VIEW_MODEL = "情報ViewModel";
 
         // Const using create Item
         public const string STRING_FORM_VALUE = "{-}";
@@ -172,6 +184,8 @@ namespace ToolSupportCoding.Utils
         public const string C_TYPE_LONG = "long";
         public const string C_TYPE_DECIMAL = "decimal";
 
+        // Const File Type 
+        public const string C_TYPE_FILE = ".cs";
         #endregion
 
         #region Text
@@ -222,6 +236,7 @@ namespace ToolSupportCoding.Utils
         public const string TAB_CR_COMMENT = "Create Comment";
         public const string TAB_CR_MESS = "Create Message";
         public const string TAB_CR_FILE_SRC = "Create File Source";
+        public const string TAB_CR_ENTITY = "Create Entity";
         #endregion
 
         #region String Check

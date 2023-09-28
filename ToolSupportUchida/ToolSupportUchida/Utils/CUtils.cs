@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -486,6 +487,179 @@ namespace ToolSupportCoding.Utils
         public static string CreTmlHTMLComment(string value)
         {
             return CONST.STRING_COMMENT_O_HTML + value + CONST.STRING_COMMENT_C_HTML;
+        }
+
+        public static string CreTmlFileControllerC(string logicName, string physycalName, string path)
+        {
+            logicName = logicName.Replace(CONST.STRING_JP_CONTROLLER, string.Empty);
+            physycalName = physycalName.Replace(CONST.STRING_CONTROLLER, string.Empty);
+            path = path.Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length-1);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// {1}コントローラ。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    [MyApiController]").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    public class {2}Controller : ControllerBase").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        // {1}サービス。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly {2}Service _service;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// 新しいインスタンスを初期化します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"service\">{1}サービス。</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        public {2}Controller({2}Service service)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _service = service;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+           return string.Format(sb.ToString(), path, logicName, physycalName);
+        }
+
+        public static string CreTmlFileServiceC(string logicName, string physycalName, string path)
+        {
+            logicName = logicName.Replace(CONST.STRING_JP_SERVICE, string.Empty);
+            physycalName = physycalName.Replace(CONST.STRING_SERVICE, string.Empty);
+            path = path.Replace(CONST.STRING_LIB, string.Empty).Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// {1}サービス。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    public class {2}Service").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        // 悲観的排他制御。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly LockService _lockService;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        // リポジトリ—を管理します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly RepositoryManager<{2}Repository> _repository;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly IMapper _mapper;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// 新しいインスタンスを初期化します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"lockService\">ロックサービスのインスタンス。</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"repository\">レポジトリーのインスタンス。</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"mapper\">ビューモデル内のマッパー データ。</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        public {2}Service(LockService lockService,  RepositoryManager<{2}Repository> repository, IMapper mapper)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _lockService = lockService;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _repository = repository;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _mapper = mapper;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// ビューモデルを初期化します。マスタの参照、空明細への補填など、どのモードでも必要な処理を行います。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"model\">{1}ViewModel。</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        public void InitializeViewModel({2}ViewModel model)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+            return string.Format(sb.ToString(), path, logicName, physycalName);
+        }
+
+        public static string CreTmlFileRepositoryC(string logicName, string physycalName, string path)
+        {
+            logicName = logicName.Replace(CONST.STRING_JP_REPOSITORY, string.Empty);
+            physycalName = physycalName.Replace(CONST.STRING_REPOSITORY, string.Empty);
+            path = path.Replace(CONST.STRING_LIB, string.Empty).Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// {1}リポジトリ。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    public class {2}Repository").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        // データベース接続。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly DbConnection _connection;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// 新しいインスタンスを初期化します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"connection\"></param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        public {2}Repository(DbConnection connection)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _connection = connection;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+            return string.Format(sb.ToString(), path, logicName, physycalName);
+
+        }
+
+        public static string CreTmlFileViewModelC(string logicName, string physycalName, string path)
+        {
+            logicName = logicName.Replace(CONST.STRING_JP_VIEW_MODEL, string.Empty);
+            physycalName = physycalName.Replace(CONST.STRING_VIEW_MODEL, string.Empty);
+            path = path.Replace(CONST.STRING_LIB, string.Empty).Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// {1}画面のビューモデルです。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    [AutoMappable(typeof())]").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    public class {2}ViewModel : ViewModel").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+            return string.Format(sb.ToString(), path, logicName, physycalName);
+        }
+
+        public static string CreTmlFileEntityC(string logicName, string physycalName, string path)
+        {
+            path = path.Replace(CONST.STRING_LIB, string.Empty).Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.Contains(CONST.STRING_ENTITIES)) path = path.Remove(path.LastIndexOf(CONST.STRING_ENTITIES)) + CONST.STRING_ENTITIES;
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
+
+            if (string.IsNullOrEmpty(logicName)) logicName = physycalName;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// {1}。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    public class {2}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+            return string.Format(sb.ToString(), path, logicName, physycalName);
         }
         #endregion
 

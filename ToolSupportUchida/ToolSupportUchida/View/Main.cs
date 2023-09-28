@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ToolCommon.Models;
 using ToolSupportCoding.Common;
 using ToolSupportCoding.Model;
 using ToolSupportCoding.Theme;
@@ -37,7 +36,6 @@ namespace ToolSupportCoding
         private int mode;
         private List<SekkeiModel> lstSekkei;
         private List<ItemModel> lstItem;
-        private AppSettingModel appSettingModel;
 
         //Constructor
         public Main()
@@ -52,7 +50,6 @@ namespace ToolSupportCoding
 
             lstSekkei = new List<SekkeiModel>();
             lstItem = new List<ItemModel>();
-            appSettingModel = new AppSettingModel();
 
             btnCloseChildForm.Visible = false;
 
@@ -183,11 +180,6 @@ namespace ToolSupportCoding
                     gridFormat.Rows.Add(noAdapter, adapter.name, adapter.key, adapter.value);
                     noAdapter++;
                 }
-            }
-
-            if (objToolSupport.appSettingModel != null)
-            {
-                appSettingModel = objToolSupport.appSettingModel;
             }
 
             mode = objToolSupport.modeLanguage;

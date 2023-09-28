@@ -120,8 +120,22 @@ namespace ToolSupportCoding.View
             lstTextDoc += "          - B3: Nhan Create mess de nhan noi dung message tuong ung cua noi dung da input." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Co the tao src tao message theo cac tuy chon da setting" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Create File Source:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao file source theo noi dung da duoc mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input ten tieng nhat cua file theo thiet ke tai cot Logical Class Name." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input ten file tai cot Physical Class Name." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B3: Input path file tai cot Path Source Name." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B4: Bam button Create Src de thuc thi tao src." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - T.h thiet ke khong co mo ta ten Logical Name thi co the de trong" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Create Entity:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao noi dung file Entity theo mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input noi dung thiet ke procedure vao cot SQL Procedure." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input thong tin table theo thiet ke vao cot SQL Table." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B4: Bam button Create Enity de thuc thi tao src." + CONST.CHAR_NEW_LINE;
             lstDocument.Text = lstTextDoc;
-
 
             // Set data version update
             string lstTextVer = "";
@@ -161,6 +175,10 @@ namespace ToolSupportCoding.View
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += "Ver2.5" + CONST.CHAR_NEW_LINE;
             lstTextVer += "    - Chinh sua chuc nang Create Item de chinh sua src html theo dinh dang moi" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "Ver2.6" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Chinh sua chuc nang Common Create File Source, tao file source theo tkct" + CONST.CHAR_NEW_LINE;
+            lstTextVer += "    - Them moi chuc nang Common Create Entity, tao entity dua vao noi dung tkct va table" + CONST.CHAR_NEW_LINE;
             lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
             lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
 

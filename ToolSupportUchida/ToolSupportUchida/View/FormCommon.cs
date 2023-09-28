@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using ToolCommon.Models;
-using ToolCommon.Service;
 using ToolSupportCoding.Common;
 using ToolSupportCoding.Model;
 using ToolSupportCoding.Theme;
@@ -18,37 +16,38 @@ namespace ToolSupportCoding.View
 {
     public partial class FormCommon : Form
     {
+        DataTable table;
+        private ToolSupportModel objToolSupport;
+
+        // List create JSON
         private string[] lstKey;
 
+        // List create message 
         private string[] lstMessCode;
         private string[] lstMessContent;
 
-        // list create entity
-        private string[] lstEntityProcedure;
-        private string[] lstEntityTable;
-        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
-
-        // list format 
+        // List format 
         private string[] lstFormatCode;
 
-        // list using get column
+        // List using get column
         private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
         private Dictionary<string, string> dicColumnTable = new Dictionary<string, string>();
 
-        // list create comment
+        // List create comment
+        private int createComentLocation = 0;
+        private int createComentMode = 0;
         private List<string> lstInputComment = new List<string>();
         private List<string> lstInputCode = new List<string>();
 
-        private int createComentLocation = 0;
-        private int createComentMode = 0;
+        // List create source
+        private string[] lstSourceLogic;
+        private string[] lstSourcePhysical;
+        private string[] lstSourcePath;
 
-        private CreateFileService _createFileService;
-
-        private List<ItemModel> lstItem;
-
-        private ToolSupportModel objToolSupport;
-
-        DataTable table;
+        // List create entity
+        private string[] lstEntityProcedure;
+        private string[] lstEntityTable;
+        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
 
         #region Load Form
         public FormCommon(ToolSupportModel objToolSupport)
@@ -56,10 +55,6 @@ namespace ToolSupportCoding.View
             InitializeComponent();
 
             this.objToolSupport = objToolSupport;
-
-            this.lstItem = objToolSupport.lstItem;
-
-            _createFileService = new CreateFileService(this.getAppSettingModel(this.lstItem));
         }
 
         private void FormCheckDataModel_Load(object sender, EventArgs e)
@@ -159,7 +154,11 @@ namespace ToolSupportCoding.View
                     txtMessCode.Focus();
                     break;
                 case CONST.TAB_CR_FILE_SRC:
-                    txtID.Focus();
+                    txtCrSourceFolderP.Text = objToolSupport.sourcePath;
+                    txtCrSourceFolderP.Focus();
+                    break;
+                case CONST.TAB_CR_ENTITY:
+                    txtCrEntityP.Focus();
                     break;
             }
         }
@@ -1727,93 +1726,196 @@ namespace ToolSupportCoding.View
         }
         #endregion
 
-        #region Tab Clone Src 
+        #region Tab Create Source
 
-        private void btnCloneSrcPath_Click(object sender, EventArgs e)
+        private void txtCrSourceFolderP_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrSourceFolderP.Text))
+            {
+                return;
+            }
+
+            barCrSourceProcess.Value = 0;
+            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void btCrSourceOpenPath_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             folderDlg.ShowNewFolderButton = true;
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.txtCloneSrcPath.Text = folderDlg.SelectedPath;
-                foreach (ItemModel item in this.lstItem)
-                {
-                    if (item.key.Equals("sourcePath"))
-                    {
-                        item.value = folderDlg.SelectedPath;
-                    }
-                }
+                this.txtCrSourceFolderP.Text = folderDlg.SelectedPath;
             }
-            _createFileService = new CreateFileService(this.getAppSettingModel(this.lstItem));
-            objToolSupport.lstItem = this.lstItem;
+
+            barCrSourceProcess.Value = 0;
+            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
             BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
         }
 
-        private void rdCloneSrcCreateNew_CheckedChanged(object sender, EventArgs e)
+        private void txtCrSourceLogic_TextChanged(object sender, EventArgs e)
         {
-            if (rdCloneSrcCreateNew.Checked)
+            if (string.IsNullOrEmpty(txtCrSourceLogic.Text)) return;
+
+            lstSourceLogic = txtCrSourceLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourceLogic.Length > 0)
             {
-                rdCloneSrcFuncProcess.Visible = false;
-                rdCloneSrcNoFunc.Visible = false;
+                lblCrSourceLogic.Visible = true;
+                lblCrSourceLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourceLogic.Length);
             }
+            else
+            {
+                lblCrSourceLogic.Visible = false;
+            }
+
+            if (lstSourceLogic != null && lstSourcePhysical != null && lstSourcePath != null)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
         }
 
-        private void rdCloneSrcCopyCreate_CheckedChanged(object sender, EventArgs e)
+        private void txtCrSourcePhysical_TextChanged(object sender, EventArgs e)
         {
-            if (rdCloneSrcCopyCreate.Checked)
+            if (string.IsNullOrEmpty(txtCrSourcePhysical.Text))
             {
-                rdCloneSrcFuncProcess.Visible = true;
-                rdCloneSrcNoFunc.Visible = true;
+                btCrSource.Enabled = false;
+                return;
             }
+
+            lstSourcePhysical = txtCrSourcePhysical.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourcePhysical.Length > 0)
+            {
+                lblCrSourcePhysical.Visible = true;
+                lblCrSourcePhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePhysical.Length);
+            }
+            else
+            {
+                lblCrSourcePhysical.Visible = false;
+            }
+
+            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
         }
 
-        private void btnCloneSrcCreate_Click(object sender, EventArgs e)
+        private void txtCrSourcePath_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (string.IsNullOrEmpty(txtCrSourcePath.Text))
             {
-                this.txtCloneSrcViewResult.Text = "";
-                this.btCloneSrcDelete.Visible = false;
-                this._createFileService.Generate(txtCloneSrcPGID.Text.Trim(), txtCloneSrcPGName.Text.Trim());
-                if (rdCloneSrcFuncProcess.Checked)
+                btCrSource.Enabled = false;
+                return;
+            }
+
+            lstSourcePath = txtCrSourcePath.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourcePath.Length > 0)
+            {
+                lblCrSourcePath.Visible = true;
+                lblCrSourcePath.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePath.Length);
+            }
+            else
+            {
+                lblCrSourcePath.Visible = false;
+            }
+
+            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
+            barCrSourceProcess.Maximum = lstSourcePath.Length - 1;
+        }
+
+        private void btCrSource_Click(object sender, EventArgs e)
+        {
+            string srcPath = txtCrSourceFolderP.Text;
+            barCrSourceProcess.Value = 0;
+
+            for (int i = 0; i < lstSourcePath.Length; i++)
+            {
+                if (string.IsNullOrEmpty(lstSourcePath[i])) continue;
+
+                string logicName = lstSourceLogic[i].Replace(CONST.STRING_TAB, string.Empty);
+                string fileName = lstSourcePhysical[i].Replace(CONST.STRING_TAB, string.Empty);
+                string path = lstSourcePath[i].Replace(CONST.STRING_TAB, string.Empty);
+
+                if (path.Last() != '/') path = path + CONST.STRING_SLASH;
+
+                string dir = srcPath + path;
+                if (dir.Contains(CONST.STRING_ENTITIES)) dir = dir.Remove(dir.LastIndexOf(CONST.STRING_ENTITIES)) + CONST.STRING_ENTITIES + CONST.STRING_SLASH;
+
+                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+                if (!File.Exists(dir + fileName + CONST.C_TYPE_FILE))
                 {
-                    this._createFileService.editFileWithFunctionAndProcess();
+                    string text = string.Empty;
+                    if (fileName.Contains(CONST.STRING_CONTROLLER))
+                    {
+                        text = CUtils.CreTmlFileControllerC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_SERVICE))
+                    {
+                        text = CUtils.CreTmlFileServiceC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_REPOSITORY))
+                    {
+                        text = CUtils.CreTmlFileRepositoryC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_VIEW_MODEL))
+                    {
+                        text = CUtils.CreTmlFileViewModelC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_ENTITY))
+                    {
+                        text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
                 }
-                else if (rdCloneSrcNoFunc.Checked)
-                {
-                    this._createFileService.editFileWithoutFunction();
-                    this._createFileService.editFileWithFunctionAndProcess();
-                }
-                this.txtCloneSrcViewResult.Text = this._createFileService.resultData;
-                MessageBox.Show(this._createFileService.message);
-                this.btCloneSrcDelete.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+
+                // Update process
+                UpdateProcess();
             }
         }
 
-        private void btCloneSrcDelete_Click(object sender, EventArgs e)
+        private void btCrSourceClear_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult dr = MessageBox.Show("Are you sure?", "Delete Files",
-                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            txtCrSourceLogic.Text = string.Empty;
+            lblCrSourceLogic.Visible = false;
 
-                if (dr == DialogResult.Yes)
-                {
-                    this.txtCloneSrcViewResult.Text = this._createFileService.deleteFileCreated(); ;
-                    MessageBox.Show(this._createFileService.message);
-                    this.btCloneSrcDelete.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            txtCrSourcePhysical.Text = string.Empty;
+            lblCrSourcePhysical.Visible = false;
+
+            txtCrSourcePath.Text = string.Empty;
+            lblCrSourcePath.Visible = false;
+
+            barCrSourceProcess.Value = 0;
         }
-
         #endregion
 
         #region Tab Create Entity
@@ -1964,8 +2066,10 @@ namespace ToolSupportCoding.View
         {
             txtCrEntityP.Text = string.Empty;
             lblCrEntityNumP.Visible = false;
+
             txtCrEntityT.Text = string.Empty;
             lblCrEntityNumT.Visible = false;
+
             txtCrEntityResult.Text = string.Empty;
 
             btnCrEntity.Enabled = false;
@@ -2031,37 +2135,20 @@ namespace ToolSupportCoding.View
             return maxLengthRow;
         }
 
-        private AppSettingModel getAppSettingModel(List<ItemModel> lstItem)
+        /// <summary>
+        /// Update Progress bar
+        /// </summary>
+        private void UpdateProcess()
         {
-            AppSettingModel appSettingModel = new AppSettingModel
+            if (barCrSourceProcess.Value < barCrSourceProcess.Maximum)
             {
-                sourcePath = "D:\\",
-                generateSource = new GenerateSource(),
-                editSource = new List<EditSource>()
-            };
-
-            if (lstItem.Count <= 0) return appSettingModel;
-
-            //List<ItemModel> lstCloneSrc = lstItem.Where(i => i.type.Equals("SettingCloneSrc")).ToList();
-
-            //if (lstCloneSrc.Count <= 0) return appSettingModel;
-            //appSettingModel.sourcePath = lstCloneSrc.Where(i => i.key.Equals("sourcePath")).ToList()[0].value;
-            //appSettingModel.generateSource.ignoreFile = lstCloneSrc.Where(i => i.key.Equals("ignoreFile")).ToList()[0].value.Split('%');
-            //List<ItemModel> lstEditSrc = lstCloneSrc.Where(i => i.key.Equals("editSource")).ToList();
-            //foreach (ItemModel item in lstEditSrc)
-            //{
-            //    string[] value = item.value.Split('%');
-            //    appSettingModel.editSource.Add(new EditSource
-            //    {
-            //        fileType = value[0],
-            //        functionPattern = value[1],
-            //        functionKeyword = value[2]
-            //    });
-            //}
-            this.txtCloneSrcPath.Text = appSettingModel.sourcePath;
-            return appSettingModel;
+                barCrSourceProcess.Value++;
+                int percent = (int)(((double)barCrSourceProcess.Value / (double)barCrSourceProcess.Maximum) * 100);
+                barCrSourceProcess.CreateGraphics().DrawString("File creation process: " + percent.ToString() + "%", new Font("Microsoft Sans Serif", (float)10, FontStyle.Regular),
+                    Brushes.Black, new PointF(barCrSourceProcess.Width / 4 + 10, barCrSourceProcess.Height / 2 - 7));
+                Application.DoEvents();
+            }
         }
-
         #endregion
 
     }

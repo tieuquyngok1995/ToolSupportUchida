@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BinarySerialization.cs" />
-    <Compile Include="Model\AppSettingModel.cs" />
     <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Model\SekkeiModel.cs" />
     <Compile Include="Model\ToolSupportModel.cs" />
@@ -74,7 +73,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\CreateFileService.cs" />
     <Compile Include="Theme\ThemeColor.cs" />
     <Compile Include="Utils\CONST.cs" />
     <Compile Include="Utils\CUtils.cs" />
