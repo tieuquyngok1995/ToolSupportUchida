@@ -258,7 +258,7 @@ namespace ToolSupportCoding.View
                 if (string.IsNullOrEmpty(itemVal.Replace(CONST.STRING_TAB, string.Empty))) continue;
 
                 string itemName = lstNameItem[i].Replace(CONST.STRING_TAB, string.Empty);
-                string key = lstLogic.FirstOrDefault(item => (itemName.Contains(item) || (itemName + CONST.STRING_JP_CODE).Contains(item)));
+                string key = lstLogic.FirstOrDefault(item => (itemName.Contains(item)));
                 string[] value = itemVal.Split(CONST.CHAR_TAB);
 
                 if (key == null || string.IsNullOrEmpty(key)) continue;
