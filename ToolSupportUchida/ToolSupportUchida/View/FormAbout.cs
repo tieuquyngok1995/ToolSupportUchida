@@ -89,20 +89,7 @@ namespace ToolSupportCoding.View
             lstTextDoc += "Chuc nang Common" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Mot so chuc nang common thuong dung." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Create JSON:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao string JSON theo format da duoc setting truoc." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input Case, Out" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input key parameter, khi nay se xuat hien key tai table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input value theo tung key vao tabl.e" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Nhan duoc chuoi json theo format voi key values da input." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Mode create obj se tao object thay vi chuoi string json." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Format Comment:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Format comment cuoi ham cua 1 doan src." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input noi dung src chua comment o cuoi hang sau do bam format." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Tu format thang hang cac coment." + CONST.CHAR_NEW_LINE;
+
             lstTextDoc += "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Lay thong tin cua tung colum table trong thiet ke theo format." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
@@ -112,14 +99,24 @@ namespace ToolSupportCoding.View
             lstTextDoc += "          - B4: Chon format tuong ung cua doan text da input." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - " + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Create Message:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao message theo thong tin da duoc cung cap tai thiet ke ." + CONST.CHAR_NEW_LINE;
+
+            lstTextDoc += "    + Create JSON:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao string JSON theo format da duoc setting truoc." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input code tai file thiet ke vao filed message code." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input message tai file thiet ke vao filed message content." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Nhan Create mess de nhan noi dung message tuong ung cua noi dung da input." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input Case, Out" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input key parameter, khi nay se xuat hien key tai table." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B3: Input value theo tung key vao tabl.e" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B4: Nhan duoc chuoi json theo format voi key values da input." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the tao src tao message theo cac tuy chon da setting" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Mode create obj se tao object thay vi chuoi string json." + CONST.CHAR_NEW_LINE;
+
+            lstTextDoc += "    + Create Entity:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao noi dung file Entity theo mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input noi dung thiet ke procedure vao cot SQL Procedure." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input thong tin table theo thiet ke vao cot SQL Table." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B4: Bam button Create Enity de thuc thi tao src." + CONST.CHAR_NEW_LINE;
+
             lstTextDoc += "    + Create File Source:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - Tao file source theo noi dung da duoc mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
@@ -129,12 +126,24 @@ namespace ToolSupportCoding.View
             lstTextDoc += "          - B4: Bam button Create Src de thuc thi tao src." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
             lstTextDoc += "          - T.h thiet ke khong co mo ta ten Logical Name thi co the de trong" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Create Entity:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao noi dung file Entity theo mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
+
+            lstTextDoc += "    + Create Message:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Tao message theo thong tin da duoc cung cap tai thiet ke ." + CONST.CHAR_NEW_LINE;
             lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input noi dung thiet ke procedure vao cot SQL Procedure." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input thong tin table theo thiet ke vao cot SQL Table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Bam button Create Enity de thuc thi tao src." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input code tai file thiet ke vao filed message code." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Input message tai file thiet ke vao filed message content." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B3: Nhan Create mess de nhan noi dung message tuong ung cua noi dung da input." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Co the tao src tao message theo cac tuy chon da setting" + CONST.CHAR_NEW_LINE;
+
+            lstTextDoc += "    + Create Resources:" + CONST.CHAR_NEW_LINE;
+
+            lstTextDoc += "    + Format Comment:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - Format dinh dang comment theo setting." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B1: Input noi dung src chua comment o cuoi hang sau do bam format." + CONST.CHAR_NEW_LINE;
+            lstTextDoc += "          - B2: Tu format thang hang cac coment." + CONST.CHAR_NEW_LINE;
+
             lstDocument.Text = lstTextDoc;
 
             // Set data version update

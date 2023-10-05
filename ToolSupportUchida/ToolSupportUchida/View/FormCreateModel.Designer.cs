@@ -1,7 +1,7 @@
 ﻿
 namespace ToolSupportCoding.View
 {
-    partial class FormConvertModel
+    partial class FormCreateModel
     {
         /// <summary>
         /// Required designer variable.
@@ -34,38 +34,38 @@ namespace ToolSupportCoding.View
             this.lbLanguage = new System.Windows.Forms.Label();
             this.panelComment = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdbLine = new System.Windows.Forms.RadioButton();
             this.rdbBlock = new System.Windows.Forms.RadioButton();
             this.rdbLineBlock = new System.Windows.Forms.RadioButton();
-            this.rdbLine = new System.Windows.Forms.RadioButton();
             this.panelFormat = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rdbUpperCase = new System.Windows.Forms.RadioButton();
             this.rdbLowerCase = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkIsTable = new System.Windows.Forms.CheckBox();
+            this.txtLogic = new System.Windows.Forms.RichTextBox();
+            this.lblNumLogic = new System.Windows.Forms.Label();
+            this.txtAddLogic = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkCreateInterf = new System.Windows.Forms.CheckBox();
+            this.txtAddPhysi = new System.Windows.Forms.TextBox();
+            this.txtPhysi = new System.Windows.Forms.RichTextBox();
+            this.lblNumPhysi = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblNumType = new System.Windows.Forms.Label();
+            this.rdbLast = new System.Windows.Forms.RadioButton();
+            this.txtType = new System.Windows.Forms.RichTextBox();
+            this.rdbFirst = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.lblNumLogic = new System.Windows.Forms.Label();
-            this.lblNumPhysi = new System.Windows.Forms.Label();
-            this.lblNumType = new System.Windows.Forms.Label();
-            this.txtAddLogic = new System.Windows.Forms.TextBox();
-            this.txtAddPhysi = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panelType = new System.Windows.Forms.Panel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.rdbTypeScript = new System.Windows.Forms.RadioButton();
             this.rdbObservable = new System.Windows.Forms.RadioButton();
             this.rdbSetParam = new System.Windows.Forms.RadioButton();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.rdbFirst = new System.Windows.Forms.RadioButton();
-            this.rdbLast = new System.Windows.Forms.RadioButton();
-            this.chkCreateInterf = new System.Windows.Forms.CheckBox();
-            this.chkIsTable = new System.Windows.Forms.CheckBox();
-            this.txtLogic = new System.Windows.Forms.RichTextBox();
-            this.txtPhysi = new System.Windows.Forms.RichTextBox();
-            this.txtType = new System.Windows.Forms.RichTextBox();
-            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.panelLanguage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelComment.SuspendLayout();
@@ -130,6 +130,18 @@ namespace ToolSupportCoding.View
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Comment Mode";
             // 
+            // rdbLine
+            // 
+            this.rdbLine.AutoSize = true;
+            this.rdbLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLine.Location = new System.Drawing.Point(116, 20);
+            this.rdbLine.Name = "rdbLine";
+            this.rdbLine.Size = new System.Drawing.Size(49, 19);
+            this.rdbLine.TabIndex = 99;
+            this.rdbLine.Text = "Line";
+            this.rdbLine.UseVisualStyleBackColor = true;
+            this.rdbLine.CheckedChanged += new System.EventHandler(this.rdbLine_CheckedChanged);
+            // 
             // rdbBlock
             // 
             this.rdbBlock.AutoSize = true;
@@ -155,18 +167,6 @@ namespace ToolSupportCoding.View
             this.rdbLineBlock.Text = "L Block";
             this.rdbLineBlock.UseVisualStyleBackColor = true;
             this.rdbLineBlock.CheckedChanged += new System.EventHandler(this.rdbLineBlock_CheckedChanged);
-            // 
-            // rdbLine
-            // 
-            this.rdbLine.AutoSize = true;
-            this.rdbLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbLine.Location = new System.Drawing.Point(116, 20);
-            this.rdbLine.Name = "rdbLine";
-            this.rdbLine.Size = new System.Drawing.Size(49, 19);
-            this.rdbLine.TabIndex = 99;
-            this.rdbLine.Text = "Line";
-            this.rdbLine.UseVisualStyleBackColor = true;
-            this.rdbLine.CheckedChanged += new System.EventHandler(this.rdbLine_CheckedChanged);
             // 
             // panelFormat
             // 
@@ -230,6 +230,50 @@ namespace ToolSupportCoding.View
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Input Logical Name";
             // 
+            // chkIsTable
+            // 
+            this.chkIsTable.AutoSize = true;
+            this.chkIsTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkIsTable.Location = new System.Drawing.Point(4, 278);
+            this.chkIsTable.Name = "chkIsTable";
+            this.chkIsTable.Size = new System.Drawing.Size(69, 19);
+            this.chkIsTable.TabIndex = 15;
+            this.chkIsTable.Text = "Is Table";
+            this.chkIsTable.UseVisualStyleBackColor = true;
+            this.chkIsTable.Visible = false;
+            this.chkIsTable.CheckedChanged += new System.EventHandler(this.chkIsTable_CheckedChanged);
+            // 
+            // txtLogic
+            // 
+            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtLogic.Name = "txtLogic";
+            this.txtLogic.Size = new System.Drawing.Size(160, 255);
+            this.txtLogic.TabIndex = 2;
+            this.txtLogic.Text = "";
+            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
+            // 
+            // lblNumLogic
+            // 
+            this.lblNumLogic.AutoSize = true;
+            this.lblNumLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumLogic.Location = new System.Drawing.Point(61, 298);
+            this.lblNumLogic.Name = "lblNumLogic";
+            this.lblNumLogic.Size = new System.Drawing.Size(80, 15);
+            this.lblNumLogic.TabIndex = 8;
+            this.lblNumLogic.Text = "Line number:";
+            this.lblNumLogic.Visible = false;
+            // 
+            // txtAddLogic
+            // 
+            this.txtAddLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtAddLogic.Location = new System.Drawing.Point(4, 277);
+            this.txtAddLogic.Name = "txtAddLogic";
+            this.txtAddLogic.Size = new System.Drawing.Size(158, 21);
+            this.txtAddLogic.TabIndex = 4;
+            this.txtAddLogic.Visible = false;
+            this.txtAddLogic.TextChanged += new System.EventHandler(this.txtAddLogic_TextChanged);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.chkCreateInterf);
@@ -244,6 +288,50 @@ namespace ToolSupportCoding.View
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input Physical Name";
             // 
+            // chkCreateInterf
+            // 
+            this.chkCreateInterf.AutoSize = true;
+            this.chkCreateInterf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkCreateInterf.Location = new System.Drawing.Point(4, 278);
+            this.chkCreateInterf.Name = "chkCreateInterf";
+            this.chkCreateInterf.Size = new System.Drawing.Size(112, 19);
+            this.chkCreateInterf.TabIndex = 14;
+            this.chkCreateInterf.Text = "Create Interface";
+            this.chkCreateInterf.UseVisualStyleBackColor = true;
+            this.chkCreateInterf.Visible = false;
+            this.chkCreateInterf.CheckedChanged += new System.EventHandler(this.chkCreateInterf_CheckedChanged);
+            // 
+            // txtAddPhysi
+            // 
+            this.txtAddPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtAddPhysi.Location = new System.Drawing.Point(4, 277);
+            this.txtAddPhysi.Name = "txtAddPhysi";
+            this.txtAddPhysi.Size = new System.Drawing.Size(158, 21);
+            this.txtAddPhysi.TabIndex = 5;
+            this.txtAddPhysi.Visible = false;
+            this.txtAddPhysi.TextChanged += new System.EventHandler(this.txtAddPhysi_TextChanged);
+            // 
+            // txtPhysi
+            // 
+            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
+            this.txtPhysi.Name = "txtPhysi";
+            this.txtPhysi.Size = new System.Drawing.Size(160, 255);
+            this.txtPhysi.TabIndex = 0;
+            this.txtPhysi.Text = "";
+            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
+            // 
+            // lblNumPhysi
+            // 
+            this.lblNumPhysi.AutoSize = true;
+            this.lblNumPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumPhysi.Location = new System.Drawing.Point(61, 298);
+            this.lblNumPhysi.Name = "lblNumPhysi";
+            this.lblNumPhysi.Size = new System.Drawing.Size(80, 15);
+            this.lblNumPhysi.TabIndex = 9;
+            this.lblNumPhysi.Text = "Line number:";
+            this.lblNumPhysi.Visible = false;
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.lblNumType);
@@ -257,6 +345,55 @@ namespace ToolSupportCoding.View
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Input Type";
+            // 
+            // lblNumType
+            // 
+            this.lblNumType.AutoSize = true;
+            this.lblNumType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumType.Location = new System.Drawing.Point(61, 298);
+            this.lblNumType.Name = "lblNumType";
+            this.lblNumType.Size = new System.Drawing.Size(80, 15);
+            this.lblNumType.TabIndex = 10;
+            this.lblNumType.Text = "Line number:";
+            this.lblNumType.Visible = false;
+            // 
+            // rdbLast
+            // 
+            this.rdbLast.AutoSize = true;
+            this.rdbLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLast.Location = new System.Drawing.Point(82, 280);
+            this.rdbLast.Name = "rdbLast";
+            this.rdbLast.Size = new System.Drawing.Size(69, 19);
+            this.rdbLast.TabIndex = 7;
+            this.rdbLast.Text = "Set Last";
+            this.rdbLast.UseVisualStyleBackColor = true;
+            this.rdbLast.Visible = false;
+            this.rdbLast.CheckedChanged += new System.EventHandler(this.rdbLast_CheckedChanged);
+            // 
+            // txtType
+            // 
+            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtType.Location = new System.Drawing.Point(3, 19);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(160, 255);
+            this.txtType.TabIndex = 0;
+            this.txtType.Text = "";
+            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
+            // 
+            // rdbFirst
+            // 
+            this.rdbFirst.AutoSize = true;
+            this.rdbFirst.Checked = true;
+            this.rdbFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFirst.Location = new System.Drawing.Point(4, 280);
+            this.rdbFirst.Name = "rdbFirst";
+            this.rdbFirst.Size = new System.Drawing.Size(69, 19);
+            this.rdbFirst.TabIndex = 6;
+            this.rdbFirst.TabStop = true;
+            this.rdbFirst.Text = "Set First";
+            this.rdbFirst.UseVisualStyleBackColor = true;
+            this.rdbFirst.Visible = false;
+            this.rdbFirst.CheckedChanged += new System.EventHandler(this.rdbFirst_CheckedChanged);
             // 
             // groupBox7
             // 
@@ -284,6 +421,16 @@ namespace ToolSupportCoding.View
             this.lblResult.Text = "Copy to Clipboard is done!";
             this.lblResult.Visible = false;
             // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.Size = new System.Drawing.Size(160, 256);
+            this.txtResult.TabIndex = 0;
+            this.txtResult.Text = "";
+            // 
             // btnCopy
             // 
             this.btnCopy.Enabled = false;
@@ -301,58 +448,20 @@ namespace ToolSupportCoding.View
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
-            // lblNumLogic
+            // btnClear
             // 
-            this.lblNumLogic.AutoSize = true;
-            this.lblNumLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumLogic.Location = new System.Drawing.Point(61, 298);
-            this.lblNumLogic.Name = "lblNumLogic";
-            this.lblNumLogic.Size = new System.Drawing.Size(80, 15);
-            this.lblNumLogic.TabIndex = 8;
-            this.lblNumLogic.Text = "Line number:";
-            this.lblNumLogic.Visible = false;
-            // 
-            // lblNumPhysi
-            // 
-            this.lblNumPhysi.AutoSize = true;
-            this.lblNumPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumPhysi.Location = new System.Drawing.Point(61, 298);
-            this.lblNumPhysi.Name = "lblNumPhysi";
-            this.lblNumPhysi.Size = new System.Drawing.Size(80, 15);
-            this.lblNumPhysi.TabIndex = 9;
-            this.lblNumPhysi.Text = "Line number:";
-            this.lblNumPhysi.Visible = false;
-            // 
-            // lblNumType
-            // 
-            this.lblNumType.AutoSize = true;
-            this.lblNumType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumType.Location = new System.Drawing.Point(61, 298);
-            this.lblNumType.Name = "lblNumType";
-            this.lblNumType.Size = new System.Drawing.Size(80, 15);
-            this.lblNumType.TabIndex = 10;
-            this.lblNumType.Text = "Line number:";
-            this.lblNumType.Visible = false;
-            // 
-            // txtAddLogic
-            // 
-            this.txtAddLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtAddLogic.Location = new System.Drawing.Point(4, 277);
-            this.txtAddLogic.Name = "txtAddLogic";
-            this.txtAddLogic.Size = new System.Drawing.Size(158, 21);
-            this.txtAddLogic.TabIndex = 4;
-            this.txtAddLogic.Visible = false;
-            this.txtAddLogic.TextChanged += new System.EventHandler(this.txtAddLogic_TextChanged);
-            // 
-            // txtAddPhysi
-            // 
-            this.txtAddPhysi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtAddPhysi.Location = new System.Drawing.Point(4, 277);
-            this.txtAddPhysi.Name = "txtAddPhysi";
-            this.txtAddPhysi.Size = new System.Drawing.Size(158, 21);
-            this.txtAddPhysi.TabIndex = 5;
-            this.txtAddPhysi.Visible = false;
-            this.txtAddPhysi.TextChanged += new System.EventHandler(this.txtAddPhysi_TextChanged);
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnClear.Location = new System.Drawing.Point(138, 278);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(24, 24);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panelType
             // 
@@ -415,120 +524,11 @@ namespace ToolSupportCoding.View
             this.rdbSetParam.UseVisualStyleBackColor = true;
             this.rdbSetParam.CheckedChanged += new System.EventHandler(this.rdbSetParam_CheckedChanged);
             // 
-            // btnClear
-            // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(138, 278);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 24);
-            this.btnClear.TabIndex = 9;
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // rdbFirst
-            // 
-            this.rdbFirst.AutoSize = true;
-            this.rdbFirst.Checked = true;
-            this.rdbFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFirst.Location = new System.Drawing.Point(4, 280);
-            this.rdbFirst.Name = "rdbFirst";
-            this.rdbFirst.Size = new System.Drawing.Size(69, 19);
-            this.rdbFirst.TabIndex = 6;
-            this.rdbFirst.TabStop = true;
-            this.rdbFirst.Text = "Set First";
-            this.rdbFirst.UseVisualStyleBackColor = true;
-            this.rdbFirst.Visible = false;
-            this.rdbFirst.CheckedChanged += new System.EventHandler(this.rdbFirst_CheckedChanged);
-            // 
-            // rdbLast
-            // 
-            this.rdbLast.AutoSize = true;
-            this.rdbLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbLast.Location = new System.Drawing.Point(82, 280);
-            this.rdbLast.Name = "rdbLast";
-            this.rdbLast.Size = new System.Drawing.Size(69, 19);
-            this.rdbLast.TabIndex = 7;
-            this.rdbLast.Text = "Set Last";
-            this.rdbLast.UseVisualStyleBackColor = true;
-            this.rdbLast.Visible = false;
-            this.rdbLast.CheckedChanged += new System.EventHandler(this.rdbLast_CheckedChanged);
-            // 
-            // chkCreateInterf
-            // 
-            this.chkCreateInterf.AutoSize = true;
-            this.chkCreateInterf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkCreateInterf.Location = new System.Drawing.Point(4, 278);
-            this.chkCreateInterf.Name = "chkCreateInterf";
-            this.chkCreateInterf.Size = new System.Drawing.Size(112, 19);
-            this.chkCreateInterf.TabIndex = 14;
-            this.chkCreateInterf.Text = "Create Interface";
-            this.chkCreateInterf.UseVisualStyleBackColor = true;
-            this.chkCreateInterf.Visible = false;
-            this.chkCreateInterf.CheckedChanged += new System.EventHandler(this.chkCreateInterf_CheckedChanged);
-            // 
-            // chkIsTable
-            // 
-            this.chkIsTable.AutoSize = true;
-            this.chkIsTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkIsTable.Location = new System.Drawing.Point(4, 278);
-            this.chkIsTable.Name = "chkIsTable";
-            this.chkIsTable.Size = new System.Drawing.Size(69, 19);
-            this.chkIsTable.TabIndex = 15;
-            this.chkIsTable.Text = "Is Table";
-            this.chkIsTable.UseVisualStyleBackColor = true;
-            this.chkIsTable.Visible = false;
-            this.chkIsTable.CheckedChanged += new System.EventHandler(this.chkIsTable_CheckedChanged);
-            // 
-            // txtLogic
-            // 
-            this.txtLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtLogic.Name = "txtLogic";
-            this.txtLogic.Size = new System.Drawing.Size(160, 255);
-            this.txtLogic.TabIndex = 2;
-            this.txtLogic.Text = "";
-            this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
-            // 
-            // txtPhysi
-            // 
-            this.txtPhysi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPhysi.Location = new System.Drawing.Point(3, 19);
-            this.txtPhysi.Name = "txtPhysi";
-            this.txtPhysi.Size = new System.Drawing.Size(160, 255);
-            this.txtPhysi.TabIndex = 0;
-            this.txtPhysi.Text = "";
-            this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
-            // 
-            // txtType
-            // 
-            this.txtType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtType.Location = new System.Drawing.Point(3, 19);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(160, 255);
-            this.txtType.TabIndex = 0;
-            this.txtType.Text = "";
-            this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
-            // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtResult.Location = new System.Drawing.Point(3, 19);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(160, 256);
-            this.txtResult.TabIndex = 0;
-            this.txtResult.Text = "";
-            // 
-            // FormConvertModel
+            // FormCreateModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 389);
+            this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.panelType);
             this.Controls.Add(this.panelFormat);
             this.Controls.Add(this.panelComment);
@@ -537,8 +537,8 @@ namespace ToolSupportCoding.View
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
-            this.Name = "FormConvertModel";
-            this.Text = "Convert Model";
+            this.Name = "FormCreateModel";
+            this.Text = "Tool Support: Create Model";
             this.Load += new System.EventHandler(this.FormConvertModel_Load);
             this.panelLanguage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

@@ -15,7 +15,7 @@ namespace ToolSupportCoding.View
         private List<SekkeiModel> lstSekkei;
 
         #region Load Form
-        public FormGetCONST(List<SekkeiModel> lstSekkei, int mode)
+        public FormGetCONST(List<SekkeiModel> lstSekkei)
         {
             InitializeComponent();
 

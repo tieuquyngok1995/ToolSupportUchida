@@ -649,27 +649,32 @@ namespace ToolSupportCoding
             }
         }
 
-        private void btnConvertDatabase_Click(object sender, EventArgs e)
+        private void btnGetSQLinSrc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormConvertSQL(), sender);
+            OpenChildForm(new FormGetSQLinSrc(), sender);
         }
 
-        private void btnConverSekkei_Click(object sender, EventArgs e)
+        private void btnGetCONST_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormGetCONST(lstSekkei, mode), sender);
+            OpenChildForm(new FormGetCONST(lstSekkei), sender);
         }
 
-        private void btnConvertModel_Click(object sender, EventArgs e)
+        private void btnCreateModel_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormConvertModel(mode), sender);
+            OpenChildForm(new FormCreateModel(mode), sender);
         }
 
-        private void btnCreateAdapter_Click(object sender, EventArgs e)
+        private void btnCreateViewModel_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormCreateViewModel(mode, lstSekkei, lstItem), sender);
+        }
+
+        private void btnCreateItem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormCreateItem(lstItem), sender);
         }
 
-        private void btnCheckData_Click(object sender, EventArgs e)
+        private void btnCommon_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormCommon(objToolSupport), sender);
         }
@@ -694,6 +699,7 @@ namespace ToolSupportCoding
         {
             Application.Exit();
         }
+
         #endregion
     }
 }

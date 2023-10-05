@@ -9,7 +9,7 @@ using ToolSupportCoding.Utils;
 
 namespace ToolSupportCoding.View
 {
-    public partial class FormConvertModel : Form
+    public partial class FormCreateModel : Form
     {
         private int isMode = 0;
         private List<string> lstLogic = new List<string>();
@@ -55,7 +55,7 @@ namespace ToolSupportCoding.View
     };
 
         #region Load Form
-        public FormConvertModel(int mode)
+        public FormCreateModel(int mode)
         {
             this.isMode = mode;
             InitializeComponent();

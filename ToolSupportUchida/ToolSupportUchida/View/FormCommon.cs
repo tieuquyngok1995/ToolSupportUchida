@@ -19,19 +19,36 @@ namespace ToolSupportCoding.View
         DataTable table;
         private ToolSupportModel objToolSupport;
 
+        // List using get column
+        private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
+        private Dictionary<string, string> dicColumnTable = new Dictionary<string, string>();
+
+        // List get View Model
+        private List<string> lstGetVMItem = new List<string>();
+        private List<string> lstGetVMLogic = new List<string>();
+        private List<string> lstGetVMPhysical = new List<string>();
+        private List<string> lstGetVMFunItem = new List<string>();
+        private List<string> lstGetVMFunProperty = new List<string>();
+
+        private Dictionary<string, string> dicViewModel = new Dictionary<string, string>();
+        private Dictionary<string, string> dicFunction = new Dictionary<string, string>();
+
         // List create JSON
         private string[] lstKey;
+
+        // List create entity
+        private string[] lstEntityProcedure;
+        private string[] lstEntityTable;
+        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
+
+        // List create source
+        private string[] lstSourceLogic;
+        private string[] lstSourcePhysical;
+        private string[] lstSourcePath;
 
         // List create message 
         private string[] lstMessCode;
         private string[] lstMessContent;
-
-        // List format 
-        private string[] lstFormatCode;
-
-        // List using get column
-        private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
-        private Dictionary<string, string> dicColumnTable = new Dictionary<string, string>();
 
         // List create comment
         private int createComentLocation = 0;
@@ -39,15 +56,15 @@ namespace ToolSupportCoding.View
         private List<string> lstInputComment = new List<string>();
         private List<string> lstInputCode = new List<string>();
 
-        // List create source
-        private string[] lstSourceLogic;
-        private string[] lstSourcePhysical;
-        private string[] lstSourcePath;
+        // List create resources
+        private string[] lstResourcesName;
+        private string[] lstResourcesValue;
+        private string[] lstResourcesComment;
 
-        // List create entity
-        private string[] lstEntityProcedure;
-        private string[] lstEntityTable;
-        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
+        private List<ItemModel> lstResKey = new List<ItemModel>();
+
+        // List format 
+        private string[] lstFormatCode;
 
         #region Load Form
         public FormCommon(ToolSupportModel objToolSupport)
@@ -160,271 +177,11 @@ namespace ToolSupportCoding.View
                 case CONST.TAB_CR_ENTITY:
                     txtCrEntityP.Focus();
                     break;
+                case CONST.TAB_CR_RESOURCES:
+                    txtCrResName.Focus();
+                    lstResKey = objToolSupport.lstItem.Where(item => item.key.Equals(CONST.STRING_RESOURCES)).ToList();
+                    break;
             }
-        }
-        #endregion
-
-        #region Tab Create JSON
-        private void txtInputKey_TextChanged(object sender, EventArgs e)
-        {
-            lstKey = txtInputKey.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
-            if (string.IsNullOrEmpty(txtInputKey.Text) && lstKey.Length > 0)
-            {
-                displayItem(false);
-            }
-            else
-            {
-                gridInputParam.Rows.Clear();
-                gridInputParam.Refresh();
-
-                int index = 1;
-                foreach (string item in lstKey)
-                {
-                    gridInputParam.Rows.Add(index, item, string.Empty);
-                    index++;
-                }
-
-                displayItem(true);
-            }
-        }
-
-        private void txtInputKey_Leave(object sender, EventArgs e)
-        {
-            txtInputKey.Text = Regex.Replace(txtInputKey.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
-        }
-
-        private void gridInputParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (gridInputParam.IsCurrentCellDirty)
-            {
-                gridInputParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            string result = string.Empty;
-            string tab = string.Empty;
-            string template = string.Empty;
-            string nextLine = string.Empty;
-
-            bool isList = false;
-            bool isLast = false;
-
-            int indexTab = 0;
-            int numTab = 0;
-            int index = 0;
-
-            if (rdbCreateJson.Checked)
-            {
-                result = "{" + CONST.STRING_NEW_LINE;
-                tab = CUtils.CreateTab(ref indexTab);
-                template = CUtils.CreTmlCommonCaseOut(tab);
-                result = result + string.Format(template, txtCase.Text.Trim(), txtOut.Text.Trim());
-                result = result + "{" + CONST.STRING_NEW_LINE;
-            }
-            else if (rdbCreateObj.Checked)
-            {
-                result = "[" + CONST.STRING_NEW_LINE;
-                tab = CUtils.CreateTab(ref indexTab);
-                result = result + tab + "{" + CONST.STRING_NEW_LINE;
-            }
-
-            tab = CUtils.CreateTab(ref indexTab);
-
-            foreach (DataGridViewRow row in gridInputParam.Rows)
-            {
-                string key = row.Cells[1].Value.ToString().Trim();
-                string value = row.Cells[2].Value.ToString().Trim();
-
-                if (index <= lstKey.Length - 2)
-                {
-                    numTab = CUtils.GetNumTab(lstKey[index + 1]);
-                    if ((numTab + 2) < indexTab)
-                    {
-                        isLast = true;
-                    }
-
-                }
-                else if (index == lstKey.Length - 1)
-                {
-                    isLast = true;
-                }
-
-                if (key.Contains(CONST.STRING_LIST_EN))
-                {
-                    template = CUtils.CreTmlCommonObj(tab);
-                    result = result + string.Format(template, key) + "[{" + CONST.STRING_NEW_LINE;
-                    isList = true;
-                    tab = CUtils.CreateTab(ref indexTab);
-                }
-                else if (numTab > (indexTab - 2))
-                {
-                    template = CUtils.CreTmlCommonObj(tab);
-                    result = result + string.Format(template, key) + "{" + CONST.STRING_NEW_LINE;
-                    tab = CUtils.CreateTab(ref indexTab);
-                }
-                else if (value.Contains(CONST.STRING_COMMA))
-                {
-                    string[] lstValue = value.Split(CONST.CHAR_COMMA);
-                    lstValue = lstValue.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-
-                    template = CUtils.CreTmlCommonAddArr(tab, isLast);
-                    result = result + string.Format(template, key, addComman(lstValue));
-                }
-                else
-                {
-                    template = CUtils.CreTmlCommonAddData(tab, isLast);
-                    result = result + string.Format(template, key, value);
-                }
-
-                if (isLast)
-                {
-                    if (isList)
-                    {
-                        tab = CUtils.RemoveTab(ref indexTab);
-                        result = result + tab + "}]" + CONST.STRING_NEW_LINE;
-                        isList = false;
-                    }
-                    else
-                    {
-                        tab = CUtils.RemoveTab(ref indexTab);
-                        result = result + tab + "}" + CONST.STRING_NEW_LINE;
-                    }
-                }
-
-                index++;
-            }
-
-            while (indexTab > 0)
-            {
-                tab = CUtils.RemoveTab(ref indexTab);
-                if (indexTab == 0 && rdbCreateObj.Checked)
-                {
-                    result = result + tab + "]" + CONST.STRING_NEW_LINE;
-                }
-                else
-                {
-                    result = result + tab + "}" + CONST.STRING_NEW_LINE;
-                }
-            }
-
-            txtResult.Text = result;
-
-            if (result.Length > 0)
-            {
-                btnCopy.Enabled = true;
-            }
-        }
-
-        private void btnCopy_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                lblResult.Visible = false;
-                return;
-            }
-
-            Clipboard.Clear();
-            Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtInputKey.Text = string.Empty;
-            txtResult.Text = string.Empty;
-
-            gridInputParam.Rows.Clear();
-            gridInputParam.Refresh();
-
-            lblResult.Visible = false;
-            displayItem(false);
-        }
-        #endregion
-
-        #region Tab Format Code
-        private void txtFormatCode_TextChanged(object sender, EventArgs e)
-        {
-            lstFormatCode = txtFormatCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstFormatCode.Length > 0)
-            {
-                btnFormatCode.Enabled = true;
-            }
-            else
-            {
-                btnFormatCode.Enabled = false;
-            }
-        }
-
-        private void btnFormatCode_Click(object sender, EventArgs e)
-        {
-            int mode = 0;
-            if (rbFormatCommentLine.Checked) mode = 1;
-            else if (rbFormatCommentSQL.Checked) mode = 2;
-
-            int maxLengthRow = 0;
-            int lengthAppend = -1;
-
-            string result = string.Empty;
-            foreach (string line in lstFormatCode)
-            {
-                string tmpLine = line;
-                if (mode != 0) tmpLine = tmpLine.Trim();
-
-                tmpLine = tmpLine.Replace(CONST.STRING_TAB, "    ");
-
-                if (tmpLine.Contains(CONST.STRING_APPEND))
-                {
-                    if (tmpLine.Substring(0, 1).Equals(CONST.STRING_DOT))
-                    {
-                        tmpLine = CUtils.CreateSpace(lengthAppend) + tmpLine;
-                    }
-                    else
-                    {
-                        lengthAppend = tmpLine.IndexOf(CONST.STRING_DOT);
-                    }
-                }
-
-                maxLengthRow = getLengthText(mode, tmpLine, maxLengthRow);
-
-                result += tmpLine + CONST.STRING_NEW_LINE;
-            }
-
-            txtFormatResult.Text = CUtils.FormatCode(mode, result, maxLengthRow);
-            txtFormatResult.Text = Regex.Replace(txtFormatResult.Text, @"^\s+$[\n]*", string.Empty, RegexOptions.Multiline);
-
-            if (txtFormatResult.Text.LastIndexOf("\n") == (txtFormatResult.Text.Length - 1))
-            {
-                txtFormatResult.Text = txtFormatResult.Text.Substring(0, txtFormatResult.Text.Length - 1);
-            }
-
-            if (txtFormatResult.Text.Length > 0)
-            {
-                btnFormatCopy.Enabled = true;
-            }
-        }
-
-        private void btnFormatCopy_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtFormatResult.Text))
-            {
-                lblFormatResult.Visible = true;
-                return;
-            }
-
-            Clipboard.Clear();
-            Clipboard.SetText(txtFormatResult.Text);
-            lblFormatResult.Visible = true;
-        }
-
-        private void btnFormatClear_Click(object sender, EventArgs e)
-        {
-            txtFormatCode.Text = string.Empty;
-            txtFormatResult.Text = string.Empty;
-
-            lblFormatResult.Visible = false;
         }
         #endregion
 
@@ -877,250 +634,756 @@ namespace ToolSupportCoding.View
 
         #endregion
 
-        #region Tab Create Comment
+        #region Tab Get View Model
 
-        private void txtCrCmComment_TextChanged(object sender, EventArgs e)
+        private void txtGetVMSItem_TextChanged(object sender, EventArgs e)
         {
-            lstInputComment.Clear();
-            lstInputComment = txtCrCmComment.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstGetVMItem = txtGetVMSItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            if (lstInputComment.Count > 0)
+            if (lstGetVMItem.Count > 0)
             {
-                lblCrCmNumComment.Visible = true;
-                lblCrCmNumComment.Text = string.Concat(CONST.TEXT_LINE_NUM, lstInputComment.Count);
+                lblGetVMSItem.Visible = true;
+                lblGetVMSItem.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMItem.Count);
             }
             else
             {
-                lblCrCmNumComment.Visible = false;
+                lblGetVMSItem.Visible = false;
             }
         }
 
-        private void txtCrCmComment_Leave(object sender, EventArgs e)
+        private void txtGetVMLogic_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCrCmComment.Text)) createComment();
-        }
+            lstGetVMLogic = txtGetVMLogic.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-        private void txtCrCmCode_TextChanged(object sender, EventArgs e)
-        {
-            lstInputCode.Clear();
-            lstInputCode = txtCrCmCode.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            if (lstInputCode.Count > 0)
+            if (lstGetVMLogic.Count > 0)
             {
-                lblCrCmNumCode.Visible = true;
-                lblCrCmNumCode.Text = string.Concat(CONST.TEXT_LINE_NUM, lstInputCode.Count);
+                lblGetVMLogic.Visible = true;
+                lblGetVMLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMLogic.Count);
             }
             else
             {
-                lblCrCmNumCode.Visible = false;
+                lblGetVMLogic.Visible = false;
+            }
+
+            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            {
+                btGetVMGenSrc.Enabled = false;
+            }
+            else
+            {
+                btGetVMGenSrc.Enabled = true;
             }
         }
 
-        private void txtCrCmCode_Leave(object sender, EventArgs e)
+        private void txtGetVMPhysical_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCrCmCode.Text)) createComment();
-        }
+            lstGetVMPhysical = txtGetVMPhysical.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-        private void rbCrCmFirst_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbCrCmFirst.Checked)
+            if (lstGetVMPhysical.Count > 0)
             {
-                createComentLocation = 0;
+                lblGetVMPhysical.Visible = true;
+                lblGetVMPhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMPhysical.Count);
+            }
+            else
+            {
+                lblGetVMPhysical.Visible = false;
+            }
 
-                createComment();
+            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            {
+                btGetVMGenSrc.Enabled = false;
+            }
+            else
+            {
+                btGetVMGenSrc.Enabled = true;
             }
         }
 
-        private void rbCrCmLast_CheckedChanged(object sender, EventArgs e)
+        private void txtGetVMFunItem_TextChanged(object sender, EventArgs e)
         {
-            if (rbCrCmLast.Checked)
-            {
-                createComentLocation = 1;
+            lstGetVMFunItem = txtGetVMFunItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                createComment();
+            if (lstGetVMFunItem.Count > 0)
+            {
+                lblGetVMFunItem.Visible = true;
+                lblGetVMFunItem.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMFunItem.Count);
+            }
+            else
+            {
+                lblGetVMFunItem.Visible = false;
+            }
+
+            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            {
+                btGetVMGenSrc.Enabled = false;
+            }
+            else
+            {
+                btGetVMGenSrc.Enabled = true;
             }
         }
 
-        private void rbCrCmLineBlock_CheckedChanged(object sender, EventArgs e)
+        private void txtGetVMFunPro_TextChanged(object sender, EventArgs e)
         {
-            if (rbCrCmLineBlock.Checked)
-            {
-                createComentMode = 0;
+            lstGetVMFunProperty = txtGetVMFunPro.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                createComment();
+            if (lstGetVMFunProperty.Count > 0)
+            {
+                lblGetVMFunPro.Visible = true;
+                lblGetVMFunPro.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMFunProperty.Count);
+            }
+            else
+            {
+                lblGetVMFunPro.Visible = false;
+            }
+
+            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            {
+                btGetVMGenSrc.Enabled = false;
+            }
+            else
+            {
+                btGetVMGenSrc.Enabled = true;
             }
         }
 
-        private void rbCrCmBlock_CheckedChanged(object sender, EventArgs e)
+        private void btGetVMGenSrc_Click(object sender, EventArgs e)
         {
-            if (rbCrCmBlock.Checked)
-            {
-                createComentMode = 2;
+            txtGetVMResultLogical.Text = string.Empty;
+            txtGetVMResultPhysical.Text = string.Empty;
 
-                createComment();
+            if (dicViewModel.Count > 0) dicViewModel.Clear();
+            if (dicFunction.Count > 0) dicFunction.Clear();
+
+            for (int i = 0; i < lstGetVMFunItem.Count; i++)
+            {
+                string key = lstGetVMFunItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+                string value = lstGetVMFunProperty[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+
+                if (string.IsNullOrEmpty(key) || dicFunction.ContainsKey(key)) continue;
+
+                dicFunction.Add(key, value);
             }
-        }
 
-        private void rbCrCmLine_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbCrCmLine.Checked)
+            for(int i = 0; i < lstGetVMLogic.Count; i++)
             {
-                createComentMode = 1;
+                string key = lstGetVMLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+                string value = lstGetVMPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
 
-                createComment();
+                if (string.IsNullOrEmpty(key) || dicViewModel.ContainsKey(key)) continue;
+
+                dicViewModel.Add(key, value);
             }
-        }
 
-        private void chkCrCmLine_CheckedChanged(object sender, EventArgs e)
-        {
-            createComment();
-        }
-
-        private void createComment()
-        {
-            try
+            for (int i =0; i < lstGetVMItem.Count; i++)
             {
-                txtCrCmResult.Clear();
+                string item = lstGetVMItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
 
-                if ((lstInputCode.Count == lstInputComment.Count) || (lstInputComment.Count > 0 && lstInputCode.Count == 1))
+                string keyVM = string.Empty;
+                if(dicFunction.TryGetValue(item, out keyVM))
                 {
-                    string template = getFormatComment();
-                    int maxLengthRow = 0;
-                    bool isBlankLine = chkCrCmLine.Checked;
-
-                    int mode = 0;
-                    if (rbCrCmLine.Checked) mode = 1;
-                    else if (rbCrCmBlock.Checked) mode = 2;
-
-                    for (int i = 0; i < lstInputComment.Count; i++)
+                    string valueVM = string.Empty;
+                    if(dicViewModel.TryGetValue(keyVM, out valueVM))
                     {
-                        string comment = lstInputComment[i];
-                        string input = lstInputCode[0];
-                        string element = string.Empty;
-
-                        if (string.IsNullOrEmpty(comment)) continue;
-
-                        if (lstInputCode.Count > 1) input = lstInputCode[i];
-
-                        // Add comment first
-                        if (createComentLocation == 0)
-                        {
-                            element = string.Format(template, comment, input);
-                        }
-                        // Add comment last
-                        else
-                        {
-                            element = string.Format(template, input, comment);
-                        }
-
-                        maxLengthRow = getLengthText(mode, element, maxLengthRow);
-
-                        txtCrCmResult.Text += element;
-                        if (createComentLocation == 1 && !isBlankLine) txtCrCmResult.Text += CONST.STRING_NEW_LINE;
-                    }
-
-                    if (createComentLocation == 1) txtCrCmResult.Text = CUtils.FormatCode(mode, txtCrCmResult.Text, maxLengthRow, isBlankLine);
-
-                    txtCrCmResult.Text = CUtils.removeLastLineBlank(txtCrCmResult.Text);
-
-                    btCrCmCopy.Enabled = false;
-                    if (!string.IsNullOrEmpty(txtCrCmResult.Text))
+                        txtGetVMResultLogical.Text += keyVM + CONST.STRING_NEW_LINE;
+                        txtGetVMResultPhysical.Text += valueVM + CONST.STRING_NEW_LINE;
+                    } else
                     {
-                        btCrCmCopy.Enabled = true;
+                        txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
+                        txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
                     }
                 }
                 else
                 {
-                    if (lstInputComment.Count > 0 && txtCrCmCode.Focused) return;
-                    if (lstInputCode.Count > 0 && txtCrCmComment.Focused) return;
-
-                    MessageBox.Show(CONST.MESS_COMMON_CREATE_COMMENT, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
+                    txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
                 }
             }
-            catch (Exception ex)
+
+            if (!string.IsNullOrEmpty(txtGetVMResultLogical.Text))
             {
-                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Create Comment") + ex.Message, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btGetVMCopyLogic.Enabled = true;
+            }
+
+            if (!string.IsNullOrEmpty(txtGetVMResultPhysical.Text))
+            {
+                btGetVMCopyPhysical.Enabled = true;
             }
         }
 
-        private string getFormatComment()
+        private void btGetVMCopyLogic_Click(object sender, EventArgs e)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            switch (createComentMode)
-            {
-                // line block
-                case 0:
-                    if (createComentLocation == 0)
-                    {
-                        stringBuilder.Append("/** {0} */\r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
-                    }
-                    else
-                    {
-                        stringBuilder.Append("{0} /** {1} */");
-                    }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
-
-                    return stringBuilder.ToString();
-                // line
-                case 1:
-                    if (createComentLocation == 0)
-                    {
-                        stringBuilder.Append("// {0} \r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
-                    }
-                    else
-                    {
-                        stringBuilder.Append("{0} // {1}");
-                    }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
-
-                    return stringBuilder.ToString();
-                // block
-                case 2:
-                    if (createComentLocation == 0)
-                    {
-                        stringBuilder.Append("<!-- {0} -->\r\n");
-                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
-                    }
-                    else
-                    {
-                        stringBuilder.Append("{0} <!-- {1} -->");
-                    }
-                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
-
-                    return stringBuilder.ToString();
-
-                default:
-                    return string.Empty;
-            }
-        }
-
-        private void btCrCmCopy_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtCrCmResult.Text))
+            if (string.IsNullOrEmpty(txtGetVMResultLogical.Text))
             {
                 return;
             }
 
             Clipboard.Clear();
-            Clipboard.SetText(txtCrCmResult.Text);
+            Clipboard.SetText(txtGetVMResultLogical.Text);
         }
 
-        private void btCrCmClear_Click(object sender, EventArgs e)
+        private void btGetVMCopyPhysical_Click(object sender, EventArgs e)
         {
-            rbCrCmFirst.Checked = true;
-            rbCrCmLineBlock.Checked = true;
-            chkCrCmLine.Checked = true;
+            if (string.IsNullOrEmpty(txtGetVMResultPhysical.Text))
+            {
+                return;
+            }
 
-            txtCrCmComment.Text = string.Empty;
-            txtCrCmCode.Text = string.Empty;
-            txtCrCmResult.Text = string.Empty;
-
-            btCrCmCopy.Enabled = false;
+            Clipboard.Clear();
+            Clipboard.SetText(txtGetVMResultPhysical.Text);
         }
 
+        private void btGetVMClear_Click(object sender, EventArgs e)
+        {
+            txtGetVMLogic.Text = string.Empty;
+            lstGetVMLogic.Clear();
+
+            txtGetVMPhysical.Text = string.Empty;
+            lstGetVMPhysical.Clear();
+
+            txtGetVMSItem.Text = string.Empty;
+            lstGetVMItem.Clear();
+
+            txtGetVMFunItem.Text = string.Empty;
+            lstGetVMFunItem.Clear();
+
+            txtGetVMFunPro.Text = string.Empty;
+            lstGetVMFunProperty.Clear();
+
+            txtGetVMResultLogical.Text = string.Empty;
+            txtGetVMResultPhysical.Text = string.Empty;
+
+            btGetVMGenSrc.Enabled = false;
+            btGetVMCopyLogic.Enabled = false;
+            btGetVMCopyPhysical.Enabled = false;
+        }
+
+        #endregion
+
+        #region Tab Create JSON
+        private void txtInputKey_TextChanged(object sender, EventArgs e)
+        {
+            lstKey = txtInputKey.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrEmpty(txtInputKey.Text) && lstKey.Length > 0)
+            {
+                displayItem(false);
+            }
+            else
+            {
+                gridInputParam.Rows.Clear();
+                gridInputParam.Refresh();
+
+                int index = 1;
+                foreach (string item in lstKey)
+                {
+                    gridInputParam.Rows.Add(index, item, string.Empty);
+                    index++;
+                }
+
+                displayItem(true);
+            }
+        }
+
+        private void txtInputKey_Leave(object sender, EventArgs e)
+        {
+            txtInputKey.Text = Regex.Replace(txtInputKey.Text, @"^\s+$[\r\n]*", string.Empty, RegexOptions.Multiline);
+        }
+
+        private void gridInputParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (gridInputParam.IsCurrentCellDirty)
+            {
+                gridInputParam.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty;
+            string tab = string.Empty;
+            string template = string.Empty;
+            string nextLine = string.Empty;
+
+            bool isList = false;
+            bool isLast = false;
+
+            int indexTab = 0;
+            int numTab = 0;
+            int index = 0;
+
+            if (rdbCreateJson.Checked)
+            {
+                result = "{" + CONST.STRING_NEW_LINE;
+                tab = CUtils.CreateTab(ref indexTab);
+                template = CUtils.CreTmlCommonCaseOut(tab);
+                result = result + string.Format(template, txtCase.Text.Trim(), txtOut.Text.Trim());
+                result = result + "{" + CONST.STRING_NEW_LINE;
+            }
+            else if (rdbCreateObj.Checked)
+            {
+                result = "[" + CONST.STRING_NEW_LINE;
+                tab = CUtils.CreateTab(ref indexTab);
+                result = result + tab + "{" + CONST.STRING_NEW_LINE;
+            }
+
+            tab = CUtils.CreateTab(ref indexTab);
+
+            foreach (DataGridViewRow row in gridInputParam.Rows)
+            {
+                string key = row.Cells[1].Value.ToString().Trim();
+                string value = row.Cells[2].Value.ToString().Trim();
+
+                if (index <= lstKey.Length - 2)
+                {
+                    numTab = CUtils.GetNumTab(lstKey[index + 1]);
+                    if ((numTab + 2) < indexTab)
+                    {
+                        isLast = true;
+                    }
+
+                }
+                else if (index == lstKey.Length - 1)
+                {
+                    isLast = true;
+                }
+
+                if (key.Contains(CONST.STRING_LIST_EN))
+                {
+                    template = CUtils.CreTmlCommonObj(tab);
+                    result = result + string.Format(template, key) + "[{" + CONST.STRING_NEW_LINE;
+                    isList = true;
+                    tab = CUtils.CreateTab(ref indexTab);
+                }
+                else if (numTab > (indexTab - 2))
+                {
+                    template = CUtils.CreTmlCommonObj(tab);
+                    result = result + string.Format(template, key) + "{" + CONST.STRING_NEW_LINE;
+                    tab = CUtils.CreateTab(ref indexTab);
+                }
+                else if (value.Contains(CONST.STRING_COMMA))
+                {
+                    string[] lstValue = value.Split(CONST.CHAR_COMMA);
+                    lstValue = lstValue.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+                    template = CUtils.CreTmlCommonAddArr(tab, isLast);
+                    result = result + string.Format(template, key, addComman(lstValue));
+                }
+                else
+                {
+                    template = CUtils.CreTmlCommonAddData(tab, isLast);
+                    result = result + string.Format(template, key, value);
+                }
+
+                if (isLast)
+                {
+                    if (isList)
+                    {
+                        tab = CUtils.RemoveTab(ref indexTab);
+                        result = result + tab + "}]" + CONST.STRING_NEW_LINE;
+                        isList = false;
+                    }
+                    else
+                    {
+                        tab = CUtils.RemoveTab(ref indexTab);
+                        result = result + tab + "}" + CONST.STRING_NEW_LINE;
+                    }
+                }
+
+                index++;
+            }
+
+            while (indexTab > 0)
+            {
+                tab = CUtils.RemoveTab(ref indexTab);
+                if (indexTab == 0 && rdbCreateObj.Checked)
+                {
+                    result = result + tab + "]" + CONST.STRING_NEW_LINE;
+                }
+                else
+                {
+                    result = result + tab + "}" + CONST.STRING_NEW_LINE;
+                }
+            }
+
+            txtResult.Text = result;
+
+            if (result.Length > 0)
+            {
+                btnCopy.Enabled = true;
+            }
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtResult.Text))
+            {
+                lblResult.Visible = false;
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtResult.Text);
+            lblResult.Visible = true;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtInputKey.Text = string.Empty;
+            txtResult.Text = string.Empty;
+
+            gridInputParam.Rows.Clear();
+            gridInputParam.Refresh();
+
+            lblResult.Visible = false;
+            displayItem(false);
+        }
+        #endregion
+
+        #region Tab Create Entity
+
+        private void txtCrEntityP_TextChanged(object sender, EventArgs e)
+        {
+            lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstEntityProcedure.Length > 0)
+            {
+                lblCrEntityNumP.Visible = true;
+                lblCrEntityNumP.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityProcedure.Length);
+            }
+            else
+            {
+                lblCrEntityNumP.Visible = false;
+            }
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void txtCrEntityT_TextChanged(object sender, EventArgs e)
+        {
+            lstEntityTable = txtCrEntityT.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstEntityTable.Length > 0)
+            {
+                dicEntityType = new Dictionary<string, string>();
+                foreach (var item in lstEntityTable)
+                {
+                    string[] arrItem = item.Split(CONST.CHAR_TAB);
+
+                    if (arrItem.Length > 1)
+                    {
+                        dicEntityType.Add(arrItem[0].Trim(), arrItem[1].Trim());
+                    }
+                }
+
+                lblCrEntityNumT.Visible = true;
+                lblCrEntityNumT.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityTable.Length);
+            }
+            else
+            {
+                lblCrEntityNumT.Visible = false;
+            }
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void btnCrEntity_Click(object sender, EventArgs e)
+        {
+            txtCrEntityResult.Text = string.Empty;
+
+            for (int i = 0; i < lstEntityProcedure.Length; i++)
+            {
+
+                if (string.IsNullOrEmpty(lstEntityProcedure[i])) continue;
+
+                // Handle Logic and Physical
+                string[] item = lstEntityProcedure[i].Replace(CONST.STRING_TAB, string.Empty).Split(new string[]
+                { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_TABLE_NOT, CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
+                string logic, physical, type;
+
+                if (item.Length >= 3)
+                {
+                    logic = item[1].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = item[2].Trim();
+                }
+                else if (item.Length >= 2)
+                {
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = item[1].Trim();
+                }
+                else
+                {
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    physical = logic;
+                }
+                logic = logic.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
+                physical = physical.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
+
+                if (dicEntityType.TryGetValue(logic, out type))
+                {
+                    type = CUtils.ConvertSQLToCType(type);
+                }
+                else
+                {
+                    type = string.Empty;
+                }
+
+                StringBuilder stringBuilder = new StringBuilder();
+                if (rbCrEntityLine.Checked)
+                {
+                    stringBuilder.Append("// {0}\r\n");
+                }
+                else if (rbCrEntityBlock.Checked)
+                {
+                    stringBuilder.Append("/// <summary>\r\n");
+                    stringBuilder.Append("/// {0}\r\n");
+                    stringBuilder.Append("/// </summary>\r\n");
+                }
+                stringBuilder.Append("public {1}? {2}");
+
+                if (i == lstEntityProcedure.Length - 2)
+                {
+                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
+                }
+                else
+                {
+                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
+                    txtCrEntityResult.Text += CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtCrEntityResult.Text)) btnCrEntityCopy.Enabled = true;
+        }
+
+        private void btnCrEntityCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrEntityResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtCrEntityResult.Text);
+        }
+
+        private void btnCrEntityClear_Click(object sender, EventArgs e)
+        {
+            txtCrEntityP.Text = string.Empty;
+            lblCrEntityNumP.Visible = false;
+
+            txtCrEntityT.Text = string.Empty;
+            lblCrEntityNumT.Visible = false;
+
+            txtCrEntityResult.Text = string.Empty;
+
+            btnCrEntity.Enabled = false;
+            btnCrEntityCopy.Enabled = false;
+        }
+        #endregion
+
+        #region Tab Create File Source
+
+        private void txtCrSourceFolderP_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrSourceFolderP.Text))
+            {
+                return;
+            }
+
+            barCrSourceProcess.Value = 0;
+            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void btCrSourceOpenPath_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.ShowNewFolderButton = true;
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.txtCrSourceFolderP.Text = folderDlg.SelectedPath;
+            }
+
+            barCrSourceProcess.Value = 0;
+            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
+            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+        }
+
+        private void txtCrSourceLogic_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrSourceLogic.Text)) return;
+
+            lstSourceLogic = txtCrSourceLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourceLogic.Length > 0)
+            {
+                lblCrSourceLogic.Visible = true;
+                lblCrSourceLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourceLogic.Length);
+            }
+            else
+            {
+                lblCrSourceLogic.Visible = false;
+            }
+
+            if (lstSourceLogic != null && lstSourcePhysical != null && lstSourcePath != null)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
+        }
+
+        private void txtCrSourcePhysical_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrSourcePhysical.Text))
+            {
+                btCrSource.Enabled = false;
+                return;
+            }
+
+            lstSourcePhysical = txtCrSourcePhysical.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourcePhysical.Length > 0)
+            {
+                lblCrSourcePhysical.Visible = true;
+                lblCrSourcePhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePhysical.Length);
+            }
+            else
+            {
+                lblCrSourcePhysical.Visible = false;
+            }
+
+            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
+        }
+
+        private void txtCrSourcePath_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrSourcePath.Text))
+            {
+                btCrSource.Enabled = false;
+                return;
+            }
+
+            lstSourcePath = txtCrSourcePath.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstSourcePath.Length > 0)
+            {
+                lblCrSourcePath.Visible = true;
+                lblCrSourcePath.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePath.Length);
+            }
+            else
+            {
+                lblCrSourcePath.Visible = false;
+            }
+
+            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
+            {
+                btCrSource.Enabled = true;
+            }
+            else
+            {
+                btCrSource.Enabled = false;
+            }
+
+            barCrSourceProcess.Value = 0;
+            barCrSourceProcess.Maximum = lstSourcePath.Length - 1;
+        }
+
+        private void btCrSource_Click(object sender, EventArgs e)
+        {
+            string srcPath = txtCrSourceFolderP.Text;
+            barCrSourceProcess.Value = 0;
+
+            for (int i = 0; i < lstSourcePath.Length; i++)
+            {
+                if (string.IsNullOrEmpty(lstSourcePath[i])) continue;
+
+                string logicName = lstSourceLogic[i].Replace(CONST.STRING_TAB, string.Empty);
+                string fileName = lstSourcePhysical[i].Replace(CONST.STRING_TAB, string.Empty);
+                string path = lstSourcePath[i].Replace(CONST.STRING_TAB, string.Empty);
+
+                if (path.Last() != '/') path = path + CONST.STRING_SLASH;
+
+                string dir = srcPath + path;
+                if (dir.Contains(CONST.STRING_ENTITIES)) dir = dir.Remove(dir.LastIndexOf(CONST.STRING_ENTITIES)) + CONST.STRING_ENTITIES + CONST.STRING_SLASH;
+
+                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+                if (!File.Exists(dir + fileName + CONST.C_TYPE_FILE))
+                {
+                    string text = string.Empty;
+                    if (fileName.Contains(CONST.STRING_CONTROLLER))
+                    {
+                        text = CUtils.CreTmlFileControllerC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_SERVICE))
+                    {
+                        text = CUtils.CreTmlFileServiceC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_REPOSITORY))
+                    {
+                        text = CUtils.CreTmlFileRepositoryC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_VIEW_MODEL))
+                    {
+                        text = CUtils.CreTmlFileViewModelC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                    else if (fileName.Contains(CONST.STRING_ENTITY))
+                    {
+                        text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
+                }
+
+                // Update process
+                UpdateProcess();
+            }
+        }
+
+        private void btCrSourceClear_Click(object sender, EventArgs e)
+        {
+            txtCrSourceLogic.Text = string.Empty;
+            lblCrSourceLogic.Visible = false;
+
+            txtCrSourcePhysical.Text = string.Empty;
+            lblCrSourcePhysical.Visible = false;
+
+            txtCrSourcePath.Text = string.Empty;
+            lblCrSourcePath.Visible = false;
+
+            barCrSourceProcess.Value = 0;
+        }
         #endregion
 
         #region Tab Create Message
@@ -1726,354 +1989,480 @@ namespace ToolSupportCoding.View
         }
         #endregion
 
-        #region Tab Create Source
+        #region Tab Create Comment
 
-        private void txtCrSourceFolderP_TextChanged(object sender, EventArgs e)
+        private void txtCrCmComment_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCrSourceFolderP.Text))
-            {
-                return;
-            }
+            lstInputComment.Clear();
+            lstInputComment = txtCrCmComment.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            barCrSourceProcess.Value = 0;
-            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
-            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+            if (lstInputComment.Count > 0)
+            {
+                lblCrCmNumComment.Visible = true;
+                lblCrCmNumComment.Text = string.Concat(CONST.TEXT_LINE_NUM, lstInputComment.Count);
+            }
+            else
+            {
+                lblCrCmNumComment.Visible = false;
+            }
         }
 
-        private void btCrSourceOpenPath_Click(object sender, EventArgs e)
+        private void txtCrCmComment_Leave(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.ShowNewFolderButton = true;
-            DialogResult result = folderDlg.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                this.txtCrSourceFolderP.Text = folderDlg.SelectedPath;
-            }
-
-            barCrSourceProcess.Value = 0;
-            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
-            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+            if (!string.IsNullOrEmpty(txtCrCmComment.Text)) createComment();
         }
 
-        private void txtCrSourceLogic_TextChanged(object sender, EventArgs e)
+        private void txtCrCmCode_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCrSourceLogic.Text)) return;
+            lstInputCode.Clear();
+            lstInputCode = txtCrCmCode.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            lstSourceLogic = txtCrSourceLogic.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstSourceLogic.Length > 0)
+            if (lstInputCode.Count > 0)
             {
-                lblCrSourceLogic.Visible = true;
-                lblCrSourceLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourceLogic.Length);
+                lblCrCmNumCode.Visible = true;
+                lblCrCmNumCode.Text = string.Concat(CONST.TEXT_LINE_NUM, lstInputCode.Count);
             }
             else
             {
-                lblCrSourceLogic.Visible = false;
+                lblCrCmNumCode.Visible = false;
             }
-
-            if (lstSourceLogic != null && lstSourcePhysical != null && lstSourcePath != null)
-            {
-                btCrSource.Enabled = true;
-            }
-            else
-            {
-                btCrSource.Enabled = false;
-            }
-
-            barCrSourceProcess.Value = 0;
         }
 
-        private void txtCrSourcePhysical_TextChanged(object sender, EventArgs e)
+        private void txtCrCmCode_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCrSourcePhysical.Text))
-            {
-                btCrSource.Enabled = false;
-                return;
-            }
-
-            lstSourcePhysical = txtCrSourcePhysical.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstSourcePhysical.Length > 0)
-            {
-                lblCrSourcePhysical.Visible = true;
-                lblCrSourcePhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePhysical.Length);
-            }
-            else
-            {
-                lblCrSourcePhysical.Visible = false;
-            }
-
-            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
-            {
-                btCrSource.Enabled = true;
-            }
-            else
-            {
-                btCrSource.Enabled = false;
-            }
-
-            barCrSourceProcess.Value = 0;
+            if (!string.IsNullOrEmpty(txtCrCmCode.Text)) createComment();
         }
 
-        private void txtCrSourcePath_TextChanged(object sender, EventArgs e)
+        private void rbCrCmFirst_CheckedChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCrSourcePath.Text))
+            if (rbCrCmFirst.Checked)
             {
-                btCrSource.Enabled = false;
-                return;
-            }
+                createComentLocation = 0;
 
-            lstSourcePath = txtCrSourcePath.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstSourcePath.Length > 0)
-            {
-                lblCrSourcePath.Visible = true;
-                lblCrSourcePath.Text = string.Concat(CONST.TEXT_LINE_NUM, lstSourcePath.Length);
+                createComment();
             }
-            else
-            {
-                lblCrSourcePath.Visible = false;
-            }
-
-            if (lstSourcePhysical != null && lstSourcePath != null && lstSourcePhysical.Length == lstSourcePath.Length)
-            {
-                btCrSource.Enabled = true;
-            }
-            else
-            {
-                btCrSource.Enabled = false;
-            }
-
-            barCrSourceProcess.Value = 0;
-            barCrSourceProcess.Maximum = lstSourcePath.Length - 1;
         }
 
-        private void btCrSource_Click(object sender, EventArgs e)
+        private void rbCrCmLast_CheckedChanged(object sender, EventArgs e)
         {
-            string srcPath = txtCrSourceFolderP.Text;
-            barCrSourceProcess.Value = 0;
-
-            for (int i = 0; i < lstSourcePath.Length; i++)
+            if (rbCrCmLast.Checked)
             {
-                if (string.IsNullOrEmpty(lstSourcePath[i])) continue;
+                createComentLocation = 1;
 
-                string logicName = lstSourceLogic[i].Replace(CONST.STRING_TAB, string.Empty);
-                string fileName = lstSourcePhysical[i].Replace(CONST.STRING_TAB, string.Empty);
-                string path = lstSourcePath[i].Replace(CONST.STRING_TAB, string.Empty);
+                createComment();
+            }
+        }
 
-                if (path.Last() != '/') path = path + CONST.STRING_SLASH;
+        private void rbCrCmLineBlock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCrCmLineBlock.Checked)
+            {
+                createComentMode = 0;
 
-                string dir = srcPath + path;
-                if (dir.Contains(CONST.STRING_ENTITIES)) dir = dir.Remove(dir.LastIndexOf(CONST.STRING_ENTITIES)) + CONST.STRING_ENTITIES + CONST.STRING_SLASH;
+                createComment();
+            }
+        }
 
-                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+        private void rbCrCmBlock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCrCmBlock.Checked)
+            {
+                createComentMode = 2;
 
-                if (!File.Exists(dir + fileName + CONST.C_TYPE_FILE))
+                createComment();
+            }
+        }
+
+        private void rbCrCmLine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCrCmLine.Checked)
+            {
+                createComentMode = 1;
+
+                createComment();
+            }
+        }
+
+        private void chkCrCmLine_CheckedChanged(object sender, EventArgs e)
+        {
+            createComment();
+        }
+
+        private void createComment()
+        {
+            try
+            {
+                txtCrCmResult.Clear();
+
+                if ((lstInputCode.Count == lstInputComment.Count) || (lstInputComment.Count > 0 && lstInputCode.Count == 1))
                 {
-                    string text = string.Empty;
-                    if (fileName.Contains(CONST.STRING_CONTROLLER))
+                    string template = getFormatComment();
+                    int maxLengthRow = 0;
+                    bool isBlankLine = chkCrCmLine.Checked;
+
+                    int mode = 0;
+                    if (rbCrCmLine.Checked) mode = 1;
+                    else if (rbCrCmBlock.Checked) mode = 2;
+
+                    for (int i = 0; i < lstInputComment.Count; i++)
                     {
-                        text = CUtils.CreTmlFileControllerC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        string comment = lstInputComment[i];
+                        string input = lstInputCode[0];
+                        string element = string.Empty;
+
+                        if (string.IsNullOrEmpty(comment)) continue;
+
+                        if (lstInputCode.Count > 1) input = lstInputCode[i];
+
+                        // Add comment first
+                        if (createComentLocation == 0)
+                        {
+                            element = string.Format(template, comment, input);
+                        }
+                        // Add comment last
+                        else
+                        {
+                            element = string.Format(template, input, comment);
+                        }
+
+                        maxLengthRow = getLengthText(mode, element, maxLengthRow);
+
+                        txtCrCmResult.Text += element;
+                        if (createComentLocation == 1 && !isBlankLine) txtCrCmResult.Text += CONST.STRING_NEW_LINE;
                     }
-                    else if (fileName.Contains(CONST.STRING_SERVICE))
+
+                    if (createComentLocation == 1) txtCrCmResult.Text = CUtils.FormatCode(mode, txtCrCmResult.Text, maxLengthRow, isBlankLine);
+
+                    txtCrCmResult.Text = CUtils.removeLastLineBlank(txtCrCmResult.Text);
+
+                    btCrCmCopy.Enabled = false;
+                    if (!string.IsNullOrEmpty(txtCrCmResult.Text))
                     {
-                        text = CUtils.CreTmlFileServiceC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        btCrCmCopy.Enabled = true;
                     }
-                    else if (fileName.Contains(CONST.STRING_REPOSITORY))
-                    {
-                        text = CUtils.CreTmlFileRepositoryC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_VIEW_MODEL))
-                    {
-                        text = CUtils.CreTmlFileViewModelC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_ENTITY))
-                    {
-                        text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                }
-
-                // Update process
-                UpdateProcess();
-            }
-        }
-
-        private void btCrSourceClear_Click(object sender, EventArgs e)
-        {
-            txtCrSourceLogic.Text = string.Empty;
-            lblCrSourceLogic.Visible = false;
-
-            txtCrSourcePhysical.Text = string.Empty;
-            lblCrSourcePhysical.Visible = false;
-
-            txtCrSourcePath.Text = string.Empty;
-            lblCrSourcePath.Visible = false;
-
-            barCrSourceProcess.Value = 0;
-        }
-        #endregion
-
-        #region Tab Create Entity
-
-        private void txtCrEntityP_TextChanged(object sender, EventArgs e)
-        {
-            lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstEntityProcedure.Length > 0)
-            {
-                lblCrEntityNumP.Visible = true;
-                lblCrEntityNumP.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityProcedure.Length);
-            }
-            else
-            {
-                lblCrEntityNumP.Visible = false;
-            }
-
-            if (lstEntityProcedure != null && lstEntityTable != null)
-            {
-                btnCrEntity.Enabled = true;
-            }
-            else
-            {
-                btnCrEntity.Enabled = false;
-            }
-        }
-
-        private void txtCrEntityT_TextChanged(object sender, EventArgs e)
-        {
-            lstEntityTable = txtCrEntityT.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
-
-            if (lstEntityTable.Length > 0)
-            {
-                dicEntityType = new Dictionary<string, string>();
-                foreach (var item in lstEntityTable)
-                {
-                    string[] arrItem = item.Split(CONST.CHAR_TAB);
-
-                    if (arrItem.Length > 1)
-                    {
-                        dicEntityType.Add(arrItem[0], arrItem[1]);
-                    }
-                }
-
-                lblCrEntityNumT.Visible = true;
-                lblCrEntityNumT.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityTable.Length);
-            }
-            else
-            {
-                lblCrEntityNumT.Visible = false;
-            }
-
-            if (lstEntityProcedure != null && lstEntityTable != null)
-            {
-                btnCrEntity.Enabled = true;
-            }
-            else
-            {
-                btnCrEntity.Enabled = false;
-            }
-        }
-
-        private void btnCrEntity_Click(object sender, EventArgs e)
-        {
-            txtCrEntityResult.Text = string.Empty;
-
-            for (int i = 0; i < lstEntityProcedure.Length; i++)
-            {
-
-                if (string.IsNullOrEmpty(lstEntityProcedure[i])) continue;
-
-                // Handle Logic and Physical
-                string[] item = lstEntityProcedure[i].Split(new string[]
-                { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
-                string logic, physical, type;
-
-                if (item.Length >= 3)
-                {
-                    logic = item[1].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
-                    physical = item[2].Trim();
-                }
-                else if (item.Length >= 2)
-                {
-                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
-                    physical = item[1].Trim();
                 }
                 else
                 {
-                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
-                    physical = logic;
-                }
-                logic = logic.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
-                physical = physical.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
+                    if (lstInputComment.Count > 0 && txtCrCmCode.Focused) return;
+                    if (lstInputCode.Count > 0 && txtCrCmComment.Focused) return;
 
-                if (dicEntityType.TryGetValue(logic, out type))
-                {
-                    type = CUtils.ConvertSQLToCType(type);
-                }
-                else
-                {
-                    type = string.Empty;
-                }
-
-                StringBuilder stringBuilder = new StringBuilder();
-                if (rbCrEntityLine.Checked)
-                {
-                    stringBuilder.Append("// {0}\r\n");
-                }
-                else if (rbCrEntityBlock.Checked)
-                {
-                    stringBuilder.Append("/**\r\n");
-                    stringBuilder.Append(" * {0}\r\n");
-                    stringBuilder.Append(" **/\r\n");
-                }
-                else if (rbCrEntityLBlock.Checked)
-                {
-                    stringBuilder.Append("/** {0} */\r\n");
-                }
-                stringBuilder.Append("public {1}? {2}");
-
-                if (i == lstEntityProcedure.Length - 2)
-                {
-                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
-                }
-                else
-                {
-                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
-                    txtCrEntityResult.Text += CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE;
+                    MessageBox.Show(CONST.MESS_COMMON_CREATE_COMMENT, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
-
-            if (!string.IsNullOrEmpty(txtCrEntityResult.Text)) btnCrEntityCopy.Enabled = true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(CONST.MESS_ERROR_EXCEPTION.Replace("{0}", "Create Comment") + ex.Message, CONST.TEXT_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnCrEntityCopy_Click(object sender, EventArgs e)
+        private string getFormatComment()
         {
-            if (string.IsNullOrEmpty(txtCrEntityResult.Text))
+            StringBuilder stringBuilder = new StringBuilder();
+            switch (createComentMode)
+            {
+                // line block
+                case 0:
+                    if (createComentLocation == 0)
+                    {
+                        stringBuilder.Append("/** {0} */\r\n");
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
+                    }
+                    else
+                    {
+                        stringBuilder.Append("{0} /** {1} */");
+                    }
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
+
+                    return stringBuilder.ToString();
+                // line
+                case 1:
+                    if (createComentLocation == 0)
+                    {
+                        stringBuilder.Append("// {0} \r\n");
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
+                    }
+                    else
+                    {
+                        stringBuilder.Append("{0} // {1}");
+                    }
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
+
+                    return stringBuilder.ToString();
+                // block
+                case 2:
+                    if (createComentLocation == 0)
+                    {
+                        stringBuilder.Append("<!-- {0} -->\r\n");
+                        stringBuilder.Append("{1}" + CONST.STRING_NEW_LINE);
+                    }
+                    else
+                    {
+                        stringBuilder.Append("{0} <!-- {1} -->");
+                    }
+                    if (chkCrCmLine.Checked) stringBuilder.Append(CONST.STRING_NEW_LINE);
+
+                    return stringBuilder.ToString();
+
+                default:
+                    return string.Empty;
+            }
+        }
+
+        private void btCrCmCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrCmResult.Text))
             {
                 return;
             }
 
             Clipboard.Clear();
-            Clipboard.SetText(txtCrEntityResult.Text);
+            Clipboard.SetText(txtCrCmResult.Text);
         }
 
-        private void btnCrEntityClear_Click(object sender, EventArgs e)
+        private void btCrCmClear_Click(object sender, EventArgs e)
         {
-            txtCrEntityP.Text = string.Empty;
-            lblCrEntityNumP.Visible = false;
+            rbCrCmFirst.Checked = true;
+            rbCrCmLineBlock.Checked = true;
+            chkCrCmLine.Checked = true;
 
-            txtCrEntityT.Text = string.Empty;
-            lblCrEntityNumT.Visible = false;
+            txtCrCmComment.Text = string.Empty;
+            txtCrCmCode.Text = string.Empty;
+            txtCrCmResult.Text = string.Empty;
 
-            txtCrEntityResult.Text = string.Empty;
+            btCrCmCopy.Enabled = false;
+        }
 
-            btnCrEntity.Enabled = false;
-            btnCrEntityCopy.Enabled = false;
+        #endregion
+
+        #region Tab Create Resources
+
+        private void txtCrResName_TextChanged(object sender, EventArgs e)
+        {
+            lstResourcesName = txtCrResName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstResourcesName.Length > 0)
+            {
+                lblCrResName.Visible = true;
+                lblCrResName.Text = string.Concat(CONST.TEXT_LINE_NUM, lstResourcesName.Length);
+            }
+            else
+            {
+                lblCrResName.Visible = false;
+            }
+
+            if (lstResourcesName != null && lstResourcesValue != null)
+            {
+                btCrRes.Enabled = true;
+            }
+            else
+            {
+                btCrRes.Enabled = false;
+            }
+        }
+
+        private void txtCrResValue_TextChanged(object sender, EventArgs e)
+        {
+            lstResourcesValue = txtCrResValue.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstResourcesValue.Length > 0)
+            {
+                lblCrResValue.Visible = true;
+                lblCrResValue.Text = string.Concat(CONST.TEXT_LINE_NUM, lstResourcesValue.Length);
+            }
+            else
+            {
+                lblCrResValue.Visible = false;
+            }
+
+            if (lstResourcesName != null && lstResourcesValue != null)
+            {
+                btCrRes.Enabled = true;
+            }
+            else
+            {
+                btCrRes.Enabled = false;
+            }
+        }
+
+        private void txtCrResComment_TextChanged(object sender, EventArgs e)
+        {
+            lstResourcesComment = txtCrResComment.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstResourcesComment.Length > 0)
+            {
+                lblCrResComment.Visible = true;
+                lblCrResComment.Text = string.Concat(CONST.TEXT_LINE_NUM, lstResourcesComment.Length);
+            }
+            else
+            {
+                lblCrResComment.Visible = false;
+            }
+        }
+
+        private void btCrRes_Click(object sender, EventArgs e)
+        {
+            txtCrResResult.Text = string.Empty;
+
+            string mode = rbCrResC.Checked ? rbCrResC.Text : rbCrResAngular.Text;
+            List<ItemModel> lstKey = lstResKey.Where(item => item.name.Contains(mode)).ToList();
+
+            string tmpResources = string.Empty;
+            string tmpValue = string.Empty;
+            string tmpComment = string.Empty;
+            string result = string.Empty;
+
+            foreach (ItemModel item in lstKey)
+            {
+                if (item.name.Contains(CONST.STRING_RESOURCES)) tmpResources = item.value;
+                if (item.name.Contains(CONST.STRING_VALUE)) tmpValue = item.value;
+                if (item.name.Contains(CONST.STRING_COMMENT)) tmpComment = item.value;
+            }
+
+            for (int i = 0; i < lstResourcesName.Length; i++)
+            {
+                string name = lstResourcesName[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                string value = lstResourcesValue[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                value = value.Replace(CONST.STRING_BR, CONST.STRING_BR_REPLACE);
+
+                string comment = string.Empty;
+                if (lstResourcesComment != null && lstResourcesComment.Length > 0 && lstResourcesComment.Length > i)
+                {
+                    comment = lstResourcesComment[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    comment = string.Format(tmpComment, comment);
+                }
+
+                if (string.IsNullOrEmpty(name)) continue;
+
+                if (rbCrResC.Checked)
+                {
+                    value = string.Format(tmpValue, value);
+                    result = string.Format(tmpResources, name, value, comment);
+                }
+                else
+                {
+                    result = !string.IsNullOrEmpty(comment) ? comment + CONST.STRING_NEW_LINE : string.Empty;
+                    result += string.Format(tmpResources, name, value, comment) + CONST.STRING_NEW_LINE;
+                }
+
+                txtCrResResult.Text += result + CONST.STRING_NEW_LINE;
+            }
+
+            if (!string.IsNullOrEmpty(txtCrResResult.Text))
+            {
+                btCrResCopy.Enabled = true;
+            }
+        }
+
+        private void btCrResCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCrResResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtCrResResult.Text);
+        }
+
+        private void btCrResClear_Click(object sender, EventArgs e)
+        {
+            rbCrRes.Checked = true;
+
+            txtCrResName.Text = string.Empty;
+            txtCrResValue.Text = string.Empty;
+            txtCrResComment.Text = string.Empty;
+            txtCrResResult.Text = string.Empty;
+
+            btCrRes.Enabled = false;
+            btCrResCopy.Enabled = false;
+        }
+
+        #endregion
+
+        #region Tab Format Code
+        private void txtFormatCode_TextChanged(object sender, EventArgs e)
+        {
+            lstFormatCode = txtFormatCode.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+
+            if (lstFormatCode.Length > 0)
+            {
+                btnFormatCode.Enabled = true;
+            }
+            else
+            {
+                btnFormatCode.Enabled = false;
+            }
+        }
+
+        private void btnFormatCode_Click(object sender, EventArgs e)
+        {
+            int mode = 0;
+            if (rbFormatCommentLine.Checked) mode = 1;
+            else if (rbFormatCommentSQL.Checked) mode = 2;
+
+            int maxLengthRow = 0;
+            int lengthAppend = -1;
+
+            string result = string.Empty;
+            foreach (string line in lstFormatCode)
+            {
+                string tmpLine = line;
+                if (mode != 0) tmpLine = tmpLine.Trim();
+
+                tmpLine = tmpLine.Replace(CONST.STRING_TAB, "    ");
+
+                if (tmpLine.Contains(CONST.STRING_APPEND))
+                {
+                    if (tmpLine.Substring(0, 1).Equals(CONST.STRING_DOT))
+                    {
+                        tmpLine = CUtils.CreateSpace(lengthAppend) + tmpLine;
+                    }
+                    else
+                    {
+                        lengthAppend = tmpLine.IndexOf(CONST.STRING_DOT);
+                    }
+                }
+
+                maxLengthRow = getLengthText(mode, tmpLine, maxLengthRow);
+
+                result += tmpLine + CONST.STRING_NEW_LINE;
+            }
+
+            txtFormatResult.Text = CUtils.FormatCode(mode, result, maxLengthRow);
+            txtFormatResult.Text = Regex.Replace(txtFormatResult.Text, @"^\s+$[\n]*", string.Empty, RegexOptions.Multiline);
+
+            if (txtFormatResult.Text.LastIndexOf("\n") == (txtFormatResult.Text.Length - 1))
+            {
+                txtFormatResult.Text = txtFormatResult.Text.Substring(0, txtFormatResult.Text.Length - 1);
+            }
+
+            if (txtFormatResult.Text.Length > 0)
+            {
+                btnFormatCopy.Enabled = true;
+            }
+        }
+
+        private void btnFormatCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFormatResult.Text))
+            {
+                lblFormatResult.Visible = true;
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtFormatResult.Text);
+            lblFormatResult.Visible = true;
+        }
+
+        private void btnFormatClear_Click(object sender, EventArgs e)
+        {
+            txtFormatCode.Text = string.Empty;
+            txtFormatResult.Text = string.Empty;
+
+            lblFormatResult.Visible = false;
         }
         #endregion
 

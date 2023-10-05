@@ -1,7 +1,7 @@
 ﻿
 namespace ToolSupportCoding.View
 {
-    partial class FormConvertSQL
+    partial class FormGetSQLinSrc
     {
         /// <summary>
         /// Required designer variable.
@@ -302,7 +302,7 @@ namespace ToolSupportCoding.View
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
-            // FormConvertSQL
+            // FormGetSQLinSrc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,8 +311,8 @@ namespace ToolSupportCoding.View
             this.Controls.Add(this.panelResult);
             this.Controls.Add(this.panelInputSQL);
             this.Controls.Add(this.panelInputParam);
-            this.Name = "FormConvertSQL";
-            this.Text = "Convert Database";
+            this.Name = "FormGetSQLinSrc";
+            this.Text = "Tool Support: Get SQL in Source";
             this.Load += new System.EventHandler(this.FormConvert_Load);
             this.panelInputSQL.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

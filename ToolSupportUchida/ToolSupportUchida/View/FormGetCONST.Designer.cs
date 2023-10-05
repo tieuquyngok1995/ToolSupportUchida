@@ -206,13 +206,13 @@ namespace ToolSupportCoding.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 405);
+            this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormGetCONST";
-            this.Text = "Get CONST";
+            this.Text = "Tool Support: Get CONST";
             this.Load += new System.EventHandler(this.FormConvertSekkei_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

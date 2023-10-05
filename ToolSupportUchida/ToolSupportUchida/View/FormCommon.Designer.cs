@@ -29,11 +29,54 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
+            this.tabPageGetColumn = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txColumnData = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.txColumnResult = new System.Windows.Forms.TextBox();
+            this.btColumnCopy = new System.Windows.Forms.Button();
+            this.txColumnDoc = new System.Windows.Forms.TextBox();
+            this.rbColumnFormat = new System.Windows.Forms.RadioButton();
+            this.rbColumnTable = new System.Windows.Forms.RadioButton();
+            this.btColumnReset = new System.Windows.Forms.Button();
+            this.btColumnClear = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbColumnFormat = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txColumnInput = new System.Windows.Forms.TextBox();
+            this.gridColumnData = new System.Windows.Forms.DataGridView();
+            this.txColumnSearch = new System.Windows.Forms.TextBox();
+            this.cbColumnTable = new System.Windows.Forms.ComboBox();
+            this.lblColumnResult = new System.Windows.Forms.Label();
+            this.tabPageGetViewModel = new System.Windows.Forms.TabPage();
+            this.btGetVMGenSrc = new System.Windows.Forms.Button();
+            this.btGetVMCopyPhysical = new System.Windows.Forms.Button();
+            this.btGetVMCopyLogic = new System.Windows.Forms.Button();
+            this.btGetVMClear = new System.Windows.Forms.Button();
+            this.groupBox34 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMPhysical = new System.Windows.Forms.RichTextBox();
+            this.lblGetVMPhysical = new System.Windows.Forms.Label();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMLogic = new System.Windows.Forms.RichTextBox();
+            this.lblGetVMLogic = new System.Windows.Forms.Label();
+            this.groupBox33 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMSItem = new System.Windows.Forms.RichTextBox();
+            this.lblGetVMSItem = new System.Windows.Forms.Label();
+            this.groupBox35 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMFunPro = new System.Windows.Forms.RichTextBox();
+            this.lblGetVMFunPro = new System.Windows.Forms.Label();
+            this.groupBox36 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMFunItem = new System.Windows.Forms.RichTextBox();
+            this.lblGetVMFunItem = new System.Windows.Forms.Label();
+            this.groupBox37 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMResultLogical = new System.Windows.Forms.RichTextBox();
+            this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.txtGetVMResultPhysical = new System.Windows.Forms.RichTextBox();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtInputKey = new System.Windows.Forms.RichTextBox();
@@ -55,57 +98,39 @@ namespace ToolSupportCoding.View
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.tabPageFormatCode = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.txtFormatResult = new System.Windows.Forms.RichTextBox();
-            this.btnFormatClear = new System.Windows.Forms.Button();
-            this.btnFormatCopy = new System.Windows.Forms.Button();
-            this.lblFormatResult = new System.Windows.Forms.Label();
-            this.btnFormatCode = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.txtFormatCode = new System.Windows.Forms.RichTextBox();
-            this.rbFormatCommentSQL = new System.Windows.Forms.RadioButton();
-            this.rbFormatCommentLBlock = new System.Windows.Forms.RadioButton();
-            this.rbFormatCommentLine = new System.Windows.Forms.RadioButton();
-            this.tabPageGetColumn = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txColumnData = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.txColumnResult = new System.Windows.Forms.TextBox();
-            this.btColumnCopy = new System.Windows.Forms.Button();
-            this.txColumnDoc = new System.Windows.Forms.TextBox();
-            this.rbColumnFormat = new System.Windows.Forms.RadioButton();
-            this.rbColumnTable = new System.Windows.Forms.RadioButton();
-            this.btColumnReset = new System.Windows.Forms.Button();
-            this.btColumnClear = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbColumnFormat = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txColumnInput = new System.Windows.Forms.TextBox();
-            this.gridColumnData = new System.Windows.Forms.DataGridView();
-            this.txColumnSearch = new System.Windows.Forms.TextBox();
-            this.cbColumnTable = new System.Windows.Forms.ComboBox();
-            this.lblColumnResult = new System.Windows.Forms.Label();
-            this.tabPageCreateComment = new System.Windows.Forms.TabPage();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.chkCrCmLine = new System.Windows.Forms.CheckBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.rbCrCmBlock = new System.Windows.Forms.RadioButton();
-            this.rbCrCmLine = new System.Windows.Forms.RadioButton();
-            this.rbCrCmLineBlock = new System.Windows.Forms.RadioButton();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.rbCrCmLast = new System.Windows.Forms.RadioButton();
-            this.rbCrCmFirst = new System.Windows.Forms.RadioButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtCrCmComment = new System.Windows.Forms.RichTextBox();
-            this.lblCrCmNumComment = new System.Windows.Forms.Label();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.txtCrCmCode = new System.Windows.Forms.RichTextBox();
-            this.lblCrCmNumCode = new System.Windows.Forms.Label();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.txtCrCmResult = new System.Windows.Forms.RichTextBox();
-            this.btCrCmClear = new System.Windows.Forms.Button();
-            this.btCrCmCopy = new System.Windows.Forms.Button();
+            this.tabPageCreateEnity = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.rbCrEntityLine = new System.Windows.Forms.RadioButton();
+            this.rbCrEntityBlock = new System.Windows.Forms.RadioButton();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityResult = new System.Windows.Forms.RichTextBox();
+            this.btnCrEntity = new System.Windows.Forms.Button();
+            this.btnCrEntityCopy = new System.Windows.Forms.Button();
+            this.btnCrEntityClear = new System.Windows.Forms.Button();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityT = new System.Windows.Forms.RichTextBox();
+            this.lblCrEntityNumT = new System.Windows.Forms.Label();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.txtCrEntityP = new System.Windows.Forms.RichTextBox();
+            this.lblCrEntityNumP = new System.Windows.Forms.Label();
+            this.tabPageCreateFileSrc = new System.Windows.Forms.TabPage();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.barCrSourceProcess = new System.Windows.Forms.ProgressBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbChoosePath = new System.Windows.Forms.Label();
+            this.btCrSourceClear = new System.Windows.Forms.Button();
+            this.btCrSource = new System.Windows.Forms.Button();
+            this.btCrSourceOpenPath = new System.Windows.Forms.Button();
+            this.txtCrSourceFolderP = new System.Windows.Forms.TextBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.lblCrSourceLogic = new System.Windows.Forms.Label();
+            this.txtCrSourceLogic = new System.Windows.Forms.RichTextBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.lblCrSourcePhysical = new System.Windows.Forms.Label();
+            this.txtCrSourcePhysical = new System.Windows.Forms.RichTextBox();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.lblCrSourcePath = new System.Windows.Forms.Label();
+            this.txtCrSourcePath = new System.Windows.Forms.RichTextBox();
             this.tabPageCreateMessage = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.rdbMessF = new System.Windows.Forms.RadioButton();
@@ -150,40 +175,59 @@ namespace ToolSupportCoding.View
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.txtMessContent = new System.Windows.Forms.RichTextBox();
             this.lblNumMessContent = new System.Windows.Forms.Label();
-            this.tabPageCreateFileSrc = new System.Windows.Forms.TabPage();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.barCrSourceProcess = new System.Windows.Forms.ProgressBar();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbChoosePath = new System.Windows.Forms.Label();
-            this.btCrSourceClear = new System.Windows.Forms.Button();
-            this.btCrSource = new System.Windows.Forms.Button();
-            this.btCrSourceOpenPath = new System.Windows.Forms.Button();
-            this.txtCrSourceFolderP = new System.Windows.Forms.TextBox();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.lblCrSourceLogic = new System.Windows.Forms.Label();
-            this.txtCrSourceLogic = new System.Windows.Forms.RichTextBox();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.lblCrSourcePhysical = new System.Windows.Forms.Label();
-            this.txtCrSourcePhysical = new System.Windows.Forms.RichTextBox();
-            this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.lblCrSourcePath = new System.Windows.Forms.Label();
-            this.txtCrSourcePath = new System.Windows.Forms.RichTextBox();
-            this.tabPageCreateEnity = new System.Windows.Forms.TabPage();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.rbCrEntityBlock = new System.Windows.Forms.RadioButton();
-            this.rbCrEntityLine = new System.Windows.Forms.RadioButton();
-            this.rbCrEntityLBlock = new System.Windows.Forms.RadioButton();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.txtCrEntityResult = new System.Windows.Forms.RichTextBox();
-            this.btnCrEntity = new System.Windows.Forms.Button();
-            this.btnCrEntityCopy = new System.Windows.Forms.Button();
-            this.btnCrEntityClear = new System.Windows.Forms.Button();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.txtCrEntityT = new System.Windows.Forms.RichTextBox();
-            this.lblCrEntityNumT = new System.Windows.Forms.Label();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.txtCrEntityP = new System.Windows.Forms.RichTextBox();
-            this.lblCrEntityNumP = new System.Windows.Forms.Label();
+            this.tabPageCreateComment = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.chkCrCmLine = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.rbCrCmBlock = new System.Windows.Forms.RadioButton();
+            this.rbCrCmLine = new System.Windows.Forms.RadioButton();
+            this.rbCrCmLineBlock = new System.Windows.Forms.RadioButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.rbCrCmLast = new System.Windows.Forms.RadioButton();
+            this.rbCrCmFirst = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmComment = new System.Windows.Forms.RichTextBox();
+            this.lblCrCmNumComment = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmCode = new System.Windows.Forms.RichTextBox();
+            this.lblCrCmNumCode = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.txtCrCmResult = new System.Windows.Forms.RichTextBox();
+            this.btCrCmClear = new System.Windows.Forms.Button();
+            this.btCrCmCopy = new System.Windows.Forms.Button();
+            this.tabPageCreateResources = new System.Windows.Forms.TabPage();
+            this.groupBox32 = new System.Windows.Forms.GroupBox();
+            this.txtCrResResult = new System.Windows.Forms.RichTextBox();
+            this.btCrRes = new System.Windows.Forms.Button();
+            this.btCrResCopy = new System.Windows.Forms.Button();
+            this.btCrResClear = new System.Windows.Forms.Button();
+            this.grbCrResSrcMode = new System.Windows.Forms.GroupBox();
+            this.rbCrResAngular = new System.Windows.Forms.RadioButton();
+            this.rbCrResC = new System.Windows.Forms.RadioButton();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.rbCrResMess = new System.Windows.Forms.RadioButton();
+            this.rbCrRes = new System.Windows.Forms.RadioButton();
+            this.groupBox29 = new System.Windows.Forms.GroupBox();
+            this.txtCrResName = new System.Windows.Forms.RichTextBox();
+            this.lblCrResName = new System.Windows.Forms.Label();
+            this.groupBox30 = new System.Windows.Forms.GroupBox();
+            this.txtCrResValue = new System.Windows.Forms.RichTextBox();
+            this.lblCrResValue = new System.Windows.Forms.Label();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.txtCrResComment = new System.Windows.Forms.RichTextBox();
+            this.lblCrResComment = new System.Windows.Forms.Label();
+            this.tabPageFormatCode = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtFormatResult = new System.Windows.Forms.RichTextBox();
+            this.btnFormatClear = new System.Windows.Forms.Button();
+            this.btnFormatCopy = new System.Windows.Forms.Button();
+            this.lblFormatResult = new System.Windows.Forms.Label();
+            this.btnFormatCode = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.txtFormatCode = new System.Windows.Forms.RichTextBox();
+            this.rbFormatCommentSQL = new System.Windows.Forms.RadioButton();
+            this.rbFormatCommentLBlock = new System.Windows.Forms.RadioButton();
+            this.rbFormatCommentLine = new System.Windows.Forms.RadioButton();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -209,26 +253,34 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControlCommon.SuspendLayout();
+            this.tabPageGetColumn.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).BeginInit();
+            this.tabPageGetViewModel.SuspendLayout();
+            this.groupBox34.SuspendLayout();
+            this.groupBox28.SuspendLayout();
+            this.groupBox33.SuspendLayout();
+            this.groupBox35.SuspendLayout();
+            this.groupBox36.SuspendLayout();
+            this.groupBox37.SuspendLayout();
+            this.groupBox38.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.tabPageFormatCode.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.tabPageGetColumn.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).BeginInit();
-            this.tabPageCreateComment.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
+            this.tabPageCreateEnity.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.tabPageCreateFileSrc.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox27.SuspendLayout();
             this.tabPageCreateMessage.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -237,28 +289,37 @@ namespace ToolSupportCoding.View
             this.grbMessTextI.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.tabPageCreateFileSrc.SuspendLayout();
-            this.groupBox19.SuspendLayout();
-            this.groupBox24.SuspendLayout();
-            this.groupBox25.SuspendLayout();
-            this.groupBox27.SuspendLayout();
-            this.tabPageCreateEnity.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            this.groupBox22.SuspendLayout();
-            this.groupBox21.SuspendLayout();
-            this.groupBox20.SuspendLayout();
+            this.tabPageCreateComment.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.tabPageCreateResources.SuspendLayout();
+            this.groupBox32.SuspendLayout();
+            this.grbCrResSrcMode.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.groupBox29.SuspendLayout();
+            this.groupBox30.SuspendLayout();
+            this.groupBox31.SuspendLayout();
+            this.tabPageFormatCode.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
             // 
             this.tabControlCommon.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControlCommon.Controls.Add(this.tabPageCreateJson);
-            this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
             this.tabControlCommon.Controls.Add(this.tabPageGetColumn);
-            this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
-            this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
-            this.tabControlCommon.Controls.Add(this.tabPageCreateFileSrc);
+            this.tabControlCommon.Controls.Add(this.tabPageGetViewModel);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateJson);
             this.tabControlCommon.Controls.Add(this.tabPageCreateEnity);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateFileSrc);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateResources);
+            this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
             this.tabControlCommon.Controls.Add(this.tabPage1);
             this.tabControlCommon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlCommon.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -274,6 +335,566 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlCommon_DrawItem);
             this.tabControlCommon.SelectedIndexChanged += new System.EventHandler(this.tabControlCommon_SelectedIndexChanged);
             // 
+            // tabPageGetColumn
+            // 
+            this.tabPageGetColumn.Controls.Add(this.groupBox5);
+            this.tabPageGetColumn.Controls.Add(this.groupBox11);
+            this.tabPageGetColumn.Location = new System.Drawing.Point(124, 4);
+            this.tabPageGetColumn.Name = "tabPageGetColumn";
+            this.tabPageGetColumn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 366);
+            this.tabPageGetColumn.TabIndex = 6;
+            this.tabPageGetColumn.Text = "Get Name Column";
+            this.tabPageGetColumn.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txColumnData);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox5.Location = new System.Drawing.Point(6, -2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(560, 72);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Input Data";
+            // 
+            // txColumnData
+            // 
+            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txColumnData.Location = new System.Drawing.Point(3, 19);
+            this.txColumnData.Multiline = true;
+            this.txColumnData.Name = "txColumnData";
+            this.txColumnData.Size = new System.Drawing.Size(554, 50);
+            this.txColumnData.TabIndex = 1;
+            this.txColumnData.Tag = "";
+            this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.txColumnResult);
+            this.groupBox11.Controls.Add(this.btColumnCopy);
+            this.groupBox11.Controls.Add(this.txColumnDoc);
+            this.groupBox11.Controls.Add(this.rbColumnFormat);
+            this.groupBox11.Controls.Add(this.rbColumnTable);
+            this.groupBox11.Controls.Add(this.btColumnReset);
+            this.groupBox11.Controls.Add(this.btColumnClear);
+            this.groupBox11.Controls.Add(this.label5);
+            this.groupBox11.Controls.Add(this.cbColumnFormat);
+            this.groupBox11.Controls.Add(this.label9);
+            this.groupBox11.Controls.Add(this.txColumnInput);
+            this.groupBox11.Controls.Add(this.gridColumnData);
+            this.groupBox11.Controls.Add(this.txColumnSearch);
+            this.groupBox11.Controls.Add(this.cbColumnTable);
+            this.groupBox11.Controls.Add(this.lblColumnResult);
+            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox11.Location = new System.Drawing.Point(6, 67);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(560, 290);
+            this.groupBox11.TabIndex = 2;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Search";
+            // 
+            // txColumnResult
+            // 
+            this.txColumnResult.Location = new System.Drawing.Point(214, 245);
+            this.txColumnResult.Multiline = true;
+            this.txColumnResult.Name = "txColumnResult";
+            this.txColumnResult.ReadOnly = true;
+            this.txColumnResult.Size = new System.Drawing.Size(115, 39);
+            this.txColumnResult.TabIndex = 10;
+            // 
+            // btColumnCopy
+            // 
+            this.btColumnCopy.Enabled = false;
+            this.btColumnCopy.FlatAppearance.BorderSize = 0;
+            this.btColumnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btColumnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btColumnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btColumnCopy.Location = new System.Drawing.Point(335, 245);
+            this.btColumnCopy.Name = "btColumnCopy";
+            this.btColumnCopy.Size = new System.Drawing.Size(66, 24);
+            this.btColumnCopy.TabIndex = 11;
+            this.btColumnCopy.Text = "Copy";
+            this.btColumnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btColumnCopy.UseVisualStyleBackColor = true;
+            this.btColumnCopy.Click += new System.EventHandler(this.btColumnCopy_Click);
+            // 
+            // txColumnDoc
+            // 
+            this.txColumnDoc.Location = new System.Drawing.Point(6, 245);
+            this.txColumnDoc.Multiline = true;
+            this.txColumnDoc.Name = "txColumnDoc";
+            this.txColumnDoc.Size = new System.Drawing.Size(202, 39);
+            this.txColumnDoc.TabIndex = 9;
+            this.txColumnDoc.TextChanged += new System.EventHandler(this.txColumnDoc_TextChanged);
+            // 
+            // rbColumnFormat
+            // 
+            this.rbColumnFormat.AutoSize = true;
+            this.rbColumnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbColumnFormat.Location = new System.Drawing.Point(6, 43);
+            this.rbColumnFormat.Name = "rbColumnFormat";
+            this.rbColumnFormat.Size = new System.Drawing.Size(64, 19);
+            this.rbColumnFormat.TabIndex = 5;
+            this.rbColumnFormat.Text = "Format";
+            this.rbColumnFormat.UseVisualStyleBackColor = true;
+            this.rbColumnFormat.CheckedChanged += new System.EventHandler(this.rbColumnFormat_CheckedChanged);
+            // 
+            // rbColumnTable
+            // 
+            this.rbColumnTable.AutoSize = true;
+            this.rbColumnTable.Checked = true;
+            this.rbColumnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbColumnTable.Location = new System.Drawing.Point(6, 18);
+            this.rbColumnTable.Name = "rbColumnTable";
+            this.rbColumnTable.Size = new System.Drawing.Size(56, 19);
+            this.rbColumnTable.TabIndex = 2;
+            this.rbColumnTable.TabStop = true;
+            this.rbColumnTable.Text = "Table";
+            this.rbColumnTable.UseVisualStyleBackColor = true;
+            this.rbColumnTable.CheckedChanged += new System.EventHandler(this.rbColumnTable_CheckedChanged);
+            // 
+            // btColumnReset
+            // 
+            this.btColumnReset.FlatAppearance.BorderSize = 0;
+            this.btColumnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btColumnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btColumnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btColumnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btColumnReset.Location = new System.Drawing.Point(407, 245);
+            this.btColumnReset.Name = "btColumnReset";
+            this.btColumnReset.Size = new System.Drawing.Size(75, 24);
+            this.btColumnReset.TabIndex = 12;
+            this.btColumnReset.Text = "Reset";
+            this.btColumnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btColumnReset.UseVisualStyleBackColor = true;
+            this.btColumnReset.Click += new System.EventHandler(this.btColumnReset_Click);
+            // 
+            // btColumnClear
+            // 
+            this.btColumnClear.FlatAppearance.BorderSize = 0;
+            this.btColumnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btColumnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btColumnClear.Location = new System.Drawing.Point(488, 245);
+            this.btColumnClear.Name = "btColumnClear";
+            this.btColumnClear.Size = new System.Drawing.Size(66, 24);
+            this.btColumnClear.TabIndex = 13;
+            this.btColumnClear.Text = "Clear";
+            this.btColumnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btColumnClear.UseVisualStyleBackColor = true;
+            this.btColumnClear.Click += new System.EventHandler(this.btColumnClear_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.Location = new System.Drawing.Point(223, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Input Value";
+            // 
+            // cbColumnFormat
+            // 
+            this.cbColumnFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColumnFormat.FormattingEnabled = true;
+            this.cbColumnFormat.ItemHeight = 16;
+            this.cbColumnFormat.Items.AddRange(new object[] {
+            "[-].[-]",
+            "【-】.[-]",
+            "【-】.【-】",
+            "[-/-]",
+            "【-/-】"});
+            this.cbColumnFormat.Location = new System.Drawing.Point(79, 44);
+            this.cbColumnFormat.Name = "cbColumnFormat";
+            this.cbColumnFormat.Size = new System.Drawing.Size(129, 24);
+            this.cbColumnFormat.TabIndex = 0;
+            this.cbColumnFormat.SelectedIndexChanged += new System.EventHandler(this.cbColumnFormat_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.Location = new System.Drawing.Point(223, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 15);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Search Value";
+            // 
+            // txColumnInput
+            // 
+            this.txColumnInput.Location = new System.Drawing.Point(322, 42);
+            this.txColumnInput.Name = "txColumnInput";
+            this.txColumnInput.Size = new System.Drawing.Size(232, 23);
+            this.txColumnInput.TabIndex = 7;
+            this.txColumnInput.Click += new System.EventHandler(this.txColumnInput_Click);
+            this.txColumnInput.TextChanged += new System.EventHandler(this.txColumnInput_TextChanged);
+            // 
+            // gridColumnData
+            // 
+            this.gridColumnData.AllowUserToAddRows = false;
+            this.gridColumnData.AllowUserToDeleteRows = false;
+            this.gridColumnData.AllowUserToResizeColumns = false;
+            this.gridColumnData.AllowUserToResizeRows = false;
+            this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridColumnData.CausesValidation = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridColumnData.ColumnHeadersHeight = 24;
+            this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridColumnData.EnableHeadersVisualStyles = false;
+            this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gridColumnData.Location = new System.Drawing.Point(6, 75);
+            this.gridColumnData.MultiSelect = false;
+            this.gridColumnData.Name = "gridColumnData";
+            this.gridColumnData.ReadOnly = true;
+            this.gridColumnData.RowHeadersVisible = false;
+            this.gridColumnData.RowHeadersWidth = 25;
+            this.gridColumnData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridColumnData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridColumnData.Size = new System.Drawing.Size(548, 164);
+            this.gridColumnData.TabIndex = 8;
+            // 
+            // txColumnSearch
+            // 
+            this.txColumnSearch.Location = new System.Drawing.Point(322, 14);
+            this.txColumnSearch.Name = "txColumnSearch";
+            this.txColumnSearch.Size = new System.Drawing.Size(232, 23);
+            this.txColumnSearch.TabIndex = 4;
+            this.txColumnSearch.Click += new System.EventHandler(this.txColumnSearch_Click);
+            this.txColumnSearch.TextChanged += new System.EventHandler(this.txColumnSearch_TextChanged);
+            // 
+            // cbColumnTable
+            // 
+            this.cbColumnTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColumnTable.FormattingEnabled = true;
+            this.cbColumnTable.ItemHeight = 16;
+            this.cbColumnTable.Location = new System.Drawing.Point(79, 14);
+            this.cbColumnTable.Name = "cbColumnTable";
+            this.cbColumnTable.Size = new System.Drawing.Size(129, 24);
+            this.cbColumnTable.TabIndex = 4;
+            this.cbColumnTable.SelectedIndexChanged += new System.EventHandler(this.cbColumnTable_SelectedIndexChanged);
+            // 
+            // lblColumnResult
+            // 
+            this.lblColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColumnResult.ForeColor = System.Drawing.Color.Red;
+            this.lblColumnResult.Location = new System.Drawing.Point(427, 263);
+            this.lblColumnResult.Name = "lblColumnResult";
+            this.lblColumnResult.Size = new System.Drawing.Size(140, 26);
+            this.lblColumnResult.TabIndex = 25;
+            this.lblColumnResult.Text = "Copy to Clipboard is done!";
+            this.lblColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblColumnResult.Visible = false;
+            // 
+            // tabPageGetViewModel
+            // 
+            this.tabPageGetViewModel.Controls.Add(this.btGetVMGenSrc);
+            this.tabPageGetViewModel.Controls.Add(this.btGetVMCopyPhysical);
+            this.tabPageGetViewModel.Controls.Add(this.btGetVMCopyLogic);
+            this.tabPageGetViewModel.Controls.Add(this.btGetVMClear);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox34);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox28);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox33);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox35);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox36);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox37);
+            this.tabPageGetViewModel.Controls.Add(this.groupBox38);
+            this.tabPageGetViewModel.Location = new System.Drawing.Point(124, 4);
+            this.tabPageGetViewModel.Name = "tabPageGetViewModel";
+            this.tabPageGetViewModel.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGetViewModel.Size = new System.Drawing.Size(576, 366);
+            this.tabPageGetViewModel.TabIndex = 12;
+            this.tabPageGetViewModel.Text = "Get View Model";
+            this.tabPageGetViewModel.UseVisualStyleBackColor = true;
+            // 
+            // btGetVMGenSrc
+            // 
+            this.btGetVMGenSrc.Enabled = false;
+            this.btGetVMGenSrc.FlatAppearance.BorderSize = 0;
+            this.btGetVMGenSrc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMGenSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMGenSrc.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btGetVMGenSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetVMGenSrc.Location = new System.Drawing.Point(384, 273);
+            this.btGetVMGenSrc.Name = "btGetVMGenSrc";
+            this.btGetVMGenSrc.Size = new System.Drawing.Size(149, 24);
+            this.btGetVMGenSrc.TabIndex = 116;
+            this.btGetVMGenSrc.Text = "  Gen Resource";
+            this.btGetVMGenSrc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetVMGenSrc.UseVisualStyleBackColor = true;
+            this.btGetVMGenSrc.Click += new System.EventHandler(this.btGetVMGenSrc_Click);
+            // 
+            // btGetVMCopyPhysical
+            // 
+            this.btGetVMCopyPhysical.Enabled = false;
+            this.btGetVMCopyPhysical.FlatAppearance.BorderSize = 0;
+            this.btGetVMCopyPhysical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMCopyPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMCopyPhysical.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btGetVMCopyPhysical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetVMCopyPhysical.Location = new System.Drawing.Point(384, 333);
+            this.btGetVMCopyPhysical.Name = "btGetVMCopyPhysical";
+            this.btGetVMCopyPhysical.Size = new System.Drawing.Size(120, 24);
+            this.btGetVMCopyPhysical.TabIndex = 115;
+            this.btGetVMCopyPhysical.Text = "  Copy Physical";
+            this.btGetVMCopyPhysical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetVMCopyPhysical.UseVisualStyleBackColor = true;
+            this.btGetVMCopyPhysical.Click += new System.EventHandler(this.btGetVMCopyPhysical_Click);
+            // 
+            // btGetVMCopyLogic
+            // 
+            this.btGetVMCopyLogic.Enabled = false;
+            this.btGetVMCopyLogic.FlatAppearance.BorderSize = 0;
+            this.btGetVMCopyLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMCopyLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMCopyLogic.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btGetVMCopyLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetVMCopyLogic.Location = new System.Drawing.Point(384, 303);
+            this.btGetVMCopyLogic.Name = "btGetVMCopyLogic";
+            this.btGetVMCopyLogic.Size = new System.Drawing.Size(120, 24);
+            this.btGetVMCopyLogic.TabIndex = 113;
+            this.btGetVMCopyLogic.Text = "  Copy Logical";
+            this.btGetVMCopyLogic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetVMCopyLogic.UseVisualStyleBackColor = true;
+            this.btGetVMCopyLogic.Click += new System.EventHandler(this.btGetVMCopyLogic_Click);
+            // 
+            // btGetVMClear
+            // 
+            this.btGetVMClear.FlatAppearance.BorderSize = 0;
+            this.btGetVMClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btGetVMClear.Location = new System.Drawing.Point(539, 273);
+            this.btGetVMClear.Name = "btGetVMClear";
+            this.btGetVMClear.Size = new System.Drawing.Size(28, 24);
+            this.btGetVMClear.TabIndex = 114;
+            this.btGetVMClear.UseVisualStyleBackColor = true;
+            this.btGetVMClear.Click += new System.EventHandler(this.btGetVMClear_Click);
+            // 
+            // groupBox34
+            // 
+            this.groupBox34.Controls.Add(this.txtGetVMPhysical);
+            this.groupBox34.Controls.Add(this.lblGetVMPhysical);
+            this.groupBox34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox34.Location = new System.Drawing.Point(384, -2);
+            this.groupBox34.Name = "groupBox34";
+            this.groupBox34.Size = new System.Drawing.Size(182, 123);
+            this.groupBox34.TabIndex = 3;
+            this.groupBox34.TabStop = false;
+            this.groupBox34.Text = "Input Physical View Model";
+            // 
+            // txtGetVMPhysical
+            // 
+            this.txtGetVMPhysical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetVMPhysical.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMPhysical.Name = "txtGetVMPhysical";
+            this.txtGetVMPhysical.Size = new System.Drawing.Size(176, 73);
+            this.txtGetVMPhysical.TabIndex = 11;
+            this.txtGetVMPhysical.Text = "";
+            this.txtGetVMPhysical.TextChanged += new System.EventHandler(this.txtGetVMPhysical_TextChanged);
+            // 
+            // lblGetVMPhysical
+            // 
+            this.lblGetVMPhysical.AutoSize = true;
+            this.lblGetVMPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetVMPhysical.Location = new System.Drawing.Point(80, 98);
+            this.lblGetVMPhysical.Name = "lblGetVMPhysical";
+            this.lblGetVMPhysical.Size = new System.Drawing.Size(80, 15);
+            this.lblGetVMPhysical.TabIndex = 10;
+            this.lblGetVMPhysical.Text = "Line number:";
+            this.lblGetVMPhysical.Visible = false;
+            // 
+            // groupBox28
+            // 
+            this.groupBox28.Controls.Add(this.txtGetVMLogic);
+            this.groupBox28.Controls.Add(this.lblGetVMLogic);
+            this.groupBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox28.Location = new System.Drawing.Point(195, -2);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(183, 123);
+            this.groupBox28.TabIndex = 2;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Text = "Input Logical View Model";
+            // 
+            // txtGetVMLogic
+            // 
+            this.txtGetVMLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetVMLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMLogic.Name = "txtGetVMLogic";
+            this.txtGetVMLogic.Size = new System.Drawing.Size(177, 73);
+            this.txtGetVMLogic.TabIndex = 11;
+            this.txtGetVMLogic.Text = "";
+            this.txtGetVMLogic.TextChanged += new System.EventHandler(this.txtGetVMLogic_TextChanged);
+            // 
+            // lblGetVMLogic
+            // 
+            this.lblGetVMLogic.AutoSize = true;
+            this.lblGetVMLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetVMLogic.Location = new System.Drawing.Point(80, 98);
+            this.lblGetVMLogic.Name = "lblGetVMLogic";
+            this.lblGetVMLogic.Size = new System.Drawing.Size(80, 15);
+            this.lblGetVMLogic.TabIndex = 10;
+            this.lblGetVMLogic.Text = "Line number:";
+            this.lblGetVMLogic.Visible = false;
+            // 
+            // groupBox33
+            // 
+            this.groupBox33.Controls.Add(this.txtGetVMSItem);
+            this.groupBox33.Controls.Add(this.lblGetVMSItem);
+            this.groupBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox33.Location = new System.Drawing.Point(6, -2);
+            this.groupBox33.Name = "groupBox33";
+            this.groupBox33.Size = new System.Drawing.Size(183, 243);
+            this.groupBox33.TabIndex = 1;
+            this.groupBox33.TabStop = false;
+            this.groupBox33.Text = "Input Screen Item";
+            // 
+            // txtGetVMSItem
+            // 
+            this.txtGetVMSItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetVMSItem.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMSItem.Name = "txtGetVMSItem";
+            this.txtGetVMSItem.Size = new System.Drawing.Size(177, 193);
+            this.txtGetVMSItem.TabIndex = 11;
+            this.txtGetVMSItem.Text = "";
+            this.txtGetVMSItem.TextChanged += new System.EventHandler(this.txtGetVMSItem_TextChanged);
+            // 
+            // lblGetVMSItem
+            // 
+            this.lblGetVMSItem.AutoSize = true;
+            this.lblGetVMSItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetVMSItem.Location = new System.Drawing.Point(80, 218);
+            this.lblGetVMSItem.Name = "lblGetVMSItem";
+            this.lblGetVMSItem.Size = new System.Drawing.Size(80, 15);
+            this.lblGetVMSItem.TabIndex = 10;
+            this.lblGetVMSItem.Text = "Line number:";
+            this.lblGetVMSItem.Visible = false;
+            // 
+            // groupBox35
+            // 
+            this.groupBox35.Controls.Add(this.txtGetVMFunPro);
+            this.groupBox35.Controls.Add(this.lblGetVMFunPro);
+            this.groupBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox35.Location = new System.Drawing.Point(384, 118);
+            this.groupBox35.Name = "groupBox35";
+            this.groupBox35.Size = new System.Drawing.Size(183, 123);
+            this.groupBox35.TabIndex = 5;
+            this.groupBox35.TabStop = false;
+            this.groupBox35.Text = "Input Functional Property";
+            // 
+            // txtGetVMFunPro
+            // 
+            this.txtGetVMFunPro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetVMFunPro.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMFunPro.Name = "txtGetVMFunPro";
+            this.txtGetVMFunPro.Size = new System.Drawing.Size(177, 73);
+            this.txtGetVMFunPro.TabIndex = 11;
+            this.txtGetVMFunPro.Text = "";
+            this.txtGetVMFunPro.TextChanged += new System.EventHandler(this.txtGetVMFunPro_TextChanged);
+            // 
+            // lblGetVMFunPro
+            // 
+            this.lblGetVMFunPro.AutoSize = true;
+            this.lblGetVMFunPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetVMFunPro.Location = new System.Drawing.Point(80, 98);
+            this.lblGetVMFunPro.Name = "lblGetVMFunPro";
+            this.lblGetVMFunPro.Size = new System.Drawing.Size(80, 15);
+            this.lblGetVMFunPro.TabIndex = 10;
+            this.lblGetVMFunPro.Text = "Line number:";
+            this.lblGetVMFunPro.Visible = false;
+            // 
+            // groupBox36
+            // 
+            this.groupBox36.Controls.Add(this.txtGetVMFunItem);
+            this.groupBox36.Controls.Add(this.lblGetVMFunItem);
+            this.groupBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox36.Location = new System.Drawing.Point(195, 118);
+            this.groupBox36.Name = "groupBox36";
+            this.groupBox36.Size = new System.Drawing.Size(183, 123);
+            this.groupBox36.TabIndex = 4;
+            this.groupBox36.TabStop = false;
+            this.groupBox36.Text = "Input Functional Item";
+            // 
+            // txtGetVMFunItem
+            // 
+            this.txtGetVMFunItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetVMFunItem.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMFunItem.Name = "txtGetVMFunItem";
+            this.txtGetVMFunItem.Size = new System.Drawing.Size(177, 73);
+            this.txtGetVMFunItem.TabIndex = 11;
+            this.txtGetVMFunItem.Text = "";
+            this.txtGetVMFunItem.TextChanged += new System.EventHandler(this.txtGetVMFunItem_TextChanged);
+            // 
+            // lblGetVMFunItem
+            // 
+            this.lblGetVMFunItem.AutoSize = true;
+            this.lblGetVMFunItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetVMFunItem.Location = new System.Drawing.Point(80, 98);
+            this.lblGetVMFunItem.Name = "lblGetVMFunItem";
+            this.lblGetVMFunItem.Size = new System.Drawing.Size(80, 15);
+            this.lblGetVMFunItem.TabIndex = 10;
+            this.lblGetVMFunItem.Text = "Line number:";
+            this.lblGetVMFunItem.Visible = false;
+            // 
+            // groupBox37
+            // 
+            this.groupBox37.Controls.Add(this.txtGetVMResultLogical);
+            this.groupBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox37.Location = new System.Drawing.Point(6, 238);
+            this.groupBox37.Name = "groupBox37";
+            this.groupBox37.Size = new System.Drawing.Size(183, 119);
+            this.groupBox37.TabIndex = 110;
+            this.groupBox37.TabStop = false;
+            this.groupBox37.Text = "Result Logical";
+            // 
+            // txtGetVMResultLogical
+            // 
+            this.txtGetVMResultLogical.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGetVMResultLogical.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMResultLogical.Name = "txtGetVMResultLogical";
+            this.txtGetVMResultLogical.ReadOnly = true;
+            this.txtGetVMResultLogical.Size = new System.Drawing.Size(177, 97);
+            this.txtGetVMResultLogical.TabIndex = 11;
+            this.txtGetVMResultLogical.Text = "";
+            // 
+            // groupBox38
+            // 
+            this.groupBox38.Controls.Add(this.txtGetVMResultPhysical);
+            this.groupBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox38.Location = new System.Drawing.Point(195, 238);
+            this.groupBox38.Name = "groupBox38";
+            this.groupBox38.Size = new System.Drawing.Size(183, 119);
+            this.groupBox38.TabIndex = 111;
+            this.groupBox38.TabStop = false;
+            this.groupBox38.Text = "Result Physical";
+            // 
+            // txtGetVMResultPhysical
+            // 
+            this.txtGetVMResultPhysical.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGetVMResultPhysical.Location = new System.Drawing.Point(3, 19);
+            this.txtGetVMResultPhysical.Name = "txtGetVMResultPhysical";
+            this.txtGetVMResultPhysical.ReadOnly = true;
+            this.txtGetVMResultPhysical.Size = new System.Drawing.Size(177, 97);
+            this.txtGetVMResultPhysical.TabIndex = 11;
+            this.txtGetVMResultPhysical.Text = "";
+            // 
             // tabPageCreateJson
             // 
             this.tabPageCreateJson.Controls.Add(this.groupBox3);
@@ -283,6 +904,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateJson.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateJson.Name = "tabPageCreateJson";
             this.tabPageCreateJson.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateJson.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPageCreateJson.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateJson.TabIndex = 0;
             this.tabPageCreateJson.Text = "Create JSON";
@@ -410,14 +1032,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -434,8 +1056,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -544,676 +1166,403 @@ namespace ToolSupportCoding.View
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
-            // tabPageFormatCode
-            // 
-            this.tabPageFormatCode.Controls.Add(this.groupBox9);
-            this.tabPageFormatCode.Controls.Add(this.groupBox8);
-            this.tabPageFormatCode.Location = new System.Drawing.Point(124, 4);
-            this.tabPageFormatCode.Name = "tabPageFormatCode";
-            this.tabPageFormatCode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 366);
-            this.tabPageFormatCode.TabIndex = 2;
-            this.tabPageFormatCode.Text = "Format Coment";
-            this.tabPageFormatCode.UseVisualStyleBackColor = true;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.txtFormatResult);
-            this.groupBox9.Controls.Add(this.btnFormatClear);
-            this.groupBox9.Controls.Add(this.btnFormatCopy);
-            this.groupBox9.Controls.Add(this.lblFormatResult);
-            this.groupBox9.Controls.Add(this.btnFormatCode);
-            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(276, -2);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(290, 359);
-            this.groupBox9.TabIndex = 21;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Result";
-            // 
-            // txtFormatResult
-            // 
-            this.txtFormatResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
-            this.txtFormatResult.Name = "txtFormatResult";
-            this.txtFormatResult.ReadOnly = true;
-            this.txtFormatResult.Size = new System.Drawing.Size(284, 303);
-            this.txtFormatResult.TabIndex = 26;
-            this.txtFormatResult.Text = "";
-            // 
-            // btnFormatClear
-            // 
-            this.btnFormatClear.FlatAppearance.BorderSize = 0;
-            this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnFormatClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnFormatClear.Location = new System.Drawing.Point(121, 328);
-            this.btnFormatClear.Name = "btnFormatClear";
-            this.btnFormatClear.Size = new System.Drawing.Size(28, 24);
-            this.btnFormatClear.TabIndex = 22;
-            this.btnFormatClear.UseVisualStyleBackColor = true;
-            this.btnFormatClear.Click += new System.EventHandler(this.btnFormatClear_Click);
-            // 
-            // btnFormatCopy
-            // 
-            this.btnFormatCopy.Enabled = false;
-            this.btnFormatCopy.FlatAppearance.BorderSize = 0;
-            this.btnFormatCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnFormatCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCopy.Location = new System.Drawing.Point(86, 328);
-            this.btnFormatCopy.Name = "btnFormatCopy";
-            this.btnFormatCopy.Size = new System.Drawing.Size(28, 24);
-            this.btnFormatCopy.TabIndex = 23;
-            this.btnFormatCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormatCopy.UseVisualStyleBackColor = true;
-            this.btnFormatCopy.Click += new System.EventHandler(this.btnFormatCopy_Click);
-            // 
-            // lblFormatResult
-            // 
-            this.lblFormatResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormatResult.ForeColor = System.Drawing.Color.Red;
-            this.lblFormatResult.Location = new System.Drawing.Point(157, 328);
-            this.lblFormatResult.Name = "lblFormatResult";
-            this.lblFormatResult.Size = new System.Drawing.Size(140, 26);
-            this.lblFormatResult.TabIndex = 24;
-            this.lblFormatResult.Text = "Copy to Clipboard is done!";
-            this.lblFormatResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblFormatResult.Visible = false;
-            // 
-            // btnFormatCode
-            // 
-            this.btnFormatCode.Enabled = false;
-            this.btnFormatCode.FlatAppearance.BorderSize = 0;
-            this.btnFormatCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnFormatCode.Image = global::ToolSupportCoding.Properties.Resources.format;
-            this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCode.Location = new System.Drawing.Point(3, 328);
-            this.btnFormatCode.Name = "btnFormatCode";
-            this.btnFormatCode.Size = new System.Drawing.Size(77, 24);
-            this.btnFormatCode.TabIndex = 25;
-            this.btnFormatCode.Text = "Format";
-            this.btnFormatCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormatCode.UseVisualStyleBackColor = true;
-            this.btnFormatCode.Click += new System.EventHandler(this.btnFormatCode_Click);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.txtFormatCode);
-            this.groupBox8.Controls.Add(this.rbFormatCommentSQL);
-            this.groupBox8.Controls.Add(this.rbFormatCommentLBlock);
-            this.groupBox8.Controls.Add(this.rbFormatCommentLine);
-            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(6, -2);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(264, 359);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Code";
-            // 
-            // txtFormatCode
-            // 
-            this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
-            this.txtFormatCode.Name = "txtFormatCode";
-            this.txtFormatCode.Size = new System.Drawing.Size(258, 307);
-            this.txtFormatCode.TabIndex = 103;
-            this.txtFormatCode.Text = "";
-            this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
-            // 
-            // rbFormatCommentSQL
-            // 
-            this.rbFormatCommentSQL.AutoSize = true;
-            this.rbFormatCommentSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentSQL.Location = new System.Drawing.Point(204, 332);
-            this.rbFormatCommentSQL.Name = "rbFormatCommentSQL";
-            this.rbFormatCommentSQL.Size = new System.Drawing.Size(55, 19);
-            this.rbFormatCommentSQL.TabIndex = 102;
-            this.rbFormatCommentSQL.Text = "Block";
-            this.rbFormatCommentSQL.UseVisualStyleBackColor = true;
-            // 
-            // rbFormatCommentLBlock
-            // 
-            this.rbFormatCommentLBlock.AutoSize = true;
-            this.rbFormatCommentLBlock.Checked = true;
-            this.rbFormatCommentLBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentLBlock.Location = new System.Drawing.Point(61, 332);
-            this.rbFormatCommentLBlock.Name = "rbFormatCommentLBlock";
-            this.rbFormatCommentLBlock.Size = new System.Drawing.Size(82, 19);
-            this.rbFormatCommentLBlock.TabIndex = 100;
-            this.rbFormatCommentLBlock.TabStop = true;
-            this.rbFormatCommentLBlock.Text = "Line Block";
-            this.rbFormatCommentLBlock.UseVisualStyleBackColor = true;
-            // 
-            // rbFormatCommentLine
-            // 
-            this.rbFormatCommentLine.AutoSize = true;
-            this.rbFormatCommentLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentLine.Location = new System.Drawing.Point(149, 332);
-            this.rbFormatCommentLine.Name = "rbFormatCommentLine";
-            this.rbFormatCommentLine.Size = new System.Drawing.Size(49, 19);
-            this.rbFormatCommentLine.TabIndex = 101;
-            this.rbFormatCommentLine.Text = "Line";
-            this.rbFormatCommentLine.UseVisualStyleBackColor = true;
-            // 
-            // tabPageGetColumn
-            // 
-            this.tabPageGetColumn.Controls.Add(this.groupBox5);
-            this.tabPageGetColumn.Controls.Add(this.groupBox11);
-            this.tabPageGetColumn.Location = new System.Drawing.Point(124, 4);
-            this.tabPageGetColumn.Name = "tabPageGetColumn";
-            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 366);
-            this.tabPageGetColumn.TabIndex = 6;
-            this.tabPageGetColumn.Text = "Get Name Column";
-            this.tabPageGetColumn.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txColumnData);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox5.Location = new System.Drawing.Point(6, -2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(560, 72);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Input Data";
-            // 
-            // txColumnData
-            // 
-            this.txColumnData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txColumnData.Location = new System.Drawing.Point(3, 19);
-            this.txColumnData.Multiline = true;
-            this.txColumnData.Name = "txColumnData";
-            this.txColumnData.Size = new System.Drawing.Size(554, 50);
-            this.txColumnData.TabIndex = 3;
-            this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.txColumnResult);
-            this.groupBox11.Controls.Add(this.btColumnCopy);
-            this.groupBox11.Controls.Add(this.txColumnDoc);
-            this.groupBox11.Controls.Add(this.rbColumnFormat);
-            this.groupBox11.Controls.Add(this.rbColumnTable);
-            this.groupBox11.Controls.Add(this.btColumnReset);
-            this.groupBox11.Controls.Add(this.btColumnClear);
-            this.groupBox11.Controls.Add(this.label5);
-            this.groupBox11.Controls.Add(this.cbColumnFormat);
-            this.groupBox11.Controls.Add(this.label9);
-            this.groupBox11.Controls.Add(this.txColumnInput);
-            this.groupBox11.Controls.Add(this.gridColumnData);
-            this.groupBox11.Controls.Add(this.txColumnSearch);
-            this.groupBox11.Controls.Add(this.cbColumnTable);
-            this.groupBox11.Controls.Add(this.lblColumnResult);
-            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox11.Location = new System.Drawing.Point(6, 67);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(560, 290);
-            this.groupBox11.TabIndex = 5;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Search";
-            // 
-            // txColumnResult
-            // 
-            this.txColumnResult.Location = new System.Drawing.Point(214, 245);
-            this.txColumnResult.Multiline = true;
-            this.txColumnResult.Name = "txColumnResult";
-            this.txColumnResult.ReadOnly = true;
-            this.txColumnResult.Size = new System.Drawing.Size(115, 39);
-            this.txColumnResult.TabIndex = 24;
-            // 
-            // btColumnCopy
-            // 
-            this.btColumnCopy.Enabled = false;
-            this.btColumnCopy.FlatAppearance.BorderSize = 0;
-            this.btColumnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btColumnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btColumnCopy.Location = new System.Drawing.Point(335, 245);
-            this.btColumnCopy.Name = "btColumnCopy";
-            this.btColumnCopy.Size = new System.Drawing.Size(66, 24);
-            this.btColumnCopy.TabIndex = 23;
-            this.btColumnCopy.Text = "Copy";
-            this.btColumnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btColumnCopy.UseVisualStyleBackColor = true;
-            this.btColumnCopy.Click += new System.EventHandler(this.btColumnCopy_Click);
-            // 
-            // txColumnDoc
-            // 
-            this.txColumnDoc.Location = new System.Drawing.Point(6, 245);
-            this.txColumnDoc.Multiline = true;
-            this.txColumnDoc.Name = "txColumnDoc";
-            this.txColumnDoc.Size = new System.Drawing.Size(202, 39);
-            this.txColumnDoc.TabIndex = 22;
-            this.txColumnDoc.TextChanged += new System.EventHandler(this.txColumnDoc_TextChanged);
-            // 
-            // rbColumnFormat
-            // 
-            this.rbColumnFormat.AutoSize = true;
-            this.rbColumnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbColumnFormat.Location = new System.Drawing.Point(6, 43);
-            this.rbColumnFormat.Name = "rbColumnFormat";
-            this.rbColumnFormat.Size = new System.Drawing.Size(64, 19);
-            this.rbColumnFormat.TabIndex = 21;
-            this.rbColumnFormat.Text = "Format";
-            this.rbColumnFormat.UseVisualStyleBackColor = true;
-            this.rbColumnFormat.CheckedChanged += new System.EventHandler(this.rbColumnFormat_CheckedChanged);
-            // 
-            // rbColumnTable
-            // 
-            this.rbColumnTable.AutoSize = true;
-            this.rbColumnTable.Checked = true;
-            this.rbColumnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbColumnTable.Location = new System.Drawing.Point(6, 18);
-            this.rbColumnTable.Name = "rbColumnTable";
-            this.rbColumnTable.Size = new System.Drawing.Size(56, 19);
-            this.rbColumnTable.TabIndex = 20;
-            this.rbColumnTable.TabStop = true;
-            this.rbColumnTable.Text = "Table";
-            this.rbColumnTable.UseVisualStyleBackColor = true;
-            this.rbColumnTable.CheckedChanged += new System.EventHandler(this.rbColumnTable_CheckedChanged);
-            // 
-            // btColumnReset
-            // 
-            this.btColumnReset.FlatAppearance.BorderSize = 0;
-            this.btColumnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btColumnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btColumnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btColumnReset.Location = new System.Drawing.Point(407, 245);
-            this.btColumnReset.Name = "btColumnReset";
-            this.btColumnReset.Size = new System.Drawing.Size(75, 24);
-            this.btColumnReset.TabIndex = 19;
-            this.btColumnReset.Text = "Reset";
-            this.btColumnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btColumnReset.UseVisualStyleBackColor = true;
-            this.btColumnReset.Click += new System.EventHandler(this.btColumnReset_Click);
-            // 
-            // btColumnClear
-            // 
-            this.btColumnClear.FlatAppearance.BorderSize = 0;
-            this.btColumnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btColumnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btColumnClear.Location = new System.Drawing.Point(488, 245);
-            this.btColumnClear.Name = "btColumnClear";
-            this.btColumnClear.Size = new System.Drawing.Size(66, 24);
-            this.btColumnClear.TabIndex = 18;
-            this.btColumnClear.Text = "Clear";
-            this.btColumnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btColumnClear.UseVisualStyleBackColor = true;
-            this.btColumnClear.Click += new System.EventHandler(this.btColumnClear_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(223, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Input Value";
-            // 
-            // cbColumnFormat
-            // 
-            this.cbColumnFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbColumnFormat.FormattingEnabled = true;
-            this.cbColumnFormat.Items.AddRange(new object[] {
-            "[-].[-]",
-            "【-】.[-]",
-            "【-】.【-】",
-            "[-/-]",
-            "【-/-】"});
-            this.cbColumnFormat.Location = new System.Drawing.Point(79, 44);
-            this.cbColumnFormat.Name = "cbColumnFormat";
-            this.cbColumnFormat.Size = new System.Drawing.Size(129, 24);
-            this.cbColumnFormat.TabIndex = 0;
-            this.cbColumnFormat.SelectedIndexChanged += new System.EventHandler(this.cbColumnFormat_SelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label9.Location = new System.Drawing.Point(223, 18);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 15);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Search Value";
-            // 
-            // txColumnInput
-            // 
-            this.txColumnInput.Location = new System.Drawing.Point(322, 42);
-            this.txColumnInput.Name = "txColumnInput";
-            this.txColumnInput.Size = new System.Drawing.Size(232, 23);
-            this.txColumnInput.TabIndex = 1;
-            this.txColumnInput.Click += new System.EventHandler(this.txColumnInput_Click);
-            this.txColumnInput.TextChanged += new System.EventHandler(this.txColumnInput_TextChanged);
-            // 
-            // gridColumnData
-            // 
-            this.gridColumnData.AllowUserToAddRows = false;
-            this.gridColumnData.AllowUserToDeleteRows = false;
-            this.gridColumnData.AllowUserToResizeColumns = false;
-            this.gridColumnData.AllowUserToResizeRows = false;
-            this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridColumnData.ColumnHeadersHeight = 24;
-            this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle4;
-            this.gridColumnData.EnableHeadersVisualStyles = false;
-            this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gridColumnData.Location = new System.Drawing.Point(6, 75);
-            this.gridColumnData.MultiSelect = false;
-            this.gridColumnData.Name = "gridColumnData";
-            this.gridColumnData.ReadOnly = true;
-            this.gridColumnData.RowHeadersVisible = false;
-            this.gridColumnData.RowHeadersWidth = 25;
-            this.gridColumnData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridColumnData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridColumnData.Size = new System.Drawing.Size(548, 164);
-            this.gridColumnData.TabIndex = 6;
-            // 
-            // txColumnSearch
-            // 
-            this.txColumnSearch.Location = new System.Drawing.Point(322, 14);
-            this.txColumnSearch.Name = "txColumnSearch";
-            this.txColumnSearch.Size = new System.Drawing.Size(232, 23);
-            this.txColumnSearch.TabIndex = 4;
-            this.txColumnSearch.Click += new System.EventHandler(this.txColumnSearch_Click);
-            this.txColumnSearch.TextChanged += new System.EventHandler(this.txColumnSearch_TextChanged);
-            // 
-            // cbColumnTable
-            // 
-            this.cbColumnTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbColumnTable.FormattingEnabled = true;
-            this.cbColumnTable.Location = new System.Drawing.Point(79, 14);
-            this.cbColumnTable.Name = "cbColumnTable";
-            this.cbColumnTable.Size = new System.Drawing.Size(129, 24);
-            this.cbColumnTable.TabIndex = 4;
-            this.cbColumnTable.SelectedIndexChanged += new System.EventHandler(this.cbColumnTable_SelectedIndexChanged);
-            // 
-            // lblColumnResult
-            // 
-            this.lblColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColumnResult.ForeColor = System.Drawing.Color.Red;
-            this.lblColumnResult.Location = new System.Drawing.Point(427, 263);
-            this.lblColumnResult.Name = "lblColumnResult";
-            this.lblColumnResult.Size = new System.Drawing.Size(140, 26);
-            this.lblColumnResult.TabIndex = 25;
-            this.lblColumnResult.Text = "Copy to Clipboard is done!";
-            this.lblColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblColumnResult.Visible = false;
-            // 
-            // tabPageCreateComment
-            // 
-            this.tabPageCreateComment.Controls.Add(this.groupBox14);
-            this.tabPageCreateComment.Controls.Add(this.groupBox10);
-            this.tabPageCreateComment.Controls.Add(this.groupBox7);
-            this.tabPageCreateComment.Controls.Add(this.groupBox6);
-            this.tabPageCreateComment.Controls.Add(this.groupBox12);
-            this.tabPageCreateComment.Controls.Add(this.groupBox13);
-            this.tabPageCreateComment.Location = new System.Drawing.Point(124, 4);
-            this.tabPageCreateComment.Name = "tabPageCreateComment";
-            this.tabPageCreateComment.Size = new System.Drawing.Size(576, 366);
-            this.tabPageCreateComment.TabIndex = 7;
-            this.tabPageCreateComment.Text = "Create Comment";
-            this.tabPageCreateComment.UseVisualStyleBackColor = true;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.chkCrCmLine);
-            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox14.Location = new System.Drawing.Point(387, -2);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(179, 46);
-            this.groupBox14.TabIndex = 102;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Setting";
-            // 
-            // chkCrCmLine
-            // 
-            this.chkCrCmLine.AutoSize = true;
-            this.chkCrCmLine.Checked = true;
-            this.chkCrCmLine.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkCrCmLine.Location = new System.Drawing.Point(7, 21);
-            this.chkCrCmLine.Name = "chkCrCmLine";
-            this.chkCrCmLine.Size = new System.Drawing.Size(74, 19);
-            this.chkCrCmLine.TabIndex = 0;
-            this.chkCrCmLine.Text = "Add Line";
-            this.chkCrCmLine.UseVisualStyleBackColor = true;
-            this.chkCrCmLine.CheckedChanged += new System.EventHandler(this.chkCrCmLine_CheckedChanged);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.rbCrCmBlock);
-            this.groupBox10.Controls.Add(this.rbCrCmLine);
-            this.groupBox10.Controls.Add(this.rbCrCmLineBlock);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(196, -2);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(185, 46);
-            this.groupBox10.TabIndex = 101;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Comment Mode";
-            // 
-            // rbCrCmBlock
-            // 
-            this.rbCrCmBlock.AutoSize = true;
-            this.rbCrCmBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmBlock.Location = new System.Drawing.Point(131, 21);
-            this.rbCrCmBlock.Name = "rbCrCmBlock";
-            this.rbCrCmBlock.Size = new System.Drawing.Size(55, 19);
-            this.rbCrCmBlock.TabIndex = 11;
-            this.rbCrCmBlock.Text = "Block";
-            this.rbCrCmBlock.UseVisualStyleBackColor = true;
-            this.rbCrCmBlock.CheckedChanged += new System.EventHandler(this.rbCrCmBlock_CheckedChanged);
-            // 
-            // rbCrCmLine
-            // 
-            this.rbCrCmLine.AutoSize = true;
-            this.rbCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLine.Location = new System.Drawing.Point(86, 20);
-            this.rbCrCmLine.Name = "rbCrCmLine";
-            this.rbCrCmLine.Size = new System.Drawing.Size(49, 19);
-            this.rbCrCmLine.TabIndex = 99;
-            this.rbCrCmLine.Text = "Line";
-            this.rbCrCmLine.UseVisualStyleBackColor = true;
-            this.rbCrCmLine.CheckedChanged += new System.EventHandler(this.rbCrCmLine_CheckedChanged);
-            // 
-            // rbCrCmLineBlock
-            // 
-            this.rbCrCmLineBlock.AutoSize = true;
-            this.rbCrCmLineBlock.Checked = true;
-            this.rbCrCmLineBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLineBlock.Location = new System.Drawing.Point(4, 20);
-            this.rbCrCmLineBlock.Name = "rbCrCmLineBlock";
-            this.rbCrCmLineBlock.Size = new System.Drawing.Size(82, 19);
-            this.rbCrCmLineBlock.TabIndex = 10;
-            this.rbCrCmLineBlock.TabStop = true;
-            this.rbCrCmLineBlock.Text = "Line Block";
-            this.rbCrCmLineBlock.UseVisualStyleBackColor = true;
-            this.rbCrCmLineBlock.CheckedChanged += new System.EventHandler(this.rbCrCmLineBlock_CheckedChanged);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.rbCrCmLast);
-            this.groupBox7.Controls.Add(this.rbCrCmFirst);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(6, -2);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(184, 46);
-            this.groupBox7.TabIndex = 100;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Comment Location";
-            // 
-            // rbCrCmLast
-            // 
-            this.rbCrCmLast.AutoSize = true;
-            this.rbCrCmLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLast.Location = new System.Drawing.Point(71, 20);
-            this.rbCrCmLast.Name = "rbCrCmLast";
-            this.rbCrCmLast.Size = new System.Drawing.Size(90, 19);
-            this.rbCrCmLast.TabIndex = 11;
-            this.rbCrCmLast.Text = "Stay Behind";
-            this.rbCrCmLast.UseVisualStyleBackColor = true;
-            this.rbCrCmLast.CheckedChanged += new System.EventHandler(this.rbCrCmLast_CheckedChanged);
-            // 
-            // rbCrCmFirst
-            // 
-            this.rbCrCmFirst.AutoSize = true;
-            this.rbCrCmFirst.Checked = true;
-            this.rbCrCmFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmFirst.Location = new System.Drawing.Point(3, 20);
-            this.rbCrCmFirst.Name = "rbCrCmFirst";
-            this.rbCrCmFirst.Size = new System.Drawing.Size(66, 19);
-            this.rbCrCmFirst.TabIndex = 10;
-            this.rbCrCmFirst.TabStop = true;
-            this.rbCrCmFirst.Text = "In Front";
-            this.rbCrCmFirst.UseVisualStyleBackColor = true;
-            this.rbCrCmFirst.CheckedChanged += new System.EventHandler(this.rbCrCmFirst_CheckedChanged);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.txtCrCmComment);
-            this.groupBox6.Controls.Add(this.lblCrCmNumComment);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(6, 41);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(184, 316);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Input Comment";
-            // 
-            // txtCrCmComment
-            // 
-            this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmComment.Name = "txtCrCmComment";
-            this.txtCrCmComment.Size = new System.Drawing.Size(178, 266);
-            this.txtCrCmComment.TabIndex = 11;
-            this.txtCrCmComment.Text = "";
-            this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
-            this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
-            // 
-            // lblCrCmNumComment
-            // 
-            this.lblCrCmNumComment.AutoSize = true;
-            this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 291);
-            this.lblCrCmNumComment.Name = "lblCrCmNumComment";
-            this.lblCrCmNumComment.Size = new System.Drawing.Size(80, 15);
-            this.lblCrCmNumComment.TabIndex = 10;
-            this.lblCrCmNumComment.Text = "Line number:";
-            this.lblCrCmNumComment.Visible = false;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.txtCrCmCode);
-            this.groupBox12.Controls.Add(this.lblCrCmNumCode);
-            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(196, 41);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(185, 316);
-            this.groupBox12.TabIndex = 3;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Input Code";
-            // 
-            // txtCrCmCode
-            // 
-            this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmCode.Name = "txtCrCmCode";
-            this.txtCrCmCode.Size = new System.Drawing.Size(179, 266);
-            this.txtCrCmCode.TabIndex = 12;
-            this.txtCrCmCode.Text = "";
-            this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
-            this.txtCrCmCode.Leave += new System.EventHandler(this.txtCrCmCode_Leave);
-            // 
-            // lblCrCmNumCode
-            // 
-            this.lblCrCmNumCode.AutoSize = true;
-            this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 291);
-            this.lblCrCmNumCode.Name = "lblCrCmNumCode";
-            this.lblCrCmNumCode.Size = new System.Drawing.Size(80, 15);
-            this.lblCrCmNumCode.TabIndex = 11;
-            this.lblCrCmNumCode.Text = "Line number:";
-            this.lblCrCmNumCode.Visible = false;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.txtCrCmResult);
-            this.groupBox13.Controls.Add(this.btCrCmClear);
-            this.groupBox13.Controls.Add(this.btCrCmCopy);
-            this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(387, 41);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(179, 316);
-            this.groupBox13.TabIndex = 4;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Result";
-            // 
-            // txtCrCmResult
-            // 
-            this.txtCrCmResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
-            this.txtCrCmResult.Name = "txtCrCmResult";
-            this.txtCrCmResult.ReadOnly = true;
-            this.txtCrCmResult.Size = new System.Drawing.Size(173, 266);
-            this.txtCrCmResult.TabIndex = 13;
-            this.txtCrCmResult.Text = "";
-            // 
-            // btCrCmClear
-            // 
-            this.btCrCmClear.FlatAppearance.BorderSize = 0;
-            this.btCrCmClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btCrCmClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrCmClear.Location = new System.Drawing.Point(113, 287);
-            this.btCrCmClear.Name = "btCrCmClear";
-            this.btCrCmClear.Size = new System.Drawing.Size(63, 24);
-            this.btCrCmClear.TabIndex = 12;
-            this.btCrCmClear.Text = " Clear";
-            this.btCrCmClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrCmClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btCrCmClear.UseVisualStyleBackColor = true;
-            this.btCrCmClear.Click += new System.EventHandler(this.btCrCmClear_Click);
-            // 
-            // btCrCmCopy
-            // 
-            this.btCrCmCopy.Enabled = false;
-            this.btCrCmCopy.FlatAppearance.BorderSize = 0;
-            this.btCrCmCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btCrCmCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btCrCmCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrCmCopy.Location = new System.Drawing.Point(3, 287);
-            this.btCrCmCopy.Name = "btCrCmCopy";
-            this.btCrCmCopy.Size = new System.Drawing.Size(104, 24);
-            this.btCrCmCopy.TabIndex = 11;
-            this.btCrCmCopy.Text = " Copy Result";
-            this.btCrCmCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btCrCmCopy.UseVisualStyleBackColor = true;
-            this.btCrCmCopy.Click += new System.EventHandler(this.btCrCmCopy_Click);
+            // tabPageCreateEnity
+            // 
+            this.tabPageCreateEnity.Controls.Add(this.groupBox23);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox22);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox21);
+            this.tabPageCreateEnity.Controls.Add(this.groupBox20);
+            this.tabPageCreateEnity.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateEnity.Name = "tabPageCreateEnity";
+            this.tabPageCreateEnity.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateEnity.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateEnity.TabIndex = 10;
+            this.tabPageCreateEnity.Text = "Create Entity";
+            this.tabPageCreateEnity.UseVisualStyleBackColor = true;
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.rbCrEntityLine);
+            this.groupBox23.Controls.Add(this.rbCrEntityBlock);
+            this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox23.Location = new System.Drawing.Point(6, -2);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(178, 46);
+            this.groupBox23.TabIndex = 102;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Comment Mode";
+            // 
+            // rbCrEntityLine
+            // 
+            this.rbCrEntityLine.AutoSize = true;
+            this.rbCrEntityLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityLine.Location = new System.Drawing.Point(66, 20);
+            this.rbCrEntityLine.Name = "rbCrEntityLine";
+            this.rbCrEntityLine.Size = new System.Drawing.Size(49, 19);
+            this.rbCrEntityLine.TabIndex = 99;
+            this.rbCrEntityLine.Text = "Line";
+            this.rbCrEntityLine.UseVisualStyleBackColor = true;
+            // 
+            // rbCrEntityBlock
+            // 
+            this.rbCrEntityBlock.AutoSize = true;
+            this.rbCrEntityBlock.Checked = true;
+            this.rbCrEntityBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityBlock.Location = new System.Drawing.Point(7, 20);
+            this.rbCrEntityBlock.Name = "rbCrEntityBlock";
+            this.rbCrEntityBlock.Size = new System.Drawing.Size(55, 19);
+            this.rbCrEntityBlock.TabIndex = 10;
+            this.rbCrEntityBlock.TabStop = true;
+            this.rbCrEntityBlock.Text = "Block";
+            this.rbCrEntityBlock.UseVisualStyleBackColor = true;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.txtCrEntityResult);
+            this.groupBox22.Controls.Add(this.btnCrEntity);
+            this.groupBox22.Controls.Add(this.btnCrEntityCopy);
+            this.groupBox22.Controls.Add(this.btnCrEntityClear);
+            this.groupBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox22.Location = new System.Drawing.Point(378, 41);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(188, 316);
+            this.groupBox22.TabIndex = 17;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Result";
+            // 
+            // txtCrEntityResult
+            // 
+            this.txtCrEntityResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityResult.Name = "txtCrEntityResult";
+            this.txtCrEntityResult.ReadOnly = true;
+            this.txtCrEntityResult.Size = new System.Drawing.Size(182, 266);
+            this.txtCrEntityResult.TabIndex = 19;
+            this.txtCrEntityResult.Text = "";
+            // 
+            // btnCrEntity
+            // 
+            this.btnCrEntity.FlatAppearance.BorderSize = 0;
+            this.btnCrEntity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntity.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btnCrEntity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrEntity.Location = new System.Drawing.Point(4, 287);
+            this.btnCrEntity.Name = "btnCrEntity";
+            this.btnCrEntity.Size = new System.Drawing.Size(118, 24);
+            this.btnCrEntity.TabIndex = 16;
+            this.btnCrEntity.Text = "Create Entity";
+            this.btnCrEntity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCrEntity.UseVisualStyleBackColor = true;
+            this.btnCrEntity.Click += new System.EventHandler(this.btnCrEntity_Click);
+            // 
+            // btnCrEntityCopy
+            // 
+            this.btnCrEntityCopy.Enabled = false;
+            this.btnCrEntityCopy.FlatAppearance.BorderSize = 0;
+            this.btnCrEntityCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntityCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntityCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btnCrEntityCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrEntityCopy.Location = new System.Drawing.Point(125, 287);
+            this.btnCrEntityCopy.Name = "btnCrEntityCopy";
+            this.btnCrEntityCopy.Size = new System.Drawing.Size(28, 24);
+            this.btnCrEntityCopy.TabIndex = 17;
+            this.btnCrEntityCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCrEntityCopy.UseVisualStyleBackColor = true;
+            this.btnCrEntityCopy.Click += new System.EventHandler(this.btnCrEntityCopy_Click);
+            // 
+            // btnCrEntityClear
+            // 
+            this.btnCrEntityClear.FlatAppearance.BorderSize = 0;
+            this.btnCrEntityClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrEntityClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCrEntityClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnCrEntityClear.Location = new System.Drawing.Point(156, 287);
+            this.btnCrEntityClear.Name = "btnCrEntityClear";
+            this.btnCrEntityClear.Size = new System.Drawing.Size(28, 24);
+            this.btnCrEntityClear.TabIndex = 18;
+            this.btnCrEntityClear.UseVisualStyleBackColor = true;
+            this.btnCrEntityClear.Click += new System.EventHandler(this.btnCrEntityClear_Click);
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.txtCrEntityT);
+            this.groupBox21.Controls.Add(this.lblCrEntityNumT);
+            this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox21.Location = new System.Drawing.Point(192, 41);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(180, 316);
+            this.groupBox21.TabIndex = 5;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "SQL Table";
+            // 
+            // txtCrEntityT
+            // 
+            this.txtCrEntityT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityT.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityT.Name = "txtCrEntityT";
+            this.txtCrEntityT.Size = new System.Drawing.Size(174, 266);
+            this.txtCrEntityT.TabIndex = 4;
+            this.txtCrEntityT.Text = "";
+            this.txtCrEntityT.TextChanged += new System.EventHandler(this.txtCrEntityT_TextChanged);
+            // 
+            // lblCrEntityNumT
+            // 
+            this.lblCrEntityNumT.AutoSize = true;
+            this.lblCrEntityNumT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrEntityNumT.Location = new System.Drawing.Point(77, 291);
+            this.lblCrEntityNumT.Name = "lblCrEntityNumT";
+            this.lblCrEntityNumT.Size = new System.Drawing.Size(80, 15);
+            this.lblCrEntityNumT.TabIndex = 3;
+            this.lblCrEntityNumT.Text = "Line number:";
+            this.lblCrEntityNumT.Visible = false;
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.txtCrEntityP);
+            this.groupBox20.Controls.Add(this.lblCrEntityNumP);
+            this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox20.Location = new System.Drawing.Point(6, 41);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(180, 316);
+            this.groupBox20.TabIndex = 1;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "SQL Procedure";
+            // 
+            // txtCrEntityP
+            // 
+            this.txtCrEntityP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrEntityP.Location = new System.Drawing.Point(3, 19);
+            this.txtCrEntityP.Name = "txtCrEntityP";
+            this.txtCrEntityP.Size = new System.Drawing.Size(174, 266);
+            this.txtCrEntityP.TabIndex = 4;
+            this.txtCrEntityP.Text = "";
+            this.txtCrEntityP.TextChanged += new System.EventHandler(this.txtCrEntityP_TextChanged);
+            // 
+            // lblCrEntityNumP
+            // 
+            this.lblCrEntityNumP.AutoSize = true;
+            this.lblCrEntityNumP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrEntityNumP.Location = new System.Drawing.Point(77, 291);
+            this.lblCrEntityNumP.Name = "lblCrEntityNumP";
+            this.lblCrEntityNumP.Size = new System.Drawing.Size(80, 15);
+            this.lblCrEntityNumP.TabIndex = 3;
+            this.lblCrEntityNumP.Text = "Line number:";
+            this.lblCrEntityNumP.Visible = false;
+            // 
+            // tabPageCreateFileSrc
+            // 
+            this.tabPageCreateFileSrc.Controls.Add(this.groupBox19);
+            this.tabPageCreateFileSrc.Controls.Add(this.groupBox24);
+            this.tabPageCreateFileSrc.Controls.Add(this.groupBox25);
+            this.tabPageCreateFileSrc.Controls.Add(this.groupBox27);
+            this.tabPageCreateFileSrc.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateFileSrc.Name = "tabPageCreateFileSrc";
+            this.tabPageCreateFileSrc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateFileSrc.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateFileSrc.TabIndex = 5;
+            this.tabPageCreateFileSrc.Text = "Create File Source";
+            this.tabPageCreateFileSrc.UseVisualStyleBackColor = true;
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.barCrSourceProcess);
+            this.groupBox19.Controls.Add(this.label6);
+            this.groupBox19.Controls.Add(this.lbChoosePath);
+            this.groupBox19.Controls.Add(this.btCrSourceClear);
+            this.groupBox19.Controls.Add(this.btCrSource);
+            this.groupBox19.Controls.Add(this.btCrSourceOpenPath);
+            this.groupBox19.Controls.Add(this.txtCrSourceFolderP);
+            this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox19.Location = new System.Drawing.Point(6, -2);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(560, 76);
+            this.groupBox19.TabIndex = 21;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Setting";
+            // 
+            // barCrSourceProcess
+            // 
+            this.barCrSourceProcess.Location = new System.Drawing.Point(84, 44);
+            this.barCrSourceProcess.Name = "barCrSourceProcess";
+            this.barCrSourceProcess.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.barCrSourceProcess.RightToLeftLayout = true;
+            this.barCrSourceProcess.Size = new System.Drawing.Size(341, 24);
+            this.barCrSourceProcess.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label6.Location = new System.Drawing.Point(6, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 15);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Processing";
+            // 
+            // lbChoosePath
+            // 
+            this.lbChoosePath.AutoSize = true;
+            this.lbChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbChoosePath.Location = new System.Drawing.Point(6, 19);
+            this.lbChoosePath.Name = "lbChoosePath";
+            this.lbChoosePath.Size = new System.Drawing.Size(74, 15);
+            this.lbChoosePath.TabIndex = 20;
+            this.lbChoosePath.Text = "Source Path";
+            // 
+            // btCrSourceClear
+            // 
+            this.btCrSourceClear.FlatAppearance.BorderSize = 0;
+            this.btCrSourceClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrSourceClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrSourceClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btCrSourceClear.Location = new System.Drawing.Point(525, 44);
+            this.btCrSourceClear.Name = "btCrSourceClear";
+            this.btCrSourceClear.Size = new System.Drawing.Size(28, 24);
+            this.btCrSourceClear.TabIndex = 18;
+            this.btCrSourceClear.UseVisualStyleBackColor = true;
+            this.btCrSourceClear.Click += new System.EventHandler(this.btCrSourceClear_Click);
+            // 
+            // btCrSource
+            // 
+            this.btCrSource.Enabled = false;
+            this.btCrSource.FlatAppearance.BorderSize = 0;
+            this.btCrSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrSource.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btCrSource.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCrSource.Location = new System.Drawing.Point(431, 44);
+            this.btCrSource.Name = "btCrSource";
+            this.btCrSource.Size = new System.Drawing.Size(88, 24);
+            this.btCrSource.TabIndex = 16;
+            this.btCrSource.Text = "Create Src";
+            this.btCrSource.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrSource.UseVisualStyleBackColor = true;
+            this.btCrSource.Click += new System.EventHandler(this.btCrSource_Click);
+            // 
+            // btCrSourceOpenPath
+            // 
+            this.btCrSourceOpenPath.FlatAppearance.BorderSize = 0;
+            this.btCrSourceOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrSourceOpenPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrSourceOpenPath.Image = global::ToolSupportCoding.Properties.Resources.button_search;
+            this.btCrSourceOpenPath.Location = new System.Drawing.Point(431, 15);
+            this.btCrSourceOpenPath.Name = "btCrSourceOpenPath";
+            this.btCrSourceOpenPath.Size = new System.Drawing.Size(24, 24);
+            this.btCrSourceOpenPath.TabIndex = 18;
+            this.btCrSourceOpenPath.Text = " ";
+            this.btCrSourceOpenPath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrSourceOpenPath.UseVisualStyleBackColor = true;
+            this.btCrSourceOpenPath.Click += new System.EventHandler(this.btCrSourceOpenPath_Click);
+            // 
+            // txtCrSourceFolderP
+            // 
+            this.txtCrSourceFolderP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtCrSourceFolderP.Location = new System.Drawing.Point(84, 15);
+            this.txtCrSourceFolderP.Name = "txtCrSourceFolderP";
+            this.txtCrSourceFolderP.Size = new System.Drawing.Size(341, 23);
+            this.txtCrSourceFolderP.TabIndex = 19;
+            this.txtCrSourceFolderP.TextChanged += new System.EventHandler(this.txtCrSourceFolderP_TextChanged);
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.lblCrSourceLogic);
+            this.groupBox24.Controls.Add(this.txtCrSourceLogic);
+            this.groupBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox24.Location = new System.Drawing.Point(6, 71);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(182, 286);
+            this.groupBox24.TabIndex = 22;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Logical Class Name";
+            // 
+            // lblCrSourceLogic
+            // 
+            this.lblCrSourceLogic.AutoSize = true;
+            this.lblCrSourceLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrSourceLogic.Location = new System.Drawing.Point(79, 261);
+            this.lblCrSourceLogic.Name = "lblCrSourceLogic";
+            this.lblCrSourceLogic.Size = new System.Drawing.Size(80, 15);
+            this.lblCrSourceLogic.TabIndex = 5;
+            this.lblCrSourceLogic.Text = "Line number:";
+            this.lblCrSourceLogic.Visible = false;
+            // 
+            // txtCrSourceLogic
+            // 
+            this.txtCrSourceLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrSourceLogic.Location = new System.Drawing.Point(3, 19);
+            this.txtCrSourceLogic.Name = "txtCrSourceLogic";
+            this.txtCrSourceLogic.Size = new System.Drawing.Size(176, 236);
+            this.txtCrSourceLogic.TabIndex = 4;
+            this.txtCrSourceLogic.Text = "";
+            this.txtCrSourceLogic.TextChanged += new System.EventHandler(this.txtCrSourceLogic_TextChanged);
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.lblCrSourcePhysical);
+            this.groupBox25.Controls.Add(this.txtCrSourcePhysical);
+            this.groupBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox25.Location = new System.Drawing.Point(194, 71);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(182, 286);
+            this.groupBox25.TabIndex = 23;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Physical Class Name";
+            // 
+            // lblCrSourcePhysical
+            // 
+            this.lblCrSourcePhysical.AutoSize = true;
+            this.lblCrSourcePhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrSourcePhysical.Location = new System.Drawing.Point(79, 261);
+            this.lblCrSourcePhysical.Name = "lblCrSourcePhysical";
+            this.lblCrSourcePhysical.Size = new System.Drawing.Size(80, 15);
+            this.lblCrSourcePhysical.TabIndex = 6;
+            this.lblCrSourcePhysical.Text = "Line number:";
+            this.lblCrSourcePhysical.Visible = false;
+            // 
+            // txtCrSourcePhysical
+            // 
+            this.txtCrSourcePhysical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrSourcePhysical.Location = new System.Drawing.Point(3, 19);
+            this.txtCrSourcePhysical.Name = "txtCrSourcePhysical";
+            this.txtCrSourcePhysical.Size = new System.Drawing.Size(176, 236);
+            this.txtCrSourcePhysical.TabIndex = 4;
+            this.txtCrSourcePhysical.Text = "";
+            this.txtCrSourcePhysical.TextChanged += new System.EventHandler(this.txtCrSourcePhysical_TextChanged);
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.Controls.Add(this.lblCrSourcePath);
+            this.groupBox27.Controls.Add(this.txtCrSourcePath);
+            this.groupBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox27.Location = new System.Drawing.Point(382, 71);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(184, 286);
+            this.groupBox27.TabIndex = 24;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "Path Source";
+            // 
+            // lblCrSourcePath
+            // 
+            this.lblCrSourcePath.AutoSize = true;
+            this.lblCrSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrSourcePath.Location = new System.Drawing.Point(79, 261);
+            this.lblCrSourcePath.Name = "lblCrSourcePath";
+            this.lblCrSourcePath.Size = new System.Drawing.Size(80, 15);
+            this.lblCrSourcePath.TabIndex = 6;
+            this.lblCrSourcePath.Text = "Line number:";
+            this.lblCrSourcePath.Visible = false;
+            // 
+            // txtCrSourcePath
+            // 
+            this.txtCrSourcePath.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrSourcePath.Location = new System.Drawing.Point(3, 19);
+            this.txtCrSourcePath.Name = "txtCrSourcePath";
+            this.txtCrSourcePath.Size = new System.Drawing.Size(178, 236);
+            this.txtCrSourcePath.TabIndex = 4;
+            this.txtCrSourcePath.Text = "";
+            this.txtCrSourcePath.TextChanged += new System.EventHandler(this.txtCrSourcePath_TextChanged);
             // 
             // tabPageCreateMessage
             // 
@@ -1746,415 +2095,668 @@ namespace ToolSupportCoding.View
             this.lblNumMessContent.Text = "Line number:";
             this.lblNumMessContent.Visible = false;
             // 
-            // tabPageCreateFileSrc
-            // 
-            this.tabPageCreateFileSrc.Controls.Add(this.groupBox19);
-            this.tabPageCreateFileSrc.Controls.Add(this.groupBox24);
-            this.tabPageCreateFileSrc.Controls.Add(this.groupBox25);
-            this.tabPageCreateFileSrc.Controls.Add(this.groupBox27);
-            this.tabPageCreateFileSrc.Location = new System.Drawing.Point(124, 4);
-            this.tabPageCreateFileSrc.Name = "tabPageCreateFileSrc";
-            this.tabPageCreateFileSrc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateFileSrc.Size = new System.Drawing.Size(576, 366);
-            this.tabPageCreateFileSrc.TabIndex = 5;
-            this.tabPageCreateFileSrc.Text = "Create File Source";
-            this.tabPageCreateFileSrc.UseVisualStyleBackColor = true;
-            // 
-            // groupBox19
-            // 
-            this.groupBox19.Controls.Add(this.barCrSourceProcess);
-            this.groupBox19.Controls.Add(this.label6);
-            this.groupBox19.Controls.Add(this.lbChoosePath);
-            this.groupBox19.Controls.Add(this.btCrSourceClear);
-            this.groupBox19.Controls.Add(this.btCrSource);
-            this.groupBox19.Controls.Add(this.btCrSourceOpenPath);
-            this.groupBox19.Controls.Add(this.txtCrSourceFolderP);
-            this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox19.Location = new System.Drawing.Point(6, -2);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(560, 76);
-            this.groupBox19.TabIndex = 21;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Setting";
-            // 
-            // barCrSourceProcess
-            // 
-            this.barCrSourceProcess.Location = new System.Drawing.Point(84, 44);
-            this.barCrSourceProcess.Name = "barCrSourceProcess";
-            this.barCrSourceProcess.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.barCrSourceProcess.RightToLeftLayout = true;
-            this.barCrSourceProcess.Size = new System.Drawing.Size(341, 24);
-            this.barCrSourceProcess.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(6, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 15);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Processing";
-            // 
-            // lbChoosePath
-            // 
-            this.lbChoosePath.AutoSize = true;
-            this.lbChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbChoosePath.Location = new System.Drawing.Point(6, 19);
-            this.lbChoosePath.Name = "lbChoosePath";
-            this.lbChoosePath.Size = new System.Drawing.Size(74, 15);
-            this.lbChoosePath.TabIndex = 20;
-            this.lbChoosePath.Text = "Source Path";
-            // 
-            // btCrSourceClear
-            // 
-            this.btCrSourceClear.FlatAppearance.BorderSize = 0;
-            this.btCrSourceClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrSourceClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btCrSourceClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrSourceClear.Location = new System.Drawing.Point(525, 44);
-            this.btCrSourceClear.Name = "btCrSourceClear";
-            this.btCrSourceClear.Size = new System.Drawing.Size(28, 24);
-            this.btCrSourceClear.TabIndex = 18;
-            this.btCrSourceClear.UseVisualStyleBackColor = true;
-            this.btCrSourceClear.Click += new System.EventHandler(this.btCrSourceClear_Click);
-            // 
-            // btCrSource
-            // 
-            this.btCrSource.Enabled = false;
-            this.btCrSource.FlatAppearance.BorderSize = 0;
-            this.btCrSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btCrSource.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btCrSource.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrSource.Location = new System.Drawing.Point(431, 44);
-            this.btCrSource.Name = "btCrSource";
-            this.btCrSource.Size = new System.Drawing.Size(88, 24);
-            this.btCrSource.TabIndex = 16;
-            this.btCrSource.Text = "Create Src";
-            this.btCrSource.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btCrSource.UseVisualStyleBackColor = true;
-            this.btCrSource.Click += new System.EventHandler(this.btCrSource_Click);
-            // 
-            // btCrSourceOpenPath
-            // 
-            this.btCrSourceOpenPath.FlatAppearance.BorderSize = 0;
-            this.btCrSourceOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCrSourceOpenPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCrSourceOpenPath.Image = global::ToolSupportCoding.Properties.Resources.button_search;
-            this.btCrSourceOpenPath.Location = new System.Drawing.Point(431, 15);
-            this.btCrSourceOpenPath.Name = "btCrSourceOpenPath";
-            this.btCrSourceOpenPath.Size = new System.Drawing.Size(24, 24);
-            this.btCrSourceOpenPath.TabIndex = 18;
-            this.btCrSourceOpenPath.Text = " ";
-            this.btCrSourceOpenPath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btCrSourceOpenPath.UseVisualStyleBackColor = true;
-            this.btCrSourceOpenPath.Click += new System.EventHandler(this.btCrSourceOpenPath_Click);
-            // 
-            // txtCrSourceFolderP
-            // 
-            this.txtCrSourceFolderP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtCrSourceFolderP.Location = new System.Drawing.Point(84, 15);
-            this.txtCrSourceFolderP.Name = "txtCrSourceFolderP";
-            this.txtCrSourceFolderP.Size = new System.Drawing.Size(341, 23);
-            this.txtCrSourceFolderP.TabIndex = 19;
-            this.txtCrSourceFolderP.TextChanged += new System.EventHandler(this.txtCrSourceFolderP_TextChanged);
-            // 
-            // groupBox24
-            // 
-            this.groupBox24.Controls.Add(this.lblCrSourceLogic);
-            this.groupBox24.Controls.Add(this.txtCrSourceLogic);
-            this.groupBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox24.Location = new System.Drawing.Point(6, 71);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(182, 286);
-            this.groupBox24.TabIndex = 22;
-            this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "Logical Class Name";
-            // 
-            // lblCrSourceLogic
-            // 
-            this.lblCrSourceLogic.AutoSize = true;
-            this.lblCrSourceLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourceLogic.Location = new System.Drawing.Point(79, 261);
-            this.lblCrSourceLogic.Name = "lblCrSourceLogic";
-            this.lblCrSourceLogic.Size = new System.Drawing.Size(80, 15);
-            this.lblCrSourceLogic.TabIndex = 5;
-            this.lblCrSourceLogic.Text = "Line number:";
-            this.lblCrSourceLogic.Visible = false;
-            // 
-            // txtCrSourceLogic
-            // 
-            this.txtCrSourceLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrSourceLogic.Location = new System.Drawing.Point(3, 19);
-            this.txtCrSourceLogic.Name = "txtCrSourceLogic";
-            this.txtCrSourceLogic.Size = new System.Drawing.Size(176, 236);
-            this.txtCrSourceLogic.TabIndex = 4;
-            this.txtCrSourceLogic.Text = "";
-            this.txtCrSourceLogic.TextChanged += new System.EventHandler(this.txtCrSourceLogic_TextChanged);
-            // 
-            // groupBox25
-            // 
-            this.groupBox25.Controls.Add(this.lblCrSourcePhysical);
-            this.groupBox25.Controls.Add(this.txtCrSourcePhysical);
-            this.groupBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox25.Location = new System.Drawing.Point(194, 71);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(182, 286);
-            this.groupBox25.TabIndex = 23;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Physical Class Name";
-            // 
-            // lblCrSourcePhysical
-            // 
-            this.lblCrSourcePhysical.AutoSize = true;
-            this.lblCrSourcePhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourcePhysical.Location = new System.Drawing.Point(79, 261);
-            this.lblCrSourcePhysical.Name = "lblCrSourcePhysical";
-            this.lblCrSourcePhysical.Size = new System.Drawing.Size(80, 15);
-            this.lblCrSourcePhysical.TabIndex = 6;
-            this.lblCrSourcePhysical.Text = "Line number:";
-            this.lblCrSourcePhysical.Visible = false;
-            // 
-            // txtCrSourcePhysical
-            // 
-            this.txtCrSourcePhysical.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrSourcePhysical.Location = new System.Drawing.Point(3, 19);
-            this.txtCrSourcePhysical.Name = "txtCrSourcePhysical";
-            this.txtCrSourcePhysical.Size = new System.Drawing.Size(176, 236);
-            this.txtCrSourcePhysical.TabIndex = 4;
-            this.txtCrSourcePhysical.Text = "";
-            this.txtCrSourcePhysical.TextChanged += new System.EventHandler(this.txtCrSourcePhysical_TextChanged);
-            // 
-            // groupBox27
-            // 
-            this.groupBox27.Controls.Add(this.lblCrSourcePath);
-            this.groupBox27.Controls.Add(this.txtCrSourcePath);
-            this.groupBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox27.Location = new System.Drawing.Point(382, 71);
-            this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(184, 286);
-            this.groupBox27.TabIndex = 24;
-            this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "Path Source";
-            // 
-            // lblCrSourcePath
-            // 
-            this.lblCrSourcePath.AutoSize = true;
-            this.lblCrSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourcePath.Location = new System.Drawing.Point(79, 261);
-            this.lblCrSourcePath.Name = "lblCrSourcePath";
-            this.lblCrSourcePath.Size = new System.Drawing.Size(80, 15);
-            this.lblCrSourcePath.TabIndex = 6;
-            this.lblCrSourcePath.Text = "Line number:";
-            this.lblCrSourcePath.Visible = false;
-            // 
-            // txtCrSourcePath
-            // 
-            this.txtCrSourcePath.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrSourcePath.Location = new System.Drawing.Point(3, 19);
-            this.txtCrSourcePath.Name = "txtCrSourcePath";
-            this.txtCrSourcePath.Size = new System.Drawing.Size(178, 236);
-            this.txtCrSourcePath.TabIndex = 4;
-            this.txtCrSourcePath.Text = "";
-            this.txtCrSourcePath.TextChanged += new System.EventHandler(this.txtCrSourcePath_TextChanged);
-            // 
-            // tabPageCreateEnity
-            // 
-            this.tabPageCreateEnity.Controls.Add(this.groupBox23);
-            this.tabPageCreateEnity.Controls.Add(this.groupBox22);
-            this.tabPageCreateEnity.Controls.Add(this.groupBox21);
-            this.tabPageCreateEnity.Controls.Add(this.groupBox20);
-            this.tabPageCreateEnity.Location = new System.Drawing.Point(124, 4);
-            this.tabPageCreateEnity.Name = "tabPageCreateEnity";
-            this.tabPageCreateEnity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateEnity.Size = new System.Drawing.Size(576, 366);
-            this.tabPageCreateEnity.TabIndex = 10;
-            this.tabPageCreateEnity.Text = "Create Entity";
-            this.tabPageCreateEnity.UseVisualStyleBackColor = true;
-            // 
-            // groupBox23
-            // 
-            this.groupBox23.Controls.Add(this.rbCrEntityBlock);
-            this.groupBox23.Controls.Add(this.rbCrEntityLine);
-            this.groupBox23.Controls.Add(this.rbCrEntityLBlock);
-            this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox23.Location = new System.Drawing.Point(8, -2);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(178, 46);
-            this.groupBox23.TabIndex = 102;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Comment Mode";
-            // 
-            // rbCrEntityBlock
-            // 
-            this.rbCrEntityBlock.AutoSize = true;
-            this.rbCrEntityBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityBlock.Location = new System.Drawing.Point(122, 21);
-            this.rbCrEntityBlock.Name = "rbCrEntityBlock";
-            this.rbCrEntityBlock.Size = new System.Drawing.Size(55, 19);
-            this.rbCrEntityBlock.TabIndex = 11;
-            this.rbCrEntityBlock.Text = "Block";
-            this.rbCrEntityBlock.UseVisualStyleBackColor = true;
-            // 
-            // rbCrEntityLine
-            // 
-            this.rbCrEntityLine.AutoSize = true;
-            this.rbCrEntityLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityLine.Location = new System.Drawing.Point(71, 20);
-            this.rbCrEntityLine.Name = "rbCrEntityLine";
-            this.rbCrEntityLine.Size = new System.Drawing.Size(49, 19);
-            this.rbCrEntityLine.TabIndex = 99;
-            this.rbCrEntityLine.Text = "Line";
-            this.rbCrEntityLine.UseVisualStyleBackColor = true;
-            // 
-            // rbCrEntityLBlock
-            // 
-            this.rbCrEntityLBlock.AutoSize = true;
-            this.rbCrEntityLBlock.Checked = true;
-            this.rbCrEntityLBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityLBlock.Location = new System.Drawing.Point(5, 20);
-            this.rbCrEntityLBlock.Name = "rbCrEntityLBlock";
-            this.rbCrEntityLBlock.Size = new System.Drawing.Size(65, 19);
-            this.rbCrEntityLBlock.TabIndex = 10;
-            this.rbCrEntityLBlock.TabStop = true;
-            this.rbCrEntityLBlock.Text = "L Block";
-            this.rbCrEntityLBlock.UseVisualStyleBackColor = true;
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.txtCrEntityResult);
-            this.groupBox22.Controls.Add(this.btnCrEntity);
-            this.groupBox22.Controls.Add(this.btnCrEntityCopy);
-            this.groupBox22.Controls.Add(this.btnCrEntityClear);
-            this.groupBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox22.Location = new System.Drawing.Point(378, 41);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(188, 316);
-            this.groupBox22.TabIndex = 17;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Result";
-            // 
-            // txtCrEntityResult
-            // 
-            this.txtCrEntityResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrEntityResult.Location = new System.Drawing.Point(3, 19);
-            this.txtCrEntityResult.Name = "txtCrEntityResult";
-            this.txtCrEntityResult.ReadOnly = true;
-            this.txtCrEntityResult.Size = new System.Drawing.Size(182, 266);
-            this.txtCrEntityResult.TabIndex = 19;
-            this.txtCrEntityResult.Text = "";
-            // 
-            // btnCrEntity
-            // 
-            this.btnCrEntity.FlatAppearance.BorderSize = 0;
-            this.btnCrEntity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrEntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCrEntity.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btnCrEntity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrEntity.Location = new System.Drawing.Point(4, 287);
-            this.btnCrEntity.Name = "btnCrEntity";
-            this.btnCrEntity.Size = new System.Drawing.Size(118, 24);
-            this.btnCrEntity.TabIndex = 16;
-            this.btnCrEntity.Text = "Create Entity";
-            this.btnCrEntity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCrEntity.UseVisualStyleBackColor = true;
-            this.btnCrEntity.Click += new System.EventHandler(this.btnCrEntity_Click);
-            // 
-            // btnCrEntityCopy
-            // 
-            this.btnCrEntityCopy.Enabled = false;
-            this.btnCrEntityCopy.FlatAppearance.BorderSize = 0;
-            this.btnCrEntityCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrEntityCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCrEntityCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btnCrEntityCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrEntityCopy.Location = new System.Drawing.Point(125, 287);
-            this.btnCrEntityCopy.Name = "btnCrEntityCopy";
-            this.btnCrEntityCopy.Size = new System.Drawing.Size(28, 24);
-            this.btnCrEntityCopy.TabIndex = 17;
-            this.btnCrEntityCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCrEntityCopy.UseVisualStyleBackColor = true;
-            this.btnCrEntityCopy.Click += new System.EventHandler(this.btnCrEntityCopy_Click);
-            // 
-            // btnCrEntityClear
-            // 
-            this.btnCrEntityClear.FlatAppearance.BorderSize = 0;
-            this.btnCrEntityClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrEntityClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCrEntityClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnCrEntityClear.Location = new System.Drawing.Point(156, 287);
-            this.btnCrEntityClear.Name = "btnCrEntityClear";
-            this.btnCrEntityClear.Size = new System.Drawing.Size(28, 24);
-            this.btnCrEntityClear.TabIndex = 18;
-            this.btnCrEntityClear.UseVisualStyleBackColor = true;
-            this.btnCrEntityClear.Click += new System.EventHandler(this.btnCrEntityClear_Click);
-            // 
-            // groupBox21
-            // 
-            this.groupBox21.Controls.Add(this.txtCrEntityT);
-            this.groupBox21.Controls.Add(this.lblCrEntityNumT);
-            this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox21.Location = new System.Drawing.Point(192, 41);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(180, 316);
-            this.groupBox21.TabIndex = 5;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "SQL Table";
-            // 
-            // txtCrEntityT
-            // 
-            this.txtCrEntityT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrEntityT.Location = new System.Drawing.Point(3, 19);
-            this.txtCrEntityT.Name = "txtCrEntityT";
-            this.txtCrEntityT.Size = new System.Drawing.Size(174, 266);
-            this.txtCrEntityT.TabIndex = 4;
-            this.txtCrEntityT.Text = "";
-            this.txtCrEntityT.TextChanged += new System.EventHandler(this.txtCrEntityT_TextChanged);
-            // 
-            // lblCrEntityNumT
-            // 
-            this.lblCrEntityNumT.AutoSize = true;
-            this.lblCrEntityNumT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrEntityNumT.Location = new System.Drawing.Point(77, 291);
-            this.lblCrEntityNumT.Name = "lblCrEntityNumT";
-            this.lblCrEntityNumT.Size = new System.Drawing.Size(80, 15);
-            this.lblCrEntityNumT.TabIndex = 3;
-            this.lblCrEntityNumT.Text = "Line number:";
-            this.lblCrEntityNumT.Visible = false;
-            // 
-            // groupBox20
-            // 
-            this.groupBox20.Controls.Add(this.txtCrEntityP);
-            this.groupBox20.Controls.Add(this.lblCrEntityNumP);
-            this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox20.Location = new System.Drawing.Point(6, 41);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(180, 316);
-            this.groupBox20.TabIndex = 1;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "SQL Procedure";
-            // 
-            // txtCrEntityP
-            // 
-            this.txtCrEntityP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCrEntityP.Location = new System.Drawing.Point(3, 19);
-            this.txtCrEntityP.Name = "txtCrEntityP";
-            this.txtCrEntityP.Size = new System.Drawing.Size(174, 266);
-            this.txtCrEntityP.TabIndex = 4;
-            this.txtCrEntityP.Text = "";
-            this.txtCrEntityP.TextChanged += new System.EventHandler(this.txtCrEntityP_TextChanged);
-            // 
-            // lblCrEntityNumP
-            // 
-            this.lblCrEntityNumP.AutoSize = true;
-            this.lblCrEntityNumP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrEntityNumP.Location = new System.Drawing.Point(77, 291);
-            this.lblCrEntityNumP.Name = "lblCrEntityNumP";
-            this.lblCrEntityNumP.Size = new System.Drawing.Size(80, 15);
-            this.lblCrEntityNumP.TabIndex = 3;
-            this.lblCrEntityNumP.Text = "Line number:";
-            this.lblCrEntityNumP.Visible = false;
+            // tabPageCreateComment
+            // 
+            this.tabPageCreateComment.Controls.Add(this.groupBox14);
+            this.tabPageCreateComment.Controls.Add(this.groupBox10);
+            this.tabPageCreateComment.Controls.Add(this.groupBox7);
+            this.tabPageCreateComment.Controls.Add(this.groupBox6);
+            this.tabPageCreateComment.Controls.Add(this.groupBox12);
+            this.tabPageCreateComment.Controls.Add(this.groupBox13);
+            this.tabPageCreateComment.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateComment.Name = "tabPageCreateComment";
+            this.tabPageCreateComment.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateComment.TabIndex = 7;
+            this.tabPageCreateComment.Text = "Create Comment";
+            this.tabPageCreateComment.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.chkCrCmLine);
+            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox14.Location = new System.Drawing.Point(387, -2);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(179, 46);
+            this.groupBox14.TabIndex = 102;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Setting";
+            // 
+            // chkCrCmLine
+            // 
+            this.chkCrCmLine.AutoSize = true;
+            this.chkCrCmLine.Checked = true;
+            this.chkCrCmLine.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.chkCrCmLine.Location = new System.Drawing.Point(7, 21);
+            this.chkCrCmLine.Name = "chkCrCmLine";
+            this.chkCrCmLine.Size = new System.Drawing.Size(74, 19);
+            this.chkCrCmLine.TabIndex = 0;
+            this.chkCrCmLine.Text = "Add Line";
+            this.chkCrCmLine.UseVisualStyleBackColor = true;
+            this.chkCrCmLine.CheckedChanged += new System.EventHandler(this.chkCrCmLine_CheckedChanged);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.rbCrCmBlock);
+            this.groupBox10.Controls.Add(this.rbCrCmLine);
+            this.groupBox10.Controls.Add(this.rbCrCmLineBlock);
+            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox10.Location = new System.Drawing.Point(196, -2);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(185, 46);
+            this.groupBox10.TabIndex = 101;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Comment Mode";
+            // 
+            // rbCrCmBlock
+            // 
+            this.rbCrCmBlock.AutoSize = true;
+            this.rbCrCmBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmBlock.Location = new System.Drawing.Point(132, 21);
+            this.rbCrCmBlock.Name = "rbCrCmBlock";
+            this.rbCrCmBlock.Size = new System.Drawing.Size(55, 19);
+            this.rbCrCmBlock.TabIndex = 11;
+            this.rbCrCmBlock.Text = "Block";
+            this.rbCrCmBlock.UseVisualStyleBackColor = true;
+            this.rbCrCmBlock.CheckedChanged += new System.EventHandler(this.rbCrCmBlock_CheckedChanged);
+            // 
+            // rbCrCmLine
+            // 
+            this.rbCrCmLine.AutoSize = true;
+            this.rbCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLine.Location = new System.Drawing.Point(86, 20);
+            this.rbCrCmLine.Name = "rbCrCmLine";
+            this.rbCrCmLine.Size = new System.Drawing.Size(49, 19);
+            this.rbCrCmLine.TabIndex = 99;
+            this.rbCrCmLine.Text = "Line";
+            this.rbCrCmLine.UseVisualStyleBackColor = true;
+            this.rbCrCmLine.CheckedChanged += new System.EventHandler(this.rbCrCmLine_CheckedChanged);
+            // 
+            // rbCrCmLineBlock
+            // 
+            this.rbCrCmLineBlock.AutoSize = true;
+            this.rbCrCmLineBlock.Checked = true;
+            this.rbCrCmLineBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLineBlock.Location = new System.Drawing.Point(7, 20);
+            this.rbCrCmLineBlock.Name = "rbCrCmLineBlock";
+            this.rbCrCmLineBlock.Size = new System.Drawing.Size(82, 19);
+            this.rbCrCmLineBlock.TabIndex = 10;
+            this.rbCrCmLineBlock.TabStop = true;
+            this.rbCrCmLineBlock.Text = "Line Block";
+            this.rbCrCmLineBlock.UseVisualStyleBackColor = true;
+            this.rbCrCmLineBlock.CheckedChanged += new System.EventHandler(this.rbCrCmLineBlock_CheckedChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.rbCrCmLast);
+            this.groupBox7.Controls.Add(this.rbCrCmFirst);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(6, -2);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(184, 46);
+            this.groupBox7.TabIndex = 100;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Comment Location";
+            // 
+            // rbCrCmLast
+            // 
+            this.rbCrCmLast.AutoSize = true;
+            this.rbCrCmLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmLast.Location = new System.Drawing.Point(76, 20);
+            this.rbCrCmLast.Name = "rbCrCmLast";
+            this.rbCrCmLast.Size = new System.Drawing.Size(90, 19);
+            this.rbCrCmLast.TabIndex = 11;
+            this.rbCrCmLast.Text = "Stay Behind";
+            this.rbCrCmLast.UseVisualStyleBackColor = true;
+            this.rbCrCmLast.CheckedChanged += new System.EventHandler(this.rbCrCmLast_CheckedChanged);
+            // 
+            // rbCrCmFirst
+            // 
+            this.rbCrCmFirst.AutoSize = true;
+            this.rbCrCmFirst.Checked = true;
+            this.rbCrCmFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrCmFirst.Location = new System.Drawing.Point(7, 20);
+            this.rbCrCmFirst.Name = "rbCrCmFirst";
+            this.rbCrCmFirst.Size = new System.Drawing.Size(66, 19);
+            this.rbCrCmFirst.TabIndex = 10;
+            this.rbCrCmFirst.TabStop = true;
+            this.rbCrCmFirst.Text = "In Front";
+            this.rbCrCmFirst.UseVisualStyleBackColor = true;
+            this.rbCrCmFirst.CheckedChanged += new System.EventHandler(this.rbCrCmFirst_CheckedChanged);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtCrCmComment);
+            this.groupBox6.Controls.Add(this.lblCrCmNumComment);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(6, 41);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(184, 316);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Input Comment";
+            // 
+            // txtCrCmComment
+            // 
+            this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmComment.Name = "txtCrCmComment";
+            this.txtCrCmComment.Size = new System.Drawing.Size(178, 266);
+            this.txtCrCmComment.TabIndex = 11;
+            this.txtCrCmComment.Text = "";
+            this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
+            this.txtCrCmComment.Leave += new System.EventHandler(this.txtCrCmComment_Leave);
+            // 
+            // lblCrCmNumComment
+            // 
+            this.lblCrCmNumComment.AutoSize = true;
+            this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 291);
+            this.lblCrCmNumComment.Name = "lblCrCmNumComment";
+            this.lblCrCmNumComment.Size = new System.Drawing.Size(80, 15);
+            this.lblCrCmNumComment.TabIndex = 10;
+            this.lblCrCmNumComment.Text = "Line number:";
+            this.lblCrCmNumComment.Visible = false;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.txtCrCmCode);
+            this.groupBox12.Controls.Add(this.lblCrCmNumCode);
+            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox12.Location = new System.Drawing.Point(196, 41);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(185, 316);
+            this.groupBox12.TabIndex = 3;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Input Code";
+            // 
+            // txtCrCmCode
+            // 
+            this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmCode.Name = "txtCrCmCode";
+            this.txtCrCmCode.Size = new System.Drawing.Size(179, 266);
+            this.txtCrCmCode.TabIndex = 12;
+            this.txtCrCmCode.Text = "";
+            this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
+            this.txtCrCmCode.Leave += new System.EventHandler(this.txtCrCmCode_Leave);
+            // 
+            // lblCrCmNumCode
+            // 
+            this.lblCrCmNumCode.AutoSize = true;
+            this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 291);
+            this.lblCrCmNumCode.Name = "lblCrCmNumCode";
+            this.lblCrCmNumCode.Size = new System.Drawing.Size(80, 15);
+            this.lblCrCmNumCode.TabIndex = 11;
+            this.lblCrCmNumCode.Text = "Line number:";
+            this.lblCrCmNumCode.Visible = false;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.txtCrCmResult);
+            this.groupBox13.Controls.Add(this.btCrCmClear);
+            this.groupBox13.Controls.Add(this.btCrCmCopy);
+            this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox13.Location = new System.Drawing.Point(387, 41);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(179, 316);
+            this.groupBox13.TabIndex = 4;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Result";
+            // 
+            // txtCrCmResult
+            // 
+            this.txtCrCmResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCrCmResult.Name = "txtCrCmResult";
+            this.txtCrCmResult.ReadOnly = true;
+            this.txtCrCmResult.Size = new System.Drawing.Size(173, 266);
+            this.txtCrCmResult.TabIndex = 13;
+            this.txtCrCmResult.Text = "";
+            // 
+            // btCrCmClear
+            // 
+            this.btCrCmClear.FlatAppearance.BorderSize = 0;
+            this.btCrCmClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrCmClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btCrCmClear.Location = new System.Drawing.Point(113, 287);
+            this.btCrCmClear.Name = "btCrCmClear";
+            this.btCrCmClear.Size = new System.Drawing.Size(63, 24);
+            this.btCrCmClear.TabIndex = 12;
+            this.btCrCmClear.Text = " Clear";
+            this.btCrCmClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCrCmClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrCmClear.UseVisualStyleBackColor = true;
+            this.btCrCmClear.Click += new System.EventHandler(this.btCrCmClear_Click);
+            // 
+            // btCrCmCopy
+            // 
+            this.btCrCmCopy.Enabled = false;
+            this.btCrCmCopy.FlatAppearance.BorderSize = 0;
+            this.btCrCmCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrCmCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btCrCmCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCrCmCopy.Location = new System.Drawing.Point(3, 287);
+            this.btCrCmCopy.Name = "btCrCmCopy";
+            this.btCrCmCopy.Size = new System.Drawing.Size(104, 24);
+            this.btCrCmCopy.TabIndex = 11;
+            this.btCrCmCopy.Text = " Copy Result";
+            this.btCrCmCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrCmCopy.UseVisualStyleBackColor = true;
+            this.btCrCmCopy.Click += new System.EventHandler(this.btCrCmCopy_Click);
+            // 
+            // tabPageCreateResources
+            // 
+            this.tabPageCreateResources.Controls.Add(this.groupBox32);
+            this.tabPageCreateResources.Controls.Add(this.grbCrResSrcMode);
+            this.tabPageCreateResources.Controls.Add(this.groupBox26);
+            this.tabPageCreateResources.Controls.Add(this.groupBox29);
+            this.tabPageCreateResources.Controls.Add(this.groupBox30);
+            this.tabPageCreateResources.Controls.Add(this.groupBox31);
+            this.tabPageCreateResources.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateResources.Name = "tabPageCreateResources";
+            this.tabPageCreateResources.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateResources.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateResources.TabIndex = 11;
+            this.tabPageCreateResources.Text = "Create Resources";
+            this.tabPageCreateResources.UseVisualStyleBackColor = true;
+            // 
+            // groupBox32
+            // 
+            this.groupBox32.Controls.Add(this.txtCrResResult);
+            this.groupBox32.Controls.Add(this.btCrRes);
+            this.groupBox32.Controls.Add(this.btCrResCopy);
+            this.groupBox32.Controls.Add(this.btCrResClear);
+            this.groupBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox32.Location = new System.Drawing.Point(408, 41);
+            this.groupBox32.Name = "groupBox32";
+            this.groupBox32.Size = new System.Drawing.Size(158, 316);
+            this.groupBox32.TabIndex = 106;
+            this.groupBox32.TabStop = false;
+            this.groupBox32.Text = "Result";
+            // 
+            // txtCrResResult
+            // 
+            this.txtCrResResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrResResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCrResResult.Name = "txtCrResResult";
+            this.txtCrResResult.ReadOnly = true;
+            this.txtCrResResult.Size = new System.Drawing.Size(152, 266);
+            this.txtCrResResult.TabIndex = 19;
+            this.txtCrResResult.Text = "";
+            // 
+            // btCrRes
+            // 
+            this.btCrRes.FlatAppearance.BorderSize = 0;
+            this.btCrRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrRes.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btCrRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCrRes.Location = new System.Drawing.Point(4, 287);
+            this.btCrRes.Name = "btCrRes";
+            this.btCrRes.Size = new System.Drawing.Size(88, 24);
+            this.btCrRes.TabIndex = 16;
+            this.btCrRes.Text = "   Create";
+            this.btCrRes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrRes.UseVisualStyleBackColor = true;
+            this.btCrRes.Click += new System.EventHandler(this.btCrRes_Click);
+            // 
+            // btCrResCopy
+            // 
+            this.btCrResCopy.Enabled = false;
+            this.btCrResCopy.FlatAppearance.BorderSize = 0;
+            this.btCrResCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrResCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrResCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btCrResCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCrResCopy.Location = new System.Drawing.Point(95, 287);
+            this.btCrResCopy.Name = "btCrResCopy";
+            this.btCrResCopy.Size = new System.Drawing.Size(28, 24);
+            this.btCrResCopy.TabIndex = 17;
+            this.btCrResCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCrResCopy.UseVisualStyleBackColor = true;
+            this.btCrResCopy.Click += new System.EventHandler(this.btCrResCopy_Click);
+            // 
+            // btCrResClear
+            // 
+            this.btCrResClear.FlatAppearance.BorderSize = 0;
+            this.btCrResClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCrResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCrResClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btCrResClear.Location = new System.Drawing.Point(126, 287);
+            this.btCrResClear.Name = "btCrResClear";
+            this.btCrResClear.Size = new System.Drawing.Size(28, 24);
+            this.btCrResClear.TabIndex = 18;
+            this.btCrResClear.UseVisualStyleBackColor = true;
+            this.btCrResClear.Click += new System.EventHandler(this.btCrResClear_Click);
+            // 
+            // grbCrResSrcMode
+            // 
+            this.grbCrResSrcMode.Controls.Add(this.rbCrResAngular);
+            this.grbCrResSrcMode.Controls.Add(this.rbCrResC);
+            this.grbCrResSrcMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbCrResSrcMode.Location = new System.Drawing.Point(274, -2);
+            this.grbCrResSrcMode.Name = "grbCrResSrcMode";
+            this.grbCrResSrcMode.Size = new System.Drawing.Size(128, 46);
+            this.grbCrResSrcMode.TabIndex = 103;
+            this.grbCrResSrcMode.TabStop = false;
+            this.grbCrResSrcMode.Text = "Source Mode";
+            // 
+            // rbCrResAngular
+            // 
+            this.rbCrResAngular.AutoSize = true;
+            this.rbCrResAngular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrResAngular.Location = new System.Drawing.Point(55, 20);
+            this.rbCrResAngular.Name = "rbCrResAngular";
+            this.rbCrResAngular.Size = new System.Drawing.Size(67, 19);
+            this.rbCrResAngular.TabIndex = 99;
+            this.rbCrResAngular.Text = "Angular";
+            this.rbCrResAngular.UseVisualStyleBackColor = true;
+            // 
+            // rbCrResC
+            // 
+            this.rbCrResC.AutoSize = true;
+            this.rbCrResC.Checked = true;
+            this.rbCrResC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrResC.Location = new System.Drawing.Point(7, 20);
+            this.rbCrResC.Name = "rbCrResC";
+            this.rbCrResC.Size = new System.Drawing.Size(40, 19);
+            this.rbCrResC.TabIndex = 10;
+            this.rbCrResC.TabStop = true;
+            this.rbCrResC.Text = "C#";
+            this.rbCrResC.UseVisualStyleBackColor = true;
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.rbCrResMess);
+            this.groupBox26.Controls.Add(this.rbCrRes);
+            this.groupBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox26.Location = new System.Drawing.Point(6, -2);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(262, 46);
+            this.groupBox26.TabIndex = 102;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Resources Mode";
+            // 
+            // rbCrResMess
+            // 
+            this.rbCrResMess.AutoSize = true;
+            this.rbCrResMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrResMess.Location = new System.Drawing.Point(121, 20);
+            this.rbCrResMess.Name = "rbCrResMess";
+            this.rbCrResMess.Size = new System.Drawing.Size(138, 19);
+            this.rbCrResMess.TabIndex = 99;
+            this.rbCrResMess.Text = "Message Resources";
+            this.rbCrResMess.UseVisualStyleBackColor = true;
+            // 
+            // rbCrRes
+            // 
+            this.rbCrRes.AutoSize = true;
+            this.rbCrRes.Checked = true;
+            this.rbCrRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrRes.Location = new System.Drawing.Point(7, 20);
+            this.rbCrRes.Name = "rbCrRes";
+            this.rbCrRes.Size = new System.Drawing.Size(111, 19);
+            this.rbCrRes.TabIndex = 10;
+            this.rbCrRes.TabStop = true;
+            this.rbCrRes.Text = "Item Resources";
+            this.rbCrRes.UseVisualStyleBackColor = true;
+            // 
+            // groupBox29
+            // 
+            this.groupBox29.Controls.Add(this.txtCrResName);
+            this.groupBox29.Controls.Add(this.lblCrResName);
+            this.groupBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox29.Location = new System.Drawing.Point(6, 41);
+            this.groupBox29.Name = "groupBox29";
+            this.groupBox29.Size = new System.Drawing.Size(128, 316);
+            this.groupBox29.TabIndex = 104;
+            this.groupBox29.TabStop = false;
+            this.groupBox29.Text = "Input Name";
+            // 
+            // txtCrResName
+            // 
+            this.txtCrResName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrResName.Location = new System.Drawing.Point(3, 19);
+            this.txtCrResName.Name = "txtCrResName";
+            this.txtCrResName.Size = new System.Drawing.Size(122, 266);
+            this.txtCrResName.TabIndex = 11;
+            this.txtCrResName.Text = "";
+            this.txtCrResName.TextChanged += new System.EventHandler(this.txtCrResName_TextChanged);
+            // 
+            // lblCrResName
+            // 
+            this.lblCrResName.AutoSize = true;
+            this.lblCrResName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrResName.Location = new System.Drawing.Point(25, 291);
+            this.lblCrResName.Name = "lblCrResName";
+            this.lblCrResName.Size = new System.Drawing.Size(80, 15);
+            this.lblCrResName.TabIndex = 10;
+            this.lblCrResName.Text = "Line number:";
+            this.lblCrResName.Visible = false;
+            // 
+            // groupBox30
+            // 
+            this.groupBox30.Controls.Add(this.txtCrResValue);
+            this.groupBox30.Controls.Add(this.lblCrResValue);
+            this.groupBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox30.Location = new System.Drawing.Point(140, 41);
+            this.groupBox30.Name = "groupBox30";
+            this.groupBox30.Size = new System.Drawing.Size(128, 316);
+            this.groupBox30.TabIndex = 105;
+            this.groupBox30.TabStop = false;
+            this.groupBox30.Text = "Input Value";
+            // 
+            // txtCrResValue
+            // 
+            this.txtCrResValue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrResValue.Location = new System.Drawing.Point(3, 19);
+            this.txtCrResValue.Name = "txtCrResValue";
+            this.txtCrResValue.Size = new System.Drawing.Size(122, 266);
+            this.txtCrResValue.TabIndex = 11;
+            this.txtCrResValue.Text = "";
+            this.txtCrResValue.TextChanged += new System.EventHandler(this.txtCrResValue_TextChanged);
+            // 
+            // lblCrResValue
+            // 
+            this.lblCrResValue.AutoSize = true;
+            this.lblCrResValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrResValue.Location = new System.Drawing.Point(25, 291);
+            this.lblCrResValue.Name = "lblCrResValue";
+            this.lblCrResValue.Size = new System.Drawing.Size(80, 15);
+            this.lblCrResValue.TabIndex = 10;
+            this.lblCrResValue.Text = "Line number:";
+            this.lblCrResValue.Visible = false;
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.txtCrResComment);
+            this.groupBox31.Controls.Add(this.lblCrResComment);
+            this.groupBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox31.Location = new System.Drawing.Point(274, 41);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(128, 316);
+            this.groupBox31.TabIndex = 105;
+            this.groupBox31.TabStop = false;
+            this.groupBox31.Text = "Input Comment";
+            // 
+            // txtCrResComment
+            // 
+            this.txtCrResComment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCrResComment.Location = new System.Drawing.Point(3, 19);
+            this.txtCrResComment.Name = "txtCrResComment";
+            this.txtCrResComment.Size = new System.Drawing.Size(122, 266);
+            this.txtCrResComment.TabIndex = 11;
+            this.txtCrResComment.Text = "";
+            this.txtCrResComment.TextChanged += new System.EventHandler(this.txtCrResComment_TextChanged);
+            // 
+            // lblCrResComment
+            // 
+            this.lblCrResComment.AutoSize = true;
+            this.lblCrResComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCrResComment.Location = new System.Drawing.Point(25, 291);
+            this.lblCrResComment.Name = "lblCrResComment";
+            this.lblCrResComment.Size = new System.Drawing.Size(80, 15);
+            this.lblCrResComment.TabIndex = 10;
+            this.lblCrResComment.Text = "Line number:";
+            this.lblCrResComment.Visible = false;
+            // 
+            // tabPageFormatCode
+            // 
+            this.tabPageFormatCode.Controls.Add(this.groupBox9);
+            this.tabPageFormatCode.Controls.Add(this.groupBox8);
+            this.tabPageFormatCode.Location = new System.Drawing.Point(124, 4);
+            this.tabPageFormatCode.Name = "tabPageFormatCode";
+            this.tabPageFormatCode.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 366);
+            this.tabPageFormatCode.TabIndex = 2;
+            this.tabPageFormatCode.Text = "Format Coment";
+            this.tabPageFormatCode.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtFormatResult);
+            this.groupBox9.Controls.Add(this.btnFormatClear);
+            this.groupBox9.Controls.Add(this.btnFormatCopy);
+            this.groupBox9.Controls.Add(this.lblFormatResult);
+            this.groupBox9.Controls.Add(this.btnFormatCode);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(276, -2);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(290, 359);
+            this.groupBox9.TabIndex = 21;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Result";
+            // 
+            // txtFormatResult
+            // 
+            this.txtFormatResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatResult.Name = "txtFormatResult";
+            this.txtFormatResult.ReadOnly = true;
+            this.txtFormatResult.Size = new System.Drawing.Size(284, 303);
+            this.txtFormatResult.TabIndex = 26;
+            this.txtFormatResult.Text = "";
+            // 
+            // btnFormatClear
+            // 
+            this.btnFormatClear.FlatAppearance.BorderSize = 0;
+            this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnFormatClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnFormatClear.Location = new System.Drawing.Point(121, 328);
+            this.btnFormatClear.Name = "btnFormatClear";
+            this.btnFormatClear.Size = new System.Drawing.Size(28, 24);
+            this.btnFormatClear.TabIndex = 22;
+            this.btnFormatClear.UseVisualStyleBackColor = true;
+            this.btnFormatClear.Click += new System.EventHandler(this.btnFormatClear_Click);
+            // 
+            // btnFormatCopy
+            // 
+            this.btnFormatCopy.Enabled = false;
+            this.btnFormatCopy.FlatAppearance.BorderSize = 0;
+            this.btnFormatCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnFormatCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFormatCopy.Location = new System.Drawing.Point(86, 328);
+            this.btnFormatCopy.Name = "btnFormatCopy";
+            this.btnFormatCopy.Size = new System.Drawing.Size(28, 24);
+            this.btnFormatCopy.TabIndex = 23;
+            this.btnFormatCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormatCopy.UseVisualStyleBackColor = true;
+            this.btnFormatCopy.Click += new System.EventHandler(this.btnFormatCopy_Click);
+            // 
+            // lblFormatResult
+            // 
+            this.lblFormatResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormatResult.ForeColor = System.Drawing.Color.Red;
+            this.lblFormatResult.Location = new System.Drawing.Point(157, 328);
+            this.lblFormatResult.Name = "lblFormatResult";
+            this.lblFormatResult.Size = new System.Drawing.Size(140, 26);
+            this.lblFormatResult.TabIndex = 24;
+            this.lblFormatResult.Text = "Copy to Clipboard is done!";
+            this.lblFormatResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFormatResult.Visible = false;
+            // 
+            // btnFormatCode
+            // 
+            this.btnFormatCode.Enabled = false;
+            this.btnFormatCode.FlatAppearance.BorderSize = 0;
+            this.btnFormatCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnFormatCode.Image = global::ToolSupportCoding.Properties.Resources.format;
+            this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFormatCode.Location = new System.Drawing.Point(3, 328);
+            this.btnFormatCode.Name = "btnFormatCode";
+            this.btnFormatCode.Size = new System.Drawing.Size(77, 24);
+            this.btnFormatCode.TabIndex = 25;
+            this.btnFormatCode.Text = "Format";
+            this.btnFormatCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormatCode.UseVisualStyleBackColor = true;
+            this.btnFormatCode.Click += new System.EventHandler(this.btnFormatCode_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.txtFormatCode);
+            this.groupBox8.Controls.Add(this.rbFormatCommentSQL);
+            this.groupBox8.Controls.Add(this.rbFormatCommentLBlock);
+            this.groupBox8.Controls.Add(this.rbFormatCommentLine);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(6, -2);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(264, 359);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Code";
+            // 
+            // txtFormatCode
+            // 
+            this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
+            this.txtFormatCode.Name = "txtFormatCode";
+            this.txtFormatCode.Size = new System.Drawing.Size(258, 307);
+            this.txtFormatCode.TabIndex = 103;
+            this.txtFormatCode.Text = "";
+            this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
+            // 
+            // rbFormatCommentSQL
+            // 
+            this.rbFormatCommentSQL.AutoSize = true;
+            this.rbFormatCommentSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFormatCommentSQL.Location = new System.Drawing.Point(204, 332);
+            this.rbFormatCommentSQL.Name = "rbFormatCommentSQL";
+            this.rbFormatCommentSQL.Size = new System.Drawing.Size(55, 19);
+            this.rbFormatCommentSQL.TabIndex = 102;
+            this.rbFormatCommentSQL.Text = "Block";
+            this.rbFormatCommentSQL.UseVisualStyleBackColor = true;
+            // 
+            // rbFormatCommentLBlock
+            // 
+            this.rbFormatCommentLBlock.AutoSize = true;
+            this.rbFormatCommentLBlock.Checked = true;
+            this.rbFormatCommentLBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFormatCommentLBlock.Location = new System.Drawing.Point(61, 332);
+            this.rbFormatCommentLBlock.Name = "rbFormatCommentLBlock";
+            this.rbFormatCommentLBlock.Size = new System.Drawing.Size(82, 19);
+            this.rbFormatCommentLBlock.TabIndex = 100;
+            this.rbFormatCommentLBlock.TabStop = true;
+            this.rbFormatCommentLBlock.Text = "Line Block";
+            this.rbFormatCommentLBlock.UseVisualStyleBackColor = true;
+            // 
+            // rbFormatCommentLine
+            // 
+            this.rbFormatCommentLine.AutoSize = true;
+            this.rbFormatCommentLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFormatCommentLine.Location = new System.Drawing.Point(149, 332);
+            this.rbFormatCommentLine.Name = "rbFormatCommentLine";
+            this.rbFormatCommentLine.Size = new System.Drawing.Size(49, 19);
+            this.rbFormatCommentLine.TabIndex = 101;
+            this.rbFormatCommentLine.Text = "Line";
+            this.rbFormatCommentLine.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -2424,9 +3026,28 @@ namespace ToolSupportCoding.View
             this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.tabControlCommon);
             this.Name = "FormCommon";
-            this.Text = "Tool Common";
+            this.Text = "Tool Support: Common";
             this.Load += new System.EventHandler(this.FormCheckDataModel_Load);
             this.tabControlCommon.ResumeLayout(false);
+            this.tabPageGetColumn.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).EndInit();
+            this.tabPageGetViewModel.ResumeLayout(false);
+            this.groupBox34.ResumeLayout(false);
+            this.groupBox34.PerformLayout();
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            this.groupBox33.ResumeLayout(false);
+            this.groupBox33.PerformLayout();
+            this.groupBox35.ResumeLayout(false);
+            this.groupBox35.PerformLayout();
+            this.groupBox36.ResumeLayout(false);
+            this.groupBox36.PerformLayout();
+            this.groupBox37.ResumeLayout(false);
+            this.groupBox38.ResumeLayout(false);
             this.tabPageCreateJson.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -2434,28 +3055,23 @@ namespace ToolSupportCoding.View
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.tabPageFormatCode.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.tabPageGetColumn.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridColumnData)).EndInit();
-            this.tabPageCreateComment.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
+            this.tabPageCreateEnity.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.tabPageCreateFileSrc.ResumeLayout(false);
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
             this.tabPageCreateMessage.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
@@ -2470,23 +3086,34 @@ namespace ToolSupportCoding.View
             this.groupBox17.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.tabPageCreateFileSrc.ResumeLayout(false);
-            this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
-            this.groupBox27.ResumeLayout(false);
-            this.groupBox27.PerformLayout();
-            this.tabPageCreateEnity.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            this.groupBox23.PerformLayout();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
+            this.tabPageCreateComment.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.tabPageCreateResources.ResumeLayout(false);
+            this.groupBox32.ResumeLayout(false);
+            this.grbCrResSrcMode.ResumeLayout(false);
+            this.grbCrResSrcMode.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox29.ResumeLayout(false);
+            this.groupBox29.PerformLayout();
+            this.groupBox30.ResumeLayout(false);
+            this.groupBox30.PerformLayout();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            this.tabPageFormatCode.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2652,9 +3279,8 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btnCrEntityCopy;
         private System.Windows.Forms.Button btnCrEntityClear;
         private System.Windows.Forms.GroupBox groupBox23;
-        private System.Windows.Forms.RadioButton rbCrEntityBlock;
         private System.Windows.Forms.RadioButton rbCrEntityLine;
-        private System.Windows.Forms.RadioButton rbCrEntityLBlock;
+        private System.Windows.Forms.RadioButton rbCrEntityBlock;
         private System.Windows.Forms.GroupBox groupBox24;
         private System.Windows.Forms.RichTextBox txtCrSourceLogic;
         private System.Windows.Forms.GroupBox groupBox25;
@@ -2668,5 +3294,50 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Button btCrSourceClear;
         private System.Windows.Forms.ProgressBar barCrSourceProcess;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPageCreateResources;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.RadioButton rbCrResMess;
+        private System.Windows.Forms.RadioButton rbCrRes;
+        private System.Windows.Forms.GroupBox groupBox32;
+        private System.Windows.Forms.RichTextBox txtCrResResult;
+        private System.Windows.Forms.Button btCrRes;
+        private System.Windows.Forms.Button btCrResCopy;
+        private System.Windows.Forms.Button btCrResClear;
+        private System.Windows.Forms.GroupBox grbCrResSrcMode;
+        private System.Windows.Forms.RadioButton rbCrResAngular;
+        private System.Windows.Forms.RadioButton rbCrResC;
+        private System.Windows.Forms.GroupBox groupBox29;
+        private System.Windows.Forms.RichTextBox txtCrResName;
+        private System.Windows.Forms.Label lblCrResName;
+        private System.Windows.Forms.GroupBox groupBox30;
+        private System.Windows.Forms.RichTextBox txtCrResValue;
+        private System.Windows.Forms.Label lblCrResValue;
+        private System.Windows.Forms.GroupBox groupBox31;
+        private System.Windows.Forms.RichTextBox txtCrResComment;
+        private System.Windows.Forms.Label lblCrResComment;
+        private System.Windows.Forms.TabPage tabPageGetViewModel;
+        private System.Windows.Forms.GroupBox groupBox33;
+        private System.Windows.Forms.RichTextBox txtGetVMSItem;
+        private System.Windows.Forms.Label lblGetVMSItem;
+        private System.Windows.Forms.GroupBox groupBox34;
+        private System.Windows.Forms.RichTextBox txtGetVMPhysical;
+        private System.Windows.Forms.Label lblGetVMPhysical;
+        private System.Windows.Forms.GroupBox groupBox28;
+        private System.Windows.Forms.RichTextBox txtGetVMLogic;
+        private System.Windows.Forms.Label lblGetVMLogic;
+        private System.Windows.Forms.GroupBox groupBox35;
+        private System.Windows.Forms.RichTextBox txtGetVMFunPro;
+        private System.Windows.Forms.Label lblGetVMFunPro;
+        private System.Windows.Forms.GroupBox groupBox36;
+        private System.Windows.Forms.RichTextBox txtGetVMFunItem;
+        private System.Windows.Forms.Label lblGetVMFunItem;
+        private System.Windows.Forms.GroupBox groupBox37;
+        private System.Windows.Forms.RichTextBox txtGetVMResultLogical;
+        private System.Windows.Forms.GroupBox groupBox38;
+        private System.Windows.Forms.RichTextBox txtGetVMResultPhysical;
+        private System.Windows.Forms.Button btGetVMCopyLogic;
+        private System.Windows.Forms.Button btGetVMClear;
+        private System.Windows.Forms.Button btGetVMCopyPhysical;
+        private System.Windows.Forms.Button btGetVMGenSrc;
     }
 }

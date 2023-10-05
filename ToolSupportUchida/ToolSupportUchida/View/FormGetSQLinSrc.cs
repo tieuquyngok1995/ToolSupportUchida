@@ -10,7 +10,7 @@ using ToolSupportCoding.Utils;
 
 namespace ToolSupportCoding.View
 {
-    public partial class FormConvertSQL : Form
+    public partial class FormGetSQLinSrc : Form
     {
         private Dictionary<string, List<string>> lstDic = new Dictionary<string, List<string>>();
         private Dictionary<string, string> lstDicParam = new Dictionary<string, string>();
@@ -20,7 +20,7 @@ namespace ToolSupportCoding.View
         private string strInputSQL = string.Empty;
 
         #region Load Form
-        public FormConvertSQL()
+        public FormGetSQLinSrc()
         {
             InitializeComponent();
         }

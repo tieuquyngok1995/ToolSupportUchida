@@ -39,6 +39,7 @@ namespace ToolSupportCoding.View
             this.btnGet = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.groupBoxResult = new System.Windows.Forms.GroupBox();
+            this.chkComment = new System.Windows.Forms.CheckBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.RichTextBox();
@@ -52,7 +53,6 @@ namespace ToolSupportCoding.View
             this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResult = new System.Windows.Forms.Panel();
-            this.chkComment = new System.Windows.Forms.CheckBox();
             this.panelSetting.SuspendLayout();
             this.groupBoxSetting.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -150,6 +150,18 @@ namespace ToolSupportCoding.View
             this.groupBoxResult.TabIndex = 18;
             this.groupBoxResult.TabStop = false;
             this.groupBoxResult.Text = "Result";
+            // 
+            // chkComment
+            // 
+            this.chkComment.AutoSize = true;
+            this.chkComment.Checked = true;
+            this.chkComment.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkComment.Location = new System.Drawing.Point(580, 16);
+            this.chkComment.Name = "chkComment";
+            this.chkComment.Size = new System.Drawing.Size(86, 21);
+            this.chkComment.TabIndex = 18;
+            this.chkComment.Text = "Comment";
+            this.chkComment.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
@@ -319,18 +331,6 @@ namespace ToolSupportCoding.View
             this.panelResult.Size = new System.Drawing.Size(704, 146);
             this.panelResult.TabIndex = 1;
             // 
-            // chkComment
-            // 
-            this.chkComment.AutoSize = true;
-            this.chkComment.Checked = true;
-            this.chkComment.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkComment.Location = new System.Drawing.Point(580, 16);
-            this.chkComment.Name = "chkComment";
-            this.chkComment.Size = new System.Drawing.Size(86, 21);
-            this.chkComment.TabIndex = 18;
-            this.chkComment.Text = "Comment";
-            this.chkComment.UseVisualStyleBackColor = true;
-            // 
             // FormCreateItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -339,7 +339,7 @@ namespace ToolSupportCoding.View
             this.Controls.Add(this.panelData);
             this.Controls.Add(this.panelSetting);
             this.Name = "FormCreateItem";
-            this.Text = "Create Item";
+            this.Text = "Tool Support: Create Item";
             this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
             this.panelSetting.ResumeLayout(false);
             this.groupBoxSetting.ResumeLayout(false);

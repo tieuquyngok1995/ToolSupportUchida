@@ -53,6 +53,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
         public const string STRING_BR = "<br>";
+        public const string STRING_BR_REPLACE = "&lt;br&gt;";
         public const string STRING_OPEN_TAG = "<";
         public const string STRING_END_TAG = "/>";
         public const string STRING_C_SIGN = ">";
@@ -64,6 +65,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_O_SQU_BRACKETS = "[";
         public const string STRING_C_SQU_BRACKETS = "]";
         public const string STRING_DC_CUR_BRACKETS = "}}";
+        public const string STRING_NOTE = "〇";
         public const string STRING_CONTROLLER = "Controller";
         public const string STRING_SERVICE = "Service";
         public const string STRING_REPOSITORY = "Repository";
@@ -76,6 +78,11 @@ namespace ToolSupportCoding.Utils
         public const string STRING_JP_SERVICE = "サービス";
         public const string STRING_JP_REPOSITORY = "リポジトリ";
         public const string STRING_JP_VIEW_MODEL = "情報ViewModel";
+        public const string STRING_JP_CODE = "コード";
+
+        public const string STRING_RESOURCES = "Resources";
+        public const string STRING_VALUE = "Value";
+        public const string STRING_COMMENT = "Comment";
 
         // Const using create Item
         public const string STRING_FORM_VALUE = "{-}";
@@ -237,10 +244,13 @@ namespace ToolSupportCoding.Utils
         public const string TAB_CR_MESS = "Create Message";
         public const string TAB_CR_FILE_SRC = "Create File Source";
         public const string TAB_CR_ENTITY = "Create Entity";
+        public const string TAB_CR_RESOURCES = "Create Resources";
+
         #endregion
 
         #region String Check
         public const string STRING_CHECK_SQL_TABLE = "].[";
+        public const string STRING_CHECK_SQL_TABLE_NOT = "].";
         public const string STRING_CHECK_SQL_AS = " AS ";
 
         public const string STRING_CHECK_APOSTROPHE = " '";

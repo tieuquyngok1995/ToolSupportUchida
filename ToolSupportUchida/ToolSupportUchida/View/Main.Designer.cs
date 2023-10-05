@@ -40,12 +40,12 @@ namespace ToolSupportCoding
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCheckData = new System.Windows.Forms.Button();
-            this.btnCreateAdapter = new System.Windows.Forms.Button();
-            this.btnConvertModel = new System.Windows.Forms.Button();
-            this.btnConverSekkei = new System.Windows.Forms.Button();
-            this.btnConvertDatabase = new System.Windows.Forms.Button();
+            this.btnCommon = new System.Windows.Forms.Button();
+            this.btnCreateItem = new System.Windows.Forms.Button();
+            this.btnCreateViewModel = new System.Windows.Forms.Button();
+            this.btnCreateModel = new System.Windows.Forms.Button();
+            this.btnGetCONST = new System.Windows.Forms.Button();
+            this.btnGetSQLinSrc = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -128,12 +128,12 @@ namespace ToolSupportCoding
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panelMenu.Controls.Add(this.btnAbout);
-            this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Controls.Add(this.btnCheckData);
-            this.panelMenu.Controls.Add(this.btnCreateAdapter);
-            this.panelMenu.Controls.Add(this.btnConvertModel);
-            this.panelMenu.Controls.Add(this.btnConverSekkei);
-            this.panelMenu.Controls.Add(this.btnConvertDatabase);
+            this.panelMenu.Controls.Add(this.btnCommon);
+            this.panelMenu.Controls.Add(this.btnCreateItem);
+            this.panelMenu.Controls.Add(this.btnCreateViewModel);
+            this.panelMenu.Controls.Add(this.btnCreateModel);
+            this.panelMenu.Controls.Add(this.btnGetCONST);
+            this.panelMenu.Controls.Add(this.btnGetSQLinSrc);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -162,128 +162,131 @@ namespace ToolSupportCoding
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
-            // button1
+            // btnCommon
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 334);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(220, 55);
-            this.button1.TabIndex = 4;
-            this.button1.TabStop = false;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCommon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCommon.FlatAppearance.BorderSize = 0;
+            this.btnCommon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCommon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCommon.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCommon.Image = global::ToolSupportCoding.Properties.Resources.check_data_model;
+            this.btnCommon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCommon.Location = new System.Drawing.Point(0, 334);
+            this.btnCommon.Name = "btnCommon";
+            this.btnCommon.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCommon.Size = new System.Drawing.Size(220, 55);
+            this.btnCommon.TabIndex = 3;
+            this.btnCommon.TabStop = false;
+            this.btnCommon.Text = "  Common";
+            this.btnCommon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCommon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCommon.UseVisualStyleBackColor = true;
+            this.btnCommon.Click += new System.EventHandler(this.btnCommon_Click);
             // 
-            // btnCheckData
+            // btnCreateItem
             // 
-            this.btnCheckData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCheckData.FlatAppearance.BorderSize = 0;
-            this.btnCheckData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckData.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCheckData.Image = global::ToolSupportCoding.Properties.Resources.check_data_model;
-            this.btnCheckData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckData.Location = new System.Drawing.Point(0, 279);
-            this.btnCheckData.Name = "btnCheckData";
-            this.btnCheckData.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCheckData.Size = new System.Drawing.Size(220, 55);
-            this.btnCheckData.TabIndex = 3;
-            this.btnCheckData.TabStop = false;
-            this.btnCheckData.Text = "  Common";
-            this.btnCheckData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCheckData.UseVisualStyleBackColor = true;
-            this.btnCheckData.Click += new System.EventHandler(this.btnCheckData_Click);
+            this.btnCreateItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateItem.FlatAppearance.BorderSize = 0;
+            this.btnCreateItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateItem.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCreateItem.Image = global::ToolSupportCoding.Properties.Resources.convert_adapter;
+            this.btnCreateItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateItem.Location = new System.Drawing.Point(0, 279);
+            this.btnCreateItem.Name = "btnCreateItem";
+            this.btnCreateItem.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCreateItem.Size = new System.Drawing.Size(220, 55);
+            this.btnCreateItem.TabIndex = 2;
+            this.btnCreateItem.TabStop = false;
+            this.btnCreateItem.Text = "  Create Item";
+            this.btnCreateItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateItem.UseVisualStyleBackColor = true;
+            this.btnCreateItem.Click += new System.EventHandler(this.btnCreateItem_Click);
             // 
-            // btnCreateAdapter
+            // btnCreateViewModel
             // 
-            this.btnCreateAdapter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreateAdapter.FlatAppearance.BorderSize = 0;
-            this.btnCreateAdapter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAdapter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAdapter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCreateAdapter.Image = global::ToolSupportCoding.Properties.Resources.convert_adapter;
-            this.btnCreateAdapter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateAdapter.Location = new System.Drawing.Point(0, 224);
-            this.btnCreateAdapter.Name = "btnCreateAdapter";
-            this.btnCreateAdapter.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCreateAdapter.Size = new System.Drawing.Size(220, 55);
-            this.btnCreateAdapter.TabIndex = 2;
-            this.btnCreateAdapter.TabStop = false;
-            this.btnCreateAdapter.Text = "  Create Item";
-            this.btnCreateAdapter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateAdapter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateAdapter.UseVisualStyleBackColor = true;
-            this.btnCreateAdapter.Click += new System.EventHandler(this.btnCreateAdapter_Click);
+            this.btnCreateViewModel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateViewModel.FlatAppearance.BorderSize = 0;
+            this.btnCreateViewModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateViewModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateViewModel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCreateViewModel.Image = global::ToolSupportCoding.Properties.Resources.create_view_model;
+            this.btnCreateViewModel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateViewModel.Location = new System.Drawing.Point(0, 224);
+            this.btnCreateViewModel.Name = "btnCreateViewModel";
+            this.btnCreateViewModel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCreateViewModel.Size = new System.Drawing.Size(220, 55);
+            this.btnCreateViewModel.TabIndex = 6;
+            this.btnCreateViewModel.TabStop = false;
+            this.btnCreateViewModel.Text = "  Create View Model";
+            this.btnCreateViewModel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateViewModel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateViewModel.UseVisualStyleBackColor = true;
+            this.btnCreateViewModel.Click += new System.EventHandler(this.btnCreateViewModel_Click);
             // 
-            // btnConvertModel
+            // btnCreateModel
             // 
-            this.btnConvertModel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConvertModel.FlatAppearance.BorderSize = 0;
-            this.btnConvertModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvertModel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvertModel.Image = global::ToolSupportCoding.Properties.Resources.convert_model;
-            this.btnConvertModel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertModel.Location = new System.Drawing.Point(0, 169);
-            this.btnConvertModel.Name = "btnConvertModel";
-            this.btnConvertModel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnConvertModel.Size = new System.Drawing.Size(220, 55);
-            this.btnConvertModel.TabIndex = 1;
-            this.btnConvertModel.TabStop = false;
-            this.btnConvertModel.Text = "  Convert Model";
-            this.btnConvertModel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertModel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConvertModel.UseVisualStyleBackColor = true;
-            this.btnConvertModel.Click += new System.EventHandler(this.btnConvertModel_Click);
+            this.btnCreateModel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateModel.FlatAppearance.BorderSize = 0;
+            this.btnCreateModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateModel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCreateModel.Image = global::ToolSupportCoding.Properties.Resources.convert_model;
+            this.btnCreateModel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateModel.Location = new System.Drawing.Point(0, 169);
+            this.btnCreateModel.Name = "btnCreateModel";
+            this.btnCreateModel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCreateModel.Size = new System.Drawing.Size(220, 55);
+            this.btnCreateModel.TabIndex = 1;
+            this.btnCreateModel.TabStop = false;
+            this.btnCreateModel.Text = "  Create Model";
+            this.btnCreateModel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateModel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateModel.UseVisualStyleBackColor = true;
+            this.btnCreateModel.Click += new System.EventHandler(this.btnCreateModel_Click);
             // 
-            // btnConverSekkei
+            // btnGetCONST
             // 
-            this.btnConverSekkei.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConverSekkei.FlatAppearance.BorderSize = 0;
-            this.btnConverSekkei.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConverSekkei.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConverSekkei.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConverSekkei.Image = global::ToolSupportCoding.Properties.Resources.convert_sekkeei;
-            this.btnConverSekkei.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConverSekkei.Location = new System.Drawing.Point(0, 114);
-            this.btnConverSekkei.Name = "btnConverSekkei";
-            this.btnConverSekkei.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnConverSekkei.Size = new System.Drawing.Size(220, 55);
-            this.btnConverSekkei.TabIndex = 3;
-            this.btnConverSekkei.TabStop = false;
-            this.btnConverSekkei.Text = "  Get CONST";
-            this.btnConverSekkei.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConverSekkei.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConverSekkei.UseVisualStyleBackColor = true;
-            this.btnConverSekkei.Click += new System.EventHandler(this.btnConverSekkei_Click);
+            this.btnGetCONST.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGetCONST.FlatAppearance.BorderSize = 0;
+            this.btnGetCONST.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetCONST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetCONST.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnGetCONST.Image = global::ToolSupportCoding.Properties.Resources.convert_sekkeei;
+            this.btnGetCONST.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetCONST.Location = new System.Drawing.Point(0, 114);
+            this.btnGetCONST.Name = "btnGetCONST";
+            this.btnGetCONST.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnGetCONST.Size = new System.Drawing.Size(220, 55);
+            this.btnGetCONST.TabIndex = 3;
+            this.btnGetCONST.TabStop = false;
+            this.btnGetCONST.Text = "  Get CONST";
+            this.btnGetCONST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetCONST.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGetCONST.UseVisualStyleBackColor = true;
+            this.btnGetCONST.Click += new System.EventHandler(this.btnGetCONST_Click);
             // 
-            // btnConvertDatabase
+            // btnGetSQLinSrc
             // 
-            this.btnConvertDatabase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConvertDatabase.FlatAppearance.BorderSize = 0;
-            this.btnConvertDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvertDatabase.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvertDatabase.Image = global::ToolSupportCoding.Properties.Resources.convert_database;
-            this.btnConvertDatabase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertDatabase.Location = new System.Drawing.Point(0, 59);
-            this.btnConvertDatabase.Name = "btnConvertDatabase";
-            this.btnConvertDatabase.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnConvertDatabase.Size = new System.Drawing.Size(220, 55);
-            this.btnConvertDatabase.TabIndex = 0;
-            this.btnConvertDatabase.TabStop = false;
-            this.btnConvertDatabase.Text = "  Convert SQL";
-            this.btnConvertDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertDatabase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConvertDatabase.UseVisualStyleBackColor = true;
-            this.btnConvertDatabase.Click += new System.EventHandler(this.btnConvertDatabase_Click);
+            this.btnGetSQLinSrc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGetSQLinSrc.FlatAppearance.BorderSize = 0;
+            this.btnGetSQLinSrc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetSQLinSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetSQLinSrc.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnGetSQLinSrc.Image = global::ToolSupportCoding.Properties.Resources.convert_database;
+            this.btnGetSQLinSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetSQLinSrc.Location = new System.Drawing.Point(0, 59);
+            this.btnGetSQLinSrc.Name = "btnGetSQLinSrc";
+            this.btnGetSQLinSrc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnGetSQLinSrc.Size = new System.Drawing.Size(220, 55);
+            this.btnGetSQLinSrc.TabIndex = 0;
+            this.btnGetSQLinSrc.TabStop = false;
+            this.btnGetSQLinSrc.Text = "  Get SQL in Src";
+            this.btnGetSQLinSrc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetSQLinSrc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGetSQLinSrc.UseVisualStyleBackColor = true;
+            this.btnGetSQLinSrc.Click += new System.EventHandler(this.btnGetSQLinSrc_Click);
             // 
             // panelLogo
             // 
@@ -383,11 +386,11 @@ namespace ToolSupportCoding
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(265, 23);
+            this.lblTitle.Location = new System.Drawing.Point(173, 23);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(80, 26);
+            this.lblTitle.Size = new System.Drawing.Size(215, 26);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Setting";
+            this.lblTitle.Text = "Tool Support: Setting";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDesktopPane
@@ -1080,11 +1083,11 @@ namespace ToolSupportCoding
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnConvertDatabase;
+        private System.Windows.Forms.Button btnGetSQLinSrc;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnCheckData;
-        private System.Windows.Forms.Button btnCreateAdapter;
-        private System.Windows.Forms.Button btnConvertModel;
+        private System.Windows.Forms.Button btnCommon;
+        private System.Windows.Forms.Button btnCreateItem;
+        private System.Windows.Forms.Button btnCreateModel;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelDesktopPane;
@@ -1097,7 +1100,7 @@ namespace ToolSupportCoding
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnConverSekkei;
+        private System.Windows.Forms.Button btnGetCONST;
         private System.Windows.Forms.Panel panelSettingTop;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtLogicName;
@@ -1123,7 +1126,6 @@ namespace ToolSupportCoding
         private System.Windows.Forms.DataGridView gridFormat;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1148,6 +1150,7 @@ namespace ToolSupportCoding
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewImageColumn colAdapterEdit;
         private System.Windows.Forms.DataGridViewImageColumn colAdapterDelete;
+        private System.Windows.Forms.Button btnCreateViewModel;
     }
 }
 
