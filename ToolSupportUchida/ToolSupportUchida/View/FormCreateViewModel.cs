@@ -23,6 +23,8 @@ namespace ToolSupportCoding.View
         private List<string> lstValidation = new List<string>();
 
         private Dictionary<string, string[]> dicValidation = new Dictionary<string, string[]>();
+        private Dictionary<string, string> dicSetting = new Dictionary<string, string>();
+        private Dictionary<string, string> dicArrIndex = new Dictionary<string, string>();
 
         #region Load Form
         public FormCreateViewModel(int _mode, List<SekkeiModel> _lstSekkei, List<ItemModel> _lstItem)
@@ -38,13 +40,15 @@ namespace ToolSupportCoding.View
         {
             if (isMode == 0)
             {
-                this.lblLanguage.Text = "C#";
+                rbModeC.Checked = true;
             }
             else
             {
-                this.lblLanguage.Text = "TypeScript";
+                rbModeTypescript.Checked = true;
             }
-            txtLogicNameVM.Focus();
+            txtLogic.Focus();
+
+            getDataSetting();
 
             LoadTheme();
         }
@@ -81,6 +85,17 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Event
+
+
+        private void rbModeC_CheckedChanged(object sender, EventArgs e)
+        {
+            getDataSetting();
+        }
+
+        private void rbModeTypescript_CheckedChanged(object sender, EventArgs e)
+        {
+            getDataSetting();
+        }
 
         private void txtPhysicalNameVM_TextChanged(object sender, EventArgs e)
         {
@@ -187,12 +202,42 @@ namespace ToolSupportCoding.View
             btnCreate.Enabled = isEnableButtonCreate();
         }
 
-        private void btnCreateMess_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
+            txtResult.Text = string.Empty;
+            string tmpVM, logic, physical, type, annotation;
+            string iViewModel = string.Empty;
+            string mViewModel = string.Empty;
 
+            for (int i = 0; i < lstLogic.Count; i++)
+            {
+                logic = lstLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                physical = lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                type = lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                if (rbModeC.Checked)
+                {
+                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
+                    annotation = getAnnotationsC(logic, type);
+                    txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
+                }
+                else
+                {
+                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
+                    iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), logic) + CONST.STRING_ADD_LINE;
+
+
+                    annotation = getAnnotationsTS(logic, type);
+                }
+
+
+                txtResult.Text += CONST.STRING_ADD_LINE;
+            }
+
+            if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
 
-        private void btnMessCopy_Click(object sender, EventArgs e)
+        private void btnCopy_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtResult.Text))
             {
@@ -205,11 +250,8 @@ namespace ToolSupportCoding.View
             lblResult.Visible = true;
         }
 
-        private void btnMessClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            txtLogicNameVM.Text = string.Empty;
-            txtPhysicalNameVM.Text = string.Empty;
-
             txtLogic.Text = string.Empty;
             lstLogic.Clear();
 
@@ -236,9 +278,53 @@ namespace ToolSupportCoding.View
 
         #region Method
 
+        private void getDataSetting()
+        {
+            List<ItemModel> lstSeting;
+
+            dicSetting.Clear();
+            dicArrIndex.Clear();
+
+            if (rbModeC.Checked)
+            {
+                lstSeting = lstItem.Where(item => item.key.Equals(CONST.STRING_SETTING_C_VIEW_MODEL)).ToList();
+            }
+            else
+            {
+                lstSeting = lstItem.Where(item => item.key.Equals(CONST.STRING_SETTING_TS_VIEW_MODEL)).ToList();
+            }
+
+            foreach (ItemModel item in lstSeting)
+            {
+                if (!string.IsNullOrEmpty(item.name) && !dicSetting.ContainsKey(item.name))
+                {
+                    if (item.name.Equals(CONST.STRING_SETTING_INDEX_ARR))
+                    {
+                        string[] arr = item.value.Split(CONST.CHAR_TILDE);
+                        foreach (string str in arr)
+                        {
+                            if (!string.IsNullOrEmpty(str))
+                            {
+                                string[] arrIndex = str.Split(CONST.CHAR_COLON);
+
+                                if (arrIndex.Length > 1)
+                                {
+                                    dicArrIndex.Add(arrIndex[0], arrIndex[1]);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        dicSetting.Add(item.name, item.value);
+                    }
+                }
+            }
+        }
+
         private bool isEnableButtonCreate()
         {
-            if (string.IsNullOrEmpty(txtPhysicalNameVM.Text)) return false;
+            if (lstLogic.Count == 0 || lstPhysical.Count == 0 || lstType.Count == 0) return false;
 
             if (lstLogic.Count != lstPhysical.Count || lstLogic.Count != lstType.Count) return false;
 
@@ -246,7 +332,6 @@ namespace ToolSupportCoding.View
 
             return true;
         }
-
 
         private void handleDataValidation()
         {
@@ -258,12 +343,80 @@ namespace ToolSupportCoding.View
                 if (string.IsNullOrEmpty(itemVal.Replace(CONST.STRING_TAB, string.Empty))) continue;
 
                 string itemName = lstNameItem[i].Replace(CONST.STRING_TAB, string.Empty);
-                string key = lstLogic.FirstOrDefault(item => (itemName.Contains(item)));
+                string key = lstLogic.FirstOrDefault(item => (itemName.Equals(item)));
                 string[] value = itemVal.Split(CONST.CHAR_TAB);
 
                 if (key == null || string.IsNullOrEmpty(key)) continue;
                 dicValidation.Add(key, value);
             }
+        }
+
+        private string getAnnotationsC(string strLogic, string type)
+        {
+            string result = string.Empty;
+            string displayFormat = string.Empty;
+            string[] arrValidation;
+
+            if (dicValidation.TryGetValue(strLogic, out arrValidation))
+            {
+                for (int i = 0; i < arrValidation.Length; i++)
+                {
+                    string validation = arrValidation[i];
+                    if (string.IsNullOrEmpty(validation)) continue;
+
+                    string annotation;
+                    if (dicArrIndex.TryGetValue(i.ToString(), out annotation))
+                    {
+                        string tmp;
+                        if (dicSetting.TryGetValue(annotation, out tmp))
+                        {
+                            if (annotation.Contains(CONST.STRING_SETTING_CHECK_TYPE))
+                            {
+                                string[] arr = tmp.Split(CONST.CHAR_TILDE);
+                                if (type.Equals(CONST.C_TYPE_STRING))
+                                {
+                                    result += string.Format(arr[0], validation) + CONST.STRING_ADD_LINE;
+                                }
+                                else if (type.Equals(CONST.C_TYPE_DECIMAL))
+                                {
+                                    result += string.Format(arr[2], validation) + CONST.STRING_ADD_LINE;
+                                }
+                                else
+                                {
+                                    result += string.Format(arr[1], validation) + CONST.STRING_ADD_LINE;
+                                }
+                            }
+                            else if (annotation.Equals(CONST.STRING_SETTING_DISPLAY_FORMAT))
+                            {
+                                displayFormat = string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
+                            }
+                            else if (annotation.Contains(CONST.STRING_SETTING_FORMAT))
+                            {
+                                result += string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
+                            }
+                            else
+                            {
+                                result += tmp + CONST.STRING_ADD_LINE;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result + displayFormat;
+        }
+
+        private string getTemplateTS(string mode)
+        {
+            string result = string.Empty;
+            if (dicSetting.TryGetValue(mode, out result)) return result;
+            return result;
+        }
+
+        private string getAnnotationsTS(string strLogic, string type)
+        {
+
+            return "";
         }
         #endregion
 

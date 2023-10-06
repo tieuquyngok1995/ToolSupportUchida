@@ -295,6 +295,7 @@ namespace ToolSupportCoding
                         objToolSupport.lstSekkei = lstSekkei;
                         BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
 
+                        no = 1;
                         gridSekkei.Rows.Clear();
                         gridSekkei.Refresh();
                         foreach (SekkeiModel sekkei in objToolSupport.lstSekkei)
@@ -308,6 +309,7 @@ namespace ToolSupportCoding
                         objToolSupport.lstItem = lstItem;
                         BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
 
+                        noAdapter = 1;
                         gridFormat.Rows.Clear();
                         gridFormat.Refresh();
                         foreach (ItemModel item in objToolSupport.lstItem)

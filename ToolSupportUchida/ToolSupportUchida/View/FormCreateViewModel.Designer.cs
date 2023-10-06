@@ -44,12 +44,8 @@
             this.txtValidation = new System.Windows.Forms.RichTextBox();
             this.lblNumValidation = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtLogicNameVM = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPhysicalNameVM = new System.Windows.Forms.TextBox();
+            this.rbModeTypescript = new System.Windows.Forms.RadioButton();
+            this.rbModeC = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -62,7 +58,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox23.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -233,7 +228,8 @@
             // 
             // groupBox23
             // 
-            this.groupBox23.Controls.Add(this.lblLanguage);
+            this.groupBox23.Controls.Add(this.rbModeC);
+            this.groupBox23.Controls.Add(this.rbModeTypescript);
             this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox23.Location = new System.Drawing.Point(9, 1);
             this.groupBox23.Name = "groupBox23";
@@ -242,65 +238,31 @@
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Language";
             // 
-            // lblLanguage
+            // rbModeTypescript
             // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblLanguage.Location = new System.Drawing.Point(6, 21);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(0, 15);
-            this.lblLanguage.TabIndex = 0;
+            this.rbModeTypescript.AutoSize = true;
+            this.rbModeTypescript.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbModeTypescript.Location = new System.Drawing.Point(50, 18);
+            this.rbModeTypescript.Name = "rbModeTypescript";
+            this.rbModeTypescript.Size = new System.Drawing.Size(80, 19);
+            this.rbModeTypescript.TabIndex = 101;
+            this.rbModeTypescript.Text = "Typescript";
+            this.rbModeTypescript.UseVisualStyleBackColor = true;
+            this.rbModeTypescript.CheckedChanged += new System.EventHandler(this.rbModeTypescript_CheckedChanged);
             // 
-            // groupBox10
+            // rbModeC
             // 
-            this.groupBox10.Controls.Add(this.label6);
-            this.groupBox10.Controls.Add(this.txtLogicNameVM);
-            this.groupBox10.Controls.Add(this.label5);
-            this.groupBox10.Controls.Add(this.txtPhysicalNameVM);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(147, 1);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(545, 46);
-            this.groupBox10.TabIndex = 0;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "View Model Name";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(282, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 15);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Physical Name";
-            // 
-            // txtLogicNameVM
-            // 
-            this.txtLogicNameVM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtLogicNameVM.Location = new System.Drawing.Point(95, 18);
-            this.txtLogicNameVM.Name = "txtLogicNameVM";
-            this.txtLogicNameVM.Size = new System.Drawing.Size(172, 21);
-            this.txtLogicNameVM.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(6, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 15);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Logical Name";
-            // 
-            // txtPhysicalNameVM
-            // 
-            this.txtPhysicalNameVM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtPhysicalNameVM.Location = new System.Drawing.Point(376, 16);
-            this.txtPhysicalNameVM.Name = "txtPhysicalNameVM";
-            this.txtPhysicalNameVM.Size = new System.Drawing.Size(162, 21);
-            this.txtPhysicalNameVM.TabIndex = 2;
-            this.txtPhysicalNameVM.TextChanged += new System.EventHandler(this.txtPhysicalNameVM_TextChanged);
+            this.rbModeC.AutoSize = true;
+            this.rbModeC.Checked = true;
+            this.rbModeC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbModeC.Location = new System.Drawing.Point(10, 18);
+            this.rbModeC.Name = "rbModeC";
+            this.rbModeC.Size = new System.Drawing.Size(40, 19);
+            this.rbModeC.TabIndex = 100;
+            this.rbModeC.TabStop = true;
+            this.rbModeC.Text = "C#";
+            this.rbModeC.UseVisualStyleBackColor = true;
+            this.rbModeC.CheckedChanged += new System.EventHandler(this.rbModeC_CheckedChanged);
             // 
             // groupBox7
             // 
@@ -344,7 +306,7 @@
             this.btnCreate.Text = "Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreateMess_Click);
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCopy
             // 
@@ -360,7 +322,7 @@
             this.btnCopy.TabIndex = 8;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Click += new System.EventHandler(this.btnMessCopy_Click);
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnClear
             // 
@@ -373,7 +335,7 @@
             this.btnClear.Size = new System.Drawing.Size(28, 24);
             this.btnClear.TabIndex = 9;
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnMessClear_Click);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtResult
             // 
@@ -390,7 +352,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 374);
-            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox23);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
@@ -413,8 +374,6 @@
             this.groupBox5.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
@@ -439,17 +398,13 @@
         private System.Windows.Forms.RichTextBox txtValidation;
         private System.Windows.Forms.Label lblNumValidation;
         private System.Windows.Forms.GroupBox groupBox23;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtLogicNameVM;
-        private System.Windows.Forms.TextBox txtPhysicalNameVM;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox txtResult;
-        private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.RadioButton rbModeTypescript;
+        private System.Windows.Forms.RadioButton rbModeC;
     }
 }

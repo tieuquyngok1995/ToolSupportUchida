@@ -757,8 +757,8 @@ namespace ToolSupportCoding.View
 
             for (int i = 0; i < lstGetVMFunItem.Count; i++)
             {
-                string key = lstGetVMFunItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
-                string value = lstGetVMFunProperty[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+                string key = lstGetVMFunItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string value = lstGetVMFunProperty[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
 
                 if (string.IsNullOrEmpty(key) || dicFunction.ContainsKey(key)) continue;
 
@@ -767,8 +767,8 @@ namespace ToolSupportCoding.View
 
             for(int i = 0; i < lstGetVMLogic.Count; i++)
             {
-                string key = lstGetVMLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
-                string value = lstGetVMPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+                string key = lstGetVMLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string value = lstGetVMPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
 
                 if (string.IsNullOrEmpty(key) || dicViewModel.ContainsKey(key)) continue;
 
@@ -777,7 +777,7 @@ namespace ToolSupportCoding.View
 
             for (int i =0; i < lstGetVMItem.Count; i++)
             {
-                string item = lstGetVMItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim().ToString();
+                string item = lstGetVMItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
 
                 string keyVM = string.Empty;
                 if(dicFunction.TryGetValue(item, out keyVM))

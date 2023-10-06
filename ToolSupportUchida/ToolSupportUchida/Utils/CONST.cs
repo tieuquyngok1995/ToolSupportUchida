@@ -37,6 +37,8 @@ namespace ToolSupportCoding.Utils
         public const char CHAR_EQUALS = '=';
         public const char CHAR_O_TAG = '<';
         public const char CHAR_SLASH = '/';
+        public const char CHAR_TILDE = '~';
+        public const char CHAR_COLON = ':';
         #endregion
 
         #region String
@@ -48,6 +50,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_DOUBLE_APOSTROPHE = "''";
         public const string STRING_TAB = "\t";
         public const string STRING_COMMA = ",";
+        public const string STRING_TILDE = "~";
         public const string STRING_QUOTATION_MARKS = "\"";
         public const string STRING_DOT = ".";
         public const string STRING_APOSTROPHE = "'";
@@ -74,6 +77,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_ENTITY = "Entity";
         public const string STRING_ENTITIES = "Entities";
         public const string STRING_LIB = ".Lib";
+
+        // Const string JP
         public const string STRING_JP_CONTROLLER = "コントローラ";
         public const string STRING_JP_SERVICE = "サービス";
         public const string STRING_JP_REPOSITORY = "リポジトリ";
@@ -185,14 +190,35 @@ namespace ToolSupportCoding.Utils
 
         // Const C# Type
         public const string C_TYPE_STRING = "string";
+        public const string C_TYPE_BOOL = "bool";
         public const string C_TYPE_DATE_TIME = "DateTime";
         public const string C_TYPE_SHORT = "short";
         public const string C_TYPE_INT  = "int";
         public const string C_TYPE_LONG = "long";
         public const string C_TYPE_DECIMAL = "decimal";
 
+        // Const Typescript Type
+        public const string TS_TYPE_NUMBER = "number";
+        public const string TS_TYPE_DATE = "Date";
+        public const string TS_TYPE_BOOLEAN = "boolean";
+        public const string TS_TYPE_ANY = "any";
+
         // Const File Type 
         public const string C_TYPE_FILE = ".cs";
+
+        // Const string setting
+        public const string STRING_SETTING_C_VIEW_MODEL = "SettingCViewModel";
+        public const string STRING_SETTING_TS_VIEW_MODEL = "SettingTSViewModel";
+        public const string STRING_SETTING_VIEW_MODEL = "SettingViewModel";
+        public const string STRING_SETTING_INDEX_ARR = "IndexArr";
+        public const string STRING_SETTING_CHECK_TYPE = "CheckType";
+        public const string STRING_SETTING_DEFAULT = "default";
+        public const string STRING_SETTING_FORMAT = "Format";
+        public const string STRING_SETTING_DISPLAY_FORMAT = "DisplayFormat";
+
+        public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
+        public const string STRING_SETTING_TS_FORM = "TSForm";
+        public const string STRING_SETTING_TS_MODEL = "TSModel";
         #endregion
 
         #region Text
