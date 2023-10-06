@@ -413,9 +413,16 @@ namespace ToolSupportCoding.View
             return result;
         }
 
+        private string createTsForm(string mode)
+        {
+            string tmp = getTemplateTS(CONST.STRING_SETTING_TS_FORM);
+
+            return "";
+        }
+
         private string getAnnotationsTS(string strLogic, string type)
         {
-
+            
             return "";
         }
         #endregion

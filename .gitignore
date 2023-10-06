@@ -2,4 +2,5 @@
 ToolSupportUchida/ToolSupportUchida/obj/
 ToolSupportUchida/ToolSupportUchida/bin/
 */.suo
-ToolSupportUchida/.vs/*
+*/.vs/*
+*.vsidx

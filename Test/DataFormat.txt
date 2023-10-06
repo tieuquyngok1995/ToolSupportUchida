@@ -1,0 +1,79 @@
+@Html.EditorFor[--]Delete[--] <br>
+@Html.ActionLink[--]Delete[--] <br>
+@Html.Label[--]Delete[--] <br>
+@Html.LabelFor[--]Delete[--] <br>
+@Html.AntiForgeryToken[--]Delete[--] <br>
+@Html.CamelCaseJsonFor[--]Delete[--] <br>
+@Html.Hidden[--]Delete[--] <br>
+@Html.HiddenFor[--]Delete[--] <br>
+@Html.Raw[--]Delete[--] <br>
+@Html.LockId[--]Delete[--] <br>
+@Html.ProgramId[--]Delete[--] <br>
+@Html.ProgramMode[--]Delete[--] <br>
+@Html.ProgramName[--]Delete[--] <br>
+@Html.Title[--]Delete[--] <br>
+@Html.ValidationSummary[--]Delete[--] <br>
+@Html.ReadOnly[--]Delete[--] <br>
+@Html.ItsLabelFor[--]Replace[--]<ucd-label {0}></ucd-label><br>
+@Html.ItsLabel[--]Replace[--]<ucd-label>{{ItemResources.}}</ucd-label><br>
+@Html.ItsFileFor[--]ucd-file-select[--]<ucd-file-select {0}></ucd-file-select><br>
+@Html.ItsCheckBoxFor[--]ucd-checkbox[--]<ucd-checkbox {0}></ucd-checkbox><br>
+@Html.ItsDropDownListFor[--]Replace[--]<ucd-dropdown-list {0} ucdSelectList="model." ucdOptionLabel="model."></ucd-dropdown-list><br>
+@Html.ItsRadioButtonFor[--]Replace[--]<ucd-radio-button {0} ucdValue="model."></ucd-radio-button><br>
+@Html.DisplayFor[--]ucd-display-basic[--]<ucd-display-basic {0}></ucd-display-basic><br>
+@Html.ItsDisplayFormattedNumberFor[--]ucd-display-formatted-number[--]<ucd-display-formatted-number {0}></ucd-display-formatted-number><br>
+@Html.ItsDisplayMoneyFor[--]ucd-display-money[--]<ucd-display-money {0}></ucd-display-money><br>
+@Html.ItsDisplayNumberFor[--]ucd-display-number[--]<ucd-display-number {0}></ucd-display-number><br>
+@Html.ItsDisplayCalendarFor[--]Replace[--]<ucd-display-calendar {0} ucdCalendar="model."></ucd-display-calendar><br>
+@Html.ItsDisplayDateMonthFor[--]Replace[--]<ucd-display-date-month {0} ucdCalendar="model."></ucd-display-date-month><br>
+@Html.ItsDisplayDateTimeFor[--]Replace[--]<ucd-display-date-time {0} ucdCalendar="model."></ucd-display-date-time><br>
+@Html.ItsDisplayDateYearFor[--]Replace[--]<ucd-display-date-year {0} ucdCalendar="model."></ucd-display-date-year><br>
+@Html.ItsDisplayTimeFor[--]ucd-display-time[--]<ucd-display-time {0}></ucd-display-time><br>
+@Html.ItsTextBlockFor[--]ucd-textblock-basic[--]<ucd-textblock-basic {0}></ucd-textblock-basic><br>
+@Html.ItsTextBlockFormattedNumberFor[--]ucd-textblock-formatted-number[--]<ucd-textblock-formatted-number {0}></ucd-textblock-formatted-number><br>
+@Html.ItsTextBlockMoneyFor[--]ucd-textblock-money[--]<ucd-textblock-money {0}></ucd-textblock-money><br>
+@Html.ItsTextBlockNumberFor[--]ucd-textblock-number[--]<ucd-textblock-number {0}></ucd-textblock-number><br>
+@Html.ItsTextBlockCalendarFor[--]Replace[--]<ucd-textblock-calendar {0} ucdCalendar="model."></ucd-textblock-calendar><br>
+@Html.ItsTextBlockDateMonthFor[--]Replace[--]<ucd-textblock-date-month {0} ucdCalendar="model."></ucd-textblock-date-month><br>
+@Html.ItsTextBlockDateYearFor[--]Replace[--]<ucd-textblock-date-year {0} ucdCalendar="model."></ucd-textblock-date-year><br>
+@Html.ItsTextAreaFor[--]Replace[--]<ucd-textarea-basic {0} ucdRow="model." ucdCol="model." ucdWidth="model."></ucd-textarea-basic><br>
+@Html.ItsTextBoxFor[--]Replace[--]<ucd-textbox-basic {0} ucdName="model." ucdValue="model."></ucd-textbox-basic><br>
+@Html.PasswordFor[--]ucd-textbox-password[--]<ucd-textbox-password {0}></ucd-textbox-password><br>
+@Html.ItsHistoryTextAreaFor[--]Replace[--]<ucd-textarea-history {0} ucdRow="model." ucdCol="model." ucdHistories="model." ucdOptionLabel="model." ucdWidth="model."></ucd-textarea-history><br>
+@Html.ItsHistoryTextBoxFor[--]Replace[--]<ucd-textbox-history {0} ucdHistories="model." ucdOptionLabel="model."></ucd-textbox-history><br>
+@Html.ItsMoneyTextBoxFor[--]ucd-textbox-money[--]<ucd-textbox-money {0}></ucd-textbox-money><br>
+@Html.ItsNumberTextBoxFor[--]ucd-textbox-number[--]<ucd-textbox-number {0}></ucd-textbox-number><br>
+@Html.ItsCalendarTextBoxFor[--]Replace[--]<ucd-textbox-calendar {0} ucdCalendar="model."></ucd-textbox-calendar><br>
+@Html.ItsDateMonthSpinTextBoxFor[--]Replace[--]<ucd-textbox-spin-date-month {0} ucdCalendar="model."></ucd-textbox-spin-date-month><br>
+@Html.ItsDateYearSpinTextBoxFor[--]Replace[--]<ucd-textbox-spin-date-year {0} ucdCalendar="model."></ucd-textbox-spin-date-year><br>
+@Html.ItsTimeTextBoxFor[--]ucd-textbox-time[--]<ucd-textbox-time {0}></ucd-textbox-time><br>
+@Html.ItsCodeTextBoxFor[--]Replace[--]<ucd-textbox-code {0} ucdTextAlign="model."></ucd-textbox-code><br>
+@Html.ItsSearchTextBoxFor[--]Replace[--]<ucd-textbox-search {0} ucdTextAlign="model."></ucd-textbox-search><br>
+class="form-group"[--]Replace[--]<div class="row"><br>
+<button class="btn btn-default col-24"[--]Replace[--]<button mat-button class="col-24"<br>
+ResourcesC#[--]Resources[--]<data name="{0}" xml:space="preserve">{1}{2}</data><br>
+ValueC#[--]Resources[--]<value>{0}</value><br>
+CommentC#[--]Resources[--]<comment>{0}</comment><br>
+CommentAngular[--]Resources[--]/** {0} */<br>
+ResourcesAngular[--]Resources[--]readonly {0} = `{1}`;<br>
+SettingViewModel[--]SettingCViewModel[--]/// <summary>~/// {0}~/// </summary>~{1}public {2} {3} {{ get; set; }}<br>
+SettingViewModel[--]SettingTSViewModel[--]import {{ Injectable }} from '@angular/core';~import {{ FormControl, FormGroup, Validators }} from '@angular/forms';~import {{ IUcdProperty }} from '@ucd-ctrls/core';~import {{ ItemResourcesService }} from '../resources/item-resources.service';~import {{ AppValidators }} from '../validators/app-validators';~~/**~ * {0}~ */~export interface I{1} {{~{2}~}}~~@Injectable()~export class {1} {{~~  constructor(~    private ItemResources: ItemResourcesService~  ) {{ }}~~  readonly form = new FormGroup({{~  {3}~  }});~~  readonly model: I{1} = {{~  {4}~  }};~}}~<br>
+IndexArr[--]SettingCViewModel[--]0:Required~11:DisplayFormat~12:LengthCheckTypeFormat~13:LessThanFormat~14:GreaterThanFormat~15:LessOrEqualFormat~16:GreaterOrEqualFormat<br>
+Required[--]SettingCViewModel[--][ItsRequired()]<br>
+LengthCheckTypeFormat[--]SettingCViewModel[--][StringLength({0})]~[Range(0, {0})]~[Range(0d, {0}d)]<br>
+DisplayFormat[--]SettingCViewModel[--][Display(Name = "{0}", ResourceType = typeof(Resources.ItemResources))]<br>
+LessThanFormat[--]SettingCViewModel[--][LessThan("{0}")]<br>
+GreaterThanFormat[--]SettingCViewModel[--][GreaterThan("{0}")]<br>
+LessOrEqualFormat[--]SettingCViewModel[--][LessOrEqual("{0}")]<br>
+GreaterOrEqualFormat[--]SettingCViewModel[--][GreaterOrEqual("{0}")]<br>
+TSProperty[--]SettingTSViewModel[--]{0}: IUcdProperty;<br>
+TSForm[--]SettingTSViewModel[--]{0}: new FormControl<{1} | null>(null, [{2}]),<br>
+TSModel[--]SettingTSViewModel[--]{0}: {{~      control: this.form.controls.{1},~      propertyName: '{0}',~      dataType: '{2}',~      {3}~    }},<br>
+IndexArr[--]SettingTSViewModel[--]0:Required~11:DisplayFormat~12:LengthCheckTypeFormat~13:LessThanFormat~14:GreaterThanFormat~15:LessOrEqualFormat~16:GreaterOrEqualFormat<br>
+Required[--]SettingTSViewModel[--]Validators.required<br>
+LengthCheckTypeFormat[--]SettingTSViewModel[--]Validators.maxLength({0})~AppValidators.range(0, {0})<br>
+DisplayFormat[--]SettingTSViewModel[--]this.ItemResources.(0)<br>
+LessThanFormat[--]SettingTSViewModel[--]AppValidators.lessThan(() => (this as any).model?.{0}, () => (this as any).model?.{1})<br>
+GreaterThanFormat[--]SettingTSViewModel[--]AppValidators.greaterThan(() => (this as any).model?.{0}, () => (this as any).model?.{1})<br>
+LessOrEqualFormat[--]SettingTSViewModel[--]AppValidators.lessOrEqual(() => (this as any).model?.{0}, () => (this as any).model?.{1})<br>
+GreaterOrEqualFormat[--]SettingTSViewModel[--]AppValidators.greaterOrEqual(() => (this as any).model?.{0}, () => (this as any).model?.{1})<br>
