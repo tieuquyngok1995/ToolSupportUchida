@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ToolSupportCoding.Theme;
@@ -8,6 +9,7 @@ namespace ToolSupportCoding.View
 {
     public partial class FormAbout : Form
     {
+        private Dictionary<string, string> dicDoc = new Dictionary<string, string>();
 
         #region Load Form
         public FormAbout()
@@ -18,180 +20,10 @@ namespace ToolSupportCoding.View
         private void FormAbout_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            string lstTextDoc = "";
-            lstTextDoc += "Huong Dan Su Dung Tool." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Setting CONST" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung Setting Logical Name va Physical Name su dung tai chuc nang Get CONST." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Tao file data theo format: Key=Value." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Su dung chuc nang Import Data bang file da tao tu B1, mode Const." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the thao tac them tung dong tai muc Setting CONST." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the thao tac chinh sua va xoa record tai table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Setting Format" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung Setting Format cho cac item tai Create Iten." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Tao file data theo format: Type[--]Key[--]Value<br>." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Su dung chuc nang Import Data bang file da tao tu B1, mode Format." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the thao tac them tung dong tai muc Setting Format." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the thao tac them Setting rieng biet co cac item theo format: Setting[--]Type can setting[--] item key can setting| gia tri setting." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the tao Setting cho cac item dac biet theo format: Setting[--]Type can format[--]format|key can format|Value format su dung {-}." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Chuc nang Convert Database" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung de tach sql tu string sql." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Copy string SQL tu src paste vao input sql." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input SQL char(ten bien sql trong src vd: sql)." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Nhan button Add Param de lay cac param can thiet do vao luoi." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Input value Param vao luoi." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B5: Nhan button Convert SQL de lay cau sql da dc input param." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tool chi ho tro tach cau sql don gian, truong hop qua dai vui long copy tung phan." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co nhieu truong hop tool co the bo xot, vui long confirm lai." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Chuc nang Get Const" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung de get thong tin theo key value da duoc luu tai man hinh setting." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input logic name (ten tieng nhat)." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Bam button mui ten phai de lay physical name (id, code ...)." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - De lay logic name theo physical name thi lam nguoc lai." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Upper Case va Lower Case duoc ap dung cho physical name." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Chuc nang Convert Model" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung de tao src theo tung ngon ngu da duoc setting co comment theo ten tieng nhat." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input logic name (ten tieng nhat)." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input physical name (id, code ...)." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input type" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Doi voi Typescript dang cho phep tao src theo kieu Typescript va Observables." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Doi voi Typescript khi chon Set Para cho phep chen them ky tu vao logic name va physical name o src gen, duoc chon mode chen truoc hoac sau." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Doi voi Typescript khi chon checkbox interface se thuc hien tao ra src interface." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Doi voi HTML...." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Chuc nang Create Item" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Su dung chinh sua item html tren src input dua vao thong tin da dc setting tai main" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input code html vao phan input code." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Bam button Get Item de lay danh sach item co trong src da input." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Bam Edit de lay src da duoc chinh sua." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Checkbox Comment de xac dinh co add hay remove comment src cu hay khong" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "Chuc nang Common" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Khai Quat:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Mot so chuc nang common thuong dung." + CONST.CHAR_NEW_LINE;
 
-            lstTextDoc += "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Lay thong tin cua tung colum table trong thiet ke theo format." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input data la thong tin table co trong thiet ke, dong dau tien la ten table tu テーブル論理名 toi ten logic." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input danh sach table se su dung." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input doan text can tim kiem." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Chon format tuong ung cua doan text da input." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - " + CONST.CHAR_NEW_LINE;
+            SetDataDoc();
 
-            lstTextDoc += "    + Create JSON:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao string JSON theo format da duoc setting truoc." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input Case, Out" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input key parameter, khi nay se xuat hien key tai table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input value theo tung key vao tabl.e" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Nhan duoc chuoi json theo format voi key values da input." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Mode create obj se tao object thay vi chuoi string json." + CONST.CHAR_NEW_LINE;
-
-            lstTextDoc += "    + Create Entity:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao noi dung file Entity theo mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input noi dung thiet ke procedure vao cot SQL Procedure." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input thong tin table theo thiet ke vao cot SQL Table." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Bam button Create Enity de thuc thi tao src." + CONST.CHAR_NEW_LINE;
-
-            lstTextDoc += "    + Create File Source:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao file source theo noi dung da duoc mo ta tai thiet ke." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input ten tieng nhat cua file theo thiet ke tai cot Logical Class Name." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input ten file tai cot Physical Class Name." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Input path file tai cot Path Source Name." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B4: Bam button Create Src de thuc thi tao src." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - T.h thiet ke khong co mo ta ten Logical Name thi co the de trong" + CONST.CHAR_NEW_LINE;
-
-            lstTextDoc += "    + Create Message:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Tao message theo thong tin da duoc cung cap tai thiet ke ." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input code tai file thiet ke vao filed message code." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Input message tai file thiet ke vao filed message content." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B3: Nhan Create mess de nhan noi dung message tuong ung cua noi dung da input." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Luu y:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Co the tao src tao message theo cac tuy chon da setting" + CONST.CHAR_NEW_LINE;
-
-            lstTextDoc += "    + Create Resources:" + CONST.CHAR_NEW_LINE;
-
-            lstTextDoc += "    + Format Comment:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - Format dinh dang comment theo setting." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B1: Input noi dung src chua comment o cuoi hang sau do bam format." + CONST.CHAR_NEW_LINE;
-            lstTextDoc += "          - B2: Tu format thang hang cac coment." + CONST.CHAR_NEW_LINE;
-
-            lstDocument.Text = lstTextDoc;
-
-            // Set data version update
-            string lstTextVer = "";
-            lstTextVer += "Ver1.0" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Phien ban dau tien cho phep setting thong tin su dung cho typescript va c#." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Convert Databse tu he thong truoc đo."+ CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Convert Sekkei he thong chay tuong tu he thong cua khach hang." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Convert Model tao model theo thong tin input cua nguoi dung." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Create Addapter theo thông tin config." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE ;
-            lstTextVer += "Ver2.0" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Common noi co cac chuc nang co the su dung o nhieu du an." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Create Json giup rut ngan thoi gian tao data json." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Create Message tao message theo format." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Format Comment giup chinh src cua cac comment sau noi dung src." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Create Html theo thiet ke chi tiet." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Create Item Html theo format cua kh." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.1" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang chon ngon ngu java." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Convert Sekkei thanh Check CONST them kha năng search data const cua data đa input ." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Convert Model cho phep tao Model theo ngon ngu java." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.2" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang chon common Get Name Column." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Create Adapter thanh Create Item theo thong tin da duoc setting." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Remove chuc nang Common Create Item HTML." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.3" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang tao comment tu noi dung tieng nhat va src." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Get Name Column them xu li tao sql theo tkct." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Format Comment them chon mode comment." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.4" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang tao copy va clone file src tu src da co." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Reopen chuc nang tao comment tu thong tin da co." + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.5" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Create Item de chinh sua src html theo dinh dang moi" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "Ver2.6" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Chinh sua chuc nang Common Create File Source, tao file source theo tkct" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "    - Them moi chuc nang Common Create Entity, tao entity dua vao noi dung tkct va table" + CONST.CHAR_NEW_LINE;
-            lstTextVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
-            lstTextVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
-
-            lstTextUpdateVer.Text = lstTextVer;
+            SetDataVer();
         }
 
         private void LoadTheme()
@@ -208,5 +40,294 @@ namespace ToolSupportCoding.View
             }
         }
         #endregion
+
+        #region Event
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty;
+
+            txtDocument.Text = string.Empty;
+
+            foreach (KeyValuePair<string, string> dic in dicDoc)
+            {
+                string key = dic.Key;
+
+                if (string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    result += dic.Value + CONST.CHAR_NEW_LINE;
+                }
+                else if (key.ToUpper().Contains(txtSearch.Text.ToUpper()))
+                {
+                    result += dic.Value + CONST.CHAR_NEW_LINE;
+                }
+            }
+
+            txtDocument.Text = result;
+        }
+
+        #endregion
+
+        #region Methor
+        private void SetDataDoc()
+        {
+            txtDocument.Text += "Hướng Dẫn Sử Dụng." + CONST.CHAR_NEW_LINE;
+
+            string textDoc = string.Empty;
+            textDoc += "Setting CONST" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Thêm nội dung setting Logical và Physical vào tool." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Tạo file data theo format: Key=Value." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Sử dụng chức năng Import Data bằng file đã tạo từ trước mode Const." + CONST.CHAR_NEW_LINE;
+            textDoc += "Setting Format" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Thêm nội dung setting cho các chức năng sẽ sử dụng tại tool." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Tạo file data theo format: Type[--]Key[--]Value<br>." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Sử dụng chức năng Import Data bằng file đã tạo từ trước mode Format." + CONST.CHAR_NEW_LINE;
+            textDoc += "Lưu Ý" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Có thể search thông tin đã được lưu, thêm mới chỉnh sửa theo các button chức năng đã setting." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Có thể chỉnh sửa trực tiếp thông tin tại từng row data trên table đã setting." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Có thể xóa trực tiếp thông tin tại từng row data trên table đã setting." + CONST.CHAR_NEW_LINE;
+            textDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Setting", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "Chức năng Get SQL in Src" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Sử dụng để lấy nội dung SQL theo nội dung đã coding trong src, cho phép input nội dung parameter sử dụng trong src input." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Copy string SQL từ src paste vào ô Input SQL." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input SQL char(tên biến SQL sử dụng trong Src vd: sql, strSql ... )." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Nhấn button Add Param để lấy các parameter có trong src SQL hiển thị lên lưới Input Parameter." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B4: Input value Parameter vao luoi." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B5: Nhấn button Convert SQL để lấy kết quả SQL sau khi xử lí." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu Ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tool chỉ hỗ trợ tách các câu SQL đơn giản, trường hợp nội dung cần xử lí dài thì nên tách ra xử lí từng phần." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Vui lòng kiểm tra lại nội dung sau khi xử lí tránh sai xót." + CONST.CHAR_NEW_LINE;
+            textDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Get SQL in Src", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "Chức năng Get Const" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Sử dụng get thông tin Logical hoặc Physical theo nội dung đã được setting tại phần setting." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Logical Name hoặc Physical Name cần tìm." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Nhấn button mũi tên trái hoặc phải để lấy thông tin, trường hợp k tồn tại thì sẽ trả về giá trị đã input." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu Ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Có thể input nhiều dòng để tìm kiếm." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Upper Case và Lower Case được áp dụng cho physical name." + CONST.CHAR_NEW_LINE;
+            textDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Get Const", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "Chức năng Create Model" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Sử dụng để tạo Model theo nội dung đã được mô tả tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Logical Name (tên tiếng nhật) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Physical Came (id, code ...) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Type theo thiết kế" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu Ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Đối với Typescript đang cho phép tạo src theo kiểu Typescript và Observables." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Đối với Typescript khi chọn Set Para cho phép chèn thêm ký tự vào Logic Name và Physical Name vào nội dung Src được tạo ra, cho phép setting vị trí thêm ký tự." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Đối với Typescript khi chọn checkbox Create Interface sẽ thực hiện tạo nội dung src Interface." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Đối với Java khi chọn checkbox Create Static sẽ thực hiện tạo nội dung src Static." + CONST.CHAR_NEW_LINE;
+            textDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create Model", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "Chức năng Create View Model" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Sử dụng để tạo Src View Model theo nội dung đã được mô tả tại thiết kế, đang sử dụng cho 2 mode C# và Typescript." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Logical Name (tên tiếng nhật) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Physical Came (id, code ...) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Type theo thiết kế" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B4: Input Name Item tên item sử dụng hiển thị trên màn hình được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B5: Input Validation được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu Ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Giá trị tại Name Item và Validation phải bằng nhau." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Validation sẽ maping theo Name Item check Name Item bằng cách sử dụng common Get View Model." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tại mode Typescript cần input thêm tên Logical và Physical View Model theo thiết kế" + CONST.CHAR_NEW_LINE;
+            textDoc += "Chức năng Create HTML" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Sử dụng để tạo nội dung sr HTML theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Logical Name (tên tiếng nhật) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Physical Came (id, code ...) theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Type theo thiết kế" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B4: Input Name Item tên item sử dụng hiển thị trên màn hình được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B5: Input Validation được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu Ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Giá trị tại Name Item và Validation phải bằng nhau." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Validation sẽ maping theo Name Item check Name Item bằng cách sử dụng common Get View Model." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tại mode Typescript cần input thêm tên Logical và Physical View Model theo thiết kế" + CONST.CHAR_NEW_LINE;
+            textDoc += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create View Model", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "Chức năng Common" + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Khái Quát:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Các chức năng common được tạo để sử dụng ở nhiều trường hợp." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Common", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc = "    + Get Name Column:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tìm kiếm thông tin column trong table theo tên đã được mô tả tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Data theo nội dung mô tả tại thiết kế table, lấy thông tin từ cột Table Logical Name cho tới tên tên Logic." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input danh sách table sẽ sử dụng." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Get Name Column", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Get View Model:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Lấy thông tin Logical và Physical của item trên màn hình theo thông tin Item màn hình, Item View Model và Functional Item theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Screen Item theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Logical và Physical Name theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Functional Item và Functional Property theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Get View Model", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Get Item Resource:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Lấy thông tin Item Resource từ nội dung theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Name Item được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Control theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Resource theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Get Item Resource", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create JSON:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tạo nội dung JSON theo format đã được setting trước." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cách Dùng:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Case, Out trong trường hợp là mode Create Json." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Key Parameter, khởi tạo danh sách parameter để input value tại phần Input Value." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input value theo từng Key vao table." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Mode Create Object sẽ tạo Object thay vì chuỗi string json." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create JSON", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create Entity:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tạo nội dung File Entity theo mô tả tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input noi dung thiet ke procedure vao cot SQL Procedure." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input thong tin table theo thiet ke vao cot SQL Table." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B4: Bam button Create Enity de thuc thi tao src." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create Entity", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create File Source:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tạo file theo nội dung đã được mô tả theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input tên tiếng nhật của file sẽ được tạo theo thiết kế tại cột Logical Class Name." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input tên file tại cột Physical Class Name." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input đường dẫn file tại cột Path Source Name." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Lưu ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - T.h thiết kế không có mô tả tên Logical Name thì có thể để trống" + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create File Source", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create Message:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tạo Message theo thông tin đã được cung cấp theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Code theo thiết kế vào Message Code." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Content theo thiết kế vao Message Content." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Luu ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Có thể tạo src Message theo các tùy chọn đã Setting" + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create Message", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create Comment:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Thêm comment vào nội dung src theo format đã setting, comment sẽ thêm vào từng dòng code tương ứng." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Comment cần add vào Input Comment." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Code đã được tạo." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create Comment", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Create Resources:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Tạo nội dung Resources theo thiết kế, có thể tạo theo 2 mode Item và Message." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input Name Resources theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Input Value Resources theo thiết kế." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B3: Input Comment theo thiết kế nếu có." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Luu ý:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Có thể tạo Resources theo 2 mode C# và Angular." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Create Resources", textDoc);
+            txtDocument.Text += textDoc;
+
+            textDoc += "    + Format Comment:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - Thay đổi nội dung format của comment có trong src code." + CONST.CHAR_NEW_LINE;
+            textDoc += "    + Cach Dung:" + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B1: Input code có chứa comment." + CONST.CHAR_NEW_LINE;
+            textDoc += "          - B2: Chọn mode comment cần format." + CONST.CHAR_NEW_LINE;
+            textDoc += "*************************************************************" + CONST.CHAR_NEW_LINE;
+
+            dicDoc.Add("Format Comment", textDoc);
+            textDoc += " More update to next time ............" + CONST.CHAR_NEW_LINE;
+            txtDocument.Text += textDoc;
+        }
+
+        private void SetDataVer()
+        {
+            // Set data version update
+            string textVer = "";
+            textVer += "Ver3.0" + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng tạo ViewModel theo thiết kế chi tiết cho 2 ngôn ngữ C# và Typescript." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Chỉnh sửa chức năng Create Item thành chức năng Create HTML theo thiết kế chi tiết." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Get View Model, tạo nội dung thông tin Logical và Physical theo thiết kế chi tiết." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Get Item Resource, lấy nội dung Resource theo thông tin tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Create Entity, tạo nội dung file Entity theo thông tin tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Chỉnh sửa chức năng Common Create File Source, tạo file source theo thiết kế chi tiết." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Chỉnh sửa chức năng Common Create Resource, tạo nội dung Item Resource và Message Resource theo thiết kế chi tiết." + CONST.CHAR_NEW_LINE;
+            textVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            textVer += "Ver2.0" + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common, tạo các chức năng common có thể sử dụng cho nhiều dự án." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Get Name Column, lấy thông tin column table theo nội dung mô tả tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Create JSON, thực hiện tạo nội dung file json theo key paramater input." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Create Message, thực hiện tạo nội dung code file Message." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Common Format Comment, format nội dung code theo format." + CONST.CHAR_NEW_LINE;
+            textVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            textVer += "Ver1.0" + CONST.CHAR_NEW_LINE;
+            textVer += "    - Phiên bản đầu tiên, tạo tool hỗ trợ công việc dự án các thông tin common được setting và sử dụng linh động cho từng giai đoạn khác nhau." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Get SQL in Src, thực hiện lấy thông tin SQL từ nội dung code đã được input" + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Get CONST, lấy thông tin Logical và Physical theo nội dung đã được setting." + CONST.CHAR_NEW_LINE;
+            textVer += "    - Thêm mới chức năng Create Model, tạo nội dung model theo thông tin được mô tả tại thiết kế." + CONST.CHAR_NEW_LINE;
+            textVer += "----------------------------------------------------------------------------" + CONST.CHAR_NEW_LINE;
+            textVer += " More update to next time ............" + CONST.CHAR_NEW_LINE;
+
+            txtUpdateVer.Text = textVer;
+        }
+        #endregion
+
     }
 }

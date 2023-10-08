@@ -13,7 +13,6 @@ namespace ToolSupportCoding.View
     {
         private int isMode = 0;
 
-        private List<SekkeiModel> lstSekkei = new List<SekkeiModel>();
         private List<ItemModel> lstItem = new List<ItemModel>();
 
         private List<string> lstLogic = new List<string>();
@@ -27,10 +26,9 @@ namespace ToolSupportCoding.View
         private Dictionary<string, string> dicArrIndex = new Dictionary<string, string>();
 
         #region Load Form
-        public FormCreateViewModel(int _mode, List<SekkeiModel> _lstSekkei, List<ItemModel> _lstItem)
+        public FormCreateViewModel(int _mode, List<ItemModel> _lstItem)
         {
             isMode = _mode;
-            lstSekkei = _lstSekkei;
             lstItem = _lstItem;
 
             InitializeComponent();

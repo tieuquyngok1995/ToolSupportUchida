@@ -29,350 +29,233 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelSetting = new System.Windows.Forms.Panel();
-            this.groupBoxSetting = new System.Windows.Forms.GroupBox();
-            this.txtInputCode = new System.Windows.Forms.RichTextBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnGet = new System.Windows.Forms.Button();
-            this.panelData = new System.Windows.Forms.Panel();
-            this.groupBoxResult = new System.Windows.Forms.GroupBox();
-            this.chkComment = new System.Windows.Forms.CheckBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtRowCol = new System.Windows.Forms.RichTextBox();
+            this.lblNumRowCol = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtControl = new System.Windows.Forms.RichTextBox();
+            this.lblNumControl = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblNumResource = new System.Windows.Forms.Label();
+            this.txtResource = new System.Windows.Forms.RichTextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gridSetParam = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.act = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelResult = new System.Windows.Forms.Panel();
-            this.panelSetting.SuspendLayout();
-            this.groupBoxSetting.SuspendLayout();
-            this.panelData.SuspendLayout();
-            this.groupBoxResult.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).BeginInit();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelSetting
+            // groupBox4
             // 
-            this.panelSetting.Controls.Add(this.groupBoxSetting);
-            this.panelSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSetting.Location = new System.Drawing.Point(0, 0);
-            this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(704, 83);
-            this.panelSetting.TabIndex = 0;
+            this.groupBox4.Controls.Add(this.txtRowCol);
+            this.groupBox4.Controls.Add(this.lblNumRowCol);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(9, 1);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(166, 391);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Input Row Column";
             // 
-            // groupBoxSetting
+            // txtRowCol
             // 
-            this.groupBoxSetting.Controls.Add(this.txtInputCode);
-            this.groupBoxSetting.Controls.Add(this.btnClear);
-            this.groupBoxSetting.Controls.Add(this.btnGet);
-            this.groupBoxSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBoxSetting.Location = new System.Drawing.Point(9, 1);
-            this.groupBoxSetting.Name = "groupBoxSetting";
-            this.groupBoxSetting.Size = new System.Drawing.Size(682, 80);
-            this.groupBoxSetting.TabIndex = 0;
-            this.groupBoxSetting.TabStop = false;
-            this.groupBoxSetting.Text = "Input Code";
+            this.txtRowCol.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtRowCol.Location = new System.Drawing.Point(3, 19);
+            this.txtRowCol.Name = "txtRowCol";
+            this.txtRowCol.Size = new System.Drawing.Size(160, 338);
+            this.txtRowCol.TabIndex = 2;
+            this.txtRowCol.Text = "";
+            this.txtRowCol.TextChanged += new System.EventHandler(this.txtRowCol_TextChanged);
             // 
-            // txtInputCode
+            // lblNumRowCol
             // 
-            this.txtInputCode.Location = new System.Drawing.Point(7, 17);
-            this.txtInputCode.Name = "txtInputCode";
-            this.txtInputCode.Size = new System.Drawing.Size(567, 55);
-            this.txtInputCode.TabIndex = 18;
-            this.txtInputCode.Text = "";
+            this.lblNumRowCol.AutoSize = true;
+            this.lblNumRowCol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumRowCol.Location = new System.Drawing.Point(61, 364);
+            this.lblNumRowCol.Name = "lblNumRowCol";
+            this.lblNumRowCol.Size = new System.Drawing.Size(80, 15);
+            this.lblNumRowCol.TabIndex = 8;
+            this.lblNumRowCol.Text = "Line number:";
+            this.lblNumRowCol.Visible = false;
             // 
-            // btnClear
+            // groupBox5
             // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(580, 46);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(95, 26);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "  Clear";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnReset_Click);
+            this.groupBox5.Controls.Add(this.txtControl);
+            this.groupBox5.Controls.Add(this.lblNumControl);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(181, 1);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(166, 391);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Input Control";
             // 
-            // btnGet
+            // txtControl
             // 
-            this.btnGet.FlatAppearance.BorderSize = 0;
-            this.btnGet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGet.Image = global::ToolSupportCoding.Properties.Resources.button_create_in;
-            this.btnGet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGet.Location = new System.Drawing.Point(580, 15);
-            this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(95, 26);
-            this.btnGet.TabIndex = 9;
-            this.btnGet.Text = "  Get Item";
-            this.btnGet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGet.UseVisualStyleBackColor = true;
-            this.btnGet.Click += new System.EventHandler(this.btnGetItem_Click);
+            this.txtControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtControl.Location = new System.Drawing.Point(3, 19);
+            this.txtControl.Name = "txtControl";
+            this.txtControl.Size = new System.Drawing.Size(160, 338);
+            this.txtControl.TabIndex = 0;
+            this.txtControl.Text = "";
+            this.txtControl.TextChanged += new System.EventHandler(this.txtControl_TextChanged);
             // 
-            // panelData
+            // lblNumControl
             // 
-            this.panelData.Controls.Add(this.groupBoxResult);
-            this.panelData.Controls.Add(this.groupBox1);
-            this.panelData.Controls.Add(this.panelResult);
-            this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 83);
-            this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(704, 322);
-            this.panelData.TabIndex = 1;
+            this.lblNumControl.AutoSize = true;
+            this.lblNumControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumControl.Location = new System.Drawing.Point(61, 364);
+            this.lblNumControl.Name = "lblNumControl";
+            this.lblNumControl.Size = new System.Drawing.Size(80, 15);
+            this.lblNumControl.TabIndex = 9;
+            this.lblNumControl.Text = "Line number:";
+            this.lblNumControl.Visible = false;
             // 
-            // groupBoxResult
+            // groupBox6
             // 
-            this.groupBoxResult.Controls.Add(this.chkComment);
-            this.groupBoxResult.Controls.Add(this.btnEdit);
-            this.groupBoxResult.Controls.Add(this.lblResult);
-            this.groupBoxResult.Controls.Add(this.txtResult);
-            this.groupBoxResult.Controls.Add(this.btnCopy);
-            this.groupBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBoxResult.Location = new System.Drawing.Point(9, 160);
-            this.groupBoxResult.Name = "groupBoxResult";
-            this.groupBoxResult.Size = new System.Drawing.Size(682, 148);
-            this.groupBoxResult.TabIndex = 18;
-            this.groupBoxResult.TabStop = false;
-            this.groupBoxResult.Text = "Result";
+            this.groupBox6.Controls.Add(this.lblNumResource);
+            this.groupBox6.Controls.Add(this.txtResource);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(353, 1);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(166, 391);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Input Item Resource";
             // 
-            // chkComment
+            // lblNumResource
             // 
-            this.chkComment.AutoSize = true;
-            this.chkComment.Checked = true;
-            this.chkComment.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkComment.Location = new System.Drawing.Point(580, 17);
-            this.chkComment.Name = "chkComment";
-            this.chkComment.Size = new System.Drawing.Size(86, 21);
-            this.chkComment.TabIndex = 18;
-            this.chkComment.Text = "Comment";
-            this.chkComment.UseVisualStyleBackColor = true;
+            this.lblNumResource.AutoSize = true;
+            this.lblNumResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNumResource.Location = new System.Drawing.Point(61, 364);
+            this.lblNumResource.Name = "lblNumResource";
+            this.lblNumResource.Size = new System.Drawing.Size(80, 15);
+            this.lblNumResource.TabIndex = 10;
+            this.lblNumResource.Text = "Line number:";
+            this.lblNumResource.Visible = false;
             // 
-            // btnEdit
+            // txtResource
             // 
-            this.btnEdit.Enabled = false;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Image = global::ToolSupportCoding.Properties.Resources.button_create_out;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(580, 52);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(95, 28);
-            this.btnEdit.TabIndex = 16;
-            this.btnEdit.Text = "  Edit";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.txtResource.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResource.Location = new System.Drawing.Point(3, 19);
+            this.txtResource.Name = "txtResource";
+            this.txtResource.Size = new System.Drawing.Size(160, 338);
+            this.txtResource.TabIndex = 0;
+            this.txtResource.Text = "";
+            this.txtResource.TextChanged += new System.EventHandler(this.txtResource_TextChanged);
             // 
-            // lblResult
+            // groupBox7
             // 
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(580, 114);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(95, 30);
-            this.lblResult.TabIndex = 12;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblResult.Visible = false;
+            this.groupBox7.Controls.Add(this.btnCreate);
+            this.groupBox7.Controls.Add(this.btnCopy);
+            this.groupBox7.Controls.Add(this.btnClear);
+            this.groupBox7.Controls.Add(this.txtResult);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(525, 1);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(166, 391);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Result";
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(7, 17);
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(567, 123);
-            this.txtResult.TabIndex = 17;
+            this.txtResult.Size = new System.Drawing.Size(160, 338);
+            this.txtResult.TabIndex = 0;
             this.txtResult.Text = "";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Enabled = false;
+            this.btnCreate.FlatAppearance.BorderSize = 0;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreate.Location = new System.Drawing.Point(4, 360);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(96, 26);
+            this.btnCreate.TabIndex = 10;
+            this.btnCreate.Text = "  Create";
+            this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCopy
             // 
             this.btnCopy.Enabled = false;
             this.btnCopy.FlatAppearance.BorderSize = 0;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(580, 87);
+            this.btnCopy.Location = new System.Drawing.Point(103, 360);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(95, 28);
-            this.btnCopy.TabIndex = 10;
-            this.btnCopy.Text = "  Copy";
+            this.btnCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnCopy.TabIndex = 11;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
-            // groupBox1
+            // btnClear
             // 
-            this.groupBox1.Controls.Add(this.gridSetParam);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(9, -2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(682, 163);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "List Item";
-            // 
-            // gridSetParam
-            // 
-            this.gridSetParam.AllowUserToAddRows = false;
-            this.gridSetParam.AllowUserToDeleteRows = false;
-            this.gridSetParam.AllowUserToResizeColumns = false;
-            this.gridSetParam.AllowUserToResizeRows = false;
-            this.gridSetParam.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.gridSetParam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridSetParam.CausesValidation = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSetParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridSetParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSetParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNo,
-            this.colKey,
-            this.colValue,
-            this.act,
-            this.index,
-            this.rowCount});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSetParam.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridSetParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSetParam.EnableHeadersVisualStyles = false;
-            this.gridSetParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gridSetParam.Location = new System.Drawing.Point(3, 19);
-            this.gridSetParam.MultiSelect = false;
-            this.gridSetParam.Name = "gridSetParam";
-            this.gridSetParam.RowHeadersVisible = false;
-            this.gridSetParam.RowHeadersWidth = 25;
-            this.gridSetParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridSetParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridSetParam.Size = new System.Drawing.Size(676, 141);
-            this.gridSetParam.TabIndex = 1;
-            this.gridSetParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridSetParam_CurrentCellDirtyStateChanged);
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colNo.HeaderText = "Line.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 40;
-            // 
-            // colKey
-            // 
-            this.colKey.HeaderText = "Name Item";
-            this.colKey.Name = "colKey";
-            this.colKey.ReadOnly = true;
-            this.colKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colKey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colKey.Width = 215;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 340;
-            // 
-            // act
-            // 
-            this.act.HeaderText = "Action";
-            this.act.Name = "act";
-            this.act.Width = 63;
-            // 
-            // index
-            // 
-            this.index.HeaderText = "Note";
-            this.index.Name = "index";
-            this.index.Visible = false;
-            // 
-            // rowCount
-            // 
-            this.rowCount.HeaderText = "Row Count";
-            this.rowCount.Name = "rowCount";
-            this.rowCount.Visible = false;
-            // 
-            // panelResult
-            // 
-            this.panelResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelResult.Location = new System.Drawing.Point(0, 164);
-            this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(704, 158);
-            this.panelResult.TabIndex = 1;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnClear.Location = new System.Drawing.Point(134, 360);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(28, 26);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // FormCreateHTML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
-            this.Controls.Add(this.panelData);
-            this.Controls.Add(this.panelSetting);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox7);
             this.Name = "FormCreateHTML";
             this.Text = "Tool Support: Create HTML";
             this.Load += new System.EventHandler(this.FormCreateAdapter_Load);
-            this.panelSetting.ResumeLayout(false);
-            this.groupBoxSetting.ResumeLayout(false);
-            this.panelData.ResumeLayout(false);
-            this.groupBoxResult.ResumeLayout(false);
-            this.groupBoxResult.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridSetParam)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelSetting;
-        private System.Windows.Forms.GroupBox groupBoxSetting;
-        private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.Panel panelResult;
-        private System.Windows.Forms.Button btnGet;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView gridSetParam;
-        private System.Windows.Forms.Button btnCopy;
-        private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.Button btnEdit;
+
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RichTextBox txtRowCol;
+        private System.Windows.Forms.Label lblNumRowCol;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RichTextBox txtControl;
+        private System.Windows.Forms.Label lblNumControl;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label lblNumResource;
+        private System.Windows.Forms.RichTextBox txtResource;
+        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox txtResult;
-        private System.Windows.Forms.RichTextBox txtInputCode;
-        private System.Windows.Forms.GroupBox groupBoxResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn act;
-        private System.Windows.Forms.DataGridViewTextBoxColumn index;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rowCount;
-        private System.Windows.Forms.CheckBox chkComment;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnClear;
     }
 }

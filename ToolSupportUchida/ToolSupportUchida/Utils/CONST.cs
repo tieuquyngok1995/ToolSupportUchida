@@ -208,18 +208,23 @@ namespace ToolSupportCoding.Utils
 
         // Const string setting
         public const string STRING_SETTING_C_VIEW_MODEL = "SettingCViewModel";
+
         public const string STRING_SETTING_TS_VIEW_MODEL = "SettingTSViewModel";
+        public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
+        public const string STRING_SETTING_TS_FORM = "TSForm";
+        public const string STRING_SETTING_TS_MODEL = "TSModel";
+
+        public const string STRING_SETTING_HTML = "SettingHTML";
+        public const string STRING_SETTING_HTML_ROW = "ucd-row";
+        public const string STRING_SETTING_HTML_ADD_ROW = "--";
+        public const string STRING_SETTING_HTML_COL = "ucd-col";
+
         public const string STRING_SETTING_VIEW_MODEL = "SettingViewModel";
         public const string STRING_SETTING_INDEX_ARR = "IndexArr";
         public const string STRING_SETTING_CHECK_TYPE = "CheckType";
         public const string STRING_SETTING_DEFAULT = "default";
         public const string STRING_SETTING_FORMAT = "Format";
         public const string STRING_SETTING_DISPLAY_FORMAT = "DisplayFormat";
-
-        public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
-        public const string STRING_SETTING_TS_FORM = "TSForm";
-        public const string STRING_SETTING_TS_MODEL = "TSModel";
-
         public const string STRING_SETTING_UCD_LABEL = "ucd-label";
         #endregion
 

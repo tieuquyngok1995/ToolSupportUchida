@@ -198,7 +198,7 @@ namespace ToolSupportCoding
             this.btnCreateItem.Size = new System.Drawing.Size(220, 60);
             this.btnCreateItem.TabIndex = 2;
             this.btnCreateItem.TabStop = false;
-            this.btnCreateItem.Text = "  Create Item";
+            this.btnCreateItem.Text = "  Create HTML";
             this.btnCreateItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreateItem.UseVisualStyleBackColor = true;

@@ -392,9 +392,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label9.Location = new System.Drawing.Point(6, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 15);
+            this.label9.Size = new System.Drawing.Size(84, 15);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Logiccal Name";
+            this.label9.Text = "Logical Name";
             // 
             // txtClassLogic
             // 
