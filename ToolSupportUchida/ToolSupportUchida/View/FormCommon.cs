@@ -33,6 +33,11 @@ namespace ToolSupportCoding.View
         private Dictionary<string, string> dicViewModel = new Dictionary<string, string>();
         private Dictionary<string, string> dicFunction = new Dictionary<string, string>();
 
+        // List get Item Resource
+        private List<string> lstGetIResItem = new List<string>();
+        private List<string> lstGetIResControl = new List<string>();
+        private List<string> lstGetIRes = new List<string>();
+
         // List create JSON
         private string[] lstKey;
 
@@ -765,7 +770,7 @@ namespace ToolSupportCoding.View
                 dicFunction.Add(key, value);
             }
 
-            for(int i = 0; i < lstGetVMLogic.Count; i++)
+            for (int i = 0; i < lstGetVMLogic.Count; i++)
             {
                 string key = lstGetVMLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                 string value = lstGetVMPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
@@ -775,19 +780,20 @@ namespace ToolSupportCoding.View
                 dicViewModel.Add(key, value);
             }
 
-            for (int i =0; i < lstGetVMItem.Count; i++)
+            for (int i = 0; i < lstGetVMItem.Count; i++)
             {
                 string item = lstGetVMItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
 
                 string keyVM = string.Empty;
-                if(dicFunction.TryGetValue(item, out keyVM))
+                if (dicFunction.TryGetValue(item, out keyVM))
                 {
                     string valueVM = string.Empty;
-                    if(dicViewModel.TryGetValue(keyVM, out valueVM))
+                    if (dicViewModel.TryGetValue(keyVM, out valueVM))
                     {
                         txtGetVMResultLogical.Text += keyVM + CONST.STRING_NEW_LINE;
                         txtGetVMResultPhysical.Text += valueVM + CONST.STRING_NEW_LINE;
-                    } else
+                    }
+                    else
                     {
                         txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
                         txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
@@ -856,6 +862,147 @@ namespace ToolSupportCoding.View
             btGetVMGenSrc.Enabled = false;
             btGetVMCopyLogic.Enabled = false;
             btGetVMCopyPhysical.Enabled = false;
+        }
+
+        #endregion
+
+        #region Tab Get Item Resource
+
+
+        private void txtGetIResItem_TextChanged(object sender, EventArgs e)
+        {
+            lstGetIResItem = txtGetIResItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstGetIResItem.Count > 0)
+            {
+                lblGetIResItem.Visible = true;
+                lblGetIResItem.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetIResItem.Count);
+            }
+            else
+            {
+                lblGetIResItem.Visible = false;
+            }
+
+            if (lstGetIResItem.Count > 0 && lstGetIResItem.Count == lstGetIResControl.Count && lstGetIResItem.Count == lstGetIRes.Count)
+            {
+                btGetIRes.Enabled = true;
+            }
+            else
+            {
+                btGetIRes.Enabled = false;
+                btGetIResCopy.Enabled = false;
+            }
+        }
+
+        private void txtGetIResControl_TextChanged(object sender, EventArgs e)
+        {
+            lstGetIResControl = txtGetIResControl.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstGetIResControl.Count > 0)
+            {
+                lblGetIResControl.Visible = true;
+                lblGetIResControl.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetIResControl.Count);
+            }
+            else
+            {
+                lblGetIResControl.Visible = false;
+            }
+
+            if (lstGetIResItem.Count > 0 && lstGetIResItem.Count == lstGetIResControl.Count && lstGetIResItem.Count == lstGetIRes.Count)
+            {
+                btGetIRes.Enabled = true;
+            }
+            else
+            {
+                btGetIRes.Enabled = false;
+                btGetIResCopy.Enabled = false;
+            }
+        }
+
+        private void txtGetIRes_TextChanged(object sender, EventArgs e)
+        {
+            lstGetIRes = txtGetIRes.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstGetIRes.Count > 0)
+            {
+                lblGetIRes.Visible = true;
+                lblGetIRes.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetIRes.Count);
+            }
+            else
+            {
+                lblGetIRes.Visible = false;
+            }
+
+            if (lstGetIResItem.Count > 0 && lstGetIResItem.Count == lstGetIResControl.Count && lstGetIResItem.Count == lstGetIRes.Count)
+            {
+                btGetIRes.Enabled = true;
+            }
+            else
+            {
+                btGetIRes.Enabled = false;
+                btGetIResCopy.Enabled = false;
+            }
+        }
+
+        private void btGetIRes_Click(object sender, EventArgs e)
+        {
+            txtGetIResResult.Text = string.Empty;
+
+            string oldItem = string.Empty;
+            string oldResource = string.Empty;
+
+            for (int idx = 0; idx < lstGetIResItem.Count; idx++)
+            {
+                string control = lstGetIResControl[idx].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string item = lstGetIResItem[idx].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                if (control.Equals(CONST.STRING_SETTING_UCD_LABEL))
+                {
+                    oldItem = item;
+                    oldResource = lstGetIRes[idx].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                    txtGetIResResult.Text += oldResource + CONST.STRING_NEW_LINE;
+                }
+                else
+                {
+                    if (item.Contains(oldItem))
+                    {
+                        txtGetIResResult.Text += oldResource + CONST.STRING_NEW_LINE;
+                    } else
+                    {
+                        txtGetIResResult.Text += CONST.STRING_NEW_LINE;
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtGetIResResult.Text))
+            {
+                btGetIResCopy.Enabled = true;
+            } else
+            {
+                btGetIResCopy.Enabled = false;
+            }
+        }
+
+        private void btGetIResCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGetIResResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtGetIResResult.Text);
+        }
+
+        private void btGetIResClear_Click(object sender, EventArgs e)
+        {
+            txtGetIResControl.Text = string.Empty;
+            txtGetIRes.Text = string.Empty;
+
+            txtGetIResResult.Text = string.Empty;
+            btGetIRes.Enabled = false;
+            btGetIResCopy.Enabled = false;
         }
 
         #endregion

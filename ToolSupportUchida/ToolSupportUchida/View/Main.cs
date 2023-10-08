@@ -203,11 +203,11 @@ namespace ToolSupportCoding
 
         private void Main_Shown(object sender, EventArgs e)
         {
-           // MessageBox.Show("\t\tThông báo\r\n" +
-                //"Tool chỉ hỗ trợ không phải chính xác tuyệt đối.\r\n" +
-                //"Mọi chức năng vui lòng kiểm tra lại sau khi sử dụng.\r\n" +
-                //"Trong trường hợp phát sinh lỗi vui lòng liên hệ team 3.2 để được hỗ trợ.\r\n" +
-                //"\t\t\t\tTrân trọng!!!", CONST.TEXT_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("\t\tThông báo\r\n" +
+                "Tool chỉ hỗ trợ không phải chính xác tuyệt đối.\r\n" +
+                "Mọi chức năng vui lòng kiểm tra lại sau khi sử dụng.\r\n" +
+                "Trong trường hợp phát sinh lỗi vui lòng liên hệ team 3.2 để được hỗ trợ.\r\n" +
+                "\t\t\t\tTrân trọng!!!", CONST.TEXT_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void rbC_CheckedChanged(object sender, EventArgs e)
@@ -673,7 +673,7 @@ namespace ToolSupportCoding
 
         private void btnCreateItem_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateItem(lstItem), sender);
+            OpenChildForm(new FormCreateHTML(lstItem), sender);
         }
 
         private void btnCommon_Click(object sender, EventArgs e)

@@ -112,11 +112,11 @@
     <Compile Include="View\FormCreateModel.Designer.cs">
       <DependentUpon>FormCreateModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormCreateItem.cs">
+    <Compile Include="View\FormCreateHTML.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormCreateItem.Designer.cs">
-      <DependentUpon>FormCreateItem.cs</DependentUpon>
+    <Compile Include="View\FormCreateHTML.Designer.cs">
+      <DependentUpon>FormCreateHTML.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="View\FormGetCONST.resx">
       <DependentUpon>FormGetCONST.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormCreateItem.resx">
-      <DependentUpon>FormCreateItem.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormCreateHTML.resx">
+      <DependentUpon>FormCreateHTML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -45,6 +45,7 @@ namespace ToolSupportCoding.View
             else
             {
                 rbModeTypescript.Checked = true;
+                grbClassName.Visible = true;
             }
             txtLogic.Focus();
 
@@ -90,14 +91,23 @@ namespace ToolSupportCoding.View
         private void rbModeC_CheckedChanged(object sender, EventArgs e)
         {
             getDataSetting();
+
+            grbClassName.Visible = false;
         }
 
         private void rbModeTypescript_CheckedChanged(object sender, EventArgs e)
         {
             getDataSetting();
+
+            grbClassName.Visible = true;
         }
 
-        private void txtPhysicalNameVM_TextChanged(object sender, EventArgs e)
+        private void txtClassLogic_TextChanged(object sender, EventArgs e)
+        {
+            btnCreate.Enabled = isEnableButtonCreate();
+        }
+
+        private void txtClassPhysical_TextChanged(object sender, EventArgs e)
         {
             btnCreate.Enabled = isEnableButtonCreate();
         }
@@ -207,7 +217,19 @@ namespace ToolSupportCoding.View
             txtResult.Text = string.Empty;
             string tmpVM, logic, physical, type, annotation;
             string iViewModel = string.Empty;
+            string fViewModel = string.Empty;
+            string fProperty = string.Empty;
             string mViewModel = string.Empty;
+            string mProperty = string.Empty;
+
+            if (rbModeC.Checked)
+            {
+                tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
+            }
+            else
+            {
+                tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
+            }
 
             for (int i = 0; i < lstLogic.Count; i++)
             {
@@ -217,21 +239,31 @@ namespace ToolSupportCoding.View
 
                 if (rbModeC.Checked)
                 {
-                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
                     annotation = getAnnotationsC(logic, type);
                     txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
+
+                    txtResult.Text += CONST.STRING_ADD_LINE;
+                    txtResult.Text = CUtils.removeLastLineBlank(txtResult.Text);
                 }
                 else
                 {
-                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
-                    iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), logic) + CONST.STRING_ADD_LINE;
+                    type = CUtils.castTypeCToTs(type);
 
+                    iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
 
-                    annotation = getAnnotationsTS(logic, type);
+                    getAnnotationsTS(logic, physical, type, out fProperty, out mProperty);
+                    fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
+
+                    mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
                 }
+            }
 
+            if (rbModeTypescript.Checked)
+            {
+                fViewModel = fViewModel.LastIndexOf(CONST.CHAR_COMMA) != -1 ? fViewModel.TrimEnd(CONST.CHAR_COMMA) : fViewModel;
+                mViewModel = CUtils.removeLastLineBlank(mViewModel);
 
-                txtResult.Text += CONST.STRING_ADD_LINE;
+                txtResult.Text += string.Format(tmpVM, txtClassLogic.Text, txtClassPhysical.Text, iViewModel, fViewModel, mViewModel).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
             }
 
             if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
@@ -324,6 +356,11 @@ namespace ToolSupportCoding.View
 
         private bool isEnableButtonCreate()
         {
+            if (rbModeTypescript.Checked)
+            {
+                if (string.IsNullOrEmpty(txtClassLogic.Text) || string.IsNullOrEmpty(txtClassPhysical.Text)) return false;
+            }
+
             if (lstLogic.Count == 0 || lstPhysical.Count == 0 || lstType.Count == 0) return false;
 
             if (lstLogic.Count != lstPhysical.Count || lstLogic.Count != lstType.Count) return false;
@@ -372,6 +409,8 @@ namespace ToolSupportCoding.View
                         {
                             if (annotation.Contains(CONST.STRING_SETTING_CHECK_TYPE))
                             {
+                                if (type.Equals(CONST.C_TYPE_DATE_TIME)) continue;
+
                                 string[] arr = tmp.Split(CONST.CHAR_TILDE);
                                 if (type.Equals(CONST.C_TYPE_STRING))
                                 {
@@ -379,11 +418,11 @@ namespace ToolSupportCoding.View
                                 }
                                 else if (type.Equals(CONST.C_TYPE_DECIMAL))
                                 {
-                                    result += string.Format(arr[2], validation) + CONST.STRING_ADD_LINE;
+                                    result += string.Format(arr[2], CUtils.GetRangeNumber(validation)) + CONST.STRING_ADD_LINE;
                                 }
                                 else
                                 {
-                                    result += string.Format(arr[1], validation) + CONST.STRING_ADD_LINE;
+                                    result += string.Format(arr[1], CUtils.GetRangeNumber(validation)) + CONST.STRING_ADD_LINE;
                                 }
                             }
                             else if (annotation.Equals(CONST.STRING_SETTING_DISPLAY_FORMAT))
@@ -413,19 +452,82 @@ namespace ToolSupportCoding.View
             return result;
         }
 
-        private string createTsForm(string mode)
+        private string createTsForm(string mode, string strLogic)
         {
             string tmp = getTemplateTS(CONST.STRING_SETTING_TS_FORM);
 
+
             return "";
         }
 
-        private string getAnnotationsTS(string strLogic, string type)
+        private void getAnnotationsTS(string strLogic, string physical, string type, out string fProperty, out string mProperty)
         {
-            
-            return "";
+            string fVM = string.Empty;
+            string mVM = string.Empty;
+
+            string[] arrValidation;
+            if (dicValidation.TryGetValue(strLogic, out arrValidation))
+            {
+                for (int i = 0; i < arrValidation.Length; i++)
+                {
+                    string validation = arrValidation[i];
+                    if (string.IsNullOrEmpty(validation)) continue;
+
+                    string annotation;
+                    if (dicArrIndex.TryGetValue(i.ToString(), out annotation))
+                    {
+                        string tmp;
+                        if (dicSetting.TryGetValue(annotation, out tmp))
+                        {
+                            if (annotation.Contains(CONST.STRING_SETTING_CHECK_TYPE))
+                            {
+                                if (type.Equals(CONST.TS_TYPE_DATE)) continue;
+
+                                string[] arr = tmp.Split(CONST.CHAR_TILDE);
+                                if (type.Equals(CONST.C_TYPE_STRING))
+                                {
+                                    fVM += string.Format(arr[0], validation) + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                                    mVM += string.Format(arr[2], validation) + CONST.STRING_ADD_LINE;
+                                }
+                                else
+                                {
+                                    fVM += string.Format(arr[1], CUtils.GetRangeNumber(validation)) + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                                    mVM += string.Format(arr[3], CUtils.GetRangeNumber(validation)) + CONST.STRING_ADD_LINE;
+                                }
+                            }
+                            else if (annotation.Equals(CONST.STRING_SETTING_DISPLAY_FORMAT))
+                            {
+                                mVM += string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
+                            }
+                            else if (annotation.Contains(CONST.STRING_SETTING_FORMAT))
+                            {
+                                string[] arr = tmp.Split(CONST.CHAR_TILDE);
+                                fVM += string.Format(arr[0], physical, validation) + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                                mVM += string.Format(arr[1], physical, validation) + CONST.STRING_ADD_LINE;
+                            }
+                            else
+                            {
+                                string[] arr = tmp.Split(CONST.CHAR_TILDE);
+                                fVM += arr[0] + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                                mVM += arr[1] + CONST.STRING_ADD_LINE;
+                            }
+                        }
+                    }
+                }
+            }
+
+            fProperty = CUtils.removeLastCommaSpace(fVM);
+            if (!string.IsNullOrEmpty(mVM))
+            {
+                mVM = CONST.CHAR_COMMA + CONST.STRING_ADD_LINE + mVM;
+
+                int index = mVM.LastIndexOf(CONST.CHAR_COMMA);
+                mProperty = index != -1 ? mVM.Remove(index, 1) : mVM;
+            } else
+            {
+                mProperty = CONST.STRING_ADD_LINE;
+            }
         }
         #endregion
-
     }
 }

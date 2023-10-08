@@ -496,7 +496,7 @@ namespace ToolSupportCoding.Utils
             path = path.Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
 
             if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
-            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length-1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
 
             StringBuilder sb = new StringBuilder();
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
@@ -521,7 +521,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
             sb.Append("}}").Append(CONST.STRING_ADD_LINE);
 
-           return string.Format(sb.ToString(), path, logicName, physycalName);
+            return string.Format(sb.ToString(), path, logicName, physycalName);
         }
 
         public static string CreTmlFileServiceC(string logicName, string physycalName, string path)
@@ -751,6 +751,23 @@ namespace ToolSupportCoding.Utils
             return result;
         }
 
+        public static string GetRangeNumber(string input)
+        {
+            string result = string.Empty;
+
+            if (string.IsNullOrEmpty(input)) return result;
+
+            int length;
+            if (int.TryParse(input, out length))
+            {
+                while (result.Length < length)
+                {
+                    result += "9";
+                }
+            }
+            return result;
+        }
+
         public static string FirstCharToLowerCase(string str)
         {
             if (string.IsNullOrEmpty(str) || char.IsLower(str[0]))
@@ -776,6 +793,37 @@ namespace ToolSupportCoding.Utils
                 str = removeLastLineBlank(str);
             }
             return str;
+        }
+
+        public static string removeLastCommaSpace(string str)
+        {
+            int lastIndex = str.LastIndexOf(CONST.STRING_COMMA + CONST.STRING_SPACE);
+            if (lastIndex != -1 && lastIndex == str.Length - 2)
+            {
+                str = str.Substring(0, lastIndex);
+                str = removeLastCommaSpace(str);
+            }
+            return str;
+        }
+
+        public static string castTypeCToTs(string type)
+        {
+            switch (type)
+            {
+                case CONST.C_TYPE_BOOL:
+                    return CONST.TS_TYPE_BOOLEAN;
+                case CONST.C_TYPE_DATE_TIME:
+                    return CONST.TS_TYPE_DATE;
+                case CONST.C_TYPE_SHORT:
+                case CONST.C_TYPE_INT:
+                case CONST.C_TYPE_LONG:
+                case CONST.C_TYPE_DECIMAL:
+                    return CONST.TS_TYPE_NUMBER;
+                case CONST.C_TYPE_STRING:
+                    return CONST.C_TYPE_STRING;
+                default:
+                    return CONST.TS_TYPE_ANY;
+            }
         }
         #endregion
     }

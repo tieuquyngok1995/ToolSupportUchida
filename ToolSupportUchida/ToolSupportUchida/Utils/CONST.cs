@@ -219,6 +219,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
         public const string STRING_SETTING_TS_FORM = "TSForm";
         public const string STRING_SETTING_TS_MODEL = "TSModel";
+
+        public const string STRING_SETTING_UCD_LABEL = "ucd-label";
         #endregion
 
         #region Text
