@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -52,7 +52,6 @@ namespace ToolSupportCoding.View
             this.gridColumnData = new System.Windows.Forms.DataGridView();
             this.txColumnSearch = new System.Windows.Forms.TextBox();
             this.cbColumnTable = new System.Windows.Forms.ComboBox();
-            this.lblColumnResult = new System.Windows.Forms.Label();
             this.tabPageGetViewModel = new System.Windows.Forms.TabPage();
             this.btGetVMGenSrc = new System.Windows.Forms.Button();
             this.btGetVMCopyPhysical = new System.Windows.Forms.Button();
@@ -77,6 +76,21 @@ namespace ToolSupportCoding.View
             this.txtGetVMResultLogical = new System.Windows.Forms.RichTextBox();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
             this.txtGetVMResultPhysical = new System.Windows.Forms.RichTextBox();
+            this.tabPageGetItemRes = new System.Windows.Forms.TabPage();
+            this.groupBox42 = new System.Windows.Forms.GroupBox();
+            this.txtGetIResItem = new System.Windows.Forms.RichTextBox();
+            this.lblGetIResItem = new System.Windows.Forms.Label();
+            this.groupBox39 = new System.Windows.Forms.GroupBox();
+            this.txtGetIResControl = new System.Windows.Forms.RichTextBox();
+            this.lblGetIResControl = new System.Windows.Forms.Label();
+            this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.txtGetIRes = new System.Windows.Forms.RichTextBox();
+            this.lblGetIRes = new System.Windows.Forms.Label();
+            this.groupBox41 = new System.Windows.Forms.GroupBox();
+            this.btGetIRes = new System.Windows.Forms.Button();
+            this.txtGetIResResult = new System.Windows.Forms.RichTextBox();
+            this.btGetIResClear = new System.Windows.Forms.Button();
+            this.btGetIResCopy = new System.Windows.Forms.Button();
             this.tabPageCreateJson = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtInputKey = new System.Windows.Forms.RichTextBox();
@@ -89,14 +103,10 @@ namespace ToolSupportCoding.View
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
             this.btnCopy = new System.Windows.Forms.Button();
             this.tabPageCreateEnity = new System.Windows.Forms.TabPage();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
@@ -252,21 +262,9 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tabPageGetItemRes = new System.Windows.Forms.TabPage();
-            this.groupBox39 = new System.Windows.Forms.GroupBox();
-            this.txtGetIResControl = new System.Windows.Forms.RichTextBox();
-            this.lblGetIResControl = new System.Windows.Forms.Label();
-            this.groupBox40 = new System.Windows.Forms.GroupBox();
-            this.txtGetIRes = new System.Windows.Forms.RichTextBox();
-            this.lblGetIRes = new System.Windows.Forms.Label();
-            this.groupBox41 = new System.Windows.Forms.GroupBox();
-            this.txtGetIResResult = new System.Windows.Forms.RichTextBox();
-            this.btGetIResClear = new System.Windows.Forms.Button();
-            this.btGetIResCopy = new System.Windows.Forms.Button();
-            this.btGetIRes = new System.Windows.Forms.Button();
-            this.groupBox42 = new System.Windows.Forms.GroupBox();
-            this.txtGetIResItem = new System.Windows.Forms.RichTextBox();
-            this.lblGetIResItem = new System.Windows.Forms.Label();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlCommon.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -280,6 +278,11 @@ namespace ToolSupportCoding.View
             this.groupBox36.SuspendLayout();
             this.groupBox37.SuspendLayout();
             this.groupBox38.SuspendLayout();
+            this.tabPageGetItemRes.SuspendLayout();
+            this.groupBox42.SuspendLayout();
+            this.groupBox39.SuspendLayout();
+            this.groupBox40.SuspendLayout();
+            this.groupBox41.SuspendLayout();
             this.tabPageCreateJson.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -321,11 +324,6 @@ namespace ToolSupportCoding.View
             this.tabPageFormatCode.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.tabPageGetItemRes.SuspendLayout();
-            this.groupBox39.SuspendLayout();
-            this.groupBox40.SuspendLayout();
-            this.groupBox41.SuspendLayout();
-            this.groupBox42.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlCommon
@@ -350,7 +348,7 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Name = "tabControlCommon";
             this.tabControlCommon.Padding = new System.Drawing.Point(3, 3);
             this.tabControlCommon.SelectedIndex = 0;
-            this.tabControlCommon.Size = new System.Drawing.Size(704, 405);
+            this.tabControlCommon.Size = new System.Drawing.Size(704, 374);
             this.tabControlCommon.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlCommon.TabIndex = 999;
             this.tabControlCommon.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlCommon_DrawItem);
@@ -363,7 +361,7 @@ namespace ToolSupportCoding.View
             this.tabPageGetColumn.Location = new System.Drawing.Point(124, 4);
             this.tabPageGetColumn.Name = "tabPageGetColumn";
             this.tabPageGetColumn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 397);
+            this.tabPageGetColumn.Size = new System.Drawing.Size(576, 366);
             this.tabPageGetColumn.TabIndex = 6;
             this.tabPageGetColumn.Text = "Get Name Column";
             this.tabPageGetColumn.UseVisualStyleBackColor = true;
@@ -372,9 +370,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox5.Controls.Add(this.txColumnData);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox5.Location = new System.Drawing.Point(6, -4);
+            this.groupBox5.Location = new System.Drawing.Point(6, -2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(563, 78);
+            this.groupBox5.Size = new System.Drawing.Size(560, 72);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input Data";
@@ -385,7 +383,7 @@ namespace ToolSupportCoding.View
             this.txColumnData.Location = new System.Drawing.Point(3, 19);
             this.txColumnData.Multiline = true;
             this.txColumnData.Name = "txColumnData";
-            this.txColumnData.Size = new System.Drawing.Size(557, 56);
+            this.txColumnData.Size = new System.Drawing.Size(554, 50);
             this.txColumnData.TabIndex = 1;
             this.txColumnData.Tag = "";
             this.txColumnData.TextChanged += new System.EventHandler(this.txColumnData_TextChanged);
@@ -406,22 +404,21 @@ namespace ToolSupportCoding.View
             this.groupBox11.Controls.Add(this.gridColumnData);
             this.groupBox11.Controls.Add(this.txColumnSearch);
             this.groupBox11.Controls.Add(this.cbColumnTable);
-            this.groupBox11.Controls.Add(this.lblColumnResult);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox11.Location = new System.Drawing.Point(6, 73);
+            this.groupBox11.Location = new System.Drawing.Point(6, 67);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(560, 314);
+            this.groupBox11.Size = new System.Drawing.Size(560, 290);
             this.groupBox11.TabIndex = 2;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Search";
             // 
             // txColumnResult
             // 
-            this.txColumnResult.Location = new System.Drawing.Point(214, 265);
+            this.txColumnResult.Location = new System.Drawing.Point(219, 246);
             this.txColumnResult.Multiline = true;
             this.txColumnResult.Name = "txColumnResult";
             this.txColumnResult.ReadOnly = true;
-            this.txColumnResult.Size = new System.Drawing.Size(115, 42);
+            this.txColumnResult.Size = new System.Drawing.Size(210, 39);
             this.txColumnResult.TabIndex = 10;
             // 
             // btColumnCopy
@@ -431,9 +428,9 @@ namespace ToolSupportCoding.View
             this.btColumnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btColumnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btColumnCopy.Location = new System.Drawing.Point(335, 265);
+            this.btColumnCopy.Location = new System.Drawing.Point(432, 261);
             this.btColumnCopy.Name = "btColumnCopy";
-            this.btColumnCopy.Size = new System.Drawing.Size(66, 26);
+            this.btColumnCopy.Size = new System.Drawing.Size(66, 24);
             this.btColumnCopy.TabIndex = 11;
             this.btColumnCopy.Text = "Copy";
             this.btColumnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -442,10 +439,10 @@ namespace ToolSupportCoding.View
             // 
             // txColumnDoc
             // 
-            this.txColumnDoc.Location = new System.Drawing.Point(6, 265);
+            this.txColumnDoc.Location = new System.Drawing.Point(6, 246);
             this.txColumnDoc.Multiline = true;
             this.txColumnDoc.Name = "txColumnDoc";
-            this.txColumnDoc.Size = new System.Drawing.Size(202, 42);
+            this.txColumnDoc.Size = new System.Drawing.Size(210, 39);
             this.txColumnDoc.TabIndex = 9;
             this.txColumnDoc.TextChanged += new System.EventHandler(this.txColumnDoc_TextChanged);
             // 
@@ -453,7 +450,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbColumnFormat.AutoSize = true;
             this.rbColumnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbColumnFormat.Location = new System.Drawing.Point(6, 47);
+            this.rbColumnFormat.Location = new System.Drawing.Point(10, 46);
             this.rbColumnFormat.Name = "rbColumnFormat";
             this.rbColumnFormat.Size = new System.Drawing.Size(64, 19);
             this.rbColumnFormat.TabIndex = 5;
@@ -466,7 +463,7 @@ namespace ToolSupportCoding.View
             this.rbColumnTable.AutoSize = true;
             this.rbColumnTable.Checked = true;
             this.rbColumnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbColumnTable.Location = new System.Drawing.Point(6, 20);
+            this.rbColumnTable.Location = new System.Drawing.Point(10, 18);
             this.rbColumnTable.Name = "rbColumnTable";
             this.rbColumnTable.Size = new System.Drawing.Size(56, 19);
             this.rbColumnTable.TabIndex = 2;
@@ -482,11 +479,10 @@ namespace ToolSupportCoding.View
             this.btColumnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnReset.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btColumnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btColumnReset.Location = new System.Drawing.Point(407, 265);
+            this.btColumnReset.Location = new System.Drawing.Point(501, 261);
             this.btColumnReset.Name = "btColumnReset";
-            this.btColumnReset.Size = new System.Drawing.Size(75, 26);
+            this.btColumnReset.Size = new System.Drawing.Size(26, 24);
             this.btColumnReset.TabIndex = 12;
-            this.btColumnReset.Text = "Reset";
             this.btColumnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btColumnReset.UseVisualStyleBackColor = true;
             this.btColumnReset.Click += new System.EventHandler(this.btColumnReset_Click);
@@ -497,11 +493,10 @@ namespace ToolSupportCoding.View
             this.btColumnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btColumnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btColumnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btColumnClear.Location = new System.Drawing.Point(488, 265);
+            this.btColumnClear.Location = new System.Drawing.Point(530, 261);
             this.btColumnClear.Name = "btColumnClear";
-            this.btColumnClear.Size = new System.Drawing.Size(66, 26);
+            this.btColumnClear.Size = new System.Drawing.Size(26, 24);
             this.btColumnClear.TabIndex = 13;
-            this.btColumnClear.Text = "Clear";
             this.btColumnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btColumnClear.UseVisualStyleBackColor = true;
             this.btColumnClear.Click += new System.EventHandler(this.btColumnClear_Click);
@@ -510,7 +505,7 @@ namespace ToolSupportCoding.View
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(223, 51);
+            this.label5.Location = new System.Drawing.Point(223, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 8;
@@ -519,17 +514,18 @@ namespace ToolSupportCoding.View
             // cbColumnFormat
             // 
             this.cbColumnFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColumnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.cbColumnFormat.FormattingEnabled = true;
-            this.cbColumnFormat.ItemHeight = 16;
+            this.cbColumnFormat.ItemHeight = 15;
             this.cbColumnFormat.Items.AddRange(new object[] {
             "[-].[-]",
             "【-】.[-]",
             "【-】.【-】",
             "[-/-]",
             "【-/-】"});
-            this.cbColumnFormat.Location = new System.Drawing.Point(79, 48);
+            this.cbColumnFormat.Location = new System.Drawing.Point(81, 44);
             this.cbColumnFormat.Name = "cbColumnFormat";
-            this.cbColumnFormat.Size = new System.Drawing.Size(129, 24);
+            this.cbColumnFormat.Size = new System.Drawing.Size(129, 23);
             this.cbColumnFormat.TabIndex = 0;
             this.cbColumnFormat.SelectedIndexChanged += new System.EventHandler(this.cbColumnFormat_SelectedIndexChanged);
             // 
@@ -545,9 +541,9 @@ namespace ToolSupportCoding.View
             // 
             // txColumnInput
             // 
-            this.txColumnInput.Location = new System.Drawing.Point(322, 46);
+            this.txColumnInput.Location = new System.Drawing.Point(308, 44);
             this.txColumnInput.Name = "txColumnInput";
-            this.txColumnInput.Size = new System.Drawing.Size(232, 23);
+            this.txColumnInput.Size = new System.Drawing.Size(245, 23);
             this.txColumnInput.TabIndex = 7;
             this.txColumnInput.Click += new System.EventHandler(this.txColumnInput_Click);
             this.txColumnInput.TextChanged += new System.EventHandler(this.txColumnInput_TextChanged);
@@ -561,27 +557,27 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gridColumnData.Location = new System.Drawing.Point(6, 81);
+            this.gridColumnData.Location = new System.Drawing.Point(6, 76);
             this.gridColumnData.MultiSelect = false;
             this.gridColumnData.Name = "gridColumnData";
             this.gridColumnData.ReadOnly = true;
@@ -589,14 +585,14 @@ namespace ToolSupportCoding.View
             this.gridColumnData.RowHeadersWidth = 25;
             this.gridColumnData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridColumnData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridColumnData.Size = new System.Drawing.Size(548, 178);
+            this.gridColumnData.Size = new System.Drawing.Size(548, 164);
             this.gridColumnData.TabIndex = 8;
             // 
             // txColumnSearch
             // 
-            this.txColumnSearch.Location = new System.Drawing.Point(322, 15);
+            this.txColumnSearch.Location = new System.Drawing.Point(308, 15);
             this.txColumnSearch.Name = "txColumnSearch";
-            this.txColumnSearch.Size = new System.Drawing.Size(232, 23);
+            this.txColumnSearch.Size = new System.Drawing.Size(245, 23);
             this.txColumnSearch.TabIndex = 4;
             this.txColumnSearch.Click += new System.EventHandler(this.txColumnSearch_Click);
             this.txColumnSearch.TextChanged += new System.EventHandler(this.txColumnSearch_TextChanged);
@@ -604,25 +600,14 @@ namespace ToolSupportCoding.View
             // cbColumnTable
             // 
             this.cbColumnTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColumnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.cbColumnTable.FormattingEnabled = true;
-            this.cbColumnTable.ItemHeight = 16;
-            this.cbColumnTable.Location = new System.Drawing.Point(79, 15);
+            this.cbColumnTable.ItemHeight = 15;
+            this.cbColumnTable.Location = new System.Drawing.Point(81, 15);
             this.cbColumnTable.Name = "cbColumnTable";
-            this.cbColumnTable.Size = new System.Drawing.Size(129, 24);
+            this.cbColumnTable.Size = new System.Drawing.Size(129, 23);
             this.cbColumnTable.TabIndex = 4;
             this.cbColumnTable.SelectedIndexChanged += new System.EventHandler(this.cbColumnTable_SelectedIndexChanged);
-            // 
-            // lblColumnResult
-            // 
-            this.lblColumnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColumnResult.ForeColor = System.Drawing.Color.Red;
-            this.lblColumnResult.Location = new System.Drawing.Point(427, 285);
-            this.lblColumnResult.Name = "lblColumnResult";
-            this.lblColumnResult.Size = new System.Drawing.Size(140, 28);
-            this.lblColumnResult.TabIndex = 25;
-            this.lblColumnResult.Text = "Copy to Clipboard is done!";
-            this.lblColumnResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblColumnResult.Visible = false;
             // 
             // tabPageGetViewModel
             // 
@@ -640,7 +625,7 @@ namespace ToolSupportCoding.View
             this.tabPageGetViewModel.Location = new System.Drawing.Point(124, 4);
             this.tabPageGetViewModel.Name = "tabPageGetViewModel";
             this.tabPageGetViewModel.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGetViewModel.Size = new System.Drawing.Size(576, 397);
+            this.tabPageGetViewModel.Size = new System.Drawing.Size(576, 366);
             this.tabPageGetViewModel.TabIndex = 12;
             this.tabPageGetViewModel.Text = "Get View Model";
             this.tabPageGetViewModel.UseVisualStyleBackColor = true;
@@ -653,11 +638,11 @@ namespace ToolSupportCoding.View
             this.btGetVMGenSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btGetVMGenSrc.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btGetVMGenSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetVMGenSrc.Location = new System.Drawing.Point(384, 296);
+            this.btGetVMGenSrc.Location = new System.Drawing.Point(384, 332);
             this.btGetVMGenSrc.Name = "btGetVMGenSrc";
-            this.btGetVMGenSrc.Size = new System.Drawing.Size(149, 26);
+            this.btGetVMGenSrc.Size = new System.Drawing.Size(84, 24);
             this.btGetVMGenSrc.TabIndex = 116;
-            this.btGetVMGenSrc.Text = "  Gen Resource";
+            this.btGetVMGenSrc.Text = "  Create";
             this.btGetVMGenSrc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btGetVMGenSrc.UseVisualStyleBackColor = true;
             this.btGetVMGenSrc.Click += new System.EventHandler(this.btGetVMGenSrc_Click);
@@ -670,11 +655,10 @@ namespace ToolSupportCoding.View
             this.btGetVMCopyPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btGetVMCopyPhysical.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btGetVMCopyPhysical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetVMCopyPhysical.Location = new System.Drawing.Point(384, 361);
+            this.btGetVMCopyPhysical.Location = new System.Drawing.Point(506, 332);
             this.btGetVMCopyPhysical.Name = "btGetVMCopyPhysical";
-            this.btGetVMCopyPhysical.Size = new System.Drawing.Size(120, 26);
+            this.btGetVMCopyPhysical.Size = new System.Drawing.Size(26, 24);
             this.btGetVMCopyPhysical.TabIndex = 115;
-            this.btGetVMCopyPhysical.Text = "  Copy Physical";
             this.btGetVMCopyPhysical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btGetVMCopyPhysical.UseVisualStyleBackColor = true;
             this.btGetVMCopyPhysical.Click += new System.EventHandler(this.btGetVMCopyPhysical_Click);
@@ -687,11 +671,10 @@ namespace ToolSupportCoding.View
             this.btGetVMCopyLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btGetVMCopyLogic.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btGetVMCopyLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetVMCopyLogic.Location = new System.Drawing.Point(384, 328);
+            this.btGetVMCopyLogic.Location = new System.Drawing.Point(474, 332);
             this.btGetVMCopyLogic.Name = "btGetVMCopyLogic";
-            this.btGetVMCopyLogic.Size = new System.Drawing.Size(120, 26);
+            this.btGetVMCopyLogic.Size = new System.Drawing.Size(26, 24);
             this.btGetVMCopyLogic.TabIndex = 113;
-            this.btGetVMCopyLogic.Text = "  Copy Logical";
             this.btGetVMCopyLogic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btGetVMCopyLogic.UseVisualStyleBackColor = true;
             this.btGetVMCopyLogic.Click += new System.EventHandler(this.btGetVMCopyLogic_Click);
@@ -702,9 +685,9 @@ namespace ToolSupportCoding.View
             this.btGetVMClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGetVMClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btGetVMClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btGetVMClear.Location = new System.Drawing.Point(539, 296);
+            this.btGetVMClear.Location = new System.Drawing.Point(538, 332);
             this.btGetVMClear.Name = "btGetVMClear";
-            this.btGetVMClear.Size = new System.Drawing.Size(28, 26);
+            this.btGetVMClear.Size = new System.Drawing.Size(28, 24);
             this.btGetVMClear.TabIndex = 114;
             this.btGetVMClear.UseVisualStyleBackColor = true;
             this.btGetVMClear.Click += new System.EventHandler(this.btGetVMClear_Click);
@@ -716,7 +699,7 @@ namespace ToolSupportCoding.View
             this.groupBox34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox34.Location = new System.Drawing.Point(384, -2);
             this.groupBox34.Name = "groupBox34";
-            this.groupBox34.Size = new System.Drawing.Size(182, 133);
+            this.groupBox34.Size = new System.Drawing.Size(182, 123);
             this.groupBox34.TabIndex = 3;
             this.groupBox34.TabStop = false;
             this.groupBox34.Text = "Input Physical View Model";
@@ -726,7 +709,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMPhysical.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGetVMPhysical.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMPhysical.Name = "txtGetVMPhysical";
-            this.txtGetVMPhysical.Size = new System.Drawing.Size(176, 79);
+            this.txtGetVMPhysical.Size = new System.Drawing.Size(176, 73);
             this.txtGetVMPhysical.TabIndex = 11;
             this.txtGetVMPhysical.Text = "";
             this.txtGetVMPhysical.TextChanged += new System.EventHandler(this.txtGetVMPhysical_TextChanged);
@@ -735,7 +718,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblGetVMPhysical.AutoSize = true;
             this.lblGetVMPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetVMPhysical.Location = new System.Drawing.Point(80, 106);
+            this.lblGetVMPhysical.Location = new System.Drawing.Point(77, 98);
             this.lblGetVMPhysical.Name = "lblGetVMPhysical";
             this.lblGetVMPhysical.Size = new System.Drawing.Size(80, 15);
             this.lblGetVMPhysical.TabIndex = 10;
@@ -749,7 +732,7 @@ namespace ToolSupportCoding.View
             this.groupBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox28.Location = new System.Drawing.Point(195, -2);
             this.groupBox28.Name = "groupBox28";
-            this.groupBox28.Size = new System.Drawing.Size(183, 133);
+            this.groupBox28.Size = new System.Drawing.Size(183, 123);
             this.groupBox28.TabIndex = 2;
             this.groupBox28.TabStop = false;
             this.groupBox28.Text = "Input Logical View Model";
@@ -759,7 +742,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMLogic.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGetVMLogic.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMLogic.Name = "txtGetVMLogic";
-            this.txtGetVMLogic.Size = new System.Drawing.Size(177, 79);
+            this.txtGetVMLogic.Size = new System.Drawing.Size(177, 73);
             this.txtGetVMLogic.TabIndex = 11;
             this.txtGetVMLogic.Text = "";
             this.txtGetVMLogic.TextChanged += new System.EventHandler(this.txtGetVMLogic_TextChanged);
@@ -768,7 +751,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblGetVMLogic.AutoSize = true;
             this.lblGetVMLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetVMLogic.Location = new System.Drawing.Point(80, 106);
+            this.lblGetVMLogic.Location = new System.Drawing.Point(78, 98);
             this.lblGetVMLogic.Name = "lblGetVMLogic";
             this.lblGetVMLogic.Size = new System.Drawing.Size(80, 15);
             this.lblGetVMLogic.TabIndex = 10;
@@ -782,7 +765,7 @@ namespace ToolSupportCoding.View
             this.groupBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox33.Location = new System.Drawing.Point(6, -2);
             this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(183, 263);
+            this.groupBox33.Size = new System.Drawing.Size(183, 243);
             this.groupBox33.TabIndex = 1;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "Input Screen Item";
@@ -792,7 +775,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMSItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGetVMSItem.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMSItem.Name = "txtGetVMSItem";
-            this.txtGetVMSItem.Size = new System.Drawing.Size(177, 209);
+            this.txtGetVMSItem.Size = new System.Drawing.Size(177, 193);
             this.txtGetVMSItem.TabIndex = 11;
             this.txtGetVMSItem.Text = "";
             this.txtGetVMSItem.TextChanged += new System.EventHandler(this.txtGetVMSItem_TextChanged);
@@ -801,7 +784,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblGetVMSItem.AutoSize = true;
             this.lblGetVMSItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetVMSItem.Location = new System.Drawing.Point(80, 236);
+            this.lblGetVMSItem.Location = new System.Drawing.Point(78, 218);
             this.lblGetVMSItem.Name = "lblGetVMSItem";
             this.lblGetVMSItem.Size = new System.Drawing.Size(80, 15);
             this.lblGetVMSItem.TabIndex = 10;
@@ -813,9 +796,9 @@ namespace ToolSupportCoding.View
             this.groupBox35.Controls.Add(this.txtGetVMFunPro);
             this.groupBox35.Controls.Add(this.lblGetVMFunPro);
             this.groupBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox35.Location = new System.Drawing.Point(384, 128);
+            this.groupBox35.Location = new System.Drawing.Point(384, 118);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(183, 133);
+            this.groupBox35.Size = new System.Drawing.Size(183, 123);
             this.groupBox35.TabIndex = 5;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "Input Functional Property";
@@ -825,7 +808,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMFunPro.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGetVMFunPro.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMFunPro.Name = "txtGetVMFunPro";
-            this.txtGetVMFunPro.Size = new System.Drawing.Size(177, 79);
+            this.txtGetVMFunPro.Size = new System.Drawing.Size(177, 73);
             this.txtGetVMFunPro.TabIndex = 11;
             this.txtGetVMFunPro.Text = "";
             this.txtGetVMFunPro.TextChanged += new System.EventHandler(this.txtGetVMFunPro_TextChanged);
@@ -834,7 +817,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblGetVMFunPro.AutoSize = true;
             this.lblGetVMFunPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetVMFunPro.Location = new System.Drawing.Point(80, 106);
+            this.lblGetVMFunPro.Location = new System.Drawing.Point(78, 98);
             this.lblGetVMFunPro.Name = "lblGetVMFunPro";
             this.lblGetVMFunPro.Size = new System.Drawing.Size(80, 15);
             this.lblGetVMFunPro.TabIndex = 10;
@@ -846,9 +829,9 @@ namespace ToolSupportCoding.View
             this.groupBox36.Controls.Add(this.txtGetVMFunItem);
             this.groupBox36.Controls.Add(this.lblGetVMFunItem);
             this.groupBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox36.Location = new System.Drawing.Point(195, 128);
+            this.groupBox36.Location = new System.Drawing.Point(195, 118);
             this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(183, 133);
+            this.groupBox36.Size = new System.Drawing.Size(183, 123);
             this.groupBox36.TabIndex = 4;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "Input Functional Item";
@@ -858,7 +841,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMFunItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGetVMFunItem.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMFunItem.Name = "txtGetVMFunItem";
-            this.txtGetVMFunItem.Size = new System.Drawing.Size(177, 79);
+            this.txtGetVMFunItem.Size = new System.Drawing.Size(177, 73);
             this.txtGetVMFunItem.TabIndex = 11;
             this.txtGetVMFunItem.Text = "";
             this.txtGetVMFunItem.TextChanged += new System.EventHandler(this.txtGetVMFunItem_TextChanged);
@@ -867,7 +850,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblGetVMFunItem.AutoSize = true;
             this.lblGetVMFunItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetVMFunItem.Location = new System.Drawing.Point(80, 106);
+            this.lblGetVMFunItem.Location = new System.Drawing.Point(78, 98);
             this.lblGetVMFunItem.Name = "lblGetVMFunItem";
             this.lblGetVMFunItem.Size = new System.Drawing.Size(80, 15);
             this.lblGetVMFunItem.TabIndex = 10;
@@ -878,9 +861,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox37.Controls.Add(this.txtGetVMResultLogical);
             this.groupBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox37.Location = new System.Drawing.Point(6, 258);
+            this.groupBox37.Location = new System.Drawing.Point(6, 238);
             this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(183, 129);
+            this.groupBox37.Size = new System.Drawing.Size(183, 119);
             this.groupBox37.TabIndex = 110;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "Result Logical";
@@ -891,7 +874,7 @@ namespace ToolSupportCoding.View
             this.txtGetVMResultLogical.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMResultLogical.Name = "txtGetVMResultLogical";
             this.txtGetVMResultLogical.ReadOnly = true;
-            this.txtGetVMResultLogical.Size = new System.Drawing.Size(177, 107);
+            this.txtGetVMResultLogical.Size = new System.Drawing.Size(177, 97);
             this.txtGetVMResultLogical.TabIndex = 11;
             this.txtGetVMResultLogical.Text = "";
             // 
@@ -899,9 +882,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox38.Controls.Add(this.txtGetVMResultPhysical);
             this.groupBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox38.Location = new System.Drawing.Point(195, 258);
+            this.groupBox38.Location = new System.Drawing.Point(195, 238);
             this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(183, 129);
+            this.groupBox38.Size = new System.Drawing.Size(183, 119);
             this.groupBox38.TabIndex = 111;
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "Result Physical";
@@ -912,9 +895,192 @@ namespace ToolSupportCoding.View
             this.txtGetVMResultPhysical.Location = new System.Drawing.Point(3, 19);
             this.txtGetVMResultPhysical.Name = "txtGetVMResultPhysical";
             this.txtGetVMResultPhysical.ReadOnly = true;
-            this.txtGetVMResultPhysical.Size = new System.Drawing.Size(177, 107);
+            this.txtGetVMResultPhysical.Size = new System.Drawing.Size(177, 97);
             this.txtGetVMResultPhysical.TabIndex = 11;
             this.txtGetVMResultPhysical.Text = "";
+            // 
+            // tabPageGetItemRes
+            // 
+            this.tabPageGetItemRes.Controls.Add(this.groupBox42);
+            this.tabPageGetItemRes.Controls.Add(this.groupBox39);
+            this.tabPageGetItemRes.Controls.Add(this.groupBox40);
+            this.tabPageGetItemRes.Controls.Add(this.groupBox41);
+            this.tabPageGetItemRes.Location = new System.Drawing.Point(124, 4);
+            this.tabPageGetItemRes.Name = "tabPageGetItemRes";
+            this.tabPageGetItemRes.Size = new System.Drawing.Size(576, 366);
+            this.tabPageGetItemRes.TabIndex = 13;
+            this.tabPageGetItemRes.Text = "Get Item Resource";
+            this.tabPageGetItemRes.UseVisualStyleBackColor = true;
+            // 
+            // groupBox42
+            // 
+            this.groupBox42.Controls.Add(this.txtGetIResItem);
+            this.groupBox42.Controls.Add(this.lblGetIResItem);
+            this.groupBox42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox42.Location = new System.Drawing.Point(6, -2);
+            this.groupBox42.Name = "groupBox42";
+            this.groupBox42.Size = new System.Drawing.Size(128, 359);
+            this.groupBox42.TabIndex = 12;
+            this.groupBox42.TabStop = false;
+            this.groupBox42.Text = "Input Name Item";
+            // 
+            // txtGetIResItem
+            // 
+            this.txtGetIResItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetIResItem.Location = new System.Drawing.Point(3, 19);
+            this.txtGetIResItem.Name = "txtGetIResItem";
+            this.txtGetIResItem.Size = new System.Drawing.Size(122, 309);
+            this.txtGetIResItem.TabIndex = 11;
+            this.txtGetIResItem.Text = "";
+            this.txtGetIResItem.TextChanged += new System.EventHandler(this.txtGetIResItem_TextChanged);
+            // 
+            // lblGetIResItem
+            // 
+            this.lblGetIResItem.AutoSize = true;
+            this.lblGetIResItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetIResItem.Location = new System.Drawing.Point(23, 334);
+            this.lblGetIResItem.Name = "lblGetIResItem";
+            this.lblGetIResItem.Size = new System.Drawing.Size(80, 15);
+            this.lblGetIResItem.TabIndex = 10;
+            this.lblGetIResItem.Text = "Line number:";
+            this.lblGetIResItem.Visible = false;
+            // 
+            // groupBox39
+            // 
+            this.groupBox39.Controls.Add(this.txtGetIResControl);
+            this.groupBox39.Controls.Add(this.lblGetIResControl);
+            this.groupBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox39.Location = new System.Drawing.Point(140, -2);
+            this.groupBox39.Name = "groupBox39";
+            this.groupBox39.Size = new System.Drawing.Size(128, 359);
+            this.groupBox39.TabIndex = 5;
+            this.groupBox39.TabStop = false;
+            this.groupBox39.Text = "Input Control";
+            // 
+            // txtGetIResControl
+            // 
+            this.txtGetIResControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetIResControl.Location = new System.Drawing.Point(3, 19);
+            this.txtGetIResControl.Name = "txtGetIResControl";
+            this.txtGetIResControl.Size = new System.Drawing.Size(122, 309);
+            this.txtGetIResControl.TabIndex = 11;
+            this.txtGetIResControl.Text = "";
+            this.txtGetIResControl.TextChanged += new System.EventHandler(this.txtGetIResControl_TextChanged);
+            // 
+            // lblGetIResControl
+            // 
+            this.lblGetIResControl.AutoSize = true;
+            this.lblGetIResControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetIResControl.Location = new System.Drawing.Point(23, 334);
+            this.lblGetIResControl.Name = "lblGetIResControl";
+            this.lblGetIResControl.Size = new System.Drawing.Size(80, 15);
+            this.lblGetIResControl.TabIndex = 10;
+            this.lblGetIResControl.Text = "Line number:";
+            this.lblGetIResControl.Visible = false;
+            // 
+            // groupBox40
+            // 
+            this.groupBox40.Controls.Add(this.txtGetIRes);
+            this.groupBox40.Controls.Add(this.lblGetIRes);
+            this.groupBox40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox40.Location = new System.Drawing.Point(274, -2);
+            this.groupBox40.Name = "groupBox40";
+            this.groupBox40.Size = new System.Drawing.Size(128, 359);
+            this.groupBox40.TabIndex = 6;
+            this.groupBox40.TabStop = false;
+            this.groupBox40.Text = "Input Resouce";
+            // 
+            // txtGetIRes
+            // 
+            this.txtGetIRes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetIRes.Location = new System.Drawing.Point(3, 19);
+            this.txtGetIRes.Name = "txtGetIRes";
+            this.txtGetIRes.Size = new System.Drawing.Size(122, 309);
+            this.txtGetIRes.TabIndex = 12;
+            this.txtGetIRes.Text = "";
+            this.txtGetIRes.TextChanged += new System.EventHandler(this.txtGetIRes_TextChanged);
+            // 
+            // lblGetIRes
+            // 
+            this.lblGetIRes.AutoSize = true;
+            this.lblGetIRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblGetIRes.Location = new System.Drawing.Point(23, 334);
+            this.lblGetIRes.Name = "lblGetIRes";
+            this.lblGetIRes.Size = new System.Drawing.Size(80, 15);
+            this.lblGetIRes.TabIndex = 11;
+            this.lblGetIRes.Text = "Line number:";
+            this.lblGetIRes.Visible = false;
+            // 
+            // groupBox41
+            // 
+            this.groupBox41.Controls.Add(this.btGetIRes);
+            this.groupBox41.Controls.Add(this.txtGetIResResult);
+            this.groupBox41.Controls.Add(this.btGetIResClear);
+            this.groupBox41.Controls.Add(this.btGetIResCopy);
+            this.groupBox41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox41.Location = new System.Drawing.Point(408, -2);
+            this.groupBox41.Name = "groupBox41";
+            this.groupBox41.Size = new System.Drawing.Size(158, 359);
+            this.groupBox41.TabIndex = 7;
+            this.groupBox41.TabStop = false;
+            this.groupBox41.Text = "Result";
+            // 
+            // btGetIRes
+            // 
+            this.btGetIRes.FlatAppearance.BorderSize = 0;
+            this.btGetIRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetIRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetIRes.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btGetIRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetIRes.Location = new System.Drawing.Point(4, 330);
+            this.btGetIRes.Name = "btGetIRes";
+            this.btGetIRes.Size = new System.Drawing.Size(96, 24);
+            this.btGetIRes.TabIndex = 17;
+            this.btGetIRes.Text = "Get Result";
+            this.btGetIRes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetIRes.UseVisualStyleBackColor = true;
+            this.btGetIRes.Click += new System.EventHandler(this.btGetIRes_Click);
+            // 
+            // txtGetIResResult
+            // 
+            this.txtGetIResResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtGetIResResult.Location = new System.Drawing.Point(3, 19);
+            this.txtGetIResResult.Name = "txtGetIResResult";
+            this.txtGetIResResult.ReadOnly = true;
+            this.txtGetIResResult.Size = new System.Drawing.Size(152, 309);
+            this.txtGetIResResult.TabIndex = 13;
+            this.txtGetIResResult.Text = "";
+            // 
+            // btGetIResClear
+            // 
+            this.btGetIResClear.FlatAppearance.BorderSize = 0;
+            this.btGetIResClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetIResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetIResClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btGetIResClear.Location = new System.Drawing.Point(130, 330);
+            this.btGetIResClear.Name = "btGetIResClear";
+            this.btGetIResClear.Size = new System.Drawing.Size(24, 24);
+            this.btGetIResClear.TabIndex = 12;
+            this.btGetIResClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetIResClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetIResClear.UseVisualStyleBackColor = true;
+            this.btGetIResClear.Click += new System.EventHandler(this.btGetIResClear_Click);
+            // 
+            // btGetIResCopy
+            // 
+            this.btGetIResCopy.Enabled = false;
+            this.btGetIResCopy.FlatAppearance.BorderSize = 0;
+            this.btGetIResCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetIResCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetIResCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btGetIResCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetIResCopy.Location = new System.Drawing.Point(103, 330);
+            this.btGetIResCopy.Name = "btGetIResCopy";
+            this.btGetIResCopy.Size = new System.Drawing.Size(24, 24);
+            this.btGetIResCopy.TabIndex = 11;
+            this.btGetIResCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetIResCopy.UseVisualStyleBackColor = true;
+            this.btGetIResCopy.Click += new System.EventHandler(this.btGetIResCopy_Click);
             // 
             // tabPageCreateJson
             // 
@@ -926,7 +1092,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateJson.Name = "tabPageCreateJson";
             this.tabPageCreateJson.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageCreateJson.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPageCreateJson.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateJson.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateJson.TabIndex = 0;
             this.tabPageCreateJson.Text = "Create JSON";
             this.tabPageCreateJson.UseVisualStyleBackColor = true;
@@ -935,9 +1101,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox3.Controls.Add(this.txtInputKey);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(324, -2);
+            this.groupBox3.Location = new System.Drawing.Point(390, -2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(242, 102);
+            this.groupBox3.Size = new System.Drawing.Size(176, 86);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Input Key Paramerter";
@@ -947,7 +1113,7 @@ namespace ToolSupportCoding.View
             this.txtInputKey.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInputKey.Location = new System.Drawing.Point(3, 19);
             this.txtInputKey.Name = "txtInputKey";
-            this.txtInputKey.Size = new System.Drawing.Size(236, 80);
+            this.txtInputKey.Size = new System.Drawing.Size(170, 64);
             this.txtInputKey.TabIndex = 4;
             this.txtInputKey.Text = "";
             this.txtInputKey.TextChanged += new System.EventHandler(this.txtInputKey_TextChanged);
@@ -963,7 +1129,7 @@ namespace ToolSupportCoding.View
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, -2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 102);
+            this.groupBox1.Size = new System.Drawing.Size(378, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Case Out";
@@ -973,7 +1139,7 @@ namespace ToolSupportCoding.View
             this.rdbCreateJson.AutoSize = true;
             this.rdbCreateJson.Checked = true;
             this.rdbCreateJson.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbCreateJson.Location = new System.Drawing.Point(210, 28);
+            this.rdbCreateJson.Location = new System.Drawing.Point(212, 23);
             this.rdbCreateJson.Name = "rdbCreateJson";
             this.rdbCreateJson.Size = new System.Drawing.Size(90, 19);
             this.rdbCreateJson.TabIndex = 1;
@@ -985,7 +1151,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdbCreateObj.AutoSize = true;
             this.rdbCreateObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbCreateObj.Location = new System.Drawing.Point(210, 65);
+            this.rdbCreateObj.Location = new System.Drawing.Point(212, 56);
             this.rdbCreateObj.Name = "rdbCreateObj";
             this.rdbCreateObj.Size = new System.Drawing.Size(83, 19);
             this.rdbCreateObj.TabIndex = 3;
@@ -994,7 +1160,7 @@ namespace ToolSupportCoding.View
             // 
             // txtOut
             // 
-            this.txtOut.Location = new System.Drawing.Point(83, 64);
+            this.txtOut.Location = new System.Drawing.Point(83, 55);
             this.txtOut.Name = "txtOut";
             this.txtOut.Size = new System.Drawing.Size(120, 23);
             this.txtOut.TabIndex = 2;
@@ -1002,7 +1168,7 @@ namespace ToolSupportCoding.View
             // 
             // txtCase
             // 
-            this.txtCase.Location = new System.Drawing.Point(83, 28);
+            this.txtCase.Location = new System.Drawing.Point(83, 23);
             this.txtCase.Name = "txtCase";
             this.txtCase.Size = new System.Drawing.Size(120, 23);
             this.txtCase.TabIndex = 0;
@@ -1012,7 +1178,7 @@ namespace ToolSupportCoding.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label2.Location = new System.Drawing.Point(6, 67);
+            this.label2.Location = new System.Drawing.Point(6, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 1;
@@ -1022,7 +1188,7 @@ namespace ToolSupportCoding.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Location = new System.Drawing.Point(6, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 0;
@@ -1032,9 +1198,9 @@ namespace ToolSupportCoding.View
             // 
             this.groupBox2.Controls.Add(this.gridInputParam);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 96);
+            this.groupBox2.Location = new System.Drawing.Point(6, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 290);
+            this.groupBox2.Size = new System.Drawing.Size(378, 276);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input Value";
@@ -1053,14 +1219,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1071,49 +1237,20 @@ namespace ToolSupportCoding.View
             this.gridInputParam.RowHeadersWidth = 25;
             this.gridInputParam.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridInputParam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridInputParam.Size = new System.Drawing.Size(306, 268);
+            this.gridInputParam.Size = new System.Drawing.Size(372, 254);
             this.gridInputParam.TabIndex = 5;
             this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle11;
-            this.colNo.HeaderText = "No.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 35;
-            // 
-            // colParam
-            // 
-            this.colParam.HeaderText = "Param";
-            this.colParam.Name = "colParam";
-            this.colParam.ReadOnly = true;
-            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colParam.Width = 113;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 140;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtResult);
             this.groupBox4.Controls.Add(this.btnClear);
             this.groupBox4.Controls.Add(this.btnCreate);
-            this.groupBox4.Controls.Add(this.lblResult);
             this.groupBox4.Controls.Add(this.btnCopy);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(324, 96);
+            this.groupBox4.Location = new System.Drawing.Point(390, 81);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(242, 290);
+            this.groupBox4.Size = new System.Drawing.Size(176, 276);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Result";
@@ -1124,7 +1261,7 @@ namespace ToolSupportCoding.View
             this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(236, 234);
+            this.txtResult.Size = new System.Drawing.Size(170, 226);
             this.txtResult.TabIndex = 9;
             this.txtResult.Text = "";
             // 
@@ -1135,9 +1272,9 @@ namespace ToolSupportCoding.View
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(106, 258);
+            this.btnClear.Location = new System.Drawing.Point(146, 247);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 26);
+            this.btnClear.Size = new System.Drawing.Size(26, 24);
             this.btnClear.TabIndex = 8;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -1150,26 +1287,14 @@ namespace ToolSupportCoding.View
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(3, 258);
+            this.btnCreate.Location = new System.Drawing.Point(4, 247);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(67, 26);
+            this.btnCreate.Size = new System.Drawing.Size(110, 24);
             this.btnCreate.TabIndex = 6;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "  Create Json";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // lblResult
-            // 
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(127, 258);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(114, 28);
-            this.lblResult.TabIndex = 12;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblResult.Visible = false;
             // 
             // btnCopy
             // 
@@ -1179,9 +1304,9 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(76, 258);
+            this.btnCopy.Location = new System.Drawing.Point(117, 247);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(24, 26);
+            this.btnCopy.Size = new System.Drawing.Size(26, 24);
             this.btnCopy.TabIndex = 7;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -1196,7 +1321,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateEnity.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateEnity.Name = "tabPageCreateEnity";
             this.tabPageCreateEnity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateEnity.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateEnity.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateEnity.TabIndex = 10;
             this.tabPageCreateEnity.Text = "Create Entity";
             this.tabPageCreateEnity.UseVisualStyleBackColor = true;
@@ -1208,7 +1333,7 @@ namespace ToolSupportCoding.View
             this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox23.Location = new System.Drawing.Point(6, -2);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(178, 50);
+            this.groupBox23.Size = new System.Drawing.Size(178, 46);
             this.groupBox23.TabIndex = 102;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Comment Mode";
@@ -1217,7 +1342,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrEntityLine.AutoSize = true;
             this.rbCrEntityLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityLine.Location = new System.Drawing.Point(66, 22);
+            this.rbCrEntityLine.Location = new System.Drawing.Point(66, 20);
             this.rbCrEntityLine.Name = "rbCrEntityLine";
             this.rbCrEntityLine.Size = new System.Drawing.Size(49, 19);
             this.rbCrEntityLine.TabIndex = 99;
@@ -1229,7 +1354,7 @@ namespace ToolSupportCoding.View
             this.rbCrEntityBlock.AutoSize = true;
             this.rbCrEntityBlock.Checked = true;
             this.rbCrEntityBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityBlock.Location = new System.Drawing.Point(7, 22);
+            this.rbCrEntityBlock.Location = new System.Drawing.Point(7, 20);
             this.rbCrEntityBlock.Name = "rbCrEntityBlock";
             this.rbCrEntityBlock.Size = new System.Drawing.Size(55, 19);
             this.rbCrEntityBlock.TabIndex = 10;
@@ -1244,9 +1369,9 @@ namespace ToolSupportCoding.View
             this.groupBox22.Controls.Add(this.btnCrEntityCopy);
             this.groupBox22.Controls.Add(this.btnCrEntityClear);
             this.groupBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox22.Location = new System.Drawing.Point(378, 44);
+            this.groupBox22.Location = new System.Drawing.Point(378, 41);
             this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(188, 342);
+            this.groupBox22.Size = new System.Drawing.Size(188, 316);
             this.groupBox22.TabIndex = 17;
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "Result";
@@ -1257,7 +1382,7 @@ namespace ToolSupportCoding.View
             this.txtCrEntityResult.Location = new System.Drawing.Point(3, 19);
             this.txtCrEntityResult.Name = "txtCrEntityResult";
             this.txtCrEntityResult.ReadOnly = true;
-            this.txtCrEntityResult.Size = new System.Drawing.Size(182, 288);
+            this.txtCrEntityResult.Size = new System.Drawing.Size(182, 266);
             this.txtCrEntityResult.TabIndex = 19;
             this.txtCrEntityResult.Text = "";
             // 
@@ -1268,9 +1393,9 @@ namespace ToolSupportCoding.View
             this.btnCrEntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCrEntity.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCrEntity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrEntity.Location = new System.Drawing.Point(4, 311);
+            this.btnCrEntity.Location = new System.Drawing.Point(4, 287);
             this.btnCrEntity.Name = "btnCrEntity";
-            this.btnCrEntity.Size = new System.Drawing.Size(118, 26);
+            this.btnCrEntity.Size = new System.Drawing.Size(118, 24);
             this.btnCrEntity.TabIndex = 16;
             this.btnCrEntity.Text = "Create Entity";
             this.btnCrEntity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1285,9 +1410,9 @@ namespace ToolSupportCoding.View
             this.btnCrEntityCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCrEntityCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCrEntityCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrEntityCopy.Location = new System.Drawing.Point(125, 311);
+            this.btnCrEntityCopy.Location = new System.Drawing.Point(125, 287);
             this.btnCrEntityCopy.Name = "btnCrEntityCopy";
-            this.btnCrEntityCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnCrEntityCopy.Size = new System.Drawing.Size(28, 24);
             this.btnCrEntityCopy.TabIndex = 17;
             this.btnCrEntityCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCrEntityCopy.UseVisualStyleBackColor = true;
@@ -1299,9 +1424,9 @@ namespace ToolSupportCoding.View
             this.btnCrEntityClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrEntityClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCrEntityClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnCrEntityClear.Location = new System.Drawing.Point(156, 311);
+            this.btnCrEntityClear.Location = new System.Drawing.Point(156, 287);
             this.btnCrEntityClear.Name = "btnCrEntityClear";
-            this.btnCrEntityClear.Size = new System.Drawing.Size(28, 26);
+            this.btnCrEntityClear.Size = new System.Drawing.Size(28, 24);
             this.btnCrEntityClear.TabIndex = 18;
             this.btnCrEntityClear.UseVisualStyleBackColor = true;
             this.btnCrEntityClear.Click += new System.EventHandler(this.btnCrEntityClear_Click);
@@ -1311,9 +1436,9 @@ namespace ToolSupportCoding.View
             this.groupBox21.Controls.Add(this.txtCrEntityT);
             this.groupBox21.Controls.Add(this.lblCrEntityNumT);
             this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox21.Location = new System.Drawing.Point(192, 44);
+            this.groupBox21.Location = new System.Drawing.Point(192, 41);
             this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(180, 342);
+            this.groupBox21.Size = new System.Drawing.Size(180, 316);
             this.groupBox21.TabIndex = 5;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "SQL Table";
@@ -1323,7 +1448,7 @@ namespace ToolSupportCoding.View
             this.txtCrEntityT.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrEntityT.Location = new System.Drawing.Point(3, 19);
             this.txtCrEntityT.Name = "txtCrEntityT";
-            this.txtCrEntityT.Size = new System.Drawing.Size(174, 288);
+            this.txtCrEntityT.Size = new System.Drawing.Size(174, 266);
             this.txtCrEntityT.TabIndex = 4;
             this.txtCrEntityT.Text = "";
             this.txtCrEntityT.TextChanged += new System.EventHandler(this.txtCrEntityT_TextChanged);
@@ -1332,7 +1457,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrEntityNumT.AutoSize = true;
             this.lblCrEntityNumT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrEntityNumT.Location = new System.Drawing.Point(77, 315);
+            this.lblCrEntityNumT.Location = new System.Drawing.Point(77, 291);
             this.lblCrEntityNumT.Name = "lblCrEntityNumT";
             this.lblCrEntityNumT.Size = new System.Drawing.Size(80, 15);
             this.lblCrEntityNumT.TabIndex = 3;
@@ -1344,9 +1469,9 @@ namespace ToolSupportCoding.View
             this.groupBox20.Controls.Add(this.txtCrEntityP);
             this.groupBox20.Controls.Add(this.lblCrEntityNumP);
             this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox20.Location = new System.Drawing.Point(6, 44);
+            this.groupBox20.Location = new System.Drawing.Point(6, 41);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(180, 342);
+            this.groupBox20.Size = new System.Drawing.Size(180, 316);
             this.groupBox20.TabIndex = 1;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "SQL Procedure";
@@ -1356,7 +1481,7 @@ namespace ToolSupportCoding.View
             this.txtCrEntityP.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrEntityP.Location = new System.Drawing.Point(3, 19);
             this.txtCrEntityP.Name = "txtCrEntityP";
-            this.txtCrEntityP.Size = new System.Drawing.Size(174, 288);
+            this.txtCrEntityP.Size = new System.Drawing.Size(174, 266);
             this.txtCrEntityP.TabIndex = 4;
             this.txtCrEntityP.Text = "";
             this.txtCrEntityP.TextChanged += new System.EventHandler(this.txtCrEntityP_TextChanged);
@@ -1365,7 +1490,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrEntityNumP.AutoSize = true;
             this.lblCrEntityNumP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrEntityNumP.Location = new System.Drawing.Point(77, 315);
+            this.lblCrEntityNumP.Location = new System.Drawing.Point(77, 291);
             this.lblCrEntityNumP.Name = "lblCrEntityNumP";
             this.lblCrEntityNumP.Size = new System.Drawing.Size(80, 15);
             this.lblCrEntityNumP.TabIndex = 3;
@@ -1381,7 +1506,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateFileSrc.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateFileSrc.Name = "tabPageCreateFileSrc";
             this.tabPageCreateFileSrc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateFileSrc.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateFileSrc.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateFileSrc.TabIndex = 5;
             this.tabPageCreateFileSrc.Text = "Create File Source";
             this.tabPageCreateFileSrc.UseVisualStyleBackColor = true;
@@ -1398,25 +1523,25 @@ namespace ToolSupportCoding.View
             this.groupBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox19.Location = new System.Drawing.Point(6, -2);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(560, 82);
+            this.groupBox19.Size = new System.Drawing.Size(560, 76);
             this.groupBox19.TabIndex = 21;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Setting";
             // 
             // barCrSourceProcess
             // 
-            this.barCrSourceProcess.Location = new System.Drawing.Point(84, 48);
+            this.barCrSourceProcess.Location = new System.Drawing.Point(84, 44);
             this.barCrSourceProcess.Name = "barCrSourceProcess";
             this.barCrSourceProcess.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.barCrSourceProcess.RightToLeftLayout = true;
-            this.barCrSourceProcess.Size = new System.Drawing.Size(341, 26);
+            this.barCrSourceProcess.Size = new System.Drawing.Size(341, 24);
             this.barCrSourceProcess.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(6, 53);
+            this.label6.Location = new System.Drawing.Point(6, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 15);
             this.label6.TabIndex = 21;
@@ -1426,7 +1551,7 @@ namespace ToolSupportCoding.View
             // 
             this.lbChoosePath.AutoSize = true;
             this.lbChoosePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbChoosePath.Location = new System.Drawing.Point(6, 21);
+            this.lbChoosePath.Location = new System.Drawing.Point(6, 19);
             this.lbChoosePath.Name = "lbChoosePath";
             this.lbChoosePath.Size = new System.Drawing.Size(74, 15);
             this.lbChoosePath.TabIndex = 20;
@@ -1438,9 +1563,9 @@ namespace ToolSupportCoding.View
             this.btCrSourceClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCrSourceClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrSourceClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrSourceClear.Location = new System.Drawing.Point(525, 48);
+            this.btCrSourceClear.Location = new System.Drawing.Point(525, 44);
             this.btCrSourceClear.Name = "btCrSourceClear";
-            this.btCrSourceClear.Size = new System.Drawing.Size(28, 26);
+            this.btCrSourceClear.Size = new System.Drawing.Size(28, 24);
             this.btCrSourceClear.TabIndex = 18;
             this.btCrSourceClear.UseVisualStyleBackColor = true;
             this.btCrSourceClear.Click += new System.EventHandler(this.btCrSourceClear_Click);
@@ -1453,9 +1578,9 @@ namespace ToolSupportCoding.View
             this.btCrSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrSource.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btCrSource.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrSource.Location = new System.Drawing.Point(431, 48);
+            this.btCrSource.Location = new System.Drawing.Point(431, 44);
             this.btCrSource.Name = "btCrSource";
-            this.btCrSource.Size = new System.Drawing.Size(88, 26);
+            this.btCrSource.Size = new System.Drawing.Size(88, 24);
             this.btCrSource.TabIndex = 16;
             this.btCrSource.Text = "Create Src";
             this.btCrSource.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1468,9 +1593,9 @@ namespace ToolSupportCoding.View
             this.btCrSourceOpenPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCrSourceOpenPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCrSourceOpenPath.Image = global::ToolSupportCoding.Properties.Resources.button_search;
-            this.btCrSourceOpenPath.Location = new System.Drawing.Point(431, 16);
+            this.btCrSourceOpenPath.Location = new System.Drawing.Point(431, 15);
             this.btCrSourceOpenPath.Name = "btCrSourceOpenPath";
-            this.btCrSourceOpenPath.Size = new System.Drawing.Size(24, 26);
+            this.btCrSourceOpenPath.Size = new System.Drawing.Size(24, 24);
             this.btCrSourceOpenPath.TabIndex = 18;
             this.btCrSourceOpenPath.Text = " ";
             this.btCrSourceOpenPath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1480,7 +1605,7 @@ namespace ToolSupportCoding.View
             // txtCrSourceFolderP
             // 
             this.txtCrSourceFolderP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtCrSourceFolderP.Location = new System.Drawing.Point(84, 16);
+            this.txtCrSourceFolderP.Location = new System.Drawing.Point(84, 15);
             this.txtCrSourceFolderP.Name = "txtCrSourceFolderP";
             this.txtCrSourceFolderP.Size = new System.Drawing.Size(341, 23);
             this.txtCrSourceFolderP.TabIndex = 19;
@@ -1491,9 +1616,9 @@ namespace ToolSupportCoding.View
             this.groupBox24.Controls.Add(this.lblCrSourceLogic);
             this.groupBox24.Controls.Add(this.txtCrSourceLogic);
             this.groupBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox24.Location = new System.Drawing.Point(6, 77);
+            this.groupBox24.Location = new System.Drawing.Point(6, 71);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(182, 310);
+            this.groupBox24.Size = new System.Drawing.Size(182, 286);
             this.groupBox24.TabIndex = 22;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Logical Class Name";
@@ -1502,7 +1627,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrSourceLogic.AutoSize = true;
             this.lblCrSourceLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourceLogic.Location = new System.Drawing.Point(79, 283);
+            this.lblCrSourceLogic.Location = new System.Drawing.Point(79, 261);
             this.lblCrSourceLogic.Name = "lblCrSourceLogic";
             this.lblCrSourceLogic.Size = new System.Drawing.Size(80, 15);
             this.lblCrSourceLogic.TabIndex = 5;
@@ -1514,7 +1639,7 @@ namespace ToolSupportCoding.View
             this.txtCrSourceLogic.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrSourceLogic.Location = new System.Drawing.Point(3, 19);
             this.txtCrSourceLogic.Name = "txtCrSourceLogic";
-            this.txtCrSourceLogic.Size = new System.Drawing.Size(176, 255);
+            this.txtCrSourceLogic.Size = new System.Drawing.Size(176, 236);
             this.txtCrSourceLogic.TabIndex = 4;
             this.txtCrSourceLogic.Text = "";
             this.txtCrSourceLogic.TextChanged += new System.EventHandler(this.txtCrSourceLogic_TextChanged);
@@ -1524,9 +1649,9 @@ namespace ToolSupportCoding.View
             this.groupBox25.Controls.Add(this.lblCrSourcePhysical);
             this.groupBox25.Controls.Add(this.txtCrSourcePhysical);
             this.groupBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox25.Location = new System.Drawing.Point(194, 77);
+            this.groupBox25.Location = new System.Drawing.Point(194, 71);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(182, 310);
+            this.groupBox25.Size = new System.Drawing.Size(182, 286);
             this.groupBox25.TabIndex = 23;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "Physical Class Name";
@@ -1535,7 +1660,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrSourcePhysical.AutoSize = true;
             this.lblCrSourcePhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourcePhysical.Location = new System.Drawing.Point(79, 283);
+            this.lblCrSourcePhysical.Location = new System.Drawing.Point(79, 261);
             this.lblCrSourcePhysical.Name = "lblCrSourcePhysical";
             this.lblCrSourcePhysical.Size = new System.Drawing.Size(80, 15);
             this.lblCrSourcePhysical.TabIndex = 6;
@@ -1547,7 +1672,7 @@ namespace ToolSupportCoding.View
             this.txtCrSourcePhysical.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrSourcePhysical.Location = new System.Drawing.Point(3, 19);
             this.txtCrSourcePhysical.Name = "txtCrSourcePhysical";
-            this.txtCrSourcePhysical.Size = new System.Drawing.Size(176, 255);
+            this.txtCrSourcePhysical.Size = new System.Drawing.Size(176, 236);
             this.txtCrSourcePhysical.TabIndex = 4;
             this.txtCrSourcePhysical.Text = "";
             this.txtCrSourcePhysical.TextChanged += new System.EventHandler(this.txtCrSourcePhysical_TextChanged);
@@ -1557,9 +1682,9 @@ namespace ToolSupportCoding.View
             this.groupBox27.Controls.Add(this.lblCrSourcePath);
             this.groupBox27.Controls.Add(this.txtCrSourcePath);
             this.groupBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox27.Location = new System.Drawing.Point(382, 77);
+            this.groupBox27.Location = new System.Drawing.Point(382, 71);
             this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(184, 310);
+            this.groupBox27.Size = new System.Drawing.Size(184, 286);
             this.groupBox27.TabIndex = 24;
             this.groupBox27.TabStop = false;
             this.groupBox27.Text = "Path Source";
@@ -1568,7 +1693,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrSourcePath.AutoSize = true;
             this.lblCrSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrSourcePath.Location = new System.Drawing.Point(79, 283);
+            this.lblCrSourcePath.Location = new System.Drawing.Point(79, 261);
             this.lblCrSourcePath.Name = "lblCrSourcePath";
             this.lblCrSourcePath.Size = new System.Drawing.Size(80, 15);
             this.lblCrSourcePath.TabIndex = 6;
@@ -1580,7 +1705,7 @@ namespace ToolSupportCoding.View
             this.txtCrSourcePath.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrSourcePath.Location = new System.Drawing.Point(3, 19);
             this.txtCrSourcePath.Name = "txtCrSourcePath";
-            this.txtCrSourcePath.Size = new System.Drawing.Size(178, 255);
+            this.txtCrSourcePath.Size = new System.Drawing.Size(178, 236);
             this.txtCrSourcePath.TabIndex = 4;
             this.txtCrSourcePath.Text = "";
             this.txtCrSourcePath.TextChanged += new System.EventHandler(this.txtCrSourcePath_TextChanged);
@@ -1597,7 +1722,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateMessage.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateMessage.Name = "tabPageCreateMessage";
             this.tabPageCreateMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateMessage.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateMessage.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateMessage.TabIndex = 9;
             this.tabPageCreateMessage.Text = "Create Message";
             this.tabPageCreateMessage.UseVisualStyleBackColor = true;
@@ -1611,7 +1736,7 @@ namespace ToolSupportCoding.View
             this.groupBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox18.Location = new System.Drawing.Point(6, -2);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(180, 130);
+            this.groupBox18.Size = new System.Drawing.Size(180, 120);
             this.groupBox18.TabIndex = 21;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Choose Type";
@@ -1620,7 +1745,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdbMessF.AutoSize = true;
             this.rdbMessF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessF.Location = new System.Drawing.Point(7, 102);
+            this.rdbMessF.Location = new System.Drawing.Point(7, 94);
             this.rdbMessF.Name = "rdbMessF";
             this.rdbMessF.Size = new System.Drawing.Size(92, 19);
             this.rdbMessF.TabIndex = 3;
@@ -1632,7 +1757,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdbMessBox.AutoSize = true;
             this.rdbMessBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessBox.Location = new System.Drawing.Point(7, 76);
+            this.rdbMessBox.Location = new System.Drawing.Point(7, 70);
             this.rdbMessBox.Name = "rdbMessBox";
             this.rdbMessBox.Size = new System.Drawing.Size(130, 19);
             this.rdbMessBox.TabIndex = 2;
@@ -1644,7 +1769,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdbMessDisp.AutoSize = true;
             this.rdbMessDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessDisp.Location = new System.Drawing.Point(7, 49);
+            this.rdbMessDisp.Location = new System.Drawing.Point(7, 45);
             this.rdbMessDisp.Name = "rdbMessDisp";
             this.rdbMessDisp.Size = new System.Drawing.Size(134, 19);
             this.rdbMessDisp.TabIndex = 1;
@@ -1657,7 +1782,7 @@ namespace ToolSupportCoding.View
             this.rdbMess.AutoSize = true;
             this.rdbMess.Checked = true;
             this.rdbMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMess.Location = new System.Drawing.Point(7, 22);
+            this.rdbMess.Location = new System.Drawing.Point(7, 20);
             this.rdbMess.Name = "rdbMess";
             this.rdbMess.Size = new System.Drawing.Size(82, 19);
             this.rdbMess.TabIndex = 0;
@@ -1671,9 +1796,9 @@ namespace ToolSupportCoding.View
             this.groupBox15.Controls.Add(this.txtMessCode);
             this.groupBox15.Controls.Add(this.lblNumLMessCode);
             this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox15.Location = new System.Drawing.Point(6, 125);
+            this.groupBox15.Location = new System.Drawing.Point(6, 115);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(180, 262);
+            this.groupBox15.Size = new System.Drawing.Size(180, 242);
             this.groupBox15.TabIndex = 0;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Message Code";
@@ -1683,7 +1808,7 @@ namespace ToolSupportCoding.View
             this.txtMessCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtMessCode.Location = new System.Drawing.Point(3, 19);
             this.txtMessCode.Name = "txtMessCode";
-            this.txtMessCode.Size = new System.Drawing.Size(174, 208);
+            this.txtMessCode.Size = new System.Drawing.Size(174, 192);
             this.txtMessCode.TabIndex = 4;
             this.txtMessCode.Text = "";
             this.txtMessCode.TextChanged += new System.EventHandler(this.txtMessCode_TextChanged);
@@ -1692,7 +1817,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumLMessCode.AutoSize = true;
             this.lblNumLMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 235);
+            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 217);
             this.lblNumLMessCode.Name = "lblNumLMessCode";
             this.lblNumLMessCode.Size = new System.Drawing.Size(80, 15);
             this.lblNumLMessCode.TabIndex = 3;
@@ -1708,7 +1833,7 @@ namespace ToolSupportCoding.View
             this.grbMessTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbMessTitle.Location = new System.Drawing.Point(192, -2);
             this.grbMessTitle.Name = "grbMessTitle";
-            this.grbMessTitle.Size = new System.Drawing.Size(180, 130);
+            this.grbMessTitle.Size = new System.Drawing.Size(180, 120);
             this.grbMessTitle.TabIndex = 22;
             this.grbMessTitle.TabStop = false;
             this.grbMessTitle.Text = "Choose Title";
@@ -1717,7 +1842,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdMessVeri.AutoSize = true;
             this.rdMessVeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessVeri.Location = new System.Drawing.Point(7, 75);
+            this.rdMessVeri.Location = new System.Drawing.Point(7, 69);
             this.rdMessVeri.Name = "rdMessVeri";
             this.rdMessVeri.Size = new System.Drawing.Size(49, 19);
             this.rdMessVeri.TabIndex = 6;
@@ -1728,7 +1853,7 @@ namespace ToolSupportCoding.View
             // 
             this.chkMessShowC.AutoSize = true;
             this.chkMessShowC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessShowC.Location = new System.Drawing.Point(7, 102);
+            this.chkMessShowC.Location = new System.Drawing.Point(7, 94);
             this.chkMessShowC.Name = "chkMessShowC";
             this.chkMessShowC.Size = new System.Drawing.Size(98, 19);
             this.chkMessShowC.TabIndex = 7;
@@ -1740,7 +1865,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdMessNoti.AutoSize = true;
             this.rdMessNoti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessNoti.Location = new System.Drawing.Point(7, 48);
+            this.rdMessNoti.Location = new System.Drawing.Point(7, 44);
             this.rdMessNoti.Name = "rdMessNoti";
             this.rdMessNoti.Size = new System.Drawing.Size(49, 19);
             this.rdMessNoti.TabIndex = 5;
@@ -1752,7 +1877,7 @@ namespace ToolSupportCoding.View
             this.rdMessErr.AutoSize = true;
             this.rdMessErr.Checked = true;
             this.rdMessErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessErr.Location = new System.Drawing.Point(7, 21);
+            this.rdMessErr.Location = new System.Drawing.Point(7, 19);
             this.rdMessErr.Name = "rdMessErr";
             this.rdMessErr.Size = new System.Drawing.Size(76, 19);
             this.rdMessErr.TabIndex = 4;
@@ -1771,7 +1896,7 @@ namespace ToolSupportCoding.View
             this.grbMessText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbMessText.Location = new System.Drawing.Point(378, -2);
             this.grbMessText.Name = "grbMessText";
-            this.grbMessText.Size = new System.Drawing.Size(188, 130);
+            this.grbMessText.Size = new System.Drawing.Size(188, 120);
             this.grbMessText.TabIndex = 23;
             this.grbMessText.TabStop = false;
             this.grbMessText.Text = "Input Text";
@@ -1780,7 +1905,7 @@ namespace ToolSupportCoding.View
             // 
             this.chkMessStatus.AutoSize = true;
             this.chkMessStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessStatus.Location = new System.Drawing.Point(8, 102);
+            this.chkMessStatus.Location = new System.Drawing.Point(8, 94);
             this.chkMessStatus.Name = "chkMessStatus";
             this.chkMessStatus.Size = new System.Drawing.Size(60, 19);
             this.chkMessStatus.TabIndex = 12;
@@ -1794,9 +1919,9 @@ namespace ToolSupportCoding.View
             this.btnMessCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnMessCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCreate.Location = new System.Drawing.Point(81, 99);
+            this.btnMessCreate.Location = new System.Drawing.Point(81, 91);
             this.btnMessCreate.Name = "btnMessCreate";
-            this.btnMessCreate.Size = new System.Drawing.Size(100, 26);
+            this.btnMessCreate.Size = new System.Drawing.Size(100, 24);
             this.btnMessCreate.TabIndex = 13;
             this.btnMessCreate.Text = "Create Src";
             this.btnMessCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1810,7 +1935,7 @@ namespace ToolSupportCoding.View
             this.cbMessCancel.Items.AddRange(new object[] {
             "いいえ",
             "キャンセル"});
-            this.cbMessCancel.Location = new System.Drawing.Point(58, 50);
+            this.cbMessCancel.Location = new System.Drawing.Point(58, 46);
             this.cbMessCancel.Name = "cbMessCancel";
             this.cbMessCancel.Size = new System.Drawing.Size(123, 23);
             this.cbMessCancel.TabIndex = 9;
@@ -1823,7 +1948,7 @@ namespace ToolSupportCoding.View
             this.cbMessDone.Items.AddRange(new object[] {
             "OK",
             "はい"});
-            this.cbMessDone.Location = new System.Drawing.Point(58, 20);
+            this.cbMessDone.Location = new System.Drawing.Point(58, 18);
             this.cbMessDone.Name = "cbMessDone";
             this.cbMessDone.Size = new System.Drawing.Size(123, 23);
             this.cbMessDone.TabIndex = 8;
@@ -1832,7 +1957,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessCancel.AutoSize = true;
             this.lblMessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessCancel.Location = new System.Drawing.Point(6, 53);
+            this.lblMessCancel.Location = new System.Drawing.Point(6, 49);
             this.lblMessCancel.Name = "lblMessCancel";
             this.lblMessCancel.Size = new System.Drawing.Size(45, 15);
             this.lblMessCancel.TabIndex = 3;
@@ -1843,7 +1968,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessDone.AutoSize = true;
             this.lblMessDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDone.Location = new System.Drawing.Point(6, 25);
+            this.lblMessDone.Location = new System.Drawing.Point(6, 23);
             this.lblMessDone.Name = "lblMessDone";
             this.lblMessDone.Size = new System.Drawing.Size(37, 15);
             this.lblMessDone.TabIndex = 1;
@@ -1868,7 +1993,7 @@ namespace ToolSupportCoding.View
             this.grbMessTextI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.grbMessTextI.Location = new System.Drawing.Point(192, -2);
             this.grbMessTextI.Name = "grbMessTextI";
-            this.grbMessTextI.Size = new System.Drawing.Size(374, 130);
+            this.grbMessTextI.Size = new System.Drawing.Size(374, 120);
             this.grbMessTextI.TabIndex = 4;
             this.grbMessTextI.TabStop = false;
             this.grbMessTextI.Text = "Input Text";
@@ -1881,9 +2006,9 @@ namespace ToolSupportCoding.View
             this.btnCreateMessI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreateMessI.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreateMessI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMessI.Location = new System.Drawing.Point(267, 99);
+            this.btnCreateMessI.Location = new System.Drawing.Point(267, 91);
             this.btnCreateMessI.Name = "btnCreateMessI";
-            this.btnCreateMessI.Size = new System.Drawing.Size(100, 26);
+            this.btnCreateMessI.Size = new System.Drawing.Size(100, 24);
             this.btnCreateMessI.TabIndex = 10;
             this.btnCreateMessI.Text = "Create Src";
             this.btnCreateMessI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1894,7 +2019,7 @@ namespace ToolSupportCoding.View
             // 
             this.chkMessStatusI.AutoSize = true;
             this.chkMessStatusI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessStatusI.Location = new System.Drawing.Point(194, 102);
+            this.chkMessStatusI.Location = new System.Drawing.Point(194, 94);
             this.chkMessStatusI.Name = "chkMessStatusI";
             this.chkMessStatusI.Size = new System.Drawing.Size(60, 19);
             this.chkMessStatusI.TabIndex = 9;
@@ -1904,7 +2029,7 @@ namespace ToolSupportCoding.View
             // txtMessMsg
             // 
             this.txtMessMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessMsg.Location = new System.Drawing.Point(75, 16);
+            this.txtMessMsg.Location = new System.Drawing.Point(75, 15);
             this.txtMessMsg.Name = "txtMessMsg";
             this.txtMessMsg.Size = new System.Drawing.Size(292, 21);
             this.txtMessMsg.TabIndex = 3;
@@ -1914,7 +2039,7 @@ namespace ToolSupportCoding.View
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label14.Location = new System.Drawing.Point(7, 22);
+            this.label14.Location = new System.Drawing.Point(7, 20);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 15);
             this.label14.TabIndex = 25;
@@ -1923,7 +2048,7 @@ namespace ToolSupportCoding.View
             // txtMessType
             // 
             this.txtMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessType.Location = new System.Drawing.Point(74, 99);
+            this.txtMessType.Location = new System.Drawing.Point(74, 91);
             this.txtMessType.Name = "txtMessType";
             this.txtMessType.Size = new System.Drawing.Size(100, 21);
             this.txtMessType.TabIndex = 8;
@@ -1934,7 +2059,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessType.AutoSize = true;
             this.lblMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessType.Location = new System.Drawing.Point(7, 104);
+            this.lblMessType.Location = new System.Drawing.Point(7, 96);
             this.lblMessType.Name = "lblMessType";
             this.lblMessType.Size = new System.Drawing.Size(33, 15);
             this.lblMessType.TabIndex = 8;
@@ -1943,7 +2068,7 @@ namespace ToolSupportCoding.View
             // txtMessQues
             // 
             this.txtMessQues.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessQues.Location = new System.Drawing.Point(267, 72);
+            this.txtMessQues.Location = new System.Drawing.Point(267, 66);
             this.txtMessQues.Name = "txtMessQues";
             this.txtMessQues.Size = new System.Drawing.Size(100, 21);
             this.txtMessQues.TabIndex = 7;
@@ -1951,7 +2076,7 @@ namespace ToolSupportCoding.View
             // txtMessDescH
             // 
             this.txtMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessDescH.Location = new System.Drawing.Point(267, 44);
+            this.txtMessDescH.Location = new System.Drawing.Point(267, 41);
             this.txtMessDescH.Name = "txtMessDescH";
             this.txtMessDescH.Size = new System.Drawing.Size(100, 21);
             this.txtMessDescH.TabIndex = 6;
@@ -1960,7 +2085,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessQuestion.AutoSize = true;
             this.lblMessQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessQuestion.Location = new System.Drawing.Point(190, 77);
+            this.lblMessQuestion.Location = new System.Drawing.Point(190, 71);
             this.lblMessQuestion.Name = "lblMessQuestion";
             this.lblMessQuestion.Size = new System.Drawing.Size(56, 15);
             this.lblMessQuestion.TabIndex = 5;
@@ -1970,7 +2095,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessDescH.AutoSize = true;
             this.lblMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDescH.Location = new System.Drawing.Point(190, 50);
+            this.lblMessDescH.Location = new System.Drawing.Point(190, 46);
             this.lblMessDescH.Name = "lblMessDescH";
             this.lblMessDescH.Size = new System.Drawing.Size(71, 15);
             this.lblMessDescH.TabIndex = 4;
@@ -1979,7 +2104,7 @@ namespace ToolSupportCoding.View
             // txtMessDesc
             // 
             this.txtMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessDesc.Location = new System.Drawing.Point(75, 72);
+            this.txtMessDesc.Location = new System.Drawing.Point(75, 66);
             this.txtMessDesc.Name = "txtMessDesc";
             this.txtMessDesc.Size = new System.Drawing.Size(100, 21);
             this.txtMessDesc.TabIndex = 5;
@@ -1988,7 +2113,7 @@ namespace ToolSupportCoding.View
             // txtMessMsgCode
             // 
             this.txtMessMsgCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessMsgCode.Location = new System.Drawing.Point(75, 44);
+            this.txtMessMsgCode.Location = new System.Drawing.Point(75, 41);
             this.txtMessMsgCode.Name = "txtMessMsgCode";
             this.txtMessMsgCode.Size = new System.Drawing.Size(100, 21);
             this.txtMessMsgCode.TabIndex = 4;
@@ -1998,7 +2123,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessDesc.AutoSize = true;
             this.lblMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDesc.Location = new System.Drawing.Point(7, 77);
+            this.lblMessDesc.Location = new System.Drawing.Point(7, 71);
             this.lblMessDesc.Name = "lblMessDesc";
             this.lblMessDesc.Size = new System.Drawing.Size(62, 15);
             this.lblMessDesc.TabIndex = 1;
@@ -2008,7 +2133,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblMessCode.AutoSize = true;
             this.lblMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessCode.Location = new System.Drawing.Point(7, 50);
+            this.lblMessCode.Location = new System.Drawing.Point(7, 46);
             this.lblMessCode.Name = "lblMessCode";
             this.lblMessCode.Size = new System.Drawing.Size(63, 15);
             this.lblMessCode.TabIndex = 0;
@@ -2021,9 +2146,9 @@ namespace ToolSupportCoding.View
             this.groupBox17.Controls.Add(this.btnMessCopy);
             this.groupBox17.Controls.Add(this.btnMessClear);
             this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox17.Location = new System.Drawing.Point(378, 125);
+            this.groupBox17.Location = new System.Drawing.Point(378, 115);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(188, 262);
+            this.groupBox17.Size = new System.Drawing.Size(188, 242);
             this.groupBox17.TabIndex = 16;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Result";
@@ -2034,7 +2159,7 @@ namespace ToolSupportCoding.View
             this.txtMessResult.Location = new System.Drawing.Point(3, 19);
             this.txtMessResult.Name = "txtMessResult";
             this.txtMessResult.ReadOnly = true;
-            this.txtMessResult.Size = new System.Drawing.Size(182, 208);
+            this.txtMessResult.Size = new System.Drawing.Size(182, 192);
             this.txtMessResult.TabIndex = 19;
             this.txtMessResult.Text = "";
             // 
@@ -2045,9 +2170,9 @@ namespace ToolSupportCoding.View
             this.btnCreateMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreateMess.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreateMess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMess.Location = new System.Drawing.Point(4, 231);
+            this.btnCreateMess.Location = new System.Drawing.Point(4, 213);
             this.btnCreateMess.Name = "btnCreateMess";
-            this.btnCreateMess.Size = new System.Drawing.Size(118, 26);
+            this.btnCreateMess.Size = new System.Drawing.Size(118, 24);
             this.btnCreateMess.TabIndex = 16;
             this.btnCreateMess.Text = "Create Mess";
             this.btnCreateMess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2062,9 +2187,9 @@ namespace ToolSupportCoding.View
             this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnMessCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCopy.Location = new System.Drawing.Point(125, 231);
+            this.btnMessCopy.Location = new System.Drawing.Point(125, 213);
             this.btnMessCopy.Name = "btnMessCopy";
-            this.btnMessCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnMessCopy.Size = new System.Drawing.Size(28, 24);
             this.btnMessCopy.TabIndex = 17;
             this.btnMessCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMessCopy.UseVisualStyleBackColor = true;
@@ -2076,9 +2201,9 @@ namespace ToolSupportCoding.View
             this.btnMessClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMessClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnMessClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnMessClear.Location = new System.Drawing.Point(156, 231);
+            this.btnMessClear.Location = new System.Drawing.Point(156, 213);
             this.btnMessClear.Name = "btnMessClear";
-            this.btnMessClear.Size = new System.Drawing.Size(28, 26);
+            this.btnMessClear.Size = new System.Drawing.Size(28, 24);
             this.btnMessClear.TabIndex = 18;
             this.btnMessClear.UseVisualStyleBackColor = true;
             this.btnMessClear.Click += new System.EventHandler(this.btnMessClear_Click);
@@ -2088,9 +2213,9 @@ namespace ToolSupportCoding.View
             this.groupBox16.Controls.Add(this.txtMessContent);
             this.groupBox16.Controls.Add(this.lblNumMessContent);
             this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(192, 125);
+            this.groupBox16.Location = new System.Drawing.Point(192, 115);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(180, 262);
+            this.groupBox16.Size = new System.Drawing.Size(180, 242);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Message Content";
@@ -2100,7 +2225,7 @@ namespace ToolSupportCoding.View
             this.txtMessContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtMessContent.Location = new System.Drawing.Point(3, 19);
             this.txtMessContent.Name = "txtMessContent";
-            this.txtMessContent.Size = new System.Drawing.Size(174, 208);
+            this.txtMessContent.Size = new System.Drawing.Size(174, 192);
             this.txtMessContent.TabIndex = 5;
             this.txtMessContent.Text = "";
             this.txtMessContent.TextChanged += new System.EventHandler(this.txtMessContent_TextChanged);
@@ -2109,7 +2234,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumMessContent.AutoSize = true;
             this.lblNumMessContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumMessContent.Location = new System.Drawing.Point(77, 235);
+            this.lblNumMessContent.Location = new System.Drawing.Point(77, 217);
             this.lblNumMessContent.Name = "lblNumMessContent";
             this.lblNumMessContent.Size = new System.Drawing.Size(80, 15);
             this.lblNumMessContent.TabIndex = 4;
@@ -2126,7 +2251,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateComment.Controls.Add(this.groupBox13);
             this.tabPageCreateComment.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateComment.Name = "tabPageCreateComment";
-            this.tabPageCreateComment.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateComment.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateComment.TabIndex = 7;
             this.tabPageCreateComment.Text = "Create Comment";
             this.tabPageCreateComment.UseVisualStyleBackColor = true;
@@ -2137,7 +2262,7 @@ namespace ToolSupportCoding.View
             this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.Location = new System.Drawing.Point(387, -2);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(179, 50);
+            this.groupBox14.Size = new System.Drawing.Size(179, 46);
             this.groupBox14.TabIndex = 102;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Setting";
@@ -2148,7 +2273,7 @@ namespace ToolSupportCoding.View
             this.chkCrCmLine.Checked = true;
             this.chkCrCmLine.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkCrCmLine.Location = new System.Drawing.Point(7, 23);
+            this.chkCrCmLine.Location = new System.Drawing.Point(7, 21);
             this.chkCrCmLine.Name = "chkCrCmLine";
             this.chkCrCmLine.Size = new System.Drawing.Size(74, 19);
             this.chkCrCmLine.TabIndex = 0;
@@ -2164,7 +2289,7 @@ namespace ToolSupportCoding.View
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(196, -2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(185, 50);
+            this.groupBox10.Size = new System.Drawing.Size(185, 46);
             this.groupBox10.TabIndex = 101;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Comment Mode";
@@ -2173,7 +2298,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrCmBlock.AutoSize = true;
             this.rbCrCmBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmBlock.Location = new System.Drawing.Point(132, 23);
+            this.rbCrCmBlock.Location = new System.Drawing.Point(132, 21);
             this.rbCrCmBlock.Name = "rbCrCmBlock";
             this.rbCrCmBlock.Size = new System.Drawing.Size(55, 19);
             this.rbCrCmBlock.TabIndex = 11;
@@ -2185,7 +2310,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrCmLine.AutoSize = true;
             this.rbCrCmLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLine.Location = new System.Drawing.Point(86, 22);
+            this.rbCrCmLine.Location = new System.Drawing.Point(86, 20);
             this.rbCrCmLine.Name = "rbCrCmLine";
             this.rbCrCmLine.Size = new System.Drawing.Size(49, 19);
             this.rbCrCmLine.TabIndex = 99;
@@ -2198,7 +2323,7 @@ namespace ToolSupportCoding.View
             this.rbCrCmLineBlock.AutoSize = true;
             this.rbCrCmLineBlock.Checked = true;
             this.rbCrCmLineBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLineBlock.Location = new System.Drawing.Point(7, 22);
+            this.rbCrCmLineBlock.Location = new System.Drawing.Point(7, 20);
             this.rbCrCmLineBlock.Name = "rbCrCmLineBlock";
             this.rbCrCmLineBlock.Size = new System.Drawing.Size(82, 19);
             this.rbCrCmLineBlock.TabIndex = 10;
@@ -2214,7 +2339,7 @@ namespace ToolSupportCoding.View
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(6, -2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(184, 50);
+            this.groupBox7.Size = new System.Drawing.Size(184, 46);
             this.groupBox7.TabIndex = 100;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Comment Location";
@@ -2223,7 +2348,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrCmLast.AutoSize = true;
             this.rbCrCmLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmLast.Location = new System.Drawing.Point(76, 22);
+            this.rbCrCmLast.Location = new System.Drawing.Point(76, 20);
             this.rbCrCmLast.Name = "rbCrCmLast";
             this.rbCrCmLast.Size = new System.Drawing.Size(90, 19);
             this.rbCrCmLast.TabIndex = 11;
@@ -2236,7 +2361,7 @@ namespace ToolSupportCoding.View
             this.rbCrCmFirst.AutoSize = true;
             this.rbCrCmFirst.Checked = true;
             this.rbCrCmFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrCmFirst.Location = new System.Drawing.Point(7, 22);
+            this.rbCrCmFirst.Location = new System.Drawing.Point(7, 20);
             this.rbCrCmFirst.Name = "rbCrCmFirst";
             this.rbCrCmFirst.Size = new System.Drawing.Size(66, 19);
             this.rbCrCmFirst.TabIndex = 10;
@@ -2250,9 +2375,9 @@ namespace ToolSupportCoding.View
             this.groupBox6.Controls.Add(this.txtCrCmComment);
             this.groupBox6.Controls.Add(this.lblCrCmNumComment);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(6, 44);
+            this.groupBox6.Location = new System.Drawing.Point(6, 41);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(184, 342);
+            this.groupBox6.Size = new System.Drawing.Size(184, 316);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Input Comment";
@@ -2262,7 +2387,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmComment.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrCmComment.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmComment.Name = "txtCrCmComment";
-            this.txtCrCmComment.Size = new System.Drawing.Size(178, 288);
+            this.txtCrCmComment.Size = new System.Drawing.Size(178, 266);
             this.txtCrCmComment.TabIndex = 11;
             this.txtCrCmComment.Text = "";
             this.txtCrCmComment.TextChanged += new System.EventHandler(this.txtCrCmComment_TextChanged);
@@ -2272,7 +2397,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrCmNumComment.AutoSize = true;
             this.lblCrCmNumComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 315);
+            this.lblCrCmNumComment.Location = new System.Drawing.Point(79, 291);
             this.lblCrCmNumComment.Name = "lblCrCmNumComment";
             this.lblCrCmNumComment.Size = new System.Drawing.Size(80, 15);
             this.lblCrCmNumComment.TabIndex = 10;
@@ -2284,9 +2409,9 @@ namespace ToolSupportCoding.View
             this.groupBox12.Controls.Add(this.txtCrCmCode);
             this.groupBox12.Controls.Add(this.lblCrCmNumCode);
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(196, 44);
+            this.groupBox12.Location = new System.Drawing.Point(196, 41);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(185, 342);
+            this.groupBox12.Size = new System.Drawing.Size(185, 316);
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Input Code";
@@ -2296,7 +2421,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrCmCode.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmCode.Name = "txtCrCmCode";
-            this.txtCrCmCode.Size = new System.Drawing.Size(179, 288);
+            this.txtCrCmCode.Size = new System.Drawing.Size(179, 266);
             this.txtCrCmCode.TabIndex = 12;
             this.txtCrCmCode.Text = "";
             this.txtCrCmCode.TextChanged += new System.EventHandler(this.txtCrCmCode_TextChanged);
@@ -2306,7 +2431,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrCmNumCode.AutoSize = true;
             this.lblCrCmNumCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 315);
+            this.lblCrCmNumCode.Location = new System.Drawing.Point(79, 291);
             this.lblCrCmNumCode.Name = "lblCrCmNumCode";
             this.lblCrCmNumCode.Size = new System.Drawing.Size(80, 15);
             this.lblCrCmNumCode.TabIndex = 11;
@@ -2319,9 +2444,9 @@ namespace ToolSupportCoding.View
             this.groupBox13.Controls.Add(this.btCrCmClear);
             this.groupBox13.Controls.Add(this.btCrCmCopy);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(387, 44);
+            this.groupBox13.Location = new System.Drawing.Point(387, 41);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(179, 342);
+            this.groupBox13.Size = new System.Drawing.Size(179, 316);
             this.groupBox13.TabIndex = 4;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Result";
@@ -2332,7 +2457,7 @@ namespace ToolSupportCoding.View
             this.txtCrCmResult.Location = new System.Drawing.Point(3, 19);
             this.txtCrCmResult.Name = "txtCrCmResult";
             this.txtCrCmResult.ReadOnly = true;
-            this.txtCrCmResult.Size = new System.Drawing.Size(173, 288);
+            this.txtCrCmResult.Size = new System.Drawing.Size(173, 266);
             this.txtCrCmResult.TabIndex = 13;
             this.txtCrCmResult.Text = "";
             // 
@@ -2342,9 +2467,9 @@ namespace ToolSupportCoding.View
             this.btCrCmClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCrCmClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrCmClear.Location = new System.Drawing.Point(113, 311);
+            this.btCrCmClear.Location = new System.Drawing.Point(113, 287);
             this.btCrCmClear.Name = "btCrCmClear";
-            this.btCrCmClear.Size = new System.Drawing.Size(63, 26);
+            this.btCrCmClear.Size = new System.Drawing.Size(63, 24);
             this.btCrCmClear.TabIndex = 12;
             this.btCrCmClear.Text = " Clear";
             this.btCrCmClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2360,9 +2485,9 @@ namespace ToolSupportCoding.View
             this.btCrCmCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrCmCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btCrCmCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrCmCopy.Location = new System.Drawing.Point(3, 311);
+            this.btCrCmCopy.Location = new System.Drawing.Point(3, 287);
             this.btCrCmCopy.Name = "btCrCmCopy";
-            this.btCrCmCopy.Size = new System.Drawing.Size(104, 26);
+            this.btCrCmCopy.Size = new System.Drawing.Size(104, 24);
             this.btCrCmCopy.TabIndex = 11;
             this.btCrCmCopy.Text = " Copy Result";
             this.btCrCmCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2380,7 +2505,7 @@ namespace ToolSupportCoding.View
             this.tabPageCreateResources.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateResources.Name = "tabPageCreateResources";
             this.tabPageCreateResources.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateResources.Size = new System.Drawing.Size(576, 397);
+            this.tabPageCreateResources.Size = new System.Drawing.Size(576, 366);
             this.tabPageCreateResources.TabIndex = 11;
             this.tabPageCreateResources.Text = "Create Resources";
             this.tabPageCreateResources.UseVisualStyleBackColor = true;
@@ -2392,9 +2517,9 @@ namespace ToolSupportCoding.View
             this.groupBox32.Controls.Add(this.btCrResCopy);
             this.groupBox32.Controls.Add(this.btCrResClear);
             this.groupBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox32.Location = new System.Drawing.Point(408, 44);
+            this.groupBox32.Location = new System.Drawing.Point(408, 41);
             this.groupBox32.Name = "groupBox32";
-            this.groupBox32.Size = new System.Drawing.Size(158, 342);
+            this.groupBox32.Size = new System.Drawing.Size(158, 316);
             this.groupBox32.TabIndex = 106;
             this.groupBox32.TabStop = false;
             this.groupBox32.Text = "Result";
@@ -2405,7 +2530,7 @@ namespace ToolSupportCoding.View
             this.txtCrResResult.Location = new System.Drawing.Point(3, 19);
             this.txtCrResResult.Name = "txtCrResResult";
             this.txtCrResResult.ReadOnly = true;
-            this.txtCrResResult.Size = new System.Drawing.Size(152, 288);
+            this.txtCrResResult.Size = new System.Drawing.Size(152, 266);
             this.txtCrResResult.TabIndex = 19;
             this.txtCrResResult.Text = "";
             // 
@@ -2416,9 +2541,9 @@ namespace ToolSupportCoding.View
             this.btCrRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrRes.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btCrRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrRes.Location = new System.Drawing.Point(4, 311);
+            this.btCrRes.Location = new System.Drawing.Point(4, 287);
             this.btCrRes.Name = "btCrRes";
-            this.btCrRes.Size = new System.Drawing.Size(88, 26);
+            this.btCrRes.Size = new System.Drawing.Size(88, 24);
             this.btCrRes.TabIndex = 16;
             this.btCrRes.Text = "   Create";
             this.btCrRes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2433,9 +2558,9 @@ namespace ToolSupportCoding.View
             this.btCrResCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrResCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btCrResCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCrResCopy.Location = new System.Drawing.Point(95, 311);
+            this.btCrResCopy.Location = new System.Drawing.Point(95, 287);
             this.btCrResCopy.Name = "btCrResCopy";
-            this.btCrResCopy.Size = new System.Drawing.Size(28, 26);
+            this.btCrResCopy.Size = new System.Drawing.Size(28, 24);
             this.btCrResCopy.TabIndex = 17;
             this.btCrResCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btCrResCopy.UseVisualStyleBackColor = true;
@@ -2447,9 +2572,9 @@ namespace ToolSupportCoding.View
             this.btCrResClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCrResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btCrResClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btCrResClear.Location = new System.Drawing.Point(126, 311);
+            this.btCrResClear.Location = new System.Drawing.Point(126, 287);
             this.btCrResClear.Name = "btCrResClear";
-            this.btCrResClear.Size = new System.Drawing.Size(28, 26);
+            this.btCrResClear.Size = new System.Drawing.Size(28, 24);
             this.btCrResClear.TabIndex = 18;
             this.btCrResClear.UseVisualStyleBackColor = true;
             this.btCrResClear.Click += new System.EventHandler(this.btCrResClear_Click);
@@ -2461,7 +2586,7 @@ namespace ToolSupportCoding.View
             this.grbCrResSrcMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbCrResSrcMode.Location = new System.Drawing.Point(274, -2);
             this.grbCrResSrcMode.Name = "grbCrResSrcMode";
-            this.grbCrResSrcMode.Size = new System.Drawing.Size(128, 50);
+            this.grbCrResSrcMode.Size = new System.Drawing.Size(128, 46);
             this.grbCrResSrcMode.TabIndex = 103;
             this.grbCrResSrcMode.TabStop = false;
             this.grbCrResSrcMode.Text = "Source Mode";
@@ -2470,7 +2595,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrResAngular.AutoSize = true;
             this.rbCrResAngular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrResAngular.Location = new System.Drawing.Point(55, 22);
+            this.rbCrResAngular.Location = new System.Drawing.Point(55, 20);
             this.rbCrResAngular.Name = "rbCrResAngular";
             this.rbCrResAngular.Size = new System.Drawing.Size(67, 19);
             this.rbCrResAngular.TabIndex = 99;
@@ -2482,7 +2607,7 @@ namespace ToolSupportCoding.View
             this.rbCrResC.AutoSize = true;
             this.rbCrResC.Checked = true;
             this.rbCrResC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrResC.Location = new System.Drawing.Point(7, 22);
+            this.rbCrResC.Location = new System.Drawing.Point(7, 20);
             this.rbCrResC.Name = "rbCrResC";
             this.rbCrResC.Size = new System.Drawing.Size(40, 19);
             this.rbCrResC.TabIndex = 10;
@@ -2497,7 +2622,7 @@ namespace ToolSupportCoding.View
             this.groupBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox26.Location = new System.Drawing.Point(6, -2);
             this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(262, 50);
+            this.groupBox26.Size = new System.Drawing.Size(262, 46);
             this.groupBox26.TabIndex = 102;
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "Resources Mode";
@@ -2506,7 +2631,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbCrResMess.AutoSize = true;
             this.rbCrResMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrResMess.Location = new System.Drawing.Point(121, 22);
+            this.rbCrResMess.Location = new System.Drawing.Point(121, 20);
             this.rbCrResMess.Name = "rbCrResMess";
             this.rbCrResMess.Size = new System.Drawing.Size(138, 19);
             this.rbCrResMess.TabIndex = 99;
@@ -2518,7 +2643,7 @@ namespace ToolSupportCoding.View
             this.rbCrRes.AutoSize = true;
             this.rbCrRes.Checked = true;
             this.rbCrRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrRes.Location = new System.Drawing.Point(7, 22);
+            this.rbCrRes.Location = new System.Drawing.Point(7, 20);
             this.rbCrRes.Name = "rbCrRes";
             this.rbCrRes.Size = new System.Drawing.Size(111, 19);
             this.rbCrRes.TabIndex = 10;
@@ -2531,9 +2656,9 @@ namespace ToolSupportCoding.View
             this.groupBox29.Controls.Add(this.txtCrResName);
             this.groupBox29.Controls.Add(this.lblCrResName);
             this.groupBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox29.Location = new System.Drawing.Point(6, 44);
+            this.groupBox29.Location = new System.Drawing.Point(6, 41);
             this.groupBox29.Name = "groupBox29";
-            this.groupBox29.Size = new System.Drawing.Size(128, 342);
+            this.groupBox29.Size = new System.Drawing.Size(128, 316);
             this.groupBox29.TabIndex = 104;
             this.groupBox29.TabStop = false;
             this.groupBox29.Text = "Input Name";
@@ -2543,7 +2668,7 @@ namespace ToolSupportCoding.View
             this.txtCrResName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrResName.Location = new System.Drawing.Point(3, 19);
             this.txtCrResName.Name = "txtCrResName";
-            this.txtCrResName.Size = new System.Drawing.Size(122, 288);
+            this.txtCrResName.Size = new System.Drawing.Size(122, 266);
             this.txtCrResName.TabIndex = 11;
             this.txtCrResName.Text = "";
             this.txtCrResName.TextChanged += new System.EventHandler(this.txtCrResName_TextChanged);
@@ -2552,7 +2677,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrResName.AutoSize = true;
             this.lblCrResName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrResName.Location = new System.Drawing.Point(25, 315);
+            this.lblCrResName.Location = new System.Drawing.Point(25, 291);
             this.lblCrResName.Name = "lblCrResName";
             this.lblCrResName.Size = new System.Drawing.Size(80, 15);
             this.lblCrResName.TabIndex = 10;
@@ -2564,9 +2689,9 @@ namespace ToolSupportCoding.View
             this.groupBox30.Controls.Add(this.txtCrResValue);
             this.groupBox30.Controls.Add(this.lblCrResValue);
             this.groupBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox30.Location = new System.Drawing.Point(140, 44);
+            this.groupBox30.Location = new System.Drawing.Point(140, 41);
             this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(128, 342);
+            this.groupBox30.Size = new System.Drawing.Size(128, 316);
             this.groupBox30.TabIndex = 105;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "Input Value";
@@ -2576,7 +2701,7 @@ namespace ToolSupportCoding.View
             this.txtCrResValue.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrResValue.Location = new System.Drawing.Point(3, 19);
             this.txtCrResValue.Name = "txtCrResValue";
-            this.txtCrResValue.Size = new System.Drawing.Size(122, 288);
+            this.txtCrResValue.Size = new System.Drawing.Size(122, 266);
             this.txtCrResValue.TabIndex = 11;
             this.txtCrResValue.Text = "";
             this.txtCrResValue.TextChanged += new System.EventHandler(this.txtCrResValue_TextChanged);
@@ -2585,7 +2710,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrResValue.AutoSize = true;
             this.lblCrResValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrResValue.Location = new System.Drawing.Point(25, 315);
+            this.lblCrResValue.Location = new System.Drawing.Point(25, 291);
             this.lblCrResValue.Name = "lblCrResValue";
             this.lblCrResValue.Size = new System.Drawing.Size(80, 15);
             this.lblCrResValue.TabIndex = 10;
@@ -2597,9 +2722,9 @@ namespace ToolSupportCoding.View
             this.groupBox31.Controls.Add(this.txtCrResComment);
             this.groupBox31.Controls.Add(this.lblCrResComment);
             this.groupBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox31.Location = new System.Drawing.Point(274, 44);
+            this.groupBox31.Location = new System.Drawing.Point(274, 41);
             this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(128, 342);
+            this.groupBox31.Size = new System.Drawing.Size(128, 316);
             this.groupBox31.TabIndex = 105;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Input Comment";
@@ -2609,7 +2734,7 @@ namespace ToolSupportCoding.View
             this.txtCrResComment.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCrResComment.Location = new System.Drawing.Point(3, 19);
             this.txtCrResComment.Name = "txtCrResComment";
-            this.txtCrResComment.Size = new System.Drawing.Size(122, 288);
+            this.txtCrResComment.Size = new System.Drawing.Size(122, 266);
             this.txtCrResComment.TabIndex = 11;
             this.txtCrResComment.Text = "";
             this.txtCrResComment.TextChanged += new System.EventHandler(this.txtCrResComment_TextChanged);
@@ -2618,7 +2743,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblCrResComment.AutoSize = true;
             this.lblCrResComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblCrResComment.Location = new System.Drawing.Point(25, 315);
+            this.lblCrResComment.Location = new System.Drawing.Point(25, 291);
             this.lblCrResComment.Name = "lblCrResComment";
             this.lblCrResComment.Size = new System.Drawing.Size(80, 15);
             this.lblCrResComment.TabIndex = 10;
@@ -2632,7 +2757,7 @@ namespace ToolSupportCoding.View
             this.tabPageFormatCode.Location = new System.Drawing.Point(124, 4);
             this.tabPageFormatCode.Name = "tabPageFormatCode";
             this.tabPageFormatCode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 397);
+            this.tabPageFormatCode.Size = new System.Drawing.Size(576, 366);
             this.tabPageFormatCode.TabIndex = 2;
             this.tabPageFormatCode.Text = "Format Coment";
             this.tabPageFormatCode.UseVisualStyleBackColor = true;
@@ -2647,7 +2772,7 @@ namespace ToolSupportCoding.View
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(276, -2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(290, 389);
+            this.groupBox9.Size = new System.Drawing.Size(290, 359);
             this.groupBox9.TabIndex = 21;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Result";
@@ -2658,7 +2783,7 @@ namespace ToolSupportCoding.View
             this.txtFormatResult.Location = new System.Drawing.Point(3, 19);
             this.txtFormatResult.Name = "txtFormatResult";
             this.txtFormatResult.ReadOnly = true;
-            this.txtFormatResult.Size = new System.Drawing.Size(284, 328);
+            this.txtFormatResult.Size = new System.Drawing.Size(284, 309);
             this.txtFormatResult.TabIndex = 26;
             this.txtFormatResult.Text = "";
             // 
@@ -2668,9 +2793,9 @@ namespace ToolSupportCoding.View
             this.btnFormatClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormatClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnFormatClear.Location = new System.Drawing.Point(121, 355);
+            this.btnFormatClear.Location = new System.Drawing.Point(115, 330);
             this.btnFormatClear.Name = "btnFormatClear";
-            this.btnFormatClear.Size = new System.Drawing.Size(28, 26);
+            this.btnFormatClear.Size = new System.Drawing.Size(28, 24);
             this.btnFormatClear.TabIndex = 22;
             this.btnFormatClear.UseVisualStyleBackColor = true;
             this.btnFormatClear.Click += new System.EventHandler(this.btnFormatClear_Click);
@@ -2683,9 +2808,9 @@ namespace ToolSupportCoding.View
             this.btnFormatCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnFormatCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCopy.Location = new System.Drawing.Point(86, 355);
+            this.btnFormatCopy.Location = new System.Drawing.Point(84, 330);
             this.btnFormatCopy.Name = "btnFormatCopy";
-            this.btnFormatCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnFormatCopy.Size = new System.Drawing.Size(28, 24);
             this.btnFormatCopy.TabIndex = 23;
             this.btnFormatCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFormatCopy.UseVisualStyleBackColor = true;
@@ -2695,9 +2820,9 @@ namespace ToolSupportCoding.View
             // 
             this.lblFormatResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormatResult.ForeColor = System.Drawing.Color.Red;
-            this.lblFormatResult.Location = new System.Drawing.Point(157, 355);
+            this.lblFormatResult.Location = new System.Drawing.Point(146, 328);
             this.lblFormatResult.Name = "lblFormatResult";
-            this.lblFormatResult.Size = new System.Drawing.Size(140, 28);
+            this.lblFormatResult.Size = new System.Drawing.Size(140, 26);
             this.lblFormatResult.TabIndex = 24;
             this.lblFormatResult.Text = "Copy to Clipboard is done!";
             this.lblFormatResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2711,9 +2836,9 @@ namespace ToolSupportCoding.View
             this.btnFormatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFormatCode.Image = global::ToolSupportCoding.Properties.Resources.format;
             this.btnFormatCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatCode.Location = new System.Drawing.Point(3, 355);
+            this.btnFormatCode.Location = new System.Drawing.Point(4, 330);
             this.btnFormatCode.Name = "btnFormatCode";
-            this.btnFormatCode.Size = new System.Drawing.Size(77, 26);
+            this.btnFormatCode.Size = new System.Drawing.Size(77, 24);
             this.btnFormatCode.TabIndex = 25;
             this.btnFormatCode.Text = "Format";
             this.btnFormatCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2729,7 +2854,7 @@ namespace ToolSupportCoding.View
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(6, -2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(264, 389);
+            this.groupBox8.Size = new System.Drawing.Size(264, 359);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Code";
@@ -2739,7 +2864,7 @@ namespace ToolSupportCoding.View
             this.txtFormatCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtFormatCode.Location = new System.Drawing.Point(3, 19);
             this.txtFormatCode.Name = "txtFormatCode";
-            this.txtFormatCode.Size = new System.Drawing.Size(258, 332);
+            this.txtFormatCode.Size = new System.Drawing.Size(258, 309);
             this.txtFormatCode.TabIndex = 103;
             this.txtFormatCode.Text = "";
             this.txtFormatCode.TextChanged += new System.EventHandler(this.txtFormatCode_TextChanged);
@@ -2748,7 +2873,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbFormatCommentSQL.AutoSize = true;
             this.rbFormatCommentSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentSQL.Location = new System.Drawing.Point(204, 360);
+            this.rbFormatCommentSQL.Location = new System.Drawing.Point(204, 332);
             this.rbFormatCommentSQL.Name = "rbFormatCommentSQL";
             this.rbFormatCommentSQL.Size = new System.Drawing.Size(55, 19);
             this.rbFormatCommentSQL.TabIndex = 102;
@@ -2760,7 +2885,7 @@ namespace ToolSupportCoding.View
             this.rbFormatCommentLBlock.AutoSize = true;
             this.rbFormatCommentLBlock.Checked = true;
             this.rbFormatCommentLBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentLBlock.Location = new System.Drawing.Point(61, 360);
+            this.rbFormatCommentLBlock.Location = new System.Drawing.Point(61, 332);
             this.rbFormatCommentLBlock.Name = "rbFormatCommentLBlock";
             this.rbFormatCommentLBlock.Size = new System.Drawing.Size(82, 19);
             this.rbFormatCommentLBlock.TabIndex = 100;
@@ -2772,7 +2897,7 @@ namespace ToolSupportCoding.View
             // 
             this.rbFormatCommentLine.AutoSize = true;
             this.rbFormatCommentLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFormatCommentLine.Location = new System.Drawing.Point(149, 360);
+            this.rbFormatCommentLine.Location = new System.Drawing.Point(149, 332);
             this.rbFormatCommentLine.Name = "rbFormatCommentLine";
             this.rbFormatCommentLine.Size = new System.Drawing.Size(49, 19);
             this.rbFormatCommentLine.TabIndex = 101;
@@ -2783,7 +2908,7 @@ namespace ToolSupportCoding.View
             // 
             this.tabPage1.Location = new System.Drawing.Point(124, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(576, 397);
+            this.tabPage1.Size = new System.Drawing.Size(576, 366);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Comming Soon";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2840,14 +2965,14 @@ namespace ToolSupportCoding.View
             // 
             this.txtName.Location = new System.Drawing.Point(209, 17);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(154, 20);
+            this.txtName.Size = new System.Drawing.Size(154, 19);
             this.txtName.TabIndex = 2;
             // 
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(35, 18);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(113, 20);
+            this.txtID.Size = new System.Drawing.Size(113, 19);
             this.txtID.TabIndex = 1;
             // 
             // btnCopyBundle
@@ -3040,194 +3165,39 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
-            // tabPageGetItemRes
+            // colNo
             // 
-            this.tabPageGetItemRes.Controls.Add(this.groupBox42);
-            this.tabPageGetItemRes.Controls.Add(this.groupBox39);
-            this.tabPageGetItemRes.Controls.Add(this.groupBox40);
-            this.tabPageGetItemRes.Controls.Add(this.groupBox41);
-            this.tabPageGetItemRes.Location = new System.Drawing.Point(124, 4);
-            this.tabPageGetItemRes.Name = "tabPageGetItemRes";
-            this.tabPageGetItemRes.Size = new System.Drawing.Size(576, 397);
-            this.tabPageGetItemRes.TabIndex = 13;
-            this.tabPageGetItemRes.Text = "Get Item Resource";
-            this.tabPageGetItemRes.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 35;
             // 
-            // groupBox39
+            // colParam
             // 
-            this.groupBox39.Controls.Add(this.txtGetIResControl);
-            this.groupBox39.Controls.Add(this.lblGetIResControl);
-            this.groupBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox39.Location = new System.Drawing.Point(140, -4);
-            this.groupBox39.Name = "groupBox39";
-            this.groupBox39.Size = new System.Drawing.Size(128, 394);
-            this.groupBox39.TabIndex = 5;
-            this.groupBox39.TabStop = false;
-            this.groupBox39.Text = "Input Control";
+            this.colParam.HeaderText = "Param";
+            this.colParam.Name = "colParam";
+            this.colParam.ReadOnly = true;
+            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colParam.Width = 134;
             // 
-            // txtGetIResControl
+            // colValue
             // 
-            this.txtGetIResControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtGetIResControl.Location = new System.Drawing.Point(3, 19);
-            this.txtGetIResControl.Name = "txtGetIResControl";
-            this.txtGetIResControl.Size = new System.Drawing.Size(122, 340);
-            this.txtGetIResControl.TabIndex = 11;
-            this.txtGetIResControl.Text = "";
-            this.txtGetIResControl.TextChanged += new System.EventHandler(this.txtGetIResControl_TextChanged);
-            // 
-            // lblGetIResControl
-            // 
-            this.lblGetIResControl.AutoSize = true;
-            this.lblGetIResControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetIResControl.Location = new System.Drawing.Point(23, 369);
-            this.lblGetIResControl.Name = "lblGetIResControl";
-            this.lblGetIResControl.Size = new System.Drawing.Size(80, 15);
-            this.lblGetIResControl.TabIndex = 10;
-            this.lblGetIResControl.Text = "Line number:";
-            this.lblGetIResControl.Visible = false;
-            // 
-            // groupBox40
-            // 
-            this.groupBox40.Controls.Add(this.txtGetIRes);
-            this.groupBox40.Controls.Add(this.lblGetIRes);
-            this.groupBox40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox40.Location = new System.Drawing.Point(274, -4);
-            this.groupBox40.Name = "groupBox40";
-            this.groupBox40.Size = new System.Drawing.Size(128, 394);
-            this.groupBox40.TabIndex = 6;
-            this.groupBox40.TabStop = false;
-            this.groupBox40.Text = "Input Resouce";
-            // 
-            // txtGetIRes
-            // 
-            this.txtGetIRes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtGetIRes.Location = new System.Drawing.Point(3, 19);
-            this.txtGetIRes.Name = "txtGetIRes";
-            this.txtGetIRes.Size = new System.Drawing.Size(122, 340);
-            this.txtGetIRes.TabIndex = 12;
-            this.txtGetIRes.Text = "";
-            this.txtGetIRes.TextChanged += new System.EventHandler(this.txtGetIRes_TextChanged);
-            // 
-            // lblGetIRes
-            // 
-            this.lblGetIRes.AutoSize = true;
-            this.lblGetIRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetIRes.Location = new System.Drawing.Point(23, 369);
-            this.lblGetIRes.Name = "lblGetIRes";
-            this.lblGetIRes.Size = new System.Drawing.Size(80, 15);
-            this.lblGetIRes.TabIndex = 11;
-            this.lblGetIRes.Text = "Line number:";
-            this.lblGetIRes.Visible = false;
-            // 
-            // groupBox41
-            // 
-            this.groupBox41.Controls.Add(this.btGetIRes);
-            this.groupBox41.Controls.Add(this.txtGetIResResult);
-            this.groupBox41.Controls.Add(this.btGetIResClear);
-            this.groupBox41.Controls.Add(this.btGetIResCopy);
-            this.groupBox41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox41.Location = new System.Drawing.Point(408, -4);
-            this.groupBox41.Name = "groupBox41";
-            this.groupBox41.Size = new System.Drawing.Size(158, 394);
-            this.groupBox41.TabIndex = 7;
-            this.groupBox41.TabStop = false;
-            this.groupBox41.Text = "Result";
-            // 
-            // txtGetIResResult
-            // 
-            this.txtGetIResResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtGetIResResult.Location = new System.Drawing.Point(3, 19);
-            this.txtGetIResResult.Name = "txtGetIResResult";
-            this.txtGetIResResult.ReadOnly = true;
-            this.txtGetIResResult.Size = new System.Drawing.Size(152, 340);
-            this.txtGetIResResult.TabIndex = 13;
-            this.txtGetIResResult.Text = "";
-            // 
-            // btGetIResClear
-            // 
-            this.btGetIResClear.FlatAppearance.BorderSize = 0;
-            this.btGetIResClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetIResClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetIResClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btGetIResClear.Location = new System.Drawing.Point(130, 363);
-            this.btGetIResClear.Name = "btGetIResClear";
-            this.btGetIResClear.Size = new System.Drawing.Size(24, 26);
-            this.btGetIResClear.TabIndex = 12;
-            this.btGetIResClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetIResClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btGetIResClear.UseVisualStyleBackColor = true;
-            this.btGetIResClear.Click += new System.EventHandler(this.btGetIResClear_Click);
-            // 
-            // btGetIResCopy
-            // 
-            this.btGetIResCopy.Enabled = false;
-            this.btGetIResCopy.FlatAppearance.BorderSize = 0;
-            this.btGetIResCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetIResCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetIResCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btGetIResCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetIResCopy.Location = new System.Drawing.Point(103, 363);
-            this.btGetIResCopy.Name = "btGetIResCopy";
-            this.btGetIResCopy.Size = new System.Drawing.Size(24, 26);
-            this.btGetIResCopy.TabIndex = 11;
-            this.btGetIResCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btGetIResCopy.UseVisualStyleBackColor = true;
-            this.btGetIResCopy.Click += new System.EventHandler(this.btGetIResCopy_Click);
-            // 
-            // btGetIRes
-            // 
-            this.btGetIRes.FlatAppearance.BorderSize = 0;
-            this.btGetIRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetIRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetIRes.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btGetIRes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetIRes.Location = new System.Drawing.Point(4, 363);
-            this.btGetIRes.Name = "btGetIRes";
-            this.btGetIRes.Size = new System.Drawing.Size(96, 26);
-            this.btGetIRes.TabIndex = 17;
-            this.btGetIRes.Text = "Get Result";
-            this.btGetIRes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btGetIRes.UseVisualStyleBackColor = true;
-            this.btGetIRes.Click += new System.EventHandler(this.btGetIRes_Click);
-            // 
-            // groupBox42
-            // 
-            this.groupBox42.Controls.Add(this.txtGetIResItem);
-            this.groupBox42.Controls.Add(this.lblGetIResItem);
-            this.groupBox42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox42.Location = new System.Drawing.Point(6, -4);
-            this.groupBox42.Name = "groupBox42";
-            this.groupBox42.Size = new System.Drawing.Size(128, 394);
-            this.groupBox42.TabIndex = 12;
-            this.groupBox42.TabStop = false;
-            this.groupBox42.Text = "Input Name Item";
-            // 
-            // txtGetIResItem
-            // 
-            this.txtGetIResItem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtGetIResItem.Location = new System.Drawing.Point(3, 19);
-            this.txtGetIResItem.Name = "txtGetIResItem";
-            this.txtGetIResItem.Size = new System.Drawing.Size(122, 340);
-            this.txtGetIResItem.TabIndex = 11;
-            this.txtGetIResItem.Text = "";
-            this.txtGetIResItem.TextChanged += new System.EventHandler(this.txtGetIResItem_TextChanged);
-            // 
-            // lblGetIResItem
-            // 
-            this.lblGetIResItem.AutoSize = true;
-            this.lblGetIResItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblGetIResItem.Location = new System.Drawing.Point(23, 369);
-            this.lblGetIResItem.Name = "lblGetIResItem";
-            this.lblGetIResItem.Size = new System.Drawing.Size(80, 15);
-            this.lblGetIResItem.TabIndex = 10;
-            this.lblGetIResItem.Text = "Line number:";
-            this.lblGetIResItem.Visible = false;
+            this.colValue.HeaderText = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 185;
             // 
             // FormCommon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 405);
+            this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.tabControlCommon);
             this.Name = "FormCommon";
             this.Text = "Tool Support: Common";
@@ -3252,6 +3222,14 @@ namespace ToolSupportCoding.View
             this.groupBox36.PerformLayout();
             this.groupBox37.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
+            this.tabPageGetItemRes.ResumeLayout(false);
+            this.groupBox42.ResumeLayout(false);
+            this.groupBox42.PerformLayout();
+            this.groupBox39.ResumeLayout(false);
+            this.groupBox39.PerformLayout();
+            this.groupBox40.ResumeLayout(false);
+            this.groupBox40.PerformLayout();
+            this.groupBox41.ResumeLayout(false);
             this.tabPageCreateJson.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -3318,14 +3296,6 @@ namespace ToolSupportCoding.View
             this.groupBox9.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.tabPageGetItemRes.ResumeLayout(false);
-            this.groupBox39.ResumeLayout(false);
-            this.groupBox39.PerformLayout();
-            this.groupBox40.ResumeLayout(false);
-            this.groupBox40.PerformLayout();
-            this.groupBox41.ResumeLayout(false);
-            this.groupBox42.ResumeLayout(false);
-            this.groupBox42.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3343,12 +3313,8 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
         private System.Windows.Forms.DataGridView gridInputParam;
         private System.Windows.Forms.RadioButton rdbCreateJson;
         private System.Windows.Forms.RadioButton rdbCreateObj;
@@ -3467,7 +3433,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Label lblNumLMessCode;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label lblColumnResult;
         private System.Windows.Forms.RichTextBox txtInputKey;
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.RichTextBox txtFormatCode;
@@ -3566,5 +3531,8 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.GroupBox groupBox42;
         private System.Windows.Forms.RichTextBox txtGetIResItem;
         private System.Windows.Forms.Label lblGetIResItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
     }
 }

@@ -31,63 +31,28 @@ namespace ToolSupportCoding.View
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelInputSQL = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtInputSQL = new System.Windows.Forms.RichTextBox();
             this.panelInputParam = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelResult = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.btnCreateParam = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.txtSQLChar = new System.Windows.Forms.TextBox();
             this.btnConvert = new System.Windows.Forms.Button();
-            this.panelInputSQL.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSQLChar = new System.Windows.Forms.TextBox();
+            this.txtInputSQL = new System.Windows.Forms.RichTextBox();
+            this.btnCreateParam = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelInputParam.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
-            this.panelResult.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelInputSQL
-            // 
-            this.panelInputSQL.Controls.Add(this.groupBox1);
-            this.panelInputSQL.Location = new System.Drawing.Point(9, 1);
-            this.panelInputSQL.Name = "panelInputSQL";
-            this.panelInputSQL.Size = new System.Drawing.Size(335, 172);
-            this.panelInputSQL.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtInputSQL);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 172);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Input SQL";
-            // 
-            // txtInputSQL
-            // 
-            this.txtInputSQL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputSQL.Location = new System.Drawing.Point(3, 19);
-            this.txtInputSQL.Name = "txtInputSQL";
-            this.txtInputSQL.Size = new System.Drawing.Size(329, 150);
-            this.txtInputSQL.TabIndex = 0;
-            this.txtInputSQL.Text = "";
             // 
             // panelInputParam
             // 
@@ -173,20 +138,14 @@ namespace ToolSupportCoding.View
             this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colValue.Width = 242;
             // 
-            // panelResult
-            // 
-            this.panelResult.Controls.Add(this.groupBox3);
-            this.panelResult.Location = new System.Drawing.Point(491, 1);
-            this.panelResult.Name = "panelResult";
-            this.panelResult.Size = new System.Drawing.Size(200, 361);
-            this.panelResult.TabIndex = 2;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtResult);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Controls.Add(this.btnCopy);
+            this.groupBox3.Controls.Add(this.btnClear);
+            this.groupBox3.Controls.Add(this.btnConvert);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Location = new System.Drawing.Point(491, 1);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 361);
             this.groupBox3.TabIndex = 0;
@@ -195,67 +154,22 @@ namespace ToolSupportCoding.View
             // 
             // txtResult
             // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtResult.Location = new System.Drawing.Point(3, 19);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(194, 339);
+            this.txtResult.Size = new System.Drawing.Size(194, 310);
             this.txtResult.TabIndex = 6;
             this.txtResult.Text = "";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lblResult);
-            this.groupBox4.Controls.Add(this.btnCreateParam);
-            this.groupBox4.Controls.Add(this.btnClear);
-            this.groupBox4.Controls.Add(this.btnCopy);
-            this.groupBox4.Controls.Add(this.txtSQLChar);
-            this.groupBox4.Controls.Add(this.btnConvert);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(350, 1);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(135, 172);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "SQL Char";
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(3, 140);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(130, 13);
-            this.lblResult.TabIndex = 7;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.Visible = false;
-            // 
-            // btnCreateParam
-            // 
-            this.btnCreateParam.FlatAppearance.BorderSize = 0;
-            this.btnCreateParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCreateParam.Image = global::ToolSupportCoding.Properties.Resources.button_add;
-            this.btnCreateParam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateParam.Location = new System.Drawing.Point(7, 49);
-            this.btnCreateParam.Name = "btnCreateParam";
-            this.btnCreateParam.Size = new System.Drawing.Size(121, 24);
-            this.btnCreateParam.TabIndex = 2;
-            this.btnCreateParam.Text = "  Add Param";
-            this.btnCreateParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateParam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateParam.UseVisualStyleBackColor = true;
-            this.btnCreateParam.Click += new System.EventHandler(this.btnCreateParam_Click);
             // 
             // btnClear
             // 
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(104, 109);
+            this.btnClear.Location = new System.Drawing.Point(170, 332);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 24);
+            this.btnClear.Size = new System.Drawing.Size(26, 24);
             this.btnClear.TabIndex = 5;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -268,21 +182,13 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(7, 109);
+            this.btnCopy.Location = new System.Drawing.Point(141, 332);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(91, 24);
+            this.btnCopy.Size = new System.Drawing.Size(26, 24);
             this.btnCopy.TabIndex = 4;
-            this.btnCopy.Text = "  Copy";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // txtSQLChar
-            // 
-            this.txtSQLChar.Location = new System.Drawing.Point(7, 20);
-            this.txtSQLChar.Name = "txtSQLChar";
-            this.txtSQLChar.Size = new System.Drawing.Size(121, 23);
-            this.txtSQLChar.TabIndex = 1;
             // 
             // btnConvert
             // 
@@ -292,9 +198,9 @@ namespace ToolSupportCoding.View
             this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.Image = global::ToolSupportCoding.Properties.Resources.button_convert;
             this.btnConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvert.Location = new System.Drawing.Point(7, 79);
+            this.btnConvert.Location = new System.Drawing.Point(4, 332);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(121, 24);
+            this.btnConvert.Size = new System.Drawing.Size(134, 24);
             this.btnConvert.TabIndex = 3;
             this.btnConvert.Text = "  Convert SQL";
             this.btnConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -302,51 +208,101 @@ namespace ToolSupportCoding.View
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnCreateParam);
+            this.groupBox1.Controls.Add(this.txtInputSQL);
+            this.groupBox1.Controls.Add(this.txtSQLChar);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(9, 1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(476, 172);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Input SQL";
+            // 
+            // txtSQLChar
+            // 
+            this.txtSQLChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSQLChar.Location = new System.Drawing.Point(96, 15);
+            this.txtSQLChar.Name = "txtSQLChar";
+            this.txtSQLChar.Size = new System.Drawing.Size(237, 23);
+            this.txtSQLChar.TabIndex = 1;
+            // 
+            // txtInputSQL
+            // 
+            this.txtInputSQL.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtInputSQL.Location = new System.Drawing.Point(3, 44);
+            this.txtInputSQL.Name = "txtInputSQL";
+            this.txtInputSQL.Size = new System.Drawing.Size(470, 125);
+            this.txtInputSQL.TabIndex = 0;
+            this.txtInputSQL.Text = "";
+            // 
+            // btnCreateParam
+            // 
+            this.btnCreateParam.FlatAppearance.BorderSize = 0;
+            this.btnCreateParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.btnCreateParam.Image = global::ToolSupportCoding.Properties.Resources.button_add;
+            this.btnCreateParam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateParam.Location = new System.Drawing.Point(339, 15);
+            this.btnCreateParam.Name = "btnCreateParam";
+            this.btnCreateParam.Size = new System.Drawing.Size(130, 23);
+            this.btnCreateParam.TabIndex = 2;
+            this.btnCreateParam.Text = "  Add Parameter";
+            this.btnCreateParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateParam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreateParam.UseVisualStyleBackColor = true;
+            this.btnCreateParam.Click += new System.EventHandler(this.btnCreateParam_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "SQL Character";
+            // 
             // FormGetSQLinSrc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 374);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.panelResult);
-            this.Controls.Add(this.panelInputSQL);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panelInputParam);
             this.Name = "FormGetSQLinSrc";
             this.Text = "Tool Support: Get SQL in Source";
             this.Load += new System.EventHandler(this.FormConvert_Load);
-            this.panelInputSQL.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.panelInputParam.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
-            this.panelResult.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelInputSQL;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panelInputParam;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panelResult;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox txtInputSQL;
         private System.Windows.Forms.DataGridView gridInputParam;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtSQLChar;
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.RichTextBox txtResult;
-        private System.Windows.Forms.Button btnCreateParam;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCreateParam;
+        private System.Windows.Forms.RichTextBox txtInputSQL;
+        private System.Windows.Forms.TextBox txtSQLChar;
     }
 }

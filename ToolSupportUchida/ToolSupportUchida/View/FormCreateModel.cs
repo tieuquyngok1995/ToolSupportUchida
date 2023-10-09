@@ -77,7 +77,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -97,7 +96,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
@@ -122,7 +120,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
@@ -147,7 +144,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -251,7 +247,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
@@ -308,7 +303,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
@@ -364,7 +358,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
@@ -420,7 +413,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
@@ -476,7 +468,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 if (this.isMode == 1 && rdbTypeScript.Checked)
                 {
@@ -532,7 +523,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = true;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
@@ -553,8 +543,7 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Visible = false;
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
-                this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
+                this.txtAddPhysi.Text = string.Empty; 
 
                 this.rdbFirst.Visible = false;
                 this.rdbLast.Visible = false;
@@ -573,7 +562,6 @@ namespace ToolSupportCoding.View
                 this.txtAddLogic.Text = string.Empty;
                 this.txtAddPhysi.Visible = false;
                 this.txtAddPhysi.Text = string.Empty;
-                this.lblResult.Visible = false;
 
                 this.rdbFirst.Visible = true;
                 this.rdbLast.Visible = true;
@@ -650,22 +638,16 @@ namespace ToolSupportCoding.View
             lblNumLogic.Visible = false;
             lblNumPhysi.Visible = false;
             lblNumType.Visible = false;
-            lblResult.Visible = false;
 
             this.chkCreateInterf.Checked = false;
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                lblResult.Visible = false;
-                return;
-            }
+            if (string.IsNullOrEmpty(txtResult.Text)) return;
 
             Clipboard.Clear();
             Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
         }
         #endregion
 

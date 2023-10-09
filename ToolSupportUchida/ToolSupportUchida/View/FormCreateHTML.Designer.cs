@@ -39,10 +39,10 @@ namespace ToolSupportCoding.View
             this.lblNumResource = new System.Windows.Forms.Label();
             this.txtResource = new System.Windows.Forms.RichTextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -56,7 +56,7 @@ namespace ToolSupportCoding.View
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(9, 1);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(166, 391);
+            this.groupBox4.Size = new System.Drawing.Size(166, 361);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Input Row Column";
@@ -66,7 +66,7 @@ namespace ToolSupportCoding.View
             this.txtRowCol.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtRowCol.Location = new System.Drawing.Point(3, 19);
             this.txtRowCol.Name = "txtRowCol";
-            this.txtRowCol.Size = new System.Drawing.Size(160, 338);
+            this.txtRowCol.Size = new System.Drawing.Size(160, 310);
             this.txtRowCol.TabIndex = 2;
             this.txtRowCol.Text = "";
             this.txtRowCol.TextChanged += new System.EventHandler(this.txtRowCol_TextChanged);
@@ -75,7 +75,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumRowCol.AutoSize = true;
             this.lblNumRowCol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumRowCol.Location = new System.Drawing.Point(61, 364);
+            this.lblNumRowCol.Location = new System.Drawing.Point(61, 336);
             this.lblNumRowCol.Name = "lblNumRowCol";
             this.lblNumRowCol.Size = new System.Drawing.Size(80, 15);
             this.lblNumRowCol.TabIndex = 8;
@@ -89,7 +89,7 @@ namespace ToolSupportCoding.View
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(181, 1);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(166, 391);
+            this.groupBox5.Size = new System.Drawing.Size(166, 361);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input Control";
@@ -99,7 +99,7 @@ namespace ToolSupportCoding.View
             this.txtControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtControl.Location = new System.Drawing.Point(3, 19);
             this.txtControl.Name = "txtControl";
-            this.txtControl.Size = new System.Drawing.Size(160, 338);
+            this.txtControl.Size = new System.Drawing.Size(160, 310);
             this.txtControl.TabIndex = 0;
             this.txtControl.Text = "";
             this.txtControl.TextChanged += new System.EventHandler(this.txtControl_TextChanged);
@@ -108,7 +108,7 @@ namespace ToolSupportCoding.View
             // 
             this.lblNumControl.AutoSize = true;
             this.lblNumControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumControl.Location = new System.Drawing.Point(61, 364);
+            this.lblNumControl.Location = new System.Drawing.Point(61, 336);
             this.lblNumControl.Name = "lblNumControl";
             this.lblNumControl.Size = new System.Drawing.Size(80, 15);
             this.lblNumControl.TabIndex = 9;
@@ -122,16 +122,16 @@ namespace ToolSupportCoding.View
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(353, 1);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(166, 391);
+            this.groupBox6.Size = new System.Drawing.Size(166, 361);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Input Item Resource";
+            this.groupBox6.Text = "Input Model Property";
             // 
             // lblNumResource
             // 
             this.lblNumResource.AutoSize = true;
             this.lblNumResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumResource.Location = new System.Drawing.Point(61, 364);
+            this.lblNumResource.Location = new System.Drawing.Point(61, 336);
             this.lblNumResource.Name = "lblNumResource";
             this.lblNumResource.Size = new System.Drawing.Size(80, 15);
             this.lblNumResource.TabIndex = 10;
@@ -143,7 +143,7 @@ namespace ToolSupportCoding.View
             this.txtResource.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtResource.Location = new System.Drawing.Point(3, 19);
             this.txtResource.Name = "txtResource";
-            this.txtResource.Size = new System.Drawing.Size(160, 338);
+            this.txtResource.Size = new System.Drawing.Size(160, 310);
             this.txtResource.TabIndex = 0;
             this.txtResource.Text = "";
             this.txtResource.TextChanged += new System.EventHandler(this.txtResource_TextChanged);
@@ -157,20 +157,10 @@ namespace ToolSupportCoding.View
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(525, 1);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(166, 391);
+            this.groupBox7.Size = new System.Drawing.Size(166, 361);
             this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Result";
-            // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtResult.Location = new System.Drawing.Point(3, 19);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(160, 338);
-            this.txtResult.TabIndex = 0;
-            this.txtResult.Text = "";
             // 
             // btnCreate
             // 
@@ -180,9 +170,9 @@ namespace ToolSupportCoding.View
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(4, 360);
+            this.btnCreate.Location = new System.Drawing.Point(4, 332);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(96, 26);
+            this.btnCreate.Size = new System.Drawing.Size(96, 24);
             this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "  Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -197,9 +187,9 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(103, 360);
+            this.btnCopy.Location = new System.Drawing.Point(103, 332);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(28, 26);
+            this.btnCopy.Size = new System.Drawing.Size(28, 24);
             this.btnCopy.TabIndex = 11;
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -211,18 +201,28 @@ namespace ToolSupportCoding.View
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(134, 360);
+            this.btnClear.Location = new System.Drawing.Point(134, 332);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(28, 26);
+            this.btnClear.Size = new System.Drawing.Size(28, 24);
             this.btnClear.TabIndex = 12;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResult.Location = new System.Drawing.Point(3, 19);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.Size = new System.Drawing.Size(160, 307);
+            this.txtResult.TabIndex = 0;
+            this.txtResult.Text = "";
+            // 
             // FormCreateHTML
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 405);
+            this.ClientSize = new System.Drawing.Size(704, 374);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);

@@ -138,7 +138,7 @@ namespace ToolSupportCoding
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 484);
+            this.panelMenu.Size = new System.Drawing.Size(220, 447);
             this.panelMenu.TabIndex = 0;
             // 
             // btnAbout
@@ -150,10 +150,10 @@ namespace ToolSupportCoding
             this.btnAbout.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAbout.Image = global::ToolSupportCoding.Properties.Resources.about;
             this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Location = new System.Drawing.Point(0, 424);
+            this.btnAbout.Location = new System.Drawing.Point(0, 389);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(220, 60);
+            this.btnAbout.Size = new System.Drawing.Size(220, 55);
             this.btnAbout.TabIndex = 5;
             this.btnAbout.TabStop = false;
             this.btnAbout.Text = "  About";
@@ -171,10 +171,10 @@ namespace ToolSupportCoding
             this.btnCommon.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCommon.Image = global::ToolSupportCoding.Properties.Resources.check_data_model;
             this.btnCommon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCommon.Location = new System.Drawing.Point(0, 364);
+            this.btnCommon.Location = new System.Drawing.Point(0, 334);
             this.btnCommon.Name = "btnCommon";
             this.btnCommon.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCommon.Size = new System.Drawing.Size(220, 60);
+            this.btnCommon.Size = new System.Drawing.Size(220, 55);
             this.btnCommon.TabIndex = 3;
             this.btnCommon.TabStop = false;
             this.btnCommon.Text = "  Common";
@@ -192,10 +192,10 @@ namespace ToolSupportCoding
             this.btnCreateItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCreateItem.Image = global::ToolSupportCoding.Properties.Resources.convert_adapter;
             this.btnCreateItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateItem.Location = new System.Drawing.Point(0, 304);
+            this.btnCreateItem.Location = new System.Drawing.Point(0, 279);
             this.btnCreateItem.Name = "btnCreateItem";
             this.btnCreateItem.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCreateItem.Size = new System.Drawing.Size(220, 60);
+            this.btnCreateItem.Size = new System.Drawing.Size(220, 55);
             this.btnCreateItem.TabIndex = 2;
             this.btnCreateItem.TabStop = false;
             this.btnCreateItem.Text = "  Create HTML";
@@ -213,10 +213,10 @@ namespace ToolSupportCoding
             this.btnCreateViewModel.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCreateViewModel.Image = global::ToolSupportCoding.Properties.Resources.create_view_model;
             this.btnCreateViewModel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateViewModel.Location = new System.Drawing.Point(0, 244);
+            this.btnCreateViewModel.Location = new System.Drawing.Point(0, 224);
             this.btnCreateViewModel.Name = "btnCreateViewModel";
             this.btnCreateViewModel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCreateViewModel.Size = new System.Drawing.Size(220, 60);
+            this.btnCreateViewModel.Size = new System.Drawing.Size(220, 55);
             this.btnCreateViewModel.TabIndex = 6;
             this.btnCreateViewModel.TabStop = false;
             this.btnCreateViewModel.Text = "  Create View Model";
@@ -234,10 +234,10 @@ namespace ToolSupportCoding
             this.btnCreateModel.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCreateModel.Image = global::ToolSupportCoding.Properties.Resources.convert_model;
             this.btnCreateModel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateModel.Location = new System.Drawing.Point(0, 184);
+            this.btnCreateModel.Location = new System.Drawing.Point(0, 169);
             this.btnCreateModel.Name = "btnCreateModel";
             this.btnCreateModel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCreateModel.Size = new System.Drawing.Size(220, 60);
+            this.btnCreateModel.Size = new System.Drawing.Size(220, 55);
             this.btnCreateModel.TabIndex = 1;
             this.btnCreateModel.TabStop = false;
             this.btnCreateModel.Text = "  Create Model";
@@ -255,10 +255,10 @@ namespace ToolSupportCoding
             this.btnGetCONST.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnGetCONST.Image = global::ToolSupportCoding.Properties.Resources.convert_sekkeei;
             this.btnGetCONST.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetCONST.Location = new System.Drawing.Point(0, 124);
+            this.btnGetCONST.Location = new System.Drawing.Point(0, 114);
             this.btnGetCONST.Name = "btnGetCONST";
             this.btnGetCONST.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnGetCONST.Size = new System.Drawing.Size(220, 60);
+            this.btnGetCONST.Size = new System.Drawing.Size(220, 55);
             this.btnGetCONST.TabIndex = 3;
             this.btnGetCONST.TabStop = false;
             this.btnGetCONST.Text = "  Get CONST";
@@ -276,10 +276,10 @@ namespace ToolSupportCoding
             this.btnGetSQLinSrc.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnGetSQLinSrc.Image = global::ToolSupportCoding.Properties.Resources.convert_database;
             this.btnGetSQLinSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetSQLinSrc.Location = new System.Drawing.Point(0, 64);
+            this.btnGetSQLinSrc.Location = new System.Drawing.Point(0, 59);
             this.btnGetSQLinSrc.Name = "btnGetSQLinSrc";
             this.btnGetSQLinSrc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnGetSQLinSrc.Size = new System.Drawing.Size(220, 60);
+            this.btnGetSQLinSrc.Size = new System.Drawing.Size(220, 55);
             this.btnGetSQLinSrc.TabIndex = 0;
             this.btnGetSQLinSrc.TabStop = false;
             this.btnGetSQLinSrc.Text = "  Get SQL in Src";
@@ -296,7 +296,7 @@ namespace ToolSupportCoding
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 64);
+            this.panelLogo.Size = new System.Drawing.Size(220, 59);
             this.panelLogo.TabIndex = 0;
             // 
             // label1
@@ -304,7 +304,7 @@ namespace ToolSupportCoding
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(66, 20);
+            this.label1.Location = new System.Drawing.Point(66, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 29);
             this.label1.TabIndex = 1;
@@ -317,8 +317,8 @@ namespace ToolSupportCoding
             this.pictureBox1.InitialImage = global::ToolSupportCoding.Properties.Resources.logo_tool;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(8, 7, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(64, 59);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -332,7 +332,7 @@ namespace ToolSupportCoding
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(700, 64);
+            this.panelTitleBar.Size = new System.Drawing.Size(700, 59);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -344,7 +344,7 @@ namespace ToolSupportCoding
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Location = new System.Drawing.Point(637, 3);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(30, 28);
             this.btnMinimize.TabIndex = 3;
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Text = "O";
@@ -359,7 +359,7 @@ namespace ToolSupportCoding
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(667, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(30, 28);
             this.btnClose.TabIndex = 2;
             this.btnClose.TabStop = false;
             this.btnClose.Text = "O";
@@ -374,7 +374,7 @@ namespace ToolSupportCoding
             this.btnCloseChildForm.Image = global::ToolSupportCoding.Properties.Resources.close;
             this.btnCloseChildForm.Location = new System.Drawing.Point(0, 0);
             this.btnCloseChildForm.Name = "btnCloseChildForm";
-            this.btnCloseChildForm.Size = new System.Drawing.Size(60, 64);
+            this.btnCloseChildForm.Size = new System.Drawing.Size(60, 59);
             this.btnCloseChildForm.TabIndex = 1;
             this.btnCloseChildForm.TabStop = false;
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@ namespace ToolSupportCoding
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(173, 25);
+            this.lblTitle.Location = new System.Drawing.Point(173, 23);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(215, 26);
             this.lblTitle.TabIndex = 0;
@@ -400,18 +400,18 @@ namespace ToolSupportCoding
             this.panelDesktopPane.Controls.Add(this.panelSettingTop);
             this.panelDesktopPane.Controls.Add(this.panelFooter);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPane.Location = new System.Drawing.Point(220, 64);
+            this.panelDesktopPane.Location = new System.Drawing.Point(220, 59);
             this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(700, 420);
+            this.panelDesktopPane.Size = new System.Drawing.Size(700, 388);
             this.panelDesktopPane.TabIndex = 2;
             // 
             // panelSettingRight
             // 
             this.panelSettingRight.Controls.Add(this.gridFormat);
             this.panelSettingRight.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSettingRight.Location = new System.Drawing.Point(305, 114);
+            this.panelSettingRight.Location = new System.Drawing.Point(305, 105);
             this.panelSettingRight.Name = "panelSettingRight";
-            this.panelSettingRight.Size = new System.Drawing.Size(388, 286);
+            this.panelSettingRight.Size = new System.Drawing.Size(388, 265);
             this.panelSettingRight.TabIndex = 3;
             // 
             // gridFormat
@@ -466,7 +466,7 @@ namespace ToolSupportCoding
             this.gridFormat.RowHeadersWidth = 25;
             this.gridFormat.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridFormat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridFormat.Size = new System.Drawing.Size(385, 275);
+            this.gridFormat.Size = new System.Drawing.Size(385, 254);
             this.gridFormat.TabIndex = 1;
             this.gridFormat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAdapter_CellContentClick);
             // 
@@ -520,9 +520,9 @@ namespace ToolSupportCoding
             // 
             this.panelSettingLeft.Controls.Add(this.gridSekkei);
             this.panelSettingLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSettingLeft.Location = new System.Drawing.Point(0, 114);
+            this.panelSettingLeft.Location = new System.Drawing.Point(0, 105);
             this.panelSettingLeft.Name = "panelSettingLeft";
-            this.panelSettingLeft.Size = new System.Drawing.Size(305, 286);
+            this.panelSettingLeft.Size = new System.Drawing.Size(305, 265);
             this.panelSettingLeft.TabIndex = 2;
             // 
             // gridSekkei
@@ -576,7 +576,7 @@ namespace ToolSupportCoding
             this.gridSekkei.RowHeadersWidth = 25;
             this.gridSekkei.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSekkei.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridSekkei.Size = new System.Drawing.Size(291, 275);
+            this.gridSekkei.Size = new System.Drawing.Size(291, 254);
             this.gridSekkei.TabIndex = 0;
             this.gridSekkei.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSekkei_CellContentClick);
             // 
@@ -631,7 +631,7 @@ namespace ToolSupportCoding
             this.panelSettingTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSettingTop.Location = new System.Drawing.Point(0, 0);
             this.panelSettingTop.Name = "panelSettingTop";
-            this.panelSettingTop.Size = new System.Drawing.Size(700, 114);
+            this.panelSettingTop.Size = new System.Drawing.Size(700, 105);
             this.panelSettingTop.TabIndex = 1;
             // 
             // groupBox4
@@ -643,7 +643,7 @@ namespace ToolSupportCoding
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(306, 1);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(385, 46);
+            this.groupBox4.Size = new System.Drawing.Size(385, 42);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Import Data";
@@ -651,7 +651,7 @@ namespace ToolSupportCoding
             // txFormat
             // 
             this.txFormat.Enabled = false;
-            this.txFormat.Location = new System.Drawing.Point(221, 15);
+            this.txFormat.Location = new System.Drawing.Point(221, 14);
             this.txFormat.Name = "txFormat";
             this.txFormat.ReadOnly = true;
             this.txFormat.Size = new System.Drawing.Size(160, 23);
@@ -661,7 +661,7 @@ namespace ToolSupportCoding
             // 
             this.rbFormat.AutoSize = true;
             this.rbFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbFormat.Location = new System.Drawing.Point(147, 18);
+            this.rbFormat.Location = new System.Drawing.Point(147, 17);
             this.rbFormat.Name = "rbFormat";
             this.rbFormat.Size = new System.Drawing.Size(64, 19);
             this.rbFormat.TabIndex = 4;
@@ -674,7 +674,7 @@ namespace ToolSupportCoding
             this.rbConst.AutoSize = true;
             this.rbConst.Checked = true;
             this.rbConst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbConst.Location = new System.Drawing.Point(79, 18);
+            this.rbConst.Location = new System.Drawing.Point(79, 17);
             this.rbConst.Name = "rbConst";
             this.rbConst.Size = new System.Drawing.Size(56, 19);
             this.rbConst.TabIndex = 3;
@@ -686,9 +686,9 @@ namespace ToolSupportCoding
             // btImport
             // 
             this.btImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btImport.Location = new System.Drawing.Point(3, 17);
+            this.btImport.Location = new System.Drawing.Point(3, 16);
             this.btImport.Name = "btImport";
-            this.btImport.Size = new System.Drawing.Size(70, 24);
+            this.btImport.Size = new System.Drawing.Size(70, 22);
             this.btImport.TabIndex = 0;
             this.btImport.Text = "Open";
             this.btImport.UseVisualStyleBackColor = true;
@@ -703,7 +703,7 @@ namespace ToolSupportCoding
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(9, 1);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 46);
+            this.groupBox3.Size = new System.Drawing.Size(291, 42);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Language";
@@ -712,7 +712,7 @@ namespace ToolSupportCoding
             // 
             this.rbHtml.AutoSize = true;
             this.rbHtml.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbHtml.Location = new System.Drawing.Point(214, 18);
+            this.rbHtml.Location = new System.Drawing.Point(214, 17);
             this.rbHtml.Name = "rbHtml";
             this.rbHtml.Size = new System.Drawing.Size(59, 19);
             this.rbHtml.TabIndex = 3;
@@ -726,7 +726,7 @@ namespace ToolSupportCoding
             // 
             this.rbJava.AutoSize = true;
             this.rbJava.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbJava.Location = new System.Drawing.Point(152, 18);
+            this.rbJava.Location = new System.Drawing.Point(152, 17);
             this.rbJava.Name = "rbJava";
             this.rbJava.Size = new System.Drawing.Size(50, 19);
             this.rbJava.TabIndex = 2;
@@ -739,7 +739,7 @@ namespace ToolSupportCoding
             // 
             this.rbTypeScript.AutoSize = true;
             this.rbTypeScript.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbTypeScript.Location = new System.Drawing.Point(54, 18);
+            this.rbTypeScript.Location = new System.Drawing.Point(54, 17);
             this.rbTypeScript.Name = "rbTypeScript";
             this.rbTypeScript.Size = new System.Drawing.Size(82, 19);
             this.rbTypeScript.TabIndex = 1;
@@ -752,7 +752,7 @@ namespace ToolSupportCoding
             this.rbC.AutoSize = true;
             this.rbC.Checked = true;
             this.rbC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rbC.Location = new System.Drawing.Point(5, 18);
+            this.rbC.Location = new System.Drawing.Point(5, 17);
             this.rbC.Name = "rbC";
             this.rbC.Size = new System.Drawing.Size(40, 19);
             this.rbC.TabIndex = 0;
@@ -773,9 +773,9 @@ namespace ToolSupportCoding
             this.groupBox2.Controls.Add(this.txtKey);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(306, 43);
+            this.groupBox2.Location = new System.Drawing.Point(306, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 67);
+            this.groupBox2.Size = new System.Drawing.Size(385, 62);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Setting Format";
@@ -783,7 +783,7 @@ namespace ToolSupportCoding
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(29, 38);
+            this.txtName.Location = new System.Drawing.Point(29, 35);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(110, 22);
             this.txtName.TabIndex = 7;
@@ -792,7 +792,7 @@ namespace ToolSupportCoding
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 18);
+            this.label9.Location = new System.Drawing.Point(27, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 15);
             this.label9.TabIndex = 6;
@@ -802,9 +802,9 @@ namespace ToolSupportCoding
             // 
             this.btnClearAdaper.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearAdaper.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClearAdaper.Location = new System.Drawing.Point(343, 37);
+            this.btnClearAdaper.Location = new System.Drawing.Point(343, 34);
             this.btnClearAdaper.Name = "btnClearAdaper";
-            this.btnClearAdaper.Size = new System.Drawing.Size(24, 26);
+            this.btnClearAdaper.Size = new System.Drawing.Size(24, 24);
             this.btnClearAdaper.TabIndex = 5;
             this.btnClearAdaper.UseVisualStyleBackColor = true;
             this.btnClearAdaper.Click += new System.EventHandler(this.btnClearAdaper_Click);
@@ -813,9 +813,9 @@ namespace ToolSupportCoding
             // 
             this.btnSearchAdapter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchAdapter.Image = global::ToolSupportCoding.Properties.Resources.button_search;
-            this.btnSearchAdapter.Location = new System.Drawing.Point(3, 37);
+            this.btnSearchAdapter.Location = new System.Drawing.Point(3, 34);
             this.btnSearchAdapter.Name = "btnSearchAdapter";
-            this.btnSearchAdapter.Size = new System.Drawing.Size(24, 26);
+            this.btnSearchAdapter.Size = new System.Drawing.Size(24, 24);
             this.btnSearchAdapter.TabIndex = 1;
             this.btnSearchAdapter.UseVisualStyleBackColor = true;
             this.btnSearchAdapter.Click += new System.EventHandler(this.btnSearchAdapter_Click);
@@ -824,9 +824,9 @@ namespace ToolSupportCoding
             // 
             this.btnAddAdapter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAdapter.Image = global::ToolSupportCoding.Properties.Resources.button_add;
-            this.btnAddAdapter.Location = new System.Drawing.Point(318, 37);
+            this.btnAddAdapter.Location = new System.Drawing.Point(318, 34);
             this.btnAddAdapter.Name = "btnAddAdapter";
-            this.btnAddAdapter.Size = new System.Drawing.Size(24, 26);
+            this.btnAddAdapter.Size = new System.Drawing.Size(24, 24);
             this.btnAddAdapter.TabIndex = 4;
             this.btnAddAdapter.UseVisualStyleBackColor = true;
             this.btnAddAdapter.Click += new System.EventHandler(this.btnAddAdapter_Click);
@@ -834,7 +834,7 @@ namespace ToolSupportCoding
             // txtValue
             // 
             this.txtValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValue.Location = new System.Drawing.Point(235, 38);
+            this.txtValue.Location = new System.Drawing.Point(235, 35);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(80, 22);
             this.txtValue.TabIndex = 3;
@@ -843,7 +843,7 @@ namespace ToolSupportCoding
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(234, 18);
+            this.label7.Location = new System.Drawing.Point(234, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 2;
@@ -852,7 +852,7 @@ namespace ToolSupportCoding
             // txtKey
             // 
             this.txtKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKey.Location = new System.Drawing.Point(142, 38);
+            this.txtKey.Location = new System.Drawing.Point(142, 35);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(90, 22);
             this.txtKey.TabIndex = 2;
@@ -861,7 +861,7 @@ namespace ToolSupportCoding
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(142, 18);
+            this.label8.Location = new System.Drawing.Point(142, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 15);
             this.label8.TabIndex = 0;
@@ -877,9 +877,9 @@ namespace ToolSupportCoding
             this.groupBox1.Controls.Add(this.txtLogicName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(9, 43);
+            this.groupBox1.Location = new System.Drawing.Point(9, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(291, 67);
+            this.groupBox1.Size = new System.Drawing.Size(291, 62);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Setting CONST";
@@ -888,9 +888,9 @@ namespace ToolSupportCoding
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(250, 37);
+            this.btnClear.Location = new System.Drawing.Point(250, 34);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 26);
+            this.btnClear.Size = new System.Drawing.Size(24, 24);
             this.btnClear.TabIndex = 5;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -899,9 +899,9 @@ namespace ToolSupportCoding
             // 
             this.btnSearchSekkei.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchSekkei.Image = global::ToolSupportCoding.Properties.Resources.button_search;
-            this.btnSearchSekkei.Location = new System.Drawing.Point(3, 37);
+            this.btnSearchSekkei.Location = new System.Drawing.Point(3, 34);
             this.btnSearchSekkei.Name = "btnSearchSekkei";
-            this.btnSearchSekkei.Size = new System.Drawing.Size(24, 26);
+            this.btnSearchSekkei.Size = new System.Drawing.Size(24, 24);
             this.btnSearchSekkei.TabIndex = 1;
             this.btnSearchSekkei.UseVisualStyleBackColor = true;
             this.btnSearchSekkei.Click += new System.EventHandler(this.btnSearchSekkei_Click);
@@ -910,9 +910,9 @@ namespace ToolSupportCoding
             // 
             this.btnAddSekkei.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSekkei.Image = global::ToolSupportCoding.Properties.Resources.button_add;
-            this.btnAddSekkei.Location = new System.Drawing.Point(225, 37);
+            this.btnAddSekkei.Location = new System.Drawing.Point(225, 34);
             this.btnAddSekkei.Name = "btnAddSekkei";
-            this.btnAddSekkei.Size = new System.Drawing.Size(24, 26);
+            this.btnAddSekkei.Size = new System.Drawing.Size(24, 24);
             this.btnAddSekkei.TabIndex = 4;
             this.btnAddSekkei.UseVisualStyleBackColor = true;
             this.btnAddSekkei.Click += new System.EventHandler(this.btnAddSekkei_Click);
@@ -920,7 +920,7 @@ namespace ToolSupportCoding
             // txtPhysiName
             // 
             this.txtPhysiName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhysiName.Location = new System.Drawing.Point(133, 38);
+            this.txtPhysiName.Location = new System.Drawing.Point(133, 35);
             this.txtPhysiName.Name = "txtPhysiName";
             this.txtPhysiName.Size = new System.Drawing.Size(90, 22);
             this.txtPhysiName.TabIndex = 3;
@@ -929,7 +929,7 @@ namespace ToolSupportCoding
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(130, 18);
+            this.label6.Location = new System.Drawing.Point(130, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 15);
             this.label6.TabIndex = 2;
@@ -938,7 +938,7 @@ namespace ToolSupportCoding
             // txtLogicName
             // 
             this.txtLogicName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogicName.Location = new System.Drawing.Point(29, 38);
+            this.txtLogicName.Location = new System.Drawing.Point(29, 35);
             this.txtLogicName.Name = "txtLogicName";
             this.txtLogicName.Size = new System.Drawing.Size(101, 22);
             this.txtLogicName.TabIndex = 2;
@@ -947,7 +947,7 @@ namespace ToolSupportCoding
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 18);
+            this.label3.Location = new System.Drawing.Point(27, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 15);
             this.label3.TabIndex = 0;
@@ -960,9 +960,9 @@ namespace ToolSupportCoding
             this.panelFooter.Controls.Add(this.label4);
             this.panelFooter.Controls.Add(this.label2);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 400);
+            this.panelFooter.Location = new System.Drawing.Point(0, 370);
             this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(700, 20);
+            this.panelFooter.Size = new System.Drawing.Size(700, 18);
             this.panelFooter.TabIndex = 0;
             // 
             // label5
@@ -1041,9 +1041,9 @@ namespace ToolSupportCoding
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 484);
+            this.ClientSize = new System.Drawing.Size(920, 447);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);

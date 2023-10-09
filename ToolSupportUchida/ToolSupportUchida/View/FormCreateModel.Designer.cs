@@ -57,7 +57,6 @@ namespace ToolSupportCoding.View
             this.txtType = new System.Windows.Forms.RichTextBox();
             this.rdbFirst = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.lblResult = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -397,7 +396,6 @@ namespace ToolSupportCoding.View
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.lblResult);
             this.groupBox7.Controls.Add(this.txtResult);
             this.groupBox7.Controls.Add(this.btnCopy);
             this.groupBox7.Controls.Add(this.btnClear);
@@ -408,18 +406,6 @@ namespace ToolSupportCoding.View
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Result";
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(36, 302);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(130, 13);
-            this.lblResult.TabIndex = 7;
-            this.lblResult.Text = "Copy to Clipboard is done!";
-            this.lblResult.Visible = false;
             // 
             // txtResult
             // 
@@ -439,7 +425,7 @@ namespace ToolSupportCoding.View
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
             this.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopy.Location = new System.Drawing.Point(4, 278);
+            this.btnCopy.Location = new System.Drawing.Point(4, 289);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(131, 24);
             this.btnCopy.TabIndex = 8;
@@ -454,9 +440,9 @@ namespace ToolSupportCoding.View
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(138, 278);
+            this.btnClear.Location = new System.Drawing.Point(136, 289);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(24, 24);
+            this.btnClear.Size = new System.Drawing.Size(26, 24);
             this.btnClear.TabIndex = 9;
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -556,7 +542,6 @@ namespace ToolSupportCoding.View
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.panelType.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -581,7 +566,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Label lblNumLogic;
         private System.Windows.Forms.Label lblNumPhysi;

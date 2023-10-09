@@ -165,7 +165,7 @@ namespace ToolSupportCoding.View
             this.rdbUpperCase.AutoSize = true;
             this.rdbUpperCase.Checked = true;
             this.rdbUpperCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbUpperCase.Location = new System.Drawing.Point(8, 23);
+            this.rdbUpperCase.Location = new System.Drawing.Point(10, 23);
             this.rdbUpperCase.Name = "rdbUpperCase";
             this.rdbUpperCase.Size = new System.Drawing.Size(90, 19);
             this.rdbUpperCase.TabIndex = 7;
@@ -177,7 +177,7 @@ namespace ToolSupportCoding.View
             // 
             this.rdbLowerCase.AutoSize = true;
             this.rdbLowerCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbLowerCase.Location = new System.Drawing.Point(8, 48);
+            this.rdbLowerCase.Location = new System.Drawing.Point(10, 48);
             this.rdbLowerCase.Name = "rdbLowerCase";
             this.rdbLowerCase.Size = new System.Drawing.Size(90, 19);
             this.rdbLowerCase.TabIndex = 8;

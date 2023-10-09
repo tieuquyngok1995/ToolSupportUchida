@@ -269,15 +269,10 @@ namespace ToolSupportCoding.View
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                lblResult.Visible = false;
-                return;
-            }
+            if (string.IsNullOrEmpty(txtResult.Text)) return;
 
             Clipboard.Clear();
             Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -301,7 +296,6 @@ namespace ToolSupportCoding.View
 
             btnCreate.Enabled = false;
             btnCopy.Enabled = false;
-            lblResult.Visible = false;
         }
 
         #endregion

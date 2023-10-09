@@ -93,7 +93,6 @@ namespace ToolSupportCoding.View
                 btnConvert.Enabled = false;
                 txtSQLChar.Enabled = true;
 
-                lblResult.Visible = false;
                 strInputSQL = string.Empty;
             }
 
@@ -110,7 +109,6 @@ namespace ToolSupportCoding.View
                 line = line.Replace("  ", " ");
             }
             txtInputSQL.Text = line;
-            lblResult.Visible = false;
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
@@ -185,7 +183,6 @@ namespace ToolSupportCoding.View
                 result = result.Replace(CONST.STRING_CHECK_STRING_EMPTY, CONST.STRING_DOUBLE_APOSTROPHE);
 
                 txtResult.Text = result;
-                lblResult.Visible = false;
 
                 if (txtResult.Text.Length != 0)
                 {
@@ -203,7 +200,6 @@ namespace ToolSupportCoding.View
             txtInputSQL.Text = string.Empty;
             txtResult.Text = string.Empty;
 
-            lblResult.Visible = false;
 
             gridInputParam.DataSource = null;
             gridInputParam.Visible = false;
@@ -217,14 +213,9 @@ namespace ToolSupportCoding.View
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                lblResult.Visible = false;
-                return;
-            }
+            if (string.IsNullOrEmpty(txtResult.Text)) return;
 
             Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
         }
         #endregion
 

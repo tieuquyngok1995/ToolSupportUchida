@@ -593,15 +593,10 @@ namespace ToolSupportCoding.View
 
         private void btColumnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txColumnResult.Text))
-            {
-                return;
-            }
+            if (string.IsNullOrEmpty(txColumnResult.Text)) return;
 
             Clipboard.Clear();
             Clipboard.SetText(txColumnResult.Text);
-
-            lblColumnResult.Visible = true;
         }
 
         private void btColumnReset_Click(object sender, EventArgs e)
@@ -615,8 +610,6 @@ namespace ToolSupportCoding.View
             cbColumnFormat.SelectedIndex = -1;
 
             setDataTable();
-
-            lblColumnResult.Visible = false;
         }
 
         private void btColumnClear_Click(object sender, EventArgs e)
@@ -633,8 +626,6 @@ namespace ToolSupportCoding.View
 
             gridColumnData.DataSource = null;
             gridColumnData.Rows.Clear();
-
-            lblColumnResult.Visible = false;
         }
 
         #endregion
@@ -968,7 +959,8 @@ namespace ToolSupportCoding.View
                     if (item.Contains(oldItem))
                     {
                         txtGetIResResult.Text += oldResource + CONST.STRING_NEW_LINE;
-                    } else
+                    }
+                    else
                     {
                         txtGetIResResult.Text += CONST.STRING_NEW_LINE;
                     }
@@ -978,7 +970,8 @@ namespace ToolSupportCoding.View
             if (!string.IsNullOrEmpty(txtGetIResResult.Text))
             {
                 btGetIResCopy.Enabled = true;
-            } else
+            }
+            else
             {
                 btGetIResCopy.Enabled = false;
             }
@@ -1162,15 +1155,10 @@ namespace ToolSupportCoding.View
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text))
-            {
-                lblResult.Visible = false;
-                return;
-            }
+            if (string.IsNullOrEmpty(txtResult.Text)) return;
 
             Clipboard.Clear();
             Clipboard.SetText(txtResult.Text);
-            lblResult.Visible = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -1181,7 +1169,6 @@ namespace ToolSupportCoding.View
             gridInputParam.Rows.Clear();
             gridInputParam.Refresh();
 
-            lblResult.Visible = false;
             displayItem(false);
         }
         #endregion
