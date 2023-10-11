@@ -29,8 +29,8 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInputParam = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
@@ -39,14 +39,14 @@ namespace ToolSupportCoding.View
             this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSQLChar = new System.Windows.Forms.TextBox();
-            this.txtInputSQL = new System.Windows.Forms.RichTextBox();
-            this.btnCreateParam = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCreateParam = new System.Windows.Forms.Button();
+            this.txtInputSQL = new System.Windows.Forms.RichTextBox();
+            this.txtSQLChar = new System.Windows.Forms.TextBox();
             this.panelInputParam.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
@@ -88,14 +88,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -112,8 +112,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -162,18 +162,6 @@ namespace ToolSupportCoding.View
             this.txtResult.TabIndex = 6;
             this.txtResult.Text = "";
             // 
-            // btnClear
-            // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnClear.Location = new System.Drawing.Point(170, 332);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(26, 24);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // btnCopy
             // 
             this.btnCopy.Enabled = false;
@@ -189,6 +177,18 @@ namespace ToolSupportCoding.View
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btnClear.Location = new System.Drawing.Point(170, 332);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(26, 24);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnConvert
             // 
@@ -222,22 +222,15 @@ namespace ToolSupportCoding.View
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input SQL";
             // 
-            // txtSQLChar
+            // label1
             // 
-            this.txtSQLChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSQLChar.Location = new System.Drawing.Point(96, 15);
-            this.txtSQLChar.Name = "txtSQLChar";
-            this.txtSQLChar.Size = new System.Drawing.Size(237, 23);
-            this.txtSQLChar.TabIndex = 1;
-            // 
-            // txtInputSQL
-            // 
-            this.txtInputSQL.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtInputSQL.Location = new System.Drawing.Point(3, 44);
-            this.txtInputSQL.Name = "txtInputSQL";
-            this.txtInputSQL.Size = new System.Drawing.Size(470, 125);
-            this.txtInputSQL.TabIndex = 0;
-            this.txtInputSQL.Text = "";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "SQL Character";
             // 
             // btnCreateParam
             // 
@@ -256,15 +249,24 @@ namespace ToolSupportCoding.View
             this.btnCreateParam.UseVisualStyleBackColor = true;
             this.btnCreateParam.Click += new System.EventHandler(this.btnCreateParam_Click);
             // 
-            // label1
+            // txtInputSQL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "SQL Character";
+            this.txtInputSQL.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtInputSQL.Location = new System.Drawing.Point(3, 44);
+            this.txtInputSQL.Name = "txtInputSQL";
+            this.txtInputSQL.Size = new System.Drawing.Size(470, 125);
+            this.txtInputSQL.TabIndex = 0;
+            this.txtInputSQL.Text = "";
+            this.txtInputSQL.Click += new System.EventHandler(this.txtInputSQL_Click);
+            // 
+            // txtSQLChar
+            // 
+            this.txtSQLChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSQLChar.Location = new System.Drawing.Point(96, 15);
+            this.txtSQLChar.Name = "txtSQLChar";
+            this.txtSQLChar.Size = new System.Drawing.Size(237, 23);
+            this.txtSQLChar.TabIndex = 1;
+            this.txtSQLChar.Click += new System.EventHandler(this.txtSQLChar_Click);
             // 
             // FormGetSQLinSrc
             // 

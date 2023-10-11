@@ -26,9 +26,8 @@ namespace ToolSupportCoding.View
         private Dictionary<string, string> dicArrIndex = new Dictionary<string, string>();
 
         #region Load Form
-        public FormCreateViewModel(int _mode, List<ItemModel> _lstItem)
+        public FormCreateViewModel(List<ItemModel> _lstItem)
         {
-            isMode = _mode;
             lstItem = _lstItem;
 
             InitializeComponent();
@@ -36,15 +35,8 @@ namespace ToolSupportCoding.View
 
         private void FormCreateViewModel_Load(object sender, EventArgs e)
         {
-            if (isMode == 0)
-            {
-                rbModeC.Checked = true;
-            }
-            else
-            {
-                rbModeTypescript.Checked = true;
-                grbClassName.Visible = true;
-            }
+            rbModeC.Checked = true;
+
             txtLogic.Focus();
 
             getDataSetting();
@@ -85,7 +77,6 @@ namespace ToolSupportCoding.View
 
         #region Event
 
-
         private void rbModeC_CheckedChanged(object sender, EventArgs e)
         {
             getDataSetting();
@@ -100,14 +91,32 @@ namespace ToolSupportCoding.View
             grbClassName.Visible = true;
         }
 
+        private void txtClassLogic_Click(object sender, EventArgs e)
+        {
+            txtClassLogic.SelectAll();
+            txtClassLogic.Focus();
+        }
+
         private void txtClassLogic_TextChanged(object sender, EventArgs e)
         {
             btnCreate.Enabled = isEnableButtonCreate();
         }
 
+        private void txtClassPhysical_Click(object sender, EventArgs e)
+        {
+            txtClassPhysical.SelectAll();
+            txtClassPhysical.Focus();
+        }
+
         private void txtClassPhysical_TextChanged(object sender, EventArgs e)
         {
             btnCreate.Enabled = isEnableButtonCreate();
+        }
+
+        private void txtLogic_Click(object sender, EventArgs e)
+        {
+            txtLogic.SelectAll();
+            txtLogic.Focus();
         }
 
         private void txtLogic_TextChanged(object sender, EventArgs e)
@@ -132,6 +141,12 @@ namespace ToolSupportCoding.View
             btnCreate.Enabled = isEnableButtonCreate();
         }
 
+        private void txtPhysical_Click(object sender, EventArgs e)
+        {
+            txtPhysical.SelectAll();
+            txtPhysical.Focus();
+        }
+
         private void txtPhysical_TextChanged(object sender, EventArgs e)
         {
             lstPhysical = txtPhysical.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -149,6 +164,12 @@ namespace ToolSupportCoding.View
             btnCreate.Enabled = isEnableButtonCreate();
         }
 
+        private void txtType_Click(object sender, EventArgs e)
+        {
+            txtType.SelectAll();
+            txtType.Focus();
+        }
+
         private void txtType_TextChanged(object sender, EventArgs e)
         {
             lstType = txtType.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -164,6 +185,12 @@ namespace ToolSupportCoding.View
             }
 
             btnCreate.Enabled = isEnableButtonCreate();
+        }
+
+        private void txtNameItem_Click(object sender, EventArgs e)
+        {
+            txtNameItem.SelectAll();
+            txtNameItem.Focus();
         }
 
         private void txtItemName_TextChanged(object sender, EventArgs e)
@@ -186,6 +213,12 @@ namespace ToolSupportCoding.View
             }
 
             btnCreate.Enabled = isEnableButtonCreate();
+        }
+
+        private void txtValidation_Click(object sender, EventArgs e)
+        {
+            txtValidation.SelectAll();
+            txtValidation.Focus();
         }
 
         private void txtValidation_TextChanged(object sender, EventArgs e)
@@ -212,59 +245,67 @@ namespace ToolSupportCoding.View
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            txtResult.Text = string.Empty;
-            string tmpVM, logic, physical, type, annotation;
-            string iViewModel = string.Empty;
-            string fViewModel = string.Empty;
-            string fProperty = string.Empty;
-            string mViewModel = string.Empty;
-            string mProperty = string.Empty;
-
-            if (rbModeC.Checked)
+            try
             {
-                tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
-            }
-            else
-            {
-                tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
-            }
-
-            for (int i = 0; i < lstLogic.Count; i++)
-            {
-                logic = lstLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                physical = lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                type = lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                txtResult.Text = string.Empty;
+                string tmpVM, logic, physical, type, annotation;
+                string iViewModel = string.Empty;
+                string fViewModel = string.Empty;
+                string fProperty = string.Empty;
+                string mViewModel = string.Empty;
+                string mProperty = string.Empty;
 
                 if (rbModeC.Checked)
                 {
-                    annotation = getAnnotationsC(logic, type);
-                    txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
-
-                    txtResult.Text += CONST.STRING_ADD_LINE;
-                    txtResult.Text = CUtils.removeLastLineBlank(txtResult.Text);
+                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
                 }
                 else
                 {
-                    type = CUtils.castTypeCToTs(type);
-
-                    iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
-
-                    getAnnotationsTS(logic, physical, type, out fProperty, out mProperty);
-                    fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
-
-                    mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
+                    tmpVM = dicSetting[CONST.STRING_SETTING_VIEW_MODEL];
                 }
-            }
 
-            if (rbModeTypescript.Checked)
+                for (int i = 0; i < lstLogic.Count; i++)
+                {
+                    logic = lstLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    physical = lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    type = lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                    if (rbModeC.Checked)
+                    {
+                        annotation = getAnnotationsC(logic, type);
+                        txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
+
+                        txtResult.Text += CONST.STRING_ADD_LINE;
+                        txtResult.Text = CUtils.removeLastLineBlank(txtResult.Text);
+                    }
+                    else
+                    {
+                        type = CUtils.castTypeCToTs(type);
+
+                        iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
+
+                        getAnnotationsTS(logic, physical, type, out fProperty, out mProperty);
+                        fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
+
+                        mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
+                    }
+                }
+
+                if (rbModeTypescript.Checked)
+                {
+                    fViewModel = fViewModel.LastIndexOf(CONST.CHAR_COMMA) != -1 ? fViewModel.TrimEnd(CONST.CHAR_COMMA) : fViewModel;
+                    mViewModel = CUtils.removeLastLineBlank(mViewModel);
+
+                    txtResult.Text += string.Format(tmpVM, txtClassLogic.Text, txtClassPhysical.Text, iViewModel, fViewModel, mViewModel).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                }
+
+                if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
+            }
+            catch (Exception ex)
             {
-                fViewModel = fViewModel.LastIndexOf(CONST.CHAR_COMMA) != -1 ? fViewModel.TrimEnd(CONST.CHAR_COMMA) : fViewModel;
-                mViewModel = CUtils.removeLastLineBlank(mViewModel);
-
-                txtResult.Text += string.Format(tmpVM, txtClassLogic.Text, txtClassPhysical.Text, iViewModel, fViewModel, mViewModel).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -515,11 +556,13 @@ namespace ToolSupportCoding.View
 
                 int index = mVM.LastIndexOf(CONST.CHAR_COMMA);
                 mProperty = index != -1 ? mVM.Remove(index, 1) : mVM;
-            } else
+            }
+            else
             {
                 mProperty = CONST.STRING_ADD_LINE;
             }
         }
         #endregion
+
     }
 }

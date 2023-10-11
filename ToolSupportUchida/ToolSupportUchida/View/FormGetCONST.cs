@@ -25,6 +25,7 @@ namespace ToolSupportCoding.View
 
         private void FormConvertSekkei_Load(object sender, EventArgs e)
         {
+            txtLogicName.Focus();
             LoadTheme();
         }
 
@@ -61,33 +62,53 @@ namespace ToolSupportCoding.View
 
         #region Event
 
+        private void txtLogicName_Click(object sender, EventArgs e)
+        {
+            txtLogicName.SelectAll();
+            txtLogicName.Focus();
+        }
+
+        private void txtPhysiName_Click(object sender, EventArgs e)
+        {
+            txtPhysiName.SelectAll();
+            txtPhysiName.Focus();
+        }
+
         private void btnConvertPhysi_Click(object sender, EventArgs e)
         {
-            txtPhysiName.Text = string.Empty;
-
-            if (txtLogicName.Text.Length != 0)
+            try
             {
-                string[] arrLogicName = txtLogicName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string item in arrLogicName)
+                txtPhysiName.Text = string.Empty;
+
+                if (txtLogicName.Text.Length != 0)
                 {
-                    string result = FindSekkeiLogicName(item.Trim(), lstSekkei);
-                    result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
+                    string[] arrLogicName = txtLogicName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string item in arrLogicName)
+                    {
+                        string result = FindSekkeiLogicName(item.Trim(), lstSekkei);
+                        result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
-                    txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
+                        txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
+                    }
+
+                    txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+                    txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+
+                    ClearEmptyLine();
+
+                    isCopyPhysi = true;
+                    lblResult.Visible = false;
+                    btnCopy.Enabled = true;
                 }
-
-                txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
-                txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
-
-                ClearEmptyLine();
-
-                isCopyPhysi = true;
-                lblResult.Visible = false;
-                btnCopy.Enabled = true;
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -103,31 +124,39 @@ namespace ToolSupportCoding.View
 
         private void btnConvertLogic_Click(object sender, EventArgs e)
         {
-            txtLogicName.Text = string.Empty;
-
-            if (txtPhysiName.Text.Length != 0)
+            try
             {
-                string[] arrPhysiName = txtPhysiName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string item in arrPhysiName)
+                txtLogicName.Text = string.Empty;
+
+                if (txtPhysiName.Text.Length != 0)
                 {
-                    string result = FindSekkeiPhysiName(item.Trim(), lstSekkei);
-                    result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
+                    string[] arrPhysiName = txtPhysiName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string item in arrPhysiName)
+                    {
+                        string result = FindSekkeiPhysiName(item.Trim(), lstSekkei);
+                        result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
-                    txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
+                        txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
+                    }
+
+                    txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+                    txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
+
+                    ClearEmptyLine();
+
+                    isCopyPhysi = false;
+                    lblResult.Visible = false;
+                    btnCopy.Enabled = true;
                 }
-
-                txtPhysiName.Text = Regex.Replace(txtPhysiName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
-                txtLogicName.Text = Regex.Replace(txtLogicName.Text, CONST.REGEX_REMOVE_LINE, string.Empty, RegexOptions.Multiline);
-
-                ClearEmptyLine();
-
-                isCopyPhysi = false;
-                lblResult.Visible = false;
-                btnCopy.Enabled = true;
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -208,5 +237,6 @@ namespace ToolSupportCoding.View
             txtLogicName.Text = txtLogicName.Text.Replace(CONST.STRING_DOUBLE_LINE, CONST.STRING_NEW_LINE);
         }
         #endregion
+
     }
 }

@@ -27,6 +27,7 @@ namespace ToolSupportCoding.View
 
         private void FormConvert_Load(object sender, EventArgs e)
         {
+            txtSQLChar.Focus();
             LoadTheme();
         }
 
@@ -62,6 +63,18 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Event
+        private void txtSQLChar_Click(object sender, EventArgs e)
+        {
+            txtSQLChar.SelectAll();
+            txtSQLChar.Focus();
+        }
+
+        private void txtInputSQL_Click(object sender, EventArgs e)
+        {
+            txtInputSQL.SelectAll();
+            txtInputSQL.Focus();
+        }
+
         private void gridInputParam_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (gridInputParam.IsCurrentCellDirty)
@@ -72,43 +85,51 @@ namespace ToolSupportCoding.View
 
         private void btnCreateParam_Click(object sender, EventArgs e)
         {
-            strSQLChar = txtSQLChar.Text.Trim();
-
-            this.gridInputParam.Rows.Clear();
-            this.gridInputParam.Refresh();
-
-            if (!string.IsNullOrEmpty(txtInputSQL.Text))
+            try
             {
-                gridInputParam.Visible = true;
+                strSQLChar = txtSQLChar.Text.Trim();
 
-                btnConvert.Enabled = true;
-                txtSQLChar.Enabled = true;
+                this.gridInputParam.Rows.Clear();
+                this.gridInputParam.Refresh();
 
-                strInputSQL = handFormatStringInput(txtInputSQL.Text);
+                if (!string.IsNullOrEmpty(txtInputSQL.Text))
+                {
+                    gridInputParam.Visible = true;
+
+                    btnConvert.Enabled = true;
+                    txtSQLChar.Enabled = true;
+
+                    strInputSQL = handFormatStringInput(txtInputSQL.Text);
+                }
+                else
+                {
+                    gridInputParam.Visible = false;
+
+                    btnConvert.Enabled = false;
+                    txtSQLChar.Enabled = true;
+
+                    strInputSQL = string.Empty;
+                }
+
+                if (!string.IsNullOrEmpty(strInputSQL))
+                {
+                    lstParam = new List<string>();
+                    handleInputParam(strInputSQL);
+                    btnConvert.Enabled = true;
+                }
+
+                string line = txtInputSQL.Text.Replace("\t", " ");
+                while (line.IndexOf("  ") >= 0)
+                {
+                    line = line.Replace("  ", " ");
+                }
+                txtInputSQL.Text = line;
             }
-            else
+            catch (Exception ex)
             {
-                gridInputParam.Visible = false;
-
-                btnConvert.Enabled = false;
-                txtSQLChar.Enabled = true;
-
-                strInputSQL = string.Empty;
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (!string.IsNullOrEmpty(strInputSQL))
-            {
-                lstParam = new List<string>();
-                handleInputParam(strInputSQL);
-                btnConvert.Enabled = true;
-            }
-
-            string line = txtInputSQL.Text.Replace("\t", " ");
-            while (line.IndexOf("  ") >= 0)
-            {
-                line = line.Replace("  ", " ");
-            }
-            txtInputSQL.Text = line;
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
@@ -465,5 +486,6 @@ namespace ToolSupportCoding.View
             }
         }
         #endregion
+
     }
 }

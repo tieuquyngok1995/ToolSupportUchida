@@ -97,6 +97,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_TEST = "${";
         public const string STRING_TABLE = "TABLE";
         public const string STRING_LABEL = "LABEL";
+        public const string STRING_BUTTON = "BUTTON";
         public const string STRING_FORMAT = "FORMAT";
         public const string STRING_MESSAGE = "message";
         public const string STRING_INPUT_TEXT = "INPUT TEXT";
@@ -218,6 +219,10 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_HTML_ROW = "ucd-row";
         public const string STRING_SETTING_HTML_ADD_ROW = "--";
         public const string STRING_SETTING_HTML_COL = "ucd-col";
+        public const string STRING_SETTING_HTML_TABLE = "ucd-table";
+        public const string STRING_SETTING_HTML_TABLE_COLUMNS = "ucd-table-columns"; 
+        public const string STRING_SETTING_HTML_TABLE_CONTAINER = "ucd-table-container";
+        public const string STRING_SETTING_HTML_TABLE_BUTTON = "ucd-table-button";
 
         public const string STRING_SETTING_VIEW_MODEL = "SettingViewModel";
         public const string STRING_SETTING_INDEX_ARR = "IndexArr";
@@ -270,14 +275,16 @@ namespace ToolSupportCoding.Utils
         #endregion
 
         #region Tab Name
-        public const string TAB_CR_JSON = "Create JSON";
-        public const string TAB_FORMAT_COMMENT = "Format Coment";
         public const string TAB_GET_NAME = "Get Name Column";
-        public const string TAB_CR_COMMENT = "Create Comment";
-        public const string TAB_CR_MESS = "Create Message";
-        public const string TAB_CR_FILE_SRC = "Create File Source";
+        public const string TAB_GET_VIEW_MODEL = "Get View Model";
+        public const string TAB_GET_GET_ITEM_RESOURCE = "Get Item Resource";
+        public const string TAB_CR_JSON = "Create JSON";
         public const string TAB_CR_ENTITY = "Create Entity";
+        public const string TAB_CR_FILE_SRC = "Create File Source";
+        public const string TAB_CR_MESS = "Create Message";
+        public const string TAB_CR_COMMENT = "Create Comment";
         public const string TAB_CR_RESOURCES = "Create Resources";
+        public const string TAB_FORMAT_COMMENT = "Format Coment";
 
         #endregion
 

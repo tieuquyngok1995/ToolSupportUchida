@@ -65,6 +65,8 @@ namespace ToolSupportCoding.View
         {
             LoadTheme();
 
+            txtLogic.Focus();
+
             if (this.isMode == 0)
             {
                 this.lbLanguage.Text = "C#";
@@ -185,6 +187,12 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Event
+        private void txtLogic_Click(object sender, EventArgs e)
+        {
+            txtLogic.SelectAll();
+            txtLogic.Focus();
+        }
+
         private void txtLogic_TextChanged(object sender, EventArgs e)
         {
             lstLogic.Clear();
@@ -203,6 +211,12 @@ namespace ToolSupportCoding.View
             convert();
         }
 
+        private void txtPhysi_Click(object sender, EventArgs e)
+        {
+            txtPhysi.SelectAll();
+            txtPhysi.Focus();
+        }
+
         private void txtPhysi_TextChanged(object sender, EventArgs e)
         {
             lstPhysi.Clear();
@@ -219,6 +233,12 @@ namespace ToolSupportCoding.View
             }
 
             convert();
+        }
+
+        private void txtType_Click(object sender, EventArgs e)
+        {
+            txtType.SelectAll();
+            txtType.Focus();
         }
 
         private void txtType_TextChanged(object sender, EventArgs e)
@@ -1309,5 +1329,6 @@ namespace ToolSupportCoding.View
             return stringBuilder.ToString();
         }
         #endregion
+
     }
 }

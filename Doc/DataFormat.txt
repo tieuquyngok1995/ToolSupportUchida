@@ -1,42 +1,45 @@
 ucd-row[--]SettingHTML[--]<div class="row">~{0}~</div>~<br>
 ucd-col[--]SettingHTML[--]<div class="col-{0}">~{1}~</div>~<br>
-label[--]SettingHTML[--]<ucd-label>{{ItemResources.{0}}}</ucd-label><br>
-ucd-label[--]SettingHTML[--]<ucd-label model.{0}></ucd-label><br>
-ItsFile[--]SettingHTML[--]<ucd-file-select {0}></ucd-file-select><br>
-ItsCheckBox[--]SettingHTML[--]<ucd-checkbox {0}></ucd-checkbox><br>
-ucd-dropdown-list[--]SettingHTML[--]<ucd-dropdown-list ucdSelectList="model." ucdOptionLabel="model."></ucd-dropdown-list><br>
-ItsRadioButton[--]SettingHTML[--]<ucd-radio-button {0} ucdValue="model."></ucd-radio-button><br>
-ucd-display-basic[--]SettingHTML[--]<ucd-display-basic {0}></ucd-display-basic><br>
-ItsDisplayFormattedNumber[--]SettingHTML[--]<ucd-display-formatted-number {0}></ucd-display-formatted-number><br>
-ItsDisplayMoney[--]SettingHTML[--]<ucd-display-money {0}></ucd-display-money><br>
-ItsDisplayNumber[--]SettingHTML[--]<ucd-display-number {0}></ucd-display-number><br>
-ItsDisplayCalendar[--]SettingHTML[--]<ucd-display-calendar {0} ucdCalendar="model."></ucd-display-calendar><br>
-ItsDisplayDateMonth[--]SettingHTML[--]<ucd-display-date-month {0} ucdCalendar="model."></ucd-display-date-month><br>
-ItsDisplayDateTime[--]SettingHTML[--]<ucd-display-date-time {0} ucdCalendar="model."></ucd-display-date-time><br>
-ItsDisplayDateYear[--]SettingHTML[--]<ucd-display-date-year {0} ucdCalendar="model."></ucd-display-date-year><br>
-ItsDisplayTime[--]SettingHTML[--]<ucd-display-time {0}></ucd-display-time><br>
-ucd-textblock-basic[--]SettingHTML[--]<ucd-textblock-basic {0}></ucd-textblock-basic><br>
-ItsTextBlockFormattedNumber[--]SettingHTML[--]<ucd-textblock-formatted-number {0}></ucd-textblock-formatted-number><br>
-ItsTextBlockMoney[--]SettingHTML[--]<ucd-textblock-money {0}></ucd-textblock-money><br>
-ItsTextBlockNumber[--]SettingHTML[--]<ucd-textblock-number {0}></ucd-textblock-number><br>
-ucd-textbox-calendar[--]SettingHTML[--]<ucd-textblock-calendar {0} ucdCalendar="model."></ucd-textblock-calendar><br>
-ItsTextBlockDateMonth[--]SettingHTML[--]<ucd-textblock-date-month {0} ucdCalendar="model."></ucd-textblock-date-month><br>
-ItsTextBlockDateYear[--]SettingHTML[--]<ucd-textblock-date-year {0} ucdCalendar="model."></ucd-textblock-date-year><br>
-ucd-textarea-basic[--]SettingHTML[--]<ucd-textarea-basic {0} ucdRow="model." ucdCol="model." ucdWidth="model."></ucd-textarea-basic><br>
-ItsTextBox[--]SettingHTML[--]<ucd-textbox-basic {0} ucdName="model." ucdValue="model."></ucd-textbox-basic><br>
-Password[--]SettingHTML[--]<ucd-textbox-password {0}></ucd-textbox-password><br>
-ItsHistoryTextArea[--]SettingHTML[--]<ucd-textarea-history {0} ucdRow="model." ucdCol="model." ucdHistories="model." ucdOptionLabel="model." ucdWidth="model."></ucd-textarea-history><br>
-ItsHistoryTextBox[--]SettingHTML[--]<ucd-textbox-history {0} ucdHistories="model." ucdOptionLabel="model."></ucd-textbox-history><br>
-ItsMoneyTextBox[--]SettingHTML[--]<ucd-textbox-money {0}></ucd-textbox-money><br>
-ItsNumberTextBox[--]SettingHTML[--]<ucd-textbox-number {0}></ucd-textbox-number><br>
-ItsCalendarTextBox[--]SettingHTML[--]<ucd-textbox-calendar {0} ucdCalendar="model."></ucd-textbox-calendar><br>
-ItsDateMonthSpinTextBox[--]SettingHTML[--]<ucd-textbox-spin-date-month {0} ucdCalendar="model."></ucd-textbox-spin-date-month><br>
-ItsDateYearSpinTextBox[--]SettingHTML[--]<ucd-textbox-spin-date-year {0} ucdCalendar="model."></ucd-textbox-spin-date-year><br>
-ItsTimeTextBox[--]SettingHTML[--]<ucd-textbox-time {0}></ucd-textbox-time><br>
-ItsCodeTextBox[--]SettingHTML[--]<ucd-textbox-code {0} ucdTextAlign="model."></ucd-textbox-code><br>
-ucd-textbox-search[--]SettingHTML[--]<ucd-textbox-search {0} ucdTextAlign="model."></ucd-textbox-search><br>
-class="form-group"[--]SettingHTML[--]<div class="row"><br>
-<button class="btn btn-default col-24"[--]SettingHTML[--]<button mat-button class="col-24"<br>
+ucd-table[--]SettingHTML[--]<table mat-table [dataSource]="{0}" class="grid-table" [ngClass]="{{ 'grid-table-height-empty-data': {0}.length == 0 }}">~{1}~<ng-container matColumnDef="empty-row">~<td mat-cell *matNoDataRow [style.text-align]="'center'" [style.vertical-align]="'middle'" [attr.colspan]="">{{{{ ItemResources.DataNotFound }}}}</td>~</ng-container>~<!-- ヘッダ -->~<tr mat-header-row *matHeaderRowDef="[{2}]]; sticky: true"></tr>~<!-- データ -->~<tr mat-row *matRowDef="let rowIndex = index;let row; columns: [{2}]" (click)="" (dblclick)="" (click)="selectRow(row, rowIndex)" (mouseover)="onMouseOver(row)" (mouseout)="onMouseOut()" [ngClass]="{{'mat-mdc-row-odd': !(rowIndex%2 == 0) && !selectionHover.isSelected(row) && !selectionClick.isSelected(row), 'mat-mdc-row-selected': selectionClick.isSelected(row), 'mat-mdc-row-hover': selectionHover.isSelected(row)}}"></tr>~</table><br>
+ucd-table-columns[--]SettingHTML[--]ItemResources.{0},<br>
+ucd-table-container[--]SettingHTML[--]<ng-container matColumnDef="{{{{ ItemResources.{0} }}}}">~<th mat-header-cell *matHeaderCellDef [style.text-align]="'center'" [ngClass]="['mat-header-table-sticky']" [style.width]="'{1}%'">{{{{ ItemResources.{0} }}}}</th>~<td mat-cell *matCellDef="let model;" [style.text-align]="'left'">~{2}~</td>~</ng-container>~<br>
+ucd-table-button[--]SettingHTML[--]<ng-container matColumnDef="{{{{ ItemResources.{0} }}}}">~<th mat-header-cell *matHeaderCellDef [ngClass]="['grid-table-button','mat-header-table-sticky']" [style.text-align]="'center'" [style.width]="'{1}%'"></th>~<td mat-cell *matCellDef="let model; let rowIndex = index;" [style.text-align]="'center'">~<div class="row">~<button mat-flat-button type="button" class="col" tabindex="-1" (click)="">{{{{ ItemResources.{0} }}}}</button>~</div>~</td>~</ng-container>~<br>
+label[--]SettingHTML[--]<ucd-label>{{{{ ItemResources.{0} }}}}</ucd-label><br>
+ucd-label[--]SettingHTML[--]<ucd-label [ucdProperty]="model.{0}"></ucd-label><br>
+ucd-file-select[--]SettingHTML[--]<ucd-file-select [ucdProperty]="model.{0}"></ucd-file-select><br>
+ucd-checkbox[--]SettingHTML[--]<label><ucd-checkbox [ucdProperty]="model.{0}">{{{{ ItemResources.{0} }}}}</ucd-checkbox></label><br>
+ucd-dropdown-list[--]SettingHTML[--]<ucd-dropdown-list [ucdProperty]="model.{0}" [ucdListItems]="model.{0}SelectList.control?.value ?? []"></ucd-dropdown-list><br>
+ucd-radio-button[--]SettingHTML[--]<label><ucd-radio-button [ucdProperty]="model.{0}" [dataSource]="[]"></ucd-radio-button></label><br>
+ucd-display-basic[--]SettingHTML[--]<ucd-display-basic [ucdProperty]="model.{0}"></ucd-display-basic><br>
+ucd-display-formatted-number[--]SettingHTML[--]<ucd-display-formatted-number [ucdProperty]="model.{0}"></ucd-display-formatted-number><br>
+ucd-display-money[--]SettingHTML[--]<ucd-display-money [ucdProperty]="model.{0}"></ucd-display-money><br>
+ucd-display-number[--]SettingHTML[--]<ucd-display-number [ucdProperty]="model.{0}"></ucd-display-number><br>
+ucd-display-calendar[--]SettingHTML[--]<ucd-display-calendar [ucdProperty]="model.{0}"></ucd-display-calendar><br>
+ucd-display-date-month[--]SettingHTML[--]<ucd-display-date-month [ucdProperty]="model.{0}"></ucd-display-date-month><br>
+ucd-display-date-time[--]SettingHTML[--]<ucd-display-date-time [ucdProperty]="model.{0}"></ucd-display-date-time><br>
+ucd-display-date-year[--]SettingHTML[--]<ucd-display-date-year [ucdProperty]="model.{0}"></ucd-display-date-year><br>
+ucd-display-time[--]SettingHTML[--]<ucd-display-time [ucdProperty]="model.{0}"></ucd-display-time><br>
+ucd-textblock-basic[--]SettingHTML[--]<ucd-textblock-basic [ucdProperty]="model.{0}"></ucd-textblock-basic><br>
+ucd-textblock-formatted-number[--]SettingHTML[--]<ucd-textblock-formatted-number [ucdProperty]="model.{0}"></ucd-textblock-formatted-number><br>
+ucd-textblock-money[--]SettingHTML[--]<ucd-textblock-money [ucdProperty]="model.{0}"></ucd-textblock-money><br>
+ucd-textblock-number [--]SettingHTML[--]<ucd-textblock-number [ucdProperty]="model.{0}"></ucd-textblock-number><br>
+ucd-textbox-calendar[--]SettingHTML[--]<ucd-textblock-calendar [ucdProperty]="model.{0}"></ucd-textblock-calendar><br>
+ucd-textblock-date-month[--]SettingHTML[--]<ucd-textblock-date-month [ucdProperty]="model.{0}"></ucd-textblock-date-month><br>
+ucd-textblock-date-year[--]SettingHTML[--]<ucd-textblock-date-year [ucdProperty]="model.{0}"></ucd-textblock-date-year><br>
+ucd-textarea-basic[--]SettingHTML[--]<ucd-textarea-basic [ucdProperty]="model.{0}" rows=""></ucd-textarea-basic><br>
+ucd-textbox-basic[--]SettingHTML[--]<ucd-textbox-basic [ucdProperty]="model.{0}"></ucd-textbox-basic><br>
+ucd-textbox-password[--]SettingHTML[--]<ucd-textbox-password [ucdProperty]="model.{0}"></ucd-textbox-password><br>
+ucd-textarea-history[--]SettingHTML[--]<ucd-textarea-history [ucdProperty]="model.{0}" rows=""></ucd-textarea-history><br>
+ucd-textbox-history[--]SettingHTML[--]<ucd-textbox-history [ucdProperty]="model.{0}" [historyList]="data.dialog.{0}SelectList"></ucd-textbox-history><br>
+ucd-textbox-money[--]SettingHTML[--]<ucd-textbox-money [ucdProperty]="model.{0}"></ucd-textbox-money><br>
+ucd-textbox-number[--]SettingHTML[--]<ucd-textbox-number [ucdProperty]="model.{0}"></ucd-textbox-number><br>
+ItsCalendarTextBox[--]SettingHTML[--]<ucd-textbox-calendar [ucdProperty]="model.{0}"></ucd-textbox-calendar><br>
+ucd-textbox-spin-date-month[--]SettingHTML[--]<ucd-textbox-spin-date-month [ucdProperty]="model.{0}"></ucd-textbox-spin-date-month><br>
+ucd-textbox-spin-date-year[--]SettingHTML[--]<ucd-textbox-spin-date-year [ucdProperty]="model.{0}"></ucd-textbox-spin-date-year><br>
+ucd-textbox-time [--]SettingHTML[--]<ucd-textbox-time [ucdProperty]="model.{0}"></ucd-textbox-time><br>
+ucd-textbox-code[--]SettingHTML[--]<ucd-textbox-code [ucdProperty]="model.{0}"></ucd-textbox-code><br>
+ucd-textbox-search[--]SettingHTML[--]<ucd-textbox-search [ucdProperty]="model.{0}" commonSearchType="" masterTable="" [nameProperty]="model.{0}"></ucd-textbox-search><br>
+button[--]SettingHTML[--]<button mat-flat-button type="button" class="col-30" (click)="">{{{{ ItemResources.{0} }}}}</button><br>
 ResourcesC#[--]Resources[--]<data name="{0}" xml:space="preserve">{1}{2}</data><br>
 ValueC#[--]Resources[--]<value>{0}</value><br>
 CommentC#[--]Resources[--]<comment>{0}</comment><br>
@@ -58,7 +61,7 @@ TSModel[--]SettingTSViewModel[--]{0}: {{~      control: this.form.controls.{1},~
 IndexArr[--]SettingTSViewModel[--]0:Required~11:DisplayFormat~12:LengthCheckType~13:LessThanFormat~14:GreaterThanFormat~15:LessOrEqualFormat~16:GreaterOrEqualFormat<br>
 Required[--]SettingTSViewModel[--]Validators.required~required: true,<br>
 LengthCheckType[--]SettingTSViewModel[--]Validators.maxLength({0})~AppValidators.range(0, {0})~stringLength: {0},~range: [0, {0}],<br>
-DisplayFormat[--]SettingTSViewModel[--]this.ItemResources.{0},<br>
+DisplayFormat[--]SettingTSViewModel[--]display: this.ItemResources.{0},<br>
 LessThanFormat[--]SettingTSViewModel[--]AppValidators.lessThan(() => (this as any).model?.{0}, () => (this as any).model?.{1})~lessThan: '{0}',<br>
 GreaterThanFormat[--]SettingTSViewModel[--]AppValidators.greaterThan(() => (this as any).model?.{0}, () => (this as any).model?.{1})~greaterThan: '{0}',<br>
 LessOrEqualFormat[--]SettingTSViewModel[--]AppValidators.lessOrEqual(() => (this as any).model?.{0}, () => (this as any).model?.{1})~lessOrEqual: '{0}',<br>

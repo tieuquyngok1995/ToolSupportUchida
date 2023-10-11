@@ -86,6 +86,7 @@
             this.txtLogic.Size = new System.Drawing.Size(126, 191);
             this.txtLogic.TabIndex = 1;
             this.txtLogic.Text = "";
+            this.txtLogic.Click += new System.EventHandler(this.txtLogic_Click);
             this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
             // 
             // lblNumLogic
@@ -119,6 +120,7 @@
             this.txtType.Size = new System.Drawing.Size(126, 191);
             this.txtType.TabIndex = 3;
             this.txtType.Text = "";
+            this.txtType.Click += new System.EventHandler(this.txtType_Click);
             this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
             // 
             // lblNumType
@@ -152,6 +154,7 @@
             this.txtPhysical.Size = new System.Drawing.Size(126, 191);
             this.txtPhysical.TabIndex = 2;
             this.txtPhysical.Text = "";
+            this.txtPhysical.Click += new System.EventHandler(this.txtPhysical_Click);
             this.txtPhysical.TextChanged += new System.EventHandler(this.txtPhysical_TextChanged);
             // 
             // lblNumPhysical
@@ -185,6 +188,7 @@
             this.txtNameItem.Size = new System.Drawing.Size(125, 191);
             this.txtNameItem.TabIndex = 4;
             this.txtNameItem.Text = "";
+            this.txtNameItem.Click += new System.EventHandler(this.txtNameItem_Click);
             this.txtNameItem.TextChanged += new System.EventHandler(this.txtItemName_TextChanged);
             // 
             // lblNumNameItem
@@ -218,6 +222,7 @@
             this.txtValidation.Size = new System.Drawing.Size(125, 191);
             this.txtValidation.TabIndex = 5;
             this.txtValidation.Text = "";
+            this.txtValidation.Click += new System.EventHandler(this.txtValidation_Click);
             this.txtValidation.TextChanged += new System.EventHandler(this.txtValidation_TextChanged);
             // 
             // lblNumValidation
@@ -360,6 +365,7 @@
             this.txtClassPhysical.Name = "txtClassPhysical";
             this.txtClassPhysical.Size = new System.Drawing.Size(165, 23);
             this.txtClassPhysical.TabIndex = 11;
+            this.txtClassPhysical.Click += new System.EventHandler(this.txtClassPhysical_Click);
             this.txtClassPhysical.TextChanged += new System.EventHandler(this.txtClassPhysical_TextChanged);
             // 
             // label1
@@ -388,6 +394,7 @@
             this.txtClassLogic.Name = "txtClassLogic";
             this.txtClassLogic.Size = new System.Drawing.Size(175, 23);
             this.txtClassLogic.TabIndex = 8;
+            this.txtClassLogic.Click += new System.EventHandler(this.txtClassLogic_Click);
             this.txtClassLogic.TextChanged += new System.EventHandler(this.txtClassLogic_TextChanged);
             // 
             // FormCreateViewModel

@@ -103,6 +103,9 @@ namespace ToolSupportCoding.View
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridInputParam = new System.Windows.Forms.DataGridView();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnClear = new System.Windows.Forms.Button();
@@ -262,9 +265,6 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colParam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlCommon.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -702,7 +702,7 @@ namespace ToolSupportCoding.View
             this.groupBox34.Size = new System.Drawing.Size(182, 123);
             this.groupBox34.TabIndex = 3;
             this.groupBox34.TabStop = false;
-            this.groupBox34.Text = "Input Physical View Model";
+            this.groupBox34.Text = "Physical View Model";
             // 
             // txtGetVMPhysical
             // 
@@ -735,7 +735,7 @@ namespace ToolSupportCoding.View
             this.groupBox28.Size = new System.Drawing.Size(183, 123);
             this.groupBox28.TabIndex = 2;
             this.groupBox28.TabStop = false;
-            this.groupBox28.Text = "Input Logical View Model";
+            this.groupBox28.Text = "Logical View Model";
             // 
             // txtGetVMLogic
             // 
@@ -768,7 +768,7 @@ namespace ToolSupportCoding.View
             this.groupBox33.Size = new System.Drawing.Size(183, 243);
             this.groupBox33.TabIndex = 1;
             this.groupBox33.TabStop = false;
-            this.groupBox33.Text = "Input Screen Item";
+            this.groupBox33.Text = "Screen Name Item";
             // 
             // txtGetVMSItem
             // 
@@ -801,7 +801,7 @@ namespace ToolSupportCoding.View
             this.groupBox35.Size = new System.Drawing.Size(183, 123);
             this.groupBox35.TabIndex = 5;
             this.groupBox35.TabStop = false;
-            this.groupBox35.Text = "Input Functional Property";
+            this.groupBox35.Text = "Functional Property";
             // 
             // txtGetVMFunPro
             // 
@@ -834,7 +834,7 @@ namespace ToolSupportCoding.View
             this.groupBox36.Size = new System.Drawing.Size(183, 123);
             this.groupBox36.TabIndex = 4;
             this.groupBox36.TabStop = false;
-            this.groupBox36.Text = "Input Functional Item";
+            this.groupBox36.Text = "Functional Item";
             // 
             // txtGetVMFunItem
             // 
@@ -1240,6 +1240,34 @@ namespace ToolSupportCoding.View
             this.gridInputParam.Size = new System.Drawing.Size(372, 254);
             this.gridInputParam.TabIndex = 5;
             this.gridInputParam.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridInputParam_CurrentCellDirtyStateChanged);
+            // 
+            // colNo
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNo.Width = 35;
+            // 
+            // colParam
+            // 
+            this.colParam.HeaderText = "Param";
+            this.colParam.Name = "colParam";
+            this.colParam.ReadOnly = true;
+            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colParam.Width = 134;
+            // 
+            // colValue
+            // 
+            this.colValue.HeaderText = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colValue.Width = 185;
             // 
             // groupBox4
             // 
@@ -3164,34 +3192,6 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TabIndex = 103;
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
-            // 
-            // colNo
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colNo.HeaderText = "No.";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNo.Width = 35;
-            // 
-            // colParam
-            // 
-            this.colParam.HeaderText = "Param";
-            this.colParam.Name = "colParam";
-            this.colParam.ReadOnly = true;
-            this.colParam.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colParam.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colParam.Width = 134;
-            // 
-            // colValue
-            // 
-            this.colValue.HeaderText = "Value";
-            this.colValue.Name = "colValue";
-            this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colValue.Width = 185;
             // 
             // FormCommon
             // 

@@ -250,6 +250,7 @@ namespace ToolSupportCoding.View
             this.txtLogic.Size = new System.Drawing.Size(160, 255);
             this.txtLogic.TabIndex = 2;
             this.txtLogic.Text = "";
+            this.txtLogic.Click += new System.EventHandler(this.txtLogic_Click);
             this.txtLogic.TextChanged += new System.EventHandler(this.txtLogic_TextChanged);
             // 
             // lblNumLogic
@@ -318,6 +319,7 @@ namespace ToolSupportCoding.View
             this.txtPhysi.Size = new System.Drawing.Size(160, 255);
             this.txtPhysi.TabIndex = 0;
             this.txtPhysi.Text = "";
+            this.txtPhysi.Click += new System.EventHandler(this.txtPhysi_Click);
             this.txtPhysi.TextChanged += new System.EventHandler(this.txtPhysi_TextChanged);
             // 
             // lblNumPhysi
@@ -377,6 +379,7 @@ namespace ToolSupportCoding.View
             this.txtType.Size = new System.Drawing.Size(160, 255);
             this.txtType.TabIndex = 0;
             this.txtType.Text = "";
+            this.txtType.Click += new System.EventHandler(this.txtType_Click);
             this.txtType.TextChanged += new System.EventHandler(this.txtType_TextChanged);
             // 
             // rdbFirst

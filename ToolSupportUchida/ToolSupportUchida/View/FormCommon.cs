@@ -81,7 +81,7 @@ namespace ToolSupportCoding.View
 
         private void FormCheckDataModel_Load(object sender, EventArgs e)
         {
-            txtCase.Focus();
+            txColumnData.Focus();
 
             LoadTheme();
         }
@@ -160,27 +160,34 @@ namespace ToolSupportCoding.View
 
             switch (tabControlCommon.TabPages[currentTab].Text)
             {
-                case CONST.TAB_CR_JSON:
-                    txtCase.Focus();
-                    break;
-                case CONST.TAB_FORMAT_COMMENT:
-                    txtFormatCode.Focus();
-                    break;
                 case CONST.TAB_GET_NAME:
                     txColumnData.Focus();
                     break;
-                case CONST.TAB_CR_COMMENT:
-                    txtCrCmComment.Focus();
+                case CONST.TAB_GET_VIEW_MODEL:
+                    txtGetVMSItem.Focus();
                     break;
-                case CONST.TAB_CR_MESS:
-                    txtMessCode.Focus();
+                case CONST.TAB_GET_GET_ITEM_RESOURCE:
+                    txtGetIResItem.Focus();
+                    break;
+                case CONST.TAB_CR_JSON:
+                    txtCase.Focus();
+                    break;
+                case CONST.TAB_CR_ENTITY:
+                    txtCrEntityP.Focus();
                     break;
                 case CONST.TAB_CR_FILE_SRC:
                     txtCrSourceFolderP.Text = objToolSupport.sourcePath;
                     txtCrSourceFolderP.Focus();
                     break;
-                case CONST.TAB_CR_ENTITY:
-                    txtCrEntityP.Focus();
+                case CONST.TAB_CR_MESS:
+                    txtMessCode.Focus();
+                    break;
+                case CONST.TAB_CR_COMMENT:
+                    txtCrCmComment.Focus();
+                    break;
+
+                case CONST.TAB_FORMAT_COMMENT:
+                    txtFormatCode.Focus();
                     break;
                 case CONST.TAB_CR_RESOURCES:
                     txtCrResName.Focus();
@@ -697,7 +704,7 @@ namespace ToolSupportCoding.View
 
         private void txtGetVMFunItem_TextChanged(object sender, EventArgs e)
         {
-            lstGetVMFunItem = txtGetVMFunItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstGetVMFunItem = txtGetVMFunItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstGetVMFunItem.Count > 0)
             {
@@ -721,7 +728,7 @@ namespace ToolSupportCoding.View
 
         private void txtGetVMFunPro_TextChanged(object sender, EventArgs e)
         {
-            lstGetVMFunProperty = txtGetVMFunPro.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstGetVMFunProperty = txtGetVMFunPro.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstGetVMFunProperty.Count > 0)
             {

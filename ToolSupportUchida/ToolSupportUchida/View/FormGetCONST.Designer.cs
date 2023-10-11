@@ -65,6 +65,7 @@ namespace ToolSupportCoding.View
             this.txtLogicName.Size = new System.Drawing.Size(273, 339);
             this.txtLogicName.TabIndex = 1;
             this.txtLogicName.Text = "";
+            this.txtLogicName.Click += new System.EventHandler(this.txtLogicName_Click);
             // 
             // groupBox2
             // 
@@ -85,6 +86,7 @@ namespace ToolSupportCoding.View
             this.txtPhysiName.Size = new System.Drawing.Size(269, 339);
             this.txtPhysiName.TabIndex = 1;
             this.txtPhysiName.Text = "";
+            this.txtPhysiName.Click += new System.EventHandler(this.txtPhysiName_Click);
             // 
             // lblResult
             // 

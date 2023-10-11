@@ -668,7 +668,7 @@ namespace ToolSupportCoding
 
         private void btnCreateViewModel_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateViewModel(mode, lstItem), sender);
+            OpenChildForm(new FormCreateViewModel(lstItem), sender);
         }
 
         private void btnCreateItem_Click(object sender, EventArgs e)

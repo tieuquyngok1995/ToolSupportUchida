@@ -16,6 +16,7 @@ namespace ToolSupportCoding.View
         private List<string> lstRowCol = new List<string>();
         private List<string> lstControl = new List<string>();
         private List<string> lstResource = new List<string>();
+        private List<string> lstModel = new List<string>();
 
         private Dictionary<string, string> dicSetting = new Dictionary<string, string>();
 
@@ -32,6 +33,8 @@ namespace ToolSupportCoding.View
             LoadTheme();
 
             GetDataSetting();
+
+            txtRowCol.Focus(); 
         }
 
         private void LoadTheme()
@@ -66,9 +69,16 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Event
+
+        private void txtRowCol_Click(object sender, EventArgs e)
+        {
+            txtRowCol.SelectAll();
+            txtRowCol.Focus();
+        }
+
         private void txtRowCol_TextChanged(object sender, EventArgs e)
         {
-            lstRowCol = txtRowCol.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstRowCol = txtRowCol.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstRowCol.Count > 0)
             {
@@ -80,7 +90,7 @@ namespace ToolSupportCoding.View
                 lblNumRowCol.Visible = false;
             }
 
-            if (lstRowCol.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count)
+            if (lstRowCol.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count && lstRowCol.Count == lstModel.Count)
             {
                 btnCreate.Enabled = true;
             }
@@ -90,9 +100,15 @@ namespace ToolSupportCoding.View
             }
         }
 
+        private void txtControl_Click(object sender, EventArgs e)
+        {
+            txtControl.SelectAll();
+            txtControl.Focus();
+        }
+
         private void txtControl_TextChanged(object sender, EventArgs e)
         {
-            lstControl = txtControl.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstControl = txtControl.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstControl.Count > 0)
             {
@@ -104,7 +120,7 @@ namespace ToolSupportCoding.View
                 lblNumControl.Visible = false;
             }
 
-            if (lstControl.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count)
+            if (lstControl.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count && lstRowCol.Count == lstModel.Count)
             {
                 btnCreate.Enabled = true;
             }
@@ -114,9 +130,15 @@ namespace ToolSupportCoding.View
             }
         }
 
+        private void txtResource_Click(object sender, EventArgs e)
+        {
+            txtResource.SelectAll();
+            txtResource.Focus();
+        }
+
         private void txtResource_TextChanged(object sender, EventArgs e)
         {
-            lstResource = txtResource.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstResource = txtResource.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstResource.Count > 0)
             {
@@ -128,7 +150,37 @@ namespace ToolSupportCoding.View
                 lblNumResource.Visible = false;
             }
 
-            if (lstResource.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count)
+            if (lstResource.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count && lstRowCol.Count == lstModel.Count)
+            {
+                btnCreate.Enabled = true;
+            }
+            else
+            {
+                btnCreate.Enabled = false;
+            }
+        }
+
+        private void txtModel_Click(object sender, EventArgs e)
+        {
+            txtModel.SelectAll();
+            txtModel.Focus();
+        }
+
+        private void txtModel_TextChanged(object sender, EventArgs e)
+        {
+            lstModel = txtModel.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstModel.Count > 0)
+            {
+                lblNumModel.Visible = true;
+                lblNumModel.Text = string.Concat(CONST.TEXT_LINE_NUM, lstModel.Count);
+            }
+            else
+            {
+                lblNumModel.Visible = false;
+            }
+
+            if (lstModel.Count > 0 && lstRowCol.Count == lstControl.Count && lstRowCol.Count == lstResource.Count && lstRowCol.Count == lstModel.Count)
             {
                 btnCreate.Enabled = true;
             }
@@ -140,47 +192,25 @@ namespace ToolSupportCoding.View
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            bool isFristRow = false;
+            txtResult.Text = string.Empty;
 
-            string result = string.Empty;
-            string srcCol = string.Empty;
-
-            string tmpRow = getTemplate(CONST.STRING_SETTING_HTML_ROW);
-            string tmpCol = getTemplate(CONST.STRING_SETTING_HTML_COL);
-
-            for (int i = 0; i < lstRowCol.Count; i++)
+            try
             {
-                string col = lstRowCol[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                string control = lstControl[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                string resource = lstResource[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-
-                if (col.Contains(CONST.STRING_SETTING_HTML_ADD_ROW))
+                if (rbModeHTML.Checked)
                 {
-                    if (isFristRow)
-                    {
-                        srcCol = CUtils.removeLastLineBlank(srcCol);
-                        result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
-                    }
-
-                    srcCol = string.Empty;
-                    col = col.Replace(CONST.STRING_SETTING_HTML_ADD_ROW, string.Empty);
-
-                    isFristRow = true;
+                    generateHTML();
                 }
-
-                string srcControl = string.Format(getTemplate(control), resource);
-                srcCol += string.Format(tmpCol, col, srcControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
-
-                if(isFristRow && lstRowCol.Count -1 == i)
+                else
                 {
-                    srcCol = CUtils.removeLastLineBlank(srcCol);
-                    result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    generateTable();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            txtResult.Text = CUtils.removeLastLineBlank(result);
-
-            if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -199,7 +229,7 @@ namespace ToolSupportCoding.View
             txtControl.Text = string.Empty;
             lstControl.Clear();
 
-            txtResource.Text = string.Empty;
+            txtModel.Text = string.Empty;
             lstResource.Clear();
 
             btnCreate.Enabled = false;
@@ -220,12 +250,156 @@ namespace ToolSupportCoding.View
                 }
             }
         }
-        
+
         private string getTemplate(string key)
         {
             string result = string.Empty;
             if (dicSetting.TryGetValue(key, out result)) return result;
             return result;
+        }
+
+        private void generateHTML()
+        {
+            bool isFristRow = false;
+
+            string result = string.Empty;
+            string srcCol = string.Empty;
+
+            string tmpRow = getTemplate(CONST.STRING_SETTING_HTML_ROW);
+            string tmpCol = getTemplate(CONST.STRING_SETTING_HTML_COL);
+
+            for (int i = 0; i < lstRowCol.Count; i++)
+            {
+                string col = lstRowCol[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string control = lstControl[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string resource = lstResource[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string model = lstModel[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                if (!string.IsNullOrEmpty(col))
+                {
+
+                    if (col.Contains(CONST.STRING_SETTING_HTML_ADD_ROW))
+                    {
+                        if (isFristRow)
+                        {
+                            srcCol = CUtils.removeLastLineBlank(srcCol);
+                            result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                        }
+
+                        srcCol = string.Empty;
+                        col = col.Replace(CONST.STRING_SETTING_HTML_ADD_ROW, string.Empty);
+
+                        isFristRow = true;
+                    }
+
+                    if (string.IsNullOrEmpty(control)) continue;
+
+                    string srcControl = string.Empty;
+                    if (control.Equals(CONST.STRING_SETTING_UCD_LABEL) || control.ToUpper().Equals(CONST.STRING_LABEL))
+                    {
+                        srcControl = string.Format(getTemplate(control), resource);
+                    }
+                    else
+                    {
+                        srcControl = string.Format(getTemplate(control), model);
+                    }
+
+                    srcCol += string.Format(tmpCol, col, srcControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                }
+
+                if (isFristRow && lstRowCol.Count - 1 == i)
+                {
+                    srcCol = CUtils.removeLastLineBlank(srcCol);
+                    result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                }
+            }
+
+            txtResult.Text = CUtils.removeLastLineBlank(result);
+
+            if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
+        }
+
+        private void generateTable()
+        {
+            int totalWidth = 0;
+            double totalCol = Convert.ToDouble(lstRowCol.Where(item => isNumber(item)).Sum(item => Convert.ToInt32(item)));
+
+            string dataSource = string.Empty;
+            string columns = string.Empty;
+            string rowContainer = string.Empty;
+
+            string tmpTable = getTemplate(CONST.STRING_SETTING_HTML_TABLE);
+            string tmpTableColumns = getTemplate(CONST.STRING_SETTING_HTML_TABLE_COLUMNS);
+            string tmpTableButton = getTemplate(CONST.STRING_SETTING_HTML_TABLE_BUTTON);
+            string tmpTableContainer = getTemplate(CONST.STRING_SETTING_HTML_TABLE_CONTAINER);
+
+            for (int i = 0; i < lstRowCol.Count; i++)
+            {
+                string col = lstRowCol[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string control = lstControl[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string resource = lstResource[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string model = lstModel[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+
+                if (string.IsNullOrEmpty(col)) continue;
+
+                if (col.Equals(CONST.STRING_SETTING_HTML_ADD_ROW))
+                {
+                    dataSource = model; 
+                    continue;
+                }
+
+                int width = getWidth(lstRowCol[i], totalCol);
+                if (width + totalWidth > 100)
+                {
+                    width = 100 - totalWidth;
+                }
+                else
+                {
+                    totalWidth += width;
+                }
+
+                if (control.ToUpper().Equals(CONST.STRING_BUTTON))
+                {
+                    rowContainer += string.Format(tmpTableButton, resource, width).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                }
+                else
+                {
+                    string rowControl = string.Format(getTemplate(control), model);
+                    rowContainer += string.Format(tmpTableContainer, resource, width, rowControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                }
+
+                if (string.IsNullOrEmpty(resource) || resource.Equals(CONST.STRING_SETTING_HTML_ADD_ROW))
+                {
+                    columns += CONST.STRING_APOSTROPHE + CONST.STRING_APOSTROPHE + CONST.STRING_COMMA;
+                }
+                else
+                {
+                    columns += string.Format(tmpTableColumns, resource);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(columns))
+            {
+                int index = columns.LastIndexOf(CONST.CHAR_COMMA);
+                columns = index != -1 ? columns.Remove(index, 1) : columns;
+            }
+
+            txtResult.Text = string.Format(tmpTable, dataSource, CUtils.removeLastLineBlank(rowContainer), columns).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+            if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
+        }
+
+        private int getWidth(string col, double totalCol)
+        {
+            return Convert.ToInt32(Math.Round((Convert.ToInt32(col) / totalCol) * 100, MidpointRounding.AwayFromZero));
+        }
+
+        private bool isNumber(string str)
+        {
+            if (int.TryParse(str, out _))
+            {
+                return true;
+            }
+            return false;
         }
         #endregion
 

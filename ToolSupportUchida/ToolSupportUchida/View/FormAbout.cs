@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using ToolSupportCoding.Theme;
 using ToolSupportCoding.Utils;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ToolSupportCoding.View
 {
@@ -14,6 +12,7 @@ namespace ToolSupportCoding.View
         private Dictionary<string, string> dicDoc = new Dictionary<string, string>();
 
         #region Load Form
+
         public FormAbout()
         {
             InitializeComponent();
@@ -41,9 +40,11 @@ namespace ToolSupportCoding.View
                 }
             }
         }
+
         #endregion
 
         #region Event
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string result = string.Empty;
@@ -70,6 +71,7 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Methor
+
         private void SetDataDoc()
         {
             txtDocument.Text += "Huong Dan Su Dung." + CONST.CHAR_NEW_LINE;
@@ -330,6 +332,7 @@ namespace ToolSupportCoding.View
 
             txtUpdateVer.Text = textVer;
         }
+
         #endregion
 
     }
