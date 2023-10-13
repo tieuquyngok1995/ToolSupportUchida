@@ -73,6 +73,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SERVICE = "Service";
         public const string STRING_REPOSITORY = "Repository";
         public const string STRING_VIEW_MODEL = "ViewModel";
+        public const string STRING_DATA_SOURCE = "DataSource";
         public const string STRING_MODEL = "Model";
         public const string STRING_ENTITY = "Entity";
         public const string STRING_ENTITIES = "Entities";

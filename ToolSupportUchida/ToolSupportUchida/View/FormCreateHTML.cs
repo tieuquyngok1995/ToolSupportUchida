@@ -34,7 +34,7 @@ namespace ToolSupportCoding.View
 
             GetDataSetting();
 
-            txtRowCol.Focus(); 
+            txtRowCol.Focus();
         }
 
         private void LoadTheme()
@@ -295,7 +295,15 @@ namespace ToolSupportCoding.View
                     if (string.IsNullOrEmpty(control)) continue;
 
                     string srcControl = string.Empty;
-                    if (control.Equals(CONST.STRING_SETTING_UCD_LABEL) || control.ToUpper().Equals(CONST.STRING_LABEL))
+                    if (control.Equals(CONST.STRING_SETTING_UCD_LABEL))
+                    {
+                        if (i + 1 < lstRowCol.Count && !lstModel[i + 1].Equals(CONST.STRING_SETTING_UCD_LABEL))
+                        {
+                            resource = string.IsNullOrEmpty(lstModel[i + 1]) ? resource : lstModel[i + 1].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                        }
+                        srcControl = string.Format(getTemplate(control), resource);
+                    }
+                    else if (control.ToUpper().Equals(CONST.STRING_LABEL))
                     {
                         srcControl = string.Format(getTemplate(control), resource);
                     }
@@ -344,7 +352,7 @@ namespace ToolSupportCoding.View
 
                 if (col.Equals(CONST.STRING_SETTING_HTML_ADD_ROW))
                 {
-                    dataSource = model; 
+                    dataSource = model.Replace(CONST.STRING_VIEW_MODEL, CONST.STRING_DATA_SOURCE);
                     continue;
                 }
 
