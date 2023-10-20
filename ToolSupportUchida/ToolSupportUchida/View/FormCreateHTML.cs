@@ -282,7 +282,7 @@ namespace ToolSupportCoding.View
                     {
                         if (isFristRow)
                         {
-                            srcCol = CUtils.removeLastLineBlank(srcCol);
+                            srcCol = CUtils.RemoveLastLineBlank(srcCol);
                             result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
                         }
 
@@ -317,12 +317,12 @@ namespace ToolSupportCoding.View
 
                 if (isFristRow && lstRowCol.Count - 1 == i)
                 {
-                    srcCol = CUtils.removeLastLineBlank(srcCol);
+                    srcCol = CUtils.RemoveLastLineBlank(srcCol);
                     result += string.Format(tmpRow, srcCol).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
                 }
             }
 
-            txtResult.Text = CUtils.removeLastLineBlank(result);
+            txtResult.Text = CUtils.RemoveLastLineBlank(result);
 
             if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
@@ -392,7 +392,7 @@ namespace ToolSupportCoding.View
                 columns = index != -1 ? columns.Remove(index, 1) : columns;
             }
 
-            txtResult.Text = string.Format(tmpTable, dataSource, CUtils.removeLastLineBlank(rowContainer), columns).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+            txtResult.Text = string.Format(tmpTable, dataSource, CUtils.RemoveLastLineBlank(rowContainer), columns).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
             if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
 

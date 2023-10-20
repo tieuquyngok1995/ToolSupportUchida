@@ -69,7 +69,7 @@ namespace ToolSupportCoding.Utils
 
             return result;
         }
-
+        
         public static string ConvertSQLToCType(string type)
         {
             switch (type)
@@ -89,6 +89,94 @@ namespace ToolSupportCoding.Utils
                     return CONST.C_TYPE_DECIMAL;
                 default:
                     return CONST.C_TYPE_INT;
+            }
+        }
+
+        public static string CastTypeCToTs(string type)
+        {
+            switch (type)
+            {
+                case CONST.C_TYPE_BOOL:
+                    return CONST.TS_TYPE_BOOLEAN;
+                case CONST.C_TYPE_DATE_TIME:
+                    return CONST.TS_TYPE_DATE;
+                case CONST.C_TYPE_SHORT:
+                case CONST.C_TYPE_INT:
+                case CONST.C_TYPE_LONG:
+                case CONST.C_TYPE_DECIMAL:
+                    return CONST.TS_TYPE_NUMBER;
+                case CONST.C_TYPE_STRING:
+                    return CONST.C_TYPE_STRING;
+                default:
+                    return CONST.TS_TYPE_ANY;
+            }
+        }
+
+        public static string CastTypeCToSqlMetaData(string type)
+        {
+            switch (type)
+            {
+                case CONST.C_TYPE_STRING:
+                    return CONST.SQL_META_DATA_NTEXT;
+                case CONST.C_TYPE_BOOL:
+                    return CONST.SQL_META_DATA_BIT;
+                case CONST.C_TYPE_DATE_TIME:
+                    return CONST.C_TYPE_DATE_TIME;
+                case CONST.C_TYPE_SHORT:
+                    return CONST.SQL_META_DATA_SMALL_INT;
+                case CONST.C_TYPE_INT:
+                    return CONST.SQL_META_DATA_INT;
+                case CONST.C_TYPE_LONG:
+                    return CONST.SQL_META_DATA_BIG_INT;
+                case CONST.C_TYPE_DECIMAL:
+                    return CONST.SQL_META_DATA_MONEY;
+                case CONST.C_TYPE_DOUBLE:
+                    return CONST.SQL_META_DATA_FLOAT;
+                default:
+                    return string.Empty;
+            }
+        }
+
+        public static string CastTypeCToSqlDataRecord(string type)
+        {
+            switch (type)
+            {
+                case CONST.C_TYPE_STRING:
+                    return CONST.SQL_DATA_RECORD_STRING;
+                case CONST.C_TYPE_BOOL:
+                    return CONST.SQL_DATA_RECORD_BOOLEAN;
+                case CONST.C_TYPE_DATE_TIME:
+                    return CONST.SQL_DATA_RECORD_DATE_TIME;
+                case CONST.C_TYPE_SHORT:
+                    return CONST.SQL_DATA_RECORD_INT16;
+                case CONST.C_TYPE_INT:
+                    return CONST.SQL_DATA_RECORD_INT32;
+                case CONST.C_TYPE_LONG:
+                    return CONST.SQL_DATA_RECORD_INT64;
+                case CONST.C_TYPE_DECIMAL:
+                    return CONST.SQL_DATA_RECORD_MONEY;
+                case CONST.C_TYPE_DOUBLE:
+                    return CONST.SQL_DATA_RECORD_DOUBLE;
+                default:
+                    return string.Empty;
+            }
+        }
+
+        public static bool IsDefaultTypeC(string type)
+        {
+            return !type.Equals(CONST.C_TYPE_STRING) && !type.Equals(CONST.C_TYPE_BOOL) &&
+                !type.Contains(CONST.STRING_LIST_EN + CONST.STRING_OPEN_TAG);
+        }
+
+        public static string AddDefaultTypeC(string type)
+        {
+            if (IsDefaultTypeC(type))
+            {
+                return type + CONST.STRING_QUESTION;
+            }
+            else
+            {
+                return type;
             }
         }
 
@@ -661,6 +749,29 @@ namespace ToolSupportCoding.Utils
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
+
+        public static string CreTmlModelC(int mode)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (mode == 0)
+            {
+                sb.Append("// {0}\r\n");
+            }
+            else if (mode == 1)
+            {
+                sb.Append("/// <summary>\r\n");
+                sb.Append("/// {0}\r\n");
+                sb.Append("/// </summary>\r\n");
+            }
+            sb.Append("public {1} {2} {{ get; set; }}");
+
+            return sb.ToString();
+        }
+
+        public static string CreTmlCheckValueC()
+        {
+            return "{0}.HasValue ? col.{0}.Value : {1}.Null";
+        }
         #endregion
 
         #region Method
@@ -706,6 +817,13 @@ namespace ToolSupportCoding.Utils
         public static string CreateSpace(int length)
         {
             return new string(CONST.CHAR_SPACE, length);
+        }
+
+        public static string FormatTab(string text)
+        {
+            string strRegex = @"[\t]+";
+            Regex myRegex = new Regex(strRegex, RegexOptions.None);
+            return myRegex.Replace(text, CONST.STRING_TAB);
         }
 
         public static string RemoveTab(ref int indexTab)
@@ -784,48 +902,28 @@ namespace ToolSupportCoding.Utils
             return char.ToUpper(str[0]) + str.Substring(1);
         }
 
-        public static string removeLastLineBlank(string str)
+        public static string RemoveLastLineBlank(string str)
         {
             int lastIndex = str.LastIndexOf("\r\n");
             if (lastIndex != -1 && lastIndex == str.Length - 2)
             {
                 str = str.Substring(0, lastIndex);
-                str = removeLastLineBlank(str);
+                str = RemoveLastLineBlank(str);
             }
             return str;
         }
 
-        public static string removeLastCommaSpace(string str)
+        public static string RemoveLastCommaSpace(string str)
         {
             int lastIndex = str.LastIndexOf(CONST.STRING_COMMA + CONST.STRING_SPACE);
             if (lastIndex != -1 && lastIndex == str.Length - 2)
             {
                 str = str.Substring(0, lastIndex);
-                str = removeLastCommaSpace(str);
+                str = RemoveLastLineBlank(str);
             }
             return str;
         }
 
-        public static string castTypeCToTs(string type)
-        {
-            switch (type)
-            {
-                case CONST.C_TYPE_BOOL:
-                    return CONST.TS_TYPE_BOOLEAN;
-                case CONST.C_TYPE_DATE_TIME:
-                    return CONST.TS_TYPE_DATE;
-                case CONST.C_TYPE_SHORT:
-                case CONST.C_TYPE_INT:
-                case CONST.C_TYPE_LONG:
-                case CONST.C_TYPE_DECIMAL:
-                    return CONST.TS_TYPE_NUMBER;
-                case CONST.C_TYPE_STRING:
-                    return CONST.C_TYPE_STRING;
-                default:
-                    return CONST.TS_TYPE_ANY;
-            }
-        }
         #endregion
     }
-
 }

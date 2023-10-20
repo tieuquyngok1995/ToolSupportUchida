@@ -11,8 +11,6 @@ namespace ToolSupportCoding.View
 {
     public partial class FormCreateViewModel : Form
     {
-        private int isMode = 0;
-
         private List<ItemModel> lstItem = new List<ItemModel>();
 
         private List<string> lstLogic = new List<string>();
@@ -274,17 +272,16 @@ namespace ToolSupportCoding.View
                     {
                         annotation = getAnnotationsC(logic, type);
 
-                        if (!type.Equals(CONST.C_TYPE_STRING) && !type.Equals(CONST.C_TYPE_BOOL)
-                            && !type.Contains(CONST.STRING_LIST_EN + CONST.STRING_OPEN_TAG)) type += CONST.STRING_QUESTION;
+                        type = CUtils.AddDefaultTypeC(type);
 
                         txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
 
                         txtResult.Text += CONST.STRING_ADD_LINE;
-                        txtResult.Text = CUtils.removeLastLineBlank(txtResult.Text);
+                        txtResult.Text = CUtils.RemoveLastLineBlank(txtResult.Text);
                     }
                     else
                     {
-                        type = CUtils.castTypeCToTs(type);
+                        type = CUtils.CastTypeCToTs(type);
 
                         iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
 
@@ -298,7 +295,7 @@ namespace ToolSupportCoding.View
                 if (rbModeTypescript.Checked)
                 {
                     fViewModel = fViewModel.LastIndexOf(CONST.CHAR_COMMA) != -1 ? fViewModel.TrimEnd(CONST.CHAR_COMMA) : fViewModel;
-                    mViewModel = CUtils.removeLastLineBlank(mViewModel);
+                    mViewModel = CUtils.RemoveLastLineBlank(mViewModel);
 
                     txtResult.Text += string.Format(tmpVM, txtClassLogic.Text, txtClassPhysical.Text, iViewModel, fViewModel, mViewModel).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
                 }
@@ -553,7 +550,7 @@ namespace ToolSupportCoding.View
                 }
             }
 
-            fProperty = CUtils.removeLastCommaSpace(fVM);
+            fProperty = CUtils.RemoveLastCommaSpace(fVM);
             if (!string.IsNullOrEmpty(mVM))
             {
                 mVM = CONST.CHAR_COMMA + CONST.STRING_ADD_LINE + mVM;

@@ -18,6 +18,8 @@ namespace ToolSupportCoding.View
     {
         DataTable table;
         private ToolSupportModel objToolSupport;
+        private List<ItemModel> lstItem = new List<ItemModel>();
+        private Dictionary<string, string> dicSetting = new Dictionary<string, string>();
 
         // List using get column
         private Dictionary<string, Dictionary<string, string>> dicColumnData = new Dictionary<string, Dictionary<string, string>>();
@@ -43,8 +45,8 @@ namespace ToolSupportCoding.View
 
         // List create entity
         private string[] lstEntityProcedure;
-        private string[] lstEntityTable;
-        private Dictionary<string, string> dicEntityType = new Dictionary<string, string>();
+        private List<ViewModel> lstEntityVM = new List<ViewModel>();
+        private List<ViewModel> lstEntityTable = new List<ViewModel>();
 
         // List create source
         private string[] lstSourceLogic;
@@ -72,11 +74,12 @@ namespace ToolSupportCoding.View
         private string[] lstFormatCode;
 
         #region Load Form
-        public FormCommon(ToolSupportModel objToolSupport)
+        public FormCommon(ToolSupportModel objToolSupport, List<ItemModel> _lstItem)
         {
             InitializeComponent();
 
             this.objToolSupport = objToolSupport;
+            this.lstItem = _lstItem;
         }
 
         private void FormCheckDataModel_Load(object sender, EventArgs e)
@@ -173,6 +176,7 @@ namespace ToolSupportCoding.View
                     txtCase.Focus();
                     break;
                 case CONST.TAB_CR_ENTITY:
+                    getSetting(currentTab);
                     txtCrEntityP.Focus();
                     break;
                 case CONST.TAB_CR_FILE_SRC:
@@ -1224,12 +1228,117 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Create Entity
+
+        private void rbCrEntityGet_CheckedChanged(object sender, EventArgs e)
+        {
+            grbCrEntityP.Text = "Script Procedure";
+            txtCrEntityP.Enabled = true;
+
+            grbCrEntityT.Text = "Script Table";
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else if (lstEntityTable != null && (rbCrEntitySet.Checked || rbCrEntityTarget.Checked))
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void rbCrEntitySet_CheckedChanged(object sender, EventArgs e)
+        {
+            grbCrEntityP.Text = "Script Procedure";
+            txtCrEntityP.Enabled = false;
+            txtCrEntityP.Text = string.Empty;
+
+            grbCrEntityT.Text = "Script Table";
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else if (lstEntityTable != null && (rbCrEntitySet.Checked || rbCrEntityTarget.Checked))
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void rbCrEntityMap_CheckedChanged(object sender, EventArgs e)
+        {
+            grbCrEntityP.Text = "Input ViewModel";
+            txtCrEntityP.Enabled = true;
+
+            grbCrEntityT.Text = "Script Table";
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else if (lstEntityTable != null && (rbCrEntitySet.Checked || rbCrEntityTarget.Checked))
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
+        private void rbCrEntityTarget_CheckedChanged(object sender, EventArgs e)
+        {
+            grbCrEntityP.Text = "Script Procedure";
+            txtCrEntityP.Enabled = false;
+            txtCrEntityP.Text = string.Empty;
+
+            grbCrEntityT.Text = "Script Table";
+
+            if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else if (lstEntityTable != null && (rbCrEntitySet.Checked || rbCrEntityTarget.Checked))
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else
+            {
+                btnCrEntity.Enabled = false;
+            }
+        }
+
         private void txtCrEntityP_TextChanged(object sender, EventArgs e)
         {
             lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
 
             if (lstEntityProcedure.Length > 0)
             {
+                if (rbCrEntityMap.Checked)
+                {
+                    lstEntityVM = new List<ViewModel>();
+                    foreach (var item in lstEntityProcedure)
+                    {
+                        if (string.IsNullOrEmpty(item)) continue;
+
+                        string[] arrItem = CUtils.FormatTab(item).Split(CONST.CHAR_TAB);
+
+                        if (arrItem.Length > 1)
+                        {
+                            string name = arrItem[0].Trim();
+                            string type = arrItem[1].Trim();
+
+                            lstEntityVM.Add(new ViewModel(name, type));
+                        }
+                    }
+                }
                 lblCrEntityNumP.Visible = true;
                 lblCrEntityNumP.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityProcedure.Length);
             }
@@ -1250,23 +1359,36 @@ namespace ToolSupportCoding.View
 
         private void txtCrEntityT_TextChanged(object sender, EventArgs e)
         {
-            lstEntityTable = txtCrEntityT.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
+            string[] arrTable = txtCrEntityT.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
 
-            if (lstEntityTable.Length > 0)
+            if (arrTable.Length > 0)
             {
-                dicEntityType = new Dictionary<string, string>();
-                foreach (var item in lstEntityTable)
+                lstEntityTable = new List<ViewModel>();
+                foreach (var item in arrTable)
                 {
-                    string[] arrItem = item.Split(CONST.CHAR_TAB);
+                    if (string.IsNullOrEmpty(item)) continue;
 
+                    string[] arrItem = item.Replace(CONST.STRING_C_O_SQU_BRACKETS_SPACE, CONST.STRING_C_SQU_BRACKETS_SPACE)
+                                            .Split(CONST.STRING_SEPARATORS_TABLE, StringSplitOptions.None);
                     if (arrItem.Length > 1)
                     {
-                        dicEntityType.Add(arrItem[0].Trim(), arrItem[1].Trim());
+                        string name = arrItem[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_COMMA, string.Empty).Trim();
+                        string type = arrItem[1];
+
+                        int index = type.LastIndexOf(CONST.STRING_C_SQU_BRACKETS);
+                        if (index != -1) type = type.Substring(0, index);
+
+                        index = type.LastIndexOf(CONST.STRING_O_BRACKETS);
+                        if (index != -1) type = type.Substring(0, index);
+
+                        type = CUtils.ConvertSQLToCType(type);
+
+                        lstEntityTable.Add(new ViewModel(name, type));
                     }
                 }
 
                 lblCrEntityNumT.Visible = true;
-                lblCrEntityNumT.Text = string.Concat(CONST.TEXT_LINE_NUM, lstEntityTable.Length);
+                lblCrEntityNumT.Text = string.Concat(CONST.TEXT_LINE_NUM, arrTable.Length);
             }
             else
             {
@@ -1274,6 +1396,10 @@ namespace ToolSupportCoding.View
             }
 
             if (lstEntityProcedure != null && lstEntityTable != null)
+            {
+                btnCrEntity.Enabled = true;
+            }
+            else if (lstEntityTable != null && (rbCrEntitySet.Checked || rbCrEntityTarget.Checked))
             {
                 btnCrEntity.Enabled = true;
             }
@@ -1287,6 +1413,29 @@ namespace ToolSupportCoding.View
         {
             txtCrEntityResult.Text = string.Empty;
 
+            if (rbCrEntityGet.Checked)
+            {
+                txtCrEntityResult.Text = CUtils.RemoveLastLineBlank(createEntityGet());
+            }
+            else if (rbCrEntitySet.Checked)
+            {
+                txtCrEntityResult.Text = CUtils.RemoveLastLineBlank(createEntitySet());
+            }
+            else if (rbCrEntityMap.Checked)
+            {
+                txtCrEntityResult.Text = CUtils.RemoveLastLineBlank(createEntityMapper());
+            }
+            else
+            {
+                txtCrEntityResult.Text = createEntityTarget();
+            }
+
+            if (!string.IsNullOrEmpty(txtCrEntityResult.Text)) btnCrEntityCopy.Enabled = true;
+        }
+
+        private string createEntityGet()
+        {
+            string result = string.Empty;
             for (int i = 0; i < lstEntityProcedure.Length; i++)
             {
 
@@ -1315,40 +1464,118 @@ namespace ToolSupportCoding.View
                 logic = logic.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
                 physical = physical.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
 
-                if (dicEntityType.TryGetValue(logic, out type))
+                ViewModel itemModel = lstEntityTable.Where(obj => obj.name.Equals(logic)).FirstOrDefault();
+                if (itemModel != null)
                 {
-                    type = CUtils.ConvertSQLToCType(type);
+                    type = CUtils.AddDefaultTypeC(itemModel.type);
                 }
                 else
                 {
                     type = string.Empty;
                 }
 
-                StringBuilder stringBuilder = new StringBuilder();
-                if (rbCrEntityLine.Checked)
+                string tmp = CUtils.CreTmlModelC(0);
+                if (rbCrEntityBlock.Checked)
                 {
-                    stringBuilder.Append("// {0}\r\n");
+                    tmp = CUtils.CreTmlModelC(1);
                 }
-                else if (rbCrEntityBlock.Checked)
-                {
-                    stringBuilder.Append("/// <summary>\r\n");
-                    stringBuilder.Append("/// {0}\r\n");
-                    stringBuilder.Append("/// </summary>\r\n");
-                }
-                stringBuilder.Append("public {1}? {2}");
 
-                if (i == lstEntityProcedure.Length - 2)
+                result += string.Format(tmp, logic, type, physical) + CONST.STRING_ADD_LINE;
+                result += CONST.STRING_ADD_LINE;
+            }
+
+            return result;
+        }
+
+        private string createEntitySet()
+        {
+            string result = string.Empty;
+            for (int i = 0; i < lstEntityTable.Count; i++)
+            {
+                ViewModel vm = lstEntityTable[i];
+                if (vm == null || string.IsNullOrEmpty(vm.name) || string.IsNullOrEmpty(vm.type)) continue;
+
+                string logic = vm.name;
+                string type = vm.type;
+                if (!string.IsNullOrEmpty(type))
                 {
-                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
+                    type = CUtils.ConvertSQLToCType(type);
+                    type = CUtils.AddDefaultTypeC(type);
+                }
+
+                string tmp = CUtils.CreTmlModelC(0);
+                if (rbCrEntityBlock.Checked)
+                {
+                    tmp = CUtils.CreTmlModelC(1);
+                }
+
+                result += string.Format(tmp, logic, type, logic) + CONST.STRING_ADD_LINE;
+                result += CONST.STRING_ADD_LINE;
+            }
+
+            return result;
+        }
+
+        private string createEntityMapper()
+        {
+            string result = string.Empty;
+            string tmp = string.Empty;
+
+            if (!dicSetting.TryGetValue(CONST.STRING_SETTING_COMMON_ENTITY_MAPPER, out tmp)) return string.Empty;
+
+            for (int i = 0; i < lstEntityTable.Count; i++)
+            {
+                ViewModel entity = lstEntityTable[i];
+                if (entity == null || string.IsNullOrEmpty(entity.name) || string.IsNullOrEmpty(entity.type)) continue;
+
+                ViewModel viewModel = lstEntityVM.Where(obj => obj.name.Equals(entity.name)).FirstOrDefault();
+                if (viewModel != null)
+                {
+                    result += string.Format(tmp, entity.name, viewModel.type);
                 }
                 else
                 {
-                    txtCrEntityResult.Text += string.Format(stringBuilder.ToString(), logic, type, physical) + " { get; set; }";
-                    txtCrEntityResult.Text += CONST.STRING_ADD_LINE + CONST.STRING_ADD_LINE;
+                    result += string.Format(tmp, entity.name, string.Empty);
                 }
+                result += CONST.STRING_ADD_LINE;
+            }
+            return result;
+        }
+
+        private string createEntityTarget()
+        {
+            string result = string.Empty;
+            string resultSqlMetaData = string.Empty;
+            string resultSqlDataRecord = string.Empty;
+
+            string tmpSqlMetaData = string.Empty;
+            if (!dicSetting.TryGetValue(CONST.STRING_SETTING_COMMON_ENTITY_SQL_META, out tmpSqlMetaData)) return string.Empty;
+
+            string tmpSqlDataRecord = string.Empty;
+            if (!dicSetting.TryGetValue(CONST.STRING_SETTING_COMMON_ENTITY_RECORD, out tmpSqlDataRecord)) return string.Empty;
+
+            string tmp = string.Empty;
+            if (!dicSetting.TryGetValue(CONST.STRING_SETTING_COMMON_ENTITY_TARGET, out tmp)) return string.Empty;
+
+            for (int i = 0; i < lstEntityTable.Count; i++)
+            {
+                ViewModel vm = lstEntityTable[i];
+                if (vm == null || string.IsNullOrEmpty(vm.name) || string.IsNullOrEmpty(vm.type)) continue;
+
+                resultSqlMetaData += string.Format(tmpSqlMetaData, vm.name, CUtils.CastTypeCToSqlMetaData(vm.type)) + CONST.STRING_ADD_LINE;
+
+                string sqlDataRecord = CUtils.CastTypeCToSqlDataRecord(vm.type);
+                string value = vm.name;
+                if (CUtils.IsDefaultTypeC(vm.type))
+                {
+                    value = string.Format(CUtils.CreTmlCheckValueC(), vm.name, sqlDataRecord.Replace(CONST.STRING_SET, string.Empty));
+                }
+                resultSqlDataRecord += string.Format(tmpSqlDataRecord, sqlDataRecord, i, value) + CONST.STRING_ADD_LINE;
             }
 
-            if (!string.IsNullOrEmpty(txtCrEntityResult.Text)) btnCrEntityCopy.Enabled = true;
+            result = string.Format(tmp, CUtils.RemoveLastLineBlank(resultSqlMetaData), CUtils.RemoveLastLineBlank(resultSqlDataRecord)).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+
+            return result;
         }
 
         private void btnCrEntityCopy_Click(object sender, EventArgs e)
@@ -2315,7 +2542,7 @@ namespace ToolSupportCoding.View
 
                     if (createComentLocation == 1) txtCrCmResult.Text = CUtils.FormatCode(mode, txtCrCmResult.Text, maxLengthRow, isBlankLine);
 
-                    txtCrCmResult.Text = CUtils.removeLastLineBlank(txtCrCmResult.Text);
+                    txtCrCmResult.Text = CUtils.RemoveLastLineBlank(txtCrCmResult.Text);
 
                     btCrCmCopy.Enabled = false;
                     if (!string.IsNullOrEmpty(txtCrCmResult.Text))
@@ -2649,6 +2876,25 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Method
+        private void getSetting(int mode)
+        {
+            dicSetting.Clear();
+            List<ItemModel> lstSetting = new List<ItemModel>();
+
+            switch (mode)
+            {
+                case 4:
+                    lstSetting = lstItem.Where(item => item.key.Equals(CONST.STRING_SETTING_COMMON_ENTITY)).ToList();
+                    break;
+                default: break;
+            }
+
+            foreach (ItemModel item in lstSetting)
+            {
+                dicSetting.Add(item.name, item.value);
+            }
+        }
+
         private string addComman(string[] lst)
         {
             string result = string.Empty;

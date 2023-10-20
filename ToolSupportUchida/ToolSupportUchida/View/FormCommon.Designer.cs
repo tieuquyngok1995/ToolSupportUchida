@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -112,6 +112,10 @@ namespace ToolSupportCoding.View
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.tabPageCreateEnity = new System.Windows.Forms.TabPage();
+            this.groupBox43 = new System.Windows.Forms.GroupBox();
+            this.rbCrEntityMap = new System.Windows.Forms.RadioButton();
+            this.rbCrEntitySet = new System.Windows.Forms.RadioButton();
+            this.rbCrEntityGet = new System.Windows.Forms.RadioButton();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.rbCrEntityLine = new System.Windows.Forms.RadioButton();
             this.rbCrEntityBlock = new System.Windows.Forms.RadioButton();
@@ -120,10 +124,10 @@ namespace ToolSupportCoding.View
             this.btnCrEntity = new System.Windows.Forms.Button();
             this.btnCrEntityCopy = new System.Windows.Forms.Button();
             this.btnCrEntityClear = new System.Windows.Forms.Button();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.grbCrEntityT = new System.Windows.Forms.GroupBox();
             this.txtCrEntityT = new System.Windows.Forms.RichTextBox();
             this.lblCrEntityNumT = new System.Windows.Forms.Label();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.grbCrEntityP = new System.Windows.Forms.GroupBox();
             this.txtCrEntityP = new System.Windows.Forms.RichTextBox();
             this.lblCrEntityNumP = new System.Windows.Forms.Label();
             this.tabPageCreateFileSrc = new System.Windows.Forms.TabPage();
@@ -265,6 +269,7 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.rbCrEntityTarget = new System.Windows.Forms.RadioButton();
             this.tabControlCommon.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -290,10 +295,11 @@ namespace ToolSupportCoding.View
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabPageCreateEnity.SuspendLayout();
+            this.groupBox43.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.groupBox22.SuspendLayout();
-            this.groupBox21.SuspendLayout();
-            this.groupBox20.SuspendLayout();
+            this.grbCrEntityT.SuspendLayout();
+            this.grbCrEntityP.SuspendLayout();
             this.tabPageCreateFileSrc.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox24.SuspendLayout();
@@ -557,24 +563,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 76);
@@ -1227,14 +1233,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1251,8 +1257,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle7;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -1350,10 +1356,11 @@ namespace ToolSupportCoding.View
             // 
             // tabPageCreateEnity
             // 
+            this.tabPageCreateEnity.Controls.Add(this.groupBox43);
             this.tabPageCreateEnity.Controls.Add(this.groupBox23);
             this.tabPageCreateEnity.Controls.Add(this.groupBox22);
-            this.tabPageCreateEnity.Controls.Add(this.groupBox21);
-            this.tabPageCreateEnity.Controls.Add(this.groupBox20);
+            this.tabPageCreateEnity.Controls.Add(this.grbCrEntityT);
+            this.tabPageCreateEnity.Controls.Add(this.grbCrEntityP);
             this.tabPageCreateEnity.Location = new System.Drawing.Point(124, 4);
             this.tabPageCreateEnity.Name = "tabPageCreateEnity";
             this.tabPageCreateEnity.Padding = new System.Windows.Forms.Padding(3);
@@ -1362,14 +1369,66 @@ namespace ToolSupportCoding.View
             this.tabPageCreateEnity.Text = "Create Entity";
             this.tabPageCreateEnity.UseVisualStyleBackColor = true;
             // 
+            // groupBox43
+            // 
+            this.groupBox43.Controls.Add(this.rbCrEntityTarget);
+            this.groupBox43.Controls.Add(this.rbCrEntityMap);
+            this.groupBox43.Controls.Add(this.rbCrEntitySet);
+            this.groupBox43.Controls.Add(this.rbCrEntityGet);
+            this.groupBox43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox43.Location = new System.Drawing.Point(6, -2);
+            this.groupBox43.Name = "groupBox43";
+            this.groupBox43.Size = new System.Drawing.Size(366, 46);
+            this.groupBox43.TabIndex = 103;
+            this.groupBox43.TabStop = false;
+            this.groupBox43.Text = "Generate Mode";
+            // 
+            // rbCrEntityMap
+            // 
+            this.rbCrEntityMap.AutoSize = true;
+            this.rbCrEntityMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityMap.Location = new System.Drawing.Point(101, 20);
+            this.rbCrEntityMap.Name = "rbCrEntityMap";
+            this.rbCrEntityMap.Size = new System.Drawing.Size(68, 19);
+            this.rbCrEntityMap.TabIndex = 100;
+            this.rbCrEntityMap.Text = "Mapper";
+            this.rbCrEntityMap.UseVisualStyleBackColor = true;
+            this.rbCrEntityMap.CheckedChanged += new System.EventHandler(this.rbCrEntityMap_CheckedChanged);
+            // 
+            // rbCrEntitySet
+            // 
+            this.rbCrEntitySet.AutoSize = true;
+            this.rbCrEntitySet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntitySet.Location = new System.Drawing.Point(54, 20);
+            this.rbCrEntitySet.Name = "rbCrEntitySet";
+            this.rbCrEntitySet.Size = new System.Drawing.Size(43, 19);
+            this.rbCrEntitySet.TabIndex = 99;
+            this.rbCrEntitySet.Text = "Set";
+            this.rbCrEntitySet.UseVisualStyleBackColor = true;
+            this.rbCrEntitySet.CheckedChanged += new System.EventHandler(this.rbCrEntitySet_CheckedChanged);
+            // 
+            // rbCrEntityGet
+            // 
+            this.rbCrEntityGet.AutoSize = true;
+            this.rbCrEntityGet.Checked = true;
+            this.rbCrEntityGet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityGet.Location = new System.Drawing.Point(7, 20);
+            this.rbCrEntityGet.Name = "rbCrEntityGet";
+            this.rbCrEntityGet.Size = new System.Drawing.Size(44, 19);
+            this.rbCrEntityGet.TabIndex = 10;
+            this.rbCrEntityGet.TabStop = true;
+            this.rbCrEntityGet.Text = "Get";
+            this.rbCrEntityGet.UseVisualStyleBackColor = true;
+            this.rbCrEntityGet.CheckedChanged += new System.EventHandler(this.rbCrEntityGet_CheckedChanged);
+            // 
             // groupBox23
             // 
             this.groupBox23.Controls.Add(this.rbCrEntityLine);
             this.groupBox23.Controls.Add(this.rbCrEntityBlock);
             this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox23.Location = new System.Drawing.Point(6, -2);
+            this.groupBox23.Location = new System.Drawing.Point(378, 0);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(178, 46);
+            this.groupBox23.Size = new System.Drawing.Size(188, 46);
             this.groupBox23.TabIndex = 102;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Comment Mode";
@@ -1467,17 +1526,17 @@ namespace ToolSupportCoding.View
             this.btnCrEntityClear.UseVisualStyleBackColor = true;
             this.btnCrEntityClear.Click += new System.EventHandler(this.btnCrEntityClear_Click);
             // 
-            // groupBox21
+            // grbCrEntityT
             // 
-            this.groupBox21.Controls.Add(this.txtCrEntityT);
-            this.groupBox21.Controls.Add(this.lblCrEntityNumT);
-            this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox21.Location = new System.Drawing.Point(192, 41);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(180, 316);
-            this.groupBox21.TabIndex = 5;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "SQL Table";
+            this.grbCrEntityT.Controls.Add(this.txtCrEntityT);
+            this.grbCrEntityT.Controls.Add(this.lblCrEntityNumT);
+            this.grbCrEntityT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbCrEntityT.Location = new System.Drawing.Point(192, 41);
+            this.grbCrEntityT.Name = "grbCrEntityT";
+            this.grbCrEntityT.Size = new System.Drawing.Size(180, 316);
+            this.grbCrEntityT.TabIndex = 5;
+            this.grbCrEntityT.TabStop = false;
+            this.grbCrEntityT.Text = "Script Table";
             // 
             // txtCrEntityT
             // 
@@ -1500,17 +1559,17 @@ namespace ToolSupportCoding.View
             this.lblCrEntityNumT.Text = "Line number:";
             this.lblCrEntityNumT.Visible = false;
             // 
-            // groupBox20
+            // grbCrEntityP
             // 
-            this.groupBox20.Controls.Add(this.txtCrEntityP);
-            this.groupBox20.Controls.Add(this.lblCrEntityNumP);
-            this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox20.Location = new System.Drawing.Point(6, 41);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(180, 316);
-            this.groupBox20.TabIndex = 1;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "SQL Procedure";
+            this.grbCrEntityP.Controls.Add(this.txtCrEntityP);
+            this.grbCrEntityP.Controls.Add(this.lblCrEntityNumP);
+            this.grbCrEntityP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbCrEntityP.Location = new System.Drawing.Point(6, 41);
+            this.grbCrEntityP.Name = "grbCrEntityP";
+            this.grbCrEntityP.Size = new System.Drawing.Size(180, 316);
+            this.grbCrEntityP.TabIndex = 1;
+            this.grbCrEntityP.TabStop = false;
+            this.grbCrEntityP.Text = "Script Procedure";
             // 
             // txtCrEntityP
             // 
@@ -3201,6 +3260,18 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
+            // rbCrEntityTarget
+            // 
+            this.rbCrEntityTarget.AutoSize = true;
+            this.rbCrEntityTarget.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityTarget.Location = new System.Drawing.Point(172, 20);
+            this.rbCrEntityTarget.Name = "rbCrEntityTarget";
+            this.rbCrEntityTarget.Size = new System.Drawing.Size(99, 19);
+            this.rbCrEntityTarget.TabIndex = 101;
+            this.rbCrEntityTarget.Text = "Create Target";
+            this.rbCrEntityTarget.UseVisualStyleBackColor = true;
+            this.rbCrEntityTarget.CheckedChanged += new System.EventHandler(this.rbCrEntityTarget_CheckedChanged);
+            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3246,13 +3317,15 @@ namespace ToolSupportCoding.View
             ((System.ComponentModel.ISupportInitialize)(this.gridInputParam)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.tabPageCreateEnity.ResumeLayout(false);
+            this.groupBox43.ResumeLayout(false);
+            this.groupBox43.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             this.groupBox22.ResumeLayout(false);
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
+            this.grbCrEntityT.ResumeLayout(false);
+            this.grbCrEntityT.PerformLayout();
+            this.grbCrEntityP.ResumeLayout(false);
+            this.grbCrEntityP.PerformLayout();
             this.tabPageCreateFileSrc.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
@@ -3452,10 +3525,10 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RichTextBox txtMessContent;
         private System.Windows.Forms.RichTextBox txtMessResult;
         private System.Windows.Forms.TabPage tabPageCreateEnity;
-        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.GroupBox grbCrEntityT;
         private System.Windows.Forms.RichTextBox txtCrEntityT;
         private System.Windows.Forms.Label lblCrEntityNumT;
-        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.GroupBox grbCrEntityP;
         private System.Windows.Forms.RichTextBox txtCrEntityP;
         private System.Windows.Forms.Label lblCrEntityNumP;
         private System.Windows.Forms.GroupBox groupBox22;
@@ -3542,5 +3615,10 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colParam;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
+        private System.Windows.Forms.GroupBox groupBox43;
+        private System.Windows.Forms.RadioButton rbCrEntityMap;
+        private System.Windows.Forms.RadioButton rbCrEntitySet;
+        private System.Windows.Forms.RadioButton rbCrEntityGet;
+        private System.Windows.Forms.RadioButton rbCrEntityTarget;
     }
 }

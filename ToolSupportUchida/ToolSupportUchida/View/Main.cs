@@ -678,7 +678,7 @@ namespace ToolSupportCoding
 
         private void btnCommon_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCommon(objToolSupport), sender);
+            OpenChildForm(new FormCommon(objToolSupport, lstItem), sender);
         }
 
         private void btnAbout_Click(object sender, EventArgs e)

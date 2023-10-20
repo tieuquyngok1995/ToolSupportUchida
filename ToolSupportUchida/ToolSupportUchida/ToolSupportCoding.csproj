@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Common\BinarySerialization.cs" />
     <Compile Include="Model\ItemModel.cs" />
+    <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Model\SekkeiModel.cs" />
     <Compile Include="Model\ToolSupportModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

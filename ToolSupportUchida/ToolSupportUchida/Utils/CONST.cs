@@ -7,6 +7,7 @@ namespace ToolSupportCoding.Utils
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
         public static string[] STRING_SEPARATORS = new string[] { STRING_NEW_LINE };
+        public static string[] STRING_SEPARATORS_TABLE = new string[] { STRING_C_SQU_BRACKETS_SPACE };
 
         #region Item
         public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = || End: \\r\\n";
@@ -68,6 +69,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_C_CUR_BRACKETS = "}";
         public const string STRING_O_SQU_BRACKETS = "[";
         public const string STRING_C_SQU_BRACKETS = "]";
+        public const string STRING_C_SQU_BRACKETS_SPACE = "] ";
+        public const string STRING_C_O_SQU_BRACKETS_SPACE = "] [";
         public const string STRING_DC_CUR_BRACKETS = "}}";
         public const string STRING_NOTE = "〇";
         public const string STRING_CONTROLLER = "Controller";
@@ -160,6 +163,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_HLP = "HLP";
         public const string STRING_MSGBOX = "MSGBOX";
 
+        public const string STRING_SET = "Set";
         public const string STRING_EDIT = "Edit";
         public const string STRING_DEL = "Delete";
         public const string STRING_REPLACE = "Replace";
@@ -191,6 +195,25 @@ namespace ToolSupportCoding.Utils
         public const string SQL_TYPE_NUMERIC = "numeric";
         public const string SQL_TYPE_DECIMAL = "decimal";
 
+        // SQL Meta Data
+        public const string SQL_META_DATA_NTEXT = "NText";
+        public const string SQL_META_DATA_BIT = "Bit";
+        public const string SQL_META_DATA_SMALL_INT = "SmallInt";
+        public const string SQL_META_DATA_INT = "Int";
+        public const string SQL_META_DATA_BIG_INT = "BigInt";
+        public const string SQL_META_DATA_MONEY = "Money";
+        public const string SQL_META_DATA_FLOAT = "Float";
+
+        // SQL Data Record
+        public const string SQL_DATA_RECORD_STRING = "SetSqlString";
+        public const string SQL_DATA_RECORD_BOOLEAN = "SetSqlBoolean";
+        public const string SQL_DATA_RECORD_DATE_TIME = "SetSqlDateTime";
+        public const string SQL_DATA_RECORD_INT16 = "SetSqlInt16";
+        public const string SQL_DATA_RECORD_INT32 = "SetSqlInt32";
+        public const string SQL_DATA_RECORD_INT64 = "SetSqlInt64";
+        public const string SQL_DATA_RECORD_MONEY = "SetSqlMoney";
+        public const string SQL_DATA_RECORD_DOUBLE = "SetSqlDouble";
+
         // Const C# Type
         public const string C_TYPE_STRING = "string";
         public const string C_TYPE_BOOL = "bool";
@@ -199,6 +222,7 @@ namespace ToolSupportCoding.Utils
         public const string C_TYPE_INT  = "int";
         public const string C_TYPE_LONG = "long";
         public const string C_TYPE_DECIMAL = "decimal";
+        public const string C_TYPE_DOUBLE = "double";
 
         // Const Typescript Type
         public const string TS_TYPE_NUMBER = "number";
@@ -216,6 +240,12 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
         public const string STRING_SETTING_TS_FORM = "TSForm";
         public const string STRING_SETTING_TS_MODEL = "TSModel";
+
+        public const string STRING_SETTING_COMMON_ENTITY = "SettingCommonEntity";
+        public const string STRING_SETTING_COMMON_ENTITY_MAPPER = "Mapper";
+        public const string STRING_SETTING_COMMON_ENTITY_SQL_META = "CreateTargetSqlMeta";
+        public const string STRING_SETTING_COMMON_ENTITY_RECORD = "CreateTargetRecord";
+        public const string STRING_SETTING_COMMON_ENTITY_TARGET = "CreateTargetTmp";
 
         public const string STRING_SETTING_HTML = "SettingHTML";
         public const string STRING_SETTING_HTML_ROW = "ucd-row";
