@@ -55,6 +55,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_DOT = ".";
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
+        public const string STRING_QUESTION = "?";
         public const string STRING_BR = "<br>";
         public const string STRING_BR_REPLACE = "&lt;br&gt;";
         public const string STRING_OPEN_TAG = "<";

@@ -273,6 +273,10 @@ namespace ToolSupportCoding.View
                     if (rbModeC.Checked)
                     {
                         annotation = getAnnotationsC(logic, type);
+
+                        if (!type.Equals(CONST.C_TYPE_STRING) && !type.Equals(CONST.C_TYPE_BOOL)
+                            && !type.Contains(CONST.STRING_LIST_EN + CONST.STRING_OPEN_TAG)) type += CONST.STRING_QUESTION;
+
                         txtResult.Text += string.Format(tmpVM, logic, annotation, type, physical).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE) + CONST.STRING_ADD_LINE;
 
                         txtResult.Text += CONST.STRING_ADD_LINE;

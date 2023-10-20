@@ -638,6 +638,11 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Get View Model
+        private void txtGetVMSItem_Click(object sender, EventArgs e)
+        {
+            txtGetVMSItem.SelectAll();
+            txtGetVMSItem.Focus();
+        }
 
         private void txtGetVMSItem_TextChanged(object sender, EventArgs e)
         {
@@ -652,6 +657,12 @@ namespace ToolSupportCoding.View
             {
                 lblGetVMSItem.Visible = false;
             }
+        }
+
+        private void txtGetVMLogic_Click(object sender, EventArgs e)
+        {
+            txtGetVMLogic.SelectAll();
+            txtGetVMLogic.Focus();
         }
 
         private void txtGetVMLogic_TextChanged(object sender, EventArgs e)
@@ -678,6 +689,12 @@ namespace ToolSupportCoding.View
             }
         }
 
+        private void txtGetVMPhysical_Click(object sender, EventArgs e)
+        {
+            txtGetVMPhysical.SelectAll();
+            txtGetVMPhysical.Focus();
+        }
+
         private void txtGetVMPhysical_TextChanged(object sender, EventArgs e)
         {
             lstGetVMPhysical = txtGetVMPhysical.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -702,6 +719,12 @@ namespace ToolSupportCoding.View
             }
         }
 
+        private void txtGetVMFunItem_Click(object sender, EventArgs e)
+        {
+            txtGetVMFunItem.SelectAll();
+            txtGetVMFunItem.Focus();
+        }
+
         private void txtGetVMFunItem_TextChanged(object sender, EventArgs e)
         {
             lstGetVMFunItem = txtGetVMFunItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
@@ -724,6 +747,12 @@ namespace ToolSupportCoding.View
             {
                 btGetVMGenSrc.Enabled = true;
             }
+        }
+
+        private void txtGetVMFunPro_Click(object sender, EventArgs e)
+        {
+            txtGetVMFunPro.SelectAll();
+            txtGetVMFunPro.Focus();
         }
 
         private void txtGetVMFunPro_TextChanged(object sender, EventArgs e)
@@ -861,11 +890,14 @@ namespace ToolSupportCoding.View
             btGetVMCopyLogic.Enabled = false;
             btGetVMCopyPhysical.Enabled = false;
         }
-
         #endregion
 
         #region Tab Get Item Resource
-
+        private void txtGetIResItem_Click(object sender, EventArgs e)
+        {
+            txtGetIResItem.SelectAll();
+            txtGetIResItem.Focus();
+        }
 
         private void txtGetIResItem_TextChanged(object sender, EventArgs e)
         {
@@ -892,6 +924,12 @@ namespace ToolSupportCoding.View
             }
         }
 
+        private void txtGetIResControl_Click(object sender, EventArgs e)
+        {
+            txtGetIResControl.SelectAll();
+            txtGetIResControl.Focus();
+        }
+
         private void txtGetIResControl_TextChanged(object sender, EventArgs e)
         {
             lstGetIResControl = txtGetIResControl.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
@@ -915,6 +953,12 @@ namespace ToolSupportCoding.View
                 btGetIRes.Enabled = false;
                 btGetIResCopy.Enabled = false;
             }
+        }
+
+        private void txtGetIRes_Click(object sender, EventArgs e)
+        {
+            txtGetIRes.SelectAll();
+            txtGetIRes.Focus();
         }
 
         private void txtGetIRes_TextChanged(object sender, EventArgs e)
@@ -1004,7 +1048,6 @@ namespace ToolSupportCoding.View
             btGetIRes.Enabled = false;
             btGetIResCopy.Enabled = false;
         }
-
         #endregion
 
         #region Tab Create JSON
@@ -1181,7 +1224,6 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Create Entity
-
         private void txtCrEntityP_TextChanged(object sender, EventArgs e)
         {
             lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
@@ -1336,7 +1378,6 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Create File Source
-
         private void txtCrSourceFolderP_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCrSourceFolderP.Text))
