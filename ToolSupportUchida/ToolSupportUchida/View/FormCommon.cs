@@ -602,7 +602,7 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void btColumnCopy_Click(object sender, EventArgs e)
+        private void BtColumnCopy_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txColumnResult.Text)) return;
 
@@ -623,7 +623,7 @@ namespace ToolSupportCoding.View
             setDataTable();
         }
 
-        private void btColumnClear_Click(object sender, EventArgs e)
+        private void BtColumnClear_Click(object sender, EventArgs e)
         {
             txColumnData.Text = "";
 
@@ -1160,7 +1160,7 @@ namespace ToolSupportCoding.View
                     lstValue = lstValue.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
                     template = CUtils.CreTmlCommonAddArr(tab, isLast);
-                    result = result + string.Format(template, key, addComman(lstValue));
+                    result = result + string.Format(template, key, AddComman(lstValue));
                 }
                 else
                 {
@@ -1478,6 +1478,9 @@ namespace ToolSupportCoding.View
                 if (rbCrEntityBlock.Checked)
                 {
                     tmp = CUtils.CreTmlModelC(1);
+                } else if (rbCrEntityMutilLine.Checked)
+                {
+                    tmp = CUtils.CreTmlModelC(2);
                 }
 
                 result += string.Format(tmp, logic, type, physical) + CONST.STRING_ADD_LINE;
@@ -1507,6 +1510,10 @@ namespace ToolSupportCoding.View
                 if (rbCrEntityBlock.Checked)
                 {
                     tmp = CUtils.CreTmlModelC(1);
+                }
+                else if (rbCrEntityMutilLine.Checked)
+                {
+                    tmp = CUtils.CreTmlModelC(2);
                 }
 
                 result += string.Format(tmp, logic, type, logic) + CONST.STRING_ADD_LINE;
@@ -2895,7 +2902,7 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private string addComman(string[] lst)
+        private string AddComman(string[] lst)
         {
             string result = string.Empty;
             int i = 0;

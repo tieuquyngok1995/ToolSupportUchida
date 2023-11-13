@@ -69,7 +69,7 @@ namespace ToolSupportCoding.Utils
 
             return result;
         }
-        
+
         public static string ConvertSQLToCType(string type)
         {
             switch (type)
@@ -755,13 +755,17 @@ namespace ToolSupportCoding.Utils
             StringBuilder sb = new StringBuilder();
             if (mode == 0)
             {
-                sb.Append("// {0}\r\n");
-            }
-            else if (mode == 1)
-            {
                 sb.Append("/// <summary>\r\n");
                 sb.Append("/// {0}\r\n");
                 sb.Append("/// </summary>\r\n");
+            }
+            else if (mode == 1)
+            {
+                sb.Append("// {0}\r\n");
+            }
+            else if (mode == 2)
+            {
+                sb.Append("/* {0} */\r\n");
             }
             sb.Append("public {1} {2} {{ get; set; }}");
 
@@ -771,6 +775,16 @@ namespace ToolSupportCoding.Utils
         public static string CreTmlCheckValueC()
         {
             return "{0}.HasValue ? col.{0}.Value : {1}.Null";
+        }
+
+        public static string CreHTMLRowSpan(string num)
+        {
+            return string.Format(" [attr.rowspan]=\"{0}\"", num);
+        }
+
+        public static string CreHTMLColSpan(string num)
+        {
+            return string.Format(" [attr.colspan]=\"{0}\"", num);
         }
         #endregion
 
@@ -924,6 +938,39 @@ namespace ToolSupportCoding.Utils
             return str;
         }
 
+        public static double CountTotal(List<string> lstData)
+        {
+            double total = 0;
+            bool isFristRow = false;
+            foreach (string row in lstData)
+            {
+                if (string.IsNullOrEmpty(row) || row.Equals(CONST.STRING_SETTING_HTML_ADD_ROW)) continue;
+
+                if (row.Contains(CONST.STRING_SETTING_HTML_ADD_ROW))
+                {
+                    if (!isFristRow)
+                    {
+                        isFristRow = true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                string[] arrColumn = row.Replace(CONST.STRING_SETTING_HTML_ADD_ROW, string.Empty).Split(CONST.CHAR_COMMA);
+                if (arrColumn.Length > 2)
+                {
+                    total += Convert.ToDouble(arrColumn[0]);
+                }
+                else
+                {
+                    total += Convert.ToDouble(row);
+                }
+            }
+
+            return total;
+        }
         #endregion
     }
 }

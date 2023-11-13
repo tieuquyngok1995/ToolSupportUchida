@@ -252,9 +252,14 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_HTML_ADD_ROW = "--";
         public const string STRING_SETTING_HTML_COL = "ucd-col";
         public const string STRING_SETTING_HTML_TABLE = "ucd-table";
+        public const string STRING_SETTING_HTML_MAT_TABLE = "mat-table";
+        public const string STRING_SETTING_HTML_MAT_TABLE_MULTI = " multiTemplateDataRows";
         public const string STRING_SETTING_HTML_TABLE_COLUMNS = "ucd-table-columns"; 
         public const string STRING_SETTING_HTML_TABLE_CONTAINER = "ucd-table-container";
         public const string STRING_SETTING_HTML_TABLE_BUTTON = "ucd-table-button";
+        public const string STRING_SETTING_HTML_TABLE_HEADER_ROW = "ucd-table-header-row";
+        public const string STRING_SETTING_HTML_TABLE_ROW = "ucd-table-row";
+        public const string STRING_SETTING_HTML_CLASS_STICKY = " [ngClass]=\"['mat-header-table-sticky']\"";
 
         public const string STRING_SETTING_VIEW_MODEL = "SettingViewModel";
         public const string STRING_SETTING_INDEX_ARR = "IndexArr";

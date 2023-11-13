@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -271,6 +272,7 @@ namespace ToolSupportCoding.View
             for (int i = 0; i < lstRowCol.Count; i++)
             {
                 string col = lstRowCol[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string tmp = string.Empty;
                 string control = lstControl[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                 string resource = lstResource[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                 string model = lstModel[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
@@ -294,22 +296,24 @@ namespace ToolSupportCoding.View
 
                     if (string.IsNullOrEmpty(control)) continue;
 
+                    tmp = getTemplate(control);
                     string srcControl = string.Empty;
+
                     if (control.Equals(CONST.STRING_SETTING_UCD_LABEL))
                     {
                         if (i + 1 < lstRowCol.Count && !lstModel[i + 1].Equals(CONST.STRING_SETTING_UCD_LABEL))
                         {
                             resource = string.IsNullOrEmpty(lstModel[i + 1]) ? resource : lstModel[i + 1].Replace(CONST.STRING_TAB, string.Empty).Trim();
                         }
-                        srcControl = string.Format(getTemplate(control), resource);
+                        srcControl = tmp == null ? string.Empty : string.Format(tmp, resource);
                     }
                     else if (control.ToUpper().Equals(CONST.STRING_LABEL))
                     {
-                        srcControl = string.Format(getTemplate(control), resource);
+                        srcControl = tmp == null ? string.Empty : string.Format(tmp, resource);
                     }
                     else
                     {
-                        srcControl = string.Format(getTemplate(control), model);
+                        srcControl = tmp == null ? string.Empty : string.Format(tmp, model);
                     }
 
                     srcCol += string.Format(tmpCol, col, srcControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
@@ -330,20 +334,31 @@ namespace ToolSupportCoding.View
         private void generateTable()
         {
             int totalWidth = 0;
-            double totalCol = Convert.ToDouble(lstRowCol.Where(item => isNumber(item)).Sum(item => Convert.ToInt32(item)));
+            int numRowHeader = -1;
+
+            int lastRow = lstRowCol.FindLastIndex(x => x.Contains(CONST.STRING_SETTING_HTML_ADD_ROW));
+            double totalCol = CUtils.CountTotal(lstRowCol);
 
             string dataSource = string.Empty;
-            string columns = string.Empty;
+            string headerRow = string.Empty;
+            string headerColumns = string.Empty;
             string rowContainer = string.Empty;
+            string row = string.Empty;
 
             string tmpTable = getTemplate(CONST.STRING_SETTING_HTML_TABLE);
             string tmpTableColumns = getTemplate(CONST.STRING_SETTING_HTML_TABLE_COLUMNS);
             string tmpTableButton = getTemplate(CONST.STRING_SETTING_HTML_TABLE_BUTTON);
             string tmpTableContainer = getTemplate(CONST.STRING_SETTING_HTML_TABLE_CONTAINER);
+            string tmpTableHeaderRow = getTemplate(CONST.STRING_SETTING_HTML_TABLE_HEADER_ROW);
+            string tmpTableRow = getTemplate(CONST.STRING_SETTING_HTML_TABLE_ROW);
+
+            Dictionary<int, string> dicHeaderRow = new Dictionary<int, string>();
 
             for (int i = 0; i < lstRowCol.Count; i++)
             {
                 string col = lstRowCol[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                string rowSpan = string.Empty;
+                string colSpan = string.Empty;
                 string control = lstControl[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                 string resource = lstResource[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                 string model = lstModel[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
@@ -355,8 +370,28 @@ namespace ToolSupportCoding.View
                     dataSource = model.Replace(CONST.STRING_VIEW_MODEL, CONST.STRING_DATA_SOURCE);
                     continue;
                 }
+                else if (col.Contains(CONST.STRING_SETTING_HTML_ADD_ROW))
+                {
+                    if (numRowHeader != -1)
+                    {
+                        dicHeaderRow.Add(numRowHeader, headerColumns);
+                        headerColumns = string.Empty;
+                    }
 
-                int width = getWidth(lstRowCol[i], totalCol);
+                    numRowHeader = numRowHeader + 1;
+                }
+
+                string column = lstRowCol[i].Replace(CONST.STRING_SETTING_HTML_ADD_ROW, string.Empty);
+                string[] arrColumn = column.Split(CONST.CHAR_COMMA);
+                if (arrColumn.Length > 2)
+                {
+                    column = arrColumn[0];
+
+                    if (!string.IsNullOrEmpty(arrColumn[1])) rowSpan = CUtils.CreHTMLRowSpan(arrColumn[1]);
+                    if (!string.IsNullOrEmpty(arrColumn[2])) colSpan = CUtils.CreHTMLColSpan(arrColumn[2]);
+                }
+
+                int width = getWidth(column, totalCol);
                 if (width + totalWidth > 100)
                 {
                     width = 100 - totalWidth;
@@ -368,31 +403,56 @@ namespace ToolSupportCoding.View
 
                 if (control.ToUpper().Equals(CONST.STRING_BUTTON))
                 {
-                    rowContainer += string.Format(tmpTableButton, resource, width).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    rowContainer += string.Format(tmpTableButton, resource, width, rowSpan + colSpan).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
                 }
                 else
                 {
                     string rowControl = string.Format(getTemplate(control), model);
-                    rowContainer += string.Format(tmpTableContainer, resource, width, rowControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    string rowContainerTmp = string.Format(tmpTableContainer, resource, width, rowSpan + colSpan, rowControl).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    if (string.IsNullOrEmpty(rowSpan) && i < lastRow)
+                    {
+                        rowContainerTmp = rowContainerTmp.Replace(CONST.STRING_SETTING_HTML_CLASS_STICKY, string.Empty);
+                    }
+                    rowContainer += rowContainerTmp;
                 }
 
                 if (string.IsNullOrEmpty(resource) || resource.Equals(CONST.STRING_SETTING_HTML_ADD_ROW))
                 {
-                    columns += CONST.STRING_APOSTROPHE + CONST.STRING_APOSTROPHE + CONST.STRING_COMMA;
+                    headerColumns += CONST.STRING_APOSTROPHE + CONST.STRING_APOSTROPHE + CONST.STRING_COMMA;
                 }
                 else
                 {
-                    columns += string.Format(tmpTableColumns, resource);
+                    headerColumns += string.Format(tmpTableColumns, resource);
                 }
             }
 
-            if (!string.IsNullOrEmpty(columns))
+            if (!string.IsNullOrEmpty(headerColumns))
             {
-                int index = columns.LastIndexOf(CONST.CHAR_COMMA);
-                columns = index != -1 ? columns.Remove(index, 1) : columns;
+                if (numRowHeader != -1)
+                {
+                    dicHeaderRow.Add(numRowHeader, headerColumns);
+
+                    foreach (KeyValuePair<int, string> item in dicHeaderRow)
+                    {
+                        int index = item.Value.LastIndexOf(CONST.CHAR_COMMA);
+                        string val = index != -1 ? item.Value.Remove(index, 1) : item.Value;
+                        headerRow += string.Format(tmpTableHeaderRow, val);
+                        row += string.Format(tmpTableRow, val);
+                    }
+
+                    tmpTable = tmpTable.Replace(CONST.STRING_SETTING_HTML_MAT_TABLE, CONST.STRING_SETTING_HTML_MAT_TABLE + CONST.STRING_SETTING_HTML_MAT_TABLE_MULTI);
+
+                }
+                else
+                {
+                    int index = headerColumns.LastIndexOf(CONST.CHAR_COMMA);
+                    headerColumns = index != -1 ? headerColumns.Remove(index, 1) : headerColumns;
+                    headerRow = string.Format(tmpTableHeaderRow, headerColumns);
+                    row = string.Format(tmpTableRow, headerColumns);
+                }
             }
 
-            txtResult.Text = string.Format(tmpTable, dataSource, CUtils.RemoveLastLineBlank(rowContainer), columns).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+            txtResult.Text = string.Format(tmpTable, dataSource, CUtils.RemoveLastLineBlank(rowContainer), headerRow, row).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
             if (!string.IsNullOrEmpty(txtResult.Text)) btnCopy.Enabled = true;
         }
 
