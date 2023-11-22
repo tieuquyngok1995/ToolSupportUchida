@@ -2,7 +2,7 @@
 
 namespace ToolSupportCoding.Utils
 {
-   public static class CONST
+    public static class CONST
     {
         public static string FILE_PATH = AppContext.BaseDirectory + @"\ToolSupportData.bin";
         public static string FILE_PATH_IMPORT = AppContext.BaseDirectory + @"\sekkei.cldb";
@@ -11,7 +11,7 @@ namespace ToolSupportCoding.Utils
 
         #region Item
         public static string ITEM_CHAR_FORMAT_EQUALS = "Split: = || End: \\r\\n";
-        public static string ITEM_CHAR_FORMAT_TAB    = "Split: [--] || End: <br>";
+        public static string ITEM_CHAR_FORMAT_TAB = "Split: [--] || End: <br>";
 
         public static string ITEM_HTML = "HTML";
         public static string ITEM_SETTING = "Setting";
@@ -163,7 +163,9 @@ namespace ToolSupportCoding.Utils
         public const string STRING_HLP = "HLP";
         public const string STRING_MSGBOX = "MSGBOX";
 
+        public const string STRING_GET = "Get";
         public const string STRING_SET = "Set";
+        public const string STRING_RETURN = "return";
         public const string STRING_EDIT = "Edit";
         public const string STRING_DEL = "Delete";
         public const string STRING_REPLACE = "Replace";
@@ -215,11 +217,12 @@ namespace ToolSupportCoding.Utils
         public const string SQL_DATA_RECORD_DOUBLE = "SetSqlDouble";
 
         // Const C# Type
+        public const string C_TYPE_PUBLIC = "public";
         public const string C_TYPE_STRING = "string";
         public const string C_TYPE_BOOL = "bool";
         public const string C_TYPE_DATE_TIME = "DateTime";
         public const string C_TYPE_SHORT = "short";
-        public const string C_TYPE_INT  = "int";
+        public const string C_TYPE_INT = "int";
         public const string C_TYPE_LONG = "long";
         public const string C_TYPE_DECIMAL = "decimal";
         public const string C_TYPE_DOUBLE = "double";
@@ -237,7 +240,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_C_VIEW_MODEL = "SettingCViewModel";
 
         public const string STRING_SETTING_TS_VIEW_MODEL = "SettingTSViewModel";
-        public const string STRING_SETTING_TS_PROPERTY= "TSProperty";
+        public const string STRING_SETTING_TS_PROPERTY = "TSProperty";
         public const string STRING_SETTING_TS_FORM = "TSForm";
         public const string STRING_SETTING_TS_MODEL = "TSModel";
 
@@ -254,7 +257,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_HTML_TABLE = "ucd-table";
         public const string STRING_SETTING_HTML_MAT_TABLE = "mat-table";
         public const string STRING_SETTING_HTML_MAT_TABLE_MULTI = " multiTemplateDataRows";
-        public const string STRING_SETTING_HTML_TABLE_COLUMNS = "ucd-table-columns"; 
+        public const string STRING_SETTING_HTML_TABLE_COLUMNS = "ucd-table-columns";
         public const string STRING_SETTING_HTML_TABLE_CONTAINER = "ucd-table-container";
         public const string STRING_SETTING_HTML_TABLE_BUTTON = "ucd-table-button";
         public const string STRING_SETTING_HTML_TABLE_HEADER_ROW = "ucd-table-header-row";
@@ -265,9 +268,19 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_INDEX_ARR = "IndexArr";
         public const string STRING_SETTING_CHECK_TYPE = "CheckType";
         public const string STRING_SETTING_DEFAULT = "default";
+        public const string STRING_SETTING_DISPLAY = "Display";
         public const string STRING_SETTING_FORMAT = "Format";
         public const string STRING_SETTING_DISPLAY_FORMAT = "DisplayFormat";
         public const string STRING_SETTING_UCD_LABEL = "ucd-label";
+
+        public const string STRING_SETTING_LOGIC_REPLACE = "--logic-replace--";
+        public const string STRING_SETTING_REQUIRED = "Required";
+        public const string STRING_SETTING_LENGTH = "Length";
+        public const string STRING_SETTING_RANGE = "Range";
+        public const string STRING_SETTING_LESS_THAN = "LessThan";
+        public const string STRING_SETTING_GREATER_THAN = "GreaterThan";
+        public const string STRING_SETTING_LESS_OR_EQUAL = "LessOrEqual";
+        public const string STRING_SETTING_GREATER_OR_EQUAL = "GreaterOrEqual";
         #endregion
 
         #region Text
@@ -299,16 +312,16 @@ namespace ToolSupportCoding.Utils
         #endregion
 
         #region Grid View
-        public const string NAME_COL_LOGIC  = "colLogic";
-        public const string NAME_COL_PHYSI  = "colPhysi";
+        public const string NAME_COL_LOGIC = "colLogic";
+        public const string NAME_COL_PHYSI = "colPhysi";
 
         public const string NAME_COL_SEKKEI_EDIT = "colSekkeiEdit";
         public const string NAME_COL_SEKKEI_DELETE = "colSekkeiDelete";
         public const string NAME_COL_ADAPTER_EDIT = "colAdapterEdit";
         public const string NAME_COL_ADAPTER_DELETE = "colAdapterDelete";
 
-        public const string NAME_COL_PARAM  = "colParam";
-        public const string NAME_COL_VALUE  = "colValue";
+        public const string NAME_COL_PARAM = "colParam";
+        public const string NAME_COL_VALUE = "colValue";
         #endregion
 
         #region Tab Name

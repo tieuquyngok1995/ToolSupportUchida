@@ -79,6 +79,7 @@ namespace ToolSupportCoding.View
         {
             getDataSetting();
 
+            grbMode.Visible = false;
             grbClassName.Visible = false;
         }
 
@@ -86,7 +87,28 @@ namespace ToolSupportCoding.View
         {
             getDataSetting();
 
+            grbMode.Visible = true;
             grbClassName.Visible = true;
+        }
+
+        private void rbNew_CheckedChanged(object sender, EventArgs e)
+        {
+            grbInputLogic.Text = "Input Logical";
+            grbInputLogic.Width = 132;
+            grbInputPhysical.Visible = true;
+            grbInputType.Visible = true;
+            grbInputNameItem.Visible = true;
+            grbInputValidation.Visible = true;
+        }
+
+        private void rbTransfer_CheckedChanged(object sender, EventArgs e)
+        {
+            grbInputLogic.Text = "Input Code";
+            grbInputLogic.Width = 683;
+            grbInputPhysical.Visible = false;
+            grbInputType.Visible = false;
+            grbInputNameItem.Visible = false;
+            grbInputValidation.Visible = false;
         }
 
         private void txtClassLogic_Click(object sender, EventArgs e)
@@ -265,8 +287,8 @@ namespace ToolSupportCoding.View
                 for (int i = 0; i < lstLogic.Count; i++)
                 {
                     logic = lstLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                    physical = lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                    type = lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    physical = lstPhysical.Count > i ? lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim() : string.Empty;
+                    type = lstType.Count > i ? lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim() : string.Empty;
 
                     if (rbModeC.Checked)
                     {
@@ -279,7 +301,7 @@ namespace ToolSupportCoding.View
                         txtResult.Text += CONST.STRING_ADD_LINE;
                         txtResult.Text = CUtils.RemoveLastLineBlank(txtResult.Text);
                     }
-                    else
+                    else if (rbModeTypescript.Checked && rbNew.Checked)
                     {
                         type = CUtils.CastTypeCToTs(type);
 
@@ -289,6 +311,50 @@ namespace ToolSupportCoding.View
                         fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
 
                         mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
+                    }
+                    else if (rbModeTypescript.Checked && rbTransfer.Checked)
+                    {
+                        if (logic.Contains(CONST.C_TYPE_PUBLIC))
+                        {
+                            string[] arrLogic = logic.Split(CONST.CHAR_SPACE);
+
+                            if (arrLogic.Length > 2)
+                            {
+                                type = CUtils.CastTypeCToTs(arrLogic[1].Replace(CONST.STRING_QUESTION, string.Empty));
+                                physical = arrLogic[2];
+                            }
+
+                            iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
+
+                            fProperty = CUtils.RemoveLastCommaSpace(fProperty).Replace(CONST.STRING_SETTING_LOGIC_REPLACE, physical);
+                            fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
+
+                            if (!string.IsNullOrEmpty(mProperty))
+                            {
+                                mProperty = CONST.CHAR_COMMA + CONST.STRING_ADD_LINE + mProperty;
+
+                                int index = mProperty.LastIndexOf(CONST.CHAR_COMMA);
+                                mProperty = index != -1 ? mProperty.Remove(index, 1) : mProperty;
+                            }
+                            else
+                            {
+                                mProperty = CONST.STRING_ADD_LINE;
+                            }
+                            mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
+
+                            fProperty = string.Empty;
+                            mProperty = string.Empty;
+                        }
+                        else if (!logic.Contains(CONST.STRING_SLASH + CONST.STRING_SLASH + CONST.STRING_SLASH) &&
+                                 !logic.ToLower().Equals(CONST.STRING_GET.ToLower()) && !logic.ToLower().Equals(CONST.STRING_SET.ToLower()) &&
+                                 !logic.Equals(CONST.STRING_O_CUR_BRACKETS) && !logic.Equals(CONST.STRING_C_CUR_BRACKETS) &&
+                                 !logic.Contains(CONST.STRING_RETURN))
+                        {
+                            string tmpFProperty, tmpMProperty;
+                            getAnotationsInSrc(logic, out tmpFProperty, out tmpMProperty);
+                            fProperty += tmpFProperty;
+                            mProperty += tmpMProperty;
+                        }
                     }
                 }
 
@@ -393,6 +459,8 @@ namespace ToolSupportCoding.View
             if (rbModeTypescript.Checked)
             {
                 if (string.IsNullOrEmpty(txtClassLogic.Text) || string.IsNullOrEmpty(txtClassPhysical.Text)) return false;
+
+                if (rbTransfer.Checked && lstLogic.Count > 0) return true;
             }
 
             if (lstLogic.Count == 0 || lstPhysical.Count == 0 || lstType.Count == 0) return false;
@@ -486,14 +554,6 @@ namespace ToolSupportCoding.View
             return result;
         }
 
-        private string createTsForm(string mode, string strLogic)
-        {
-            string tmp = getTemplateTS(CONST.STRING_SETTING_TS_FORM);
-
-
-            return "";
-        }
-
         private void getAnnotationsTS(string strLogic, string physical, string type, out string fProperty, out string mProperty)
         {
             string fVM = string.Empty;
@@ -563,7 +623,82 @@ namespace ToolSupportCoding.View
                 mProperty = CONST.STRING_ADD_LINE;
             }
         }
-        #endregion
 
+        private void getAnotationsInSrc(string logic, out string fProperty, out string mProperty)
+        {
+            string[] arrValueLogic = null, arrTmp = null;
+            string tmp, value = string.Empty;
+
+            fProperty = string.Empty; mProperty = string.Empty;
+
+            if (logic.Contains(CONST.STRING_SETTING_REQUIRED) && dicSetting.TryGetValue(CONST.STRING_SETTING_REQUIRED, out tmp))
+            {
+                arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                fProperty = arrTmp[0] + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                mProperty = arrTmp[1] + CONST.STRING_ADD_LINE;
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_LENGTH) || logic.Contains(CONST.STRING_SETTING_RANGE))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_O_BRACKETS);
+                if (arrValueLogic.Length >= 1)
+                {
+                    value = arrValueLogic[1].Replace(CONST.STRING_C_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty)
+                                       .Replace("0,", string.Empty).Replace("0d,", string.Empty).Replace("d", string.Empty).Trim();
+                }
+
+                if (dicSetting.TryGetValue(CONST.STRING_SETTING_LENGTH + CONST.STRING_SETTING_CHECK_TYPE, out tmp))
+                {
+                    arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                    if (logic.Contains(CONST.STRING_SETTING_LENGTH))
+                    {
+                        fProperty = string.Format(arrTmp[0], value) + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                        mProperty = string.Format(arrTmp[2], value) + CONST.STRING_ADD_LINE;
+                    }
+                    else
+                    {
+                        fProperty = string.Format(arrTmp[1], value) + CONST.STRING_COMMA + CONST.STRING_SPACE;
+                        mProperty = string.Format(arrTmp[3], value) + CONST.STRING_ADD_LINE;
+                    }
+                }
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_DISPLAY) &&
+                dicSetting.TryGetValue(CONST.STRING_SETTING_DISPLAY_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                mProperty = string.Format(tmp, arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_LESS_THAN) &&
+                dicSetting.TryGetValue(CONST.STRING_SETTING_LESS_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                fProperty = string.Format(arrTmp[0], CONST.STRING_SETTING_LOGIC_REPLACE, arrValueLogic[1]) + CONST.STRING_SPACE;
+                mProperty = string.Format(arrTmp[1], arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_GREATER_THAN) &&
+                dicSetting.TryGetValue(CONST.STRING_SETTING_GREATER_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                fProperty = string.Format(arrTmp[0], CONST.STRING_SETTING_LOGIC_REPLACE, arrValueLogic[1]) + CONST.STRING_SPACE;
+                mProperty = string.Format(arrTmp[1], arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_LESS_OR_EQUAL) && dicSetting.TryGetValue(CONST.STRING_SETTING_LESS_OR_EQUAL + CONST.STRING_SETTING_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                fProperty = string.Format(arrTmp[0], CONST.STRING_SETTING_LOGIC_REPLACE, arrValueLogic[1]) + CONST.STRING_SPACE;
+                mProperty = string.Format(arrTmp[1], arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
+            else if (logic.Contains(CONST.STRING_SETTING_GREATER_OR_EQUAL) &&
+                dicSetting.TryGetValue(CONST.STRING_SETTING_GREATER_OR_EQUAL + CONST.STRING_SETTING_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                arrTmp = tmp.Split(CONST.CHAR_TILDE);
+                fProperty = string.Format(arrTmp[0], CONST.STRING_SETTING_LOGIC_REPLACE, arrValueLogic[1]) + CONST.STRING_SPACE;
+                mProperty = string.Format(arrTmp[1], arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
+        }
+        #endregion
     }
 }

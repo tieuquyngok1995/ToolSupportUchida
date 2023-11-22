@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grbInputLogic = new System.Windows.Forms.GroupBox();
             this.txtLogic = new System.Windows.Forms.RichTextBox();
             this.lblNumLogic = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbInputType = new System.Windows.Forms.GroupBox();
             this.txtType = new System.Windows.Forms.RichTextBox();
             this.lblNumType = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grbInputPhysical = new System.Windows.Forms.GroupBox();
             this.txtPhysical = new System.Windows.Forms.RichTextBox();
             this.lblNumPhysical = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grbInputNameItem = new System.Windows.Forms.GroupBox();
             this.txtNameItem = new System.Windows.Forms.RichTextBox();
             this.lblNumNameItem = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.grbInputValidation = new System.Windows.Forms.GroupBox();
             this.txtValidation = new System.Windows.Forms.RichTextBox();
             this.lblNumValidation = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
@@ -56,27 +56,31 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtClassLogic = new System.Windows.Forms.TextBox();
-            this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.grbMode = new System.Windows.Forms.GroupBox();
+            this.rbNew = new System.Windows.Forms.RadioButton();
+            this.rbTransfer = new System.Windows.Forms.RadioButton();
+            this.grbInputLogic.SuspendLayout();
+            this.grbInputType.SuspendLayout();
+            this.grbInputPhysical.SuspendLayout();
+            this.grbInputNameItem.SuspendLayout();
+            this.grbInputValidation.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.grbClassName.SuspendLayout();
+            this.grbMode.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox4
+            // grbInputLogic
             // 
-            this.groupBox4.Controls.Add(this.txtLogic);
-            this.groupBox4.Controls.Add(this.lblNumLogic);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(9, 47);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(132, 242);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Input Logical";
+            this.grbInputLogic.Controls.Add(this.txtLogic);
+            this.grbInputLogic.Controls.Add(this.lblNumLogic);
+            this.grbInputLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInputLogic.Location = new System.Drawing.Point(9, 47);
+            this.grbInputLogic.Name = "grbInputLogic";
+            this.grbInputLogic.Size = new System.Drawing.Size(132, 242);
+            this.grbInputLogic.TabIndex = 1;
+            this.grbInputLogic.TabStop = false;
+            this.grbInputLogic.Text = "Input Logical";
             // 
             // txtLogic
             // 
@@ -100,17 +104,17 @@
             this.lblNumLogic.Text = "Line number:";
             this.lblNumLogic.Visible = false;
             // 
-            // groupBox1
+            // grbInputType
             // 
-            this.groupBox1.Controls.Add(this.txtType);
-            this.groupBox1.Controls.Add(this.lblNumType);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(285, 47);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(132, 242);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Input Type";
+            this.grbInputType.Controls.Add(this.txtType);
+            this.grbInputType.Controls.Add(this.lblNumType);
+            this.grbInputType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInputType.Location = new System.Drawing.Point(285, 47);
+            this.grbInputType.Name = "grbInputType";
+            this.grbInputType.Size = new System.Drawing.Size(132, 242);
+            this.grbInputType.TabIndex = 3;
+            this.grbInputType.TabStop = false;
+            this.grbInputType.Text = "Input Type";
             // 
             // txtType
             // 
@@ -134,17 +138,17 @@
             this.lblNumType.Text = "Line number:";
             this.lblNumType.Visible = false;
             // 
-            // groupBox2
+            // grbInputPhysical
             // 
-            this.groupBox2.Controls.Add(this.txtPhysical);
-            this.groupBox2.Controls.Add(this.lblNumPhysical);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(147, 47);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(132, 242);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Input Physical";
+            this.grbInputPhysical.Controls.Add(this.txtPhysical);
+            this.grbInputPhysical.Controls.Add(this.lblNumPhysical);
+            this.grbInputPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInputPhysical.Location = new System.Drawing.Point(147, 47);
+            this.grbInputPhysical.Name = "grbInputPhysical";
+            this.grbInputPhysical.Size = new System.Drawing.Size(132, 242);
+            this.grbInputPhysical.TabIndex = 2;
+            this.grbInputPhysical.TabStop = false;
+            this.grbInputPhysical.Text = "Input Physical";
             // 
             // txtPhysical
             // 
@@ -168,17 +172,17 @@
             this.lblNumPhysical.Text = "Line number:";
             this.lblNumPhysical.Visible = false;
             // 
-            // groupBox3
+            // grbInputNameItem
             // 
-            this.groupBox3.Controls.Add(this.txtNameItem);
-            this.groupBox3.Controls.Add(this.lblNumNameItem);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(423, 47);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(131, 242);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Input Name Item";
+            this.grbInputNameItem.Controls.Add(this.txtNameItem);
+            this.grbInputNameItem.Controls.Add(this.lblNumNameItem);
+            this.grbInputNameItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInputNameItem.Location = new System.Drawing.Point(423, 47);
+            this.grbInputNameItem.Name = "grbInputNameItem";
+            this.grbInputNameItem.Size = new System.Drawing.Size(131, 242);
+            this.grbInputNameItem.TabIndex = 4;
+            this.grbInputNameItem.TabStop = false;
+            this.grbInputNameItem.Text = "Input Name Item";
             // 
             // txtNameItem
             // 
@@ -202,17 +206,17 @@
             this.lblNumNameItem.Text = "Line number:";
             this.lblNumNameItem.Visible = false;
             // 
-            // groupBox5
+            // grbInputValidation
             // 
-            this.groupBox5.Controls.Add(this.txtValidation);
-            this.groupBox5.Controls.Add(this.lblNumValidation);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(560, 47);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(131, 242);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Input Validation";
+            this.grbInputValidation.Controls.Add(this.txtValidation);
+            this.grbInputValidation.Controls.Add(this.lblNumValidation);
+            this.grbInputValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInputValidation.Location = new System.Drawing.Point(560, 47);
+            this.grbInputValidation.Name = "grbInputValidation";
+            this.grbInputValidation.Size = new System.Drawing.Size(131, 242);
+            this.grbInputValidation.TabIndex = 5;
+            this.grbInputValidation.TabStop = false;
+            this.grbInputValidation.Text = "Input Validation";
             // 
             // txtValidation
             // 
@@ -351,9 +355,9 @@
             this.grbClassName.Controls.Add(this.label9);
             this.grbClassName.Controls.Add(this.txtClassLogic);
             this.grbClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbClassName.Location = new System.Drawing.Point(147, 1);
+            this.grbClassName.Location = new System.Drawing.Point(285, 1);
             this.grbClassName.Name = "grbClassName";
-            this.grbClassName.Size = new System.Drawing.Size(545, 49);
+            this.grbClassName.Size = new System.Drawing.Size(407, 49);
             this.grbClassName.TabIndex = 102;
             this.grbClassName.TabStop = false;
             this.grbClassName.Text = "Class Name View Model";
@@ -361,9 +365,9 @@
             // 
             // txtClassPhysical
             // 
-            this.txtClassPhysical.Location = new System.Drawing.Point(373, 18);
+            this.txtClassPhysical.Location = new System.Drawing.Point(295, 18);
             this.txtClassPhysical.Name = "txtClassPhysical";
-            this.txtClassPhysical.Size = new System.Drawing.Size(165, 23);
+            this.txtClassPhysical.Size = new System.Drawing.Size(105, 23);
             this.txtClassPhysical.TabIndex = 11;
             this.txtClassPhysical.Click += new System.EventHandler(this.txtClassPhysical_Click);
             this.txtClassPhysical.TextChanged += new System.EventHandler(this.txtClassPhysical_TextChanged);
@@ -372,7 +376,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(282, 22);
+            this.label1.Location = new System.Drawing.Point(204, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 15);
             this.label1.TabIndex = 10;
@@ -392,61 +396,103 @@
             // 
             this.txtClassLogic.Location = new System.Drawing.Point(92, 18);
             this.txtClassLogic.Name = "txtClassLogic";
-            this.txtClassLogic.Size = new System.Drawing.Size(175, 23);
+            this.txtClassLogic.Size = new System.Drawing.Size(105, 23);
             this.txtClassLogic.TabIndex = 8;
             this.txtClassLogic.Click += new System.EventHandler(this.txtClassLogic_Click);
             this.txtClassLogic.TextChanged += new System.EventHandler(this.txtClassLogic_TextChanged);
+            // 
+            // grbMode
+            // 
+            this.grbMode.Controls.Add(this.rbNew);
+            this.grbMode.Controls.Add(this.rbTransfer);
+            this.grbMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbMode.Location = new System.Drawing.Point(147, 1);
+            this.grbMode.Name = "grbMode";
+            this.grbMode.Size = new System.Drawing.Size(132, 49);
+            this.grbMode.TabIndex = 102;
+            this.grbMode.TabStop = false;
+            this.grbMode.Text = "Mode";
+            this.grbMode.Visible = false;
+            // 
+            // rbNew
+            // 
+            this.rbNew.AutoSize = true;
+            this.rbNew.Checked = true;
+            this.rbNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNew.Location = new System.Drawing.Point(10, 20);
+            this.rbNew.Name = "rbNew";
+            this.rbNew.Size = new System.Drawing.Size(50, 19);
+            this.rbNew.TabIndex = 100;
+            this.rbNew.TabStop = true;
+            this.rbNew.Text = "New";
+            this.rbNew.UseVisualStyleBackColor = true;
+            this.rbNew.CheckedChanged += new System.EventHandler(this.rbNew_CheckedChanged);
+            // 
+            // rbTransfer
+            // 
+            this.rbTransfer.AutoSize = true;
+            this.rbTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTransfer.Location = new System.Drawing.Point(61, 20);
+            this.rbTransfer.Name = "rbTransfer";
+            this.rbTransfer.Size = new System.Drawing.Size(70, 19);
+            this.rbTransfer.TabIndex = 101;
+            this.rbTransfer.Text = "Transfer";
+            this.rbTransfer.UseVisualStyleBackColor = true;
+            this.rbTransfer.CheckedChanged += new System.EventHandler(this.rbTransfer_CheckedChanged);
             // 
             // FormCreateViewModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 374);
+            this.Controls.Add(this.grbMode);
             this.Controls.Add(this.grbClassName);
             this.Controls.Add(this.groupBox23);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grbInputValidation);
+            this.Controls.Add(this.grbInputNameItem);
+            this.Controls.Add(this.grbInputType);
+            this.Controls.Add(this.grbInputLogic);
+            this.Controls.Add(this.grbInputPhysical);
             this.Controls.Add(this.groupBox7);
             this.Name = "FormCreateViewModel";
             this.Text = "Tool Support: Create View Model";
             this.Load += new System.EventHandler(this.FormCreateViewModel_Load);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.grbInputLogic.ResumeLayout(false);
+            this.grbInputLogic.PerformLayout();
+            this.grbInputType.ResumeLayout(false);
+            this.grbInputType.PerformLayout();
+            this.grbInputPhysical.ResumeLayout(false);
+            this.grbInputPhysical.PerformLayout();
+            this.grbInputNameItem.ResumeLayout(false);
+            this.grbInputNameItem.PerformLayout();
+            this.grbInputValidation.ResumeLayout(false);
+            this.grbInputValidation.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.grbClassName.ResumeLayout(false);
             this.grbClassName.PerformLayout();
+            this.grbMode.ResumeLayout(false);
+            this.grbMode.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grbInputLogic;
         private System.Windows.Forms.RichTextBox txtLogic;
         private System.Windows.Forms.Label lblNumLogic;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbInputType;
         private System.Windows.Forms.RichTextBox txtType;
         private System.Windows.Forms.Label lblNumType;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grbInputPhysical;
         private System.Windows.Forms.RichTextBox txtPhysical;
         private System.Windows.Forms.Label lblNumPhysical;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grbInputNameItem;
         private System.Windows.Forms.RichTextBox txtNameItem;
         private System.Windows.Forms.Label lblNumNameItem;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox grbInputValidation;
         private System.Windows.Forms.RichTextBox txtValidation;
         private System.Windows.Forms.Label lblNumValidation;
         private System.Windows.Forms.GroupBox groupBox23;
@@ -462,5 +508,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtClassLogic;
+        private System.Windows.Forms.GroupBox grbMode;
+        private System.Windows.Forms.RadioButton rbNew;
+        private System.Windows.Forms.RadioButton rbTransfer;
     }
 }

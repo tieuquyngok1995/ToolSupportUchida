@@ -1448,17 +1448,20 @@ namespace ToolSupportCoding.View
 
                 if (item.Length >= 3)
                 {
-                    logic = item[1].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    logic = item[1].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty)
+                                   .Replace(CONST.STRING_COMMA, string.Empty).Trim();
                     physical = item[2].Trim();
                 }
                 else if (item.Length >= 2)
                 {
-                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty)
+                                   .Replace(CONST.STRING_COMMA, string.Empty).Trim();
                     physical = item[1].Trim();
                 }
                 else
                 {
-                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
+                    logic = item[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty)
+                                   .Replace(CONST.STRING_COMMA, string.Empty).Trim();
                     physical = logic;
                 }
                 logic = logic.Replace(CONST.STRING_COMMA, string.Empty).Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty);
@@ -1478,7 +1481,8 @@ namespace ToolSupportCoding.View
                 if (rbCrEntityBlock.Checked)
                 {
                     tmp = CUtils.CreTmlModelC(1);
-                } else if (rbCrEntityMutilLine.Checked)
+                }
+                else if (rbCrEntityMutilLine.Checked)
                 {
                     tmp = CUtils.CreTmlModelC(2);
                 }
