@@ -1506,7 +1506,6 @@ namespace ToolSupportCoding.View
                 string type = vm.type;
                 if (!string.IsNullOrEmpty(type))
                 {
-                    type = CUtils.ConvertSQLToCType(type);
                     type = CUtils.AddDefaultTypeC(type);
                 }
 

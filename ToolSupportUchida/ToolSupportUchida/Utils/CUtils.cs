@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -77,6 +76,7 @@ namespace ToolSupportCoding.Utils
                 case var varchar when type.Contains(CONST.SQL_TYPE_VARCHAR):
                 case var nvarchar when type.Contains(CONST.SQL_TYPE_NVARCHAR):
                     return CONST.C_TYPE_STRING;
+                case CONST.SQL_TYPE_DATE:
                 case CONST.SQL_TYPE_DATE_TIME:
                     return CONST.C_TYPE_DATE_TIME;
                 case CONST.SQL_TYPE_SMALLINT:

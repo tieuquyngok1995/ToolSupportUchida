@@ -190,6 +190,7 @@ namespace ToolSupportCoding.Utils
         // Const SQL Type
         public const string SQL_TYPE_VARCHAR = "varchar";
         public const string SQL_TYPE_NVARCHAR = "nvarchar";
+        public const string SQL_TYPE_DATE = "date";
         public const string SQL_TYPE_DATE_TIME = "datetime";
         public const string SQL_TYPE_BIGINT = "bigint";
         public const string SQL_TYPE_SMALLINT = "smallint";
