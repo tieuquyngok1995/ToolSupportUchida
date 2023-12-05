@@ -278,6 +278,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_REQUIRED = "Required";
         public const string STRING_SETTING_LENGTH = "Length";
         public const string STRING_SETTING_RANGE = "Range";
+        public const string STRING_SETTING_HISTORY = "HistoryText";
         public const string STRING_SETTING_LESS_THAN = "LessThan";
         public const string STRING_SETTING_GREATER_THAN = "GreaterThan";
         public const string STRING_SETTING_LESS_OR_EQUAL = "LessOrEqual";

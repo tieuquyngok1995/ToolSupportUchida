@@ -153,11 +153,6 @@ namespace ToolSupportCoding.View
                 lblNumLogic.Visible = false;
             }
 
-            if (lstLogic.Count > 0 && (lstNameItem.Count == lstValidation.Count))
-            {
-                handleDataValidation();
-            }
-
             btnCreate.Enabled = isEnableButtonCreate();
         }
 
@@ -171,7 +166,7 @@ namespace ToolSupportCoding.View
         {
             lstPhysical = txtPhysical.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            if (lstLogic.Count > 0)
+            if (lstPhysical.Count > 0)
             {
                 lblNumPhysical.Visible = true;
                 lblNumPhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstPhysical.Count);
@@ -179,6 +174,11 @@ namespace ToolSupportCoding.View
             else
             {
                 lblNumPhysical.Visible = false;
+            }
+
+            if (lstPhysical.Count > 0 && (lstNameItem.Count == lstValidation.Count))
+            {
+                handleDataValidation();
             }
 
             btnCreate.Enabled = isEnableButtonCreate();
@@ -227,7 +227,7 @@ namespace ToolSupportCoding.View
                 lblNumNameItem.Visible = false;
             }
 
-            if (lstLogic.Count > 0 && (lstNameItem.Count == lstValidation.Count))
+            if (lstPhysical.Count > 0 && (lstNameItem.Count == lstValidation.Count))
             {
                 handleDataValidation();
             }
@@ -255,7 +255,7 @@ namespace ToolSupportCoding.View
                 lblNumValidation.Visible = false;
             }
 
-            if (lstLogic.Count > 0 && (lstNameItem.Count == lstValidation.Count))
+            if (lstPhysical.Count > 0 && (lstNameItem.Count == lstValidation.Count))
             {
                 handleDataValidation();
             }
@@ -292,7 +292,7 @@ namespace ToolSupportCoding.View
 
                     if (rbModeC.Checked)
                     {
-                        annotation = getAnnotationsC(logic, type);
+                        annotation = getAnnotationsC(physical, type);
 
                         type = CUtils.AddDefaultTypeC(type);
 
@@ -307,7 +307,7 @@ namespace ToolSupportCoding.View
 
                         iViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_PROPERTY), physical) + CONST.STRING_ADD_LINE;
 
-                        getAnnotationsTS(logic, physical, type, out fProperty, out mProperty);
+                        getAnnotationsTS(physical, type, out fProperty, out mProperty);
                         fViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_FORM), CUtils.FirstCharToLowerCase(physical), type, fProperty) + CONST.STRING_ADD_LINE;
 
                         mViewModel += string.Format(getTemplateTS(CONST.STRING_SETTING_TS_MODEL), physical, CUtils.FirstCharToLowerCase(physical), type, mProperty) + CONST.STRING_ADD_LINE;
@@ -482,7 +482,7 @@ namespace ToolSupportCoding.View
                 if (string.IsNullOrEmpty(itemVal.Replace(CONST.STRING_TAB, string.Empty))) continue;
 
                 string itemName = lstNameItem[i].Replace(CONST.STRING_TAB, string.Empty);
-                string key = lstLogic.FirstOrDefault(item => (itemName.Equals(item)));
+                string key = lstPhysical.FirstOrDefault(item => (itemName.Equals(item)));
                 string[] value = itemVal.Split(CONST.CHAR_TAB);
 
                 if (key == null || string.IsNullOrEmpty(key)) continue;
@@ -490,13 +490,13 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private string getAnnotationsC(string strLogic, string type)
+        private string getAnnotationsC(string strPhysical, string type)
         {
             string result = string.Empty;
             string displayFormat = string.Empty;
             string[] arrValidation;
 
-            if (dicValidation.TryGetValue(strLogic, out arrValidation))
+            if (dicValidation.TryGetValue(strPhysical, out arrValidation))
             {
                 for (int i = 0; i < arrValidation.Length; i++)
                 {
@@ -531,7 +531,7 @@ namespace ToolSupportCoding.View
                             {
                                 displayFormat = string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
                             }
-                            else if (annotation.Contains(CONST.STRING_SETTING_FORMAT))
+                            else if (annotation.Contains(CONST.STRING_SETTING_FORMAT) || annotation.Contains(CONST.STRING_SETTING_HISTORY))
                             {
                                 result += string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
                             }
@@ -554,13 +554,13 @@ namespace ToolSupportCoding.View
             return result;
         }
 
-        private void getAnnotationsTS(string strLogic, string physical, string type, out string fProperty, out string mProperty)
+        private void getAnnotationsTS(string physical, string type, out string fProperty, out string mProperty)
         {
             string fVM = string.Empty;
             string mVM = string.Empty;
 
             string[] arrValidation;
-            if (dicValidation.TryGetValue(strLogic, out arrValidation))
+            if (dicValidation.TryGetValue(physical, out arrValidation))
             {
                 for (int i = 0; i < arrValidation.Length; i++)
                 {
@@ -589,7 +589,7 @@ namespace ToolSupportCoding.View
                                     mVM += string.Format(arr[3], CUtils.GetRangeNumber(validation)) + CONST.STRING_ADD_LINE;
                                 }
                             }
-                            else if (annotation.Equals(CONST.STRING_SETTING_DISPLAY_FORMAT))
+                            else if (annotation.Equals(CONST.STRING_SETTING_DISPLAY_FORMAT) || annotation.Equals(CONST.STRING_SETTING_HISTORY))
                             {
                                 mVM += string.Format(tmp, validation) + CONST.STRING_ADD_LINE;
                             }
@@ -637,6 +637,11 @@ namespace ToolSupportCoding.View
                 fProperty = arrTmp[0] + CONST.STRING_COMMA + CONST.STRING_SPACE;
                 mProperty = arrTmp[1] + CONST.STRING_ADD_LINE;
             }
+            else if (logic.Contains(CONST.STRING_SETTING_DISPLAY) && dicSetting.TryGetValue(CONST.STRING_SETTING_DISPLAY_FORMAT, out tmp))
+            {
+                arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
+                mProperty = string.Format(tmp, arrValueLogic[1]) + CONST.STRING_ADD_LINE;
+            }
             else if (logic.Contains(CONST.STRING_SETTING_LENGTH) || logic.Contains(CONST.STRING_SETTING_RANGE))
             {
                 arrValueLogic = logic.Split(CONST.CHAR_O_BRACKETS);
@@ -661,22 +666,19 @@ namespace ToolSupportCoding.View
                     }
                 }
             }
-            else if (logic.Contains(CONST.STRING_SETTING_DISPLAY) &&
-                dicSetting.TryGetValue(CONST.STRING_SETTING_DISPLAY_FORMAT, out tmp))
+            else if (logic.Contains(CONST.STRING_SETTING_HISTORY) && dicSetting.TryGetValue(CONST.STRING_SETTING_HISTORY, out tmp))
             {
                 arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
                 mProperty = string.Format(tmp, arrValueLogic[1]) + CONST.STRING_ADD_LINE;
             }
-            else if (logic.Contains(CONST.STRING_SETTING_LESS_THAN) &&
-                dicSetting.TryGetValue(CONST.STRING_SETTING_LESS_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
+            else if (logic.Contains(CONST.STRING_SETTING_LESS_THAN) && dicSetting.TryGetValue(CONST.STRING_SETTING_LESS_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
             {
                 arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
                 arrTmp = tmp.Split(CONST.CHAR_TILDE);
                 fProperty = string.Format(arrTmp[0], CONST.STRING_SETTING_LOGIC_REPLACE, arrValueLogic[1]) + CONST.STRING_SPACE;
                 mProperty = string.Format(arrTmp[1], arrValueLogic[1]) + CONST.STRING_ADD_LINE;
             }
-            else if (logic.Contains(CONST.STRING_SETTING_GREATER_THAN) &&
-                dicSetting.TryGetValue(CONST.STRING_SETTING_GREATER_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
+            else if (logic.Contains(CONST.STRING_SETTING_GREATER_THAN) && dicSetting.TryGetValue(CONST.STRING_SETTING_GREATER_THAN + CONST.STRING_SETTING_FORMAT, out tmp))
             {
                 arrValueLogic = logic.Split(CONST.CHAR_QUOTATION);
                 arrTmp = tmp.Split(CONST.CHAR_TILDE);

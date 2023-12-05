@@ -182,7 +182,7 @@
             this.grbInputNameItem.Size = new System.Drawing.Size(131, 242);
             this.grbInputNameItem.TabIndex = 4;
             this.grbInputNameItem.TabStop = false;
-            this.grbInputNameItem.Text = "Input Name Item";
+            this.grbInputNameItem.Text = "Input Name";
             // 
             // txtNameItem
             // 

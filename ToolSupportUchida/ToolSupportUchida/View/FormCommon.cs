@@ -652,14 +652,13 @@ namespace ToolSupportCoding.View
         {
             lstGetVMItem = txtGetVMSItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            if (lstGetVMItem.Count > 0)
+            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
-                lblGetVMSItem.Visible = true;
-                lblGetVMSItem.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMItem.Count);
+                btGetVMGenSrc.Enabled = false;
             }
             else
             {
-                lblGetVMSItem.Visible = false;
+                btGetVMGenSrc.Enabled = true;
             }
         }
 
@@ -683,7 +682,7 @@ namespace ToolSupportCoding.View
                 lblGetVMLogic.Visible = false;
             }
 
-            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -713,7 +712,7 @@ namespace ToolSupportCoding.View
                 lblGetVMPhysical.Visible = false;
             }
 
-            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -743,7 +742,7 @@ namespace ToolSupportCoding.View
                 lblGetVMFunItem.Visible = false;
             }
 
-            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -773,7 +772,7 @@ namespace ToolSupportCoding.View
                 lblGetVMFunPro.Visible = false;
             }
 
-            if (lstGetVMLogic.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -819,15 +818,23 @@ namespace ToolSupportCoding.View
                 if (dicFunction.TryGetValue(item, out keyVM))
                 {
                     string valueVM = string.Empty;
-                    if (dicViewModel.TryGetValue(keyVM, out valueVM))
+                    if (dicViewModel.Count > 0)
                     {
-                        txtGetVMResultLogical.Text += keyVM + CONST.STRING_NEW_LINE;
-                        txtGetVMResultPhysical.Text += valueVM + CONST.STRING_NEW_LINE;
+                        if (dicViewModel.TryGetValue(keyVM, out valueVM))
+                        {
+                            txtGetVMResultLogical.Text += keyVM + CONST.STRING_NEW_LINE;
+                            txtGetVMResultPhysical.Text += valueVM + CONST.STRING_NEW_LINE;
+                        }
+                        else
+                        {
+                            txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
+                            txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
+                        }
                     }
                     else
                     {
                         txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
-                        txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
+                        txtGetVMResultPhysical.Text += keyVM + CONST.STRING_NEW_LINE;
                     }
                 }
                 else
