@@ -289,6 +289,7 @@ namespace ToolSupportCoding.View
                     logic = lstLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
                     physical = lstPhysical.Count > i ? lstPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim() : string.Empty;
                     type = lstType.Count > i ? lstType[i].Replace(CONST.STRING_TAB, string.Empty).Trim() : string.Empty;
+                    type = type.Replace(CONST.C_TYPE_BOOLEAN, CONST.C_TYPE_BOOL);
 
                     if (rbModeC.Checked)
                     {

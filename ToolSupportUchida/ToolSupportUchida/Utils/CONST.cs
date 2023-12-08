@@ -221,6 +221,7 @@ namespace ToolSupportCoding.Utils
         public const string C_TYPE_PUBLIC = "public";
         public const string C_TYPE_STRING = "string";
         public const string C_TYPE_BOOL = "bool";
+        public const string C_TYPE_BOOLEAN = "boolean";
         public const string C_TYPE_DATE_TIME = "DateTime";
         public const string C_TYPE_SHORT = "short";
         public const string C_TYPE_INT = "int";

@@ -97,6 +97,7 @@ namespace ToolSupportCoding.Utils
             switch (type)
             {
                 case CONST.C_TYPE_BOOL:
+                case CONST.C_TYPE_BOOLEAN:
                     return CONST.TS_TYPE_BOOLEAN;
                 case CONST.C_TYPE_DATE_TIME:
                     return CONST.TS_TYPE_DATE;
