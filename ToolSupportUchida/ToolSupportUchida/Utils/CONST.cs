@@ -56,6 +56,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_DOT = ".";
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
+        public const string STRING_UNDERSCORE = "_";
         public const string STRING_QUESTION = "?";
         public const string STRING_BR = "<br>";
         public const string STRING_BR_REPLACE = "&lt;br&gt;";
@@ -73,6 +74,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_C_O_SQU_BRACKETS_SPACE = "] [";
         public const string STRING_DC_CUR_BRACKETS = "}}";
         public const string STRING_NOTE = "〇";
+        public const string STRING_BACKUP_NAME = ".bk";
         public const string STRING_CONTROLLER = "Controller";
         public const string STRING_SERVICE = "Service";
         public const string STRING_REPOSITORY = "Repository";
@@ -82,6 +84,16 @@ namespace ToolSupportCoding.Utils
         public const string STRING_ENTITY = "Entity";
         public const string STRING_ENTITIES = "Entities";
         public const string STRING_LIB = ".Lib";
+        public const string STRING_REPORT = "Report";
+        public const string STRING_LABEL_REPORT = "LabelReport";
+        public const string STRING_FIELD_REPORT = "FieldReport";
+        public const string STRING_CHECKBOX_REPORT = "CheckBoxReport";
+        public const string STRING_IMAGE_REPORT = "ImageReport";
+        public const string STRING_SUB_REPORT = "SubreportReport";
+        public const string STRING_REPORT_CLASS_NAME = "ClassName=\"Title\"";
+        public const string STRING_REPORT_ALIGN_CENTER = "text-align: center; ";
+        public const string STRING_REPORT_ALIGN_RIGHT = "text-align: right; ";
+        public const string STRING_REPORT_NAME = ".rpx";
 
         // Const string JP
         public const string STRING_JP_CONTROLLER = "コントローラ";
@@ -89,6 +101,10 @@ namespace ToolSupportCoding.Utils
         public const string STRING_JP_REPOSITORY = "リポジトリ";
         public const string STRING_JP_VIEW_MODEL = "情報ViewModel";
         public const string STRING_JP_CODE = "コード";
+        public const string STRING_JP_ITEM = "項目";
+        public const string STRING_JP_FONT_SIZE = "大";
+        public const string STRING_JP_ALIGN_CENTER = "中央寄せ";
+        public const string STRING_JP_ALIGN_RIGHT = "右寄せ";
 
         public const string STRING_RESOURCES = "Resources";
         public const string STRING_VALUE = "Value";
@@ -252,6 +268,10 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_COMMON_ENTITY_RECORD = "CreateTargetRecord";
         public const string STRING_SETTING_COMMON_ENTITY_TARGET = "CreateTargetTmp";
 
+        public const string STRING_SETTING_COMMON_REPORT = "SettingCreateReport";
+        public const string STRING_SETTING_COMMON_FORMAT_REPORT = "FormatReport";
+        public const string STRING_SETTING_COMMON_REPORT_INDEX = "IndexArr";
+
         public const string STRING_SETTING_HTML = "SettingHTML";
         public const string STRING_SETTING_HTML_ROW = "ucd-row";
         public const string STRING_SETTING_HTML_ADD_ROW = "--";
@@ -334,6 +354,7 @@ namespace ToolSupportCoding.Utils
         public const string TAB_CR_JSON = "Create JSON";
         public const string TAB_CR_ENTITY = "Create Entity";
         public const string TAB_CR_FILE_SRC = "Create File Source";
+        public const string TAB_CR_REPORTS = "Create Report";
         public const string TAB_CR_MESS = "Create Message";
         public const string TAB_CR_COMMENT = "Create Comment";
         public const string TAB_CR_RESOURCES = "Create Resources";

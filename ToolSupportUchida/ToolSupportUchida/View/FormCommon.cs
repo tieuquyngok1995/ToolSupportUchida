@@ -53,6 +53,11 @@ namespace ToolSupportCoding.View
         private string[] lstSourcePhysical;
         private string[] lstSourcePath;
 
+        // List create report
+        private string reportPath;
+        private List<string> lstReportItemName = new List<string>();
+        private List<string> lstReportSetting = new List<string>();
+
         // List create message 
         private string[] lstMessCode;
         private string[] lstMessContent;
@@ -74,12 +79,14 @@ namespace ToolSupportCoding.View
         private string[] lstFormatCode;
 
         #region Load Form
-        public FormCommon(ToolSupportModel objToolSupport, List<ItemModel> _lstItem)
+        public FormCommon(ToolSupportModel _objToolSupport, List<ItemModel> _lstItem)
         {
             InitializeComponent();
 
-            this.objToolSupport = objToolSupport;
-            this.lstItem = _lstItem;
+            objToolSupport = _objToolSupport;
+            reportPath = _objToolSupport.reportPath;
+
+            lstItem = _lstItem;
         }
 
         private void FormCheckDataModel_Load(object sender, EventArgs e)
@@ -182,6 +189,11 @@ namespace ToolSupportCoding.View
                 case CONST.TAB_CR_FILE_SRC:
                     txtCrSourceFolderP.Text = objToolSupport.sourcePath;
                     txtCrSourceFolderP.Focus();
+                    break;
+                case CONST.TAB_CR_REPORTS:
+                    getSetting(currentTab);
+                    txtCreReportPath.Text = reportPath;
+                    txtCreReportName.Focus();
                     break;
                 case CONST.TAB_CR_MESS:
                     txtMessCode.Focus();
@@ -1812,6 +1824,249 @@ namespace ToolSupportCoding.View
         }
         #endregion
 
+        #region Tab Create Report
+
+        /// <summary>
+        /// Event select path folder report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btCreReportPath_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                if (!string.IsNullOrEmpty(reportPath)) fbd.SelectedPath = reportPath;
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    txtCreReportPath.Text = fbd.SelectedPath;
+                    reportPath = fbd.SelectedPath;
+
+                    objToolSupport.reportPath = reportPath;
+                    BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error during processing.\r\nError detail: " + ex.Message, "Error Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Event select all text input report name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportName_Click(object sender, EventArgs e)
+        {
+            txtCreReportName.SelectAll();
+            txtCreReportName.Focus();
+        }
+
+        /// <summary>
+        /// Event change text report name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportName_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCreReportName.Text) && !txtCreReportName.Text.Contains(CONST.STRING_REPORT_NAME))
+            {
+                txtCreReportName.Text += CONST.STRING_REPORT_NAME;
+            }
+        }
+
+        /// <summary>
+        /// Event select all text input report item name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportItemName_Click(object sender, EventArgs e)
+        {
+            txtCreReportItemName.SelectAll();
+            txtCreReportItemName.Focus();
+        }
+
+        /// <summary>
+        /// Event change value in report item name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportItemName_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCreReportItemName.Text)) return;
+
+            lstReportItemName = txtCreReportItemName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstReportItemName.Count > 0)
+            {
+                lblCreReportItemName.Visible = true;
+                lblCreReportItemName.Text = string.Concat(CONST.TEXT_LINE_NUM, lstReportItemName.Count);
+            }
+            else
+            {
+                lblCreReportItemName.Visible = false;
+            }
+
+            btCreReport.Enabled = lstReportSetting.Count == lstReportItemName.Count ? true : false;
+        }
+
+        /// <summary>
+        /// Event select all text input report setting
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportSetting_Click(object sender, EventArgs e)
+        {
+            txtCreReportSetting.SelectAll();
+            txtCreReportSetting.Focus();
+        }
+
+        /// <summary>
+        /// Event change value in report setting
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCreReportSetting_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCreReportSetting.Text)) return;
+
+            lstReportSetting = txtCreReportSetting.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
+
+            if (lstReportSetting.Count > 0)
+            {
+                lblCreReportSetting.Visible = true;
+                lblCreReportSetting.Text = string.Concat(CONST.TEXT_LINE_NUM, lstReportSetting.Count);
+            }
+            else
+            {
+                lblCreReportSetting.Visible = false;
+            }
+
+            btCreReport.Enabled = lstReportSetting.Count == lstReportItemName.Count ? true : false;
+        }
+
+        /// <summary>
+        /// Event create report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btCreReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int top = 0;
+                string template = string.Empty;
+                string control = string.Empty;
+                string result = string.Empty;
+
+                for (int i = 0; i < lstReportSetting.Count; i++)
+                {
+                    top = i == 1 ? 284 : 284 * i;
+
+                    string nameItem = lstReportItemName[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    if (string.IsNullOrEmpty(nameItem)) continue;
+
+                    string[] arrSetting = CUtils.FormatTab(lstReportSetting[i]).Trim().Split(CONST.CHAR_TAB);
+
+                    string fontSize = string.Empty;
+                    if (arrSetting.Length > 0 && arrSetting[0].Equals(CONST.STRING_JP_FONT_SIZE)) fontSize = CONST.STRING_REPORT_CLASS_NAME;
+
+                    string algin = string.Empty;
+                    if (arrSetting.Length > 1 && arrSetting[1].Equals(CONST.STRING_JP_ALIGN_CENTER)) algin = CONST.STRING_REPORT_ALIGN_CENTER;
+                    if (arrSetting.Length > 1 && arrSetting[1].Equals(CONST.STRING_JP_ALIGN_RIGHT)) algin = CONST.STRING_REPORT_ALIGN_RIGHT;
+
+                    string type = arrSetting.Length > 2 ? arrSetting[2] + CONST.STRING_REPORT : string.Empty;
+
+                    dicSetting.TryGetValue(type, out template);
+                    string dataField = arrSetting.Length > 5 ? arrSetting[5] : nameItem.Replace(CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE, string.Empty);
+
+                    if (type.Equals(CONST.STRING_LABEL_REPORT))
+                    {
+                        control += string.Format(template, nameItem, top, algin, fontSize);
+                    }
+                    else if (type.Equals(CONST.STRING_FIELD_REPORT))
+                    {
+                        control += string.Format(template, nameItem, top, algin, fontSize, dataField);
+                    }
+                    else if (type.Equals(CONST.STRING_CHECKBOX_REPORT) || type.Equals(CONST.STRING_SUB_REPORT))
+                    {
+                        control += string.Format(template, nameItem, top, dataField);
+                    }
+                    else
+                    {
+                        control += string.Format(template, nameItem, top);
+                    }
+                }
+
+                if (string.IsNullOrEmpty(txtCreReportName.Text))
+                {
+                    result = control.Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    txtCreReportResult.Text = result;
+                }
+                else
+                {
+                    dicSetting.TryGetValue(CONST.STRING_SETTING_COMMON_FORMAT_REPORT, out template);
+                    result = string.Format(template, control).Replace(CONST.STRING_TILDE, CONST.STRING_ADD_LINE);
+                    txtCreReportResult.Text = result;
+
+                    string pathFile = txtCreReportPath.Text + "/" + txtCreReportName.Text;
+                    if (!Directory.Exists(txtCreReportPath.Text)) Directory.CreateDirectory(txtCreReportPath.Text);
+
+                    if (File.Exists(pathFile))
+                    {
+                        string pathFileBk = pathFile.Replace(CONST.STRING_REPORT_NAME, CONST.STRING_BACKUP_NAME);
+                        if (File.Exists(pathFileBk)) File.Delete(pathFileBk);
+
+                        File.Copy(pathFile, pathFileBk);
+                        File.Delete(pathFile);
+                    }
+
+                    File.WriteAllText(pathFile, result);
+                }
+
+                btCreReportCopy.Enabled = !string.IsNullOrEmpty(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error during processing.\r\nError detail: " + ex.Message, "Error Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Event copy result report 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btCreReportCopy_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCreReportResult.Text))
+            {
+                return;
+            }
+
+            Clipboard.Clear();
+            Clipboard.SetText(txtCreReportResult.Text);
+        }
+
+        /// <summary>
+        /// Event clear report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btCreReportClear_Click(object sender, EventArgs e)
+        {
+            txtCreReportItemName.Text = string.Empty;
+            lblCreReportItemName.Visible = false;
+            txtCreReportSetting.Text = string.Empty;
+            lblCreReportSetting.Visible = false;
+            txtCreReportResult.Text = string.Empty;
+
+            btCreReport.Enabled = false;
+            btCreReportCopy.Enabled = false;
+        }
+        #endregion
+
         #region Tab Create Message
         private void rdMess_CheckedChanged(object sender, EventArgs e)
         {
@@ -2902,6 +3157,9 @@ namespace ToolSupportCoding.View
             {
                 case 4:
                     lstSetting = lstItem.Where(item => item.key.Equals(CONST.STRING_SETTING_COMMON_ENTITY)).ToList();
+                    break;
+                case 6:
+                    lstSetting = lstItem.Where(item => item.key.Equals(CONST.STRING_SETTING_COMMON_REPORT)).ToList();
                     break;
                 default: break;
             }

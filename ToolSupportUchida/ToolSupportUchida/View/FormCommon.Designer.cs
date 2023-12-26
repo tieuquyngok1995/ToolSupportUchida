@@ -118,6 +118,7 @@ namespace ToolSupportCoding.View
             this.rbCrEntitySet = new System.Windows.Forms.RadioButton();
             this.rbCrEntityGet = new System.Windows.Forms.RadioButton();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.rbCrEntityMutilLine = new System.Windows.Forms.RadioButton();
             this.rbCrEntityLine = new System.Windows.Forms.RadioButton();
             this.rbCrEntityBlock = new System.Windows.Forms.RadioButton();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -149,6 +150,24 @@ namespace ToolSupportCoding.View
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.lblCrSourcePath = new System.Windows.Forms.Label();
             this.txtCrSourcePath = new System.Windows.Forms.RichTextBox();
+            this.tabPageCreateReport = new System.Windows.Forms.TabPage();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.txtCreReportName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btCreReportPath = new System.Windows.Forms.Button();
+            this.txtCreReportPath = new System.Windows.Forms.TextBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.lblCreReportItemName = new System.Windows.Forms.Label();
+            this.txtCreReportItemName = new System.Windows.Forms.RichTextBox();
+            this.groupBox44 = new System.Windows.Forms.GroupBox();
+            this.lblCreReportSetting = new System.Windows.Forms.Label();
+            this.txtCreReportSetting = new System.Windows.Forms.RichTextBox();
+            this.groupBox45 = new System.Windows.Forms.GroupBox();
+            this.btCreReport = new System.Windows.Forms.Button();
+            this.txtCreReportResult = new System.Windows.Forms.RichTextBox();
+            this.btCreReportCopy = new System.Windows.Forms.Button();
+            this.btCreReportClear = new System.Windows.Forms.Button();
             this.tabPageCreateMessage = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.rdbMessF = new System.Windows.Forms.RadioButton();
@@ -270,7 +289,6 @@ namespace ToolSupportCoding.View
             this.txtDialog = new System.Windows.Forms.RichTextBox();
             this.lblResultSrcDialog = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.rbCrEntityMutilLine = new System.Windows.Forms.RadioButton();
             this.tabControlCommon.SuspendLayout();
             this.tabPageGetColumn.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -306,6 +324,11 @@ namespace ToolSupportCoding.View
             this.groupBox24.SuspendLayout();
             this.groupBox25.SuspendLayout();
             this.groupBox27.SuspendLayout();
+            this.tabPageCreateReport.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox44.SuspendLayout();
+            this.groupBox45.SuspendLayout();
             this.tabPageCreateMessage.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -342,6 +365,7 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Controls.Add(this.tabPageCreateJson);
             this.tabControlCommon.Controls.Add(this.tabPageCreateEnity);
             this.tabControlCommon.Controls.Add(this.tabPageCreateFileSrc);
+            this.tabControlCommon.Controls.Add(this.tabPageCreateReport);
             this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
             this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
             this.tabControlCommon.Controls.Add(this.tabPageCreateResources);
@@ -1447,6 +1471,17 @@ namespace ToolSupportCoding.View
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Comment Mode";
             // 
+            // rbCrEntityMutilLine
+            // 
+            this.rbCrEntityMutilLine.AutoSize = true;
+            this.rbCrEntityMutilLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrEntityMutilLine.Location = new System.Drawing.Point(110, 20);
+            this.rbCrEntityMutilLine.Name = "rbCrEntityMutilLine";
+            this.rbCrEntityMutilLine.Size = new System.Drawing.Size(79, 19);
+            this.rbCrEntityMutilLine.TabIndex = 100;
+            this.rbCrEntityMutilLine.Text = "Mutil Line";
+            this.rbCrEntityMutilLine.UseVisualStyleBackColor = true;
+            // 
             // rbCrEntityLine
             // 
             this.rbCrEntityLine.AutoSize = true;
@@ -1818,6 +1853,227 @@ namespace ToolSupportCoding.View
             this.txtCrSourcePath.TabIndex = 4;
             this.txtCrSourcePath.Text = "";
             this.txtCrSourcePath.TextChanged += new System.EventHandler(this.txtCrSourcePath_TextChanged);
+            // 
+            // tabPageCreateReport
+            // 
+            this.tabPageCreateReport.Controls.Add(this.groupBox20);
+            this.tabPageCreateReport.Controls.Add(this.groupBox21);
+            this.tabPageCreateReport.Controls.Add(this.groupBox44);
+            this.tabPageCreateReport.Controls.Add(this.groupBox45);
+            this.tabPageCreateReport.Location = new System.Drawing.Point(124, 4);
+            this.tabPageCreateReport.Name = "tabPageCreateReport";
+            this.tabPageCreateReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCreateReport.Size = new System.Drawing.Size(576, 366);
+            this.tabPageCreateReport.TabIndex = 14;
+            this.tabPageCreateReport.Text = "Create Report";
+            this.tabPageCreateReport.UseVisualStyleBackColor = true;
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.txtCreReportName);
+            this.groupBox20.Controls.Add(this.label7);
+            this.groupBox20.Controls.Add(this.label8);
+            this.groupBox20.Controls.Add(this.btCreReportPath);
+            this.groupBox20.Controls.Add(this.txtCreReportPath);
+            this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox20.Location = new System.Drawing.Point(6, -2);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(560, 75);
+            this.groupBox20.TabIndex = 22;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Setting";
+            // 
+            // txtCreReportName
+            // 
+            this.txtCreReportName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtCreReportName.Location = new System.Drawing.Point(89, 44);
+            this.txtCreReportName.Name = "txtCreReportName";
+            this.txtCreReportName.Size = new System.Drawing.Size(434, 23);
+            this.txtCreReportName.TabIndex = 22;
+            this.txtCreReportName.Click += new System.EventHandler(this.txtCreReportName_Click);
+            this.txtCreReportName.Leave += new System.EventHandler(this.txtCreReportName_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label7.Location = new System.Drawing.Point(6, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 15);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Report Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label8.Location = new System.Drawing.Point(6, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 15);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Reports Path";
+            // 
+            // btCreReportPath
+            // 
+            this.btCreReportPath.FlatAppearance.BorderSize = 0;
+            this.btCreReportPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCreReportPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCreReportPath.Image = global::ToolSupportCoding.Properties.Resources.button_search;
+            this.btCreReportPath.Location = new System.Drawing.Point(529, 15);
+            this.btCreReportPath.Name = "btCreReportPath";
+            this.btCreReportPath.Size = new System.Drawing.Size(24, 24);
+            this.btCreReportPath.TabIndex = 18;
+            this.btCreReportPath.Text = " ";
+            this.btCreReportPath.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCreReportPath.UseVisualStyleBackColor = true;
+            this.btCreReportPath.Click += new System.EventHandler(this.btCreReportPath_Click);
+            // 
+            // txtCreReportPath
+            // 
+            this.txtCreReportPath.Enabled = false;
+            this.txtCreReportPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtCreReportPath.Location = new System.Drawing.Point(89, 15);
+            this.txtCreReportPath.Name = "txtCreReportPath";
+            this.txtCreReportPath.Size = new System.Drawing.Size(434, 23);
+            this.txtCreReportPath.TabIndex = 19;
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.lblCreReportItemName);
+            this.groupBox21.Controls.Add(this.txtCreReportItemName);
+            this.groupBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox21.Location = new System.Drawing.Point(6, 70);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(150, 287);
+            this.groupBox21.TabIndex = 23;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Input Name Item";
+            // 
+            // lblCreReportItemName
+            // 
+            this.lblCreReportItemName.AutoSize = true;
+            this.lblCreReportItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCreReportItemName.Location = new System.Drawing.Point(47, 262);
+            this.lblCreReportItemName.Name = "lblCreReportItemName";
+            this.lblCreReportItemName.Size = new System.Drawing.Size(80, 15);
+            this.lblCreReportItemName.TabIndex = 6;
+            this.lblCreReportItemName.Text = "Line number:";
+            this.lblCreReportItemName.Visible = false;
+            // 
+            // txtCreReportItemName
+            // 
+            this.txtCreReportItemName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCreReportItemName.Location = new System.Drawing.Point(3, 19);
+            this.txtCreReportItemName.Name = "txtCreReportItemName";
+            this.txtCreReportItemName.Size = new System.Drawing.Size(144, 237);
+            this.txtCreReportItemName.TabIndex = 5;
+            this.txtCreReportItemName.Text = "";
+            this.txtCreReportItemName.Click += new System.EventHandler(this.txtCreReportItemName_Click);
+            this.txtCreReportItemName.TextChanged += new System.EventHandler(this.txtCreReportItemName_TextChanged);
+            // 
+            // groupBox44
+            // 
+            this.groupBox44.Controls.Add(this.lblCreReportSetting);
+            this.groupBox44.Controls.Add(this.txtCreReportSetting);
+            this.groupBox44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox44.Location = new System.Drawing.Point(162, 70);
+            this.groupBox44.Name = "groupBox44";
+            this.groupBox44.Size = new System.Drawing.Size(248, 287);
+            this.groupBox44.TabIndex = 24;
+            this.groupBox44.TabStop = false;
+            this.groupBox44.Text = "Input Setting";
+            // 
+            // lblCreReportSetting
+            // 
+            this.lblCreReportSetting.AutoSize = true;
+            this.lblCreReportSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblCreReportSetting.Location = new System.Drawing.Point(145, 263);
+            this.lblCreReportSetting.Name = "lblCreReportSetting";
+            this.lblCreReportSetting.Size = new System.Drawing.Size(80, 15);
+            this.lblCreReportSetting.TabIndex = 7;
+            this.lblCreReportSetting.Text = "Line number:";
+            this.lblCreReportSetting.Visible = false;
+            // 
+            // txtCreReportSetting
+            // 
+            this.txtCreReportSetting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCreReportSetting.Location = new System.Drawing.Point(3, 19);
+            this.txtCreReportSetting.Name = "txtCreReportSetting";
+            this.txtCreReportSetting.Size = new System.Drawing.Size(242, 237);
+            this.txtCreReportSetting.TabIndex = 5;
+            this.txtCreReportSetting.Text = "";
+            this.txtCreReportSetting.Click += new System.EventHandler(this.txtCreReportSetting_Click);
+            this.txtCreReportSetting.TextChanged += new System.EventHandler(this.txtCreReportSetting_TextChanged);
+            // 
+            // groupBox45
+            // 
+            this.groupBox45.Controls.Add(this.btCreReport);
+            this.groupBox45.Controls.Add(this.txtCreReportResult);
+            this.groupBox45.Controls.Add(this.btCreReportCopy);
+            this.groupBox45.Controls.Add(this.btCreReportClear);
+            this.groupBox45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox45.Location = new System.Drawing.Point(416, 70);
+            this.groupBox45.Name = "groupBox45";
+            this.groupBox45.Size = new System.Drawing.Size(150, 287);
+            this.groupBox45.TabIndex = 24;
+            this.groupBox45.TabStop = false;
+            this.groupBox45.Text = "Result";
+            // 
+            // btCreReport
+            // 
+            this.btCreReport.Enabled = false;
+            this.btCreReport.FlatAppearance.BorderSize = 0;
+            this.btCreReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCreReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCreReport.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btCreReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCreReport.Location = new System.Drawing.Point(4, 258);
+            this.btCreReport.Name = "btCreReport";
+            this.btCreReport.Size = new System.Drawing.Size(80, 24);
+            this.btCreReport.TabIndex = 22;
+            this.btCreReport.Text = "   Create";
+            this.btCreReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCreReport.UseVisualStyleBackColor = true;
+            this.btCreReport.Click += new System.EventHandler(this.btCreReport_Click);
+            // 
+            // txtCreReportResult
+            // 
+            this.txtCreReportResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCreReportResult.Enabled = false;
+            this.txtCreReportResult.Location = new System.Drawing.Point(3, 19);
+            this.txtCreReportResult.Name = "txtCreReportResult";
+            this.txtCreReportResult.Size = new System.Drawing.Size(144, 237);
+            this.txtCreReportResult.TabIndex = 21;
+            this.txtCreReportResult.Text = "";
+            // 
+            // btCreReportCopy
+            // 
+            this.btCreReportCopy.Enabled = false;
+            this.btCreReportCopy.FlatAppearance.BorderSize = 0;
+            this.btCreReportCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCreReportCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCreReportCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btCreReportCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCreReportCopy.Location = new System.Drawing.Point(87, 258);
+            this.btCreReportCopy.Name = "btCreReportCopy";
+            this.btCreReportCopy.Size = new System.Drawing.Size(28, 24);
+            this.btCreReportCopy.TabIndex = 19;
+            this.btCreReportCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btCreReportCopy.UseVisualStyleBackColor = true;
+            this.btCreReportCopy.Click += new System.EventHandler(this.btCreReportCopy_Click);
+            // 
+            // btCreReportClear
+            // 
+            this.btCreReportClear.FlatAppearance.BorderSize = 0;
+            this.btCreReportClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCreReportClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btCreReportClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btCreReportClear.Location = new System.Drawing.Point(118, 258);
+            this.btCreReportClear.Name = "btCreReportClear";
+            this.btCreReportClear.Size = new System.Drawing.Size(28, 24);
+            this.btCreReportClear.TabIndex = 20;
+            this.btCreReportClear.UseVisualStyleBackColor = true;
+            this.btCreReportClear.Click += new System.EventHandler(this.btCreReportClear_Click);
             // 
             // tabPageCreateMessage
             // 
@@ -3274,17 +3530,6 @@ namespace ToolSupportCoding.View
             this.lblResultSrcDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblResultSrcDialog.Visible = false;
             // 
-            // rbCrEntityMutilLine
-            // 
-            this.rbCrEntityMutilLine.AutoSize = true;
-            this.rbCrEntityMutilLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrEntityMutilLine.Location = new System.Drawing.Point(110, 20);
-            this.rbCrEntityMutilLine.Name = "rbCrEntityMutilLine";
-            this.rbCrEntityMutilLine.Size = new System.Drawing.Size(79, 19);
-            this.rbCrEntityMutilLine.TabIndex = 100;
-            this.rbCrEntityMutilLine.Text = "Mutil Line";
-            this.rbCrEntityMutilLine.UseVisualStyleBackColor = true;
-            // 
             // FormCommon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3348,6 +3593,14 @@ namespace ToolSupportCoding.View
             this.groupBox25.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
+            this.tabPageCreateReport.ResumeLayout(false);
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox44.ResumeLayout(false);
+            this.groupBox44.PerformLayout();
+            this.groupBox45.ResumeLayout(false);
             this.tabPageCreateMessage.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
@@ -3634,5 +3887,23 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RadioButton rbCrEntityGet;
         private System.Windows.Forms.RadioButton rbCrEntityTarget;
         private System.Windows.Forms.RadioButton rbCrEntityMutilLine;
+        private System.Windows.Forms.TabPage tabPageCreateReport;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btCreReportPath;
+        private System.Windows.Forms.TextBox txtCreReportPath;
+        private System.Windows.Forms.TextBox txtCreReportName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.GroupBox groupBox44;
+        private System.Windows.Forms.GroupBox groupBox45;
+        private System.Windows.Forms.Button btCreReportCopy;
+        private System.Windows.Forms.Button btCreReportClear;
+        private System.Windows.Forms.Label lblCreReportItemName;
+        private System.Windows.Forms.RichTextBox txtCreReportItemName;
+        private System.Windows.Forms.RichTextBox txtCreReportSetting;
+        private System.Windows.Forms.RichTextBox txtCreReportResult;
+        private System.Windows.Forms.Label lblCreReportSetting;
+        private System.Windows.Forms.Button btCreReport;
     }
 }

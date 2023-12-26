@@ -13,5 +13,7 @@ namespace ToolSupportCoding.Model
         public int modeLanguage { get; set; }
 
         public string sourcePath { get; set; }
+
+        public string reportPath { get; set; }
     }
 }
