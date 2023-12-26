@@ -54,6 +54,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_TILDE = "~";
         public const string STRING_QUOTATION_MARKS = "\"";
         public const string STRING_DOT = ".";
+        public const string STRING_DOT_2B = "。";
         public const string STRING_APOSTROPHE = "'";
         public const string STRING_HYPHEN = "-";
         public const string STRING_UNDERSCORE = "_";
@@ -65,7 +66,9 @@ namespace ToolSupportCoding.Utils
         public const string STRING_C_SIGN = ">";
         public const string STRING_SLASH = "/";
         public const string STRING_O_BRACKETS = "(";
+        public const string STRING_O_BRACKETS_2B = "（";
         public const string STRING_C_BRACKETS = ")";
+        public const string STRING_C_BRACKETS_2B = "）";
         public const string STRING_O_CUR_BRACKETS = "{";
         public const string STRING_C_CUR_BRACKETS = "}";
         public const string STRING_O_SQU_BRACKETS = "[";

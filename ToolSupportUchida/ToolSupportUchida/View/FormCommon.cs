@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -1959,14 +1960,28 @@ namespace ToolSupportCoding.View
                 string template = string.Empty;
                 string control = string.Empty;
                 string result = string.Empty;
-
+                Dictionary<string, int> dicNameItem = new Dictionary<string, int>();
                 for (int i = 0; i < lstReportSetting.Count; i++)
                 {
                     top = i == 1 ? 284 : 284 * i;
 
-                    string nameItem = lstReportItemName[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
+                    string nameItem = lstReportItemName[i].Replace(CONST.STRING_TAB, string.Empty).Replace(CONST.STRING_SPACE, string.Empty)
+                        .Replace(CONST.STRING_O_BRACKETS, string.Empty).Replace(CONST.STRING_C_BRACKETS, string.Empty)
+                        .Replace(CONST.STRING_O_BRACKETS_2B, string.Empty).Replace(CONST.STRING_C_BRACKETS_2B, string.Empty)
+                        .Replace(CONST.STRING_DOT, string.Empty).Replace(CONST.STRING_DOT_2B, string.Empty).Trim();
                     if (string.IsNullOrEmpty(nameItem)) continue;
+                    if (dicNameItem.ContainsKey(nameItem))
+                    {
+                        int index = dicNameItem[nameItem] + 1;
+                        dicNameItem[nameItem] = index;
+                        nameItem = nameItem + index;
+                    }
+                    else
+                    {
+                        dicNameItem.Add(nameItem, 0);
+                    }
 
+                    if (string.IsNullOrEmpty(lstReportSetting[i].Replace(CONST.STRING_TAB, string.Empty))) continue;
                     string[] arrSetting = CUtils.FormatTab(lstReportSetting[i]).Trim().Split(CONST.CHAR_TAB);
 
                     string fontSize = string.Empty;
@@ -1979,6 +1994,7 @@ namespace ToolSupportCoding.View
                     string type = arrSetting.Length > 2 ? arrSetting[2] + CONST.STRING_REPORT : string.Empty;
 
                     dicSetting.TryGetValue(type, out template);
+                    if (string.IsNullOrEmpty(template)) continue;
                     string dataField = arrSetting.Length > 5 ? arrSetting[5] : nameItem.Replace(CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE, string.Empty);
 
                     if (type.Equals(CONST.STRING_LABEL_REPORT))
