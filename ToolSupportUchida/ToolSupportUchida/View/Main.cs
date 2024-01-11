@@ -471,7 +471,9 @@ namespace ToolSupportCoding
                         this.gridSekkei.Rows[i].Cells[0].Value = i + 1;
                     }
 
-                    lstSekkei.RemoveAt(e.RowIndex);
+                    SekkeiModel objSekkei = lstSekkei.Single(obj =>
+                        obj.logicName.Equals(row.Cells[1].Value.ToString()) && obj.physiName.Equals(row.Cells[2].Value.ToString()));
+                    lstSekkei.Remove(objSekkei);
                     objToolSupport.lstSekkei = lstSekkei;
 
                     BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
@@ -638,6 +640,9 @@ namespace ToolSupportCoding
                     {
                         this.gridFormat.Rows[i].Cells[0].Value = i + 1;
                     }
+
+                    ItemModel objItem = lstItem.Single(obj => obj.name.Equals(row.Cells[1].Value.ToString()) &&
+                        obj.key.Equals(row.Cells[2].Value.ToString()) && obj.value.Equals(row.Cells[3].Value.ToString()));
 
                     lstItem.RemoveAt(e.RowIndex);
                     objToolSupport.lstItem = lstItem;

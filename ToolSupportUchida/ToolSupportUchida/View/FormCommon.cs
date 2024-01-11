@@ -4,7 +4,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -1996,6 +1995,7 @@ namespace ToolSupportCoding.View
                     dicSetting.TryGetValue(type, out template);
                     if (string.IsNullOrEmpty(template)) continue;
                     string dataField = arrSetting.Length > 5 ? arrSetting[5] : nameItem.Replace(CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE, string.Empty);
+                    if (!nameItem.Contains(CONST.STRING_JP_ITEM)) nameItem = CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE + nameItem;
 
                     if (type.Equals(CONST.STRING_LABEL_REPORT))
                     {
