@@ -1460,6 +1460,8 @@ namespace ToolSupportCoding.View
 
                 if (string.IsNullOrEmpty(lstEntityProcedure[i])) continue;
 
+                if (!lstEntityProcedure[i].ToUpper().Contains(CONST.STRING_CHECK_SQL_AS)) continue;
+
                 // Handle Logic and Physical
                 string[] item = lstEntityProcedure[i].Replace(CONST.STRING_TAB, string.Empty).Split(new string[]
                 { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_TABLE_NOT, CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
@@ -1493,7 +1495,7 @@ namespace ToolSupportCoding.View
                 }
                 else
                 {
-                    type = string.Empty;
+                    type = CONST.C_TYPE_STRING;
                 }
 
                 string tmp = CUtils.CreTmlModelC(0);
