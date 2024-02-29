@@ -109,6 +109,11 @@ namespace ToolSupportCoding.Utils
         public const string STRING_JP_ALIGN_CENTER = "中央寄せ";
         public const string STRING_JP_ALIGN_RIGHT = "右寄せ";
 
+        // Const string VN
+        public const string STRING_VN_FONT_SIZE = "LỚN";
+        public const string STRING_VN_ALIGN_CENTER = "CĂN GIỮA";
+        public const string STRING_VN_ALIGN_RIGHT = "CĂN PHẢI";
+
         public const string STRING_RESOURCES = "Resources";
         public const string STRING_VALUE = "Value";
         public const string STRING_COMMENT = "Comment";

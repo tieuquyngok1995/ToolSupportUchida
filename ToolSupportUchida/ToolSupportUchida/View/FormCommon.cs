@@ -27,12 +27,9 @@ namespace ToolSupportCoding.View
 
         // List get View Model
         private List<string> lstGetVMItem = new List<string>();
-        private List<string> lstGetVMLogic = new List<string>();
-        private List<string> lstGetVMPhysical = new List<string>();
         private List<string> lstGetVMFunItem = new List<string>();
         private List<string> lstGetVMFunProperty = new List<string>();
 
-        private Dictionary<string, string> dicViewModel = new Dictionary<string, string>();
         private Dictionary<string, string> dicFunction = new Dictionary<string, string>();
 
         // List get Item Resource
@@ -654,17 +651,37 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Get View Model
+        /// <summary>
+        /// Event select all text after click text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMSItem_Click(object sender, EventArgs e)
         {
             txtGetVMSItem.SelectAll();
             txtGetVMSItem.Focus();
         }
 
+        /// <summary>
+        /// Event handel data after input value to text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMSItem_TextChanged(object sender, EventArgs e)
         {
             lstGetVMItem = txtGetVMSItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count > 0)
+            {
+                lblGetVMSItem.Visible = true;
+                lblGetVMSItem.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMItem.Count);
+            }
+            else
+            {
+                lblGetVMSItem.Visible = false;
+            }
+
+            if (lstGetVMItem.Count == 0 || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -674,72 +691,22 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void txtGetVMLogic_Click(object sender, EventArgs e)
-        {
-            txtGetVMLogic.SelectAll();
-            txtGetVMLogic.Focus();
-        }
-
-        private void txtGetVMLogic_TextChanged(object sender, EventArgs e)
-        {
-            lstGetVMLogic = txtGetVMLogic.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            if (lstGetVMLogic.Count > 0)
-            {
-                lblGetVMLogic.Visible = true;
-                lblGetVMLogic.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMLogic.Count);
-            }
-            else
-            {
-                lblGetVMLogic.Visible = false;
-            }
-
-            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
-            {
-                btGetVMGenSrc.Enabled = false;
-            }
-            else
-            {
-                btGetVMGenSrc.Enabled = true;
-            }
-        }
-
-        private void txtGetVMPhysical_Click(object sender, EventArgs e)
-        {
-            txtGetVMPhysical.SelectAll();
-            txtGetVMPhysical.Focus();
-        }
-
-        private void txtGetVMPhysical_TextChanged(object sender, EventArgs e)
-        {
-            lstGetVMPhysical = txtGetVMPhysical.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            if (lstGetVMPhysical.Count > 0)
-            {
-                lblGetVMPhysical.Visible = true;
-                lblGetVMPhysical.Text = string.Concat(CONST.TEXT_LINE_NUM, lstGetVMPhysical.Count);
-            }
-            else
-            {
-                lblGetVMPhysical.Visible = false;
-            }
-
-            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
-            {
-                btGetVMGenSrc.Enabled = false;
-            }
-            else
-            {
-                btGetVMGenSrc.Enabled = true;
-            }
-        }
-
+        /// <summary>
+        /// Event select all text after click text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMFunItem_Click(object sender, EventArgs e)
         {
             txtGetVMFunItem.SelectAll();
             txtGetVMFunItem.Focus();
         }
 
+        /// <summary>
+        /// Event handel data after input value to text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMFunItem_TextChanged(object sender, EventArgs e)
         {
             lstGetVMFunItem = txtGetVMFunItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
@@ -754,7 +721,7 @@ namespace ToolSupportCoding.View
                 lblGetVMFunItem.Visible = false;
             }
 
-            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -764,12 +731,22 @@ namespace ToolSupportCoding.View
             }
         }
 
+        /// <summary>
+        /// Event select all text after click text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMFunPro_Click(object sender, EventArgs e)
         {
             txtGetVMFunPro.SelectAll();
             txtGetVMFunPro.Focus();
         }
 
+        /// <summary>
+        /// Event handel data after input value to text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtGetVMFunPro_TextChanged(object sender, EventArgs e)
         {
             lstGetVMFunProperty = txtGetVMFunPro.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
@@ -784,7 +761,7 @@ namespace ToolSupportCoding.View
                 lblGetVMFunPro.Visible = false;
             }
 
-            if (lstGetVMItem.Count == 0 || lstGetVMLogic.Count != lstGetVMPhysical.Count || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
+            if (lstGetVMItem.Count == 0 || lstGetVMFunItem.Count == 0 || lstGetVMFunItem.Count != lstGetVMFunProperty.Count)
             {
                 btGetVMGenSrc.Enabled = false;
             }
@@ -794,12 +771,15 @@ namespace ToolSupportCoding.View
             }
         }
 
+        /// <summary>
+        /// Event gen srcouce 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btGetVMGenSrc_Click(object sender, EventArgs e)
         {
-            txtGetVMResultLogical.Text = string.Empty;
             txtGetVMResultPhysical.Text = string.Empty;
 
-            if (dicViewModel.Count > 0) dicViewModel.Clear();
             if (dicFunction.Count > 0) dicFunction.Clear();
 
             for (int i = 0; i < lstGetVMFunItem.Count; i++)
@@ -812,16 +792,6 @@ namespace ToolSupportCoding.View
                 dicFunction.Add(key, value);
             }
 
-            for (int i = 0; i < lstGetVMLogic.Count; i++)
-            {
-                string key = lstGetVMLogic[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-                string value = lstGetVMPhysical[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
-
-                if (string.IsNullOrEmpty(key) || dicViewModel.ContainsKey(key)) continue;
-
-                dicViewModel.Add(key, value);
-            }
-
             for (int i = 0; i < lstGetVMItem.Count; i++)
             {
                 string item = lstGetVMItem[i].Replace(CONST.STRING_TAB, string.Empty).Trim();
@@ -829,36 +799,12 @@ namespace ToolSupportCoding.View
                 string keyVM = string.Empty;
                 if (dicFunction.TryGetValue(item, out keyVM))
                 {
-                    string valueVM = string.Empty;
-                    if (dicViewModel.Count > 0)
-                    {
-                        if (dicViewModel.TryGetValue(keyVM, out valueVM))
-                        {
-                            txtGetVMResultLogical.Text += keyVM + CONST.STRING_NEW_LINE;
-                            txtGetVMResultPhysical.Text += valueVM + CONST.STRING_NEW_LINE;
-                        }
-                        else
-                        {
-                            txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
-                            txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
-                        }
-                    }
-                    else
-                    {
-                        txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
-                        txtGetVMResultPhysical.Text += keyVM + CONST.STRING_NEW_LINE;
-                    }
+                    txtGetVMResultPhysical.Text += keyVM + CONST.STRING_NEW_LINE;
                 }
                 else
                 {
-                    txtGetVMResultLogical.Text += CONST.STRING_NEW_LINE;
                     txtGetVMResultPhysical.Text += CONST.STRING_NEW_LINE;
                 }
-            }
-
-            if (!string.IsNullOrEmpty(txtGetVMResultLogical.Text))
-            {
-                btGetVMCopyLogic.Enabled = true;
             }
 
             if (!string.IsNullOrEmpty(txtGetVMResultPhysical.Text))
@@ -867,17 +813,11 @@ namespace ToolSupportCoding.View
             }
         }
 
-        private void btGetVMCopyLogic_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtGetVMResultLogical.Text))
-            {
-                return;
-            }
-
-            Clipboard.Clear();
-            Clipboard.SetText(txtGetVMResultLogical.Text);
-        }
-
+        /// <summary>
+        /// Event copy result
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btGetVMCopyPhysical_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtGetVMResultPhysical.Text))
@@ -889,28 +829,29 @@ namespace ToolSupportCoding.View
             Clipboard.SetText(txtGetVMResultPhysical.Text);
         }
 
+        /// <summary>
+        /// Event clear value 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btGetVMClear_Click(object sender, EventArgs e)
         {
-            txtGetVMLogic.Text = string.Empty;
-            lstGetVMLogic.Clear();
-
-            txtGetVMPhysical.Text = string.Empty;
-            lstGetVMPhysical.Clear();
 
             txtGetVMSItem.Text = string.Empty;
+            lblGetVMSItem.Visible = false;
             lstGetVMItem.Clear();
 
             txtGetVMFunItem.Text = string.Empty;
+            lblGetVMFunItem.Visible = false;
             lstGetVMFunItem.Clear();
 
             txtGetVMFunPro.Text = string.Empty;
+            lblGetVMFunPro.Visible = false;
             lstGetVMFunProperty.Clear();
 
-            txtGetVMResultLogical.Text = string.Empty;
             txtGetVMResultPhysical.Text = string.Empty;
 
             btGetVMGenSrc.Enabled = false;
-            btGetVMCopyLogic.Enabled = false;
             btGetVMCopyPhysical.Enabled = false;
         }
         #endregion
@@ -1961,6 +1902,7 @@ namespace ToolSupportCoding.View
                 string template = string.Empty;
                 string control = string.Empty;
                 string result = string.Empty;
+                txtCreReportResult.Text = result;
                 Dictionary<string, int> dicNameItem = new Dictionary<string, int>();
                 for (int i = 0; i < lstReportSetting.Count; i++)
                 {
@@ -1986,11 +1928,14 @@ namespace ToolSupportCoding.View
                     string[] arrSetting = CUtils.FormatTab(lstReportSetting[i]).Trim().Split(CONST.CHAR_TAB);
 
                     string fontSize = string.Empty;
-                    if (arrSetting.Length > 0 && arrSetting[0].Equals(CONST.STRING_JP_FONT_SIZE)) fontSize = CONST.STRING_REPORT_CLASS_NAME;
+                    if (arrSetting.Length > 0 && (arrSetting[0].Equals(CONST.STRING_JP_FONT_SIZE) || arrSetting[1].ToUpper().Equals(CONST.STRING_VN_FONT_SIZE)))
+                        fontSize = CONST.STRING_REPORT_CLASS_NAME;
 
                     string algin = string.Empty;
-                    if (arrSetting.Length > 1 && arrSetting[1].Equals(CONST.STRING_JP_ALIGN_CENTER)) algin = CONST.STRING_REPORT_ALIGN_CENTER;
-                    if (arrSetting.Length > 1 && arrSetting[1].Equals(CONST.STRING_JP_ALIGN_RIGHT)) algin = CONST.STRING_REPORT_ALIGN_RIGHT;
+                    if (arrSetting.Length > 1 && (arrSetting[1].Equals(CONST.STRING_JP_ALIGN_CENTER) || arrSetting[1].ToUpper().Equals(CONST.STRING_VN_ALIGN_CENTER)))
+                        algin = CONST.STRING_REPORT_ALIGN_CENTER;
+                    if (arrSetting.Length > 1 && (arrSetting[1].Equals(CONST.STRING_JP_ALIGN_RIGHT) || arrSetting[1].ToUpper().Equals(CONST.STRING_VN_ALIGN_RIGHT)))
+                        algin = CONST.STRING_REPORT_ALIGN_RIGHT;
 
                     string type = arrSetting.Length > 2 ? arrSetting[2] + CONST.STRING_REPORT : string.Empty;
 

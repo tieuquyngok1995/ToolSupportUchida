@@ -61,19 +61,11 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Event
-
-        private void txtLogicName_Click(object sender, EventArgs e)
-        {
-            txtLogicName.SelectAll();
-            txtLogicName.Focus();
-        }
-
-        private void txtPhysiName_Click(object sender, EventArgs e)
-        {
-            txtPhysiName.SelectAll();
-            txtPhysiName.Focus();
-        }
-
+        /// <summary>
+        /// Event get Physical
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertPhysi_Click(object sender, EventArgs e)
         {
             try
@@ -85,7 +77,7 @@ namespace ToolSupportCoding.View
                     string[] arrLogicName = txtLogicName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string item in arrLogicName)
                     {
-                        string result = FindSekkeiLogicName(item.Trim(), lstSekkei);
+                        string result = FindLogicName(item.Trim(), lstSekkei);
                         result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
                         txtPhysiName.Text = txtPhysiName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
@@ -112,6 +104,11 @@ namespace ToolSupportCoding.View
             }
         }
 
+        /// <summary>
+        /// Event clear
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtLogicName.Text = string.Empty;
@@ -122,6 +119,11 @@ namespace ToolSupportCoding.View
             lblResult.Visible = false;
         }
 
+        /// <summary>
+        /// Event get logic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertLogic_Click(object sender, EventArgs e)
         {
             try
@@ -133,7 +135,7 @@ namespace ToolSupportCoding.View
                     string[] arrPhysiName = txtPhysiName.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string item in arrPhysiName)
                     {
-                        string result = FindSekkeiPhysiName(item.Trim(), lstSekkei);
+                        string result = FindPhysiName(item.Trim(), lstSekkei);
                         result = rdbUpperCase.Checked ? CUtils.FirstCharToUpperCase(result) : CUtils.FirstCharToLowerCase(result);
 
                         txtLogicName.Text = txtLogicName.Text + result.Replace(CONST.STRING_SPACE, string.Empty) + CONST.STRING_ADD_LINE;
@@ -160,6 +162,11 @@ namespace ToolSupportCoding.View
             }
         }
 
+        /// <summary>
+        /// Event copy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCopy_Click(object sender, EventArgs e)
         {
             if (isCopyPhysi && !string.IsNullOrEmpty(txtPhysiName.Text))
@@ -177,7 +184,13 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Method
-        private string FindSekkeiLogicName(string nameLogic, List<SekkeiModel> lstSekkei)
+        /// <summary>
+        /// Find logic
+        /// </summary>
+        /// <param name="nameLogic"></param>
+        /// <param name="lstSekkei"></param>
+        /// <returns></returns>
+        private string FindLogicName(string nameLogic, List<SekkeiModel> lstSekkei)
         {
             string result = nameLogic;
 
@@ -193,13 +206,19 @@ namespace ToolSupportCoding.View
             {
                 result = result.Replace(objSekkei.logicName, objSekkei.physiName);
                 lstSekkeiTmp.RemoveAll(obj => obj.logicName.Equals(objSekkei.logicName) && obj.physiName.Equals(objSekkei.physiName));
-                result = FindSekkeiLogicName(result, lstSekkeiTmp);
+                result = FindLogicName(result, lstSekkeiTmp);
             }
 
             return result;
         }
 
-        private string FindSekkeiPhysiName(string namePhysi, List<SekkeiModel> lstSekkei)
+        /// <summary>
+        /// Find physical name
+        /// </summary>
+        /// <param name="namePhysi"></param>
+        /// <param name="lstSekkei"></param>
+        /// <returns></returns>
+        private string FindPhysiName(string namePhysi, List<SekkeiModel> lstSekkei)
         {
             try
             {
@@ -217,7 +236,7 @@ namespace ToolSupportCoding.View
                 {
                     result = result.Replace(objSekkei.physiName, objSekkei.logicName);
                     lstSekkeiTmp.RemoveAll(obj => obj.physiName.Equals(objSekkei.physiName) && obj.logicName.Equals(objSekkei.logicName));
-                    result = FindSekkeiPhysiName(result, lstSekkeiTmp);
+                    result = FindPhysiName(result, lstSekkeiTmp);
                 }
 
                 return result;
