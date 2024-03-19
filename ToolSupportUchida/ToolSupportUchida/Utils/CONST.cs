@@ -287,6 +287,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_HTML_TABLE = "ucd-table";
         public const string STRING_SETTING_HTML_MAT_TABLE = "mat-table";
         public const string STRING_SETTING_HTML_MAT_TABLE_MULTI = " multiTemplateDataRows";
+        public const string STRING_SETTING_HTML_TABLE_COLGROUP = "ucd-table-colgroup";
         public const string STRING_SETTING_HTML_TABLE_COLUMNS = "ucd-table-columns";
         public const string STRING_SETTING_HTML_TABLE_CONTAINER = "ucd-table-container";
         public const string STRING_SETTING_HTML_TABLE_BUTTON = "ucd-table-button";

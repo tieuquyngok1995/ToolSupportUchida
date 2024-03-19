@@ -475,19 +475,27 @@ namespace ToolSupportCoding.View
 
         private void handleDataValidation()
         {
-            dicValidation.Clear();
-
-            for (int i = 0; i < lstValidation.Count; i++)
+            try
             {
-                string itemVal = lstValidation[i];
-                if (string.IsNullOrEmpty(itemVal.Replace(CONST.STRING_TAB, string.Empty))) continue;
+                dicValidation.Clear();
 
-                string itemName = lstNameItem[i].Replace(CONST.STRING_TAB, string.Empty);
-                string key = lstPhysical.FirstOrDefault(item => (itemName.Equals(item)));
-                string[] value = itemVal.Split(CONST.CHAR_TAB);
+                for (int i = 0; i < lstValidation.Count; i++)
+                {
+                    string itemVal = lstValidation[i];
+                    if (string.IsNullOrEmpty(itemVal.Replace(CONST.STRING_TAB, string.Empty))) continue;
 
-                if (key == null || string.IsNullOrEmpty(key)) continue;
-                dicValidation.Add(key, value);
+                    string itemName = lstNameItem[i].Replace(CONST.STRING_TAB, string.Empty);
+                    string key = lstPhysical.FirstOrDefault(item => (itemName.Equals(item)));
+                    string[] value = itemVal.Split(CONST.CHAR_TAB);
+
+                    if (key == null || string.IsNullOrEmpty(key)) continue;
+                    dicValidation.Add(key, value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Application error exception: " + ex.Message, CONST.TEXT_CAPTION_ERROR,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
