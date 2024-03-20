@@ -229,8 +229,13 @@ namespace ToolSupportCoding.View
             txtControl.Text = string.Empty;
             lstControl.Clear();
 
+            txtResource.Text = string.Empty;
+            lstResource.Clear();
+
             txtModel.Text = string.Empty;
             lstResource.Clear();
+
+            txtResult.Text = string.Empty;
 
             btnCreate.Enabled = false;
             btnCopy.Enabled = false;
@@ -426,7 +431,7 @@ namespace ToolSupportCoding.View
                 }
                 else
                 {
-                    headerColumns += string.Format(tmpTableColumns, resource);
+                    headerColumns += string.Format(tmpTableColumns, resource) + CONST.STRING_SPACE;
                 }
             }
 
