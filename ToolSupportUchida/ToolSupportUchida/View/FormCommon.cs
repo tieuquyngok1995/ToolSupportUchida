@@ -1275,6 +1275,13 @@ namespace ToolSupportCoding.View
             }
         }
 
+
+        private void txtCrEntityP_Click(object sender, EventArgs e)
+        {
+            txtCrEntityP.SelectAll();
+            txtCrEntityP.Focus();
+        }
+
         private void txtCrEntityP_TextChanged(object sender, EventArgs e)
         {
             lstEntityProcedure = txtCrEntityP.Text.Split(CONST.STRING_SEPARATORS, StringSplitOptions.None);
@@ -1315,6 +1322,13 @@ namespace ToolSupportCoding.View
             {
                 btnCrEntity.Enabled = false;
             }
+        }
+
+
+        private void txtCrEntityT_Click(object sender, EventArgs e)
+        {
+            txtCrEntityT.SelectAll();
+            txtCrEntityT.Focus();
         }
 
         private void txtCrEntityT_TextChanged(object sender, EventArgs e)
@@ -1405,7 +1419,8 @@ namespace ToolSupportCoding.View
 
                 // Handle Logic and Physical
                 string[] item = lstEntityProcedure[i].Replace(CONST.STRING_TAB, string.Empty).Split(new string[]
-                { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_TABLE_NOT, CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
+                { CONST.STRING_CHECK_SQL_TABLE, CONST.STRING_CHECK_SQL_TABLE_NOT, CONST.STRING_DOT,
+                  CONST.STRING_CHECK_SQL_AS, CONST.STRING_CHECK_SQL_AS.ToLower() }, StringSplitOptions.None);
                 string logic, physical, type;
 
                 if (item.Length >= 3)
@@ -3205,6 +3220,5 @@ namespace ToolSupportCoding.View
             }
         }
         #endregion
-
     }
 }

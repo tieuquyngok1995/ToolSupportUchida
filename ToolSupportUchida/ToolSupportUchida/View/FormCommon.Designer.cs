@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -53,9 +53,6 @@ namespace ToolSupportCoding.View
             this.txColumnSearch = new System.Windows.Forms.TextBox();
             this.cbColumnTable = new System.Windows.Forms.ComboBox();
             this.tabPageGetViewModel = new System.Windows.Forms.TabPage();
-            this.btGetVMGenSrc = new System.Windows.Forms.Button();
-            this.btGetVMCopyPhysical = new System.Windows.Forms.Button();
-            this.btGetVMClear = new System.Windows.Forms.Button();
             this.groupBox33 = new System.Windows.Forms.GroupBox();
             this.txtGetVMSItem = new System.Windows.Forms.RichTextBox();
             this.lblGetVMSItem = new System.Windows.Forms.Label();
@@ -66,6 +63,9 @@ namespace ToolSupportCoding.View
             this.txtGetVMFunItem = new System.Windows.Forms.RichTextBox();
             this.lblGetVMFunItem = new System.Windows.Forms.Label();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.btGetVMClear = new System.Windows.Forms.Button();
+            this.btGetVMCopyPhysical = new System.Windows.Forms.Button();
+            this.btGetVMGenSrc = new System.Windows.Forms.Button();
             this.txtGetVMResultPhysical = new System.Windows.Forms.RichTextBox();
             this.tabPageGetItemRes = new System.Windows.Forms.TabPage();
             this.groupBox42 = new System.Windows.Forms.GroupBox();
@@ -576,24 +576,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 76);
@@ -641,52 +641,6 @@ namespace ToolSupportCoding.View
             this.tabPageGetViewModel.TabIndex = 12;
             this.tabPageGetViewModel.Text = "Get View Model";
             this.tabPageGetViewModel.UseVisualStyleBackColor = true;
-            // 
-            // btGetVMGenSrc
-            // 
-            this.btGetVMGenSrc.Enabled = false;
-            this.btGetVMGenSrc.FlatAppearance.BorderSize = 0;
-            this.btGetVMGenSrc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetVMGenSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetVMGenSrc.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btGetVMGenSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetVMGenSrc.Location = new System.Drawing.Point(4, 330);
-            this.btGetVMGenSrc.Name = "btGetVMGenSrc";
-            this.btGetVMGenSrc.Size = new System.Drawing.Size(90, 24);
-            this.btGetVMGenSrc.TabIndex = 116;
-            this.btGetVMGenSrc.Text = "  Create";
-            this.btGetVMGenSrc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btGetVMGenSrc.UseVisualStyleBackColor = true;
-            this.btGetVMGenSrc.Click += new System.EventHandler(this.btGetVMGenSrc_Click);
-            // 
-            // btGetVMCopyPhysical
-            // 
-            this.btGetVMCopyPhysical.Enabled = false;
-            this.btGetVMCopyPhysical.FlatAppearance.BorderSize = 0;
-            this.btGetVMCopyPhysical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetVMCopyPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetVMCopyPhysical.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btGetVMCopyPhysical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGetVMCopyPhysical.Location = new System.Drawing.Point(97, 330);
-            this.btGetVMCopyPhysical.Name = "btGetVMCopyPhysical";
-            this.btGetVMCopyPhysical.Size = new System.Drawing.Size(26, 24);
-            this.btGetVMCopyPhysical.TabIndex = 115;
-            this.btGetVMCopyPhysical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btGetVMCopyPhysical.UseVisualStyleBackColor = true;
-            this.btGetVMCopyPhysical.Click += new System.EventHandler(this.btGetVMCopyPhysical_Click);
-            // 
-            // btGetVMClear
-            // 
-            this.btGetVMClear.FlatAppearance.BorderSize = 0;
-            this.btGetVMClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetVMClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btGetVMClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btGetVMClear.Location = new System.Drawing.Point(126, 330);
-            this.btGetVMClear.Name = "btGetVMClear";
-            this.btGetVMClear.Size = new System.Drawing.Size(28, 24);
-            this.btGetVMClear.TabIndex = 114;
-            this.btGetVMClear.UseVisualStyleBackColor = true;
-            this.btGetVMClear.Click += new System.EventHandler(this.btGetVMClear_Click);
             // 
             // groupBox33
             // 
@@ -803,6 +757,52 @@ namespace ToolSupportCoding.View
             this.groupBox38.TabIndex = 111;
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "Result";
+            // 
+            // btGetVMClear
+            // 
+            this.btGetVMClear.FlatAppearance.BorderSize = 0;
+            this.btGetVMClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
+            this.btGetVMClear.Location = new System.Drawing.Point(126, 330);
+            this.btGetVMClear.Name = "btGetVMClear";
+            this.btGetVMClear.Size = new System.Drawing.Size(28, 24);
+            this.btGetVMClear.TabIndex = 114;
+            this.btGetVMClear.UseVisualStyleBackColor = true;
+            this.btGetVMClear.Click += new System.EventHandler(this.btGetVMClear_Click);
+            // 
+            // btGetVMCopyPhysical
+            // 
+            this.btGetVMCopyPhysical.Enabled = false;
+            this.btGetVMCopyPhysical.FlatAppearance.BorderSize = 0;
+            this.btGetVMCopyPhysical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMCopyPhysical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMCopyPhysical.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
+            this.btGetVMCopyPhysical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetVMCopyPhysical.Location = new System.Drawing.Point(97, 330);
+            this.btGetVMCopyPhysical.Name = "btGetVMCopyPhysical";
+            this.btGetVMCopyPhysical.Size = new System.Drawing.Size(26, 24);
+            this.btGetVMCopyPhysical.TabIndex = 115;
+            this.btGetVMCopyPhysical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetVMCopyPhysical.UseVisualStyleBackColor = true;
+            this.btGetVMCopyPhysical.Click += new System.EventHandler(this.btGetVMCopyPhysical_Click);
+            // 
+            // btGetVMGenSrc
+            // 
+            this.btGetVMGenSrc.Enabled = false;
+            this.btGetVMGenSrc.FlatAppearance.BorderSize = 0;
+            this.btGetVMGenSrc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetVMGenSrc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btGetVMGenSrc.Image = global::ToolSupportCoding.Properties.Resources.create;
+            this.btGetVMGenSrc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGetVMGenSrc.Location = new System.Drawing.Point(4, 330);
+            this.btGetVMGenSrc.Name = "btGetVMGenSrc";
+            this.btGetVMGenSrc.Size = new System.Drawing.Size(90, 24);
+            this.btGetVMGenSrc.TabIndex = 116;
+            this.btGetVMGenSrc.Text = "  Create";
+            this.btGetVMGenSrc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btGetVMGenSrc.UseVisualStyleBackColor = true;
+            this.btGetVMGenSrc.Click += new System.EventHandler(this.btGetVMGenSrc_Click);
             // 
             // txtGetVMResultPhysical
             // 
@@ -1137,14 +1137,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1161,8 +1161,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle7;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -1474,6 +1474,7 @@ namespace ToolSupportCoding.View
             this.txtCrEntityT.Size = new System.Drawing.Size(174, 266);
             this.txtCrEntityT.TabIndex = 4;
             this.txtCrEntityT.Text = "";
+            this.txtCrEntityT.Click += new System.EventHandler(this.txtCrEntityT_Click);
             this.txtCrEntityT.TextChanged += new System.EventHandler(this.txtCrEntityT_TextChanged);
             // 
             // lblCrEntityNumT
@@ -1507,6 +1508,7 @@ namespace ToolSupportCoding.View
             this.txtCrEntityP.Size = new System.Drawing.Size(174, 266);
             this.txtCrEntityP.TabIndex = 4;
             this.txtCrEntityP.Text = "";
+            this.txtCrEntityP.Click += new System.EventHandler(this.txtCrEntityP_Click);
             this.txtCrEntityP.TextChanged += new System.EventHandler(this.txtCrEntityP_TextChanged);
             // 
             // lblCrEntityNumP
