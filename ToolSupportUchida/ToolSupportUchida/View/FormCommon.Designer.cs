@@ -29,10 +29,10 @@ namespace ToolSupportCoding.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlCommon = new System.Windows.Forms.TabControl();
             this.tabPageGetColumn = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -159,50 +159,6 @@ namespace ToolSupportCoding.View
             this.txtCreReportResult = new System.Windows.Forms.RichTextBox();
             this.btCreReportCopy = new System.Windows.Forms.Button();
             this.btCreReportClear = new System.Windows.Forms.Button();
-            this.tabPageCreateMessage = new System.Windows.Forms.TabPage();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.rdbMessF = new System.Windows.Forms.RadioButton();
-            this.rdbMessBox = new System.Windows.Forms.RadioButton();
-            this.rdbMessDisp = new System.Windows.Forms.RadioButton();
-            this.rdbMess = new System.Windows.Forms.RadioButton();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.txtMessCode = new System.Windows.Forms.RichTextBox();
-            this.lblNumLMessCode = new System.Windows.Forms.Label();
-            this.grbMessTitle = new System.Windows.Forms.GroupBox();
-            this.rdMessVeri = new System.Windows.Forms.RadioButton();
-            this.chkMessShowC = new System.Windows.Forms.CheckBox();
-            this.rdMessNoti = new System.Windows.Forms.RadioButton();
-            this.rdMessErr = new System.Windows.Forms.RadioButton();
-            this.grbMessText = new System.Windows.Forms.GroupBox();
-            this.chkMessStatus = new System.Windows.Forms.CheckBox();
-            this.btnMessCreate = new System.Windows.Forms.Button();
-            this.cbMessCancel = new System.Windows.Forms.ComboBox();
-            this.cbMessDone = new System.Windows.Forms.ComboBox();
-            this.lblMessCancel = new System.Windows.Forms.Label();
-            this.lblMessDone = new System.Windows.Forms.Label();
-            this.grbMessTextI = new System.Windows.Forms.GroupBox();
-            this.btnCreateMessI = new System.Windows.Forms.Button();
-            this.chkMessStatusI = new System.Windows.Forms.CheckBox();
-            this.txtMessMsg = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtMessType = new System.Windows.Forms.TextBox();
-            this.lblMessType = new System.Windows.Forms.Label();
-            this.txtMessQues = new System.Windows.Forms.TextBox();
-            this.txtMessDescH = new System.Windows.Forms.TextBox();
-            this.lblMessQuestion = new System.Windows.Forms.Label();
-            this.lblMessDescH = new System.Windows.Forms.Label();
-            this.txtMessDesc = new System.Windows.Forms.TextBox();
-            this.txtMessMsgCode = new System.Windows.Forms.TextBox();
-            this.lblMessDesc = new System.Windows.Forms.Label();
-            this.lblMessCode = new System.Windows.Forms.Label();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.txtMessResult = new System.Windows.Forms.RichTextBox();
-            this.btnCreateMess = new System.Windows.Forms.Button();
-            this.btnMessCopy = new System.Windows.Forms.Button();
-            this.btnMessClear = new System.Windows.Forms.Button();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.txtMessContent = new System.Windows.Forms.RichTextBox();
-            this.lblNumMessContent = new System.Windows.Forms.Label();
             this.tabPageCreateComment = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.chkCrCmLine = new System.Windows.Forms.CheckBox();
@@ -317,14 +273,6 @@ namespace ToolSupportCoding.View
             this.groupBox21.SuspendLayout();
             this.groupBox44.SuspendLayout();
             this.groupBox45.SuspendLayout();
-            this.tabPageCreateMessage.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.grbMessTitle.SuspendLayout();
-            this.grbMessText.SuspendLayout();
-            this.grbMessTextI.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox16.SuspendLayout();
             this.tabPageCreateComment.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -354,7 +302,6 @@ namespace ToolSupportCoding.View
             this.tabControlCommon.Controls.Add(this.tabPageCreateEnity);
             this.tabControlCommon.Controls.Add(this.tabPageCreateFileSrc);
             this.tabControlCommon.Controls.Add(this.tabPageCreateReport);
-            this.tabControlCommon.Controls.Add(this.tabPageCreateMessage);
             this.tabControlCommon.Controls.Add(this.tabPageCreateComment);
             this.tabControlCommon.Controls.Add(this.tabPageCreateResources);
             this.tabControlCommon.Controls.Add(this.tabPageFormatCode);
@@ -576,24 +523,24 @@ namespace ToolSupportCoding.View
             this.gridColumnData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridColumnData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridColumnData.CausesValidation = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridColumnData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridColumnData.ColumnHeadersHeight = 24;
             this.gridColumnData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridColumnData.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridColumnData.EnableHeadersVisualStyles = false;
             this.gridColumnData.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridColumnData.Location = new System.Drawing.Point(6, 76);
@@ -1137,14 +1084,14 @@ namespace ToolSupportCoding.View
             this.colNo,
             this.colParam,
             this.colValue});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridInputParam.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridInputParam.EnableHeadersVisualStyles = false;
             this.gridInputParam.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1161,8 +1108,8 @@ namespace ToolSupportCoding.View
             // 
             // colNo
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle3;
             this.colNo.HeaderText = "No.";
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
@@ -1955,537 +1902,6 @@ namespace ToolSupportCoding.View
             this.btCreReportClear.TabIndex = 20;
             this.btCreReportClear.UseVisualStyleBackColor = true;
             this.btCreReportClear.Click += new System.EventHandler(this.btCreReportClear_Click);
-            // 
-            // tabPageCreateMessage
-            // 
-            this.tabPageCreateMessage.Controls.Add(this.groupBox18);
-            this.tabPageCreateMessage.Controls.Add(this.groupBox15);
-            this.tabPageCreateMessage.Controls.Add(this.grbMessTitle);
-            this.tabPageCreateMessage.Controls.Add(this.grbMessText);
-            this.tabPageCreateMessage.Controls.Add(this.grbMessTextI);
-            this.tabPageCreateMessage.Controls.Add(this.groupBox17);
-            this.tabPageCreateMessage.Controls.Add(this.groupBox16);
-            this.tabPageCreateMessage.Location = new System.Drawing.Point(124, 4);
-            this.tabPageCreateMessage.Name = "tabPageCreateMessage";
-            this.tabPageCreateMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateMessage.Size = new System.Drawing.Size(576, 366);
-            this.tabPageCreateMessage.TabIndex = 9;
-            this.tabPageCreateMessage.Text = "Create Message";
-            this.tabPageCreateMessage.UseVisualStyleBackColor = true;
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.rdbMessF);
-            this.groupBox18.Controls.Add(this.rdbMessBox);
-            this.groupBox18.Controls.Add(this.rdbMessDisp);
-            this.groupBox18.Controls.Add(this.rdbMess);
-            this.groupBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox18.Location = new System.Drawing.Point(6, -2);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(180, 120);
-            this.groupBox18.TabIndex = 21;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Choose Type";
-            // 
-            // rdbMessF
-            // 
-            this.rdbMessF.AutoSize = true;
-            this.rdbMessF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessF.Location = new System.Drawing.Point(7, 94);
-            this.rdbMessF.Name = "rdbMessF";
-            this.rdbMessF.Size = new System.Drawing.Size(92, 19);
-            this.rdbMessF.TabIndex = 3;
-            this.rdbMessF.Text = "Create Src F";
-            this.rdbMessF.UseVisualStyleBackColor = true;
-            this.rdbMessF.CheckedChanged += new System.EventHandler(this.rdbMessF_CheckedChanged);
-            // 
-            // rdbMessBox
-            // 
-            this.rdbMessBox.AutoSize = true;
-            this.rdbMessBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessBox.Location = new System.Drawing.Point(7, 70);
-            this.rdbMessBox.Name = "rdbMessBox";
-            this.rdbMessBox.Size = new System.Drawing.Size(130, 19);
-            this.rdbMessBox.TabIndex = 2;
-            this.rdbMessBox.Text = "Create Src MsgBox";
-            this.rdbMessBox.UseVisualStyleBackColor = true;
-            this.rdbMessBox.CheckedChanged += new System.EventHandler(this.rdMessBox_CheckedChanged);
-            // 
-            // rdbMessDisp
-            // 
-            this.rdbMessDisp.AutoSize = true;
-            this.rdbMessDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMessDisp.Location = new System.Drawing.Point(7, 45);
-            this.rdbMessDisp.Name = "rdbMessDisp";
-            this.rdbMessDisp.Size = new System.Drawing.Size(134, 19);
-            this.rdbMessDisp.TabIndex = 1;
-            this.rdbMessDisp.Text = "Create Src MsgDisp";
-            this.rdbMessDisp.UseVisualStyleBackColor = true;
-            this.rdbMessDisp.CheckedChanged += new System.EventHandler(this.rdMessDisp_CheckedChanged);
-            // 
-            // rdbMess
-            // 
-            this.rdbMess.AutoSize = true;
-            this.rdbMess.Checked = true;
-            this.rdbMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdbMess.Location = new System.Drawing.Point(7, 20);
-            this.rdbMess.Name = "rdbMess";
-            this.rdbMess.Size = new System.Drawing.Size(82, 19);
-            this.rdbMess.TabIndex = 0;
-            this.rdbMess.TabStop = true;
-            this.rdbMess.Text = "Create Src";
-            this.rdbMess.UseVisualStyleBackColor = true;
-            this.rdbMess.CheckedChanged += new System.EventHandler(this.rdMess_CheckedChanged);
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.txtMessCode);
-            this.groupBox15.Controls.Add(this.lblNumLMessCode);
-            this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox15.Location = new System.Drawing.Point(6, 115);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(180, 242);
-            this.groupBox15.TabIndex = 0;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Message Code";
-            // 
-            // txtMessCode
-            // 
-            this.txtMessCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessCode.Location = new System.Drawing.Point(3, 19);
-            this.txtMessCode.Name = "txtMessCode";
-            this.txtMessCode.Size = new System.Drawing.Size(174, 192);
-            this.txtMessCode.TabIndex = 4;
-            this.txtMessCode.Text = "";
-            this.txtMessCode.TextChanged += new System.EventHandler(this.txtMessCode_TextChanged);
-            // 
-            // lblNumLMessCode
-            // 
-            this.lblNumLMessCode.AutoSize = true;
-            this.lblNumLMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumLMessCode.Location = new System.Drawing.Point(77, 217);
-            this.lblNumLMessCode.Name = "lblNumLMessCode";
-            this.lblNumLMessCode.Size = new System.Drawing.Size(80, 15);
-            this.lblNumLMessCode.TabIndex = 3;
-            this.lblNumLMessCode.Text = "Line number:";
-            this.lblNumLMessCode.Visible = false;
-            // 
-            // grbMessTitle
-            // 
-            this.grbMessTitle.Controls.Add(this.rdMessVeri);
-            this.grbMessTitle.Controls.Add(this.chkMessShowC);
-            this.grbMessTitle.Controls.Add(this.rdMessNoti);
-            this.grbMessTitle.Controls.Add(this.rdMessErr);
-            this.grbMessTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessTitle.Location = new System.Drawing.Point(192, -2);
-            this.grbMessTitle.Name = "grbMessTitle";
-            this.grbMessTitle.Size = new System.Drawing.Size(180, 120);
-            this.grbMessTitle.TabIndex = 22;
-            this.grbMessTitle.TabStop = false;
-            this.grbMessTitle.Text = "Choose Title";
-            // 
-            // rdMessVeri
-            // 
-            this.rdMessVeri.AutoSize = true;
-            this.rdMessVeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessVeri.Location = new System.Drawing.Point(7, 69);
-            this.rdMessVeri.Name = "rdMessVeri";
-            this.rdMessVeri.Size = new System.Drawing.Size(49, 19);
-            this.rdMessVeri.TabIndex = 6;
-            this.rdMessVeri.Text = "確認";
-            this.rdMessVeri.UseVisualStyleBackColor = true;
-            // 
-            // chkMessShowC
-            // 
-            this.chkMessShowC.AutoSize = true;
-            this.chkMessShowC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessShowC.Location = new System.Drawing.Point(7, 94);
-            this.chkMessShowC.Name = "chkMessShowC";
-            this.chkMessShowC.Size = new System.Drawing.Size(98, 19);
-            this.chkMessShowC.TabIndex = 7;
-            this.chkMessShowC.Text = "Show Cancel";
-            this.chkMessShowC.UseVisualStyleBackColor = true;
-            this.chkMessShowC.CheckedChanged += new System.EventHandler(this.chkMessShowC_CheckedChanged);
-            // 
-            // rdMessNoti
-            // 
-            this.rdMessNoti.AutoSize = true;
-            this.rdMessNoti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessNoti.Location = new System.Drawing.Point(7, 44);
-            this.rdMessNoti.Name = "rdMessNoti";
-            this.rdMessNoti.Size = new System.Drawing.Size(49, 19);
-            this.rdMessNoti.TabIndex = 5;
-            this.rdMessNoti.Text = "通知";
-            this.rdMessNoti.UseVisualStyleBackColor = true;
-            // 
-            // rdMessErr
-            // 
-            this.rdMessErr.AutoSize = true;
-            this.rdMessErr.Checked = true;
-            this.rdMessErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.rdMessErr.Location = new System.Drawing.Point(7, 19);
-            this.rdMessErr.Name = "rdMessErr";
-            this.rdMessErr.Size = new System.Drawing.Size(76, 19);
-            this.rdMessErr.TabIndex = 4;
-            this.rdMessErr.TabStop = true;
-            this.rdMessErr.Text = "エラー情報";
-            this.rdMessErr.UseVisualStyleBackColor = true;
-            // 
-            // grbMessText
-            // 
-            this.grbMessText.Controls.Add(this.chkMessStatus);
-            this.grbMessText.Controls.Add(this.btnMessCreate);
-            this.grbMessText.Controls.Add(this.cbMessCancel);
-            this.grbMessText.Controls.Add(this.cbMessDone);
-            this.grbMessText.Controls.Add(this.lblMessCancel);
-            this.grbMessText.Controls.Add(this.lblMessDone);
-            this.grbMessText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessText.Location = new System.Drawing.Point(378, -2);
-            this.grbMessText.Name = "grbMessText";
-            this.grbMessText.Size = new System.Drawing.Size(188, 120);
-            this.grbMessText.TabIndex = 23;
-            this.grbMessText.TabStop = false;
-            this.grbMessText.Text = "Input Text";
-            // 
-            // chkMessStatus
-            // 
-            this.chkMessStatus.AutoSize = true;
-            this.chkMessStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessStatus.Location = new System.Drawing.Point(8, 94);
-            this.chkMessStatus.Name = "chkMessStatus";
-            this.chkMessStatus.Size = new System.Drawing.Size(60, 19);
-            this.chkMessStatus.TabIndex = 12;
-            this.chkMessStatus.Text = "Status";
-            this.chkMessStatus.UseVisualStyleBackColor = true;
-            // 
-            // btnMessCreate
-            // 
-            this.btnMessCreate.FlatAppearance.BorderSize = 0;
-            this.btnMessCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnMessCreate.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btnMessCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCreate.Location = new System.Drawing.Point(81, 91);
-            this.btnMessCreate.Name = "btnMessCreate";
-            this.btnMessCreate.Size = new System.Drawing.Size(100, 24);
-            this.btnMessCreate.TabIndex = 13;
-            this.btnMessCreate.Text = "Create Src";
-            this.btnMessCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMessCreate.UseVisualStyleBackColor = true;
-            this.btnMessCreate.Click += new System.EventHandler(this.btnMessCreate_Click);
-            // 
-            // cbMessCancel
-            // 
-            this.cbMessCancel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.cbMessCancel.Items.AddRange(new object[] {
-            "いいえ",
-            "キャンセル"});
-            this.cbMessCancel.Location = new System.Drawing.Point(58, 46);
-            this.cbMessCancel.Name = "cbMessCancel";
-            this.cbMessCancel.Size = new System.Drawing.Size(123, 23);
-            this.cbMessCancel.TabIndex = 9;
-            this.cbMessCancel.Visible = false;
-            // 
-            // cbMessDone
-            // 
-            this.cbMessDone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMessDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.cbMessDone.Items.AddRange(new object[] {
-            "OK",
-            "はい"});
-            this.cbMessDone.Location = new System.Drawing.Point(58, 18);
-            this.cbMessDone.Name = "cbMessDone";
-            this.cbMessDone.Size = new System.Drawing.Size(123, 23);
-            this.cbMessDone.TabIndex = 8;
-            // 
-            // lblMessCancel
-            // 
-            this.lblMessCancel.AutoSize = true;
-            this.lblMessCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessCancel.Location = new System.Drawing.Point(6, 49);
-            this.lblMessCancel.Name = "lblMessCancel";
-            this.lblMessCancel.Size = new System.Drawing.Size(45, 15);
-            this.lblMessCancel.TabIndex = 3;
-            this.lblMessCancel.Text = "Cancel";
-            this.lblMessCancel.Visible = false;
-            // 
-            // lblMessDone
-            // 
-            this.lblMessDone.AutoSize = true;
-            this.lblMessDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDone.Location = new System.Drawing.Point(6, 23);
-            this.lblMessDone.Name = "lblMessDone";
-            this.lblMessDone.Size = new System.Drawing.Size(37, 15);
-            this.lblMessDone.TabIndex = 1;
-            this.lblMessDone.Text = "Done";
-            // 
-            // grbMessTextI
-            // 
-            this.grbMessTextI.Controls.Add(this.btnCreateMessI);
-            this.grbMessTextI.Controls.Add(this.chkMessStatusI);
-            this.grbMessTextI.Controls.Add(this.txtMessMsg);
-            this.grbMessTextI.Controls.Add(this.label14);
-            this.grbMessTextI.Controls.Add(this.txtMessType);
-            this.grbMessTextI.Controls.Add(this.lblMessType);
-            this.grbMessTextI.Controls.Add(this.txtMessQues);
-            this.grbMessTextI.Controls.Add(this.txtMessDescH);
-            this.grbMessTextI.Controls.Add(this.lblMessQuestion);
-            this.grbMessTextI.Controls.Add(this.lblMessDescH);
-            this.grbMessTextI.Controls.Add(this.txtMessDesc);
-            this.grbMessTextI.Controls.Add(this.txtMessMsgCode);
-            this.grbMessTextI.Controls.Add(this.lblMessDesc);
-            this.grbMessTextI.Controls.Add(this.lblMessCode);
-            this.grbMessTextI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grbMessTextI.Location = new System.Drawing.Point(192, -2);
-            this.grbMessTextI.Name = "grbMessTextI";
-            this.grbMessTextI.Size = new System.Drawing.Size(374, 120);
-            this.grbMessTextI.TabIndex = 4;
-            this.grbMessTextI.TabStop = false;
-            this.grbMessTextI.Text = "Input Text";
-            this.grbMessTextI.Visible = false;
-            // 
-            // btnCreateMessI
-            // 
-            this.btnCreateMessI.FlatAppearance.BorderSize = 0;
-            this.btnCreateMessI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateMessI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCreateMessI.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btnCreateMessI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMessI.Location = new System.Drawing.Point(267, 91);
-            this.btnCreateMessI.Name = "btnCreateMessI";
-            this.btnCreateMessI.Size = new System.Drawing.Size(100, 24);
-            this.btnCreateMessI.TabIndex = 10;
-            this.btnCreateMessI.Text = "Create Src";
-            this.btnCreateMessI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateMessI.UseVisualStyleBackColor = true;
-            this.btnCreateMessI.Click += new System.EventHandler(this.btnCreateMessI_Click);
-            // 
-            // chkMessStatusI
-            // 
-            this.chkMessStatusI.AutoSize = true;
-            this.chkMessStatusI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.chkMessStatusI.Location = new System.Drawing.Point(194, 94);
-            this.chkMessStatusI.Name = "chkMessStatusI";
-            this.chkMessStatusI.Size = new System.Drawing.Size(60, 19);
-            this.chkMessStatusI.TabIndex = 9;
-            this.chkMessStatusI.Text = "Status";
-            this.chkMessStatusI.UseVisualStyleBackColor = true;
-            // 
-            // txtMessMsg
-            // 
-            this.txtMessMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessMsg.Location = new System.Drawing.Point(75, 15);
-            this.txtMessMsg.Name = "txtMessMsg";
-            this.txtMessMsg.Size = new System.Drawing.Size(292, 21);
-            this.txtMessMsg.TabIndex = 3;
-            this.txtMessMsg.TextChanged += new System.EventHandler(this.txtMessMsg_TextChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label14.Location = new System.Drawing.Point(7, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 15);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Msg";
-            // 
-            // txtMessType
-            // 
-            this.txtMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessType.Location = new System.Drawing.Point(74, 91);
-            this.txtMessType.Name = "txtMessType";
-            this.txtMessType.Size = new System.Drawing.Size(100, 21);
-            this.txtMessType.TabIndex = 8;
-            this.txtMessType.Text = "0";
-            this.txtMessType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMessType_KeyPress);
-            // 
-            // lblMessType
-            // 
-            this.lblMessType.AutoSize = true;
-            this.lblMessType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessType.Location = new System.Drawing.Point(7, 96);
-            this.lblMessType.Name = "lblMessType";
-            this.lblMessType.Size = new System.Drawing.Size(33, 15);
-            this.lblMessType.TabIndex = 8;
-            this.lblMessType.Text = "Type";
-            // 
-            // txtMessQues
-            // 
-            this.txtMessQues.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessQues.Location = new System.Drawing.Point(267, 66);
-            this.txtMessQues.Name = "txtMessQues";
-            this.txtMessQues.Size = new System.Drawing.Size(100, 21);
-            this.txtMessQues.TabIndex = 7;
-            // 
-            // txtMessDescH
-            // 
-            this.txtMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessDescH.Location = new System.Drawing.Point(267, 41);
-            this.txtMessDescH.Name = "txtMessDescH";
-            this.txtMessDescH.Size = new System.Drawing.Size(100, 21);
-            this.txtMessDescH.TabIndex = 6;
-            // 
-            // lblMessQuestion
-            // 
-            this.lblMessQuestion.AutoSize = true;
-            this.lblMessQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessQuestion.Location = new System.Drawing.Point(190, 71);
-            this.lblMessQuestion.Name = "lblMessQuestion";
-            this.lblMessQuestion.Size = new System.Drawing.Size(56, 15);
-            this.lblMessQuestion.TabIndex = 5;
-            this.lblMessQuestion.Text = "Question";
-            // 
-            // lblMessDescH
-            // 
-            this.lblMessDescH.AutoSize = true;
-            this.lblMessDescH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDescH.Location = new System.Drawing.Point(190, 46);
-            this.lblMessDescH.Name = "lblMessDescH";
-            this.lblMessDescH.Size = new System.Drawing.Size(71, 15);
-            this.lblMessDescH.TabIndex = 4;
-            this.lblMessDescH.Text = "Msg DescH";
-            // 
-            // txtMessDesc
-            // 
-            this.txtMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessDesc.Location = new System.Drawing.Point(75, 66);
-            this.txtMessDesc.Name = "txtMessDesc";
-            this.txtMessDesc.Size = new System.Drawing.Size(100, 21);
-            this.txtMessDesc.TabIndex = 5;
-            this.txtMessDesc.Text = "UCHIDA";
-            // 
-            // txtMessMsgCode
-            // 
-            this.txtMessMsgCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMessMsgCode.Location = new System.Drawing.Point(75, 41);
-            this.txtMessMsgCode.Name = "txtMessMsgCode";
-            this.txtMessMsgCode.Size = new System.Drawing.Size(100, 21);
-            this.txtMessMsgCode.TabIndex = 4;
-            this.txtMessMsgCode.Text = "0001";
-            // 
-            // lblMessDesc
-            // 
-            this.lblMessDesc.AutoSize = true;
-            this.lblMessDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessDesc.Location = new System.Drawing.Point(7, 71);
-            this.lblMessDesc.Name = "lblMessDesc";
-            this.lblMessDesc.Size = new System.Drawing.Size(62, 15);
-            this.lblMessDesc.TabIndex = 1;
-            this.lblMessDesc.Text = "Msg Desc";
-            // 
-            // lblMessCode
-            // 
-            this.lblMessCode.AutoSize = true;
-            this.lblMessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMessCode.Location = new System.Drawing.Point(7, 46);
-            this.lblMessCode.Name = "lblMessCode";
-            this.lblMessCode.Size = new System.Drawing.Size(63, 15);
-            this.lblMessCode.TabIndex = 0;
-            this.lblMessCode.Text = "Msg Code";
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.txtMessResult);
-            this.groupBox17.Controls.Add(this.btnCreateMess);
-            this.groupBox17.Controls.Add(this.btnMessCopy);
-            this.groupBox17.Controls.Add(this.btnMessClear);
-            this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox17.Location = new System.Drawing.Point(378, 115);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(188, 242);
-            this.groupBox17.TabIndex = 16;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Result";
-            // 
-            // txtMessResult
-            // 
-            this.txtMessResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessResult.Location = new System.Drawing.Point(3, 19);
-            this.txtMessResult.Name = "txtMessResult";
-            this.txtMessResult.ReadOnly = true;
-            this.txtMessResult.Size = new System.Drawing.Size(182, 192);
-            this.txtMessResult.TabIndex = 19;
-            this.txtMessResult.Text = "";
-            // 
-            // btnCreateMess
-            // 
-            this.btnCreateMess.FlatAppearance.BorderSize = 0;
-            this.btnCreateMess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateMess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCreateMess.Image = global::ToolSupportCoding.Properties.Resources.create;
-            this.btnCreateMess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateMess.Location = new System.Drawing.Point(4, 213);
-            this.btnCreateMess.Name = "btnCreateMess";
-            this.btnCreateMess.Size = new System.Drawing.Size(118, 24);
-            this.btnCreateMess.TabIndex = 16;
-            this.btnCreateMess.Text = "Create Mess";
-            this.btnCreateMess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCreateMess.UseVisualStyleBackColor = true;
-            this.btnCreateMess.Click += new System.EventHandler(this.btnCreateMess_Click);
-            // 
-            // btnMessCopy
-            // 
-            this.btnMessCopy.Enabled = false;
-            this.btnMessCopy.FlatAppearance.BorderSize = 0;
-            this.btnMessCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnMessCopy.Image = global::ToolSupportCoding.Properties.Resources.button_copy_clipboar;
-            this.btnMessCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMessCopy.Location = new System.Drawing.Point(125, 213);
-            this.btnMessCopy.Name = "btnMessCopy";
-            this.btnMessCopy.Size = new System.Drawing.Size(28, 24);
-            this.btnMessCopy.TabIndex = 17;
-            this.btnMessCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMessCopy.UseVisualStyleBackColor = true;
-            this.btnMessCopy.Click += new System.EventHandler(this.btnMessCopy_Click);
-            // 
-            // btnMessClear
-            // 
-            this.btnMessClear.FlatAppearance.BorderSize = 0;
-            this.btnMessClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMessClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnMessClear.Image = global::ToolSupportCoding.Properties.Resources.button_clear;
-            this.btnMessClear.Location = new System.Drawing.Point(156, 213);
-            this.btnMessClear.Name = "btnMessClear";
-            this.btnMessClear.Size = new System.Drawing.Size(28, 24);
-            this.btnMessClear.TabIndex = 18;
-            this.btnMessClear.UseVisualStyleBackColor = true;
-            this.btnMessClear.Click += new System.EventHandler(this.btnMessClear_Click);
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.txtMessContent);
-            this.groupBox16.Controls.Add(this.lblNumMessContent);
-            this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(192, 115);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(180, 242);
-            this.groupBox16.TabIndex = 1;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Message Content";
-            // 
-            // txtMessContent
-            // 
-            this.txtMessContent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtMessContent.Location = new System.Drawing.Point(3, 19);
-            this.txtMessContent.Name = "txtMessContent";
-            this.txtMessContent.Size = new System.Drawing.Size(174, 192);
-            this.txtMessContent.TabIndex = 5;
-            this.txtMessContent.Text = "";
-            this.txtMessContent.TextChanged += new System.EventHandler(this.txtMessContent_TextChanged);
-            // 
-            // lblNumMessContent
-            // 
-            this.lblNumMessContent.AutoSize = true;
-            this.lblNumMessContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNumMessContent.Location = new System.Drawing.Point(77, 217);
-            this.lblNumMessContent.Name = "lblNumMessContent";
-            this.lblNumMessContent.Size = new System.Drawing.Size(80, 15);
-            this.lblNumMessContent.TabIndex = 4;
-            this.lblNumMessContent.Text = "Line number:";
-            this.lblNumMessContent.Visible = false;
             // 
             // tabPageCreateComment
             // 
@@ -3477,20 +2893,6 @@ namespace ToolSupportCoding.View
             this.groupBox44.ResumeLayout(false);
             this.groupBox44.PerformLayout();
             this.groupBox45.ResumeLayout(false);
-            this.tabPageCreateMessage.ResumeLayout(false);
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.grbMessTitle.ResumeLayout(false);
-            this.grbMessTitle.PerformLayout();
-            this.grbMessText.ResumeLayout(false);
-            this.grbMessText.PerformLayout();
-            this.grbMessTextI.ResumeLayout(false);
-            this.grbMessTextI.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
             this.tabPageCreateComment.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
@@ -3573,7 +2975,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.Label lblResultSrcDialog;
         private System.Windows.Forms.TabPage tabPageGetColumn;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.TextBox txColumnData;
         private System.Windows.Forms.ComboBox cbColumnFormat;
         private System.Windows.Forms.TextBox txColumnInput;
@@ -3592,13 +2993,11 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.TextBox txColumnResult;
         private System.Windows.Forms.TabPage tabPageCreateComment;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RadioButton rbCrCmBlock;
         private System.Windows.Forms.RadioButton rbCrCmLineBlock;
         private System.Windows.Forms.RadioButton rbCrCmLine;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.RadioButton rbCrCmLast;
         private System.Windows.Forms.RadioButton rbCrCmFirst;
         private System.Windows.Forms.GroupBox groupBox13;
@@ -3616,44 +3015,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.TextBox txtCrSourceFolderP;
         private System.Windows.Forms.Button btCrSourceOpenPath;
         private System.Windows.Forms.Label lbChoosePath;
-        private System.Windows.Forms.TabPage tabPageCreateMessage;
-        private System.Windows.Forms.GroupBox grbMessText;
-        private System.Windows.Forms.ComboBox cbMessCancel;
-        private System.Windows.Forms.ComboBox cbMessDone;
-        private System.Windows.Forms.Label lblMessCancel;
-        private System.Windows.Forms.Label lblMessDone;
-        private System.Windows.Forms.GroupBox grbMessTitle;
-        private System.Windows.Forms.CheckBox chkMessShowC;
-        private System.Windows.Forms.RadioButton rdMessNoti;
-        private System.Windows.Forms.RadioButton rdMessErr;
-        private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.RadioButton rdbMessBox;
-        private System.Windows.Forms.RadioButton rdbMessDisp;
-        private System.Windows.Forms.RadioButton rdbMess;
-        private System.Windows.Forms.GroupBox grbMessTextI;
-        private System.Windows.Forms.TextBox txtMessDesc;
-        private System.Windows.Forms.TextBox txtMessMsgCode;
-        private System.Windows.Forms.Label lblMessDesc;
-        private System.Windows.Forms.Label lblMessCode;
-        private System.Windows.Forms.TextBox txtMessQues;
-        private System.Windows.Forms.TextBox txtMessDescH;
-        private System.Windows.Forms.Label lblMessQuestion;
-        private System.Windows.Forms.Label lblMessDescH;
-        private System.Windows.Forms.TextBox txtMessType;
-        private System.Windows.Forms.Label lblMessType;
-        private System.Windows.Forms.Button btnCreateMessI;
-        private System.Windows.Forms.Button btnMessCreate;
-        private System.Windows.Forms.TextBox txtMessMsg;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox chkMessStatus;
-        private System.Windows.Forms.CheckBox chkMessStatusI;
-        private System.Windows.Forms.RadioButton rdMessVeri;
-        private System.Windows.Forms.RadioButton rdbMessF;
-        private System.Windows.Forms.Button btnCreateMess;
-        private System.Windows.Forms.Button btnMessCopy;
-        private System.Windows.Forms.Button btnMessClear;
-        private System.Windows.Forms.Label lblNumMessContent;
-        private System.Windows.Forms.Label lblNumLMessCode;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RichTextBox txtInputKey;
@@ -3663,9 +3024,6 @@ namespace ToolSupportCoding.View
         private System.Windows.Forms.RichTextBox txtCrCmComment;
         private System.Windows.Forms.RichTextBox txtCrCmCode;
         private System.Windows.Forms.RichTextBox txtCrCmResult;
-        private System.Windows.Forms.RichTextBox txtMessCode;
-        private System.Windows.Forms.RichTextBox txtMessContent;
-        private System.Windows.Forms.RichTextBox txtMessResult;
         private System.Windows.Forms.TabPage tabPageCreateEnity;
         private System.Windows.Forms.GroupBox grbCrEntityT;
         private System.Windows.Forms.RichTextBox txtCrEntityT;

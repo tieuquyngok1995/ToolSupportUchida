@@ -193,6 +193,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_EDIT = "Edit";
         public const string STRING_DEL = "Delete";
         public const string STRING_REPLACE = "Replace";
+        public const string STRING_CREATE_TABLE = "CREATE TABLE";
 
         public const string STRING_FUNCTION = "(Function(x)";
         public const string STRING_ITEM_RES_Z = "@ItemResources.";
@@ -303,6 +304,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_SETTING_FORMAT = "Format";
         public const string STRING_SETTING_DISPLAY_FORMAT = "DisplayFormat";
         public const string STRING_SETTING_UCD_LABEL = "ucd-label";
+        public const string STRING_SETTING_LABEL = "label";
 
         public const string STRING_SETTING_LOGIC_REPLACE = "--logic-replace--";
         public const string STRING_SETTING_REQUIRED = "Required";
