@@ -46,6 +46,8 @@ namespace ToolSupportCoding.View
         private List<ViewModel> lstEntityTable = new List<ViewModel>();
 
         // List create source
+
+        private string createSourcePath;
         private string[] lstSourceLogic;
         private string[] lstSourcePhysical;
         private string[] lstSourcePath;
@@ -77,6 +79,7 @@ namespace ToolSupportCoding.View
             InitializeComponent();
 
             objToolSupport = _objToolSupport;
+            createSourcePath = objToolSupport.sourcePath;
             reportPath = _objToolSupport.reportPath;
 
             lstItem = _lstItem;
@@ -662,7 +665,7 @@ namespace ToolSupportCoding.View
         /// <param name="e"></param>
         private void txtGetVMSItem_TextChanged(object sender, EventArgs e)
         {
-            lstGetVMItem = txtGetVMSItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.RemoveEmptyEntries).ToList();
+            lstGetVMItem = txtGetVMSItem.Text.Replace("\t", "").Split(CONST.STRING_SEPARATORS, StringSplitOptions.None).ToList();
 
             if (lstGetVMItem.Count > 0)
             {
@@ -1600,17 +1603,16 @@ namespace ToolSupportCoding.View
 
         private void btCrSourceOpenPath_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.ShowNewFolderButton = true;
-            DialogResult result = folderDlg.ShowDialog();
-            if (result == DialogResult.OK)
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (!string.IsNullOrEmpty(reportPath)) fbd.SelectedPath = createSourcePath;
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
-                this.txtCrSourceFolderP.Text = folderDlg.SelectedPath;
-            }
+                txtCrSourceFolderP.Text = fbd.SelectedPath;
+                createSourcePath = fbd.SelectedPath;
 
-            barCrSourceProcess.Value = 0;
-            objToolSupport.sourcePath = this.txtCrSourceFolderP.Text;
-            BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+                objToolSupport.sourcePath = createSourcePath;
+                BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
+            }
         }
 
         private void txtCrSourceLogic_TextChanged(object sender, EventArgs e)
