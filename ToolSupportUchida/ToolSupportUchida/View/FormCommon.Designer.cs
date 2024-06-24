@@ -1504,7 +1504,7 @@ namespace ToolSupportCoding.View
             // 
             this.barCrSourceProcess.Location = new System.Drawing.Point(84, 44);
             this.barCrSourceProcess.Name = "barCrSourceProcess";
-            this.barCrSourceProcess.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.barCrSourceProcess.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.barCrSourceProcess.RightToLeftLayout = true;
             this.barCrSourceProcess.Size = new System.Drawing.Size(341, 24);
             this.barCrSourceProcess.TabIndex = 22;

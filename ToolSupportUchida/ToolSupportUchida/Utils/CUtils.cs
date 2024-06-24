@@ -588,6 +588,8 @@ namespace ToolSupportCoding.Utils
             if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
 
             StringBuilder sb = new StringBuilder();
+            sb.Append("using Microsoft.AspNetCore.Mvc;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
             sb.Append("{{").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
@@ -598,7 +600,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
             sb.Append("        // {1}サービス。").Append(CONST.STRING_ADD_LINE);
             sb.Append("        private readonly {2}Service _service;").Append(CONST.STRING_ADD_LINE);
-            sb.Append("").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
             sb.Append("        /// 新しいインスタンスを初期化します。").Append(CONST.STRING_ADD_LINE);
             sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
@@ -608,7 +610,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("            _service = service;").Append(CONST.STRING_ADD_LINE);
             sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
@@ -623,6 +625,9 @@ namespace ToolSupportCoding.Utils
             if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
 
             StringBuilder sb = new StringBuilder();
+            sb.Append("using AutoMapper;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using ITS.UsoliaShogai.Data;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
             sb.Append("{{").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
@@ -632,8 +637,8 @@ namespace ToolSupportCoding.Utils
             sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
             sb.Append("        // 悲観的排他制御。").Append(CONST.STRING_ADD_LINE);
             sb.Append("        private readonly LockService _lockService;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("        // リポジトリ—を管理します。").Append(CONST.STRING_ADD_LINE);
-            sb.Append("").Append(CONST.STRING_ADD_LINE);
             sb.Append("        private readonly RepositoryManager<{2}Repository> _repository;").Append(CONST.STRING_ADD_LINE);
             sb.Append("        private readonly IMapper _mapper;").Append(CONST.STRING_ADD_LINE);
             sb.Append(CONST.STRING_ADD_LINE);
@@ -659,7 +664,7 @@ namespace ToolSupportCoding.Utils
             sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
@@ -674,6 +679,10 @@ namespace ToolSupportCoding.Utils
             if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
 
             StringBuilder sb = new StringBuilder();
+            sb.Append("using Dapper;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using System.Data;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using System.Data.Common;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
             sb.Append("{{").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
@@ -694,7 +703,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
             sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
 
@@ -710,6 +719,8 @@ namespace ToolSupportCoding.Utils
             if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
 
             StringBuilder sb = new StringBuilder();
+            sb.Append("using ITS.Usolia.Mvc.Data;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
             sb.Append("{{").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
@@ -720,7 +731,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
             sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
@@ -740,11 +751,84 @@ namespace ToolSupportCoding.Utils
             sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
             sb.Append("{{").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
-            sb.Append("    /// {1}。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// データを保存する主体【{1}】。").Append(CONST.STRING_ADD_LINE);
             sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
             sb.Append("    public class {2}").Append(CONST.STRING_ADD_LINE);
             sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
             sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+
+            return string.Format(sb.ToString(), path, logicName, physycalName);
+        }
+
+        public static string CreTmlFileParameters(string logicName, string physycalName, string path)
+        {
+            path = path.Replace(CONST.STRING_LIB, string.Empty).Replace(CONST.STRING_SLASH, CONST.STRING_DOT);
+
+            if (path.First() == CONST.CHAR_DOT) path = path.Substring(1);
+            if (path.Last() == CONST.CHAR_DOT) path = path.Remove(path.Length - 1);
+
+            if (string.IsNullOrEmpty(logicName)) logicName = physycalName;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("using Dapper;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using ITS.Usolia.Mvc;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using System.Data;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("using System.Data.SqlClient;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("namespace {0}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("{{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// クラスビルディングデータ【{1}】。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    internal class {2} : SqlMapper.IDynamicParameters").Append(CONST.STRING_ADD_LINE);
+            sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        // ").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        private readonly IEnumerable<> _entity;").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// 新しいインスタンスを初期化します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"entity\"></param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <returns></returns>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        public {2}(IEnumerable<> entity)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            _entity = entity;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// パラメーターを追加します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"command\">IDbCommand</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"identity\">SqlMapper.Identity</param>  ").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <returns></returns>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        internal void AddParameters(IDbCommand command, SqlMapper.Identity identity)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            command.Parameters.Add(new SqlParameter()").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            {{").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                ParameterName = \"@\",").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                Value = _entity.ToDataTable(),").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                TypeName = \"\",").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                SqlDbType = SqlDbType.Structured").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            }});").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("            // DBNull.Value 対応").Append(CONST.STRING_ADD_LINE);
+            sb.Append("            var nullParameters = command.Parameters.Cast<SqlParameter>().").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                    Where(x => x.SqlDbType != SqlDbType.Structured).").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                    Where(x => x.Value is null);").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("            foreach (SqlParameter parameter in nullParameters)").Append(CONST.STRING_ADD_LINE);
+            sb.Append("                parameter.Value = DBNull.Value;").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        }}").Append(CONST.STRING_ADD_LINE);
+            sb.Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// パラメーターを追加します。").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// </summary>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"command\">IDbCommand</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <param name=\"identity\">SqlMapper.Identity</param>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        /// <returns></returns>").Append(CONST.STRING_ADD_LINE);
+            sb.Append("        void SqlMapper.IDynamicParameters.AddParameters(IDbCommand command, SqlMapper.Identity identity) => AddParameters(command, identity);").Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
             sb.Append("}}").Append(CONST.STRING_ADD_LINE);
 

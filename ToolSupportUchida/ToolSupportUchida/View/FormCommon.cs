@@ -1756,6 +1756,11 @@ namespace ToolSupportCoding.View
                         text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
                         File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
                     }
+                    else if (fileName.Contains(CONST.STRING_PARAMETERS))
+                    {
+                        text = CUtils.CreTmlFileParameters(logicName, fileName, path);
+                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                    }
                 }
 
                 // Update process
