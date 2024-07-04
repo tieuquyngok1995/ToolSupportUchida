@@ -1589,6 +1589,7 @@ namespace ToolSupportCoding.View
         #endregion
 
         #region Tab Create File Source
+
         private void txtCrSourceFolderP_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCrSourceFolderP.Text))
@@ -1613,6 +1614,12 @@ namespace ToolSupportCoding.View
                 objToolSupport.sourcePath = createSourcePath;
                 BinarySerialization.WriteToBinaryFile<ToolSupportModel>(objToolSupport);
             }
+        }
+
+        private void txtCrSourceLogic_Click(object sender, EventArgs e)
+        {
+            txtCrSourceLogic.SelectAll();
+            txtCrSourceLogic.Focus();
         }
 
         private void txtCrSourceLogic_TextChanged(object sender, EventArgs e)
@@ -1641,6 +1648,12 @@ namespace ToolSupportCoding.View
             }
 
             barCrSourceProcess.Value = 0;
+        }
+
+        private void txtCrSourcePhysical_Click(object sender, EventArgs e)
+        {
+            txtCrSourcePhysical.SelectAll();
+            txtCrSourcePhysical.Focus();
         }
 
         private void txtCrSourcePhysical_TextChanged(object sender, EventArgs e)
@@ -1673,6 +1686,12 @@ namespace ToolSupportCoding.View
             }
 
             barCrSourceProcess.Value = 0;
+        }
+
+        private void txtCrSourcePath_Click(object sender, EventArgs e)
+        {
+            txtCrSourcePath.SelectAll();
+            txtCrSourcePath.Focus();
         }
 
         private void txtCrSourcePath_TextChanged(object sender, EventArgs e)
