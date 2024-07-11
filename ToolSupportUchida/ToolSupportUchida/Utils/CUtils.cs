@@ -757,7 +757,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("    {{").Append(CONST.STRING_ADD_LINE);
             sb.Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
@@ -830,7 +830,7 @@ namespace ToolSupportCoding.Utils
             sb.Append("        /// <returns></returns>").Append(CONST.STRING_ADD_LINE);
             sb.Append("        void SqlMapper.IDynamicParameters.AddParameters(IDbCommand command, SqlMapper.Identity identity) => AddParameters(command, identity);").Append(CONST.STRING_ADD_LINE);
             sb.Append("    }}").Append(CONST.STRING_ADD_LINE);
-            sb.Append("}}").Append(CONST.STRING_ADD_LINE);
+            sb.Append("}}");
 
             return string.Format(sb.ToString(), path, logicName, physycalName);
         }
@@ -855,6 +855,98 @@ namespace ToolSupportCoding.Utils
             sb.Append("public {1} {2} {{ get; set; }}");
 
             return sb.ToString();
+        }
+
+        public static string CreTmlComponentHTML()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("<!------------------------------------------------------------\r\n");
+            sb.Append("  プログラムＩＤ：\r\n");
+            sb.Append("  プログラム名  ：\r\n");
+            sb.Append("------------------------------------------------------------>\r\n");
+            sb.Append("\r\n");
+            sb.Append("<mat-card appearance=\"outlined\">\r\n");
+            sb.Append("  <mat-card-content>\r\n");
+            sb.Append("  </mat-card-content>\r\n");
+            sb.Append("</mat-card>");
+
+            return sb.ToString();
+        }
+
+        public static string CreTmlComponent(string fileName)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("import {{ Component, OnInit }} from '@angular/core';\r\n");
+            sb.Append("\r\n");
+            sb.Append("@Component({{\r\n");
+            sb.Append("    templateUrl: './{0}.html',\r\n");
+            sb.Append("    providers: []\r\n");
+            sb.Append("}})\r\n");
+            sb.Append("export class {1}Component implements OnInit {{\r\n");
+            sb.Append("\r\n");
+            sb.Append("    /**\r\n");
+            sb.Append("     * コンストラクタ\r\n");
+            sb.Append("     */\r\n");
+            sb.Append("    constructor() {{ }}\r\n");
+            sb.Append("\r\n");
+            sb.Append("    /**\r\n");
+            sb.Append("     * 初期化時\r\n");
+            sb.Append("     */\r\n");
+            sb.Append("    ngOnInit(): void {{ }}\r\n");
+            sb.Append("}}");
+
+            return string.Format(sb.ToString(), fileName, FirstCharToUpperCase(fileName.Replace(CONST.STRING_COMPONENT, string.Empty).Replace("-", string.Empty)));
+        }
+
+        public static string CreTmlComponentService(string logicName, string physycalName)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("import {{ Injectable }} from '@angular/core';\r\n");
+            sb.Append("import {{ Subject }} from 'rxjs';\r\n");
+            sb.Append("\r\n");
+            sb.Append("/**\r\n");
+            sb.Append(" * ：{0}のサービスです。\r\n");
+            sb.Append(" */\r\n");
+            sb.Append("@Injectable()\r\n");
+            sb.Append("export class {1}Service {{\r\n");
+            sb.Append("\r\n");
+            sb.Append("    /**\r\n");
+            sb.Append("     * コンストラクタ。\r\n");
+            sb.Append("     * @param {2}ApiClient {0} API クライアント\r\n");
+            sb.Append("     */\r\n");
+            sb.Append("    constructor(\r\n");
+            sb.Append("        private readonly {2}ApiClient: {1}ApiClient\r\n");
+            sb.Append("    ) {{ }}\r\n");
+            sb.Append("}}");
+
+            return string.Format(sb.ToString(), logicName, FirstCharToUpperCase(physycalName.Replace(CONST.STRING_COMPONENT, string.Empty).Replace("-", string.Empty)), physycalName.Replace(CONST.STRING_COMPONENT, string.Empty).Replace("-", string.Empty));
+        }
+
+        public static string CreTmlComponentQuery(string logicName, string physycalName)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("import {{ Injectable }} from '@angular/core';\r\n");
+            sb.Append("\r\n");
+            sb.Append("/**\r\n");
+            sb.Append(" * ：{0}のクエリです。\r\n");
+            sb.Append(" */\r\n");
+            sb.Append("@Injectable()\r\n");
+            sb.Append("export class {1}Query {{\r\n");
+            sb.Append("\r\n");
+            sb.Append("    /**\r\n");
+            sb.Append("     * コンストラクタ。\r\n");
+            sb.Append("     * @param service {0}のサービスです\r\n");
+            sb.Append("     */\r\n");
+            sb.Append("    constructor(\r\n");
+            sb.Append("        private readonly service: {1}Service\r\n");
+            sb.Append("    ) {{ }}\r\n");
+            sb.Append("}}");
+
+            return string.Format(sb.ToString(), logicName, FirstCharToUpperCase(physycalName.Replace(CONST.STRING_COMPONENT, string.Empty).Replace("-", string.Empty)));
         }
 
         public static string CreTmlCheckValueC()

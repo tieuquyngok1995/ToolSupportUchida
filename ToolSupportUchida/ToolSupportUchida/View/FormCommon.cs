@@ -1736,49 +1736,77 @@ namespace ToolSupportCoding.View
             {
                 if (string.IsNullOrEmpty(lstSourcePath[i])) continue;
 
-                string logicName = lstSourceLogic[i].Replace(CONST.STRING_TAB, string.Empty);
+                string logicName = string.Empty;
+                if (lstSourceLogic != null && lstSourceLogic.Length > i)
+                {
+                    logicName = lstSourceLogic[i].Replace(CONST.STRING_TAB, string.Empty);
+                }
                 string fileName = lstSourcePhysical[i].Replace(CONST.STRING_TAB, string.Empty);
                 string path = lstSourcePath[i].Replace(CONST.STRING_TAB, string.Empty);
 
-                if (path.Last() != '/') path = path + CONST.STRING_SLASH;
+                if (path.Last() != '/' && path.Last() != '\\') path = path + CONST.STRING_SLASH;
 
                 string dir = srcPath + path;
+
+                if (fileName.Contains(CONST.STRING_COMPONENT)) dir = dir + "/" + fileName.Replace(CONST.STRING_COMPONENT, string.Empty + "/");
+
                 if (dir.Contains(CONST.STRING_ENTITIES)) dir = dir.Remove(dir.LastIndexOf(CONST.STRING_ENTITIES)) + CONST.STRING_ENTITIES + CONST.STRING_SLASH;
 
                 if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
-                if (!File.Exists(dir + fileName + CONST.C_TYPE_FILE))
+                if (fileName.Contains(CONST.STRING_COMPONENT))
                 {
-                    string text = string.Empty;
-                    if (fileName.Contains(CONST.STRING_CONTROLLER))
+                    string text = CUtils.CreTmlComponentHTML();
+                    File.WriteAllText(dir + fileName + CONST.HTML_TYPE_FILE, text);
+
+                    text = CUtils.CreTmlComponent(fileName);
+                    File.WriteAllText(dir + fileName + CONST.TS_TYPE_FILE, text);
+
+                    text = CUtils.CreTmlComponentService(logicName, fileName);
+                    File.WriteAllText(dir + fileName.Replace(CONST.STRING_COMPONENT, string.Empty) + CONST.TS_SERVICE_FILE, text);
+
+                    text = CUtils.CreTmlComponentQuery(logicName, fileName);
+                    File.WriteAllText(dir + fileName.Replace(CONST.STRING_COMPONENT, string.Empty) + CONST.TS_QUERY_FILE, text);
+                }
+                else if (fileName.Contains(CONST.STRING_VIEW_MODEL) && path.Contains(CONST.STRING_PATH_VIEW_MODEL))
+                {
+                    File.WriteAllText(dir + fileName + CONST.TS_TYPE_FILE, string.Empty);
+                }
+                else
+                {
+                    if (!File.Exists(dir + fileName + CONST.C_TYPE_FILE))
                     {
-                        text = CUtils.CreTmlFileControllerC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_SERVICE))
-                    {
-                        text = CUtils.CreTmlFileServiceC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_REPOSITORY))
-                    {
-                        text = CUtils.CreTmlFileRepositoryC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_VIEW_MODEL))
-                    {
-                        text = CUtils.CreTmlFileViewModelC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_ENTITY))
-                    {
-                        text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
-                    }
-                    else if (fileName.Contains(CONST.STRING_PARAMETERS))
-                    {
-                        text = CUtils.CreTmlFileParameters(logicName, fileName, path);
-                        File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+
+                        if (fileName.Contains(CONST.STRING_CONTROLLER))
+                        {
+                            string text = CUtils.CreTmlFileControllerC(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
+                        else if (fileName.Contains(CONST.STRING_SERVICE))
+                        {
+                            string text = CUtils.CreTmlFileServiceC(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
+                        else if (fileName.Contains(CONST.STRING_REPOSITORY))
+                        {
+                            string text = CUtils.CreTmlFileRepositoryC(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
+                        else if (fileName.Contains(CONST.STRING_VIEW_MODEL))
+                        {
+                            string text = CUtils.CreTmlFileViewModelC(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
+                        else if (fileName.Contains(CONST.STRING_ENTITY))
+                        {
+                            string text = CUtils.CreTmlFileEntityC(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
+                        else if (fileName.Contains(CONST.STRING_PARAMETERS))
+                        {
+                            string text = CUtils.CreTmlFileParameters(logicName, fileName, path);
+                            File.WriteAllText(dir + fileName + CONST.C_TYPE_FILE, text);
+                        }
                     }
                 }
 
@@ -2633,7 +2661,7 @@ namespace ToolSupportCoding.View
                 int percent = (int)(((double)barCrSourceProcess.Value / (double)barCrSourceProcess.Maximum) * 100);
                 barCrSourceProcess.CreateGraphics().DrawString("File creation process: " + percent.ToString() + "%", new Font("Microsoft Sans Serif", (float)10, FontStyle.Regular),
                     Brushes.Black, new PointF(barCrSourceProcess.Width / 4 + 10, barCrSourceProcess.Height / 2 - 7));
-                Application.DoEvents();
+                System.Windows.Forms.Application.DoEvents();
             }
         }
         #endregion
