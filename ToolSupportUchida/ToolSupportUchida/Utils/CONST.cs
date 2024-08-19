@@ -111,6 +111,8 @@ namespace ToolSupportCoding.Utils
         public const string STRING_JP_FONT_SIZE = "大";
         public const string STRING_JP_ALIGN_CENTER = "中央寄せ";
         public const string STRING_JP_ALIGN_RIGHT = "右寄せ";
+        public const string STRING_JP_PLUS_SIGN = "＋";
+        public const string STRING_JP_DOT = "・";
 
         // Const string VN
         public const string STRING_VN_FONT_SIZE = "LỚN";

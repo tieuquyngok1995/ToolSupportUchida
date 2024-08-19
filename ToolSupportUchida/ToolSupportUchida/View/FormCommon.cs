@@ -2005,6 +2005,7 @@ namespace ToolSupportCoding.View
                     dicSetting.TryGetValue(type, out template);
                     if (string.IsNullOrEmpty(template)) continue;
                     string dataField = arrSetting.Length > 5 ? arrSetting[5] : nameItem.Replace(CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE, string.Empty);
+                    dataField = dataField.Replace(CONST.STRING_JP_PLUS_SIGN, CONST.STRING_UNDERSCORE).Replace(CONST.STRING_JP_DOT, CONST.STRING_UNDERSCORE);
                     if (!nameItem.Contains(CONST.STRING_JP_ITEM)) nameItem = CONST.STRING_JP_ITEM + CONST.STRING_UNDERSCORE + nameItem;
 
                     if (type.Equals(CONST.STRING_LABEL_REPORT))
