@@ -199,6 +199,7 @@ namespace ToolSupportCoding.Utils
         public const string STRING_DEL = "Delete";
         public const string STRING_REPLACE = "Replace";
         public const string STRING_CREATE_TABLE = "CREATE TABLE";
+        public const string STRING_NOT_NULL = "NOT NULL";
 
         public const string STRING_FUNCTION = "(Function(x)";
         public const string STRING_ITEM_RES_Z = "@ItemResources.";
@@ -218,15 +219,15 @@ namespace ToolSupportCoding.Utils
         public const string STRING_COMMENT_C_HTML = "-->";
 
         // Const SQL Type
-        public const string SQL_TYPE_VARCHAR = "varchar";
-        public const string SQL_TYPE_NVARCHAR = "nvarchar";
-        public const string SQL_TYPE_DATE = "date";
-        public const string SQL_TYPE_DATE_TIME = "datetime";
-        public const string SQL_TYPE_BIGINT = "bigint";
-        public const string SQL_TYPE_SMALLINT = "smallint";
-        public const string SQL_TYPE_MONEY = "money";
-        public const string SQL_TYPE_NUMERIC = "numeric";
-        public const string SQL_TYPE_DECIMAL = "decimal";
+        public const string SQL_TYPE_VARCHAR = "VARCHAR";
+        public const string SQL_TYPE_NVARCHAR = "NVARCHAR";
+        public const string SQL_TYPE_DATE = "DATE";
+        public const string SQL_TYPE_DATE_TIME = "DATETIME";
+        public const string SQL_TYPE_BIGINT = "BIGINT";
+        public const string SQL_TYPE_SMALLINT = "SMALLINT";
+        public const string SQL_TYPE_MONEY = "MONEY";
+        public const string SQL_TYPE_NUMERIC = "NUMERIC";
+        public const string SQL_TYPE_DECIMAL = "DECIMAL";
 
         // SQL Meta Data
         public const string SQL_META_DATA_NTEXT = "NText";

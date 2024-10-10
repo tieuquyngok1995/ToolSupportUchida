@@ -1336,14 +1336,14 @@ namespace ToolSupportCoding.View
                 lstEntityTable = new List<ViewModel>();
                 foreach (var item in arrTable)
                 {
-                    if (string.IsNullOrEmpty(item)) continue;
+                    if (string.IsNullOrEmpty(item) || item.ToUpper().Contains(CONST.STRING_CREATE_TABLE)) continue;
 
                     string[] arrItem = item.Replace(CONST.STRING_C_O_SQU_BRACKETS_SPACE, CONST.STRING_C_SQU_BRACKETS_SPACE)
                                             .Split(CONST.STRING_SEPARATORS_TABLE, StringSplitOptions.None);
                     if (arrItem.Length > 1)
                     {
                         string name = arrItem[0].Replace(CONST.STRING_O_SQU_BRACKETS, string.Empty).Replace(CONST.STRING_COMMA, string.Empty).Trim();
-                        string type = arrItem[1];
+                        string type = arrItem[1].ToUpper().Replace(CONST.STRING_NOT_NULL, string.Empty).Trim();
 
                         int index = type.LastIndexOf(CONST.STRING_C_SQU_BRACKETS);
                         if (index != -1) type = type.Substring(0, index);
