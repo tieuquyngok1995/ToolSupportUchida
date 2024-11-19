@@ -656,8 +656,7 @@ namespace ToolSupportCoding.View
                 arrValueLogic = logic.Split(CONST.CHAR_O_BRACKETS);
                 if (arrValueLogic.Length >= 1)
                 {
-                    value = arrValueLogic[1].Replace(CONST.STRING_C_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty)
-                                       .Replace("0,", string.Empty).Replace("0d,", string.Empty).Replace("d", string.Empty).Trim();
+                    value = arrValueLogic[1].Replace(CONST.STRING_C_BRACKETS, string.Empty).Replace(CONST.STRING_C_SQU_BRACKETS, string.Empty).Trim();
                 }
 
                 if (dicSetting.TryGetValue(CONST.STRING_SETTING_LENGTH + CONST.STRING_SETTING_CHECK_TYPE, out tmp))
