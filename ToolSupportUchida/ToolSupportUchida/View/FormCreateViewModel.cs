@@ -315,7 +315,7 @@ namespace ToolSupportCoding.View
                     }
                     else if (rbModeTypescript.Checked && rbTransfer.Checked)
                     {
-                        if (logic.Contains(CONST.C_TYPE_PUBLIC))
+                        if (logic.Contains(CONST.C_TYPE_PUBLIC) && !logic.Contains("class") && !logic.Contains("void"))
                         {
                             string[] arrLogic = logic.Split(CONST.CHAR_SPACE);
 
